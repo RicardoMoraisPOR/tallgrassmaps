@@ -4,13 +4,13 @@ import {
   m,
   useMotionTemplate,
   useMotionValue,
-  useReducedMotion,
   useSpring,
   useTransform,
 } from 'motion/react';
 
 import { RegionImage } from '@/components/map/RegionImage';
 import { getHotspot, getLocation, type Region } from '@/data/maps';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 const TILT_DEGREES = 8;
 
@@ -22,7 +22,7 @@ type HeroTownMapProps = {
 };
 
 export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = usePrefersReducedMotion();
   const pointerX = useMotionValue(0.5);
   const pointerY = useMotionValue(0.5);
   const hovered = useMotionValue(0);
@@ -86,18 +86,6 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
           />
         </RegionImage>
       </m.div>
-      <figcaption className="text-xs text-muted-foreground">
-        {region.name}&apos;s Town Map, from{' '}
-        <a
-          href={region.source.url}
-          target="_blank"
-          rel="noreferrer"
-          className="text-foreground underline underline-offset-3"
-        >
-          {region.source.name}
-        </a>{' '}
-        ({region.source.credit})
-      </figcaption>
     </figure>
   );
 };

@@ -5,6 +5,7 @@ import { generationRegions } from '@/data/catalog';
 import { easeOutSoft } from '@/lib/motion';
 import { generationId } from '@/lib/paths';
 import { formatList } from '@/lib/utils';
+import { useSettingsStore } from '@/stores/settings';
 
 import { filterGenerations, filterGroups, totalGames } from './filters';
 import { GameCard } from './GameCard';
@@ -36,6 +37,7 @@ const chainItem = {
 
 export const GamesSection = () => {
   const { filters, active, toggle, clear } = useFilters();
+  const animations = useSettingsStore((state) => state.animations);
 
   const visible = filterGenerations(filters);
   const shown = visible.reduce((sum, { entries }) => sum + entries.length, 0);
@@ -78,7 +80,7 @@ export const GamesSection = () => {
           <m.div
             key={resultsKey}
             className="flex flex-col gap-14"
-            variants={results}
+            variants={animations ? results : undefined}
             initial="initial"
             animate="animate"
             exit="exit"
@@ -90,7 +92,7 @@ export const GamesSection = () => {
                 className="flex scroll-mt-6 flex-col gap-5"
               >
                 <m.div
-                  variants={chainItem}
+                  variants={animations ? chainItem : undefined}
                   custom={chainIndex++}
                   className="flex items-center gap-4"
                 >
@@ -106,7 +108,7 @@ export const GamesSection = () => {
                   {generation.entries.map((entry) => (
                     <m.div
                       key={entry.game.id}
-                      variants={chainItem}
+                      variants={animations ? chainItem : undefined}
                       custom={chainIndex++}
                     >
                       <GameCard entry={entry} />
@@ -117,7 +119,7 @@ export const GamesSection = () => {
             ))}
             {visible.length === 0 && (
               <m.div
-                variants={chainItem}
+                variants={animations ? chainItem : undefined}
                 custom={0}
                 className="flex flex-col items-center gap-3 py-10 text-center text-muted-foreground"
               >

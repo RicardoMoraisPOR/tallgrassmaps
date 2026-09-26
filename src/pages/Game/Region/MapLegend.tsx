@@ -1,5 +1,3 @@
-import type { MapSource, Region } from '@/data/maps';
-
 import { PlaceIcon } from './PlaceIcon';
 
 export const MapLegend = () => {
@@ -9,19 +7,6 @@ export const MapLegend = () => {
       <LegendItem group="landmark">Landmark</LegendItem>
       <LegendItem group="route">Route</LegendItem>
     </div>
-  );
-};
-
-export const MapCredits = ({ region }: { region: Region }) => {
-  return (
-    <p className="text-xs text-muted-foreground">
-      Map: <SourceLink source={region.source} />
-      {region.pointer && (
-        <>
-          {' · '}Sprites: <SourceLink source={region.pointer.source} />
-        </>
-      )}
-    </p>
   );
 };
 
@@ -37,21 +22,5 @@ const LegendItem = ({
       <PlaceIcon group={group} />
       {children}
     </span>
-  );
-};
-
-const SourceLink = ({ source }: { source: MapSource }) => {
-  return (
-    <>
-      <a
-        href={source.url}
-        target="_blank"
-        rel="noreferrer"
-        className="text-foreground underline underline-offset-3"
-      >
-        {source.name}
-      </a>
-      , by {source.credit}
-    </>
   );
 };

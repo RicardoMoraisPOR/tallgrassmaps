@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import { getHotspot, getLocation, type Region } from '@/data/maps';
 import { cn } from '@/lib/utils';
+import { useSettingsStore } from '@/stores/settings';
 
 import { AnimatedSprite } from './AnimatedSprite';
 import { percent } from './coordinates';
@@ -25,7 +26,10 @@ export const RegionMap = ({
   const [active, setActive] = useState<string>();
   const flyerRef = useRef<HTMLDivElement>(null);
 
-  const { cursor, pointer, label } = region;
+  const gamePointer = useSettingsStore((state) => state.gamePointer);
+
+  const { cursor, label } = region;
+  const pointer = gamePointer ? region.pointer : undefined;
   const activeName = active ? getLocation(region, active)?.name : undefined;
   const activeHotspot = active ? getHotspot(region, active) : undefined;
 

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import type { SpriteAnimation } from '@/data/maps';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { reducedMotionQuery } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
 type AnimatedSpriteProps = {
@@ -18,8 +20,10 @@ export const AnimatedSprite = ({
   className,
 }: AnimatedSpriteProps) => {
   const reducedMotion = usePrefersReducedMotion();
+  const systemReducedMotion = useMediaQuery(reducedMotionQuery);
+
   const frame = useFrame(animation, reducedMotion);
-  const visible = useBlink(blink, reducedMotion);
+  const visible = useBlink(blink, systemReducedMotion);
 
   return (
     <span

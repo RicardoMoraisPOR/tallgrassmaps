@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 
+import { CreditsPage } from '@/pages/Credits/CreditsPage';
 import { GameLayout } from '@/pages/Game/GameLayout';
 import { RegionPage } from '@/pages/Game/Region/RegionPage';
 import { HomePage } from '@/pages/Home/HomePage';
@@ -12,6 +13,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: 'credits', element: <CreditsPage /> },
       {
         path: ':gameId',
         element: <GameLayout />,

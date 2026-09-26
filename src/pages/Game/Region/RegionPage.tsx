@@ -6,7 +6,7 @@ import { useGameRoute } from '@/hooks/useGameRoute';
 import { collectPlaces } from '../places';
 import { PokedexOverlay } from '../Pokedex/PokedexOverlay';
 import { SidebarLayout } from '../SidebarLayout';
-import { MapCredits, MapLegend } from './MapLegend';
+import { MapLegend } from './MapLegend';
 import { PlaceList } from './PlaceList';
 import { PokedexCard } from './PokedexCard';
 
@@ -40,7 +40,6 @@ export const RegionPage = () => {
               maxWidth: `calc((100svh - 13rem) * ${region.width} / ${region.height})`,
             }}
           />
-          <MapCredits region={region} />
         </div>
       </SidebarLayout>
       <PokedexOverlay game={game} region={region} href={href} />

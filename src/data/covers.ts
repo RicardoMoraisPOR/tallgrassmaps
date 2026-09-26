@@ -58,3 +58,6 @@ const COVERS: Record<string, CoverSource> = {
 
 export const getCover = (gameId: string) =>
   Object.hasOwn(COVERS, gameId) ? `/covers/${gameId}.webp` : undefined;
+
+export const coverCount = (source: CoverSource) =>
+  Object.values(COVERS).filter((other) => other === source).length;

@@ -133,6 +133,15 @@
   image-rendering: pixelated;
 }
 
+:root[data-animations='off'] *,
+:root[data-animations='off'] *::before,
+:root[data-animations='off'] *::after {
+  animation-duration: 0s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0s !important;
+  scroll-behavior: auto !important;
+}
+
 .map-pixelated .leaflet-image-layer {
   image-rendering: pixelated;
 }

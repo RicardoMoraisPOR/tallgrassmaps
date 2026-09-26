@@ -36,8 +36,6 @@ export const MapViewer = ({ map, links = [], className }: MapViewerProps) => {
   const navigate = useNavigate();
   const bounds = useMemo(() => imageBounds(map), [map]);
 
-  const attribution = `<a href="${map.source.url}">${map.source.name}</a>, by ${map.source.credit}`;
-
   return (
     <MapContainer
       key={map.image}
@@ -48,10 +46,11 @@ export const MapViewer = ({ map, links = [], className }: MapViewerProps) => {
       zoomSnap={1}
       minZoom={-8}
       maxZoom={MAX_ZOOM}
+      attributionControl={false}
       className={cn('isolate', className)}
       style={{ background: 'var(--muted)' }}
     >
-      <ImageOverlay url={map.image} bounds={bounds} attribution={attribution} />
+      <ImageOverlay url={map.image} bounds={bounds} />
       <Pane name="links" style={{ zIndex: 450 }}>
         {links.map((link) => (
           <Rectangle
