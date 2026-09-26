@@ -3,6 +3,7 @@ import { basename, join } from 'node:path';
 
 import {
   constantFromFile,
+  floorFor,
   forGame,
   games,
   locationFor,
@@ -240,7 +241,9 @@ for (const game of games) {
   };
 
   const addBattle = ({ file, slot, trainer, name, parties }) => {
-    const path = locationFor(constantFromFile(file));
+    const map = constantFromFile(file);
+    const path = locationFor(map);
+    const floor = floorFor(map);
 
     battles.push({
       game: game.id,
@@ -249,6 +252,7 @@ for (const game of games) {
       trainerClass: trainer.toLowerCase().replaceAll('_', '-'),
       path,
       area: areaFor(file, path),
+      ...(floor && { floor }),
       parties: parties.map(({ label, party }) => ({
         ...(label && { label }),
         pokemon: party.map(({ species, level }) => ({

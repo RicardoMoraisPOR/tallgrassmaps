@@ -21,9 +21,11 @@ import { imageBounds, toLatLng } from './coordinates';
 const MAX_ZOOM = 3;
 
 export type MapLink = Rect & {
-  href: string;
+  href?: string;
   label: string;
   travel?: Direction;
+  className?: string;
+  replace?: boolean;
 };
 
 type MapViewerProps = {
@@ -54,15 +56,27 @@ export const MapViewer = ({ map, links = [], className }: MapViewerProps) => {
       <Pane name="links" style={{ zIndex: 450 }}>
         {links.map((link) => (
           <Rectangle
-            key={`${link.href}@${link.x},${link.y}`}
+            key={`${link.href ?? link.label}@${link.x},${link.y}`}
             bounds={[
               toLatLng(link.x, link.y + link.height),
               toLatLng(link.x + link.width, link.y),
             ]}
-            pathOptions={{ className: 'map-link' }}
+            pathOptions={{
+              className: cn(
+                'map-link',
+                !link.href && 'map-link-static',
+                link.className,
+              ),
+            }}
             eventHandlers={{
-              click: () =>
-                navigate(link.href, { state: travelState(link.travel) }),
+              click: () => {
+                if (link.href)
+                  navigate(link.href, {
+                    state: travelState(link.travel),
+                    replace: link.replace,
+                    preventScrollReset: link.replace,
+                  });
+              },
             }}
           >
             <Tooltip sticky pane="tooltipPane">

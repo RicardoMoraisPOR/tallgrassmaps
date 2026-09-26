@@ -1,0 +1,154 @@
+[
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "3f",
+    "x": 12,
+    "y": 1,
+    "item": "Escape Rope",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "4f",
+    "x": 12,
+    "y": 10,
+    "item": "Elixer",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "4f",
+    "x": 9,
+    "y": 10,
+    "item": "Awakening",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "4f",
+    "x": 12,
+    "y": 16,
+    "item": "HP Up",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "5f",
+    "x": 6,
+    "y": 14,
+    "item": "Nugget",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "6f",
+    "x": 6,
+    "y": 8,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "6f",
+    "x": 14,
+    "y": 14,
+    "item": "X Accuracy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12",
+    "x": 14,
+    "y": 35,
+    "item": "TM16 Pay Day",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12",
+    "x": 5,
+    "y": 89,
+    "item": "Iron",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-24",
+    "x": 10,
+    "y": 5,
+    "item": "TM45 Thunder Wave",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-25",
+    "x": 22,
+    "y": 2,
+    "item": "TM19 Seismic Toss",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-25",
+    "x": 38,
+    "y": 3,
+    "item": "Ether",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-25",
+    "x": 10,
+    "y": 1,
+    "item": "Elixer",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "5f",
+    "x": 4,
+    "y": 12,
+    "item": "Elixer",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-13",
+    "x": 1,
+    "y": 14,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-13",
+    "x": 16,
+    "y": 13,
+    "item": "Calcium",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12",
+    "x": 2,
+    "y": 63,
+    "item": "Hyper Potion",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 15,
+    "y": 8,
+    "item": "Rare Candy",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  }
+]

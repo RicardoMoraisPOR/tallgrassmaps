@@ -148,6 +148,13 @@
 
 :root {
   --map-link: oklch(0.65 0.2 145);
+  --map-connection: var(--map-link);
+  --map-entrance: oklch(0.75 0.16 65);
+  --map-house: oklch(0.68 0.14 300);
+  --map-mart: oklch(0.65 0.15 245);
+  --map-center: oklch(0.65 0.21 25);
+  --map-item: oklch(0.75 0.13 200);
+  --map-hidden-item: oklch(0.68 0.2 330);
   --brand: #6cc46a;
 }
 
@@ -162,6 +169,38 @@
   fill: var(--map-link);
   fill-opacity: 0.15;
   transition: fill-opacity 150ms;
+}
+
+.leaflet-interactive.map-link-connection {
+  --map-link: var(--map-connection);
+}
+
+.leaflet-interactive.map-link-entrance {
+  --map-link: var(--map-entrance);
+}
+
+.leaflet-interactive.map-link-house {
+  --map-link: var(--map-house);
+}
+
+.leaflet-interactive.map-link-mart {
+  --map-link: var(--map-mart);
+}
+
+.leaflet-interactive.map-link-center {
+  --map-link: var(--map-center);
+}
+
+.leaflet-interactive.map-link-item {
+  --map-link: var(--map-item);
+}
+
+.leaflet-interactive.map-link-hidden-item {
+  --map-link: var(--map-hidden-item);
+}
+
+.leaflet-interactive.map-link-static {
+  cursor: default;
 }
 
 .leaflet-interactive.map-link:hover {

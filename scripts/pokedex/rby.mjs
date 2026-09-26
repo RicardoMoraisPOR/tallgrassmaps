@@ -4,6 +4,7 @@ import { basename, join } from 'node:path';
 import {
   constantFromFile,
   displayName,
+  floorFor,
   forGame,
   games,
   locationFor,
@@ -443,12 +444,20 @@ const range = (values) => [Math.min(...values), Math.max(...values)];
 
 const roundChance = (value) => Math.round(value * 10) / 10;
 
+const floorCollator = new Intl.Collator('en', { numeric: true });
+
 const mergeEncounters = (encounters) => {
   const perMap = new Map();
 
   for (const { game, level, chance, map, tradeFor, ...rest } of encounters) {
     const key = [game, rest.method, rest.path, tradeFor, map].join('|');
-    const current = perMap.get(key) ?? { ...rest, game, tradeFor, levels: [] };
+    const current = perMap.get(key) ?? {
+      ...rest,
+      game,
+      tradeFor,
+      floor: floorFor(map),
+      levels: [],
+    };
 
     if (level !== undefined) current.levels.push(level);
     if (chance !== undefined) current.chance = (current.chance ?? 0) + chance;
@@ -458,7 +467,14 @@ const mergeEncounters = (encounters) => {
 
   const perPlace = new Map();
 
-  for (const { game, tradeFor, levels, chance, ...rest } of perMap.values()) {
+  for (const {
+    game,
+    tradeFor,
+    floor,
+    levels,
+    chance,
+    ...rest
+  } of perMap.values()) {
     const key = [game, rest.method, rest.path, tradeFor].join('|');
     const current = perPlace.get(key) ?? {
       ...rest,
@@ -466,10 +482,12 @@ const mergeEncounters = (encounters) => {
       tradeFor,
       levels: [],
       chances: [],
+      floors: [],
     };
 
     current.levels.push(...levels);
     if (chance !== undefined) current.chances.push(chance);
+    if (floor) current.floors.push({ floor, levels, chance });
 
     perPlace.set(key, current);
   }
@@ -481,6 +499,7 @@ const mergeEncounters = (encounters) => {
     tradeFor,
     levels,
     chances,
+    floors,
     ...rest
   } of perPlace.values()) {
     const encounter = {
@@ -488,6 +507,17 @@ const mergeEncounters = (encounters) => {
       ...(tradeFor && { tradeFor: species.get(tradeFor).number }),
       ...(levels.length > 0 && { levels: range(levels) }),
       ...(chances.length > 0 && { chance: range(chances).map(roundChance) }),
+      ...(floors.length > 0 && {
+        floors: floors
+          .sort((a, b) => floorCollator.compare(a.floor, b.floor))
+          .map(({ floor, levels, chance }) => ({
+            floor,
+            ...(levels.length > 0 && { levels: range(levels) }),
+            ...(chance !== undefined && {
+              chance: [chance, chance].map(roundChance),
+            }),
+          })),
+      }),
     };
     const key = JSON.stringify(encounter);
     const current = merged.get(key) ?? { ...encounter, games: [] };

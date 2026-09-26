@@ -22,10 +22,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Erika",
@@ -50,9 +47,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Lass",
@@ -73,11 +68,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -106,11 +97,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -131,11 +118,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -156,11 +139,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -181,11 +160,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -202,11 +177,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♀",
@@ -231,11 +202,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
@@ -256,17 +223,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -281,17 +245,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -306,17 +267,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -335,17 +293,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -368,17 +323,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -393,17 +345,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -430,17 +379,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B3F",
+    "floor": "b3f",
     "parties": [
       {
         "pokemon": [
@@ -459,17 +405,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B3F",
+    "floor": "b3f",
     "parties": [
       {
         "pokemon": [
@@ -484,17 +427,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jessie & James",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
+    "floor": "b4f",
     "parties": [
       {
         "pokemon": [
@@ -513,15 +453,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
+    "floor": "b4f",
     "parties": [
       {
         "pokemon": [
@@ -540,16 +479,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
+    "floor": "b4f",
     "parties": [
       {
         "pokemon": [
@@ -568,15 +505,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
+    "floor": "b4f",
     "parties": [
       {
         "pokemon": [
@@ -595,16 +531,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
+    "floor": "b4f",
     "parties": [
       {
         "pokemon": [
@@ -619,15 +553,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
+    "floor": "b4f",
     "parties": [
       {
         "pokemon": [
@@ -646,16 +579,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
+    "floor": "b4f",
     "parties": [
       {
         "pokemon": [
@@ -670,10 +601,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
@@ -744,10 +672,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
@@ -775,9 +700,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
@@ -797,11 +720,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Misty",
@@ -822,11 +741,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -843,11 +758,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -868,11 +779,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blaine",
@@ -901,10 +808,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Blaine",
@@ -929,9 +833,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Super Nerd",
@@ -956,11 +858,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Burglar",
@@ -985,11 +883,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Super Nerd",
@@ -1018,11 +912,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Burglar",
@@ -1039,11 +929,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Super Nerd",
@@ -1060,11 +946,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Burglar",
@@ -1085,11 +967,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Super Nerd",
@@ -1110,17 +988,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "cinnabar-island/pokemon-mansion",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -1135,17 +1010,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Burglar",
     "trainerClass": "burglar",
     "path": "cinnabar-island/pokemon-mansion",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -1160,17 +1032,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Burglar",
     "trainerClass": "burglar",
     "path": "cinnabar-island/pokemon-mansion",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -1181,17 +1050,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "cinnabar-island/pokemon-mansion",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -1210,17 +1076,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Burglar",
     "trainerClass": "burglar",
     "path": "cinnabar-island/pokemon-mansion",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -1235,17 +1098,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "cinnabar-island/pokemon-mansion",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -1260,11 +1120,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Koga",
@@ -1293,10 +1149,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Koga",
@@ -1325,9 +1178,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Juggler",
@@ -1344,11 +1195,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Juggler",
@@ -1377,11 +1224,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Juggler",
@@ -1402,11 +1245,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Tamer",
@@ -1427,11 +1266,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Tamer",
@@ -1456,11 +1291,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Juggler",
@@ -1481,11 +1312,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Agatha",
@@ -1518,11 +1345,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bruno",
@@ -1555,11 +1378,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rival",
@@ -1655,10 +1474,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
@@ -1754,9 +1570,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Lance",
@@ -1789,11 +1603,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lorelei",
@@ -1826,17 +1636,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -1914,16 +1721,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
@@ -2001,15 +1806,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -2020,17 +1824,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -2041,17 +1842,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -2062,17 +1860,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "4F",
+    "floor": "4f",
     "parties": [
       {
         "pokemon": [
@@ -2083,17 +1878,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "4F",
+    "floor": "4f",
     "parties": [
       {
         "pokemon": [
@@ -2108,17 +1900,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "4F",
+    "floor": "4f",
     "parties": [
       {
         "pokemon": [
@@ -2129,17 +1918,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -2150,17 +1936,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -2171,17 +1954,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -2192,17 +1972,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -2213,17 +1990,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "6F",
+    "floor": "6f",
     "parties": [
       {
         "pokemon": [
@@ -2242,17 +2016,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "6F",
+    "floor": "6f",
     "parties": [
       {
         "pokemon": [
@@ -2263,17 +2034,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
     "path": "lavender-town/pokemon-tower",
     "area": "6F",
+    "floor": "6f",
     "parties": [
       {
         "pokemon": [
@@ -2284,17 +2052,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jessie & James",
     "trainerClass": "rocket",
     "path": "lavender-town/pokemon-tower",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -2313,15 +2078,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "lavender-town/pokemon-tower",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -2340,16 +2104,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "lavender-town/pokemon-tower",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -2364,16 +2126,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "lavender-town/pokemon-tower",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -2396,10 +2156,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
@@ -2435,10 +2192,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
@@ -2455,9 +2209,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Brock",
@@ -2478,10 +2230,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Brock",
@@ -2502,9 +2251,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -2525,10 +2272,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -2549,9 +2293,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -2571,10 +2313,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Bug Catcher",
@@ -2594,9 +2333,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -2620,10 +2357,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Bug Catcher",
@@ -2647,9 +2381,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -2665,10 +2397,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Bug Catcher",
@@ -2684,9 +2413,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Lass",
@@ -2706,9 +2433,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -2728,9 +2453,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -2754,11 +2477,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -2778,11 +2497,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -2802,11 +2517,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -2834,11 +2545,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -2858,11 +2565,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -2878,11 +2581,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -2902,11 +2601,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -2922,11 +2617,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -2950,17 +2641,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
     "trainerClass": "hiker",
     "path": "route-4/mt-moon",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -2979,17 +2667,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
     "trainerClass": "youngster",
     "path": "route-4/mt-moon",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -3008,17 +2693,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
     "trainerClass": "lass",
     "path": "route-4/mt-moon",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -3033,17 +2715,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Super Nerd",
     "trainerClass": "super-nerd",
     "path": "route-4/mt-moon",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -3058,17 +2737,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
     "trainerClass": "lass",
     "path": "route-4/mt-moon",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -3079,17 +2755,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
     "trainerClass": "bug-catcher",
     "path": "route-4/mt-moon",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -3104,17 +2777,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
     "trainerClass": "bug-catcher",
     "path": "route-4/mt-moon",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -3133,17 +2803,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jessie & James",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3162,15 +2829,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Super Nerd",
     "trainerClass": "super-nerd",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3189,17 +2855,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3214,16 +2877,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3242,15 +2903,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3269,16 +2929,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3293,15 +2951,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3316,16 +2973,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3340,15 +2995,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "route-4/mt-moon",
     "area": "B2F",
+    "floor": "b2f",
     "parties": [
       {
         "pokemon": [
@@ -3359,10 +3013,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -3378,10 +3029,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -3397,9 +3045,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -3419,10 +3065,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -3438,9 +3081,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -3464,11 +3105,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -3488,11 +3125,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -3516,11 +3149,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -3536,11 +3165,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Super Nerd",
@@ -3568,11 +3193,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Gambler",
@@ -3596,11 +3217,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Super Nerd",
@@ -3624,11 +3241,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -3648,11 +3261,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Super Nerd",
@@ -3668,11 +3277,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -3696,11 +3301,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -3732,10 +3333,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Lass",
@@ -3767,9 +3365,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Gambler",
@@ -3789,11 +3385,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -3813,11 +3405,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -3845,11 +3433,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -3869,10 +3453,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Youngster",
@@ -3888,9 +3469,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -3918,11 +3497,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -3938,11 +3513,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
@@ -3962,11 +3533,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
@@ -3990,11 +3557,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -4014,11 +3577,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
@@ -4038,11 +3597,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -4066,11 +3621,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "PokéManiac",
@@ -4090,11 +3641,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
@@ -4114,11 +3661,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "PokéManiac",
@@ -4138,11 +3681,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -4162,10 +3701,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -4185,9 +3721,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Hiker",
@@ -4207,11 +3741,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -4231,17 +3761,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
     "trainerClass": "hiker",
     "path": "route-10/rock-tunnel",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -4264,17 +3791,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
     "trainerClass": "hiker",
     "path": "route-10/rock-tunnel",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -4293,17 +3817,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
     "trainerClass": "hiker",
     "path": "route-10/rock-tunnel",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -4318,17 +3839,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "PokéManiac",
     "trainerClass": "pokemaniac",
     "path": "route-10/rock-tunnel",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -4343,17 +3861,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
     "trainerClass": "jr-trainer-f",
     "path": "route-10/rock-tunnel",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -4368,17 +3883,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
     "trainerClass": "jr-trainer-f",
     "path": "route-10/rock-tunnel",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -4397,17 +3909,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
     "trainerClass": "jr-trainer-f",
     "path": "route-10/rock-tunnel",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -4430,17 +3939,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
     "trainerClass": "jr-trainer-f",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4459,17 +3965,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
     "trainerClass": "hiker",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4488,17 +3991,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "PokéManiac",
     "trainerClass": "pokemaniac",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4517,17 +4017,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "PokéManiac",
     "trainerClass": "pokemaniac",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4542,17 +4039,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
     "trainerClass": "hiker",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4563,17 +4057,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
     "trainerClass": "jr-trainer-f",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4588,17 +4079,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
     "trainerClass": "hiker",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4613,17 +4101,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "PokéManiac",
     "trainerClass": "pokemaniac",
     "path": "route-10/rock-tunnel",
     "area": "B1F",
+    "floor": "b1f",
     "parties": [
       {
         "pokemon": [
@@ -4634,11 +4119,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Gambler",
@@ -4658,11 +4139,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Gambler",
@@ -4682,11 +4159,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -4702,11 +4175,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Engineer",
@@ -4722,11 +4191,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -4746,11 +4211,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Gambler",
@@ -4770,11 +4231,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Gambler",
@@ -4794,11 +4251,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -4822,11 +4275,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Engineer",
@@ -4850,11 +4299,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -4874,11 +4319,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -4902,11 +4343,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -4926,11 +4363,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -4950,11 +4383,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocker",
@@ -4974,11 +4403,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -4994,11 +4419,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -5026,11 +4447,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -5050,11 +4467,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5074,11 +4487,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5110,10 +4519,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5145,9 +4551,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5167,11 +4571,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5199,11 +4599,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5227,11 +4623,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5263,11 +4655,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -5291,10 +4679,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Beauty",
@@ -5318,9 +4703,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Beauty",
@@ -5340,11 +4723,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5368,11 +4747,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5400,11 +4775,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5428,11 +4799,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5460,11 +4827,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5484,11 +4847,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5512,11 +4871,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5532,11 +4887,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5556,11 +4907,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5588,11 +4935,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5616,11 +4959,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5640,11 +4979,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5664,11 +4999,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5692,11 +5023,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5716,10 +5043,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5739,9 +5063,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5769,11 +5091,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -5797,11 +5115,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -5821,11 +5135,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -5845,11 +5155,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5881,11 +5187,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5909,11 +5211,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5929,11 +5227,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -5957,11 +5251,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -5981,11 +5271,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6009,11 +5295,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6033,11 +5315,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -6053,11 +5331,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6073,11 +5347,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -6105,11 +5375,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6129,11 +5395,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6153,11 +5415,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -6181,11 +5439,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -6201,11 +5455,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -6225,11 +5475,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6245,11 +5491,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6277,11 +5519,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -6301,11 +5539,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -6325,11 +5559,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Biker",
@@ -6361,11 +5591,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -6385,11 +5611,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -6405,11 +5627,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -6437,11 +5655,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6461,11 +5675,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6489,11 +5699,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6513,11 +5719,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6545,11 +5747,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6573,11 +5771,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6597,11 +5791,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -6633,11 +5823,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -6657,11 +5843,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6693,11 +5875,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -6721,11 +5899,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6745,11 +5919,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -6773,11 +5943,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -6793,11 +5959,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -6821,11 +5983,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6841,11 +5999,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -6873,11 +6027,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -6901,11 +6051,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -6929,11 +6075,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♀",
@@ -6953,11 +6095,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Beauty",
@@ -6977,11 +6115,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -7009,11 +6143,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -7049,11 +6179,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -7073,11 +6199,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cue Ball",
@@ -7101,11 +6223,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -7121,11 +6239,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -7145,11 +6259,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Swimmer",
@@ -7173,11 +6283,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -7197,11 +6303,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -7221,11 +6323,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rival",
@@ -7272,10 +6370,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
@@ -7370,10 +6465,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
@@ -7393,9 +6485,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rival",
@@ -7490,15 +6580,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Cooltrainer ♀",
     "trainerClass": "cooltrainer-f",
     "path": "route-23/victory-road",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -7513,17 +6602,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♂",
     "trainerClass": "cooltrainer-m",
     "path": "route-23/victory-road",
     "area": "1F",
+    "floor": "1f",
     "parties": [
       {
         "pokemon": [
@@ -7546,17 +6632,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
     "path": "route-23/victory-road",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -7575,17 +6658,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Juggler",
     "trainerClass": "juggler",
     "path": "route-23/victory-road",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -7608,17 +6688,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Tamer",
     "trainerClass": "tamer",
     "path": "route-23/victory-road",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -7633,17 +6710,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "PokéManiac",
     "trainerClass": "pokemaniac",
     "path": "route-23/victory-road",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -7662,17 +6736,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Juggler",
     "trainerClass": "juggler",
     "path": "route-23/victory-road",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -7683,17 +6754,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♂",
     "trainerClass": "cooltrainer-m",
     "path": "route-23/victory-road",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -7712,17 +6780,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♀",
     "trainerClass": "cooltrainer-f",
     "path": "route-23/victory-road",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -7741,17 +6806,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♂",
     "trainerClass": "cooltrainer-m",
     "path": "route-23/victory-road",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -7770,17 +6832,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♀",
     "trainerClass": "cooltrainer-f",
     "path": "route-23/victory-road",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -7799,11 +6858,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
@@ -7823,11 +6878,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -7847,11 +6898,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -7867,11 +6914,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -7891,11 +6934,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -7919,11 +6958,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -7943,11 +6978,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Bug Catcher",
@@ -7967,11 +6998,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -7991,11 +7018,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -8011,11 +7034,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jr. Trainer ♂",
@@ -8035,11 +7054,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -8059,11 +7074,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -8083,11 +7094,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -8111,11 +7118,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
@@ -8135,11 +7138,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
@@ -8167,11 +7166,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Hiker",
@@ -8187,11 +7182,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -8212,11 +7203,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -8241,11 +7228,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -8266,11 +7249,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -8287,11 +7266,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -8316,11 +7291,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Sabrina",
@@ -8349,10 +7320,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Sabrina",
@@ -8377,9 +7345,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Channeler",
@@ -8400,11 +7366,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Psychic",
@@ -8433,11 +7395,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
@@ -8454,11 +7412,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Psychic",
@@ -8479,11 +7433,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Channeler",
@@ -8508,11 +7458,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Psychic",
@@ -8537,11 +7483,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Psychic",
@@ -8558,17 +7500,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -8591,17 +7530,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -8620,17 +7556,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -8645,17 +7578,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -8682,17 +7612,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -8711,17 +7638,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "3F",
+    "floor": "3f",
     "parties": [
       {
         "pokemon": [
@@ -8736,17 +7660,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "4F",
+    "floor": "4f",
     "parties": [
       {
         "pokemon": [
@@ -8761,17 +7682,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "4F",
+    "floor": "4f",
     "parties": [
       {
         "pokemon": [
@@ -8782,17 +7700,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "4F",
+    "floor": "4f",
     "parties": [
       {
         "pokemon": [
@@ -8811,17 +7726,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -8832,17 +7744,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -8865,17 +7774,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Juggler",
     "trainerClass": "juggler",
     "path": "saffron-city/silph-co",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -8890,17 +7796,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "5F",
+    "floor": "5f",
     "parties": [
       {
         "pokemon": [
@@ -8911,17 +7814,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "6F",
+    "floor": "6f",
     "parties": [
       {
         "pokemon": [
@@ -8936,17 +7836,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "6F",
+    "floor": "6f",
     "parties": [
       {
         "pokemon": [
@@ -8973,17 +7870,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "6F",
+    "floor": "6f",
     "parties": [
       {
         "pokemon": [
@@ -9002,17 +7896,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "saffron-city/silph-co",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -9090,16 +7981,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "saffron-city/silph-co",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
@@ -9177,15 +8066,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -9208,17 +8096,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -9233,17 +8118,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -9258,17 +8140,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "7F",
+    "floor": "7f",
     "parties": [
       {
         "pokemon": [
@@ -9283,17 +8162,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "8F",
+    "floor": "8f",
     "parties": [
       {
         "pokemon": [
@@ -9316,17 +8192,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "8F",
+    "floor": "8f",
     "parties": [
       {
         "pokemon": [
@@ -9341,17 +8214,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "8F",
+    "floor": "8f",
     "parties": [
       {
         "pokemon": [
@@ -9370,17 +8240,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "9F",
+    "floor": "9f",
     "parties": [
       {
         "pokemon": [
@@ -9399,17 +8266,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "9F",
+    "floor": "9f",
     "parties": [
       {
         "pokemon": [
@@ -9428,17 +8292,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "9F",
+    "floor": "9f",
     "parties": [
       {
         "pokemon": [
@@ -9457,17 +8318,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "10F",
+    "floor": "10f",
     "parties": [
       {
         "pokemon": [
@@ -9478,17 +8336,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Scientist",
     "trainerClass": "scientist",
     "path": "saffron-city/silph-co",
     "area": "10F",
+    "floor": "10f",
     "parties": [
       {
         "pokemon": [
@@ -9503,17 +8358,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Jessie & James",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "11F",
+    "floor": "11f",
     "parties": [
       {
         "pokemon": [
@@ -9532,15 +8384,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
     "path": "saffron-city/silph-co",
     "area": "11F",
+    "floor": "11f",
     "parties": [
       {
         "pokemon": [
@@ -9563,16 +8414,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
     "path": "saffron-city/silph-co",
     "area": "11F",
+    "floor": "11f",
     "parties": [
       {
         "pokemon": [
@@ -9595,15 +8444,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "11F",
+    "floor": "11f",
     "parties": [
       {
         "pokemon": [
@@ -9622,16 +8470,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "11F",
+    "floor": "11f",
     "parties": [
       {
         "pokemon": [
@@ -9658,15 +8504,14 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocket",
     "trainerClass": "rocket",
     "path": "saffron-city/silph-co",
     "area": "11F",
+    "floor": "11f",
     "parties": [
       {
         "pokemon": [
@@ -9693,10 +8538,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Lt. Surge",
@@ -9721,10 +8563,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Lt. Surge",
@@ -9741,9 +8580,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Gentleman",
@@ -9760,10 +8597,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Gentleman",
@@ -9784,9 +8618,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Rocker",
@@ -9811,10 +8643,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rocker",
@@ -9839,9 +8668,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Sailor",
@@ -9862,10 +8689,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Sailor",
@@ -9882,9 +8706,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Gentleman",
@@ -9905,11 +8727,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Gentleman",
@@ -9930,11 +8748,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Youngster",
@@ -9951,11 +8765,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -9976,17 +8786,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "vermilion-city/ss-anne",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -10052,16 +8859,14 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "vermilion-city/ss-anne",
     "area": "2F",
+    "floor": "2f",
     "parties": [
       {
         "pokemon": [
@@ -10084,9 +8889,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Gentleman",
@@ -10103,10 +8906,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Gentleman",
@@ -10127,9 +8927,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Fisherman",
@@ -10154,11 +8952,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Gentleman",
@@ -10179,11 +8973,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Lass",
@@ -10204,10 +8994,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Lass",
@@ -10224,9 +9011,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Sailor",
@@ -10243,11 +9028,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Sailor",
@@ -10272,11 +9053,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Sailor",
@@ -10297,11 +9074,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Sailor",
@@ -10326,11 +9099,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Sailor",
@@ -10347,11 +9116,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Fisherman",
@@ -10376,11 +9141,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Sailor",
@@ -10401,11 +9162,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Sailor",
@@ -10426,11 +9183,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Giovanni",
@@ -10463,10 +9216,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue"
-    ]
+    "games": ["red", "blue"]
   },
   {
     "name": "Giovanni",
@@ -10499,9 +9249,7 @@
         ]
       }
     ],
-    "games": [
-      "yellow"
-    ]
+    "games": ["yellow"]
   },
   {
     "name": "Cooltrainer ♂",
@@ -10522,11 +9270,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -10547,11 +9291,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Tamer",
@@ -10568,11 +9308,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -10589,11 +9325,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♂",
@@ -10610,11 +9342,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Blackbelt",
@@ -10639,11 +9367,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Tamer",
@@ -10664,11 +9388,7 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "name": "Cooltrainer ♂",
@@ -10689,10 +9409,6 @@
         ]
       }
     ],
-    "games": [
-      "red",
-      "blue",
-      "yellow"
-    ]
+    "games": ["red", "blue", "yellow"]
   }
 ]

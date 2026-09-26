@@ -160,6 +160,19 @@ export const locationFor = (mapConstant) => {
 export const insidePrefixFor = (mapConstant) =>
   Object.keys(insideLocations).find((prefix) => mapConstant.startsWith(prefix));
 
+export const floorFor = (mapConstant) => {
+  const prefix = mapConstant && insidePrefixFor(mapConstant);
+
+  if (!prefix) return undefined;
+
+  const floor = mapConstant
+    .slice(prefix.length)
+    .replaceAll('_', '')
+    .toLowerCase();
+
+  return /^b?\d+f$/.test(floor) ? floor : undefined;
+};
+
 export const constantFromFile = (file) =>
   basename(file, '.asm')
     .replace(/_\d+$/, '')

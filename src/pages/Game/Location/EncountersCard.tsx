@@ -1,3 +1,7 @@
+import { BookOpen } from 'lucide-react';
+import { Link } from 'react-router';
+
+import { Button } from '@/components/ui/button';
 import type { Game } from '@/data/games';
 import type {
   Encounter,
@@ -7,6 +11,7 @@ import type {
 import { pokemonSprite } from '@/data/sprites';
 
 import { chanceLabel, levelLabel, methodLabel } from '../Pokedex/format';
+import { pokedexLink } from '../Pokedex/usePokedex';
 import { ExpandableCard } from './ExpandableCard';
 
 const CATCHABLE: Array<EncounterMethod> = [
@@ -23,12 +28,22 @@ type Row = { entry: PokedexEntry; encounter: Encounter };
 type EncountersCardProps = {
   game: Game;
   path: string;
+  floor?: string;
   pokedex: Array<PokedexEntry>;
+};
+
+const onFloor = (encounter: Encounter, floor: string | undefined) => {
+  if (!floor) return encounter;
+
+  const match = encounter.floors?.find((entry) => entry.floor === floor);
+
+  return match && { ...encounter, levels: match.levels, chance: match.chance };
 };
 
 export const EncountersCard = ({
   game,
   path,
+  floor,
   pokedex,
 }: EncountersCardProps) => {
   const groups = CATCHABLE.map((method) => ({
@@ -42,7 +57,11 @@ export const EncountersCard = ({
               encounter.path === path &&
               encounter.games.includes(game.id),
           )
-          .map((encounter) => ({ entry, encounter })),
+          .flatMap((encounter) => {
+            const shown = onFloor(encounter, floor);
+
+            return shown ? [{ entry, encounter: shown }] : [];
+          }),
       )
       .sort(
         (a, b) =>
@@ -70,6 +89,12 @@ export const EncountersCard = ({
           </div>
         ))
       )}
+      <Button variant="outline" className="w-full" asChild>
+        <Link {...pokedexLink}>
+          <BookOpen aria-hidden />
+          Open Pokédex
+        </Link>
+      </Button>
     </ExpandableCard>
   );
 };

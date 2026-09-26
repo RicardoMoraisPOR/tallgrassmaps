@@ -10,6 +10,12 @@ export type EncounterMethod =
   | 'trade'
   | 'prize';
 
+export type EncounterFloor = {
+  floor: string;
+  levels?: [number, number];
+  chance?: [number, number];
+};
+
 export type Encounter = {
   method: EncounterMethod;
   path: string | null;
@@ -17,6 +23,7 @@ export type Encounter = {
   levels?: [number, number];
   chance?: [number, number];
   tradeFor?: number;
+  floors?: Array<EncounterFloor>;
 };
 
 export type Evolution = {

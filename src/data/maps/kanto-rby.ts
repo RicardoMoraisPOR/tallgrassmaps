@@ -1,8 +1,9 @@
 import type {
   Direction,
-  Hotspot,
   Location,
+  LocationHotspot,
   LocationKind,
+  MapMarker,
   Rect,
   Region,
 } from './types';
@@ -31,6 +32,8 @@ const rect = (x: number, y: number, width: number, height: number): Rect => ({
   height,
 });
 
+const warp = (x: number, y: number): Rect => entrance(x * 16, y * 16);
+
 type OutdoorEntry = {
   id: string;
   name: string;
@@ -38,6 +41,7 @@ type OutdoorEntry = {
   size: Size;
   cell: [x: number, y: number];
   exits?: Array<{ to: string; direction: Direction; area: Rect }>;
+  markers?: Array<MapMarker>;
 };
 
 const outdoor: Array<OutdoorEntry> = [
@@ -86,6 +90,18 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [320, 288],
     cell: [14, 5],
+    exits: [
+      { to: 'route-10', direction: 'north', area: rect(96, 0, 64, 16) },
+      { to: 'route-8', direction: 'west', area: rect(0, 32, 16, 224) },
+      { to: 'route-12', direction: 'south', area: rect(128, 272, 32, 16) },
+    ],
+    markers: [
+      { kind: 'center', name: 'Pokémon Center', ...entrance(48, 80) },
+      { kind: 'house', name: "Mr. Fuji's House", ...entrance(112, 144) },
+      { kind: 'mart', name: 'Poké Mart', ...entrance(240, 208) },
+      { kind: 'house', name: 'Cubone House', ...entrance(48, 208) },
+      { kind: 'house', name: "Name Rater's House", ...entrance(112, 208) },
+    ],
   },
   {
     id: 'celadon-city',
@@ -311,6 +327,11 @@ const outdoor: Array<OutdoorEntry> = [
   },
 ];
 
+type FloorEntry = {
+  name: string;
+  exits: Array<{ area: Rect } & ({ to: string } | { floor: string })>;
+};
+
 type InsideEntry = {
   id: string;
   name: string;
@@ -320,6 +341,7 @@ type InsideEntry = {
   entrances: Array<Rect>;
   otherEntrances?: Record<string, Array<Rect>>;
   cell?: [x: number, y: number];
+  floors?: Array<FloorEntry>;
 };
 
 const inside: Array<InsideEntry> = [
@@ -387,9 +409,54 @@ const inside: Array<InsideEntry> = [
     id: 'pokemon-tower',
     name: 'Pokémon Tower',
     kind: 'building',
-    size: [400, 2803],
+    size: [320, 288],
     parent: 'lavender-town',
     entrances: [entrance(224, 80)],
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'lavender-town', area: rect(160, 272, 32, 16) },
+          { floor: '2F', area: warp(18, 9) },
+        ],
+      },
+      {
+        name: '2F',
+        exits: [
+          { floor: '3F', area: warp(3, 9) },
+          { floor: '1F', area: warp(18, 9) },
+        ],
+      },
+      {
+        name: '3F',
+        exits: [
+          { floor: '2F', area: warp(3, 9) },
+          { floor: '4F', area: warp(18, 9) },
+        ],
+      },
+      {
+        name: '4F',
+        exits: [
+          { floor: '5F', area: warp(3, 9) },
+          { floor: '3F', area: warp(18, 9) },
+        ],
+      },
+      {
+        name: '5F',
+        exits: [
+          { floor: '4F', area: warp(3, 9) },
+          { floor: '6F', area: warp(18, 9) },
+        ],
+      },
+      {
+        name: '6F',
+        exits: [
+          { floor: '5F', area: warp(18, 9) },
+          { floor: '7F', area: warp(9, 16) },
+        ],
+      },
+      { name: '7F', exits: [{ floor: '6F', area: warp(9, 16) }] },
+    ],
   },
   {
     id: 'rocket-game-corner',
@@ -459,31 +526,77 @@ const toLocation = (
   source: vgmaps,
   locations: [],
   hotspots: [],
+  markers: [],
 });
 
-const hotspotsFor = (mapId: string): Array<Hotspot> => [
+const floorImage = (id: string, floor: string) =>
+  `${IMAGE_DIR}/${id}/${floor.toLowerCase()}.png`;
+
+const toInsideLocation = ({
+  id,
+  name,
+  kind,
+  size,
+  parent,
+  floors,
+}: InsideEntry): Location => {
+  const location = toLocation(id, name, kind, size);
+
+  if (!floors) return location;
+
+  return {
+    ...location,
+    image: floorImage(id, floors[0].name),
+    floors: floors.map((floor) => ({
+      id: floor.name.toLowerCase(),
+      name: floor.name,
+      image: floorImage(id, floor.name),
+      hotspots: floor.exits.map(({ area, ...exit }) => ({
+        ...area,
+        kind: 'exit' as const,
+        ...('to' in exit
+          ? { target: exit.to }
+          : { target: `${parent}/${id}`, floor: exit.floor.toLowerCase() }),
+      })),
+      width: location.width,
+      height: location.height,
+      pixelated: location.pixelated,
+      source: location.source,
+    })),
+  };
+};
+
+const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
   ...inside.flatMap(({ id, parent, entrances, otherEntrances }) => {
     const rects =
       mapId === parent ? entrances : (otherEntrances?.[mapId] ?? []);
 
-    return rects.map((area) => ({ ...area, target: `${parent}/${id}` }));
+    return rects.map((area) => ({
+      ...area,
+      kind: 'entrance' as const,
+      target: `${parent}/${id}`,
+    }));
   }),
   ...(outdoor
     .find(({ id }) => id === mapId)
     ?.exits?.map(({ to, direction, area }) => ({
       ...area,
+      kind: 'exit' as const,
       target: to,
       travel: direction,
     })) ?? []),
 ];
 
-const locations: Array<Location> = outdoor.map(({ id, name, kind, size }) => ({
-  ...toLocation(id, name, kind, size),
-  locations: inside
-    .filter(({ parent }) => parent === id)
-    .map((entry) => toLocation(entry.id, entry.name, entry.kind, entry.size)),
-  hotspots: hotspotsFor(id),
-}));
+const locations: Array<Location> = outdoor.map(
+  ({ id, name, kind, size, markers = [] }) => ({
+    ...toLocation(id, name, kind, size),
+    markers,
+    locations: inside
+      .filter(({ parent }) => parent === id)
+      .map(toInsideLocation),
+    hotspots: hotspotsFor(id),
+  }),
+);
 
 const cellRect = ([x, y]: [number, number]): Rect =>
   rect(16 + x * 8, 8 + y * 8, 8, 8);

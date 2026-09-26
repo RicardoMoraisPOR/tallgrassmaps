@@ -12,6 +12,7 @@
     "format:check": "oxfmt --check",
     "pokedex:rby": "node scripts/pokedex/rby.mjs",
     "trainers:rby": "node scripts/trainers/rby.mjs",
+    "items:rby": "node scripts/items/rby.mjs",
     "sprites:pokemon": "node scripts/sprites/pokemon.mjs"
   },
   "dependencies": {

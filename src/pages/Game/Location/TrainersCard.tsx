@@ -8,6 +8,7 @@ import { ExpandableCard } from './ExpandableCard';
 type TrainersCardProps = {
   game: Game;
   path: string;
+  floor?: string;
   trainers: Array<TrainerBattle>;
   pokedex: Array<PokedexEntry>;
 };
@@ -15,22 +16,26 @@ type TrainersCardProps = {
 export const TrainersCard = ({
   game,
   path,
+  floor,
   trainers,
   pokedex,
 }: TrainersCardProps) => {
   const battles = trainers.filter(
-    (battle) => battle.path === path && battle.games.includes(game.id),
+    (battle) =>
+      battle.path === path &&
+      battle.games.includes(game.id) &&
+      (!floor || battle.floor === floor),
   );
 
   if (battles.length === 0) return null;
 
   const names = new Map(pokedex.map((entry) => [entry.number, entry.name]));
-  const areas = [...new Set(battles.map((battle) => battle.area))].map(
-    (area) => ({
-      area,
-      battles: battles.filter((battle) => battle.area === area),
-    }),
-  );
+  const areas = floor
+    ? [{ area: undefined, battles }]
+    : [...new Set(battles.map((battle) => battle.area))].map((area) => ({
+        area,
+        battles: battles.filter((battle) => battle.area === area),
+      }));
 
   return (
     <ExpandableCard title="Trainer battles">

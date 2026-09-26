@@ -13,6 +13,7 @@ export type TrainerBattle = {
   trainerClass: string;
   path: string;
   area?: string;
+  floor?: string;
   games: Array<string>;
   parties: Array<TrainerParty>;
 };

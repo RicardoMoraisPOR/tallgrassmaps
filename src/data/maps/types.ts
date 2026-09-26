@@ -24,16 +24,36 @@ export type Direction = 'north' | 'south' | 'east' | 'west';
 export type Hotspot = Rect & {
   target: string;
   travel?: Direction;
+  floor?: string;
+};
+
+export type LocationHotspot = Hotspot & {
+  kind: 'exit' | 'entrance';
+};
+
+export type MarkerKind = 'house' | 'mart' | 'center';
+
+export type MapMarker = Rect & {
+  kind: MarkerKind;
+  name: string;
 };
 
 export type LocationKind = 'town' | 'route' | 'dungeon' | 'building';
+
+export type LocationFloor = MapImage & {
+  id: string;
+  name: string;
+  hotspots: Array<LocationHotspot>;
+};
 
 export type Location = MapImage & {
   id: string;
   name: string;
   kind: LocationKind;
   locations: Array<Location>;
-  hotspots: Array<Hotspot>;
+  hotspots: Array<LocationHotspot>;
+  markers: Array<MapMarker>;
+  floors?: Array<LocationFloor>;
 };
 
 export type SpriteAnimation = {
