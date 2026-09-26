@@ -5,12 +5,11 @@ import { useLocation } from 'react-router';
 
 import Container from '@/components/Container';
 import Logo from '@/components/Logo';
-import { generations } from '@/data/catalog';
 import { coverSources } from '@/data/covers';
 import { kantoRby } from '@/data/maps/kanto-rby';
 import { generationId } from '@/lib/paths';
 
-import GameCard from './GameCard';
+import GamesSection from './GamesSection';
 import HeroTownMap from './HeroTownMap';
 
 export default function HomePage() {
@@ -67,57 +66,6 @@ function Hero() {
           </p>
         </div>
         <HeroTownMap region={kantoRby} focus="lavender-town" />
-      </Container>
-    </section>
-  );
-}
-
-function GamesSection() {
-  return (
-    <section
-      id="games"
-      aria-labelledby="games-heading"
-      className="border-t bg-muted/40"
-    >
-      <Container className="flex flex-col gap-14 py-18">
-        <div className="flex flex-col gap-2">
-          <h2
-            id="games-heading"
-            className="font-heading text-[28px] leading-[1.1] font-bold tracking-[-0.03em] sm:text-4xl sm:leading-[1.1]"
-          >
-            Pick a game
-          </h2>
-          <p className="max-w-[56ch] text-muted-foreground">
-            Only Kanto so far. I&apos;m adding the other regions as I go, oldest
-            games first.
-          </p>
-        </div>
-        {generations.map((generation) => (
-          <div
-            key={generation.number}
-            id={generationId(generation.number)}
-            className="flex scroll-mt-6 flex-col gap-5"
-          >
-            <div className="flex items-center gap-4">
-              <h3 className="text-xl font-semibold tracking-tight whitespace-nowrap">
-                Generation {generation.roman}{' '}
-                <span className="font-normal text-muted-foreground">
-                  — {generation.region}
-                </span>
-              </h3>
-              <span className="h-px flex-1 bg-border" />
-            </div>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-5">
-              {generation.entries.map((entry) => (
-                <GameCard
-                  key={entry.game.id}
-                  entry={entry}
-                  generation={generation.roman}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
       </Container>
     </section>
   );

@@ -490,6 +490,7 @@ const cellRect = ([x, y]: [number, number]): Rect =>
 export const kantoRby: Region = {
   id: 'kanto-rby',
   name: 'Kanto',
+  versionGroup: 'RBY',
   image: `${IMAGE_DIR}/town-map.png`,
   width: 160,
   height: 144,

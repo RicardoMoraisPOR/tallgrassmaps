@@ -1,9 +1,12 @@
-import { type Game, games } from './games';
+import { type Game, games, type Platform } from './games';
+import { getRegion } from './maps';
 
 export type UpcomingGame = {
   id: string;
   title: string;
-  regionName: string;
+  regions: string[];
+  platform: Platform;
+  versionGroup: string;
   colors: string[];
 };
 
@@ -14,7 +17,6 @@ export type CatalogEntry =
 export type Generation = {
   number: number;
   roman: string;
-  region: string;
   entries: CatalogEntry[];
 };
 
@@ -49,116 +51,320 @@ const C = {
 };
 
 const soon = (
-  id: string,
-  title: string,
-  regionName: string,
-  color: string,
-): CatalogEntry => ({
-  status: 'soon',
-  game: { id, title, regionName, colors: [color] },
-});
+  versionGroup: string,
+  platform: Platform,
+  regions: string[],
+  titles: [id: string, title: string, color: string][],
+): CatalogEntry[] =>
+  titles.map(([id, title, color]) => ({
+    status: 'soon',
+    game: { id, title, regions, platform, versionGroup, colors: [color] },
+  }));
 
 const available = (generation: number): CatalogEntry[] =>
   games
     .filter((game) => game.generation === generation)
     .map((game) => ({ status: 'available', game }));
 
+export const entryName = (entry: CatalogEntry) =>
+  entry.status === 'soon' ? entry.game.title : entry.game.name;
+
+export const entryRegions = (entry: CatalogEntry): string[] =>
+  entry.status === 'soon'
+    ? entry.game.regions
+    : [getRegion(entry.game.region)?.name ?? entry.game.region];
+
+export const entryVersionGroup = (entry: CatalogEntry) =>
+  entry.status === 'soon'
+    ? entry.game.versionGroup
+    : getRegion(entry.game.region)?.versionGroup;
+
+export const generationRegions = (generation: Generation) => [
+  ...new Set(generation.entries.flatMap(entryRegions)),
+];
+
 export const generations: Generation[] = [
-  { number: 1, roman: 'I', region: 'Kanto', entries: available(1) },
+  { number: 1, roman: 'I', entries: available(1) },
   {
     number: 2,
     roman: 'II',
-    region: 'Johto',
-    entries: [
-      soon('gold', 'Pokémon Gold', 'Johto & Kanto', C.gold),
-      soon('silver', 'Pokémon Silver', 'Johto & Kanto', C.silver),
-      soon('crystal', 'Pokémon Crystal', 'Johto & Kanto', C.crystal),
-    ],
+    entries: soon(
+      'GSC',
+      'Game Boy Color',
+      ['Johto', 'Kanto'],
+      [
+        ['gold', 'Pokémon Gold', C.gold],
+        ['silver', 'Pokémon Silver', C.silver],
+        ['crystal', 'Pokémon Crystal', C.crystal],
+      ],
+    ),
   },
   {
     number: 3,
     roman: 'III',
-    region: 'Hoenn',
     entries: [
-      soon('ruby', 'Pokémon Ruby', 'Hoenn', C.ruby),
-      soon('sapphire', 'Pokémon Sapphire', 'Hoenn', C.sapphire),
-      soon('emerald', 'Pokémon Emerald', 'Hoenn', C.emerald),
-      soon('firered', 'Pokémon FireRed', 'Kanto', C.fire),
-      soon('leafgreen', 'Pokémon LeafGreen', 'Kanto', C.leaf),
+      ...soon(
+        'RSE',
+        'Game Boy Advance',
+        ['Hoenn'],
+        [
+          ['ruby', 'Pokémon Ruby', C.ruby],
+          ['sapphire', 'Pokémon Sapphire', C.sapphire],
+          ['emerald', 'Pokémon Emerald', C.emerald],
+        ],
+      ),
+      ...soon(
+        'FRLG',
+        'Game Boy Advance',
+        ['Kanto'],
+        [
+          ['firered', 'Pokémon FireRed', C.fire],
+          ['leafgreen', 'Pokémon LeafGreen', C.leaf],
+        ],
+      ),
     ],
   },
   {
     number: 4,
     roman: 'IV',
-    region: 'Sinnoh',
     entries: [
-      soon('diamond', 'Pokémon Diamond', 'Sinnoh', C.diamond),
-      soon('pearl', 'Pokémon Pearl', 'Sinnoh', C.pearl),
-      soon('platinum', 'Pokémon Platinum', 'Sinnoh', C.platinum),
-      soon('heartgold', 'Pokémon HeartGold', 'Johto & Kanto', C.gold),
-      soon('soulsilver', 'Pokémon SoulSilver', 'Johto & Kanto', C.silver),
+      ...soon(
+        'DPPt',
+        'Nintendo DS',
+        ['Sinnoh'],
+        [
+          ['diamond', 'Pokémon Diamond', C.diamond],
+          ['pearl', 'Pokémon Pearl', C.pearl],
+          ['platinum', 'Pokémon Platinum', C.platinum],
+        ],
+      ),
+      ...soon(
+        'HGSS',
+        'Nintendo DS',
+        ['Johto', 'Kanto'],
+        [
+          ['heartgold', 'Pokémon HeartGold', C.gold],
+          ['soulsilver', 'Pokémon SoulSilver', C.silver],
+        ],
+      ),
     ],
   },
   {
     number: 5,
     roman: 'V',
-    region: 'Unova',
     entries: [
-      soon('black', 'Pokémon Black', 'Unova', C.black),
-      soon('white', 'Pokémon White', 'Unova', C.white),
-      soon('black-2', 'Pokémon Black 2', 'Unova', C.black),
-      soon('white-2', 'Pokémon White 2', 'Unova', C.white),
+      ...soon(
+        'BW',
+        'Nintendo DS',
+        ['Unova'],
+        [
+          ['black', 'Pokémon Black', C.black],
+          ['white', 'Pokémon White', C.white],
+        ],
+      ),
+      ...soon(
+        'B2W2',
+        'Nintendo DS',
+        ['Unova'],
+        [
+          ['black-2', 'Pokémon Black 2', C.black],
+          ['white-2', 'Pokémon White 2', C.white],
+        ],
+      ),
     ],
   },
   {
     number: 6,
     roman: 'VI',
-    region: 'Kalos',
     entries: [
-      soon('x', 'Pokémon X', 'Kalos', C.x),
-      soon('y', 'Pokémon Y', 'Kalos', C.y),
-      soon('omega-ruby', 'Pokémon Omega Ruby', 'Hoenn', C.ruby),
-      soon('alpha-sapphire', 'Pokémon Alpha Sapphire', 'Hoenn', C.sapphire),
+      ...soon(
+        'XY',
+        'Nintendo 3DS',
+        ['Kalos'],
+        [
+          ['x', 'Pokémon X', C.x],
+          ['y', 'Pokémon Y', C.y],
+        ],
+      ),
+      ...soon(
+        'ORAS',
+        'Nintendo 3DS',
+        ['Hoenn'],
+        [
+          ['omega-ruby', 'Pokémon Omega Ruby', C.ruby],
+          ['alpha-sapphire', 'Pokémon Alpha Sapphire', C.sapphire],
+        ],
+      ),
     ],
   },
   {
     number: 7,
     roman: 'VII',
-    region: 'Alola',
     entries: [
-      soon('sun', 'Pokémon Sun', 'Alola', C.sun),
-      soon('moon', 'Pokémon Moon', 'Alola', C.moon),
-      soon('ultra-sun', 'Pokémon Ultra Sun', 'Alola', C.ultraSun),
-      soon('ultra-moon', 'Pokémon Ultra Moon', 'Alola', C.ultraMoon),
-      soon('lets-go-pikachu', "Pokémon Let's Go, Pikachu!", 'Kanto', C.yellow),
-      soon('lets-go-eevee', "Pokémon Let's Go, Eevee!", 'Kanto', C.eevee),
+      ...soon(
+        'SM',
+        'Nintendo 3DS',
+        ['Alola'],
+        [
+          ['sun', 'Pokémon Sun', C.sun],
+          ['moon', 'Pokémon Moon', C.moon],
+        ],
+      ),
+      ...soon(
+        'USUM',
+        'Nintendo 3DS',
+        ['Alola'],
+        [
+          ['ultra-sun', 'Pokémon Ultra Sun', C.ultraSun],
+          ['ultra-moon', 'Pokémon Ultra Moon', C.ultraMoon],
+        ],
+      ),
+      ...soon(
+        'LGPE',
+        'Nintendo Switch',
+        ['Kanto'],
+        [
+          ['lets-go-pikachu', "Pokémon Let's Go, Pikachu!", C.yellow],
+          ['lets-go-eevee', "Pokémon Let's Go, Eevee!", C.eevee],
+        ],
+      ),
     ],
   },
   {
     number: 8,
     roman: 'VIII',
-    region: 'Galar',
     entries: [
-      soon('sword', 'Pokémon Sword', 'Galar', C.sword),
-      soon('shield', 'Pokémon Shield', 'Galar', C.shield),
-      soon(
-        'brilliant-diamond',
-        'Pokémon Brilliant Diamond',
-        'Sinnoh',
-        C.diamond,
+      ...soon(
+        'SwSh',
+        'Nintendo Switch',
+        ['Galar'],
+        [
+          ['sword', 'Pokémon Sword', C.sword],
+          ['shield', 'Pokémon Shield', C.shield],
+        ],
       ),
-      soon('shining-pearl', 'Pokémon Shining Pearl', 'Sinnoh', C.pearl),
-      soon('legends-arceus', 'Pokémon Legends: Arceus', 'Hisui', C.arceus),
+      ...soon(
+        'BDSP',
+        'Nintendo Switch',
+        ['Sinnoh'],
+        [
+          ['brilliant-diamond', 'Pokémon Brilliant Diamond', C.diamond],
+          ['shining-pearl', 'Pokémon Shining Pearl', C.pearl],
+        ],
+      ),
+      ...soon(
+        'PLA',
+        'Nintendo Switch',
+        ['Hisui'],
+        [['legends-arceus', 'Pokémon Legends: Arceus', C.arceus]],
+      ),
     ],
   },
   {
     number: 9,
     roman: 'IX',
-    region: 'Paldea',
     entries: [
-      soon('scarlet', 'Pokémon Scarlet', 'Paldea', C.scarlet),
-      soon('violet', 'Pokémon Violet', 'Paldea', C.violet),
-      soon('legends-za', 'Pokémon Legends: Z-A', 'Kalos', C.za),
+      ...soon(
+        'SV',
+        'Nintendo Switch',
+        ['Paldea'],
+        [
+          ['scarlet', 'Pokémon Scarlet', C.scarlet],
+          ['violet', 'Pokémon Violet', C.violet],
+        ],
+      ),
+      ...soon(
+        'Z-A',
+        'Nintendo Switch',
+        ['Kalos'],
+        [['legends-za', 'Pokémon Legends: Z-A', C.za]],
+      ),
     ],
   },
 ];
+
+export const versionGroupNames = (versionGroup: string) =>
+  generations
+    .flatMap(({ entries }) => entries)
+    .filter((entry) => entryVersionGroup(entry) === versionGroup)
+    .map(entryName);
+
+const versionGroupLetters: Record<string, [text: string, gameId?: string][]> = {
+  RBY: [
+    ['R', 'red'],
+    ['B', 'blue'],
+    ['Y', 'yellow'],
+  ],
+  GSC: [
+    ['G', 'gold'],
+    ['S', 'silver'],
+    ['C', 'crystal'],
+  ],
+  RSE: [
+    ['R', 'ruby'],
+    ['S', 'sapphire'],
+    ['E', 'emerald'],
+  ],
+  FRLG: [
+    ['FR', 'firered'],
+    ['LG', 'leafgreen'],
+  ],
+  DPPt: [
+    ['D', 'diamond'],
+    ['P', 'pearl'],
+    ['Pt', 'platinum'],
+  ],
+  HGSS: [
+    ['HG', 'heartgold'],
+    ['SS', 'soulsilver'],
+  ],
+  BW: [
+    ['B', 'black'],
+    ['W', 'white'],
+  ],
+  B2W2: [
+    ['B2', 'black-2'],
+    ['W2', 'white-2'],
+  ],
+  XY: [
+    ['X', 'x'],
+    ['Y', 'y'],
+  ],
+  ORAS: [
+    ['OR', 'omega-ruby'],
+    ['AS', 'alpha-sapphire'],
+  ],
+  SM: [
+    ['S', 'sun'],
+    ['M', 'moon'],
+  ],
+  USUM: [
+    ['US', 'ultra-sun'],
+    ['UM', 'ultra-moon'],
+  ],
+  LGPE: [['LG'], ['P', 'lets-go-pikachu'], ['E', 'lets-go-eevee']],
+  SwSh: [
+    ['Sw', 'sword'],
+    ['Sh', 'shield'],
+  ],
+  BDSP: [
+    ['BD', 'brilliant-diamond'],
+    ['SP', 'shining-pearl'],
+  ],
+  PLA: [['PLA', 'legends-arceus']],
+  SV: [
+    ['S', 'scarlet'],
+    ['V', 'violet'],
+  ],
+  'Z-A': [['Z-A', 'legends-za']],
+};
+
+const gameColor = (gameId: string) =>
+  generations
+    .flatMap(({ entries }) => entries)
+    .find((entry) => entry.game.id === gameId)?.game.colors[0];
+
+export const versionGroupParts = (versionGroup: string) =>
+  (versionGroupLetters[versionGroup] ?? [[versionGroup]]).map(
+    ([text, gameId]) => ({ text, color: gameId && gameColor(gameId) }),
+  );

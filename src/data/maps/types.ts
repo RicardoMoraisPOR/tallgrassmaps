@@ -71,6 +71,7 @@ export type RegionLabel = {
 export type Region = MapImage & {
   id: string;
   name: string;
+  versionGroup: string;
   locations: Location[];
   hotspots: Hotspot[];
   cursor?: RegionCursor;
