@@ -46,13 +46,18 @@ const motionFor = (
   mapMotion: boolean,
 ): Motion => {
   if (!mapMotion) return slideMotion;
+
   if (travel) {
     const [x, y] = VECTORS[travel];
+
     return { enterFrom: offset([x, y]), exitTo: offset([-x, -y]) };
   }
+
   const change = depthOf(to) - depthOf(from);
+
   if (change > 0) return { enterFrom: 'scale(0.96)', exitTo: 'scale(1.04)' };
   if (change < 0) return { enterFrom: 'scale(1.04)', exitTo: 'scale(0.96)' };
+
   return slideMotion;
 };
 
@@ -61,14 +66,15 @@ type PageTransitionProps = {
   mapMotion?: boolean;
 };
 
-export default function PageTransition({
+export const PageTransition = ({
   depth,
   mapMotion = false,
-}: PageTransitionProps) {
+}: PageTransitionProps) => {
   const { pathname } = useLocation();
   const outlet = useOutlet();
-  const key = pageKey(pathname, depth);
   const motionRef = useRef<Motion>(undefined);
+
+  const key = pageKey(pathname, depth);
 
   return (
     <SwitchTransition>
@@ -83,14 +89,14 @@ export default function PageTransition({
       </PageFrame>
     </SwitchTransition>
   );
-}
+};
 
 const pageKey = (pathname: string, depth: number | undefined) =>
   depth === undefined
     ? pathname
     : `/${pathSegments(pathname).slice(0, depth).join('/')}`;
 
-function PageFrame({
+const PageFrame = ({
   children,
   path,
   depth,
@@ -103,17 +109,22 @@ function PageFrame({
   depth: number | undefined;
   mapMotion: boolean;
   motionRef: RefObject<Motion | undefined>;
-} & Pick<TransitionProps<HTMLDivElement>, 'in' | 'onExited'>) {
+} & Pick<TransitionProps<HTMLDivElement>, 'in' | 'onExited'>) => {
   const nodeRef = useRef<HTMLDivElement>(null);
   const { pathname, state } = useLocation();
   const navigationType = useNavigationType();
+
   const travel =
     navigationType === 'POP'
       ? undefined
       : (state as TravelState | null)?.travel;
   const nextPath = pageKey(pathname, depth);
 
-  const animate = (keyframes: Keyframe[], duration: number, easing: string) =>
+  const animate = (
+    keyframes: Array<Keyframe>,
+    duration: number,
+    easing: string,
+  ) =>
     nodeRef.current?.animate(keyframes, {
       duration: prefersReducedMotion() ? 0 : duration,
       easing,
@@ -136,10 +147,12 @@ function PageFrame({
           ENTER_MS,
           easeSineOut,
         );
+
         animation?.finished
           .then(() => {
             animation.cancel();
             const { hash } = window.location;
+
             if (hash) {
               document
                 .getElementById(decodeURIComponent(hash.slice(1)))
@@ -150,6 +163,7 @@ function PageFrame({
       }}
       onExit={() => {
         const motion = motionFor(path, nextPath, travel, mapMotion);
+
         motionRef.current = motion;
         animate(
           [
@@ -166,4 +180,4 @@ function PageFrame({
       </div>
     </Transition>
   );
-}
+};

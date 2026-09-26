@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 
-import RegionMap from '@/components/map/RegionMap';
+import { RegionMap } from '@/components/map/RegionMap';
 import { useGameRoute } from '@/hooks/useGameRoute';
 
 import { collectPlaces } from '../places';
-import SidebarLayout from '../SidebarLayout';
-import MapLegend, { MapCredits } from './MapLegend';
-import PlaceList from './PlaceList';
+import { SidebarLayout } from '../SidebarLayout';
+import { MapCredits, MapLegend } from './MapLegend';
+import { PlaceList } from './PlaceList';
 
-export default function RegionPage() {
+export const RegionPage = () => {
   const route = useGameRoute();
 
   useEffect(() => {
@@ -40,4 +40,4 @@ export default function RegionPage() {
       </div>
     </SidebarLayout>
   );
-}
+};

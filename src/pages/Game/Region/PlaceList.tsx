@@ -6,11 +6,11 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 
 import { type Place, type PlaceGroup, placeGroup } from '../places';
-import PlaceIcon from './PlaceIcon';
+import { PlaceIcon } from './PlaceIcon';
 
 type Tab = 'all' | PlaceGroup;
 
-const tabs: { id: Tab; label: string }[] = [
+const tabs: Array<{ id: Tab; label: string }> = [
   { id: 'all', label: 'All' },
   { id: 'town', label: 'Towns' },
   { id: 'route', label: 'Routes' },
@@ -18,11 +18,11 @@ const tabs: { id: Tab; label: string }[] = [
 ];
 
 type PlaceListProps = {
-  places: Place[];
+  places: Array<Place>;
   href: (path: string) => string;
 };
 
-export default function PlaceList({ places, href }: PlaceListProps) {
+export const PlaceList = ({ places, href }: PlaceListProps) => {
   const [query, setQuery] = useState('');
   const [tab, setTab] = useState<Tab>('all');
 
@@ -111,4 +111,4 @@ export default function PlaceList({ places, href }: PlaceListProps) {
       </ul>
     </section>
   );
-}
+};

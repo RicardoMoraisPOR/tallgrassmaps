@@ -2,13 +2,13 @@ import { cn } from '@/lib/utils';
 
 import type { PlaceGroup } from '../places';
 
-export default function PlaceIcon({
+export const PlaceIcon = ({
   group,
   className,
 }: {
   group: PlaceGroup;
   className?: string;
-}) {
+}) => {
   return (
     <span
       aria-hidden
@@ -26,4 +26,4 @@ export default function PlaceIcon({
       )}
     </span>
   );
-}
+};

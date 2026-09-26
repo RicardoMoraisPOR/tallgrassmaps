@@ -3,8 +3,8 @@ import type { HTMLAttributes } from 'react';
 import type { Hotspot, Region } from '@/data/maps';
 import { cn } from '@/lib/utils';
 
-import LocationCursor from './LocationCursor';
-import LocationLabel from './LocationLabel';
+import { LocationCursor } from './LocationCursor';
+import { LocationLabel } from './LocationLabel';
 
 type RegionImageProps = HTMLAttributes<HTMLDivElement> & {
   region: Region;
@@ -13,7 +13,7 @@ type RegionImageProps = HTMLAttributes<HTMLDivElement> & {
   hotspot?: Hotspot;
 };
 
-export default function RegionImage({
+export const RegionImage = ({
   region,
   alt,
   locationName,
@@ -22,7 +22,7 @@ export default function RegionImage({
   style,
   children,
   ...props
-}: RegionImageProps) {
+}: RegionImageProps) => {
   return (
     <div
       className={cn('@container relative w-full', className)}
@@ -46,4 +46,4 @@ export default function RegionImage({
       {children}
     </div>
   );
-}
+};

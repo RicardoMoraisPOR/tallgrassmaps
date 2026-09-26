@@ -4,10 +4,10 @@ import { getRegion } from './maps';
 export type UpcomingGame = {
   id: string;
   title: string;
-  regions: string[];
+  regions: Array<string>;
   platform: Platform;
   versionGroup: string;
-  colors: string[];
+  colors: Array<string>;
 };
 
 export type CatalogEntry =
@@ -17,7 +17,7 @@ export type CatalogEntry =
 export type Generation = {
   number: number;
   roman: string;
-  entries: CatalogEntry[];
+  entries: Array<CatalogEntry>;
 };
 
 const C = {
@@ -53,15 +53,15 @@ const C = {
 const soon = (
   versionGroup: string,
   platform: Platform,
-  regions: string[],
-  titles: [id: string, title: string, color: string][],
-): CatalogEntry[] =>
+  regions: Array<string>,
+  titles: Array<[id: string, title: string, color: string]>,
+): Array<CatalogEntry> =>
   titles.map(([id, title, color]) => ({
     status: 'soon',
     game: { id, title, regions, platform, versionGroup, colors: [color] },
   }));
 
-const available = (generation: number): CatalogEntry[] =>
+const available = (generation: number): Array<CatalogEntry> =>
   games
     .filter((game) => game.generation === generation)
     .map((game) => ({ status: 'available', game }));
@@ -69,7 +69,7 @@ const available = (generation: number): CatalogEntry[] =>
 export const entryName = (entry: CatalogEntry) =>
   entry.status === 'soon' ? entry.game.title : entry.game.name;
 
-export const entryRegions = (entry: CatalogEntry): string[] =>
+export const entryRegions = (entry: CatalogEntry): Array<string> =>
   entry.status === 'soon'
     ? entry.game.regions
     : [getRegion(entry.game.region)?.name ?? entry.game.region];
@@ -83,7 +83,7 @@ export const generationRegions = (generation: Generation) => [
   ...new Set(generation.entries.flatMap(entryRegions)),
 ];
 
-export const generations: Generation[] = [
+export const generations: Array<Generation> = [
   { number: 1, roman: 'I', entries: available(1) },
   {
     number: 2,
@@ -289,7 +289,10 @@ export const versionGroupNames = (versionGroup: string) =>
     .filter((entry) => entryVersionGroup(entry) === versionGroup)
     .map(entryName);
 
-const versionGroupLetters: Record<string, [text: string, gameId?: string][]> = {
+const versionGroupLetters: Record<
+  string,
+  Array<[text: string, gameId?: string]>
+> = {
   RBY: [
     ['R', 'red'],
     ['B', 'blue'],

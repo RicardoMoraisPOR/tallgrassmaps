@@ -5,7 +5,7 @@ type SidebarLayoutProps = {
   children: ReactNode;
 };
 
-export default function SidebarLayout({ aside, children }: SidebarLayoutProps) {
+export const SidebarLayout = ({ aside, children }: SidebarLayoutProps) => {
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
       {children}
@@ -14,4 +14,4 @@ export default function SidebarLayout({ aside, children }: SidebarLayoutProps) {
       </aside>
     </div>
   );
-}
+};

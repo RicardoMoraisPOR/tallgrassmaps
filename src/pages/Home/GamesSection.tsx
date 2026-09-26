@@ -1,15 +1,16 @@
-import Container from '@/components/Container';
+import { Container } from '@/components/Container';
 import { generationRegions } from '@/data/catalog';
 import { generationId } from '@/lib/paths';
 import { formatList } from '@/lib/utils';
 
 import { filterGenerations, totalGames } from './filters';
-import GameCard from './GameCard';
-import GameFilters from './GameFilters';
+import { GameCard } from './GameCard';
+import { GameFilters } from './GameFilters';
 import { useFilters } from './useFilters';
 
-export default function GamesSection() {
+export const GamesSection = () => {
   const { filters, active, toggle, clear } = useFilters();
+
   const visible = filterGenerations(filters);
   const shown = visible.reduce((sum, { entries }) => sum + entries.length, 0);
 
@@ -79,4 +80,4 @@ export default function GamesSection() {
       </Container>
     </section>
   );
-}
+};

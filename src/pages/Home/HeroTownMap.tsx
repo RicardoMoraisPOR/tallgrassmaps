@@ -1,4 +1,4 @@
-import RegionImage from '@/components/map/RegionImage';
+import { RegionImage } from '@/components/map/RegionImage';
 import { getHotspot, getLocation, type Region } from '@/data/maps';
 
 type HeroTownMapProps = {
@@ -6,7 +6,7 @@ type HeroTownMapProps = {
   focus: string;
 };
 
-export default function HeroTownMap({ region, focus }: HeroTownMapProps) {
+export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
   const hotspot = getHotspot(region, focus);
   const location = getLocation(region, focus);
 
@@ -41,4 +41,4 @@ export default function HeroTownMap({ region, focus }: HeroTownMapProps) {
       </figcaption>
     </figure>
   );
-}
+};

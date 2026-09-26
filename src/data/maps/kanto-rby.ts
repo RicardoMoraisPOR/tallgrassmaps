@@ -37,10 +37,10 @@ type OutdoorEntry = {
   kind: 'town' | 'route';
   size: Size;
   cell: [x: number, y: number];
-  exits?: { to: string; direction: Direction; area: Rect }[];
+  exits?: Array<{ to: string; direction: Direction; area: Rect }>;
 };
 
-const outdoor: OutdoorEntry[] = [
+const outdoor: Array<OutdoorEntry> = [
   {
     id: 'pallet-town',
     name: 'Pallet Town',
@@ -317,12 +317,12 @@ type InsideEntry = {
   kind: LocationKind;
   size: Size;
   parent: string;
-  entrances: Rect[];
-  otherEntrances?: Record<string, Rect[]>;
+  entrances: Array<Rect>;
+  otherEntrances?: Record<string, Array<Rect>>;
   cell?: [x: number, y: number];
 };
 
-const inside: InsideEntry[] = [
+const inside: Array<InsideEntry> = [
   {
     id: 'viridian-forest',
     name: 'Viridian Forest',
@@ -461,10 +461,11 @@ const toLocation = (
   hotspots: [],
 });
 
-const hotspotsFor = (mapId: string): Hotspot[] => [
+const hotspotsFor = (mapId: string): Array<Hotspot> => [
   ...inside.flatMap(({ id, parent, entrances, otherEntrances }) => {
     const rects =
       mapId === parent ? entrances : (otherEntrances?.[mapId] ?? []);
+
     return rects.map((area) => ({ ...area, target: `${parent}/${id}` }));
   }),
   ...(outdoor
@@ -476,7 +477,7 @@ const hotspotsFor = (mapId: string): Hotspot[] => [
     })) ?? []),
 ];
 
-const locations: Location[] = outdoor.map(({ id, name, kind, size }) => ({
+const locations: Array<Location> = outdoor.map(({ id, name, kind, size }) => ({
   ...toLocation(id, name, kind, size),
   locations: inside
     .filter(({ parent }) => parent === id)

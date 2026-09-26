@@ -23,14 +23,17 @@ export const kindLabels: Record<LocationKind, string> = {
   building: 'Building',
 };
 
-export const collectPlaces = (region: Region): Place[] => {
+export const collectPlaces = (region: Region): Array<Place> => {
   const places = new Map<string, Location>();
+
   const add = (path: string, location: Location) => {
     if (!places.has(path)) places.set(path, location);
   };
-  const addInside = (locations: Location[], parentPath: string) => {
+
+  const addInside = (locations: Array<Location>, parentPath: string) => {
     for (const location of locations) {
       const path = joinPath(parentPath, location.id);
+
       add(path, location);
       addInside(location.locations, path);
     }
@@ -38,8 +41,10 @@ export const collectPlaces = (region: Region): Place[] => {
 
   for (const { target } of region.hotspots) {
     const location = getLocation(region, target);
+
     if (location) add(target, location);
   }
+
   for (const location of region.locations) {
     addInside(location.locations, location.id);
   }

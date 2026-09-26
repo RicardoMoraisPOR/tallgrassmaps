@@ -8,7 +8,7 @@ export type Platform =
 
 export type LabelPart = { text: string; color?: string };
 
-const colorLetters: [text: string, color: string][] = [
+const colorLetters: Array<[text: string, color: string]> = [
   ['C', 'oklch(0.6 0.22 25)'],
   ['o', 'oklch(0.55 0.2 300)'],
   ['l', 'oklch(0.65 0.2 145)'],
@@ -16,7 +16,7 @@ const colorLetters: [text: string, color: string][] = [
   ['r', 'oklch(0.55 0.18 255)'],
 ];
 
-export const platformParts: Record<Platform, LabelPart[]> = {
+export const platformParts: Record<Platform, Array<LabelPart>> = {
   'Game Boy': [{ text: 'Game Boy', color: 'oklch(0.74 0.18 125)' }],
   'Game Boy Color': [
     { text: 'Game Boy ' },
@@ -45,10 +45,10 @@ export type Game = {
   generation: number;
   region: string;
   platform: Platform;
-  colors: string[];
+  colors: Array<string>;
 };
 
-export const games: Game[] = [
+export const games: Array<Game> = [
   {
     id: 'red',
     name: 'Pokémon Red',

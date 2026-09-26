@@ -7,6 +7,7 @@ export const getTheme = (): Theme =>
 
 export const setTheme = (theme: Theme) => {
   document.documentElement.classList.toggle('dark', theme === 'dark');
+
   try {
     localStorage.setItem(STORAGE_KEY, theme);
   } catch {}

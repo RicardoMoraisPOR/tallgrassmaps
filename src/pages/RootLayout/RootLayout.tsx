@@ -1,12 +1,12 @@
 import { Link } from 'react-router';
 
-import Container from '@/components/Container';
-import Logo from '@/components/Logo';
-import PageTransition from '@/components/PageTransition';
-import ThemeToggle from '@/components/ThemeToggle';
+import { Container } from '@/components/Container';
+import { Logo } from '@/components/Logo';
+import { PageTransition } from '@/components/PageTransition';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { SITE_NAME } from '@/data/site';
 
-export default function RootLayout() {
+export const RootLayout = () => {
   return (
     <div className="flex min-h-svh flex-col bg-background text-foreground">
       <header className="border-b">
@@ -26,4 +26,4 @@ export default function RootLayout() {
       </main>
     </div>
   );
-}
+};

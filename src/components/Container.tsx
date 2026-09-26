@@ -6,15 +6,15 @@ type ContainerProps = HTMLAttributes<HTMLElement> & {
   as?: 'div' | 'section';
 };
 
-export default function Container({
+export const Container = ({
   as: Tag = 'div',
   className,
   ...props
-}: ContainerProps) {
+}: ContainerProps) => {
   return (
     <Tag
       className={cn('mx-auto w-full max-w-6xl px-4', className)}
       {...props}
     />
   );
-}
+};

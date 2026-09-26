@@ -1,14 +1,15 @@
-import MapViewer from '@/components/map/MapViewer';
+import { MapViewer } from '@/components/map/MapViewer';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
-import NotFoundPage from '@/pages/NotFound/NotFoundPage';
+import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-import SidebarLayout from '../SidebarLayout';
+import { SidebarLayout } from '../SidebarLayout';
 import { locationLinks } from './locationLinks';
-import PlaceCard from './PlaceCard';
+import { PlaceCard } from './PlaceCard';
 
-export default function LocationPage() {
+export const LocationPage = () => {
   const route = useGameRoute();
+
   const trail = route?.trail;
   const location = trail?.at(-1);
 
@@ -42,4 +43,4 @@ export default function LocationPage() {
       />
     </SidebarLayout>
   );
-}
+};

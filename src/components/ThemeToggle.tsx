@@ -9,9 +9,10 @@ import { getTheme, setTheme, type Theme } from '@/lib/theme';
 
 const REVEAL_MS = 500;
 
-export default function ThemeToggle() {
+export const ThemeToggle = () => {
   const [theme, setThemeState] = useState<Theme>(getTheme);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
   const next = theme === 'dark' ? 'light' : 'dark';
 
   const apply = () => {
@@ -21,8 +22,10 @@ export default function ThemeToggle() {
 
   const toggle = async () => {
     const button = buttonRef.current;
+
     if (!button || !document.startViewTransition || prefersReducedMotion()) {
       apply();
+
       return;
     }
 
@@ -64,4 +67,4 @@ export default function ThemeToggle() {
       <Moon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
     </Button>
   );
-}
+};

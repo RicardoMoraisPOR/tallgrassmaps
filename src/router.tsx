@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router';
 
-import GameLayout from '@/pages/Game/GameLayout';
-import RegionPage from '@/pages/Game/Region/RegionPage';
-import HomePage from '@/pages/Home/HomePage';
-import NotFoundPage from '@/pages/NotFound/NotFoundPage';
-import RootLayout from '@/pages/RootLayout/RootLayout';
+import { GameLayout } from '@/pages/Game/GameLayout';
+import { RegionPage } from '@/pages/Game/Region/RegionPage';
+import { HomePage } from '@/pages/Home/HomePage';
+import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
+import { RootLayout } from '@/pages/RootLayout/RootLayout';
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             path: '*',
             lazy: async () => ({
               Component: (await import('@/pages/Game/Location/LocationPage'))
-                .default,
+                .LocationPage,
             }),
           },
         ],

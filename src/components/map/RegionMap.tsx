@@ -5,9 +5,9 @@ import { Link } from 'react-router';
 import { getHotspot, getLocation, type Region } from '@/data/maps';
 import { cn } from '@/lib/utils';
 
-import AnimatedSprite from './AnimatedSprite';
+import { AnimatedSprite } from './AnimatedSprite';
 import { percent } from './coordinates';
-import RegionImage from './RegionImage';
+import { RegionImage } from './RegionImage';
 
 type RegionMapProps = {
   region: Region;
@@ -16,22 +16,26 @@ type RegionMapProps = {
   style?: CSSProperties;
 };
 
-export default function RegionMap({
+export const RegionMap = ({
   region,
   locationHref,
   className,
   style,
-}: RegionMapProps) {
+}: RegionMapProps) => {
   const [active, setActive] = useState<string>();
   const flyerRef = useRef<HTMLDivElement>(null);
+
   const { cursor, pointer, label } = region;
   const activeName = active ? getLocation(region, active)?.name : undefined;
   const activeHotspot = active ? getHotspot(region, active) : undefined;
 
   const moveFlyer = (event: PointerEvent<HTMLDivElement>) => {
     const flyer = flyerRef.current;
+
     if (!flyer || event.pointerType !== 'mouse') return;
+
     const bounds = event.currentTarget.getBoundingClientRect();
+
     flyer.style.left = `${event.clientX - bounds.left}px`;
     flyer.style.top = `${event.clientY - bounds.top}px`;
   };
@@ -58,6 +62,7 @@ export default function RegionMap({
       >
         {region.hotspots.map((hotspot) => {
           const location = getLocation(region, hotspot.target);
+
           if (!location) return null;
 
           return (
@@ -111,4 +116,4 @@ export default function RegionMap({
       </RegionImage>
     </figure>
   );
-}
+};

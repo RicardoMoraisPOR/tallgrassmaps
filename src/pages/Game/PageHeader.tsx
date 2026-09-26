@@ -13,16 +13,16 @@ export type Crumb = {
 
 type PageHeaderProps = {
   game: Game;
-  ancestors?: Crumb[];
+  ancestors?: Array<Crumb>;
   title: string;
 };
 
-export default function PageHeader({
+export const PageHeader = ({
   game,
   ancestors = [],
   title,
-}: PageHeaderProps) {
-  const steps: Crumb[] = [
+}: PageHeaderProps) => {
+  const steps: Array<Crumb> = [
     { name: game.name, href: generationHref(game.generation) },
     ...ancestors,
   ];
@@ -92,13 +92,13 @@ export default function PageHeader({
       </div>
     </header>
   );
-}
+};
 
-function Separator({ className }: { className?: string }) {
+const Separator = ({ className }: { className?: string }) => {
   return (
     <ChevronRight
       aria-hidden
       className={cn('size-3.5 opacity-60', className)}
     />
   );
-}
+};

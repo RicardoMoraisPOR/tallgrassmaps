@@ -1,9 +1,9 @@
 import { Link } from 'react-router';
 
-import Container from '@/components/Container';
+import { Container } from '@/components/Container';
 import { Button } from '@/components/ui/button';
 
-export default function NotFoundPage() {
+export const NotFoundPage = () => {
   return (
     <Container
       as="section"
@@ -22,4 +22,4 @@ export default function NotFoundPage() {
       </Button>
     </Container>
   );
-}
+};

@@ -1,8 +1,8 @@
 import type { MapSource, Region } from '@/data/maps';
 
-import PlaceIcon from './PlaceIcon';
+import { PlaceIcon } from './PlaceIcon';
 
-export default function MapLegend() {
+export const MapLegend = () => {
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
       <LegendItem group="town">Town</LegendItem>
@@ -10,9 +10,9 @@ export default function MapLegend() {
       <LegendItem group="route">Route</LegendItem>
     </div>
   );
-}
+};
 
-export function MapCredits({ region }: { region: Region }) {
+export const MapCredits = ({ region }: { region: Region }) => {
   return (
     <p className="text-xs text-muted-foreground">
       Map: <SourceLink source={region.source} />
@@ -23,24 +23,24 @@ export function MapCredits({ region }: { region: Region }) {
       )}
     </p>
   );
-}
+};
 
-function LegendItem({
+const LegendItem = ({
   group,
   children,
 }: {
   group: 'town' | 'landmark' | 'route';
   children: string;
-}) {
+}) => {
   return (
     <span className="inline-flex items-center gap-1.5">
       <PlaceIcon group={group} />
       {children}
     </span>
   );
-}
+};
 
-function SourceLink({ source }: { source: MapSource }) {
+const SourceLink = ({ source }: { source: MapSource }) => {
   return (
     <>
       <a
@@ -54,4 +54,4 @@ function SourceLink({ source }: { source: MapSource }) {
       , by {source.credit}
     </>
   );
-}
+};

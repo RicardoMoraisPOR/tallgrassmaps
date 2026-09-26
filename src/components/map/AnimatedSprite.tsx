@@ -11,12 +11,12 @@ type AnimatedSpriteProps = {
   className?: string;
 };
 
-export default function AnimatedSprite({
+export const AnimatedSprite = ({
   animation,
   blink,
   pixelated,
   className,
-}: AnimatedSpriteProps) {
+}: AnimatedSpriteProps) => {
   const reducedMotion = usePrefersReducedMotion();
   const frame = useFrame(animation, reducedMotion);
   const visible = useBlink(blink, reducedMotion);
@@ -42,36 +42,42 @@ export default function AnimatedSprite({
       ))}
     </span>
   );
-}
+};
 
-function useFrame({ frames, frameMs }: SpriteAnimation, paused: boolean) {
+const useFrame = ({ frames, frameMs }: SpriteAnimation, paused: boolean) => {
   const [frame, setFrame] = useState(0);
+
   const animated = frames.length > 1 && frameMs !== undefined && !paused;
 
   useEffect(() => {
     if (!animated) return;
+
     const interval = setInterval(
       () => setFrame((current) => (current + 1) % frames.length),
       frameMs,
     );
+
     return () => clearInterval(interval);
   }, [animated, frames.length, frameMs]);
 
   return animated ? frame : 0;
-}
+};
 
-function useBlink(blink: AnimatedSpriteProps['blink'], paused: boolean) {
+const useBlink = (blink: AnimatedSpriteProps['blink'], paused: boolean) => {
   const [visible, setVisible] = useState(true);
+
   const blinking = blink !== undefined && !paused;
 
   useEffect(() => {
     if (!blinking) return;
+
     const timeout = setTimeout(
       () => setVisible((current) => !current),
       visible ? blink.visibleMs : blink.hiddenMs,
     );
+
     return () => clearTimeout(timeout);
   }, [blinking, blink, visible]);
 
   return !blinking || visible;
-}
+};

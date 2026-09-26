@@ -32,12 +32,12 @@ export type Location = MapImage & {
   id: string;
   name: string;
   kind: LocationKind;
-  locations: Location[];
-  hotspots: Hotspot[];
+  locations: Array<Location>;
+  hotspots: Array<Hotspot>;
 };
 
 export type SpriteAnimation = {
-  frames: string[];
+  frames: Array<string>;
   frameMs?: number;
 };
 
@@ -72,8 +72,8 @@ export type Region = MapImage & {
   id: string;
   name: string;
   versionGroup: string;
-  locations: Location[];
-  hotspots: Hotspot[];
+  locations: Array<Location>;
+  hotspots: Array<Hotspot>;
   cursor?: RegionCursor;
   pointer?: RegionPointer;
   label?: RegionLabel;

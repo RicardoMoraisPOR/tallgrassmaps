@@ -3,20 +3,21 @@ import { type ReactNode, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useLocation } from 'react-router';
 
-import Container from '@/components/Container';
-import Logo from '@/components/Logo';
+import { Container } from '@/components/Container';
+import { Logo } from '@/components/Logo';
 import { coverSources } from '@/data/covers';
 import { kantoRby } from '@/data/maps/kanto-rby';
 import { generationId } from '@/lib/paths';
 
-import GamesSection from './GamesSection';
-import HeroTownMap from './HeroTownMap';
+import { GamesSection } from './GamesSection';
+import { HeroTownMap } from './HeroTownMap';
 
-export default function HomePage() {
+export const HomePage = () => {
   const { hash } = useLocation();
 
   useEffect(() => {
     if (!hash) return;
+
     document.getElementById(hash.slice(1))?.scrollIntoView();
   }, [hash]);
 
@@ -27,9 +28,9 @@ export default function HomePage() {
       <Footer />
     </>
   );
-}
+};
 
-function Hero() {
+const Hero = () => {
   return (
     <section className="relative isolate">
       <div
@@ -69,9 +70,9 @@ function Hero() {
       </Container>
     </section>
   );
-}
+};
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="border-t">
       <Container className="flex flex-wrap items-start justify-between gap-6 pt-8 pb-10 text-[13px] leading-5 text-muted-foreground">
@@ -102,9 +103,15 @@ function Footer() {
       </Container>
     </footer>
   );
-}
+};
 
-function FooterLink({ href, children }: { href: string; children: ReactNode }) {
+const FooterLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) => {
   return (
     <a
       href={href}
@@ -115,4 +122,4 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
       {children}
     </a>
   );
-}
+};

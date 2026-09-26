@@ -14,16 +14,16 @@ export type PlaceLink = {
 
 export type PlaceLinkGroup = {
   label: string;
-  links: PlaceLink[];
+  links: Array<PlaceLink>;
 };
 
 type PlaceCardProps = {
   kind: LocationKind;
-  groups: PlaceLinkGroup[];
+  groups: Array<PlaceLinkGroup>;
   className?: string;
 };
 
-export default function PlaceCard({ kind, groups, className }: PlaceCardProps) {
+export const PlaceCard = ({ kind, groups, className }: PlaceCardProps) => {
   const filled = groups.filter((group) => group.links.length > 0);
 
   return (
@@ -65,4 +65,4 @@ export default function PlaceCard({ kind, groups, className }: PlaceCardProps) {
       )}
     </section>
   );
-}
+};

@@ -20,14 +20,14 @@ type GameFiltersProps = {
   onClear: () => void;
 };
 
-export default function GameFilters({
+export const GameFilters = ({
   filters,
   active,
   shown,
   total,
   onToggle,
   onClear,
-}: GameFiltersProps) {
+}: GameFiltersProps) => {
   return (
     <div className="flex flex-col gap-3">
       {filterGroups.map(({ key, label, options }) => (
@@ -76,9 +76,9 @@ export default function GameFilters({
       </div>
     </div>
   );
-}
+};
 
-function FilterChip({
+const FilterChip = ({
   pressed,
   title,
   onClick,
@@ -88,7 +88,7 @@ function FilterChip({
   title?: string;
   onClick: () => void;
   children: ReactNode;
-}) {
+}) => {
   return (
     <button
       type="button"
@@ -104,9 +104,9 @@ function FilterChip({
       {children}
     </button>
   );
-}
+};
 
-function ChipLabel({ option }: { option: FilterOption }) {
+const ChipLabel = ({ option }: { option: FilterOption }) => {
   if (!option.parts) return option.label;
 
   return (
@@ -126,4 +126,4 @@ function ChipLabel({ option }: { option: FilterOption }) {
       )}
     </span>
   );
-}
+};

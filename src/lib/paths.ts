@@ -2,10 +2,10 @@ import type { Location } from '@/data/maps';
 
 export const pathSegments = (path: string) => path.split('/').filter(Boolean);
 
-export const joinPath = (...segments: string[]) =>
+export const joinPath = (...segments: Array<string>) =>
   segments.filter(Boolean).join('/');
 
-export const trailPath = (trail: Location[]) =>
+export const trailPath = (trail: Array<Location>) =>
   joinPath(...trail.map(({ id }) => id));
 
 export const generationId = (generation: number) => `gen-${generation}`;

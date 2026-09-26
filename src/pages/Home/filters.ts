@@ -12,32 +12,33 @@ import { formatList, slugify } from '@/lib/utils';
 
 export type FilterKey = 'region' | 'map' | 'console';
 
-export type Filters = Record<FilterKey, string[]>;
+export type Filters = Record<FilterKey, Array<string>>;
 
 export type FilterOption = {
   value: string;
   label: string;
   title?: string;
-  parts?: LabelPart[];
+  parts?: Array<LabelPart>;
 };
 
 export type FilterGroup = {
   key: FilterKey;
   label: string;
-  options: FilterOption[];
+  options: Array<FilterOption>;
 };
 
 const allEntries = generations.flatMap(({ entries }) => entries);
 
 const entryMaps = (entry: CatalogEntry) => {
   const versionGroup = entryVersionGroup(entry);
+
   return versionGroup ? [versionGroup] : [];
 };
 
-const toOptions = (labels: string[]): FilterOption[] =>
+const toOptions = (labels: Array<string>): Array<FilterOption> =>
   [...new Set(labels)].map((label) => ({ value: slugify(label), label }));
 
-export const filterGroups: FilterGroup[] = [
+export const filterGroups: Array<FilterGroup> = [
   {
     key: 'region',
     label: 'Region',
@@ -75,6 +76,7 @@ const entryValues = (entry: CatalogEntry): Filters => ({
 
 const matches = (entry: CatalogEntry, filters: Filters) => {
   const values = entryValues(entry);
+
   return filterGroups.every(
     ({ key }) =>
       filters[key].length === 0 ||
@@ -82,7 +84,7 @@ const matches = (entry: CatalogEntry, filters: Filters) => {
   );
 };
 
-export const filterGenerations = (filters: Filters): Generation[] =>
+export const filterGenerations = (filters: Filters): Array<Generation> =>
   generations
     .map((generation) => ({
       ...generation,

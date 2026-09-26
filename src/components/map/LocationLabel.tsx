@@ -8,8 +8,9 @@ type LocationLabelProps = {
   name: string;
 };
 
-export default function LocationLabel({ region, name }: LocationLabelProps) {
+export const LocationLabel = ({ region, name }: LocationLabelProps) => {
   const { label } = region;
+
   if (!label) return null;
 
   return (
@@ -28,4 +29,4 @@ export default function LocationLabel({ region, name }: LocationLabelProps) {
       {name}
     </span>
   );
-}
+};

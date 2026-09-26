@@ -1,12 +1,12 @@
-import Container from '@/components/Container';
-import PageTransition from '@/components/PageTransition';
+import { Container } from '@/components/Container';
+import { PageTransition } from '@/components/PageTransition';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { gameHref, trailPath } from '@/lib/paths';
-import NotFoundPage from '@/pages/NotFound/NotFoundPage';
+import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-import PageHeader from './PageHeader';
+import { PageHeader } from './PageHeader';
 
-export default function GameLayout() {
+export const GameLayout = () => {
   const route = useGameRoute();
 
   if (!route) {
@@ -36,4 +36,4 @@ export default function GameLayout() {
       <PageTransition mapMotion />
     </Container>
   );
-}
+};

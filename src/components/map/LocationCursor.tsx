@@ -1,6 +1,6 @@
 import type { Hotspot, Region } from '@/data/maps';
 
-import AnimatedSprite from './AnimatedSprite';
+import { AnimatedSprite } from './AnimatedSprite';
 import { percent } from './coordinates';
 
 type LocationCursorProps = {
@@ -8,11 +8,9 @@ type LocationCursorProps = {
   hotspot: Hotspot;
 };
 
-export default function LocationCursor({
-  region,
-  hotspot,
-}: LocationCursorProps) {
+export const LocationCursor = ({ region, hotspot }: LocationCursorProps) => {
   const { cursor } = region;
+
   if (!cursor) return null;
 
   return (
@@ -33,4 +31,4 @@ export default function LocationCursor({
       />
     </span>
   );
-}
+};

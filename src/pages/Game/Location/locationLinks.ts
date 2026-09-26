@@ -10,20 +10,22 @@ export const locationLinks = (
   path: string,
   href: (path: string) => string,
 ) => {
-  const links: MapLink[] = location.hotspots.flatMap((hotspot) => {
+  const links: Array<MapLink> = location.hotspots.flatMap((hotspot) => {
     const target = getLocation(region, hotspot.target);
+
     return target
       ? [{ ...hotspot, href: href(hotspot.target), label: target.name }]
       : [];
   });
 
-  const inside: PlaceLink[] = location.locations.map((child) => ({
+  const inside: Array<PlaceLink> = location.locations.map((child) => ({
     href: href(joinPath(path, child.id)),
     name: child.name,
   }));
   const insideHrefs = new Set(inside.map((link) => link.href));
 
   const connections = new Map<string, PlaceLink>();
+
   for (const link of links) {
     if (!insideHrefs.has(link.href)) {
       connections.set(link.href, {

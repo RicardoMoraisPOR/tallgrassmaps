@@ -17,16 +17,17 @@ type GameCardProps = {
   entry: CatalogEntry;
 };
 
-export default function GameCard({ entry }: GameCardProps) {
+export const GameCard = ({ entry }: GameCardProps) => {
   return entry.status === 'available' ? (
     <AvailableCard game={entry.game} />
   ) : (
     <UpcomingCard game={entry.game} />
   );
-}
+};
 
-function AvailableCard({ game }: { game: Game }) {
+const AvailableCard = ({ game }: { game: Game }) => {
   const region = getRegion(game.region);
+
   if (!region) return null;
 
   const accent = game.colors[0];
@@ -58,9 +59,9 @@ function AvailableCard({ game }: { game: Game }) {
       </div>
     </Link>
   );
-}
+};
 
-function UpcomingCard({ game }: { game: UpcomingGame }) {
+const UpcomingCard = ({ game }: { game: UpcomingGame }) => {
   return (
     <div
       aria-disabled="true"
@@ -82,23 +83,23 @@ function UpcomingCard({ game }: { game: UpcomingGame }) {
       </div>
     </div>
   );
-}
+};
 
-function Details({
+const Details = ({
   regions,
   platform,
 }: {
-  regions: string[];
+  regions: Array<string>;
   platform: Platform;
-}) {
+}) => {
   return (
     <span className="text-[13px] leading-5 text-muted-foreground">
       {formatList(regions)} · {platform}
     </span>
   );
-}
+};
 
-function MapTag({ versionGroup }: { versionGroup: string }) {
+const MapTag = ({ versionGroup }: { versionGroup: string }) => {
   return (
     <CoverTag
       className="left-2.5"
@@ -107,9 +108,9 @@ function MapTag({ versionGroup }: { versionGroup: string }) {
       {versionGroup} map
     </CoverTag>
   );
-}
+};
 
-function CoverTag({
+const CoverTag = ({
   children,
   className,
   title,
@@ -117,7 +118,7 @@ function CoverTag({
   children: ReactNode;
   className?: string;
   title?: string;
-}) {
+}) => {
   return (
     <span
       title={title}
@@ -129,15 +130,15 @@ function CoverTag({
       {children}
     </span>
   );
-}
+};
 
-function ColorStripe({
+const ColorStripe = ({
   colors,
   className,
 }: {
-  colors: string[];
+  colors: Array<string>;
   className?: string;
-}) {
+}) => {
   return (
     <div className={cn('flex h-1 flex-none', className)}>
       {colors.map((color) => (
@@ -145,9 +146,9 @@ function ColorStripe({
       ))}
     </div>
   );
-}
+};
 
-function Cover({
+const Cover = ({
   gameId,
   accent,
   interactive = false,
@@ -159,7 +160,7 @@ function Cover({
   interactive?: boolean;
   muted?: boolean;
   children?: ReactNode;
-}) {
+}) => {
   const cover = getCover(gameId);
 
   return (
@@ -201,4 +202,4 @@ function Cover({
       {children}
     </div>
   );
-}
+};

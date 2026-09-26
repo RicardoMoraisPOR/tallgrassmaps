@@ -27,17 +27,14 @@ export type MapLink = Rect & {
 
 type MapViewerProps = {
   map: MapImage;
-  links?: MapLink[];
+  links?: Array<MapLink>;
   className?: string;
 };
 
-export default function MapViewer({
-  map,
-  links = [],
-  className,
-}: MapViewerProps) {
+export const MapViewer = ({ map, links = [], className }: MapViewerProps) => {
   const navigate = useNavigate();
   const bounds = useMemo(() => imageBounds(map), [map]);
+
   const attribution = `<a href="${map.source.url}">${map.source.name}</a>, by ${map.source.credit}`;
 
   return (
@@ -78,20 +75,22 @@ export default function MapViewer({
       {map.pixelated && <PixelatedWhenZoomedIn />}
     </MapContainer>
   );
-}
+};
 
-function FitToViewport({ map }: { map: MapImage }) {
+const FitToViewport = ({ map }: { map: MapImage }) => {
   const leafletMap = useMap();
 
   useEffect(() => {
     const fitZoom = () => {
       const { x, y } = leafletMap.getSize();
       const zoom = Math.log2(Math.min(x / map.width, y / map.height));
+
       return zoom < 0 ? zoom : Math.floor(zoom);
     };
 
     const fitView = () => {
       const zoom = fitZoom();
+
       Util.setOptions(leafletMap, { zoomSnap: 0 });
       leafletMap.setView(toLatLng(map.width / 2, map.height / 2), zoom, {
         animate: false,
@@ -99,22 +98,26 @@ function FitToViewport({ map }: { map: MapImage }) {
       Util.setOptions(leafletMap, { zoomSnap: 1 });
       leafletMap.setMinZoom(zoom);
     };
+
     fitView();
 
     const onResize = () => {
       const zoom = fitZoom();
       const current = leafletMap.getZoom();
+
       if (current <= leafletMap.getMinZoom() || current < zoom) {
         fitView();
       } else {
         leafletMap.setMinZoom(zoom);
       }
     };
+
     leafletMap.on('resize', onResize);
 
     const observer = new ResizeObserver(() =>
       leafletMap.invalidateSize({ pan: false }),
     );
+
     observer.observe(leafletMap.getContainer());
 
     return () => {
@@ -124,21 +127,23 @@ function FitToViewport({ map }: { map: MapImage }) {
   }, [leafletMap, map]);
 
   return null;
-}
+};
 
-function PixelatedWhenZoomedIn() {
+const PixelatedWhenZoomedIn = () => {
   const leafletMap = useMap();
 
   useEffect(() => {
     const container = leafletMap.getContainer();
     const update = () =>
       container.classList.toggle('map-pixelated', leafletMap.getZoom() >= 0);
+
     update();
     leafletMap.on('zoomend', update);
+
     return () => {
       leafletMap.off('zoomend', update);
     };
   }, [leafletMap]);
 
   return null;
-}
+};

@@ -5,7 +5,7 @@ import type { Location, Region } from './types';
 
 export type * from './types';
 
-export const regions: Region[] = [kantoRby];
+export const regions: Array<Region> = [kantoRby];
 
 export const getRegion = (id: string) =>
   regions.find((region) => region.id === id);
@@ -13,13 +13,15 @@ export const getRegion = (id: string) =>
 export const getLocationTrail = (
   region: Region,
   path: string,
-): Location[] | undefined => {
-  const trail: Location[] = [];
+): Array<Location> | undefined => {
+  const trail: Array<Location> = [];
   let children = region.locations;
 
   for (const id of pathSegments(path)) {
     const location = children.find((child) => child.id === id);
+
     if (!location) return undefined;
+
     trail.push(location);
     children = location.locations;
   }

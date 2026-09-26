@@ -12,14 +12,16 @@ import { locationHref } from '@/lib/paths';
 export type GameRoute = {
   game: Game;
   region: Region;
-  trail: Location[] | undefined;
+  trail: Array<Location> | undefined;
   href: (path: string) => string;
 };
 
-export function useGameRoute(): GameRoute | undefined {
+export const useGameRoute = (): GameRoute | undefined => {
   const { gameId, '*': path = '' } = useParams();
+
   const game = getGame(gameId);
   const region = game && getRegion(game.region);
+
   if (!game || !region) return undefined;
 
   return {
@@ -28,4 +30,4 @@ export function useGameRoute(): GameRoute | undefined {
     trail: path ? getLocationTrail(region, path) : [],
     href: (locationPath) => locationHref(game.id, locationPath),
   };
-}
+};
