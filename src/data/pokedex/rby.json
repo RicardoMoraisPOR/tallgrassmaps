@@ -1,0 +1,7880 @@
+[
+  {
+    "number": 1,
+    "name": "Bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "gift",
+        "path": "cerulean-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          10,
+          10
+        ]
+      },
+      {
+        "method": "gift",
+        "path": "pallet-town",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "name": "Ivysaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 1,
+      "method": "level",
+      "level": 16
+    },
+    "encounters": []
+  },
+  {
+    "number": 3,
+    "name": "Venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 2,
+      "method": "level",
+      "level": 32
+    },
+    "encounters": []
+  },
+  {
+    "number": 4,
+    "name": "Charmander",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "gift",
+        "path": "route-24",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          10,
+          10
+        ]
+      },
+      {
+        "method": "gift",
+        "path": "pallet-town",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "name": "Charmeleon",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 4,
+      "method": "level",
+      "level": 16
+    },
+    "encounters": []
+  },
+  {
+    "number": 6,
+    "name": "Charizard",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 5,
+      "method": "level",
+      "level": 36
+    },
+    "encounters": []
+  },
+  {
+    "number": 7,
+    "name": "Squirtle",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "gift",
+        "path": "vermilion-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          10,
+          10
+        ]
+      },
+      {
+        "method": "gift",
+        "path": "pallet-town",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "name": "Wartortle",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 7,
+      "method": "level",
+      "level": 16
+    },
+    "encounters": []
+  },
+  {
+    "number": 9,
+    "name": "Blastoise",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 8,
+      "method": "level",
+      "level": 36
+    },
+    "encounters": []
+  },
+  {
+    "number": 10,
+    "name": "Caterpie",
+    "types": [
+      "bug"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          8,
+          8
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          3,
+          6
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          3,
+          5
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          7,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "number": 11,
+    "name": "Metapod",
+    "types": [
+      "bug"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 10,
+      "method": "level",
+      "level": 7
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          7,
+          9
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          4,
+          6
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          8,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "number": 12,
+    "name": "Butterfree",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 11,
+      "method": "level",
+      "level": 10
+    },
+    "encounters": []
+  },
+  {
+    "number": 13,
+    "name": "Weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-2",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          3,
+          5
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          7,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          8,
+          8
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "number": 14,
+    "name": "Kakuna",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue"
+    ],
+    "evolvesFrom": {
+      "number": 13,
+      "method": "level",
+      "level": 7
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          8,
+          8
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          7,
+          9
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          4,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "number": 15,
+    "name": "Beedrill",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue"
+    ],
+    "evolvesFrom": {
+      "number": 14,
+      "method": "level",
+      "level": 10
+    },
+    "encounters": []
+  },
+  {
+    "number": 16,
+    "name": "Pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-1",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          2,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          23,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          25,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          26,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          3,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          11,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          12,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          13,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-3",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          6,
+          8
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          13,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          13,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          19,
+          22
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          18,
+          22
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          16,
+          18
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          4,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "number": 17,
+    "name": "Pidgeotto",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 16,
+      "method": "level",
+      "level": 18
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          32
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          32
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          18,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          28,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          28,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          17,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          17,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          17,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          17,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          24,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          24,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          9,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "number": 18,
+    "name": "Pidgeot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 17,
+      "method": "level",
+      "level": 36
+    },
+    "encounters": []
+  },
+  {
+    "number": 19,
+    "name": "Rattata",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-1",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          2,
+          4
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-16",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          18,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          2,
+          5
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          13,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          2,
+          4
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          8,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          14,
+          18
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          34,
+          43
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          18,
+          18
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          23,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-3",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          10,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          14,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          14,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "name": "Raticate",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 19,
+      "method": "level",
+      "level": 20
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-16",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          23,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          25,
+          29
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          25,
+          29
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          34,
+          46
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          17,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "number": 21,
+    "name": "Spearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          13,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          13,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-16",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          20,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          20,
+          22
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          20,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          2,
+          6
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          26,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-3",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          8,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          13,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "number": 22,
+    "name": "Fearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 21,
+      "method": "level",
+      "level": 20
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          25,
+          29
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          24,
+          29
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          38,
+          45
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-16",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          24,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          19,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "number": 23,
+    "name": "Ekans",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          11,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          12,
+          15
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          26,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          6,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          17,
+          19
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          11,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "number": 24,
+    "name": "Arbok",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red"
+    ],
+    "evolvesFrom": {
+      "number": 23,
+      "method": "level",
+      "level": 22
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          52,
+          57
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          41,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "number": 25,
+    "name": "Pikachu",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          20,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          3,
+          5
+        ]
+      },
+      {
+        "method": "gift",
+        "path": "pallet-town",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "number": 26,
+    "name": "Raichu",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red",
+      "blue"
+    ],
+    "evolvesFrom": {
+      "number": 25,
+      "method": "item",
+      "item": "thunder stone"
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          53,
+          64
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          33,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "number": 27,
+    "name": "Sandshrew",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          11,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          12,
+          15
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          26,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          6,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          17,
+          19
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          11,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          12,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-3",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "number": 28,
+    "name": "Sandslash",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 27,
+      "method": "level",
+      "level": 22
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          52,
+          57
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          41,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "number": 29,
+    "name": "Nidoran♀",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-22",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          2,
+          4
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          14,
+          36
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "route-5",
+        "tradeFor": 32,
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          17,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          4,
+          6
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          16,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "number": 30,
+    "name": "Nidorina",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 29,
+      "method": "level",
+      "level": 16
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          23,
+          33
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "route-11",
+        "tradeFor": 33,
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          41,
+          44
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          18,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "number": 31,
+    "name": "Nidoqueen",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 30,
+      "method": "item",
+      "item": "moon stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 32,
+    "name": "Nidoran♂",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-22",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          2,
+          4
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          14,
+          36
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          17,
+          17
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          4,
+          6
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          16,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "number": 33,
+    "name": "Nidorino",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 32,
+      "method": "level",
+      "level": 16
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          23,
+          33
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          41,
+          44
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          18,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "number": 34,
+    "name": "Nidoking",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 33,
+      "method": "item",
+      "item": "moon stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 35,
+    "name": "Clefairy",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          8,
+          13
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "red",
+          "blue"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 36,
+    "name": "Clefable",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 35,
+      "method": "item",
+      "item": "moon stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 37,
+    "name": "Vulpix",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          32,
+          35
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          18,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          15,
+          18
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 38,
+    "name": "Ninetales",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 37,
+      "method": "item",
+      "item": "fire stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 39,
+    "name": "Jigglypuff",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-3",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          3,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          3,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          3,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          19,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          19,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "number": 40,
+    "name": "Wigglytuff",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 39,
+      "method": "item",
+      "item": "moon stone"
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          54,
+          54
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 41,
+    "name": "Zubat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          6,
+          13
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          22
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          9,
+          45
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "number": 42,
+    "name": "Golbat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 41,
+      "method": "level",
+      "level": 22
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          46,
+          59
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          27,
+          36
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          39,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "number": 43,
+    "name": "Oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          27
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          27
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          12,
+          14
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          12,
+          14
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          13,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          13,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          19,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "number": 44,
+    "name": "Gloom",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 43,
+      "method": "level",
+      "level": 21
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          55,
+          58
+        ]
+      }
+    ]
+  },
+  {
+    "number": 45,
+    "name": "Vileplume",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 44,
+      "method": "item",
+      "item": "leaf stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 46,
+    "name": "Paras",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          8,
+          13
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "number": 47,
+    "name": "Parasect",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 46,
+      "method": "level",
+      "level": 24
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          52,
+          64
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          25,
+          32
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "route-18",
+        "tradeFor": 114,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 48,
+    "name": "Venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          24,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          24,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          24,
+          27
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          24,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          22,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          13,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          13,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "number": 49,
+    "name": "Venomoth",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 48,
+      "method": "level",
+      "level": 31
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          49,
+          54
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          31,
+          32
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          40,
+          40
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 50,
+    "name": "Diglett",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-11/digletts-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "number": 51,
+    "name": "Dugtrio",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 50,
+      "method": "level",
+      "level": 26
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-11/digletts-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          29,
+          31
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "route-11",
+        "tradeFor": 108,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 52,
+    "name": "Meowth",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "blue"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          10,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          10,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          17,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          18,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "number": 53,
+    "name": "Persian",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "blue"
+    ],
+    "evolvesFrom": {
+      "number": 52,
+      "method": "level",
+      "level": 28
+    },
+    "encounters": []
+  },
+  {
+    "number": 54,
+    "name": "Psyduck",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          28,
+          33
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-4",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-24",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-6",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "number": 55,
+    "name": "Golduck",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 54,
+      "method": "level",
+      "level": 33
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          37,
+          39
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-6",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "number": 56,
+    "name": "Mankey",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          10,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          10,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          17,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          18,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          3,
+          5
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          36,
+          41
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-3",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          9,
+          9
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          9,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "number": 57,
+    "name": "Primeape",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 56,
+      "method": "level",
+      "level": 28
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          41,
+          46
+        ]
+      }
+    ]
+  },
+  {
+    "number": 58,
+    "name": "Growlithe",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          26,
+          38
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          18,
+          20
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          15,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "number": 59,
+    "name": "Arcanine",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 58,
+      "method": "item",
+      "item": "fire stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 60,
+    "name": "Poliwag",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "good-rod",
+        "path": null,
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          10,
+          10
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "pallet-town",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "viridian-city",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-22",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-23",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          25,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 61,
+    "name": "Poliwhirl",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 60,
+      "method": "level",
+      "level": 25
+    },
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "celadon-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-10",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-22",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-23",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "number": 62,
+    "name": "Poliwrath",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 61,
+      "method": "item",
+      "item": "water stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 63,
+    "name": "Abra",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          8,
+          12
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          10,
+          12
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          7,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          7,
+          7
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "number": 64,
+    "name": "Kadabra",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 63,
+      "method": "level",
+      "level": 16
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          49,
+          51
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "number": 65,
+    "name": "Alakazam",
+    "types": [
+      "psychic"
+    ],
+    "games": [],
+    "evolvesFrom": {
+      "number": 64,
+      "method": "trade"
+    },
+    "encounters": []
+  },
+  {
+    "number": 66,
+    "name": "Machop",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          21
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          22,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          16,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "number": 67,
+    "name": "Machoke",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 66,
+      "method": "level",
+      "level": 28
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          39,
+          45
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "route-5",
+        "tradeFor": 104,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 68,
+    "name": "Machamp",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 67,
+      "method": "trade"
+    },
+    "encounters": [
+      {
+        "method": "trade",
+        "path": "route-5",
+        "tradeFor": 104,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 69,
+    "name": "Bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          27
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          27
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          12,
+          14
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          12,
+          14
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          13,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          13,
+          16
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          19,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "number": 70,
+    "name": "Weepinbell",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 69,
+      "method": "level",
+      "level": 21
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          55,
+          58
+        ]
+      }
+    ]
+  },
+  {
+    "number": 71,
+    "name": "Victreebel",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 70,
+      "method": "item",
+      "item": "leaf stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 72,
+    "name": "Tentacool",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "surf",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          40
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-19",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          40
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-20",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          40
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "pallet-town",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          10,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "viridian-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-12",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-13",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          10
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          15
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          40
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          10,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cinnabar-island",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-11",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          10,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-19",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-21",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 73,
+    "name": "Tentacruel",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 72,
+      "method": "level",
+      "level": 30
+    },
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "route-19",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          40
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-21",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 74,
+    "name": "Geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          7,
+          11
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          16,
+          21
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          24,
+          46
+        ]
+      }
+    ]
+  },
+  {
+    "number": 75,
+    "name": "Graveler",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 74,
+      "method": "level",
+      "level": 25
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          41,
+          47
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          45,
+          55
+        ]
+      }
+    ]
+  },
+  {
+    "number": 76,
+    "name": "Golem",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "games": [],
+    "evolvesFrom": {
+      "number": 75,
+      "method": "trade"
+    },
+    "encounters": []
+  },
+  {
+    "number": 77,
+    "name": "Ponyta",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          28,
+          36
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-17",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          28,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "number": 78,
+    "name": "Rapidash",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 77,
+      "method": "level",
+      "level": 40
+    },
+    "encounters": []
+  },
+  {
+    "number": 79,
+    "name": "Slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          33
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "celadon-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-10",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-12",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-13",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "number": 80,
+    "name": "Slowbro",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 79,
+      "method": "level",
+      "level": 37
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          31,
+          39
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-23",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-12",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          20
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-13",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "number": 81,
+    "name": "Magnemite",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          21,
+          35
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          16,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "number": 82,
+    "name": "Magneton",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 81,
+      "method": "level",
+      "level": 30
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          46,
+          46
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          32,
+          38
+        ]
+      }
+    ]
+  },
+  {
+    "number": 83,
+    "name": "Farfetch'd",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "trade",
+        "path": "vermilion-city",
+        "tradeFor": 21,
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          26,
+          31
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          26,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "number": 84,
+    "name": "Doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-16",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          18,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          24,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          28
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          26,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "number": 85,
+    "name": "Dodrio",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 84,
+      "method": "level",
+      "level": 31
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          49,
+          51
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-17",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          29,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "number": 86,
+    "name": "Seel",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          22,
+          33
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "cinnabar-island",
+        "tradeFor": 77,
+        "games": [
+          "red",
+          "blue"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 87,
+    "name": "Dewgong",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 86,
+      "method": "level",
+      "level": 34
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          38
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "cinnabar-island",
+        "tradeFor": 58,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 88,
+    "name": "Grimer",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          23,
+          38
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          33,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "number": 89,
+    "name": "Muk",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 88,
+      "method": "level",
+      "level": 38
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          35,
+          42
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          33,
+          37
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "cinnabar-island",
+        "tradeFor": 115,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 90,
+    "name": "Shellder",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          28,
+          33
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          10,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cinnabar-island",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-6",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-11",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-19",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-17",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          25,
+          35
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-18",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "number": 91,
+    "name": "Cloyster",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 90,
+      "method": "item",
+      "item": "water stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 92,
+    "name": "Gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "lavender-town/pokemon-tower",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          18,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "number": 93,
+    "name": "Haunter",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 92,
+      "method": "level",
+      "level": 25
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "lavender-town/pokemon-tower",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          20,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 94,
+    "name": "Gengar",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "games": [],
+    "evolvesFrom": {
+      "number": 93,
+      "method": "trade"
+    },
+    "encounters": []
+  },
+  {
+    "number": 95,
+    "name": "Onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          13,
+          22
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          36,
+          49
+        ]
+      }
+    ]
+  },
+  {
+    "number": 96,
+    "name": "Drowzee",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-11",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          9,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "number": 97,
+    "name": "Hypno",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 96,
+      "method": "level",
+      "level": 26
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          46,
+          46
+        ]
+      }
+    ]
+  },
+  {
+    "number": 98,
+    "name": "Krabby",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "cerulean-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-4",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-6",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-11",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-12",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-13",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-24",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          10,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          25,
+          33
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          25,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "number": 99,
+    "name": "Kingler",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 98,
+      "method": "level",
+      "level": 28
+    },
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "route-23",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          28,
+          39
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-25",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          25
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          25,
+          25
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          35,
+          35
+        ]
+      }
+    ]
+  },
+  {
+    "number": 100,
+    "name": "Voltorb",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          21,
+          37
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          14,
+          17
+        ]
+      },
+      {
+        "method": "static",
+        "path": "route-10/power-plant",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          40,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "number": 101,
+    "name": "Electrode",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 100,
+      "method": "level",
+      "level": 30
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          52,
+          55
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "cinnabar-island",
+        "tradeFor": 26,
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "static",
+        "path": "route-10/power-plant",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          43,
+          43
+        ]
+      }
+    ]
+  },
+  {
+    "number": 102,
+    "name": "Exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          20,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "number": 103,
+    "name": "Exeggutor",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 102,
+      "method": "item",
+      "item": "leaf stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 104,
+    "name": "Cubone",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "lavender-town/pokemon-tower",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          20,
+          24
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          16,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "number": 105,
+    "name": "Marowak",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 104,
+      "method": "level",
+      "level": 28
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          52,
+          55
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          40,
+          43
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          24,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "number": 106,
+    "name": "Hitmonlee",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "gift",
+        "path": "saffron-city",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 107,
+    "name": "Hitmonchan",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "gift",
+        "path": "saffron-city",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 108,
+    "name": "Lickitung",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "trade",
+        "path": "route-18",
+        "tradeFor": 80,
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          50,
+          55
+        ]
+      }
+    ]
+  },
+  {
+    "number": 109,
+    "name": "Koffing",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          30,
+          35
+        ]
+      }
+    ]
+  },
+  {
+    "number": 110,
+    "name": "Weezing",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "red",
+      "blue"
+    ],
+    "evolvesFrom": {
+      "number": 109,
+      "method": "level",
+      "level": 35
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          37,
+          42
+        ]
+      }
+    ]
+  },
+  {
+    "number": 111,
+    "name": "Rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          20,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          50,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "number": 112,
+    "name": "Rhydon",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 111,
+      "method": "level",
+      "level": 42
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          52,
+          62
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "cinnabar-island",
+        "tradeFor": 55,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 113,
+    "name": "Chansey",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          56,
+          64
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          7,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "number": 114,
+    "name": "Tangela",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          28,
+          32
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "cinnabar-island",
+        "tradeFor": 48,
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          22,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "number": 115,
+    "name": "Kangaskhan",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          25,
+          33
+        ]
+      }
+    ]
+  },
+  {
+    "number": 116,
+    "name": "Horsea",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          28,
+          33
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cinnabar-island",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-19",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-10",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          10,
+          10
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-11",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-12",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          25
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-13",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "number": 117,
+    "name": "Seadra",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 116,
+      "method": "level",
+      "level": 32
+    },
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          37,
+          39
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-23",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-12",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          25,
+          35
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-13",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          20,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "number": 118,
+    "name": "Goldeen",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "good-rod",
+        "path": null,
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          10,
+          10
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cinnabar-island",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-4",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-12",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-13",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-19",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-22",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-24",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-25",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "celadon-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          5,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-6",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          5,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          25,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 119,
+    "name": "Seaking",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 118,
+      "method": "level",
+      "level": 33
+    },
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-23",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          23,
+          60
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          40
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-4",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-24",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 120,
+    "name": "Staryu",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          28,
+          33
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cinnabar-island",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          10,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-19",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-21",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          20
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          40
+        ]
+      },
+      {
+        "method": "surf",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "pallet-town",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          5,
+          10
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "number": 121,
+    "name": "Starmie",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 120,
+      "method": "item",
+      "item": "water stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 122,
+    "name": "Mr. Mime",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "trade",
+        "path": "route-2",
+        "tradeFor": 63,
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "trade",
+        "path": "route-2",
+        "tradeFor": 35,
+        "games": [
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 123,
+    "name": "Scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          28
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "red",
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 124,
+    "name": "Jynx",
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue"
+    ],
+    "encounters": [
+      {
+        "method": "trade",
+        "path": "cerulean-city",
+        "tradeFor": 61,
+        "games": [
+          "red",
+          "blue"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 125,
+    "name": "Electabuzz",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "games": [
+          "red"
+        ],
+        "levels": [
+          33,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "number": 126,
+    "name": "Magmar",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "blue"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "blue"
+        ],
+        "levels": [
+          34,
+          38
+        ]
+      }
+    ]
+  },
+  {
+    "number": 127,
+    "name": "Pinsir",
+    "types": [
+      "bug"
+    ],
+    "games": [
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          28
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "blue",
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 128,
+    "name": "Tauros",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          21,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "number": 129,
+    "name": "Magikarp",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "old-rod",
+        "path": null,
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-12",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-13",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-17",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-18",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      },
+      {
+        "method": "gift",
+        "path": "route-4",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          5,
+          5
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          5,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "number": 130,
+    "name": "Gyarados",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 129,
+      "method": "level",
+      "level": 20
+    },
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "number": 131,
+    "name": "Lapras",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "gift",
+        "path": "saffron-city/silph-co",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "number": 132,
+    "name": "Ditto",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          53,
+          67
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          25,
+          25
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          23,
+          23
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          26,
+          26
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "games": [
+          "red",
+          "blue"
+        ],
+        "levels": [
+          33,
+          43
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          12,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "number": 133,
+    "name": "Eevee",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "gift",
+        "path": "celadon-city",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          25,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "number": 134,
+    "name": "Vaporeon",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "water stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 135,
+    "name": "Jolteon",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "thunder stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 136,
+    "name": "Flareon",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "fire stone"
+    },
+    "encounters": []
+  },
+  {
+    "number": 137,
+    "name": "Porygon",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 138,
+    "name": "Omanyte",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "fossil",
+        "path": "cinnabar-island",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 139,
+    "name": "Omastar",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 138,
+      "method": "level",
+      "level": 40
+    },
+    "encounters": []
+  },
+  {
+    "number": 140,
+    "name": "Kabuto",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "fossil",
+        "path": "cinnabar-island",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 141,
+    "name": "Kabutops",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 140,
+      "method": "level",
+      "level": 40
+    },
+    "encounters": []
+  },
+  {
+    "number": 142,
+    "name": "Aerodactyl",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "fossil",
+        "path": "cinnabar-island",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 143,
+    "name": "Snorlax",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "static",
+        "path": "route-12",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      },
+      {
+        "method": "static",
+        "path": "route-16",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          30,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "number": 144,
+    "name": "Articuno",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "static",
+        "path": "route-20/seafoam-islands",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "number": 145,
+    "name": "Zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "static",
+        "path": "route-10/power-plant",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "number": 146,
+    "name": "Moltres",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "static",
+        "path": "route-23/victory-road",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          50,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "number": 147,
+    "name": "Dratini",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          10,
+          15
+        ]
+      },
+      {
+        "method": "prize",
+        "path": "celadon-city/rocket-game-corner",
+        "games": [
+          "red",
+          "blue"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 148,
+    "name": "Dragonair",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 147,
+      "method": "level",
+      "level": 30
+    },
+    "encounters": [
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city/safari-zone",
+        "games": [
+          "yellow"
+        ],
+        "levels": [
+          15,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "number": 149,
+    "name": "Dragonite",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "evolvesFrom": {
+      "number": 148,
+      "method": "level",
+      "level": 55
+    },
+    "encounters": []
+  },
+  {
+    "number": 150,
+    "name": "Mewtwo",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ],
+    "encounters": [
+      {
+        "method": "static",
+        "path": "cerulean-city/cerulean-cave",
+        "games": [
+          "red",
+          "blue",
+          "yellow"
+        ],
+        "levels": [
+          70,
+          70
+        ]
+      }
+    ]
+  },
+  {
+    "number": 151,
+    "name": "Mew",
+    "types": [
+      "psychic"
+    ],
+    "games": [],
+    "encounters": []
+  }
+]

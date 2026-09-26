@@ -1,8 +1,8 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties } from 'react';
 
 import { X } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
+import { ToggleChip } from '@/components/ToggleChip';
 
 import {
   type FilterKey,
@@ -44,14 +44,14 @@ export const GameFilters = ({
             className="flex flex-wrap gap-1.5"
           >
             {options.map((option) => (
-              <FilterChip
+              <ToggleChip
                 key={option.value}
                 pressed={filters[key].includes(option.value)}
                 title={option.title}
                 onClick={() => onToggle(key, option.value)}
               >
                 <ChipLabel option={option} />
-              </FilterChip>
+              </ToggleChip>
             ))}
           </div>
         </div>
@@ -75,34 +75,6 @@ export const GameFilters = ({
         )}
       </div>
     </div>
-  );
-};
-
-const FilterChip = ({
-  pressed,
-  title,
-  onClick,
-  children,
-}: {
-  pressed: boolean;
-  title?: string;
-  onClick: () => void;
-  children: ReactNode;
-}) => {
-  return (
-    <button
-      type="button"
-      aria-pressed={pressed}
-      title={title}
-      onClick={onClick}
-      className={cn(
-        'group inline-flex h-9 items-center rounded-full border bg-background px-3 text-[13px] font-medium whitespace-nowrap transition-colors hover:border-foreground/30 hover:bg-muted sm:h-8 dark:bg-input/30 dark:hover:bg-input/70',
-        pressed &&
-          'border-foreground bg-foreground text-background hover:border-foreground hover:bg-foreground/85 dark:bg-foreground dark:hover:bg-foreground/85',
-      )}
-    >
-      {children}
-    </button>
   );
 };
 

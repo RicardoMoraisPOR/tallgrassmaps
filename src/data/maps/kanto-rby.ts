@@ -492,6 +492,7 @@ export const kantoRby: Region = {
   id: 'kanto-rby',
   name: 'Kanto',
   versionGroup: 'RBY',
+  pokedexSize: 151,
   image: `${IMAGE_DIR}/town-map.png`,
   width: 160,
   height: 144,

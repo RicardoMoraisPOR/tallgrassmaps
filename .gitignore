@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .claude
+
+# Pinned pret sources downloaded by scripts/pokedex
+vendor/

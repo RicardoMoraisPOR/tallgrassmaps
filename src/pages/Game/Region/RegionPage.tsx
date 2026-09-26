@@ -4,9 +4,11 @@ import { RegionMap } from '@/components/map/RegionMap';
 import { useGameRoute } from '@/hooks/useGameRoute';
 
 import { collectPlaces } from '../places';
+import { PokedexOverlay } from '../Pokedex/PokedexOverlay';
 import { SidebarLayout } from '../SidebarLayout';
 import { MapCredits, MapLegend } from './MapLegend';
 import { PlaceList } from './PlaceList';
+import { PokedexCard } from './PokedexCard';
 
 export const RegionPage = () => {
   const route = useGameRoute();
@@ -17,27 +19,31 @@ export const RegionPage = () => {
 
   if (!route) return null;
 
-  const { region, href } = route;
+  const { game, region, href } = route;
 
   return (
-    <SidebarLayout
-      aside={
-        <>
-          <PlaceList places={collectPlaces(region)} href={href} />
-          <MapLegend />
-        </>
-      }
-    >
-      <div className="flex min-w-0 flex-col gap-3">
-        <RegionMap
-          region={region}
-          locationHref={href}
-          style={{
-            maxWidth: `calc((100svh - 13rem) * ${region.width} / ${region.height})`,
-          }}
-        />
-        <MapCredits region={region} />
-      </div>
-    </SidebarLayout>
+    <>
+      <SidebarLayout
+        aside={
+          <>
+            <PokedexCard game={game} region={region} />
+            <PlaceList places={collectPlaces(region)} href={href} />
+            <MapLegend />
+          </>
+        }
+      >
+        <div className="flex min-w-0 flex-col gap-3">
+          <RegionMap
+            region={region}
+            locationHref={href}
+            style={{
+              maxWidth: `calc((100svh - 13rem) * ${region.width} / ${region.height})`,
+            }}
+          />
+          <MapCredits region={region} />
+        </div>
+      </SidebarLayout>
+      <PokedexOverlay game={game} region={region} href={href} />
+    </>
   );
 };

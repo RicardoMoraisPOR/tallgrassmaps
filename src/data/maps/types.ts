@@ -72,6 +72,7 @@ export type Region = MapImage & {
   id: string;
   name: string;
   versionGroup: string;
+  pokedexSize: number;
   locations: Array<Location>;
   hotspots: Array<Hotspot>;
   cursor?: RegionCursor;

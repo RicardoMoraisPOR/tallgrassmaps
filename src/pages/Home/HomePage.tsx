@@ -6,6 +6,7 @@ import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { coverSources } from '@/data/covers';
 import { kantoRby } from '@/data/maps/kanto-rby';
+import { pokemonSpriteSources } from '@/data/sprites';
 
 import { GamesSection } from './GamesSection';
 import { HeroTownMap } from './HeroTownMap';
@@ -74,7 +75,7 @@ const Footer = () => {
             everything related to it.
           </p>
           <p className="text-pretty">
-            The maps and sprites come from{' '}
+            The maps and cursor sprites come from{' '}
             <FooterLink href="https://www.vgmaps.com/">VGMaps</FooterLink> and{' '}
             <FooterLink href="https://www.spriters-resource.com/">
               The Spriters Resource
@@ -87,7 +88,16 @@ const Footer = () => {
             <FooterLink href={coverSources.thegamesdb.url}>
               {coverSources.thegamesdb.name}
             </FooterLink>
-            . Each map credits the person who ripped it.
+            . Each map credits the person who ripped it. The Pokémon sprites
+            come from{' '}
+            <FooterLink href={pokemonSpriteSources.showdown.url}>
+              {pokemonSpriteSources.showdown.name}
+            </FooterLink>{' '}
+            and the{' '}
+            <FooterLink href={pokemonSpriteSources.smogon.url}>
+              {pokemonSpriteSources.smogon.name}
+            </FooterLink>
+            .
           </p>
         </div>
       </Container>
