@@ -1,0 +1,10698 @@
+[
+  {
+    "name": "Erika",
+    "trainerClass": "erika",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 71,
+            "level": 29
+          },
+          {
+            "number": 114,
+            "level": 24
+          },
+          {
+            "number": 45,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Erika",
+    "trainerClass": "erika",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 114,
+            "level": 30
+          },
+          {
+            "number": 70,
+            "level": 32
+          },
+          {
+            "number": 44,
+            "level": 32
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 69,
+            "level": 23
+          },
+          {
+            "number": 70,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 43,
+            "level": 21
+          },
+          {
+            "number": 69,
+            "level": 21
+          },
+          {
+            "number": 43,
+            "level": 21
+          },
+          {
+            "number": 69,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 1,
+            "level": 24
+          },
+          {
+            "number": 2,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 69,
+            "level": 24
+          },
+          {
+            "number": 69,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 43,
+            "level": 23
+          },
+          {
+            "number": 44,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 102,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♀",
+    "trainerClass": "cooltrainer-f",
+    "path": "celadon-city",
+    "area": "Celadon Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 70,
+            "level": 24
+          },
+          {
+            "number": 44,
+            "level": 24
+          },
+          {
+            "number": 2,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Game Corner",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 20,
+            "level": 20
+          },
+          {
+            "number": 41,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 96,
+            "level": 21
+          },
+          {
+            "number": 66,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 20,
+            "level": 21
+          },
+          {
+            "number": 20,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 20
+          },
+          {
+            "number": 109,
+            "level": 20
+          },
+          {
+            "number": 109,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 19
+          },
+          {
+            "number": 20,
+            "level": 19
+          },
+          {
+            "number": 20,
+            "level": 19
+          },
+          {
+            "number": 19,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 22
+          },
+          {
+            "number": 109,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 41,
+            "level": 17
+          },
+          {
+            "number": 109,
+            "level": 17
+          },
+          {
+            "number": 88,
+            "level": 17
+          },
+          {
+            "number": 41,
+            "level": 17
+          },
+          {
+            "number": 20,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 20
+          },
+          {
+            "number": 20,
+            "level": 20
+          },
+          {
+            "number": 96,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 21
+          },
+          {
+            "number": 66,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jessie & James",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 52,
+            "level": 25
+          },
+          {
+            "number": 23,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Giovanni",
+    "trainerClass": "giovanni",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 95,
+            "level": 25
+          },
+          {
+            "number": 111,
+            "level": 24
+          },
+          {
+            "number": 115,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Giovanni",
+    "trainerClass": "giovanni",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 95,
+            "level": 25
+          },
+          {
+            "number": 111,
+            "level": 24
+          },
+          {
+            "number": 53,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 27,
+            "level": 23
+          },
+          {
+            "number": 23,
+            "level": 23
+          },
+          {
+            "number": 28,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 21
+          },
+          {
+            "number": 41,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 23,
+            "level": 23
+          },
+          {
+            "number": 27,
+            "level": 23
+          },
+          {
+            "number": 24,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "celadon-city/rocket-game-corner",
+    "area": "Rocket Hideout B4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 21
+          },
+          {
+            "number": 41,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival1",
+    "path": "cerulean-city",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 18
+          },
+          {
+            "number": 63,
+            "level": 15
+          },
+          {
+            "number": 19,
+            "level": 15
+          },
+          {
+            "number": 7,
+            "level": 17
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 18
+          },
+          {
+            "number": 63,
+            "level": 15
+          },
+          {
+            "number": 19,
+            "level": 15
+          },
+          {
+            "number": 1,
+            "level": 17
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 18
+          },
+          {
+            "number": 63,
+            "level": 15
+          },
+          {
+            "number": 19,
+            "level": 15
+          },
+          {
+            "number": 4,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival1",
+    "path": "cerulean-city",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 18
+          },
+          {
+            "number": 27,
+            "level": 15
+          },
+          {
+            "number": 19,
+            "level": 15
+          },
+          {
+            "number": 133,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "cerulean-city",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 17
+          },
+          {
+            "number": 96,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Misty",
+    "trainerClass": "misty",
+    "path": "cerulean-city",
+    "area": "Cerulean Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 120,
+            "level": 18
+          },
+          {
+            "number": 121,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "cerulean-city",
+    "area": "Cerulean Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "cerulean-city",
+    "area": "Cerulean Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 116,
+            "level": 16
+          },
+          {
+            "number": 90,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blaine",
+    "trainerClass": "blaine",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 42
+          },
+          {
+            "number": 77,
+            "level": 40
+          },
+          {
+            "number": 78,
+            "level": 42
+          },
+          {
+            "number": 59,
+            "level": 47
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Blaine",
+    "trainerClass": "blaine",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 38,
+            "level": 48
+          },
+          {
+            "number": 78,
+            "level": 50
+          },
+          {
+            "number": 59,
+            "level": 54
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 37,
+            "level": 36
+          },
+          {
+            "number": 37,
+            "level": 36
+          },
+          {
+            "number": 38,
+            "level": 36
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Burglar",
+    "trainerClass": "burglar",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 36
+          },
+          {
+            "number": 37,
+            "level": 36
+          },
+          {
+            "number": 38,
+            "level": 36
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 77,
+            "level": 34
+          },
+          {
+            "number": 4,
+            "level": 34
+          },
+          {
+            "number": 37,
+            "level": 34
+          },
+          {
+            "number": 58,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Burglar",
+    "trainerClass": "burglar",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 77,
+            "level": 41
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 78,
+            "level": 41
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Burglar",
+    "trainerClass": "burglar",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 37,
+            "level": 37
+          },
+          {
+            "number": 58,
+            "level": 37
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "cinnabar-island",
+    "area": "Cinnabar Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 37
+          },
+          {
+            "number": 37,
+            "level": 37
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "cinnabar-island/pokemon-mansion",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 101,
+            "level": 29
+          },
+          {
+            "number": 110,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Burglar",
+    "trainerClass": "burglar",
+    "path": "cinnabar-island/pokemon-mansion",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 4,
+            "level": 34
+          },
+          {
+            "number": 5,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Burglar",
+    "trainerClass": "burglar",
+    "path": "cinnabar-island/pokemon-mansion",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 38,
+            "level": 38
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "cinnabar-island/pokemon-mansion",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 33
+          },
+          {
+            "number": 82,
+            "level": 33
+          },
+          {
+            "number": 100,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Burglar",
+    "trainerClass": "burglar",
+    "path": "cinnabar-island/pokemon-mansion",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 34
+          },
+          {
+            "number": 77,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "cinnabar-island/pokemon-mansion",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 34
+          },
+          {
+            "number": 101,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Koga",
+    "trainerClass": "koga",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 37
+          },
+          {
+            "number": 89,
+            "level": 39
+          },
+          {
+            "number": 109,
+            "level": 37
+          },
+          {
+            "number": 110,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Koga",
+    "trainerClass": "koga",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 48,
+            "level": 44
+          },
+          {
+            "number": 48,
+            "level": 46
+          },
+          {
+            "number": 48,
+            "level": 48
+          },
+          {
+            "number": 49,
+            "level": 50
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Juggler",
+    "trainerClass": "juggler",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 97,
+            "level": 38
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Juggler",
+    "trainerClass": "juggler",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 96,
+            "level": 31
+          },
+          {
+            "number": 96,
+            "level": 31
+          },
+          {
+            "number": 64,
+            "level": 31
+          },
+          {
+            "number": 96,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Juggler",
+    "trainerClass": "juggler",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 96,
+            "level": 34
+          },
+          {
+            "number": 64,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Tamer",
+    "trainerClass": "tamer",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 34
+          },
+          {
+            "number": 24,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Tamer",
+    "trainerClass": "tamer",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 24,
+            "level": 33
+          },
+          {
+            "number": 28,
+            "level": 33
+          },
+          {
+            "number": 24,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Juggler",
+    "trainerClass": "juggler",
+    "path": "fuchsia-city",
+    "area": "Fuchsia Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 96,
+            "level": 34
+          },
+          {
+            "number": 97,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Agatha",
+    "trainerClass": "agatha",
+    "path": "indigo-plateau",
+    "area": "Agatha's Room",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 94,
+            "level": 56
+          },
+          {
+            "number": 42,
+            "level": 56
+          },
+          {
+            "number": 93,
+            "level": 55
+          },
+          {
+            "number": 24,
+            "level": 58
+          },
+          {
+            "number": 94,
+            "level": 60
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bruno",
+    "trainerClass": "bruno",
+    "path": "indigo-plateau",
+    "area": "Bruno's Room",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 95,
+            "level": 53
+          },
+          {
+            "number": 107,
+            "level": 55
+          },
+          {
+            "number": 106,
+            "level": 55
+          },
+          {
+            "number": 95,
+            "level": 56
+          },
+          {
+            "number": 68,
+            "level": 58
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival3",
+    "path": "indigo-plateau",
+    "area": "Champion's Room",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 61
+          },
+          {
+            "number": 65,
+            "level": 59
+          },
+          {
+            "number": 112,
+            "level": 61
+          },
+          {
+            "number": 59,
+            "level": 61
+          },
+          {
+            "number": 103,
+            "level": 63
+          },
+          {
+            "number": 9,
+            "level": 65
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 61
+          },
+          {
+            "number": 65,
+            "level": 59
+          },
+          {
+            "number": 112,
+            "level": 61
+          },
+          {
+            "number": 130,
+            "level": 61
+          },
+          {
+            "number": 59,
+            "level": 63
+          },
+          {
+            "number": 3,
+            "level": 65
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 61
+          },
+          {
+            "number": 65,
+            "level": 59
+          },
+          {
+            "number": 112,
+            "level": 61
+          },
+          {
+            "number": 103,
+            "level": 61
+          },
+          {
+            "number": 130,
+            "level": 63
+          },
+          {
+            "number": 6,
+            "level": 65
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival3",
+    "path": "indigo-plateau",
+    "area": "Champion's Room",
+    "parties": [
+      {
+        "label": "If Eevee becomes Jolteon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 61
+          },
+          {
+            "number": 65,
+            "level": 59
+          },
+          {
+            "number": 103,
+            "level": 61
+          },
+          {
+            "number": 91,
+            "level": 61
+          },
+          {
+            "number": 38,
+            "level": 63
+          },
+          {
+            "number": 135,
+            "level": 65
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Flareon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 61
+          },
+          {
+            "number": 65,
+            "level": 59
+          },
+          {
+            "number": 103,
+            "level": 61
+          },
+          {
+            "number": 82,
+            "level": 61
+          },
+          {
+            "number": 91,
+            "level": 63
+          },
+          {
+            "number": 136,
+            "level": 65
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Vaporeon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 61
+          },
+          {
+            "number": 65,
+            "level": 59
+          },
+          {
+            "number": 103,
+            "level": 61
+          },
+          {
+            "number": 38,
+            "level": 61
+          },
+          {
+            "number": 82,
+            "level": 63
+          },
+          {
+            "number": 134,
+            "level": 65
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lance",
+    "trainerClass": "lance",
+    "path": "indigo-plateau",
+    "area": "Lance's Room",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 130,
+            "level": 58
+          },
+          {
+            "number": 148,
+            "level": 56
+          },
+          {
+            "number": 148,
+            "level": 56
+          },
+          {
+            "number": 142,
+            "level": 60
+          },
+          {
+            "number": 149,
+            "level": 62
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lorelei",
+    "trainerClass": "lorelei",
+    "path": "indigo-plateau",
+    "area": "Lorelei's Room",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 87,
+            "level": 54
+          },
+          {
+            "number": 91,
+            "level": 53
+          },
+          {
+            "number": 80,
+            "level": 54
+          },
+          {
+            "number": 124,
+            "level": 56
+          },
+          {
+            "number": 131,
+            "level": 56
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "lavender-town/pokemon-tower",
+    "area": "2F",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 25
+          },
+          {
+            "number": 58,
+            "level": 23
+          },
+          {
+            "number": 102,
+            "level": 22
+          },
+          {
+            "number": 64,
+            "level": 20
+          },
+          {
+            "number": 8,
+            "level": 25
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 25
+          },
+          {
+            "number": 130,
+            "level": 23
+          },
+          {
+            "number": 58,
+            "level": 22
+          },
+          {
+            "number": 64,
+            "level": 20
+          },
+          {
+            "number": 2,
+            "level": 25
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 25
+          },
+          {
+            "number": 102,
+            "level": 23
+          },
+          {
+            "number": 130,
+            "level": 22
+          },
+          {
+            "number": 64,
+            "level": 20
+          },
+          {
+            "number": 5,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "lavender-town/pokemon-tower",
+    "area": "2F",
+    "parties": [
+      {
+        "label": "If Eevee becomes Jolteon",
+        "pokemon": [
+          {
+            "number": 22,
+            "level": 25
+          },
+          {
+            "number": 90,
+            "level": 23
+          },
+          {
+            "number": 37,
+            "level": 22
+          },
+          {
+            "number": 27,
+            "level": 20
+          },
+          {
+            "number": 133,
+            "level": 25
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Flareon",
+        "pokemon": [
+          {
+            "number": 22,
+            "level": 25
+          },
+          {
+            "number": 81,
+            "level": 23
+          },
+          {
+            "number": 90,
+            "level": 22
+          },
+          {
+            "number": 27,
+            "level": 20
+          },
+          {
+            "number": 133,
+            "level": 25
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Vaporeon",
+        "pokemon": [
+          {
+            "number": 22,
+            "level": 25
+          },
+          {
+            "number": 37,
+            "level": 23
+          },
+          {
+            "number": 81,
+            "level": 22
+          },
+          {
+            "number": 27,
+            "level": 20
+          },
+          {
+            "number": 133,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 23
+          },
+          {
+            "number": 92,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 93,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 93,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "6F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 22
+          },
+          {
+            "number": 92,
+            "level": 22
+          },
+          {
+            "number": 92,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "6F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "lavender-town/pokemon-tower",
+    "area": "6F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jessie & James",
+    "trainerClass": "rocket",
+    "path": "lavender-town/pokemon-tower",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 52,
+            "level": 27
+          },
+          {
+            "number": 24,
+            "level": 27
+          },
+          {
+            "number": 110,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "lavender-town/pokemon-tower",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 41,
+            "level": 25
+          },
+          {
+            "number": 41,
+            "level": 25
+          },
+          {
+            "number": 42,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "lavender-town/pokemon-tower",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 26
+          },
+          {
+            "number": 96,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "lavender-town/pokemon-tower",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 41,
+            "level": 23
+          },
+          {
+            "number": 19,
+            "level": 23
+          },
+          {
+            "number": 20,
+            "level": 23
+          },
+          {
+            "number": 41,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival1",
+    "path": "pallet-town",
+    "area": "Oak's Lab",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 7,
+            "level": 5
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 1,
+            "level": 5
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 4,
+            "level": 5
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival1",
+    "path": "pallet-town",
+    "area": "Oak's Lab",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 133,
+            "level": 5
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Brock",
+    "trainerClass": "brock",
+    "path": "pewter-city",
+    "area": "Pewter Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 12
+          },
+          {
+            "number": 95,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Brock",
+    "trainerClass": "brock",
+    "path": "pewter-city",
+    "area": "Pewter Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 10
+          },
+          {
+            "number": 95,
+            "level": 12
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "pewter-city",
+    "area": "Pewter Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 50,
+            "level": 11
+          },
+          {
+            "number": 27,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "pewter-city",
+    "area": "Pewter Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 50,
+            "level": 9
+          },
+          {
+            "number": 27,
+            "level": 9
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 13,
+            "level": 6
+          },
+          {
+            "number": 10,
+            "level": 6
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 7
+          },
+          {
+            "number": 10,
+            "level": 7
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 13,
+            "level": 7
+          },
+          {
+            "number": 14,
+            "level": 7
+          },
+          {
+            "number": 13,
+            "level": 7
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 11,
+            "level": 6
+          },
+          {
+            "number": 10,
+            "level": 6
+          },
+          {
+            "number": 11,
+            "level": 6
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 13,
+            "level": 9
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 10
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 29,
+            "level": 6
+          },
+          {
+            "number": 32,
+            "level": 6
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-2/viridian-forest",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 8
+          },
+          {
+            "number": 11,
+            "level": 8
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 10
+          },
+          {
+            "number": 13,
+            "level": 10
+          },
+          {
+            "number": 10,
+            "level": 10
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 11
+          },
+          {
+            "number": 23,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 9
+          },
+          {
+            "number": 16,
+            "level": 9
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 13,
+            "level": 9
+          },
+          {
+            "number": 14,
+            "level": 9
+          },
+          {
+            "number": 10,
+            "level": 9
+          },
+          {
+            "number": 11,
+            "level": 9
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 10
+          },
+          {
+            "number": 32,
+            "level": 10
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 11
+          },
+          {
+            "number": 11,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-3",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 39,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-4",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 46,
+            "level": 31
+          },
+          {
+            "number": 46,
+            "level": 31
+          },
+          {
+            "number": 47,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-4/mt-moon",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 10
+          },
+          {
+            "number": 74,
+            "level": 10
+          },
+          {
+            "number": 95,
+            "level": 10
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-4/mt-moon",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 10
+          },
+          {
+            "number": 19,
+            "level": 10
+          },
+          {
+            "number": 41,
+            "level": 10
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-4/mt-moon",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 43,
+            "level": 11
+          },
+          {
+            "number": 69,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "route-4/mt-moon",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 11
+          },
+          {
+            "number": 100,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-4/mt-moon",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 35,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-4/mt-moon",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 13,
+            "level": 11
+          },
+          {
+            "number": 14,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-4/mt-moon",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 10
+          },
+          {
+            "number": 11,
+            "level": 10
+          },
+          {
+            "number": 10,
+            "level": 10
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jessie & James",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 23,
+            "level": 14
+          },
+          {
+            "number": 52,
+            "level": 14
+          },
+          {
+            "number": 109,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 12
+          },
+          {
+            "number": 100,
+            "level": 12
+          },
+          {
+            "number": 109,
+            "level": 12
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 13
+          },
+          {
+            "number": 41,
+            "level": 13
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 27,
+            "level": 11
+          },
+          {
+            "number": 19,
+            "level": 11
+          },
+          {
+            "number": 41,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 27,
+            "level": 11
+          },
+          {
+            "number": 19,
+            "level": 11
+          },
+          {
+            "number": 41,
+            "level": 11
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 41,
+            "level": 12
+          },
+          {
+            "number": 23,
+            "level": 12
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 41,
+            "level": 12
+          },
+          {
+            "number": 23,
+            "level": 12
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 13
+          },
+          {
+            "number": 41,
+            "level": 13
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-4/mt-moon",
+    "area": "B2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 20,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 7,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 70,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 16
+          },
+          {
+            "number": 25,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 104,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 13,
+            "level": 16
+          },
+          {
+            "number": 10,
+            "level": 16
+          },
+          {
+            "number": 13,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 16
+          },
+          {
+            "number": 20,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 16
+          },
+          {
+            "number": 16,
+            "level": 16
+          },
+          {
+            "number": 16,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-6",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 12,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 20
+          },
+          {
+            "number": 109,
+            "level": 20
+          },
+          {
+            "number": 100,
+            "level": 20
+          },
+          {
+            "number": 81,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gambler",
+    "trainerClass": "gambler",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 22
+          },
+          {
+            "number": 60,
+            "level": 22
+          },
+          {
+            "number": 61,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 22
+          },
+          {
+            "number": 89,
+            "level": 22
+          },
+          {
+            "number": 88,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 29,
+            "level": 23
+          },
+          {
+            "number": 30,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Super Nerd",
+    "trainerClass": "super-nerd",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 52,
+            "level": 24
+          },
+          {
+            "number": 52,
+            "level": 24
+          },
+          {
+            "number": 52,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 19
+          },
+          {
+            "number": 19,
+            "level": 19
+          },
+          {
+            "number": 32,
+            "level": 19
+          },
+          {
+            "number": 52,
+            "level": 19
+          },
+          {
+            "number": 25,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 19
+          },
+          {
+            "number": 19,
+            "level": 19
+          },
+          {
+            "number": 29,
+            "level": 19
+          },
+          {
+            "number": 52,
+            "level": 19
+          },
+          {
+            "number": 32,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gambler",
+    "trainerClass": "gambler",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 24
+          },
+          {
+            "number": 37,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-8",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 35,
+            "level": 22
+          },
+          {
+            "number": 35,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 43,
+            "level": 18
+          },
+          {
+            "number": 69,
+            "level": 18
+          },
+          {
+            "number": 43,
+            "level": 18
+          },
+          {
+            "number": 69,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 21
+          },
+          {
+            "number": 4,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 27,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 19
+          },
+          {
+            "number": 50,
+            "level": 19
+          },
+          {
+            "number": 23,
+            "level": 19
+          },
+          {
+            "number": 27,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 52,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 20
+          },
+          {
+            "number": 95,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 20
+          },
+          {
+            "number": 66,
+            "level": 20
+          },
+          {
+            "number": 74,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 15,
+            "level": 19
+          },
+          {
+            "number": 15,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 21
+          },
+          {
+            "number": 95,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-9",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 20
+          },
+          {
+            "number": 13,
+            "level": 20
+          },
+          {
+            "number": 48,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "PokéManiac",
+    "trainerClass": "pokemaniac",
+    "path": "route-10",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 111,
+            "level": 30
+          },
+          {
+            "number": 108,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 21
+          },
+          {
+            "number": 95,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "PokéManiac",
+    "trainerClass": "pokemaniac",
+    "path": "route-10",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 104,
+            "level": 20
+          },
+          {
+            "number": 79,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 25,
+            "level": 20
+          },
+          {
+            "number": 35,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 39,
+            "level": 20
+          },
+          {
+            "number": 35,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 95,
+            "level": 19
+          },
+          {
+            "number": 75,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 21
+          },
+          {
+            "number": 17,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10/rock-tunnel",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 19
+          },
+          {
+            "number": 66,
+            "level": 19
+          },
+          {
+            "number": 74,
+            "level": 19
+          },
+          {
+            "number": 74,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10/rock-tunnel",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 95,
+            "level": 20
+          },
+          {
+            "number": 95,
+            "level": 20
+          },
+          {
+            "number": 74,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10/rock-tunnel",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 21
+          },
+          {
+            "number": 75,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "PokéManiac",
+    "trainerClass": "pokemaniac",
+    "path": "route-10/rock-tunnel",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 104,
+            "level": 23
+          },
+          {
+            "number": 79,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10/rock-tunnel",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 69,
+            "level": 22
+          },
+          {
+            "number": 35,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10/rock-tunnel",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 52,
+            "level": 20
+          },
+          {
+            "number": 43,
+            "level": 20
+          },
+          {
+            "number": 16,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10/rock-tunnel",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 19
+          },
+          {
+            "number": 19,
+            "level": 19
+          },
+          {
+            "number": 19,
+            "level": 19
+          },
+          {
+            "number": 69,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 39,
+            "level": 21
+          },
+          {
+            "number": 16,
+            "level": 21
+          },
+          {
+            "number": 52,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 21
+          },
+          {
+            "number": 74,
+            "level": 21
+          },
+          {
+            "number": 75,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "PokéManiac",
+    "trainerClass": "pokemaniac",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 79,
+            "level": 20
+          },
+          {
+            "number": 79,
+            "level": 20
+          },
+          {
+            "number": 79,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "PokéManiac",
+    "trainerClass": "pokemaniac",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 4,
+            "level": 22
+          },
+          {
+            "number": 104,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 43,
+            "level": 22
+          },
+          {
+            "number": 1,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 20
+          },
+          {
+            "number": 95,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "PokéManiac",
+    "trainerClass": "pokemaniac",
+    "path": "route-10/rock-tunnel",
+    "area": "B1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 79,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gambler",
+    "trainerClass": "gambler",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 18
+          },
+          {
+            "number": 116,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gambler",
+    "trainerClass": "gambler",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 69,
+            "level": 18
+          },
+          {
+            "number": 43,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 23,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Engineer",
+    "trainerClass": "engineer",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 27,
+            "level": 19
+          },
+          {
+            "number": 41,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gambler",
+    "trainerClass": "gambler",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 18
+          },
+          {
+            "number": 81,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gambler",
+    "trainerClass": "gambler",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 18
+          },
+          {
+            "number": 37,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 17
+          },
+          {
+            "number": 19,
+            "level": 17
+          },
+          {
+            "number": 20,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Engineer",
+    "trainerClass": "engineer",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 18
+          },
+          {
+            "number": 81,
+            "level": 18
+          },
+          {
+            "number": 82,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-11",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 32,
+            "level": 18
+          },
+          {
+            "number": 33,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-12",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 22
+          },
+          {
+            "number": 60,
+            "level": 22
+          },
+          {
+            "number": 118,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-12",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 72,
+            "level": 24
+          },
+          {
+            "number": 118,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-12",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 32,
+            "level": 29
+          },
+          {
+            "number": 33,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocker",
+    "trainerClass": "rocker",
+    "path": "route-12",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 29
+          },
+          {
+            "number": 101,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-12",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-12",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 21
+          },
+          {
+            "number": 90,
+            "level": 21
+          },
+          {
+            "number": 118,
+            "level": 21
+          },
+          {
+            "number": 116,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-12",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 129,
+            "level": 24
+          },
+          {
+            "number": 129,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 29
+          },
+          {
+            "number": 17,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 24
+          },
+          {
+            "number": 52,
+            "level": 24
+          },
+          {
+            "number": 19,
+            "level": 24
+          },
+          {
+            "number": 25,
+            "level": 24
+          },
+          {
+            "number": 52,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 24
+          },
+          {
+            "number": 52,
+            "level": 24
+          },
+          {
+            "number": 19,
+            "level": 24
+          },
+          {
+            "number": 16,
+            "level": 24
+          },
+          {
+            "number": 52,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 30
+          },
+          {
+            "number": 60,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 27
+          },
+          {
+            "number": 52,
+            "level": 27
+          },
+          {
+            "number": 16,
+            "level": 27
+          },
+          {
+            "number": 17,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 28
+          },
+          {
+            "number": 60,
+            "level": 28
+          },
+          {
+            "number": 116,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 25
+          },
+          {
+            "number": 16,
+            "level": 25
+          },
+          {
+            "number": 16,
+            "level": 25
+          },
+          {
+            "number": 21,
+            "level": 25
+          },
+          {
+            "number": 21,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 27
+          },
+          {
+            "number": 25,
+            "level": 27
+          },
+          {
+            "number": 19,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 27
+          },
+          {
+            "number": 37,
+            "level": 27
+          },
+          {
+            "number": 19,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 35,
+            "level": 29
+          },
+          {
+            "number": 52,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 28
+          },
+          {
+            "number": 109,
+            "level": 28
+          },
+          {
+            "number": 109,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-13",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 26
+          },
+          {
+            "number": 17,
+            "level": 26
+          },
+          {
+            "number": 21,
+            "level": 26
+          },
+          {
+            "number": 22,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 28
+          },
+          {
+            "number": 84,
+            "level": 28
+          },
+          {
+            "number": 17,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 26
+          },
+          {
+            "number": 21,
+            "level": 26
+          },
+          {
+            "number": 16,
+            "level": 26
+          },
+          {
+            "number": 22,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 29
+          },
+          {
+            "number": 22,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 28
+          },
+          {
+            "number": 84,
+            "level": 28
+          },
+          {
+            "number": 22,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 83,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 29
+          },
+          {
+            "number": 22,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 26
+          },
+          {
+            "number": 109,
+            "level": 26
+          },
+          {
+            "number": 88,
+            "level": 26
+          },
+          {
+            "number": 109,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 28
+          },
+          {
+            "number": 88,
+            "level": 28
+          },
+          {
+            "number": 109,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 29
+          },
+          {
+            "number": 89,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-14",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 29
+          },
+          {
+            "number": 88,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 44,
+            "level": 28
+          },
+          {
+            "number": 43,
+            "level": 28
+          },
+          {
+            "number": 43,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 25,
+            "level": 29
+          },
+          {
+            "number": 26,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 29
+          },
+          {
+            "number": 17,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 26
+          },
+          {
+            "number": 83,
+            "level": 26
+          },
+          {
+            "number": 84,
+            "level": 26
+          },
+          {
+            "number": 16,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 85,
+            "level": 28
+          },
+          {
+            "number": 84,
+            "level": 28
+          },
+          {
+            "number": 84,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 29
+          },
+          {
+            "number": 40,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 1,
+            "level": 29
+          },
+          {
+            "number": 2,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 110,
+            "level": 25
+          },
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 88,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 28
+          },
+          {
+            "number": 88,
+            "level": 28
+          },
+          {
+            "number": 110,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 35,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-15",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 69,
+            "level": 29
+          },
+          {
+            "number": 43,
+            "level": 29
+          },
+          {
+            "number": 114,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-16",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 29
+          },
+          {
+            "number": 109,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-16",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 28
+          },
+          {
+            "number": 56,
+            "level": 28
+          },
+          {
+            "number": 66,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-16",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 56,
+            "level": 29
+          },
+          {
+            "number": 66,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-16",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 110,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-16",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-16",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 26
+          },
+          {
+            "number": 88,
+            "level": 26
+          },
+          {
+            "number": 88,
+            "level": 26
+          },
+          {
+            "number": 88,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 56,
+            "level": 29
+          },
+          {
+            "number": 57,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 29
+          },
+          {
+            "number": 67,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 110,
+            "level": 28
+          },
+          {
+            "number": 109,
+            "level": 28
+          },
+          {
+            "number": 110,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 89,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 29
+          },
+          {
+            "number": 100,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 67,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 56,
+            "level": 26
+          },
+          {
+            "number": 56,
+            "level": 26
+          },
+          {
+            "number": 67,
+            "level": 26
+          },
+          {
+            "number": 66,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 57,
+            "level": 29
+          },
+          {
+            "number": 67,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 110,
+            "level": 29
+          },
+          {
+            "number": 89,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-17",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 110,
+            "level": 25
+          },
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 110,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-18",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 29
+          },
+          {
+            "number": 22,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-18",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 85,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-18",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 26
+          },
+          {
+            "number": 21,
+            "level": 26
+          },
+          {
+            "number": 22,
+            "level": 26
+          },
+          {
+            "number": 21,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 72,
+            "level": 30
+          },
+          {
+            "number": 90,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 29
+          },
+          {
+            "number": 116,
+            "level": 29
+          },
+          {
+            "number": 120,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 30
+          },
+          {
+            "number": 61,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 116,
+            "level": 27
+          },
+          {
+            "number": 72,
+            "level": 27
+          },
+          {
+            "number": 72,
+            "level": 27
+          },
+          {
+            "number": 118,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 29
+          },
+          {
+            "number": 90,
+            "level": 29
+          },
+          {
+            "number": 119,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 116,
+            "level": 30
+          },
+          {
+            "number": 116,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 27
+          },
+          {
+            "number": 118,
+            "level": 27
+          },
+          {
+            "number": 119,
+            "level": 27
+          },
+          {
+            "number": 118,
+            "level": 27
+          },
+          {
+            "number": 60,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 30
+          },
+          {
+            "number": 119,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 72,
+            "level": 27
+          },
+          {
+            "number": 72,
+            "level": 27
+          },
+          {
+            "number": 120,
+            "level": 27
+          },
+          {
+            "number": 116,
+            "level": 27
+          },
+          {
+            "number": 73,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-19",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 120,
+            "level": 29
+          },
+          {
+            "number": 120,
+            "level": 29
+          },
+          {
+            "number": 120,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 90,
+            "level": 31
+          },
+          {
+            "number": 91,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 117,
+            "level": 30
+          },
+          {
+            "number": 116,
+            "level": 30
+          },
+          {
+            "number": 117,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 119,
+            "level": 35
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 72,
+            "level": 30
+          },
+          {
+            "number": 116,
+            "level": 30
+          },
+          {
+            "number": 86,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 120,
+            "level": 35
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 116,
+            "level": 28
+          },
+          {
+            "number": 116,
+            "level": 28
+          },
+          {
+            "number": 117,
+            "level": 28
+          },
+          {
+            "number": 116,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 22,
+            "level": 30
+          },
+          {
+            "number": 22,
+            "level": 30
+          },
+          {
+            "number": 17,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 90,
+            "level": 30
+          },
+          {
+            "number": 90,
+            "level": 30
+          },
+          {
+            "number": 91,
+            "level": 30
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♀",
+    "trainerClass": "jr-trainer-f",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 31
+          },
+          {
+            "number": 119,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Beauty",
+    "trainerClass": "beauty",
+    "path": "route-20",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 31
+          },
+          {
+            "number": 119,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 119,
+            "level": 28
+          },
+          {
+            "number": 118,
+            "level": 28
+          },
+          {
+            "number": 119,
+            "level": 28
+          },
+          {
+            "number": 119,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 129,
+            "level": 27
+          },
+          {
+            "number": 129,
+            "level": 27
+          },
+          {
+            "number": 129,
+            "level": 27
+          },
+          {
+            "number": 129,
+            "level": 27
+          },
+          {
+            "number": 129,
+            "level": 27
+          },
+          {
+            "number": 129,
+            "level": 27
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 117,
+            "level": 33
+          },
+          {
+            "number": 73,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cue Ball",
+    "trainerClass": "cue-ball",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 72,
+            "level": 31
+          },
+          {
+            "number": 72,
+            "level": 31
+          },
+          {
+            "number": 73,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 121,
+            "level": 37
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 120,
+            "level": 33
+          },
+          {
+            "number": 8,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Swimmer",
+    "trainerClass": "swimmer",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 61,
+            "level": 32
+          },
+          {
+            "number": 72,
+            "level": 32
+          },
+          {
+            "number": 117,
+            "level": 32
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 90,
+            "level": 31
+          },
+          {
+            "number": 91,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-21",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 119,
+            "level": 33
+          },
+          {
+            "number": 118,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival1",
+    "path": "route-22",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 9
+          },
+          {
+            "number": 7,
+            "level": 8
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 9
+          },
+          {
+            "number": 1,
+            "level": 8
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 9
+          },
+          {
+            "number": 4,
+            "level": 8
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "route-22",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 47
+          },
+          {
+            "number": 111,
+            "level": 45
+          },
+          {
+            "number": 58,
+            "level": 45
+          },
+          {
+            "number": 102,
+            "level": 47
+          },
+          {
+            "number": 65,
+            "level": 50
+          },
+          {
+            "number": 9,
+            "level": 53
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 47
+          },
+          {
+            "number": 111,
+            "level": 45
+          },
+          {
+            "number": 130,
+            "level": 45
+          },
+          {
+            "number": 58,
+            "level": 47
+          },
+          {
+            "number": 65,
+            "level": 50
+          },
+          {
+            "number": 3,
+            "level": 53
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 47
+          },
+          {
+            "number": 111,
+            "level": 45
+          },
+          {
+            "number": 102,
+            "level": 45
+          },
+          {
+            "number": 130,
+            "level": 47
+          },
+          {
+            "number": 65,
+            "level": 50
+          },
+          {
+            "number": 6,
+            "level": 53
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival1",
+    "path": "route-22",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 9
+          },
+          {
+            "number": 133,
+            "level": 8
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "route-22",
+    "parties": [
+      {
+        "label": "If Eevee becomes Jolteon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 47
+          },
+          {
+            "number": 102,
+            "level": 45
+          },
+          {
+            "number": 38,
+            "level": 45
+          },
+          {
+            "number": 91,
+            "level": 47
+          },
+          {
+            "number": 64,
+            "level": 50
+          },
+          {
+            "number": 135,
+            "level": 53
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Flareon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 47
+          },
+          {
+            "number": 102,
+            "level": 45
+          },
+          {
+            "number": 91,
+            "level": 45
+          },
+          {
+            "number": 82,
+            "level": 47
+          },
+          {
+            "number": 64,
+            "level": 50
+          },
+          {
+            "number": 136,
+            "level": 53
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Vaporeon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 47
+          },
+          {
+            "number": 102,
+            "level": 45
+          },
+          {
+            "number": 82,
+            "level": 45
+          },
+          {
+            "number": 38,
+            "level": 47
+          },
+          {
+            "number": 64,
+            "level": 50
+          },
+          {
+            "number": 134,
+            "level": 53
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♀",
+    "trainerClass": "cooltrainer-f",
+    "path": "route-23/victory-road",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 53,
+            "level": 44
+          },
+          {
+            "number": 38,
+            "level": 44
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♂",
+    "trainerClass": "cooltrainer-m",
+    "path": "route-23/victory-road",
+    "area": "1F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 2,
+            "level": 42
+          },
+          {
+            "number": 8,
+            "level": 42
+          },
+          {
+            "number": 5,
+            "level": 42
+          },
+          {
+            "number": 6,
+            "level": 42
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "route-23/victory-road",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 67,
+            "level": 43
+          },
+          {
+            "number": 66,
+            "level": 43
+          },
+          {
+            "number": 67,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Juggler",
+    "trainerClass": "juggler",
+    "path": "route-23/victory-road",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 96,
+            "level": 41
+          },
+          {
+            "number": 97,
+            "level": 41
+          },
+          {
+            "number": 64,
+            "level": 41
+          },
+          {
+            "number": 64,
+            "level": 41
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Tamer",
+    "trainerClass": "tamer",
+    "path": "route-23/victory-road",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 53,
+            "level": 44
+          },
+          {
+            "number": 55,
+            "level": 44
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "PokéManiac",
+    "trainerClass": "pokemaniac",
+    "path": "route-23/victory-road",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 5,
+            "level": 40
+          },
+          {
+            "number": 131,
+            "level": 40
+          },
+          {
+            "number": 108,
+            "level": 40
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Juggler",
+    "trainerClass": "juggler",
+    "path": "route-23/victory-road",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 122,
+            "level": 48
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♂",
+    "trainerClass": "cooltrainer-m",
+    "path": "route-23/victory-road",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 103,
+            "level": 43
+          },
+          {
+            "number": 91,
+            "level": 43
+          },
+          {
+            "number": 59,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♀",
+    "trainerClass": "cooltrainer-f",
+    "path": "route-23/victory-road",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 69,
+            "level": 43
+          },
+          {
+            "number": 70,
+            "level": 43
+          },
+          {
+            "number": 71,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♂",
+    "trainerClass": "cooltrainer-m",
+    "path": "route-23/victory-road",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 99,
+            "level": 43
+          },
+          {
+            "number": 73,
+            "level": 43
+          },
+          {
+            "number": 9,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♀",
+    "trainerClass": "cooltrainer-f",
+    "path": "route-23/victory-road",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 47,
+            "level": 43
+          },
+          {
+            "number": 87,
+            "level": 43
+          },
+          {
+            "number": 113,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "route-24",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 23,
+            "level": 15
+          },
+          {
+            "number": 41,
+            "level": 15
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-24",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 14
+          },
+          {
+            "number": 23,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-24",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 56,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-24",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 16
+          },
+          {
+            "number": 29,
+            "level": 16
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-24",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 14
+          },
+          {
+            "number": 23,
+            "level": 14
+          },
+          {
+            "number": 41,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-24",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 14
+          },
+          {
+            "number": 29,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-24",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 10,
+            "level": 14
+          },
+          {
+            "number": 13,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 15
+          },
+          {
+            "number": 21,
+            "level": 15
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 79,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jr. Trainer ♂",
+    "trainerClass": "jr-trainer-m",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 14
+          },
+          {
+            "number": 23,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 32,
+            "level": 15
+          },
+          {
+            "number": 29,
+            "level": 15
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 23,
+            "level": 14
+          },
+          {
+            "number": 27,
+            "level": 14
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 43,
+            "level": 13
+          },
+          {
+            "number": 16,
+            "level": 13
+          },
+          {
+            "number": 43,
+            "level": 13
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 15
+          },
+          {
+            "number": 74,
+            "level": 15
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 74,
+            "level": 13
+          },
+          {
+            "number": 74,
+            "level": 13
+          },
+          {
+            "number": 66,
+            "level": 13
+          },
+          {
+            "number": 74,
+            "level": 13
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Hiker",
+    "trainerClass": "hiker",
+    "path": "route-25",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 95,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "saffron-city",
+    "area": "Fighting Dojo",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 106,
+            "level": 37
+          },
+          {
+            "number": 107,
+            "level": 37
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "saffron-city",
+    "area": "Fighting Dojo",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 56,
+            "level": 31
+          },
+          {
+            "number": 56,
+            "level": 31
+          },
+          {
+            "number": 57,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "saffron-city",
+    "area": "Fighting Dojo",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 32
+          },
+          {
+            "number": 67,
+            "level": 32
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "saffron-city",
+    "area": "Fighting Dojo",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 57,
+            "level": 36
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "saffron-city",
+    "area": "Fighting Dojo",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 31
+          },
+          {
+            "number": 56,
+            "level": 31
+          },
+          {
+            "number": 57,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sabrina",
+    "trainerClass": "sabrina",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 64,
+            "level": 38
+          },
+          {
+            "number": 122,
+            "level": 37
+          },
+          {
+            "number": 49,
+            "level": 38
+          },
+          {
+            "number": 65,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Sabrina",
+    "trainerClass": "sabrina",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 63,
+            "level": 50
+          },
+          {
+            "number": 64,
+            "level": 50
+          },
+          {
+            "number": 65,
+            "level": 50
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 34
+          },
+          {
+            "number": 93,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Psychic",
+    "trainerClass": "psychic-tr",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 64,
+            "level": 31
+          },
+          {
+            "number": 79,
+            "level": 31
+          },
+          {
+            "number": 122,
+            "level": 31
+          },
+          {
+            "number": 64,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 93,
+            "level": 38
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Psychic",
+    "trainerClass": "psychic-tr",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 122,
+            "level": 34
+          },
+          {
+            "number": 64,
+            "level": 34
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Channeler",
+    "trainerClass": "channeler",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 92,
+            "level": 33
+          },
+          {
+            "number": 92,
+            "level": 33
+          },
+          {
+            "number": 93,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Psychic",
+    "trainerClass": "psychic-tr",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 79,
+            "level": 33
+          },
+          {
+            "number": 79,
+            "level": 33
+          },
+          {
+            "number": 80,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Psychic",
+    "trainerClass": "psychic-tr",
+    "path": "saffron-city",
+    "area": "Saffron Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 80,
+            "level": 38
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 26
+          },
+          {
+            "number": 110,
+            "level": 26
+          },
+          {
+            "number": 109,
+            "level": 26
+          },
+          {
+            "number": 110,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 28
+          },
+          {
+            "number": 100,
+            "level": 28
+          },
+          {
+            "number": 82,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 104,
+            "level": 29
+          },
+          {
+            "number": 41,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 42,
+            "level": 25
+          },
+          {
+            "number": 41,
+            "level": 25
+          },
+          {
+            "number": 41,
+            "level": 25
+          },
+          {
+            "number": 20,
+            "level": 25
+          },
+          {
+            "number": 41,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 20,
+            "level": 28
+          },
+          {
+            "number": 97,
+            "level": 28
+          },
+          {
+            "number": 20,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "3F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 101,
+            "level": 29
+          },
+          {
+            "number": 110,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 29
+          },
+          {
+            "number": 96,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 101,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "4F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 23,
+            "level": 28
+          },
+          {
+            "number": 41,
+            "level": 28
+          },
+          {
+            "number": 104,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 24,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 82,
+            "level": 26
+          },
+          {
+            "number": 109,
+            "level": 26
+          },
+          {
+            "number": 110,
+            "level": 26
+          },
+          {
+            "number": 81,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Juggler",
+    "trainerClass": "juggler",
+    "path": "saffron-city/silph-co",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 64,
+            "level": 29
+          },
+          {
+            "number": 122,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "5F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 97,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "6F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 29
+          },
+          {
+            "number": 67,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "6F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 25
+          },
+          {
+            "number": 109,
+            "level": 25
+          },
+          {
+            "number": 82,
+            "level": 25
+          },
+          {
+            "number": 81,
+            "level": 25
+          },
+          {
+            "number": 109,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "6F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 41,
+            "level": 28
+          },
+          {
+            "number": 41,
+            "level": 28
+          },
+          {
+            "number": 42,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "saffron-city/silph-co",
+    "area": "7F",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 37
+          },
+          {
+            "number": 58,
+            "level": 38
+          },
+          {
+            "number": 102,
+            "level": 35
+          },
+          {
+            "number": 65,
+            "level": 35
+          },
+          {
+            "number": 9,
+            "level": 40
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 37
+          },
+          {
+            "number": 130,
+            "level": 38
+          },
+          {
+            "number": 58,
+            "level": 35
+          },
+          {
+            "number": 65,
+            "level": 35
+          },
+          {
+            "number": 3,
+            "level": 40
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 18,
+            "level": 37
+          },
+          {
+            "number": 102,
+            "level": 38
+          },
+          {
+            "number": 130,
+            "level": 35
+          },
+          {
+            "number": 65,
+            "level": 35
+          },
+          {
+            "number": 6,
+            "level": 40
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "saffron-city/silph-co",
+    "area": "7F",
+    "parties": [
+      {
+        "label": "If Eevee becomes Jolteon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 38
+          },
+          {
+            "number": 38,
+            "level": 35
+          },
+          {
+            "number": 91,
+            "level": 37
+          },
+          {
+            "number": 64,
+            "level": 35
+          },
+          {
+            "number": 135,
+            "level": 40
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Flareon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 38
+          },
+          {
+            "number": 91,
+            "level": 35
+          },
+          {
+            "number": 82,
+            "level": 37
+          },
+          {
+            "number": 64,
+            "level": 35
+          },
+          {
+            "number": 136,
+            "level": 40
+          }
+        ]
+      },
+      {
+        "label": "If Eevee becomes Vaporeon",
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 38
+          },
+          {
+            "number": 82,
+            "level": 35
+          },
+          {
+            "number": 38,
+            "level": 37
+          },
+          {
+            "number": 64,
+            "level": 35
+          },
+          {
+            "number": 134,
+            "level": 40
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 20,
+            "level": 26
+          },
+          {
+            "number": 24,
+            "level": 26
+          },
+          {
+            "number": 109,
+            "level": 26
+          },
+          {
+            "number": 42,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 101,
+            "level": 29
+          },
+          {
+            "number": 89,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 104,
+            "level": 29
+          },
+          {
+            "number": 104,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "7F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 27,
+            "level": 29
+          },
+          {
+            "number": 28,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "8F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 20,
+            "level": 26
+          },
+          {
+            "number": 41,
+            "level": 26
+          },
+          {
+            "number": 42,
+            "level": 26
+          },
+          {
+            "number": 19,
+            "level": 26
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "8F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 88,
+            "level": 29
+          },
+          {
+            "number": 101,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "8F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 110,
+            "level": 28
+          },
+          {
+            "number": 42,
+            "level": 28
+          },
+          {
+            "number": 109,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "9F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 96,
+            "level": 28
+          },
+          {
+            "number": 88,
+            "level": 28
+          },
+          {
+            "number": 66,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "9F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 28
+          },
+          {
+            "number": 109,
+            "level": 28
+          },
+          {
+            "number": 82,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "9F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 42,
+            "level": 28
+          },
+          {
+            "number": 96,
+            "level": 28
+          },
+          {
+            "number": 97,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "10F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 67,
+            "level": 33
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Scientist",
+    "trainerClass": "scientist",
+    "path": "saffron-city/silph-co",
+    "area": "10F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 29
+          },
+          {
+            "number": 109,
+            "level": 29
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Jessie & James",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "11F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 110,
+            "level": 31
+          },
+          {
+            "number": 24,
+            "level": 31
+          },
+          {
+            "number": 52,
+            "level": 31
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Giovanni",
+    "trainerClass": "giovanni",
+    "path": "saffron-city/silph-co",
+    "area": "11F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 33,
+            "level": 37
+          },
+          {
+            "number": 115,
+            "level": 35
+          },
+          {
+            "number": 111,
+            "level": 37
+          },
+          {
+            "number": 31,
+            "level": 41
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Giovanni",
+    "trainerClass": "giovanni",
+    "path": "saffron-city/silph-co",
+    "area": "11F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 33,
+            "level": 37
+          },
+          {
+            "number": 53,
+            "level": 35
+          },
+          {
+            "number": 111,
+            "level": 37
+          },
+          {
+            "number": 31,
+            "level": 41
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "11F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 104,
+            "level": 32
+          },
+          {
+            "number": 96,
+            "level": 32
+          },
+          {
+            "number": 105,
+            "level": 32
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "11F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 25
+          },
+          {
+            "number": 19,
+            "level": 25
+          },
+          {
+            "number": 41,
+            "level": 25
+          },
+          {
+            "number": 19,
+            "level": 25
+          },
+          {
+            "number": 23,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "11F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 25
+          },
+          {
+            "number": 19,
+            "level": 25
+          },
+          {
+            "number": 41,
+            "level": 25
+          },
+          {
+            "number": 19,
+            "level": 25
+          },
+          {
+            "number": 23,
+            "level": 25
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Lt. Surge",
+    "trainerClass": "lt-surge",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 21
+          },
+          {
+            "number": 25,
+            "level": 18
+          },
+          {
+            "number": 26,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Lt. Surge",
+    "trainerClass": "lt-surge",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 26,
+            "level": 28
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 25,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 22
+          },
+          {
+            "number": 81,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rocker",
+    "trainerClass": "rocker",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 20
+          },
+          {
+            "number": 81,
+            "level": 20
+          },
+          {
+            "number": 100,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rocker",
+    "trainerClass": "rocker",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 20
+          },
+          {
+            "number": 100,
+            "level": 20
+          },
+          {
+            "number": 100,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 25,
+            "level": 21
+          },
+          {
+            "number": 25,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city",
+    "area": "Vermilion Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 24
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city/ss-anne",
+    "area": "1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 18
+          },
+          {
+            "number": 58,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city/ss-anne",
+    "area": "1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 32,
+            "level": 19
+          },
+          {
+            "number": 29,
+            "level": 19
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Youngster",
+    "trainerClass": "youngster",
+    "path": "vermilion-city/ss-anne",
+    "area": "1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 32,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "vermilion-city/ss-anne",
+    "area": "1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 18
+          },
+          {
+            "number": 29,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F",
+    "parties": [
+      {
+        "label": "If you chose Charmander",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 19
+          },
+          {
+            "number": 20,
+            "level": 16
+          },
+          {
+            "number": 64,
+            "level": 18
+          },
+          {
+            "number": 8,
+            "level": 20
+          }
+        ]
+      },
+      {
+        "label": "If you chose Squirtle",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 19
+          },
+          {
+            "number": 20,
+            "level": 16
+          },
+          {
+            "number": 64,
+            "level": 18
+          },
+          {
+            "number": 2,
+            "level": 20
+          }
+        ]
+      },
+      {
+        "label": "If you chose Bulbasaur",
+        "pokemon": [
+          {
+            "number": 17,
+            "level": 19
+          },
+          {
+            "number": 20,
+            "level": 16
+          },
+          {
+            "number": 64,
+            "level": 18
+          },
+          {
+            "number": 5,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Rival",
+    "trainerClass": "rival2",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 21,
+            "level": 19
+          },
+          {
+            "number": 19,
+            "level": 16
+          },
+          {
+            "number": 27,
+            "level": 18
+          },
+          {
+            "number": 133,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 25,
+            "level": 23
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 22
+          },
+          {
+            "number": 81,
+            "level": 22
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 118,
+            "level": 17
+          },
+          {
+            "number": 72,
+            "level": 17
+          },
+          {
+            "number": 118,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 58,
+            "level": 17
+          },
+          {
+            "number": 77,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 19,
+            "level": 18
+          },
+          {
+            "number": 25,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Lass",
+    "trainerClass": "lass",
+    "path": "vermilion-city/ss-anne",
+    "area": "2F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 39,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/ss-anne",
+    "area": "B1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 90,
+            "level": 21
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/ss-anne",
+    "area": "B1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 116,
+            "level": 17
+          },
+          {
+            "number": 90,
+            "level": 17
+          },
+          {
+            "number": 72,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/ss-anne",
+    "area": "B1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 72,
+            "level": 18
+          },
+          {
+            "number": 120,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/ss-anne",
+    "area": "B1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 116,
+            "level": 17
+          },
+          {
+            "number": 116,
+            "level": 17
+          },
+          {
+            "number": 116,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/ss-anne",
+    "area": "B1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 20
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "vermilion-city/ss-anne",
+    "area": "B1F Rooms",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 72,
+            "level": 17
+          },
+          {
+            "number": 120,
+            "level": 17
+          },
+          {
+            "number": 90,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/ss-anne",
+    "area": "Bow",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 18
+          },
+          {
+            "number": 90,
+            "level": 18
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/ss-anne",
+    "area": "Bow",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 17
+          },
+          {
+            "number": 72,
+            "level": 17
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Giovanni",
+    "trainerClass": "giovanni",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 111,
+            "level": 45
+          },
+          {
+            "number": 51,
+            "level": 42
+          },
+          {
+            "number": 31,
+            "level": 44
+          },
+          {
+            "number": 34,
+            "level": 45
+          },
+          {
+            "number": 112,
+            "level": 50
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "name": "Giovanni",
+    "trainerClass": "giovanni",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 51,
+            "level": 50
+          },
+          {
+            "number": 53,
+            "level": 53
+          },
+          {
+            "number": 31,
+            "level": 53
+          },
+          {
+            "number": 34,
+            "level": 55
+          },
+          {
+            "number": 112,
+            "level": 55
+          }
+        ]
+      }
+    ],
+    "games": [
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♂",
+    "trainerClass": "cooltrainer-m",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 28,
+            "level": 39
+          },
+          {
+            "number": 51,
+            "level": 39
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 66,
+            "level": 40
+          },
+          {
+            "number": 67,
+            "level": 40
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Tamer",
+    "trainerClass": "tamer",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 111,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 67,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♂",
+    "trainerClass": "cooltrainer-m",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 111,
+            "level": 43
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Blackbelt",
+    "trainerClass": "blackbelt",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 67,
+            "level": 38
+          },
+          {
+            "number": 66,
+            "level": 38
+          },
+          {
+            "number": 67,
+            "level": 38
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Tamer",
+    "trainerClass": "tamer",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 24,
+            "level": 39
+          },
+          {
+            "number": 128,
+            "level": 39
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "name": "Cooltrainer ♂",
+    "trainerClass": "cooltrainer-m",
+    "path": "viridian-city",
+    "area": "Viridian Gym",
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 33,
+            "level": 39
+          },
+          {
+            "number": 34,
+            "level": 39
+          }
+        ]
+      }
+    ],
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  }
+]

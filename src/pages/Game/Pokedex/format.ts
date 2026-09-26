@@ -31,6 +31,16 @@ export const levelLabel = (encounter: Encounter) => {
   return min === max ? `Lv. ${min}` : `Lv. ${min}–${max}`;
 };
 
+export const chanceLabel = (encounter: Encounter) => {
+  if (!encounter.chance) return undefined;
+
+  const [min, max] = encounter.chance.map((value) =>
+    Math.max(1, Math.round(value)),
+  );
+
+  return min === max ? `${min}%` : `${min}–${max}%`;
+};
+
 export const evolutionLabel = (evolution: Evolution) => {
   if (evolution.method === 'level') return `at level ${evolution.level}`;
   if (evolution.method === 'item') return `with a ${evolution.item}`;

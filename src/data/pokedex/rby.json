@@ -15,24 +15,24 @@
       {
         "method": "gift",
         "path": "cerulean-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           10,
           10
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "gift",
         "path": "pallet-town",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           5,
           5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       }
     ]
@@ -90,24 +90,24 @@
       {
         "method": "gift",
         "path": "route-24",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           10,
           10
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "gift",
         "path": "pallet-town",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           5,
           5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       }
     ]
@@ -164,24 +164,24 @@
       {
         "method": "gift",
         "path": "vermilion-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           10,
           10
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "gift",
         "path": "pallet-town",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           5,
           5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       }
     ]
@@ -237,48 +237,106 @@
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           8,
           8
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-2/viridian-forest",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           3,
-          6
+          3
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-2",
-        "games": [
-          "blue"
-        ],
         "levels": [
           3,
           5
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "blue"
-        ],
         "levels": [
           7,
           7
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "levels": [
+          8,
+          8
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "levels": [
+          3,
+          5
+        ],
+        "chance": [
+          44.9,
+          44.9
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "levels": [
+          3,
+          6
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -303,37 +361,91 @@
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           7,
-          9
+          7
+        ],
+        "chance": [
+          4.3,
+          4.3
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-2/viridian-forest",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           4,
-          6
+          4
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "blue"
-        ],
         "levels": [
           8,
           8
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "levels": [
+          9,
+          9
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "levels": [
+          4,
+          6
+        ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "levels": [
+          4,
+          6
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -372,47 +484,91 @@
       {
         "method": "walk",
         "path": "route-2",
-        "games": [
-          "red"
-        ],
         "levels": [
           3,
           5
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "red"
-        ],
         "levels": [
           7,
           7
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           8,
           8
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-2/viridian-forest",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           3,
           5
+        ],
+        "chance": [
+          44.9,
+          44.9
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "levels": [
+          8,
+          8
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "levels": [
+          3,
+          3
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue"
         ]
       }
     ]
@@ -437,36 +593,76 @@
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "red"
-        ],
         "levels": [
           8,
           8
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
-          7,
+          9,
           9
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-2/viridian-forest",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           4,
           6
+        ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "levels": [
+          7,
+          7
+        ],
+        "chance": [
+          4.3,
+          4.3
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2/viridian-forest",
+        "levels": [
+          4,
+          4
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue"
         ]
       }
     ]
@@ -505,202 +701,420 @@
       {
         "method": "walk",
         "path": "route-1",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           2,
-          7
+          5
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           23,
-          28
+          27
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           25,
-          28
+          27
+        ],
+        "chance": [
+          35.2,
+          35.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           26,
           26
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-2",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           3,
-          7
+          5
+        ],
+        "chance": [
+          44.9,
+          44.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-21",
+        "levels": [
+          21,
+          23
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          11,
-          23
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           12,
-          17
+          13
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           13,
-          17
+          13
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-3",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           6,
           8
+        ],
+        "chance": [
+          44.9,
+          44.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           13,
-          17
+          16
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           13,
-          17
+          16
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           19,
           22
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           18,
-          22
+          20
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-1",
+        "levels": [
+          2,
+          7
+        ],
+        "chance": [
+          69.9,
+          69.9
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           16,
           18
+        ],
+        "chance": [
+          35.2,
+          35.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "levels": [
+          28,
+          28
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "levels": [
+          28,
+          28
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2",
+        "levels": [
+          3,
+          7
+        ],
+        "chance": [
+          35.2,
+          35.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "levels": [
+          11,
+          17
+        ],
+        "chance": [
+          54.7,
+          54.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "levels": [
+          13,
+          17
+        ],
+        "chance": [
+          29.3,
+          29.3
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "levels": [
+          13,
+          17
+        ],
+        "chance": [
+          29.3,
+          29.3
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-5",
+        "levels": [
+          15,
+          17
+        ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-6",
+        "levels": [
+          15,
+          17
+        ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-7",
+        "levels": [
+          20,
+          22
+        ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-8",
+        "levels": [
+          20,
+          22
+        ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-2/viridian-forest",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           4,
           8
+        ],
+        "chance": [
+          23.8,
+          23.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -726,150 +1140,244 @@
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           28,
           30
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           28,
-          32
+          30
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-21",
+        "levels": [
+          30,
+          32
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          15,
-          32
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           18,
           20
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           28,
           28
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           28,
           28
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "levels": [
+          30,
+          30
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "levels": [
+          32,
+          32
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "levels": [
+          15,
+          19
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           17,
           17
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           17,
           17
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           17,
           17
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           17,
           17
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           24,
           24
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           24,
           24
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-2/viridian-forest",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           9,
           9
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -908,191 +1416,353 @@
       {
         "method": "walk",
         "path": "route-1",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           2,
           4
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-16",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           18,
-          24
+          22
+        ],
+        "chance": [
+          30.1,
+          30.1
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-2",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           2,
           5
+        ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-21",
+        "levels": [
+          21,
+          23
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          13,
-          23
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-22",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           2,
           4
+        ],
+        "chance": [
+          44.9,
+          44.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-4",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           8,
           12
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           14,
-          18
+          17
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           34,
           43
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-1",
+        "levels": [
+          2,
+          4
+        ],
+        "chance": [
+          30.1,
+          30.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           18,
           18
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           17
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-16",
+        "levels": [
+          23,
+          24
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-18",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           23,
           24
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-2",
+        "levels": [
+          3,
+          4
+        ],
+        "chance": [
+          35.2,
+          35.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "levels": [
+          13,
+          15
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "levels": [
+          3,
+          3
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-3",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           10,
           12
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "levels": [
+          10,
+          12
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           14,
           16
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           14,
           16
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           20
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           20
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "levels": [
+          18,
+          18
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1117,96 +1787,170 @@
       {
         "method": "walk",
         "path": "route-16",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           23,
-          26
+          25
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           25,
           29
+        ],
+        "chance": [
+          30.1,
+          30.1
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-18",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           25,
           29
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-21",
+        "levels": [
+          30,
+          30
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          15,
-          30
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           34,
           46
+        ],
+        "chance": [
+          29.7,
+          39.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           20
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           17,
           17
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-16",
+        "levels": [
+          25,
+          26
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "levels": [
+          25,
+          26
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-21",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           20
+        ],
+        "chance": [
+          4.3,
+          4.3
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1227,127 +1971,251 @@
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           13,
           17
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           13,
           17
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-16",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           20,
-          23
+          22
+        ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           20,
           22
+        ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-18",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           20,
-          23
+          22
+        ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-22",
+        "levels": [
+          3,
+          5
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          2,
-          6
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           26,
           26
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-3",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           5,
-          12
+          8
+        ],
+        "chance": [
+          44.5,
+          44.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-4",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           8,
           12
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           13,
           17
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-16",
+        "levels": [
+          22,
+          23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "levels": [
+          22,
+          23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "levels": [
+          2,
+          6
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-3",
+        "levels": [
+          8,
+          12
+        ],
+        "chance": [
+          55.1,
+          55.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "levels": [
+          8,
+          12
+        ],
+        "chance": [
+          55.1,
+          55.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-9",
+        "levels": [
+          17,
+          17
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1373,62 +2241,124 @@
       {
         "method": "walk",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           25,
-          29
+          27
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-18",
+        "levels": [
+          25,
+          29
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          24,
-          29
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           38,
-          45
+          43
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-16",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           24,
           24
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-17",
+        "levels": [
+          27,
+          29
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "levels": [
+          24,
+          24
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
+        "levels": [
+          40,
+          45
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           19,
           19
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1446,67 +2376,91 @@
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "red"
-        ],
         "levels": [
           11,
           17
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "red"
-        ],
         "levels": [
           12,
           15
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "red"
-        ],
         "levels": [
           26,
           26
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-4",
-        "games": [
-          "red"
-        ],
         "levels": [
           6,
           12
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "red"
-        ],
         "levels": [
           17,
           19
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "red"
-        ],
         "levels": [
           11,
           17
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red"
         ]
       }
     ]
@@ -1529,23 +2483,31 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red"
-        ],
         "levels": [
           52,
           57
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "red"
-        ],
         "levels": [
           41,
           41
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red"
         ]
       }
     ]
@@ -1565,36 +2527,44 @@
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           20,
           24
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-2/viridian-forest",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           3,
           5
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "gift",
         "path": "pallet-town",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           5,
           5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1618,24 +2588,32 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           53,
           64
+        ],
+        "chance": [
+          4.3,
+          9.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "blue"
-        ],
         "levels": [
           33,
           36
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "blue"
         ]
       }
     ]
@@ -1654,90 +2632,136 @@
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "blue"
-        ],
         "levels": [
           11,
           17
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "blue"
-        ],
         "levels": [
           12,
           15
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "blue"
-        ],
         "levels": [
           26,
           26
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-4",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           6,
           12
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "blue"
-        ],
         "levels": [
           17,
           19
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "blue"
-        ],
         "levels": [
           11,
           17
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-4/mt-moon",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           12,
           12
+        ],
+        "chance": [
+          4.3,
+          4.3
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-3",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           8,
           10
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4",
+        "levels": [
+          8,
+          10
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1761,24 +2785,46 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           52,
           57
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "blue"
-        ],
         "levels": [
           41,
           41
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          52,
+          56
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1798,27 +2844,31 @@
       {
         "method": "walk",
         "path": "route-22",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
-          2,
+          3,
           4
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
-          14,
-          36
+          24,
+          25
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red"
         ]
       },
       {
@@ -1832,35 +2882,107 @@
       },
       {
         "method": "walk",
-        "path": "route-10",
-        "games": [
-          "yellow"
+        "path": "route-22",
+        "levels": [
+          2,
+          4
         ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          22,
+          25
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10",
         "levels": [
           17,
           17
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-2",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           4,
           6
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "levels": [
+          2,
+          4
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           16,
           18
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          14,
+          36
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1885,14 +3007,16 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
-          23,
-          33
+          30,
+          31
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red"
         ]
       },
       {
@@ -1913,24 +3037,62 @@
       },
       {
         "method": "walk",
-        "path": "route-23",
-        "games": [
-          "yellow"
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          30,
+          33
         ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23",
         "levels": [
           41,
           44
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           18,
           18
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          23,
+          32
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -1969,60 +3131,136 @@
       {
         "method": "walk",
         "path": "route-22",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           2,
           4
+        ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
-          14,
-          36
+          22,
+          25
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "levels": [
+          3,
+          4
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          24,
+          25
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           17,
           17
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-2",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           4,
           6
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-22",
+        "levels": [
+          2,
+          4
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           16,
           18
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          14,
+          36
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2047,14 +3285,31 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
-          23,
+          30,
           33
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          30,
+          31
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
@@ -2067,23 +3322,46 @@
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           41,
           44
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-9",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           18,
           18
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          23,
+          32
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2122,14 +3400,17 @@
       {
         "method": "walk",
         "path": "route-4/mt-moon",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           8,
-          13
+          12
+        ],
+        "chance": [
+          1.2,
+          6.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
@@ -2138,6 +3419,21 @@
         "games": [
           "red",
           "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "levels": [
+          9,
+          13
+        ],
+        "chance": [
+          1.2,
+          10.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2174,34 +3470,46 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "blue"
-        ],
         "levels": [
           32,
           35
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "blue"
-        ],
         "levels": [
           18,
           20
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "blue"
-        ],
         "levels": [
           15,
           18
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
@@ -2245,57 +3553,77 @@
       {
         "method": "walk",
         "path": "route-3",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           3,
           7
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           3,
           7
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           3,
           7
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           19,
           24
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           19,
           24
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2320,13 +3648,17 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           54,
           54
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
@@ -2354,53 +3686,125 @@
       {
         "method": "walk",
         "path": "route-4/mt-moon",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           6,
-          13
+          12
+        ],
+        "chance": [
+          49.2,
+          78.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-10/rock-tunnel",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          22
+          18
+        ],
+        "chance": [
+          49.6,
+          54.7
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
+        "levels": [
+          21,
+          21
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          9,
-          45
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23/victory-road",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           22,
+          26
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "levels": [
+          6,
+          13
+        ],
+        "chance": [
+          54.3,
+          74.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "levels": [
+          15,
+          22
+        ],
+        "chance": [
+          39.5,
+          50
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          9,
+          45
+        ],
+        "chance": [
+          25,
+          44.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "levels": [
+          39,
           44
+        ],
+        "chance": [
+          9.8,
+          19.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2426,40 +3830,94 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           46,
-          59
+          46
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
+        "levels": [
+          29,
+          32
+        ],
+        "chance": [
+          1.2,
+          5.1
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          27,
-          36
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23/victory-road",
+        "levels": [
+          40,
+          41
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          50,
+          59
         ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          27,
+          36
+        ],
+        "chance": [
+          5.5,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
         "levels": [
           39,
           44
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2479,106 +3937,226 @@
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           22,
-          27
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           22,
-          27
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           22,
-          28
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           22,
-          28
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           12,
           14
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           12,
           14
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "red"
-        ],
         "levels": [
           13,
           16
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "red"
-        ],
         "levels": [
           13,
           16
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "red"
-        ],
         "levels": [
           19,
           22
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "levels": [
+          25,
+          27
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "levels": [
+          25,
+          27
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "levels": [
+          26,
+          28
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "levels": [
+          26,
+          28
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "levels": [
+          12,
+          14
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "levels": [
+          12,
+          14
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2603,60 +4181,108 @@
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           28,
           30
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           28,
           30
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red",
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red",
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           55,
           58
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "levels": [
+          29,
+          29
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "levels": [
+          29,
+          29
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2695,27 +4321,63 @@
       {
         "method": "walk",
         "path": "route-4/mt-moon",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           8,
-          13
+          12
+        ],
+        "chance": [
+          5.1,
+          14.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           22,
+          23
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "levels": [
+          9,
+          13
+        ],
+        "chance": [
+          10.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          27,
           27
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2741,27 +4403,63 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           52,
           64
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           25,
+          30
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          54,
+          54
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          27,
           32
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
@@ -2790,85 +4488,141 @@
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           24,
           26
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           24,
           26
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           24,
-          27
+          26
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
+        "levels": [
+          26,
+          28
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          24,
-          28
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           22,
           23
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "levels": [
+          24,
+          27
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "levels": [
+          24,
+          27
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           13,
           16
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           13,
           16
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2894,60 +4648,94 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           49,
-          54
+          51
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           31,
           32
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23/victory-road",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           40,
           40
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          54,
+          54
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -2967,14 +4755,18 @@
       {
         "method": "walk",
         "path": "route-11/digletts-cave",
+        "levels": [
+          15,
+          22
+        ],
+        "chance": [
+          94.5,
+          94.5
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          15,
-          22
         ]
       }
     ]
@@ -2999,14 +4791,18 @@
       {
         "method": "walk",
         "path": "route-11/digletts-cave",
+        "levels": [
+          29,
+          31
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          29,
-          31
         ]
       },
       {
@@ -3032,45 +4828,61 @@
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "blue"
-        ],
         "levels": [
           10,
           16
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "blue"
-        ],
         "levels": [
           10,
           16
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "blue"
-        ],
         "levels": [
           17,
           20
+        ],
+        "chance": [
+          30.5,
+          30.5
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "blue"
-        ],
         "levels": [
           18,
           20
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "blue"
         ]
       }
     ]
@@ -3106,84 +4918,126 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           28,
-          33
+          28
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-4",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-24",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          28,
+          33
+        ],
+        "chance": [
+          14.8,
+          35.2
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "surf",
         "path": "route-6",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          94.5,
+          94.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3208,24 +5062,46 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue"
+        "levels": [
+          38,
+          38
         ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
         "levels": [
           37,
           39
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "surf",
         "path": "route-6",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           20
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3244,89 +5120,121 @@
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "red"
-        ],
         "levels": [
           10,
           16
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "red"
-        ],
         "levels": [
           10,
           16
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "red"
-        ],
         "levels": [
           17,
           20
+        ],
+        "chance": [
+          30.5,
+          30.5
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "red"
-        ],
         "levels": [
           18,
           20
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-22",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           3,
           5
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           36,
           41
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-3",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           9,
           9
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-4",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           9,
           9
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3350,12 +5258,16 @@
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           41,
           46
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3374,35 +5286,61 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
-          26,
-          38
+          32,
+          35
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "red"
-        ],
         "levels": [
           18,
           20
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "red"
-        ],
         "levels": [
           15,
           18
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "levels": [
+          26,
+          38
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3439,63 +5377,111 @@
       {
         "method": "good-rod",
         "path": null,
+        "levels": [
+          10,
+          10
+        ],
+        "chance": [
+          50,
+          50
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          10,
-          10
         ]
       },
       {
         "method": "super-rod",
         "path": "pallet-town",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "viridian-city",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          50,
+          50
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          5,
-          15
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-22",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          50,
+          50
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
+          "blue"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "viridian-city",
         "levels": [
           5,
           15
+        ],
+        "chance": [
+          100,
+          100
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-22",
+        "levels": [
+          5,
+          15
+        ],
+        "chance": [
+          75,
+          75
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-23",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           25,
           30
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3520,47 +5506,63 @@
       {
         "method": "super-rod",
         "path": "celadon-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-10",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-22",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-23",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           40
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3599,25 +5601,33 @@
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           8,
           12
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           10,
           12
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
@@ -3632,45 +5642,61 @@
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           7,
           7
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           7,
           7
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           26
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           19
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3695,24 +5721,32 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           49,
           51
+        ],
+        "chance": [
+          5.1,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-8",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           27
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3745,37 +5779,63 @@
       {
         "method": "walk",
         "path": "route-10/rock-tunnel",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          21
+          17
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23/victory-road",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           22,
           24
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "levels": [
+          17,
+          21
+        ],
+        "chance": [
+          10.5,
+          20.3
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           16,
           18
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3800,14 +5860,32 @@
       {
         "method": "walk",
         "path": "route-23/victory-road",
+        "levels": [
+          41,
+          45
+        ],
+        "chance": [
+          4.3,
+          5.5
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
         "levels": [
           39,
           45
+        ],
+        "chance": [
+          5.5,
+          10.2
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
@@ -3859,106 +5937,226 @@
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           22,
-          27
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           22,
-          27
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           22,
-          28
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           22,
-          28
+          26
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-24",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           12,
           14
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-25",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           12,
           14
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-5",
-        "games": [
-          "blue"
-        ],
         "levels": [
           13,
           16
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-6",
-        "games": [
-          "blue"
-        ],
         "levels": [
           13,
           16
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-7",
-        "games": [
-          "blue"
-        ],
         "levels": [
           19,
           22
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "levels": [
+          25,
+          27
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "levels": [
+          25,
+          27
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-14",
+        "levels": [
+          26,
+          28
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-15",
+        "levels": [
+          26,
+          28
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-24",
+        "levels": [
+          12,
+          14
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-25",
+        "levels": [
+          12,
+          14
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -3983,60 +6181,108 @@
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           28,
           30
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           28,
           30
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue",
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue",
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           55,
           58
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-12",
+        "levels": [
+          29,
+          29
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-13",
+        "levels": [
+          29,
+          29
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4075,193 +6321,313 @@
       {
         "method": "surf",
         "path": "route-21",
+        "levels": [
+          5,
+          40
+        ],
+        "chance": [
+          100,
+          100
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          5,
-          40
         ]
       },
       {
         "method": "surf",
         "path": "route-19",
+        "levels": [
+          5,
+          40
+        ],
+        "chance": [
+          100,
+          100
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          5,
-          40
         ]
       },
       {
         "method": "surf",
         "path": "route-20",
+        "levels": [
+          5,
+          40
+        ],
+        "chance": [
+          100,
+          100
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          5,
-          40
         ]
       },
       {
         "method": "super-rod",
         "path": "pallet-town",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          50,
+          50
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          10,
-          20
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "viridian-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-12",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           5,
           5
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-13",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           5,
-          10
+          5
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           5,
-          15
+          5
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-18",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           5,
-          15
+          5
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "surf",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           40
+        ],
+        "chance": [
+          69.9,
+          69.9
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "pallet-town",
+        "levels": [
+          10,
+          20
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "vermilion-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           10,
           20
+        ],
+        "chance": [
+          50,
+          75
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "cinnabar-island",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           30
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-11",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           10,
           20
+        ],
+        "chance": [
+          75,
+          75
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-13",
+        "levels": [
+          10,
+          10
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-17",
+        "levels": [
+          5,
+          15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-18",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-19",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           30
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           20
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-21",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           30
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4287,34 +6653,46 @@
       {
         "method": "super-rod",
         "path": "route-19",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           40
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-21",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4335,40 +6713,94 @@
       {
         "method": "walk",
         "path": "route-4/mt-moon",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           7,
-          11
+          10
+        ],
+        "chance": [
+          14.8,
+          29.7
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-10/rock-tunnel",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           16,
-          21
+          18
+        ],
+        "chance": [
+          25,
+          26.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23/victory-road",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           24,
+          26
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-4/mt-moon",
+        "levels": [
+          10,
+          11
+        ],
+        "chance": [
+          19.5,
+          20.3
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "levels": [
+          16,
+          21
+        ],
+        "chance": [
+          29.7,
+          39.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "levels": [
+          26,
           46
+        ],
+        "chance": [
+          44.9,
+          64.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4394,25 +6826,47 @@
       {
         "method": "walk",
         "path": "route-23/victory-road",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           41,
-          47
+          43
+        ],
+        "chance": [
+          1.2,
+          5.1
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           45,
           55
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "levels": [
+          41,
+          47
+        ],
+        "chance": [
+          5.5,
+          15.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4446,24 +6900,46 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           28,
           36
+        ],
+        "chance": [
+          14.8,
+          39.8
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "levels": [
+          28,
+          36
+        ],
+        "chance": [
+          14.1,
+          39.8
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-17",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           28,
           32
+        ],
+        "chance": [
+          23.8,
+          23.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4502,72 +6978,124 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           28,
           33
+        ],
+        "chance": [
+          14.8,
+          35.2
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "super-rod",
         "path": "celadon-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-10",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          28,
+          28
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "surf",
         "path": "route-12",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          94.5,
+          94.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "surf",
         "path": "route-13",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          94.5,
+          94.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          28,
+          31
+        ],
+        "chance": [
+          4.3,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4593,60 +7121,108 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
-          31,
+          37,
           39
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-23",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          38,
+          38
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "surf",
         "path": "route-12",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           20
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "surf",
         "path": "route-13",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           20
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          31,
+          31
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4666,25 +7242,47 @@
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           21,
+          23
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "levels": [
+          30,
           35
+        ],
+        "chance": [
+          39.8,
+          39.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           16,
           22
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4709,26 +7307,48 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           46,
           46
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           32,
+          35
+        ],
+        "chance": [
+          10.2,
+          10.2
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
+        "levels": [
+          33,
           38
+        ],
+        "chance": [
+          20.3,
+          20.3
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4758,23 +7378,31 @@
       {
         "method": "walk",
         "path": "route-12",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           26,
           31
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           26,
           31
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4795,52 +7423,110 @@
       {
         "method": "walk",
         "path": "route-16",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           18,
-          26
+          22
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           24,
           28
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-18",
+        "levels": [
+          24,
+          28
+        ],
+        "chance": [
+          24.6,
+          24.6
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          22,
-          28
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           26,
           26
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-16",
+        "levels": [
+          22,
+          26
+        ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-17",
+        "levels": [
+          26,
+          28
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-18",
+        "levels": [
+          22,
+          26
+        ],
+        "chance": [
+          39.5,
+          39.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4866,24 +7552,32 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           49,
           51
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-17",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           29,
           29
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4903,14 +7597,17 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
+        "levels": [
+          28,
+          33
+        ],
+        "chance": [
+          14.8,
+          35.2
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          22,
-          33
+          "blue"
         ]
       },
       {
@@ -4920,6 +7617,21 @@
         "games": [
           "red",
           "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          22,
+          32
+        ],
+        "chance": [
+          5.5,
+          19.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -4945,14 +7657,32 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
+        "levels": [
+          37,
+          38
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
         "levels": [
           28,
-          38
+          34
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
@@ -4980,25 +7710,61 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
+        "levels": [
+          30,
+          35
         ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "levels": [
+          30,
+          35
+        ],
+        "chance": [
+          35.2,
+          49.6
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
         "levels": [
           23,
           38
+        ],
+        "chance": [
+          20.3,
+          39.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           33,
           37
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5023,25 +7789,61 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
+        "levels": [
+          37,
+          42
         ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "levels": [
+          37,
+          40
+        ],
+        "chance": [
+          4.3,
+          14.8
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
         "levels": [
           35,
-          42
+          41
+        ],
+        "chance": [
+          5.5,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           33,
           37
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
@@ -5069,132 +7871,204 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           28,
           33
+        ],
+        "chance": [
+          5.1,
+          29.7
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "super-rod",
         "path": "vermilion-city",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          50,
+          50
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          10,
-          15
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "cinnabar-island",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-6",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-11",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-19",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-21",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          30,
+          30
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-17",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           25,
           35
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-18",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           40
+        ],
+        "chance": [
+          75,
+          75
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city",
+        "levels": [
+          10,
+          10
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5234,14 +8108,32 @@
       {
         "method": "walk",
         "path": "lavender-town/pokemon-tower",
+        "levels": [
+          18,
+          24
+        ],
+        "chance": [
+          74.6,
+          89.5
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "lavender-town/pokemon-tower",
         "levels": [
           18,
           29
+        ],
+        "chance": [
+          89.5,
+          94.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5267,14 +8159,32 @@
       {
         "method": "walk",
         "path": "lavender-town/pokemon-tower",
+        "levels": [
+          25,
+          30
+        ],
+        "chance": [
+          1.2,
+          15.2
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "lavender-town/pokemon-tower",
         "levels": [
           20,
-          30
+          29
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5309,27 +8219,63 @@
       {
         "method": "walk",
         "path": "route-10/rock-tunnel",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           13,
-          22
+          17
+        ],
+        "chance": [
+          5.5,
+          9.4
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23/victory-road",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           36,
+          45
+        ],
+        "chance": [
+          19.5,
+          29.3
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/rock-tunnel",
+        "levels": [
+          14,
+          22
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-23/victory-road",
+        "levels": [
+          43,
           49
+        ],
+        "chance": [
+          9.8,
+          10.2
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5349,14 +8295,32 @@
       {
         "method": "walk",
         "path": "route-11",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           9,
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-11",
+        "levels": [
+          15,
           19
+        ],
+        "chance": [
+          23.8,
+          23.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5381,13 +8345,17 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           46,
           46
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       }
     ]
@@ -5407,192 +8375,284 @@
       {
         "method": "super-rod",
         "path": "cerulean-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "vermilion-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "fuchsia-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-4",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-6",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-11",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-12",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-13",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-18",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-24",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-25",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          10,
-          15
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "blue",
-          "yellow"
+        "levels": [
+          28,
+          33
         ],
+        "chance": [
+          14.8,
+          35.2
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
         "levels": [
           25,
-          33
+          31
+        ],
+        "chance": [
+          15.2,
+          35.2
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-25",
+        "levels": [
+          10,
+          15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           20
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           25,
           25
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5617,70 +8677,108 @@
       {
         "method": "super-rod",
         "path": "route-23",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "blue",
-          "yellow"
+        "levels": [
+          37,
+          39
         ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
         "levels": [
           28,
-          39
+          32
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-25",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           25
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           25,
           25
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           35,
           35
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5700,39 +8798,61 @@
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           21,
-          37
+          23
+        ],
+        "chance": [
+          29.7,
+          29.7
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-10",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           14,
           17
+        ],
+        "chance": [
+          40.2,
+          40.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "static",
         "path": "route-10/power-plant",
+        "levels": [
+          40,
+          40
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-10/power-plant",
         "levels": [
-          40,
-          40
+          33,
+          37
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5757,13 +8877,17 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           52,
           55
+        ],
+        "chance": [
+          9.8,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
@@ -5778,14 +8902,14 @@
       {
         "method": "static",
         "path": "route-10/power-plant",
+        "levels": [
+          43,
+          43
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          43,
-          43
         ]
       }
     ]
@@ -5806,14 +8930,32 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
+        "levels": [
+          23,
+          27
+        ],
+        "chance": [
+          19.5,
+          19.5
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
         "levels": [
           20,
-          27
+          26
+        ],
+        "chance": [
+          15.2,
+          20.3
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5852,25 +8994,47 @@
       {
         "method": "walk",
         "path": "lavender-town/pokemon-tower",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           20,
           24
+        ],
+        "chance": [
+          9.4,
+          10.2
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "lavender-town/pokemon-tower",
+        "levels": [
+          20,
+          24
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           16,
           19
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5895,36 +9059,48 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           52,
           55
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23/victory-road",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           40,
           43
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           24,
           24
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -5944,14 +9120,14 @@
       {
         "method": "gift",
         "path": "saffron-city",
+        "levels": [
+          30,
+          30
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          30,
-          30
         ]
       }
     ]
@@ -5971,14 +9147,14 @@
       {
         "method": "gift",
         "path": "saffron-city",
+        "levels": [
+          30,
+          30
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          30,
-          30
         ]
       }
     ]
@@ -6007,12 +9183,16 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           50,
           55
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6031,13 +9211,31 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           30,
           35
+        ],
+        "chance": [
+          35.2,
+          49.6
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "levels": [
+          30,
+          35
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "blue"
         ]
       }
     ]
@@ -6061,13 +9259,31 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           37,
           42
+        ],
+        "chance": [
+          4.3,
+          14.8
+        ],
+        "games": [
+          "red"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cinnabar-island/pokemon-mansion",
+        "levels": [
+          37,
+          42
+        ],
+        "chance": [
+          1.2,
+          1.2
+        ],
+        "games": [
+          "blue"
         ]
       }
     ]
@@ -6088,25 +9304,47 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
+        "levels": [
+          25,
+          26
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          20,
-          26
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           50,
           52
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          20,
+          25
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6132,14 +9370,32 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           52,
+          55
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          58,
           62
+        ],
+        "chance": [
+          5.5,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
@@ -6167,27 +9423,63 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           56,
           64
+        ],
+        "chance": [
+          5.1,
+          9.8
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
+        "levels": [
+          23,
+          26
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          56,
+          56
         ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
         "levels": [
           7,
-          26
+          21
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6207,13 +9499,17 @@
       {
         "method": "walk",
         "path": "route-21",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           28,
           32
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
@@ -6228,12 +9524,16 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           22,
           27
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6253,14 +9553,32 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           25,
+          28
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          28,
           33
+        ],
+        "chance": [
+          14.8,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6280,127 +9598,171 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red"
-        ],
         "levels": [
           28,
           33
+        ],
+        "chance": [
+          14.8,
+          35.2
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "super-rod",
         "path": "cinnabar-island",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-19",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-21",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "vermilion-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           5,
           5
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-10",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           10,
           10
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-11",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           5,
           5
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-12",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           25
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-13",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           20
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6425,58 +9787,78 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red"
-        ],
         "levels": [
           37,
           39
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-23",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-12",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           25,
           35
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-13",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           20,
           20
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6496,230 +9878,348 @@
       {
         "method": "good-rod",
         "path": null,
+        "levels": [
+          10,
+          10
+        ],
+        "chance": [
+          50,
+          50
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          10,
-          10
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          30
+          15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "fuchsia-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "cinnabar-island",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-4",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          30
+          15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-12",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-13",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-18",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-19",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-21",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-22",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-24",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          30
+          15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-25",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          33.3,
+          33.3
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city",
+        "levels": [
+          25,
+          30
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "celadon-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           5,
           20
+        ],
+        "chance": [
+          100,
+          100
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-4",
+        "levels": [
+          20,
+          30
+        ],
+        "chance": [
+          75,
+          75
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-6",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           5,
           20
+        ],
+        "chance": [
+          100,
+          100
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-24",
+        "levels": [
+          20,
+          30
+        ],
+        "chance": [
+          75,
+          75
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           25,
           30
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6744,71 +10244,109 @@
       {
         "method": "super-rod",
         "path": "fuchsia-city",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-23",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           23,
-          60
+          23
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "cerulean-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           40
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-4",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-24",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          35,
+          60
+        ],
+        "chance": [
+          75,
+          75
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -6828,111 +10366,231 @@
       {
         "method": "walk",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
-          28,
-          33
+          30,
+          30
+        ],
+        "chance": [
+          9.8,
+          19.9
+        ],
+        "games": [
+          "red"
         ]
       },
       {
         "method": "super-rod",
         "path": "cinnabar-island",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          10,
-          15
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-19",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          20
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          30
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-21",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          20
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           15,
-          40
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          28,
+          33
+        ],
+        "chance": [
+          5.1,
+          29.7
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
         "method": "surf",
         "path": "route-20/seafoam-islands",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           30,
           30
+        ],
+        "chance": [
+          30.1,
+          30.1
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "pallet-town",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           5,
           10
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "cinnabar-island",
+        "levels": [
+          10,
+          15
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-19",
+        "levels": [
+          20,
+          20
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20",
+        "levels": [
+          30,
+          30
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-21",
+        "levels": [
+          20,
+          20
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "vermilion-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "route-20/seafoam-islands",
+        "levels": [
+          20,
+          40
+        ],
+        "chance": [
+          50,
+          50
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -7002,13 +10660,16 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "red",
-          "yellow"
-        ],
         "levels": [
-          15,
+          23,
           28
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "red"
         ]
       },
       {
@@ -7016,6 +10677,21 @@
         "path": "celadon-city/rocket-game-corner",
         "games": [
           "red",
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          15,
+          25
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
           "yellow"
         ]
       }
@@ -7057,12 +10733,16 @@
       {
         "method": "walk",
         "path": "route-10/power-plant",
-        "games": [
-          "red"
-        ],
         "levels": [
           33,
           36
+        ],
+        "chance": [
+          5.5,
+          5.5
+        ],
+        "games": [
+          "red"
         ]
       }
     ]
@@ -7080,12 +10760,16 @@
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "blue"
-        ],
         "levels": [
           34,
           38
+        ],
+        "chance": [
+          4.3,
+          9.8
+        ],
+        "games": [
+          "blue"
         ]
       }
     ]
@@ -7104,13 +10788,16 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "blue",
-          "yellow"
-        ],
         "levels": [
-          15,
+          23,
           28
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
+          "blue"
         ]
       },
       {
@@ -7118,6 +10805,21 @@
         "path": "celadon-city/rocket-game-corner",
         "games": [
           "blue",
+          "yellow"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          15,
+          25
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
+        "games": [
           "yellow"
         ]
       }
@@ -7138,14 +10840,32 @@
       {
         "method": "walk",
         "path": "fuchsia-city/safari-zone",
+        "levels": [
+          26,
+          28
+        ],
+        "chance": [
+          1.2,
+          4.3
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "fuchsia-city/safari-zone",
         "levels": [
           21,
-          28
+          21
+        ],
+        "chance": [
+          9.8,
+          9.8
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -7165,99 +10885,141 @@
       {
         "method": "old-rod",
         "path": null,
+        "levels": [
+          5,
+          5
+        ],
+        "chance": [
+          100,
+          100
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          5,
-          5
         ]
       },
       {
         "method": "super-rod",
         "path": "fuchsia-city",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          5,
-          15
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-12",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-13",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-17",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "super-rod",
         "path": "route-18",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "gift",
         "path": "route-4",
+        "levels": [
+          5,
+          5
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city",
         "levels": [
           5,
-          5
+          15
+        ],
+        "chance": [
+          75,
+          75
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           5,
           15
+        ],
+        "chance": [
+          50,
+          75
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -7283,12 +11045,16 @@
       {
         "method": "super-rod",
         "path": "fuchsia-city",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -7309,14 +11075,14 @@
       {
         "method": "gift",
         "path": "saffron-city/silph-co",
+        "levels": [
+          15,
+          15
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          15,
-          15
         ]
       }
     ]
@@ -7336,73 +11102,111 @@
       {
         "method": "walk",
         "path": "cerulean-city/cerulean-cave",
-        "games": [
-          "red",
-          "blue",
-          "yellow"
-        ],
         "levels": [
           53,
           67
+        ],
+        "chance": [
+          1.2,
+          10.5
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-13",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           25,
           25
+        ],
+        "chance": [
+          5.1,
+          5.1
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-14",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           23,
           23
+        ],
+        "chance": [
+          15.2,
+          15.2
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-15",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           26,
           26
+        ],
+        "chance": [
+          19.9,
+          19.9
+        ],
+        "games": [
+          "red",
+          "blue"
         ]
       },
       {
         "method": "walk",
         "path": "route-23",
-        "games": [
-          "red",
-          "blue"
-        ],
         "levels": [
           33,
           43
+        ],
+        "chance": [
+          34.8,
+          34.8
+        ],
+        "games": [
+          "red",
+          "blue"
+        ]
+      },
+      {
+        "method": "walk",
+        "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          55,
+          65
+        ],
+        "chance": [
+          5.5,
+          14.8
+        ],
+        "games": [
+          "yellow"
         ]
       },
       {
         "method": "walk",
         "path": "cinnabar-island/pokemon-mansion",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           12,
           24
+        ],
+        "chance": [
+          10.5,
+          10.5
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -7422,14 +11226,14 @@
       {
         "method": "gift",
         "path": "celadon-city",
+        "levels": [
+          25,
+          25
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          25,
-          25
         ]
       }
     ]
@@ -7527,14 +11331,14 @@
       {
         "method": "fossil",
         "path": "cinnabar-island",
+        "levels": [
+          30,
+          30
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          30,
-          30
         ]
       }
     ]
@@ -7574,14 +11378,14 @@
       {
         "method": "fossil",
         "path": "cinnabar-island",
+        "levels": [
+          30,
+          30
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          30,
-          30
         ]
       }
     ]
@@ -7621,14 +11425,14 @@
       {
         "method": "fossil",
         "path": "cinnabar-island",
+        "levels": [
+          30,
+          30
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          30,
-          30
         ]
       }
     ]
@@ -7648,27 +11452,27 @@
       {
         "method": "static",
         "path": "route-12",
+        "levels": [
+          30,
+          30
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          30,
-          30
         ]
       },
       {
         "method": "static",
         "path": "route-16",
+        "levels": [
+          30,
+          30
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          30,
-          30
         ]
       }
     ]
@@ -7689,14 +11493,14 @@
       {
         "method": "static",
         "path": "route-20/seafoam-islands",
+        "levels": [
+          50,
+          50
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          50,
-          50
         ]
       }
     ]
@@ -7717,14 +11521,14 @@
       {
         "method": "static",
         "path": "route-10/power-plant",
+        "levels": [
+          50,
+          50
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          50,
-          50
         ]
       }
     ]
@@ -7745,14 +11549,14 @@
       {
         "method": "static",
         "path": "route-23/victory-road",
+        "levels": [
+          50,
+          50
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          50,
-          50
         ]
       }
     ]
@@ -7772,14 +11576,17 @@
       {
         "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
+        "levels": [
+          15,
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
         "games": [
           "red",
-          "blue",
-          "yellow"
-        ],
-        "levels": [
-          10,
-          15
+          "blue"
         ]
       },
       {
@@ -7788,6 +11595,21 @@
         "games": [
           "red",
           "blue"
+        ]
+      },
+      {
+        "method": "super-rod",
+        "path": "fuchsia-city/safari-zone",
+        "levels": [
+          10,
+          15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -7812,12 +11634,16 @@
       {
         "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
-        "games": [
-          "yellow"
-        ],
         "levels": [
           15,
           15
+        ],
+        "chance": [
+          25,
+          25
+        ],
+        "games": [
+          "yellow"
         ]
       }
     ]
@@ -7856,14 +11682,14 @@
       {
         "method": "static",
         "path": "cerulean-city/cerulean-cave",
+        "levels": [
+          70,
+          70
+        ],
         "games": [
           "red",
           "blue",
           "yellow"
-        ],
-        "levels": [
-          70,
-          70
         ]
       }
     ]

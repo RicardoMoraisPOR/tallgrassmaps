@@ -3,6 +3,7 @@ import { useId, useState } from 'react';
 import { ChevronDown, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router';
 
+import { Collapse } from '@/components/Collapse';
 import { Button } from '@/components/ui/button';
 import { type Game, gamesSharingMap } from '@/data/games';
 import { getLocation, type Region } from '@/data/maps';
@@ -80,27 +81,29 @@ export const PokedexRow = ({
           />
         </Button>
       </div>
-      {expanded && (
-        <div id={panelId} className="flex flex-col gap-4 border-t p-3">
-          <GameTags entry={entry} game={game} />
-          <Places
-            entry={entry}
-            game={game}
-            region={region}
-            href={href}
-            nameOf={nameOf}
-          />
-          <a
-            href={bulbapediaUrl(entry.name)}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium underline underline-offset-3"
-          >
-            {entry.name} on Bulbapedia
-            <ExternalLink aria-hidden className="size-3.5" />
-          </a>
-        </div>
-      )}
+      <Collapse
+        open={expanded}
+        id={panelId}
+        className="flex flex-col gap-4 border-t p-3"
+      >
+        <GameTags entry={entry} game={game} />
+        <Places
+          entry={entry}
+          game={game}
+          region={region}
+          href={href}
+          nameOf={nameOf}
+        />
+        <a
+          href={bulbapediaUrl(entry.name)}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium underline underline-offset-3"
+        >
+          {entry.name} on Bulbapedia
+          <ExternalLink aria-hidden className="size-3.5" />
+        </a>
+      </Collapse>
     </li>
   );
 };

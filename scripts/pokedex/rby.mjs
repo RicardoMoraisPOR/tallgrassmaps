@@ -1,173 +1,19 @@
-import { execFileSync } from 'node:child_process';
-import {
-  existsSync,
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  rmSync,
-  writeFileSync,
-} from 'node:fs';
+import { existsSync, readdirSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
+import {
+  constantFromFile,
+  displayName,
+  forGame,
+  games,
+  locationFor,
+  pokeredDir,
+  read,
+} from '../rby/disassembly.mjs';
 
 const OUTPUT = new URL('../../src/data/pokedex/rby.json', import.meta.url);
-const VENDOR = fileURLToPath(new URL('../../vendor/', import.meta.url));
-
-const PRET_COMMITS = {
-  pokered: 'd2704a63c26f9ba046ade877445216b3de0519a4',
-  pokeyellow: 'e89ead154b9968aa50eed9328ff2b38b6c194382',
-};
 
 const EXPECTED_OBTAINABLE = { red: 135, blue: 135, yellow: 134 };
-
-const vendor = async (repo) => {
-  const commit = PRET_COMMITS[repo];
-  const dir = join(VENDOR, repo);
-  const marker = join(dir, '.pret-commit');
-
-  if (existsSync(marker) && readFileSync(marker, 'utf8').trim() === commit) {
-    return dir;
-  }
-
-  const response = await fetch(
-    `https://codeload.github.com/pret/${repo}/tar.gz/${commit}`,
-  );
-
-  if (!response.ok) {
-    throw new Error(`${response.status} downloading pret/${repo}@${commit}`);
-  }
-
-  rmSync(dir, { recursive: true, force: true });
-  mkdirSync(dir, { recursive: true });
-  execFileSync('tar', ['-xzf', '-', '--strip-components=1', '-C', dir], {
-    input: Buffer.from(await response.arrayBuffer()),
-  });
-  writeFileSync(marker, `${commit}\n`);
-
-  console.log(
-    `Downloaded pret/${repo}@${commit.slice(0, 7)} to vendor/${repo}`,
-  );
-
-  return dir;
-};
-
-const pokeredDir = await vendor('pokered');
-const pokeyellowDir = await vendor('pokeyellow');
-
-const games = [
-  { id: 'red', dir: pokeredDir, define: '_RED' },
-  { id: 'blue', dir: pokeredDir, define: '_BLUE' },
-  { id: 'yellow', dir: pokeyellowDir, define: '_YELLOW' },
-];
-
-const read = (dir, file) => readFileSync(join(dir, file), 'utf8');
-
-const forGame = (text, define) => {
-  const kept = [];
-  const stack = [];
-
-  for (const line of text.split('\n')) {
-    const condition = line.match(/^\s*IF DEF\((\w+)\)/);
-
-    if (condition) {
-      stack.push(condition[1] === define);
-    } else if (/^\s*ELSE\b/.test(line)) {
-      stack.push(!stack.pop());
-    } else if (/^\s*ENDC\b/.test(line)) {
-      stack.pop();
-    } else if (stack.every(Boolean)) {
-      kept.push(line.replace(/;.*$/, '').trim());
-    }
-  }
-
-  return kept.filter(Boolean);
-};
-
-const insideLocations = {
-  VIRIDIAN_FOREST: 'route-2/viridian-forest',
-  MT_MOON: 'route-4/mt-moon',
-  CERULEAN_CAVE: 'cerulean-city/cerulean-cave',
-  SS_ANNE: 'vermilion-city/ss-anne',
-  DIGLETTS_CAVE: 'route-11/digletts-cave',
-  ROCK_TUNNEL: 'route-10/rock-tunnel',
-  POWER_PLANT: 'route-10/power-plant',
-  POKEMON_TOWER: 'lavender-town/pokemon-tower',
-  ROCKET_HIDEOUT: 'celadon-city/rocket-game-corner',
-  GAME_CORNER: 'celadon-city/rocket-game-corner',
-  SILPH_CO: 'saffron-city/silph-co',
-  SAFARI_ZONE: 'fuchsia-city/safari-zone',
-  POKEMON_MANSION: 'cinnabar-island/pokemon-mansion',
-  SEAFOAM_ISLANDS: 'route-20/seafoam-islands',
-  VICTORY_ROAD: 'route-23/victory-road',
-};
-
-const buildingLocations = {
-  CERULEAN_GYM: 'cerulean-city',
-  CERULEAN_TRADE_HOUSE: 'cerulean-city',
-  CERULEAN_MELANIES_HOUSE: 'cerulean-city',
-  VERMILION_DOCK: 'vermilion-city',
-  VERMILION_TRADE_HOUSE: 'vermilion-city',
-  CELADON_MANSION_ROOF_HOUSE: 'celadon-city',
-  CINNABAR_LAB_FOSSIL_ROOM: 'cinnabar-island',
-  CINNABAR_LAB_TRADE_ROOM: 'cinnabar-island',
-  MT_MOON_POKECENTER: 'route-4',
-  ROUTE_2_TRADE_HOUSE: 'route-2',
-  UNDERGROUND_PATH_ROUTE_5: 'route-5',
-  ROUTE_11_GATE_2F: 'route-11',
-  ROUTE_18_GATE_2F: 'route-18',
-  FIGHTING_DOJO: 'saffron-city',
-  OAKS_LAB: 'pallet-town',
-};
-
-const TOWNS = [
-  'PALLET_TOWN',
-  'VIRIDIAN_CITY',
-  'PEWTER_CITY',
-  'CERULEAN_CITY',
-  'LAVENDER_TOWN',
-  'VERMILION_CITY',
-  'CELADON_CITY',
-  'FUCHSIA_CITY',
-  'CINNABAR_ISLAND',
-  'INDIGO_PLATEAU',
-  'SAFFRON_CITY',
-];
-
-const locationFor = (mapConstant) => {
-  if (buildingLocations[mapConstant]) return buildingLocations[mapConstant];
-  if (TOWNS.includes(mapConstant))
-    return mapConstant.toLowerCase().replaceAll('_', '-');
-
-  const route = mapConstant.match(/^ROUTE_(\d+)$/);
-
-  if (route) return `route-${route[1]}`;
-
-  const inside = Object.keys(insideLocations).find((prefix) =>
-    mapConstant.startsWith(prefix),
-  );
-
-  if (inside) return insideLocations[inside];
-
-  throw new Error(`No location for map ${mapConstant}`);
-};
-
-const constantFromFile = (file) =>
-  basename(file, '.asm')
-    .replace(/_\d+$/, '')
-    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
-    .replace(/([A-Z])([A-Z][a-z])/g, '$1_$2')
-    .replace(/([a-zA-Z])(\d)/g, '$1_$2')
-    .toUpperCase();
-
-const specialNames = {
-  NIDORAN_F: 'Nidoran♀',
-  NIDORAN_M: 'Nidoran♂',
-  MR_MIME: 'Mr. Mime',
-  FARFETCHD: "Farfetch'd",
-};
-
-const displayName = (species) =>
-  specialNames[species] ?? species.charAt(0) + species.slice(1).toLowerCase();
 
 const typeNames = { PSYCHIC_TYPE: 'psychic' };
 
@@ -193,6 +39,18 @@ for (const file of readdirSync(join(pokeredDir, 'data/pokemon/base_stats'))) {
     encounters: [],
   });
 }
+
+const slotWeights = [
+  ...read(pokeredDir, 'data/wild/probabilities.asm').matchAll(
+    /^\s*wild_chance\s+(\d+)/gm,
+  ),
+].map(([, weight]) => Number(weight));
+
+if (slotWeights.reduce((sum, weight) => sum + weight, 0) !== 256) {
+  throw new Error('Wild slot weights do not add up to 256');
+}
+
+const slotChances = new Map();
 
 const evolutionText = read(pokeredDir, 'data/pokemon/evos_moves.asm');
 
@@ -265,6 +123,7 @@ for (const game of games) {
     if (!maps) continue;
 
     let method = null;
+    let slotIndex = 0;
 
     for (const line of forGame(
       read(game.dir, `data/wild/maps/${file}`),
@@ -277,32 +136,45 @@ for (const game of games) {
         const slot = line.match(/^db\s+(\d+), (\w+)$/);
 
         if (slot && method) {
+          const chance = (slotWeights[slotIndex] / 256) * 100;
+
           for (const map of maps) {
+            const key = `${game.id}|${map}|${method}`;
+
+            slotChances.set(key, (slotChances.get(key) ?? 0) + chance);
             addEncounter(slot[2], {
               method,
               path: locationFor(map),
+              map,
               game: game.id,
               level: Number(slot[1]),
+              chance,
             });
           }
+
+          slotIndex++;
         }
       }
+
+      if (method === null) slotIndex = 0;
     }
   }
 
-  for (const line of forGame(
+  const goodRodSlots = forGame(
     read(game.dir, 'data/wild/good_rod.asm'),
     game.define,
-  )) {
-    const slot = line.match(/^db\s+(\d+), (\w+)$/);
+  )
+    .map((line) => line.match(/^db\s+(\d+), (\w+)$/))
+    .filter(Boolean);
 
-    if (slot)
-      addEncounter(slot[2], {
-        method: 'good-rod',
-        path: null,
-        game: game.id,
-        level: Number(slot[1]),
-      });
+  for (const [, level, constant] of goodRodSlots) {
+    addEncounter(constant, {
+      method: 'good-rod',
+      path: null,
+      game: game.id,
+      level: Number(level),
+      chance: 100 / goodRodSlots.length,
+    });
   }
 
   addEncounter('MAGIKARP', {
@@ -310,6 +182,7 @@ for (const game of games) {
     path: null,
     game: game.id,
     level: 5,
+    chance: 100,
   });
 
   const superRod = read(game.dir, 'data/wild/super_rod.asm');
@@ -318,12 +191,16 @@ for (const game of games) {
     for (const [, map, slots] of superRod.matchAll(
       /db (\w+), ((?:\w+, \d+(?:, )?)+)$/gm,
     )) {
-      for (const [, constant, level] of slots.matchAll(/(\w+), (\d+)/g)) {
+      const mapSlots = [...slots.matchAll(/(\w+), (\d+)/g)];
+
+      for (const [, constant, level] of mapSlots) {
         addEncounter(constant, {
           method: 'super-rod',
           path: locationFor(map),
+          map,
           game: game.id,
           level: Number(level),
+          chance: 100 / mapSlots.length,
         });
       }
     }
@@ -346,12 +223,16 @@ for (const game of games) {
     for (const [, map, group] of superRod.matchAll(
       /dbw (\w+),\s+\.(Group\d+)/g,
     )) {
-      for (const { level, constant } of groups.get(group)) {
+      const groupSlots = groups.get(group);
+
+      for (const { level, constant } of groupSlots) {
         addEncounter(constant, {
           method: 'super-rod',
           path: locationFor(map),
+          map,
           game: game.id,
           level,
+          chance: 100 / groupSlots.length,
         });
       }
     }
@@ -552,30 +433,70 @@ for (const [constant, entry] of species) {
     preEvolution.set(evolution.to, { from: constant, ...evolution });
 }
 
-const mergeEncounters = (encounters) => {
-  const merged = new Map();
+for (const [key, total] of slotChances) {
+  if (Math.abs(total - 100) > 0.001) {
+    throw new Error(`${key}: wild slot chances add up to ${total}%`);
+  }
+}
 
-  for (const { game, level, tradeFor, ...rest } of encounters) {
-    const key = `${rest.method}|${rest.path}|${tradeFor ?? ''}`;
-    const current = merged.get(key) ?? {
+const range = (values) => [Math.min(...values), Math.max(...values)];
+
+const roundChance = (value) => Math.round(value * 10) / 10;
+
+const mergeEncounters = (encounters) => {
+  const perMap = new Map();
+
+  for (const { game, level, chance, map, tradeFor, ...rest } of encounters) {
+    const key = [game, rest.method, rest.path, tradeFor, map].join('|');
+    const current = perMap.get(key) ?? { ...rest, game, tradeFor, levels: [] };
+
+    if (level !== undefined) current.levels.push(level);
+    if (chance !== undefined) current.chance = (current.chance ?? 0) + chance;
+
+    perMap.set(key, current);
+  }
+
+  const perPlace = new Map();
+
+  for (const { game, tradeFor, levels, chance, ...rest } of perMap.values()) {
+    const key = [game, rest.method, rest.path, tradeFor].join('|');
+    const current = perPlace.get(key) ?? {
       ...rest,
-      ...(tradeFor && { tradeFor: species.get(tradeFor).number }),
-      games: [],
+      game,
+      tradeFor,
       levels: [],
+      chances: [],
     };
 
-    if (!current.games.includes(game)) current.games.push(game);
-    if (level !== undefined) current.levels.push(level);
+    current.levels.push(...levels);
+    if (chance !== undefined) current.chances.push(chance);
 
+    perPlace.set(key, current);
+  }
+
+  const merged = new Map();
+
+  for (const {
+    game,
+    tradeFor,
+    levels,
+    chances,
+    ...rest
+  } of perPlace.values()) {
+    const encounter = {
+      ...rest,
+      ...(tradeFor && { tradeFor: species.get(tradeFor).number }),
+      ...(levels.length > 0 && { levels: range(levels) }),
+      ...(chances.length > 0 && { chance: range(chances).map(roundChance) }),
+    };
+    const key = JSON.stringify(encounter);
+    const current = merged.get(key) ?? { ...encounter, games: [] };
+
+    current.games.push(game);
     merged.set(key, current);
   }
 
-  return [...merged.values()].map(({ levels, ...encounter }) => ({
-    ...encounter,
-    ...(levels.length > 0 && {
-      levels: [Math.min(...levels), Math.max(...levels)],
-    }),
-  }));
+  return [...merged.values()];
 };
 
 const pokedex = [...species]

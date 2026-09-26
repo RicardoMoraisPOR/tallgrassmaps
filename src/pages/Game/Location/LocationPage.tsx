@@ -1,11 +1,15 @@
 import { MapViewer } from '@/components/map/MapViewer';
+import { pokedexFor } from '@/data/pokedex';
+import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
 import { SidebarLayout } from '../SidebarLayout';
+import { EncountersCard } from './EncountersCard';
 import { locationLinks } from './locationLinks';
 import { PlaceCard } from './PlaceCard';
+import { TrainersCard } from './TrainersCard';
 
 export const LocationPage = () => {
   const route = useGameRoute();
@@ -17,6 +21,8 @@ export const LocationPage = () => {
     return <NotFoundPage />;
   }
 
+  const pokedex = pokedexFor(route.region.versionGroup);
+  const trainers = trainersFor(route.region.versionGroup);
   const { links, inside, connections } = locationLinks(
     route.region,
     location,
@@ -27,13 +33,30 @@ export const LocationPage = () => {
   return (
     <SidebarLayout
       aside={
-        <PlaceCard
-          kind={location.kind}
-          groups={[
-            { label: 'Inside', links: inside },
-            { label: 'Connects to', links: connections },
-          ]}
-        />
+        <>
+          <PlaceCard
+            kind={location.kind}
+            groups={[
+              { label: 'Inside', links: inside },
+              { label: 'Connects to', links: connections },
+            ]}
+          />
+          {pokedex && (
+            <EncountersCard
+              game={route.game}
+              path={trailPath(trail)}
+              pokedex={pokedex}
+            />
+          )}
+          {pokedex && trainers && (
+            <TrainersCard
+              game={route.game}
+              path={trailPath(trail)}
+              trainers={trainers}
+              pokedex={pokedex}
+            />
+          )}
+        </>
       }
     >
       <MapViewer

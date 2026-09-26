@@ -15,6 +15,7 @@ export type Encounter = {
   path: string | null;
   games: Array<string>;
   levels?: [number, number];
+  chance?: [number, number];
   tradeFor?: number;
 };
 
