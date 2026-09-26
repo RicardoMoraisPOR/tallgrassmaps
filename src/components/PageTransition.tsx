@@ -27,6 +27,9 @@ const VECTORS: Record<Direction, [x: number, y: number]> = {
 const offset = ([x, y]: [number, number]) =>
   `translate(${x * DISTANCE}px, ${y * DISTANCE}px)`;
 
+const screenOffset = ([x, y]: [number, number]) =>
+  `translate(${x * 100}vw, ${y * 100}vh)`;
+
 type Motion = {
   enterFrom: string;
   exitTo: string;
@@ -50,7 +53,10 @@ const motionFor = (
   if (travel) {
     const [x, y] = VECTORS[travel];
 
-    return { enterFrom: offset([x, y]), exitTo: offset([-x, -y]) };
+    return {
+      enterFrom: screenOffset([x, y]),
+      exitTo: screenOffset([-x, -y]),
+    };
   }
 
   const change = depthOf(to) - depthOf(from);

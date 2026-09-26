@@ -23,7 +23,9 @@ export const GameLayout = () => {
         trail={route.trail ?? []}
         href={route.href}
       />
-      <PageTransition mapMotion />
+      <div className="flex flex-1 flex-col overflow-clip">
+        <PageTransition mapMotion />
+      </div>
     </Container>
   );
 };
