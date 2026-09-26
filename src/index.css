@@ -128,3 +128,45 @@
     @apply font-sans;
   }
 }
+
+@utility pixelated {
+  image-rendering: pixelated;
+}
+
+.map-pixelated .leaflet-image-layer {
+  image-rendering: pixelated;
+}
+
+:root {
+  --map-link: oklch(0.65 0.2 145);
+  --brand: #6cc46a;
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+}
+
+.leaflet-interactive.map-link {
+  stroke: var(--map-link);
+  stroke-opacity: 0.9;
+  stroke-width: 2;
+  fill: var(--map-link);
+  fill-opacity: 0.15;
+  transition: fill-opacity 150ms;
+}
+
+.leaflet-interactive.map-link:hover {
+  fill-opacity: 0.35;
+}
+
+@utility game-card-glow {
+  box-shadow:
+    0 12px 28px -16px color-mix(in oklch, var(--card-accent) 35%, transparent),
+    0 2px 6px -2px oklch(0 0 0 / 0.08);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}

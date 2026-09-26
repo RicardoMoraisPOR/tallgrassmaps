@@ -6,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Interactive map companion: encounters, day and night, items and secrets."
+      content="The actual maps from the Pokémon games, starting with Red, Blue and Yellow."
     />
-    <title>Tall Grass</title>
+    <title>Tall Grass Maps</title>
+    <script>
+      try {
+        const theme = localStorage.getItem('tall-grass-theme');
+        if (
+          theme === 'dark' ||
+          (!theme && matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
