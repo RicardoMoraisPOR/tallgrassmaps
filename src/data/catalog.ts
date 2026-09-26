@@ -371,3 +371,48 @@ export const versionGroupParts = (versionGroup: string) =>
   (versionGroupLetters[versionGroup] ?? [[versionGroup]]).map(
     ([text, gameId]) => ({ text, color: gameId && gameColor(gameId) }),
   );
+
+export type MapSetGame = {
+  id: string;
+  name: string;
+  color: string;
+  available: boolean;
+};
+
+export type MapSet = {
+  versionGroup: string;
+  regions: Array<string>;
+  games: Array<MapSetGame>;
+  available: boolean;
+};
+
+export const mapSets = generations
+  .flatMap(({ entries }) => entries)
+  .reduce<Array<MapSet>>((sets, entry) => {
+    const versionGroup = entryVersionGroup(entry);
+
+    if (!versionGroup) return sets;
+
+    const available = entry.status === 'available';
+    const game = {
+      id: entry.game.id,
+      name: entryName(entry),
+      color: entry.game.colors[0],
+      available,
+    };
+    const set = sets.find((other) => other.versionGroup === versionGroup);
+
+    if (set) {
+      set.games.push(game);
+      set.available ||= available;
+    } else {
+      sets.push({
+        versionGroup,
+        regions: entryRegions(entry),
+        games: [game],
+        available,
+      });
+    }
+
+    return sets;
+  }, []);

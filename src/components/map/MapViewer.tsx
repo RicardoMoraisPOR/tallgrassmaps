@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router';
 
 import type { Direction, MapImage, Rect } from '@/data/maps';
 import { travelState } from '@/lib/motion';
+import { cn } from '@/lib/utils';
 
 import { imageBounds, toLatLng } from './coordinates';
 
@@ -47,7 +48,7 @@ export const MapViewer = ({ map, links = [], className }: MapViewerProps) => {
       zoomSnap={1}
       minZoom={-8}
       maxZoom={MAX_ZOOM}
-      className={className}
+      className={cn('isolate', className)}
       style={{ background: 'var(--muted)' }}
     >
       <ImageOverlay url={map.image} bounds={bounds} attribution={attribution} />

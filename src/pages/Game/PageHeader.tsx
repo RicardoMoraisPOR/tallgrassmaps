@@ -3,32 +3,46 @@ import { Link } from 'react-router';
 
 import { getCover } from '@/data/covers';
 import type { Game } from '@/data/games';
-import { generationHref } from '@/lib/paths';
+import type { Location, Region } from '@/data/maps';
+import { gameHref, trailPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 
-export type Crumb = {
+import { GameSwitcher } from './GameSwitcher';
+import { MapSwitcher } from './MapSwitcher';
+
+const TOWN_MAP = 'Town Map';
+
+const crumbLink =
+  'rounded-sm underline-offset-3 hover:text-foreground hover:underline';
+
+type Crumb = {
   name: string;
   href: string;
 };
 
 type PageHeaderProps = {
   game: Game;
-  ancestors?: Array<Crumb>;
-  title: string;
+  region: Region;
+  trail: Array<Location>;
+  href: (path: string) => string;
 };
 
-export const PageHeader = ({
-  game,
-  ancestors = [],
-  title,
-}: PageHeaderProps) => {
-  const steps: Array<Crumb> = [
-    { name: game.name, href: generationHref(game.generation) },
-    ...ancestors,
-  ];
-  const folded = (index: number) => index > 0 && index < steps.length - 1;
-  const hasFolded = steps.some((_, index) => folded(index));
+export const PageHeader = ({ game, region, trail, href }: PageHeaderProps) => {
   const cover = getCover(game.id);
+  const location = trail.at(-1);
+  const title = location?.name ?? region.name;
+  const current = location?.name ?? TOWN_MAP;
+  const parents: Array<Crumb> = location
+    ? [
+        { name: TOWN_MAP, href: gameHref(game.id) },
+        ...trail.slice(0, -1).map((step, index) => ({
+          name: step.name,
+          href: href(trailPath(trail.slice(0, index + 1))),
+        })),
+      ]
+    : [];
+  const folded = (index: number) => index < parents.length - 1;
+  const hasFolded = parents.length > 1;
 
   return (
     <header className="flex items-center gap-4 sm:gap-5">
@@ -42,46 +56,36 @@ export const PageHeader = ({
       <div className="flex min-w-0 flex-col gap-2">
         <nav aria-label="Breadcrumb">
           <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] text-muted-foreground">
-            {steps.map((step, index) => (
+            <li className="flex items-center">
+              <MapSwitcher game={game} path={trailPath(trail)} />
+            </li>
+            <li className="flex items-center gap-1.5">
+              <Separator />
+              <GameSwitcher game={game} path={trailPath(trail)} />
+            </li>
+            {hasFolded && (
+              <li aria-hidden className="flex items-center gap-1.5 sm:hidden">
+                <Separator />…
+              </li>
+            )}
+            {parents.map((crumb, index) => (
               <li
-                key={step.href}
+                key={crumb.href}
                 className={cn(
                   'items-center gap-1.5',
                   folded(index) ? 'hidden sm:flex' : 'flex',
                 )}
               >
-                <Link
-                  to={step.href}
-                  className="flex items-center gap-2 rounded-sm underline-offset-3 hover:text-foreground hover:underline"
-                >
-                  {index === 0 && (
-                    <span
-                      aria-hidden
-                      className="size-2 rounded-full"
-                      style={{ background: game.colors[0] }}
-                    />
-                  )}
-                  {step.name}
+                <Separator />
+                <Link to={crumb.href} className={crumbLink}>
+                  {crumb.name}
                 </Link>
-                <Separator
-                  className={cn(
-                    index === steps.length - 1 && 'hidden sm:block',
-                  )}
-                />
-                {index === 0 && hasFolded && (
-                  <span
-                    aria-hidden
-                    className="flex items-center gap-1.5 sm:hidden"
-                  >
-                    …
-                    <Separator />
-                  </span>
-                )}
               </li>
             ))}
-            <li className="hidden sm:block">
+            <li className="hidden items-center gap-1.5 sm:flex">
+              <Separator />
               <span aria-current="page" className="font-medium text-foreground">
-                {title}
+                {current}
               </span>
             </li>
           </ol>

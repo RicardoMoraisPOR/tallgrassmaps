@@ -77,3 +77,6 @@ export const games: Array<Game> = [
 
 export const getGame = (id: string | undefined) =>
   games.find((game) => game.id === id);
+
+export const gamesSharingMap = (game: Game) =>
+  games.filter((other) => other.region === game.region);
