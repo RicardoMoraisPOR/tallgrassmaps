@@ -58,10 +58,10 @@ export const GameFilters = ({
       ))}
       <div
         aria-live="polite"
-        className="text-[13px] text-muted-foreground empty:hidden sm:pl-20"
+        className="min-h-9 text-[13px] text-muted-foreground sm:pl-20"
       >
         {active && (
-          <div className="flex min-h-9 items-center gap-3">
+          <div className="flex h-9 items-center gap-3">
             Showing {shown} of {total} games
             <button
               type="button"

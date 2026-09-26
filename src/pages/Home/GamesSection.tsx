@@ -1,18 +1,49 @@
+import { AnimatePresence, m } from 'motion/react';
+
 import { Container } from '@/components/Container';
 import { generationRegions } from '@/data/catalog';
+import { easeOutSoft } from '@/lib/motion';
 import { generationId } from '@/lib/paths';
 import { formatList } from '@/lib/utils';
 
-import { filterGenerations, totalGames } from './filters';
+import { filterGenerations, filterGroups, totalGames } from './filters';
 import { GameCard } from './GameCard';
 import { GameFilters } from './GameFilters';
 import { useFilters } from './useFilters';
+
+const STAGGER_SECONDS = 0.04;
+const MAX_STAGGERED_ITEMS = 12;
+
+const exitTransition = { duration: 0.15, ease: 'easeIn' } as const;
+
+const results = {
+  exit: { opacity: 0, transition: exitTransition },
+};
+
+const chainItem = {
+  initial: { opacity: 0, y: 20 },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: easeOutSoft,
+      delay: Math.min(index, MAX_STAGGERED_ITEMS) * STAGGER_SECONDS,
+    },
+  }),
+  exit: { opacity: 0, transition: exitTransition },
+};
 
 export const GamesSection = () => {
   const { filters, active, toggle, clear } = useFilters();
 
   const visible = filterGenerations(filters);
   const shown = visible.reduce((sum, { entries }) => sum + entries.length, 0);
+  const resultsKey = filterGroups
+    .map(({ key }) => filters[key].join(','))
+    .join('|');
+
+  let chainIndex = 0;
 
   return (
     <section
@@ -43,40 +74,65 @@ export const GamesSection = () => {
             onClear={clear}
           />
         </div>
-        {visible.map((generation) => (
-          <div
-            key={generation.number}
-            id={generationId(generation.number)}
-            className="flex scroll-mt-6 flex-col gap-5"
+        <AnimatePresence mode="wait" initial={false}>
+          <m.div
+            key={resultsKey}
+            className="flex flex-col gap-14"
+            variants={results}
+            initial="initial"
+            animate="animate"
+            exit="exit"
           >
-            <div className="flex items-center gap-4">
-              <h3 className="text-xl font-semibold tracking-tight whitespace-nowrap">
-                Generation {generation.roman}{' '}
-                <span className="font-normal text-muted-foreground">
-                  · {formatList(generationRegions(generation))}
-                </span>
-              </h3>
-              <span className="h-px flex-1 bg-border" />
-            </div>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-5">
-              {generation.entries.map((entry) => (
-                <GameCard key={entry.game.id} entry={entry} />
-              ))}
-            </div>
-          </div>
-        ))}
-        {visible.length === 0 && (
-          <div className="flex flex-col items-center gap-3 py-10 text-center text-muted-foreground">
-            No games match these filters.
-            <button
-              type="button"
-              onClick={clear}
-              className="h-9 rounded-full border border-input px-4 text-[13px] font-medium text-foreground hover:bg-muted"
-            >
-              Clear filters
-            </button>
-          </div>
-        )}
+            {visible.map((generation) => (
+              <div
+                key={generation.number}
+                id={generationId(generation.number)}
+                className="flex scroll-mt-6 flex-col gap-5"
+              >
+                <m.div
+                  variants={chainItem}
+                  custom={chainIndex++}
+                  className="flex items-center gap-4"
+                >
+                  <h3 className="text-xl font-semibold tracking-tight whitespace-nowrap">
+                    Generation {generation.roman}{' '}
+                    <span className="font-normal text-muted-foreground">
+                      · {formatList(generationRegions(generation))}
+                    </span>
+                  </h3>
+                  <span className="h-px flex-1 bg-border" />
+                </m.div>
+                <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-5">
+                  {generation.entries.map((entry) => (
+                    <m.div
+                      key={entry.game.id}
+                      variants={chainItem}
+                      custom={chainIndex++}
+                    >
+                      <GameCard entry={entry} />
+                    </m.div>
+                  ))}
+                </div>
+              </div>
+            ))}
+            {visible.length === 0 && (
+              <m.div
+                variants={chainItem}
+                custom={0}
+                className="flex flex-col items-center gap-3 py-10 text-center text-muted-foreground"
+              >
+                No games match these filters.
+                <button
+                  type="button"
+                  onClick={clear}
+                  className="h-9 rounded-full border border-input px-4 text-[13px] font-medium text-foreground hover:bg-muted"
+                >
+                  Clear filters
+                </button>
+              </m.div>
+            )}
+          </m.div>
+        </AnimatePresence>
       </Container>
     </section>
   );

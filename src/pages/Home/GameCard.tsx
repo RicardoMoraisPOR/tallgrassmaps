@@ -39,7 +39,7 @@ const AvailableCard = ({ game }: { game: Game }) => {
       className="group/card block h-full rounded-2xl outline-none"
       style={{ '--card-accent': accent } as CSSProperties}
     >
-      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-xs transition-[translate,box-shadow,border-color] duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:-translate-y-1.5 group-hover/card:border-[color-mix(in_oklch,var(--card-accent)_45%,var(--border))] group-hover/card:game-card-glow group-focus-visible/card:border-ring group-focus-visible/card:ring-3 group-focus-visible/card:ring-ring/55">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-xs transition-[box-shadow,border-color] duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:border-[color-mix(in_oklch,var(--card-accent)_45%,var(--border))] group-hover/card:game-card-glow group-focus-visible/card:border-ring group-focus-visible/card:ring-3 group-focus-visible/card:ring-ring/55">
         <ColorStripe colors={game.colors} />
         <Cover gameId={game.id} accent={accent} interactive>
           <MapTag versionGroup={region.versionGroup} />

@@ -1,16 +1,15 @@
 import { type ReactNode, useEffect } from 'react';
 
-import { ChevronRight } from 'lucide-react';
 import { useLocation } from 'react-router';
 
 import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { coverSources } from '@/data/covers';
 import { kantoRby } from '@/data/maps/kanto-rby';
-import { generationId } from '@/lib/paths';
 
 import { GamesSection } from './GamesSection';
 import { HeroTownMap } from './HeroTownMap';
+import { MappingBadge } from './MappingBadge';
 
 export const HomePage = () => {
   const { hash } = useLocation();
@@ -46,16 +45,7 @@ const Hero = () => {
       />
       <Container className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-12 pt-10 pb-14 sm:pt-22 sm:pb-26">
         <div className="flex flex-col items-start gap-6">
-          <a
-            href={`#${generationId(1)}`}
-            className="inline-flex min-h-8 items-center gap-2 rounded-full border bg-card py-1 pr-3 pl-1.5 text-[13px] leading-5 transition-colors hover:border-ring"
-          >
-            <span className="inline-flex h-5.5 items-center rounded-full bg-[oklch(0.39_0.08_150)] px-2 text-xs font-semibold text-[oklch(0.9_0.1_145)]">
-              New
-            </span>
-            Kanto is up: Red, Blue and Yellow
-            <ChevronRight className="size-3.5 text-muted-foreground" />
-          </a>
+          <MappingBadge />
           <h1 className="font-heading text-[38px] leading-[1.02] font-bold tracking-[-0.04em] text-balance sm:text-6xl sm:leading-[1.02]">
             Every Pokémon map, <span className="text-brand">in one place.</span>
           </h1>
