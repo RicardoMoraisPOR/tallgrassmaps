@@ -1,7 +1,9 @@
 import { type ReactNode, Suspense } from 'react';
 
+import '@fontsource/press-start-2p';
 import { X } from 'lucide-react';
 
+import { useThemeStyle } from '@/components/settings/themes';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -21,6 +23,7 @@ import {
 import type { Game } from '@/data/games';
 import type { Region } from '@/data/maps';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { cn } from '@/lib/utils';
 
 import { pokedexViews } from './pokedexViews';
 import { usePokedex } from './usePokedex';
@@ -35,12 +38,20 @@ type PokedexOverlayProps = {
 
 export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
   const { open, close } = usePokedex();
+  const themeStyle = useThemeStyle('pokedex');
 
   const view = pokedexViews[region.versionGroup];
 
   if (!view) return null;
 
-  const title = `${region.name} Pokédex`;
+  const gameTheme = themeStyle === 'game' && Boolean(view.gameTheme);
+  const title = gameTheme ? (
+    <>
+      {region.name} Pok<span className="normal-case">é</span>dex
+    </>
+  ) : (
+    `${region.name} Pokédex`
+  );
   const onOpenChange = (next: boolean) => {
     if (!next) close();
   };
@@ -54,6 +65,7 @@ export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
     <PokedexModal
       open={open}
       onOpenChange={onOpenChange}
+      gameTheme={gameTheme}
       title={title}
       description={game.name}
     >
@@ -63,6 +75,7 @@ export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
     <PokedexDrawer
       open={open}
       onOpenChange={onOpenChange}
+      gameTheme={gameTheme}
       title={title}
       description={game.name}
     >
@@ -74,7 +87,8 @@ export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
 type ContainerProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  title: string;
+  gameTheme: boolean;
+  title: ReactNode;
   description: string;
   children: ReactNode;
 };
@@ -82,6 +96,7 @@ type ContainerProps = {
 const PokedexDrawer = ({
   open,
   onOpenChange,
+  gameTheme,
   title,
   description,
   children,
@@ -94,7 +109,12 @@ const PokedexDrawer = ({
       onOpenChange={onOpenChange}
       direction={wide ? 'right' : 'bottom'}
     >
-      <DrawerContent className="data-[vaul-drawer-direction=bottom]:h-[85svh] data-[vaul-drawer-direction=bottom]:max-h-[85svh] data-[vaul-drawer-direction=right]:w-full data-[vaul-drawer-direction=right]:sm:max-w-md">
+      <DrawerContent
+        className={cn(
+          'data-[vaul-drawer-direction=bottom]:h-[85svh] data-[vaul-drawer-direction=bottom]:max-h-[85svh] data-[vaul-drawer-direction=right]:w-full data-[vaul-drawer-direction=right]:sm:max-w-md',
+          gameTheme && 'pokedex-game',
+        )}
+      >
         <DrawerHeader className="relative">
           <DrawerTitle>{title}</DrawerTitle>
           <DrawerDescription>{description}</DrawerDescription>
@@ -120,13 +140,19 @@ const PokedexDrawer = ({
 const PokedexModal = ({
   open,
   onOpenChange,
+  gameTheme,
   title,
   description,
   children,
 }: ContainerProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex max-h-[85svh] flex-col sm:max-w-3xl">
+      <DialogContent
+        className={cn(
+          'flex max-h-[85svh] flex-col sm:max-w-3xl',
+          gameTheme && 'pokedex-game',
+        )}
+      >
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>

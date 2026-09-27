@@ -8,11 +8,9 @@ export type ThemeStyle = 'game' | 'tall-grass';
 type SettingsState = {
   animations: boolean;
   gamePointer: boolean;
-  useGameThemes: boolean;
   themes: Record<ThemeArea, ThemeStyle>;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
-  setUseGameThemes: (useGameThemes: boolean) => void;
   setTheme: (area: ThemeArea, style: ThemeStyle) => void;
 };
 
@@ -21,11 +19,9 @@ export const useSettingsStore = create<SettingsState>()(
     (set) => ({
       animations: true,
       gamePointer: true,
-      useGameThemes: false,
-      themes: { pokedex: 'tall-grass', townMap: 'game', sprites: 'tall-grass' },
+      themes: { pokedex: 'game', townMap: 'game', sprites: 'tall-grass' },
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
-      setUseGameThemes: (useGameThemes) => set({ useGameThemes }),
       setTheme: (area, style) =>
         set((state) => ({ themes: { ...state.themes, [area]: style } })),
     }),
@@ -33,10 +29,9 @@ export const useSettingsStore = create<SettingsState>()(
       name: 'tallgrass-settings',
       version: 1,
       storage: createJSONStorage(() => localStorage),
-      partialize: ({ animations, gamePointer, useGameThemes, themes }) => ({
+      partialize: ({ animations, gamePointer, themes }) => ({
         animations,
         gamePointer,
-        useGameThemes,
         themes,
       }),
     },

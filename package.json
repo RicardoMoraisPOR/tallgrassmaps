@@ -13,7 +13,9 @@
     "pokedex:rby": "node scripts/pokedex/rby.mjs",
     "trainers:rby": "node scripts/trainers/rby.mjs",
     "items:rby": "node scripts/items/rby.mjs",
-    "sprites:pokemon": "node scripts/sprites/pokemon.mjs"
+    "sprites:pokemon": "node scripts/sprites/pokemon.mjs",
+    "sprites:rby": "node scripts/sprites/rby.mjs",
+    "town-map:tall-grass": "node scripts/town-map/tall-grass.mjs"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

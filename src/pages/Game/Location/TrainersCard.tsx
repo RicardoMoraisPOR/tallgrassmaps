@@ -1,7 +1,8 @@
 import type { Game } from '@/data/games';
 import type { PokedexEntry } from '@/data/pokedex/types';
-import { pokemonSprite } from '@/data/sprites';
 import type { TrainerBattle, TrainerParty } from '@/data/trainers/types';
+import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
+import { cn } from '@/lib/utils';
 
 import { ExpandableCard } from './ExpandableCard';
 
@@ -20,6 +21,8 @@ export const TrainersCard = ({
   trainers,
   pokedex,
 }: TrainersCardProps) => {
+  const spriteFor = usePokemonSprite(game);
+
   const battles = trainers.filter(
     (battle) =>
       battle.path === path &&
@@ -52,6 +55,7 @@ export const TrainersCard = ({
                   <Party
                     key={party.label ?? ''}
                     party={party}
+                    spriteFor={spriteFor}
                     nameOf={(number) => names.get(number) ?? `#${number}`}
                   />
                 ))}
@@ -66,9 +70,11 @@ export const TrainersCard = ({
 
 const Party = ({
   party,
+  spriteFor,
   nameOf,
 }: {
   party: TrainerParty;
+  spriteFor: (number: number) => PokemonSprite;
   nameOf: (number: number) => string;
 }) => {
   return (
@@ -84,12 +90,15 @@ const Party = ({
             className="flex w-11 flex-col items-center rounded-lg bg-muted pt-0.5 pb-1"
           >
             <img
-              src={pokemonSprite(pokemon.number)}
+              src={spriteFor(pokemon.number).src}
               alt=""
               width={96}
               height={96}
               loading="lazy"
-              className="size-9 object-contain"
+              className={cn(
+                'size-9 object-contain',
+                spriteFor(pokemon.number).pixelated && 'pixelated',
+              )}
             />
             <span className="sr-only">{nameOf(pokemon.number)}, </span>
             <span className="text-[11px] leading-none text-muted-foreground tabular-nums">

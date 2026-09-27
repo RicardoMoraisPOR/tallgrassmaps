@@ -1,3 +1,4 @@
+import tallGrassMap from './tall-grass/kanto-rby.svg?raw';
 import type {
   Direction,
   Location,
@@ -785,6 +786,7 @@ export const kantoRby: Region = {
     credit: 'FrenchOrange',
   },
   locations,
+  tallGrassMap,
   label: {
     x: 8,
     y: 0.5,

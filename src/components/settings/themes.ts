@@ -1,9 +1,21 @@
-import type { ThemeArea, ThemeStyle } from '@/stores/settings';
+import {
+  type ThemeArea,
+  type ThemeStyle,
+  useSettingsStore,
+} from '@/stores/settings';
 
-export const themeAreas: Array<{ area: ThemeArea; label: string }> = [
+export const themeAreas: Array<{
+  area: ThemeArea;
+  label: string;
+  styleLabels?: Partial<Record<ThemeStyle, string>>;
+}> = [
   { area: 'pokedex', label: 'Pokédex' },
   { area: 'townMap', label: 'Town Map' },
-  { area: 'sprites', label: 'Pokémon sprites' },
+  {
+    area: 'sprites',
+    label: 'Pokémon sprites',
+    styleLabels: { 'tall-grass': 'Showdown' },
+  },
 ];
 
 export const themeStyles: Array<{ style: ThemeStyle; label: string }> = [
@@ -12,9 +24,9 @@ export const themeStyles: Array<{ style: ThemeStyle; label: string }> = [
 ];
 
 const available: Record<ThemeArea, Array<ThemeStyle>> = {
-  pokedex: ['tall-grass'],
-  townMap: ['game'],
-  sprites: ['tall-grass'],
+  pokedex: ['tall-grass', 'game'],
+  townMap: ['game', 'tall-grass'],
+  sprites: ['tall-grass', 'game'],
 };
 
 export const isThemeAvailable = (area: ThemeArea, style: ThemeStyle) =>
@@ -22,12 +34,12 @@ export const isThemeAvailable = (area: ThemeArea, style: ThemeStyle) =>
 
 export const resolveTheme = (
   area: ThemeArea,
-  {
-    useGameThemes,
-    themes,
-  }: { useGameThemes: boolean; themes: Record<ThemeArea, ThemeStyle> },
+  { themes }: { themes: Record<ThemeArea, ThemeStyle> },
 ): ThemeStyle => {
-  const wanted = useGameThemes ? 'game' : themes[area];
+  const wanted = themes[area];
 
   return isThemeAvailable(area, wanted) ? wanted : available[area][0];
 };
+
+export const useThemeStyle = (area: ThemeArea) =>
+  useSettingsStore((state) => resolveTheme(area, state));

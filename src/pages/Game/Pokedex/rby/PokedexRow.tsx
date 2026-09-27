@@ -8,8 +8,8 @@ import { Button } from '@/components/ui/button';
 import { type Game, gamesSharingMap } from '@/data/games';
 import { getLocation, type Region } from '@/data/maps';
 import type { PokedexEntry } from '@/data/pokedex/types';
-import { pokemonSprite } from '@/data/sprites';
-import { formatList } from '@/lib/utils';
+import { usePokemonSprite } from '@/hooks/usePokemonSprite';
+import { cn, formatList } from '@/lib/utils';
 
 import { ColorDot } from '../../ColorDot';
 import {
@@ -38,31 +38,46 @@ export const PokedexRow = ({
 }: PokedexRowProps) => {
   const [expanded, setExpanded] = useState(false);
   const panelId = useId();
+  const spriteFor = usePokemonSprite(game);
+
+  const sprite = spriteFor(entry.number);
 
   const inGame = entry.games.includes(game.id);
 
   return (
-    <li className="rounded-[12px] border bg-card">
-      <div className="flex items-center gap-3 p-2">
-        <span className="w-10 flex-none font-mono text-xs text-muted-foreground tabular-nums">
-          {dexNumber(entry.number)}
+    <li
+      data-expanded={expanded || undefined}
+      className="group/row rounded-[12px] border bg-card pokedex-game:rounded-none pokedex-game:border-0 pokedex-game:border-b-2 pokedex-game:border-dashed pokedex-game:bg-transparent"
+    >
+      <div className="relative flex items-center gap-3 p-2 pokedex-game:grid pokedex-game:grid-cols-[auto_auto_1fr_auto] pokedex-game:grid-rows-[auto_auto] pokedex-game:gap-x-2 pokedex-game:gap-y-1 pokedex-game:overflow-y-clip pokedex-game:py-3">
+        <span
+          aria-hidden
+          className="hidden text-[16px] leading-none opacity-0 pokedex-game:row-span-2 pokedex-game:block pokedex-game:group-hover/row:opacity-100 pokedex-game:group-has-[:focus-visible]/row:opacity-100"
+        >
+          ▶
         </span>
-        <span className="flex size-12 flex-none items-center justify-center rounded-lg bg-muted">
+        <span className="w-10 flex-none font-mono text-xs text-muted-foreground tabular-nums pokedex-game:col-start-3 pokedex-game:row-start-1 pokedex-game:w-auto pokedex-game:text-[10px] pokedex-game:text-foreground">
+          <span className="pokedex-game:hidden">#</span>
+          {dexNumber(entry.number).slice(1)}
+        </span>
+        <span className="flex size-12 flex-none items-center justify-center rounded-lg bg-muted pokedex-game:col-start-2 pokedex-game:row-span-2 pokedex-game:row-start-1 pokedex-game:bg-transparent">
           <img
-            src={pokemonSprite(entry.number)}
+            src={sprite.src}
             alt=""
             width={96}
             height={96}
             loading="lazy"
-            className="size-12 object-contain"
+            className={cn(
+              'size-12 object-contain',
+              sprite.pixelated && 'pixelated',
+            )}
           />
         </span>
         <span
-          className={
-            inGame
-              ? 'min-w-0 flex-1 truncate font-medium'
-              : 'min-w-0 flex-1 truncate font-medium text-muted-foreground'
-          }
+          className={cn(
+            'min-w-0 flex-1 truncate font-medium pokedex-game:col-start-3 pokedex-game:row-start-2 pokedex-game:pl-6 pokedex-game:text-[10px]',
+            !inGame && 'text-muted-foreground',
+          )}
         >
           {entry.name}
         </span>
@@ -72,19 +87,31 @@ export const PokedexRow = ({
           aria-expanded={expanded}
           aria-controls={panelId}
           onClick={() => setExpanded((current) => !current)}
-          className="group flex-none"
+          className="group flex-none pokedex-game:relative pokedex-game:col-start-4 pokedex-game:row-span-2 pokedex-game:row-start-1 pokedex-game:gap-2 pokedex-game:px-2 pokedex-game:text-[10px]"
         >
-          More info<span className="sr-only"> about {entry.name}</span>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -inset-y-16 left-[13px] hidden w-0.5 bg-foreground pokedex-game:block"
+          />
+          <span
+            aria-hidden
+            className="gb-bullet relative hidden pokedex-game:inline-block"
+          />
+          <span className="pokedex-game:hidden">More info</span>
+          <span aria-hidden className="hidden pokedex-game:inline">
+            Data
+          </span>
+          <span className="sr-only"> about {entry.name}</span>
           <ChevronDown
             aria-hidden
-            className="transition-transform group-aria-expanded:rotate-180"
+            className="transition-transform group-aria-expanded:rotate-180 pokedex-game:hidden"
           />
         </Button>
       </div>
       <Collapse
         open={expanded}
         id={panelId}
-        className="flex flex-col gap-4 border-t p-3"
+        className="flex flex-col gap-4 border-t p-3 pokedex-game:border-t-4 pokedex-game:border-double pokedex-game:pb-4"
       >
         <GameTags entry={entry} game={game} />
         <Places
@@ -98,7 +125,7 @@ export const PokedexRow = ({
           href={bulbapediaUrl(entry.name)}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium underline underline-offset-3"
+          className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium underline underline-offset-3 pokedex-game:text-[10px] pokedex-game:leading-loose"
         >
           {entry.name} on Bulbapedia
           <ExternalLink aria-hidden className="size-3.5" />
@@ -115,7 +142,7 @@ const GameTags = ({ entry, game }: { entry: PokedexEntry; game: Game }) => {
 
   if (appearsIn.length === 0) {
     return (
-      <p className="text-[13px] text-muted-foreground">
+      <p className="text-[13px] text-muted-foreground pokedex-game:text-[10px] pokedex-game:leading-loose">
         Not obtainable in these games without trading or events.
       </p>
     );
@@ -126,7 +153,7 @@ const GameTags = ({ entry, game }: { entry: PokedexEntry; game: Game }) => {
       {appearsIn.map((other) => (
         <li
           key={other.id}
-          className="inline-flex h-6 items-center gap-1.5 rounded-full border px-2 text-xs font-medium"
+          className="inline-flex h-6 items-center gap-1.5 rounded-full border px-2 text-xs font-medium pokedex-game:rounded-none pokedex-game:border-2"
         >
           <ColorDot color={other.colors[0]} />
           {other.name.replace(/^Pokémon /, '')}
@@ -160,7 +187,7 @@ const Places = ({ entry, game, region, href, nameOf }: PokedexRowProps) => {
           )}`}
         />
       )}
-      <ul className="flex flex-col divide-y rounded-lg border text-[13px]">
+      <ul className="flex flex-col divide-y rounded-lg border text-[13px] pokedex-game:border-2 pokedex-game:text-[10px] pokedex-game:leading-loose">
         {encounters.map((encounter) => (
           <li
             key={`${encounter.method}-${encounter.path}-${encounter.tradeFor}`}

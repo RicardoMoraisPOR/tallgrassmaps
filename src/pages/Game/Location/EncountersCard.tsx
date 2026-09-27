@@ -8,7 +8,8 @@ import type {
   EncounterMethod,
   PokedexEntry,
 } from '@/data/pokedex/types';
-import { pokemonSprite } from '@/data/sprites';
+import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
+import { cn } from '@/lib/utils';
 
 import { chanceLabel, levelLabel, methodLabel } from '../Pokedex/format';
 import { pokedexLink } from '../Pokedex/usePokedex';
@@ -46,6 +47,8 @@ export const EncountersCard = ({
   floor,
   pokedex,
 }: EncountersCardProps) => {
+  const spriteFor = usePokemonSprite(game);
+
   const groups = CATCHABLE.map((method) => ({
     method,
     rows: pokedex
@@ -83,7 +86,11 @@ export const EncountersCard = ({
             </h3>
             <ul className="flex flex-col divide-y">
               {rows.map((row) => (
-                <EncounterRow key={row.entry.number} row={row} />
+                <EncounterRow
+                  key={row.entry.number}
+                  row={row}
+                  sprite={spriteFor(row.entry.number)}
+                />
               ))}
             </ul>
           </div>
@@ -99,19 +106,22 @@ export const EncountersCard = ({
   );
 };
 
-const EncounterRow = ({ row }: { row: Row }) => {
+const EncounterRow = ({ row, sprite }: { row: Row; sprite: PokemonSprite }) => {
   const { entry, encounter } = row;
   const chance = chanceLabel(encounter);
 
   return (
     <li className="flex items-center gap-3 py-1.5">
       <img
-        src={pokemonSprite(entry.number)}
+        src={sprite.src}
         alt=""
         width={96}
         height={96}
         loading="lazy"
-        className="size-10 flex-none object-contain"
+        className={cn(
+          'size-10 flex-none object-contain',
+          sprite.pixelated && 'pixelated',
+        )}
       />
       <div className="flex min-w-0 flex-1 flex-col">
         <span className="truncate text-sm font-medium">{entry.name}</span>

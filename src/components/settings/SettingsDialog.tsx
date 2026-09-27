@@ -53,14 +53,13 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
         </Section>
 
         <Section title="Themes">
-          <SwitchRow
-            label="Use game themes"
-            description="Uses each game's own look wherever one is available."
-            checked={settings.useGameThemes}
-            onCheckedChange={settings.setUseGameThemes}
-          />
+          <p className="text-xs text-pretty text-muted-foreground">
+            Choose Game to see each part the way it looks in the games. Game
+            themes keep the games' original colours, so they don't follow light
+            and dark mode.
+          </p>
           <div className="flex flex-col gap-3">
-            {themeAreas.map(({ area, label }) => (
+            {themeAreas.map(({ area, label, styleLabels }) => (
               <div
                 key={area}
                 className="flex items-center justify-between gap-4"
@@ -72,7 +71,6 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
                   size="sm"
                   aria-label={`${label} theme`}
                   value={resolveTheme(area, settings)}
-                  disabled={settings.useGameThemes}
                   onValueChange={(style) => {
                     if (style) settings.setTheme(area, style as ThemeStyle);
                   }}
@@ -87,7 +85,7 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
                         disabled={!available}
                         className="px-3 text-xs data-[state=on]:border-foreground data-[state=on]:bg-foreground data-[state=on]:text-background"
                       >
-                        {styleLabel}
+                        {styleLabels?.[style] ?? styleLabel}
                         {!available && (
                           <span className="text-[10px] opacity-70">Soon</span>
                         )}
@@ -98,10 +96,6 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
               </div>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground">
-            The game-style Pokédex and sprites, and a Tall Grass Town Map, are
-            on the way. Until then each option uses the style that exists.
-          </p>
         </Section>
       </DialogContent>
     </Dialog>

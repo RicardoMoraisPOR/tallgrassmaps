@@ -11,12 +11,14 @@ export type PokedexContentProps = {
 
 export type PokedexView = {
   presentation: 'drawer' | 'modal';
+  gameTheme?: boolean;
   Content: ComponentType<PokedexContentProps>;
 };
 
 export const pokedexViews: Partial<Record<string, PokedexView>> = {
   RBY: {
     presentation: 'drawer',
+    gameTheme: true,
     Content: lazy(() =>
       import('./rby/RbyPokedex').then((module) => ({
         default: module.RbyPokedex,

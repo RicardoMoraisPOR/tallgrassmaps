@@ -3,7 +3,8 @@
 @import 'shadcn/tailwind.css';
 @import '@fontsource-variable/geist';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *):not(.pokedex-game, .pokedex-game *));
+@custom-variant pokedex-game (&:is(.pokedex-game, .pokedex-game *));
 
 @theme inline {
   --font-heading: var(--font-sans);
@@ -140,6 +141,164 @@
   animation-iteration-count: 1 !important;
   transition-duration: 0s !important;
   scroll-behavior: auto !important;
+}
+
+:root {
+  --tg-water: #f3f6f4;
+  --tg-water-dot: rgb(10 10 10 / 0.08);
+  --tg-land: #dfeddb;
+  --tg-coast: #bcd6b3;
+  --tg-route: #ffffff;
+  --tg-route-under: #b7cdae;
+  --tg-sea-route: #3f9150;
+  --tg-town: #3f9150;
+  --tg-town-ring: #ffffff;
+  --tg-place: #3f9150;
+  --tg-cursor: oklch(0.58 0.21 27);
+}
+
+.dark {
+  --tg-water: #0b0f0c;
+  --tg-water-dot: rgb(255 255 255 / 0.07);
+  --tg-land: #16261a;
+  --tg-coast: #2c4a31;
+  --tg-route: #e8efe6;
+  --tg-route-under: #0b0f0c;
+  --tg-sea-route: #6cc46a;
+  --tg-town: #6cc46a;
+  --tg-town-ring: #0b0f0c;
+  --tg-place: #e8efe6;
+  --tg-cursor: oklch(0.7 0.19 25);
+}
+
+.tg-town-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tg-water {
+  fill: var(--tg-water);
+}
+
+.tg-water-dot {
+  fill: var(--tg-water-dot);
+}
+
+.tg-coast {
+  fill: none;
+  stroke: var(--tg-coast);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.tg-land {
+  fill: var(--tg-land);
+}
+
+.tg-route-under,
+.tg-route {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tg-route-under {
+  stroke: var(--tg-route-under);
+  stroke-width: 3.4;
+}
+
+.tg-route {
+  stroke: var(--tg-route);
+  stroke-width: 2.2;
+}
+
+.tg-sea-route {
+  fill: none;
+  stroke: var(--tg-sea-route);
+  stroke-width: 1;
+  stroke-dasharray: 1.5 2;
+  stroke-linecap: round;
+}
+
+.tg-town {
+  fill: var(--tg-town);
+  stroke: var(--tg-town-ring);
+  stroke-width: 1;
+}
+
+.tg-place {
+  fill: var(--tg-water);
+  stroke: var(--tg-place);
+  stroke-width: 1;
+}
+
+.pokedex-game {
+  color-scheme: light;
+  --gb-screen: #f6f4f7;
+  --gb-ink: #292929;
+  --gb-ink-soft: #6b6870;
+  --gb-bullet: #fbdb99;
+  --background: var(--gb-screen);
+  --foreground: var(--gb-ink);
+  --card: var(--gb-screen);
+  --card-foreground: var(--gb-ink);
+  --popover: var(--gb-screen);
+  --popover-foreground: var(--gb-ink);
+  --primary: var(--gb-ink);
+  --primary-foreground: var(--gb-screen);
+  --secondary: #e9e6ec;
+  --secondary-foreground: var(--gb-ink);
+  --muted: #e9e6ec;
+  --muted-foreground: var(--gb-ink-soft);
+  --accent: #e9e6ec;
+  --accent-foreground: var(--gb-ink);
+  --border: var(--gb-ink);
+  --input: var(--gb-ink);
+  --ring: var(--gb-ink);
+  --radius: 0px;
+  --text-xs: 8px;
+  --text-xs--line-height: 1.6;
+  --text-sm: 10px;
+  --text-sm--line-height: 1.8;
+  --text-base: 11px;
+  --text-base--line-height: 1.8;
+  --text-lg: 12px;
+  --text-lg--line-height: 1.6;
+  background: var(--gb-screen);
+  color: var(--gb-ink);
+}
+
+.pokedex-game,
+.pokedex-game * {
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.pokedex-game img {
+  image-rendering: pixelated;
+}
+
+.gb-bullet {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--gb-ink);
+  background: linear-gradient(
+    to right,
+    var(--gb-bullet) 0 30%,
+    #ffffff 30% 70%,
+    var(--gb-bullet) 70%
+  );
+}
+
+.gb-bullet-empty {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--gb-ink);
+  background: var(--gb-screen);
 }
 
 .map-pixelated .leaflet-image-layer {

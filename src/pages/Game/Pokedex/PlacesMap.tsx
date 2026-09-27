@@ -1,7 +1,9 @@
 import { percent } from '@/components/map/coordinates';
 import { RegionImage } from '@/components/map/RegionImage';
+import { useThemeStyle } from '@/components/settings/themes';
 import { type Hotspot, type Region } from '@/data/maps';
 import { pathSegments } from '@/lib/paths';
+import { cn } from '@/lib/utils';
 
 const hotspotFor = (region: Region, path: string) =>
   region.hotspots.find((hotspot) => hotspot.target === path) ??
@@ -14,6 +16,9 @@ type PlacesMapProps = {
 };
 
 export const PlacesMap = ({ region, paths, label }: PlacesMapProps) => {
+  const mapStyle = useThemeStyle('townMap');
+
+  const tallGrass = mapStyle === 'tall-grass' && Boolean(region.tallGrassMap);
   const hotspots = [
     ...new Set(
       paths
@@ -26,13 +31,19 @@ export const PlacesMap = ({ region, paths, label }: PlacesMapProps) => {
     <RegionImage
       region={region}
       alt={label}
+      mapStyle={mapStyle}
       className="overflow-hidden rounded-lg border"
     >
       {hotspots.map((hotspot) => (
         <span
           key={hotspot.target}
           aria-hidden
-          className="absolute rounded-[2px] bg-[oklch(0.62_0.24_25/0.6)] ring-2 ring-[oklch(0.45_0.2_25)]"
+          className={cn(
+            'absolute',
+            tallGrass
+              ? 'rounded-[22%] bg-(--tg-cursor)/35 ring-2 ring-(--tg-cursor)'
+              : 'rounded-[2px] bg-[oklch(0.62_0.24_25/0.6)] ring-2 ring-[oklch(0.45_0.2_25)]',
+          )}
           style={{
             left: percent(hotspot.x, region.width),
             top: percent(hotspot.y, region.height),

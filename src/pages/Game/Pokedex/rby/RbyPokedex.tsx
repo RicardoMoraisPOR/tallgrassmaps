@@ -58,10 +58,10 @@ export const RbyPokedex = ({ game, region, href }: PokedexContentProps) => {
   return (
     <div className="flex flex-col gap-3">
       <div className="sticky top-0 z-10 flex flex-col gap-2.5 bg-popover pb-3">
-        <label className="flex h-10 items-center gap-2 rounded-[10px] border border-input bg-background px-3 dark:bg-input/30">
+        <label className="flex h-10 items-center gap-2 rounded-[10px] border border-input bg-background px-3 dark:bg-input/30 pokedex-game:rounded-none pokedex-game:border-2">
           <Search
             aria-hidden
-            className="size-4 flex-none text-muted-foreground"
+            className="size-4 flex-none text-muted-foreground pokedex-game:text-foreground"
           />
           <span className="sr-only">Search the Pokédex</span>
           <input
@@ -75,7 +75,7 @@ export const RbyPokedex = ({ game, region, href }: PokedexContentProps) => {
         <div
           role="group"
           aria-label="Filters"
-          className="flex flex-wrap gap-1.5"
+          className="flex flex-wrap gap-1.5 pokedex-game:gap-x-3"
         >
           {(Object.keys(toggleLabels) as Array<Toggle>).map((toggle) => (
             <ToggleChip
@@ -93,7 +93,10 @@ export const RbyPokedex = ({ game, region, href }: PokedexContentProps) => {
             : `Showing ${visible.length} of ${rbyPokedex.length} Pokémon`}
         </p>
       </div>
-      <ul aria-label="Pokémon" className="flex flex-col gap-1.5">
+      <ul
+        aria-label="Pokémon"
+        className="flex flex-col gap-1.5 pokedex-game:gap-0"
+      >
         {visible.map((entry) => (
           <PokedexRow
             key={entry.number}

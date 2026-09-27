@@ -2,6 +2,7 @@ import { type CSSProperties, type PointerEvent, useRef, useState } from 'react';
 
 import { Link } from 'react-router';
 
+import { useThemeStyle } from '@/components/settings/themes';
 import { getHotspot, getLocation, type Region } from '@/data/maps';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
@@ -27,9 +28,13 @@ export const RegionMap = ({
   const flyerRef = useRef<HTMLDivElement>(null);
 
   const gamePointer = useSettingsStore((state) => state.gamePointer);
+  const themeStyle = useThemeStyle('townMap');
 
+  const mapStyle = region.tallGrassMap ? themeStyle : 'game';
+  const tallGrass = mapStyle === 'tall-grass';
   const { cursor, label } = region;
-  const pointer = gamePointer ? region.pointer : undefined;
+  const pointer =
+    gamePointer && mapStyle === 'game' ? region.pointer : undefined;
   const activeName = active ? getLocation(region, active)?.name : undefined;
   const activeHotspot = active ? getHotspot(region, active) : undefined;
 
@@ -47,20 +52,27 @@ export const RegionMap = ({
   return (
     <figure className={cn('flex flex-col gap-2', className)} style={style}>
       <figcaption
-        className={cn('h-6 text-center font-medium', label && 'sr-only')}
+        className={cn(
+          'h-6 text-center font-medium',
+          tallGrass
+            ? 'order-last text-[13px] leading-6 font-semibold tracking-[0.28em] uppercase'
+            : label && 'sr-only',
+        )}
         aria-live="polite"
       >
-        {activeName ?? (
-          <span className="font-normal text-muted-foreground">
-            Pick a town or route
-          </span>
-        )}
+        {activeName ??
+          (!tallGrass && (
+            <span className="font-normal text-muted-foreground">
+              Pick a town or route
+            </span>
+          ))}
       </figcaption>
       <RegionImage
         region={region}
         alt={`${region.name} map`}
-        locationName={activeName}
+        locationName={tallGrass ? undefined : activeName}
         hotspot={activeHotspot}
+        mapStyle={mapStyle}
         className={cn('group/map', pointer && 'cursor-none')}
         onPointerMove={pointer && moveFlyer}
       >

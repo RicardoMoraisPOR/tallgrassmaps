@@ -111,4 +111,5 @@ export type Region = MapImage & {
   cursor?: RegionCursor;
   pointer?: RegionPointer;
   label?: RegionLabel;
+  tallGrassMap?: string;
 };

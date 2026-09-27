@@ -57,6 +57,13 @@ export const mapCredits = (): Array<MapCredit> => {
 
 export const spriteCredits: Array<Credit> = [
   {
+    ...pokemonSpriteSources.pret,
+    name: 'pret/pokered and pret/pokeyellow',
+    by: pokemonSpriteSources.pret.credit,
+    detail:
+      'Game sprites for Red, Blue and Yellow, in their Super Game Boy colours',
+  },
+  {
     ...pokemonSpriteSources.showdown,
     by: pokemonSpriteSources.showdown.credit,
     detail: 'Pokémon sprites in the Pokédex',
