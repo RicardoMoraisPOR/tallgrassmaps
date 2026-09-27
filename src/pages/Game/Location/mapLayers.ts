@@ -7,7 +7,11 @@ export type MapLayerId =
   | 'marts'
   | 'centers'
   | 'items'
-  | 'hidden-items';
+  | 'hidden-items'
+  | 'trainers'
+  | 'static-pokemon'
+  | 'npcs'
+  | 'signs';
 
 export type MapLayer = {
   id: MapLayerId;
@@ -62,6 +66,31 @@ export const mapLayers: Array<MapLayer> = [
     label: 'Hidden items',
     color: 'var(--map-hidden-item)',
     className: 'map-link-hidden-item',
+    hiddenByDefault: true,
+  },
+  {
+    id: 'trainers',
+    label: 'Trainers',
+    color: 'var(--map-trainer)',
+    className: 'map-link-trainer',
+  },
+  {
+    id: 'static-pokemon',
+    label: 'Static & gift Pokémon',
+    color: 'var(--map-static-pokemon)',
+    className: 'map-link-static-pokemon',
+  },
+  {
+    id: 'npcs',
+    label: 'Special NPCs',
+    color: 'var(--map-npc)',
+    className: 'map-link-npc',
+  },
+  {
+    id: 'signs',
+    label: 'Signs',
+    color: 'var(--map-sign)',
+    className: 'map-link-sign',
     hiddenByDefault: true,
   },
 ];

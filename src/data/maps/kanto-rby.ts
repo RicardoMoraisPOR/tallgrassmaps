@@ -3,7 +3,9 @@ import type {
   Location,
   LocationHotspot,
   LocationKind,
+  MapEvent,
   MapMarker,
+  MapVariant,
   Rect,
   Region,
 } from './types';
@@ -34,6 +36,63 @@ const rect = (x: number, y: number, width: number, height: number): Rect => ({
 
 const warp = (x: number, y: number): Rect => entrance(x * 16, y * 16);
 
+const variant = (game: string, file: string): MapVariant => ({
+  games: [game],
+  image: `${IMAGE_DIR}/variants/${game}/${file}`,
+});
+
+const SILPH_CO_EVENT = 'Team Rocket leaves Silph Co.';
+
+const eventNames: Record<string, string> = {
+  'viridian-city.png': "Oak's Parcel delivered",
+  'cerulean-city.png': 'Thief defeated, Hall of Fame entered',
+  'route-24.png': 'Bill helped',
+  'route-12.png': 'Snorlax woken up',
+  'route-16.png': 'Snorlax woken up',
+  'power-plant.png': 'Zapdos caught',
+  'seafoam-islands/b4f.png': 'Articuno caught',
+  'victory-road/2f.png': 'Moltres caught',
+  'cerulean-cave/b1f.png': 'Mewtwo caught',
+  'pokemon-tower/2f.png': 'Rival defeated',
+  'pokemon-tower/7f.png': 'Mr. Fuji rescued',
+  'rocket-game-corner/game-corner.png': 'Poster guard defeated',
+  'rocket-game-corner/b4f.png': 'Giovanni defeated',
+  'saffron-city.png': SILPH_CO_EVENT,
+  'silph-co/1f.png': SILPH_CO_EVENT,
+  'silph-co/2f.png': SILPH_CO_EVENT,
+  'silph-co/3f.png': SILPH_CO_EVENT,
+  'silph-co/4f.png': SILPH_CO_EVENT,
+  'silph-co/5f.png': SILPH_CO_EVENT,
+  'silph-co/6f.png': SILPH_CO_EVENT,
+  'silph-co/7f.png': `Rival defeated, ${SILPH_CO_EVENT}`,
+  'silph-co/8f.png': SILPH_CO_EVENT,
+  'silph-co/9f.png': SILPH_CO_EVENT,
+  'silph-co/10f.png': SILPH_CO_EVENT,
+  'silph-co/11f.png': SILPH_CO_EVENT,
+};
+
+const eventVariantGames: Record<string, Array<string>> = {
+  'cerulean-city.png': ['yellow'],
+  'route-24.png': ['yellow'],
+  'cerulean-cave/b1f.png': ['yellow'],
+  'rocket-game-corner/game-corner.png': ['yellow'],
+  'rocket-game-corner/b4f.png': ['yellow'],
+};
+
+const eventFor = (file: string): MapEvent | undefined => {
+  const name = eventNames[file];
+
+  if (!name) return undefined;
+
+  return {
+    name,
+    image: `${IMAGE_DIR}/events/${file}`,
+    variants: eventVariantGames[file]?.map((game) =>
+      variant(game, `events/${file}`),
+    ),
+  };
+};
+
 type OutdoorEntry = {
   id: string;
   name: string;
@@ -42,6 +101,7 @@ type OutdoorEntry = {
   cell: [x: number, y: number];
   exits?: Array<{ to: string; direction: Direction; area: Rect }>;
   markers?: Array<MapMarker>;
+  variants?: Array<MapVariant>;
 };
 
 const outdoor: Array<OutdoorEntry> = [
@@ -76,6 +136,7 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [640, 576],
     cell: [10, 2],
+    variants: [variant('yellow', 'cerulean-city.png')],
   },
   {
     id: 'vermilion-city',
@@ -83,6 +144,7 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [640, 576],
     cell: [10, 9],
+    variants: [variant('yellow', 'vermilion-city.png')],
   },
   {
     id: 'lavender-town',
@@ -123,6 +185,7 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [640, 576],
     cell: [8, 13],
+    variants: [variant('yellow', 'fuchsia-city.png')],
   },
   {
     id: 'cinnabar-island',
@@ -169,6 +232,7 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'route',
     size: [1440, 288],
     cell: [8, 2],
+    variants: [variant('yellow', 'route-4.png')],
   },
   {
     id: 'route-5',
@@ -274,6 +338,7 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'route',
     size: [320, 864],
     cell: [6, 15],
+    variants: [variant('yellow', 'route-19.png')],
   },
   {
     id: 'route-20',
@@ -317,6 +382,7 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'route',
     size: [320, 576],
     cell: [10, 1],
+    variants: [variant('yellow', 'route-24.png')],
   },
   {
     id: 'route-25',
@@ -331,6 +397,7 @@ type FloorEntry = {
   name: string;
   size?: Size;
   exits?: Array<{ area: Rect } & ({ to: string } | { floor: string })>;
+  variants?: Array<MapVariant>;
 };
 
 type InsideEntry = {
@@ -343,6 +410,7 @@ type InsideEntry = {
   otherEntrances?: Record<string, Array<Rect>>;
   cell?: [x: number, y: number];
   floors?: Array<FloorEntry>;
+  variants?: Array<MapVariant>;
 };
 
 const inside: Array<InsideEntry> = [
@@ -354,6 +422,7 @@ const inside: Array<InsideEntry> = [
     parent: 'route-2',
     cell: [2, 4],
     entrances: [entrance(48, 688), entrance(48, 176)],
+    variants: [variant('yellow', 'viridian-forest.png')],
   },
   {
     id: 'mt-moon',
@@ -366,7 +435,11 @@ const inside: Array<InsideEntry> = [
     floors: [
       { name: '1F', size: [640, 576] },
       { name: 'B1F', size: [448, 448] },
-      { name: 'B2F', size: [640, 576] },
+      {
+        name: 'B2F',
+        size: [640, 576],
+        variants: [variant('yellow', 'mt-moon/b2f.png')],
+      },
     ],
   },
   {
@@ -377,9 +450,21 @@ const inside: Array<InsideEntry> = [
     parent: 'cerulean-city',
     entrances: [entrance(64, 176)],
     floors: [
-      { name: '1F', size: [480, 288] },
-      { name: '2F', size: [480, 288] },
-      { name: 'B1F', size: [480, 288] },
+      {
+        name: '1F',
+        size: [480, 288],
+        variants: [variant('yellow', 'cerulean-cave/1f.png')],
+      },
+      {
+        name: '2F',
+        size: [480, 288],
+        variants: [variant('yellow', 'cerulean-cave/2f.png')],
+      },
+      {
+        name: 'B1F',
+        size: [480, 288],
+        variants: [variant('yellow', 'cerulean-cave/b1f.png')],
+      },
     ],
   },
   {
@@ -470,7 +555,11 @@ const inside: Array<InsideEntry> = [
           { floor: '7F', area: warp(9, 16) },
         ],
       },
-      { name: '7F', exits: [{ floor: '6F', area: warp(9, 16) }] },
+      {
+        name: '7F',
+        exits: [{ floor: '6F', area: warp(9, 16) }],
+        variants: [variant('yellow', 'pokemon-tower/7f.png')],
+      },
     ],
   },
   {
@@ -481,11 +570,19 @@ const inside: Array<InsideEntry> = [
     parent: 'celadon-city',
     entrances: [entrance(448, 304)],
     floors: [
-      { name: 'Game Corner', size: [320, 288] },
+      {
+        name: 'Game Corner',
+        size: [320, 288],
+        variants: [variant('yellow', 'rocket-game-corner/game-corner.png')],
+      },
       { name: 'B1F', size: [480, 448] },
       { name: 'B2F', size: [480, 448] },
       { name: 'B3F', size: [480, 448] },
-      { name: 'B4F', size: [480, 384] },
+      {
+        name: 'B4F',
+        size: [480, 384],
+        variants: [variant('yellow', 'rocket-game-corner/b4f.png')],
+      },
     ],
   },
   {
@@ -506,7 +603,11 @@ const inside: Array<InsideEntry> = [
       { name: '8F', size: [416, 288] },
       { name: '9F', size: [416, 288] },
       { name: '10F', size: [256, 288] },
-      { name: '11F', size: [288, 288] },
+      {
+        name: '11F',
+        size: [288, 288],
+        variants: [variant('yellow', 'silph-co/11f.png')],
+      },
     ],
   },
   {
@@ -579,6 +680,7 @@ const toLocation = (
   name,
   kind,
   image: `${IMAGE_DIR}/${id}.png`,
+  event: eventFor(`${id}.png`),
   width,
   height,
   pixelated: true,
@@ -590,8 +692,10 @@ const toLocation = (
 
 const floorId = (name: string) => name.toLowerCase().replaceAll(' ', '-');
 
+const floorFile = (id: string, floor: string) => `${id}/${floorId(floor)}.png`;
+
 const floorImage = (id: string, floor: string) =>
-  `${IMAGE_DIR}/${id}/${floorId(floor)}.png`;
+  `${IMAGE_DIR}/${floorFile(id, floor)}`;
 
 const toInsideLocation = ({
   id,
@@ -600,8 +704,9 @@ const toInsideLocation = ({
   size,
   parent,
   floors,
+  variants,
 }: InsideEntry): Location => {
-  const location = toLocation(id, name, kind, size);
+  const location = { ...toLocation(id, name, kind, size), variants };
 
   if (!floors) return location;
 
@@ -621,6 +726,8 @@ const toInsideLocation = ({
       })),
       width: floor.size?.[0] ?? location.width,
       height: floor.size?.[1] ?? location.height,
+      variants: floor.variants,
+      event: eventFor(floorFile(id, floor.name)),
       pixelated: location.pixelated,
       source: location.source,
     })),
@@ -649,9 +756,10 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
 ];
 
 const locations: Array<Location> = outdoor.map(
-  ({ id, name, kind, size, markers = [] }) => ({
+  ({ id, name, kind, size, markers = [], variants }) => ({
     ...toLocation(id, name, kind, size),
     markers,
+    variants,
     locations: inside
       .filter(({ parent }) => parent === id)
       .map(toInsideLocation),

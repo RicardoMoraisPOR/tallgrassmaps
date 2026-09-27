@@ -4,12 +4,25 @@ export type MapSource = {
   credit: string;
 };
 
+export type MapVariant = {
+  games: Array<string>;
+  image: string;
+};
+
+export type MapEvent = {
+  name: string;
+  image: string;
+  variants?: Array<MapVariant>;
+};
+
 export type MapImage = {
   image: string;
   width: number;
   height: number;
   pixelated: boolean;
   source: MapSource;
+  variants?: Array<MapVariant>;
+  event?: MapEvent;
 };
 
 export type Rect = {

@@ -155,6 +155,10 @@
   --map-center: oklch(0.65 0.21 25);
   --map-item: oklch(0.75 0.13 200);
   --map-hidden-item: oklch(0.68 0.2 330);
+  --map-trainer: oklch(0.8 0.16 95);
+  --map-static-pokemon: oklch(0.72 0.14 170);
+  --map-npc: oklch(0.6 0.19 275);
+  --map-sign: oklch(0.7 0.03 250);
   --brand: #6cc46a;
 }
 
@@ -197,6 +201,22 @@
 
 .leaflet-interactive.map-link-hidden-item {
   --map-link: var(--map-hidden-item);
+}
+
+.leaflet-interactive.map-link-trainer {
+  --map-link: var(--map-trainer);
+}
+
+.leaflet-interactive.map-link-static-pokemon {
+  --map-link: var(--map-static-pokemon);
+}
+
+.leaflet-interactive.map-link-npc {
+  --map-link: var(--map-npc);
+}
+
+.leaflet-interactive.map-link-sign {
+  --map-link: var(--map-sign);
 }
 
 .leaflet-interactive.map-link-static {

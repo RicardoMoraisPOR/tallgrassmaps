@@ -11,11 +11,13 @@ import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 import { PokedexOverlay } from '../Pokedex/PokedexOverlay';
 import { SidebarLayout } from '../SidebarLayout';
 import { EncountersCard } from './EncountersCard';
+import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
 import { locationLinks } from './locationLinks';
 import { MapInfoCard } from './MapInfoCard';
 import { defaultHiddenLayers, type MapLayerId, mapLayers } from './mapLayers';
 import { TrainersCard } from './TrainersCard';
+import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 
 export const LocationPage = () => {
@@ -25,6 +27,7 @@ export const LocationPage = () => {
   const trail = route?.trail;
   const location = trail?.at(-1);
   const { floor, selectFloor } = useFloor(location?.floors);
+  const { state: eventState, selectState: selectEventState } = useEventState();
 
   if (!route || !trail || !location) {
     return <NotFoundPage />;
@@ -45,6 +48,17 @@ export const LocationPage = () => {
         item.games.includes(route.game.id),
     ),
   );
+
+  const baseImage = floor ?? location;
+  const event = baseImage.event;
+  const imageSource = event && eventState === 'after' ? event : baseImage;
+  const variant = imageSource.variants?.find((entry) =>
+    entry.games.includes(route.game.id),
+  );
+  const mapImage = {
+    ...baseImage,
+    image: variant?.image ?? imageSource.image,
+  };
 
   const toggleLayer = (layer: MapLayerId) =>
     setHiddenLayers((current) => {
@@ -93,17 +107,26 @@ export const LocationPage = () => {
       >
         <div className="relative min-w-0">
           <MapViewer
-            map={floor ?? location}
+            map={mapImage}
             links={links.filter((link) => !hiddenLayers.has(link.layer))}
             className="h-[60svh] min-w-0 overflow-hidden rounded-[14px] border lg:h-[min(72svh,760px)]"
           />
-          {location.floors && floor && (
-            <div className="pointer-events-none absolute top-3 right-3 left-16 z-10 flex justify-end">
-              <FloorPicker
-                floors={location.floors}
-                selected={floor.id}
-                onSelect={selectFloor}
-              />
+          {((location.floors && floor) || event) && (
+            <div className="pointer-events-none absolute top-3 right-3 left-16 z-10 flex flex-col items-end gap-2">
+              {location.floors && floor && (
+                <FloorPicker
+                  floors={location.floors}
+                  selected={floor.id}
+                  onSelect={selectFloor}
+                />
+              )}
+              {event && (
+                <EventPicker
+                  event={event}
+                  selected={eventState}
+                  onSelect={selectEventState}
+                />
+              )}
             </div>
           )}
         </div>
