@@ -100,7 +100,7 @@ export const HeroMapStack = ({
             ? {
                 from: <LocationCursor region={region} hotspot={hotspot} />,
                 to: (
-                  <div className="absolute inset-0 [filter:brightness(0)_invert(1)_drop-shadow(0_0_2px_color-mix(in_oklab,var(--brand)_70%,transparent))]">
+                  <div className="absolute inset-0 brightness-0 drop-shadow-[0_0_2px_color-mix(in_oklab,var(--brand)_70%,transparent)] dark:invert">
                     <LocationCursor region={region} hotspot={hotspot} />
                   </div>
                 ),
