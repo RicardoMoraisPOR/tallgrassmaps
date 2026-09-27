@@ -160,7 +160,11 @@ export const locationFor = (mapConstant) => {
 export const insidePrefixFor = (mapConstant) =>
   Object.keys(insideLocations).find((prefix) => mapConstant.startsWith(prefix));
 
+const namedFloors = { GAME_CORNER: 'game-corner' };
+
 export const floorFor = (mapConstant) => {
+  if (namedFloors[mapConstant]) return namedFloors[mapConstant];
+
   const prefix = mapConstant && insidePrefixFor(mapConstant);
 
   if (!prefix) return undefined;
@@ -170,7 +174,7 @@ export const floorFor = (mapConstant) => {
     .replaceAll('_', '')
     .toLowerCase();
 
-  return /^b?\d+f$/.test(floor) ? floor : undefined;
+  return /^(b?\d+f|center|east|north|west)$/.test(floor) ? floor : undefined;
 };
 
 export const constantFromFile = (file) =>

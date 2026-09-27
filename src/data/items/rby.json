@@ -1,5 +1,239 @@
 [
   {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 7,
+    "y": 13,
+    "item": "Full Restore",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 19,
+    "y": 3,
+    "item": "Max Elixer",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 5,
+    "y": 0,
+    "item": "Nugget",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 29,
+    "y": 9,
+    "item": "PP Up",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 4,
+    "y": 15,
+    "item": "Ultra Ball",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 13,
+    "y": 6,
+    "item": "Full Restore",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 16,
+    "y": 9,
+    "item": "Ultra Ball",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 18,
+    "y": 1,
+    "item": "Max Revive",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "1f",
+    "x": 2,
+    "y": 20,
+    "item": "Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "1f",
+    "x": 2,
+    "y": 2,
+    "item": "Moon Stone",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "1f",
+    "x": 35,
+    "y": 31,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "1f",
+    "x": 36,
+    "y": 23,
+    "item": "Escape Rope",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "1f",
+    "x": 20,
+    "y": 33,
+    "item": "Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "1f",
+    "x": 5,
+    "y": 32,
+    "item": "TM12 Water Gun",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "b2f",
+    "x": 25,
+    "y": 21,
+    "item": "HP Up",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "b2f",
+    "x": 29,
+    "y": 5,
+    "item": "TM01 Mega Punch",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "1f",
+    "x": 14,
+    "y": 3,
+    "item": "Escape Rope",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "1f",
+    "x": 18,
+    "y": 21,
+    "item": "Carbos",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "2f",
+    "x": 28,
+    "y": 7,
+    "item": "Calcium",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "3f",
+    "x": 1,
+    "y": 16,
+    "item": "Max Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "3f",
+    "x": 25,
+    "y": 5,
+    "item": "Iron",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 10,
+    "y": 2,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 1,
+    "y": 22,
+    "item": "Full Restore",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 19,
+    "y": 25,
+    "item": "TM14 Blizzard",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 5,
+    "y": 4,
+    "item": "TM22 Solarbeam",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 5,
+    "y": 13,
+    "item": "Secret Key",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "lavender-town/pokemon-tower",
     "floor": "3f",
     "x": 12,
@@ -63,6 +297,163 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-10/power-plant",
+    "x": 7,
+    "y": 25,
+    "item": "Carbos",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 28,
+    "y": 3,
+    "item": "HP Up",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 34,
+    "y": 3,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 26,
+    "y": 32,
+    "item": "TM25 Thunder",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 20,
+    "y": 32,
+    "item": "TM33 Reflect",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b1f",
+    "x": 11,
+    "y": 14,
+    "item": "Escape Rope",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b1f",
+    "x": 9,
+    "y": 17,
+    "item": "Hyper Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b2f",
+    "x": 1,
+    "y": 11,
+    "item": "Moon Stone",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b2f",
+    "x": 16,
+    "y": 8,
+    "item": "Nugget",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b2f",
+    "x": 6,
+    "y": 12,
+    "item": "TM07 Horn Drill",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b2f",
+    "x": 3,
+    "y": 21,
+    "item": "Super Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b3f",
+    "x": 26,
+    "y": 17,
+    "item": "TM10 Double Edge",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b3f",
+    "x": 20,
+    "y": 14,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b4f",
+    "x": 10,
+    "y": 12,
+    "item": "HP Up",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b4f",
+    "x": 9,
+    "y": 4,
+    "item": "TM02 Razor Wind",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b4f",
+    "x": 12,
+    "y": 20,
+    "item": "Iron",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b4f",
+    "x": 25,
+    "y": 2,
+    "item": "Silph Scope",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b4f",
+    "x": 10,
+    "y": 2,
+    "item": "Lift Key",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-12",
     "x": 14,
     "y": 35,
@@ -75,6 +466,30 @@
     "x": 5,
     "y": 89,
     "item": "Iron",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-15",
+    "x": 18,
+    "y": 5,
+    "item": "TM20 Rage",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2",
+    "x": 13,
+    "y": 54,
+    "item": "Moon Stone",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2",
+    "x": 13,
+    "y": 45,
+    "item": "HP Up",
     "hidden": false,
     "games": ["red", "blue", "yellow"]
   },
@@ -95,6 +510,377 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-4",
+    "x": 57,
+    "y": 3,
+    "item": "TM04 Whirlwind",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-9",
+    "x": 10,
+    "y": 15,
+    "item": "TM30 Teleport",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "center",
+    "x": 14,
+    "y": 10,
+    "item": "Nugget",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east",
+    "x": 21,
+    "y": 10,
+    "item": "Full Restore",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east",
+    "x": 3,
+    "y": 7,
+    "item": "Max Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east",
+    "x": 20,
+    "y": 13,
+    "item": "Carbos",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east",
+    "x": 15,
+    "y": 12,
+    "item": "TM37 Egg Bomb",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north",
+    "x": 25,
+    "y": 1,
+    "item": "Protein",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north",
+    "x": 19,
+    "y": 7,
+    "item": "TM40 Skull Bash",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 8,
+    "y": 20,
+    "item": "Max Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 9,
+    "y": 7,
+    "item": "TM32 Double Team",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 18,
+    "y": 18,
+    "item": "Max Revive",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 19,
+    "y": 7,
+    "item": "Gold Teeth",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "10f",
+    "x": 2,
+    "y": 12,
+    "item": "TM26 Earthquake",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "10f",
+    "x": 4,
+    "y": 14,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "10f",
+    "x": 5,
+    "y": 11,
+    "item": "Carbos",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "3f",
+    "x": 8,
+    "y": 5,
+    "item": "Hyper Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "4f",
+    "x": 3,
+    "y": 9,
+    "item": "Full Heal",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "4f",
+    "x": 4,
+    "y": 7,
+    "item": "Max Revive",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "4f",
+    "x": 5,
+    "y": 8,
+    "item": "Escape Rope",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 2,
+    "y": 13,
+    "item": "TM09 Take Down",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 4,
+    "y": 6,
+    "item": "Protein",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 21,
+    "y": 16,
+    "item": "Card Key",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "6f",
+    "x": 3,
+    "y": 12,
+    "item": "HP Up",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "6f",
+    "x": 2,
+    "y": 15,
+    "item": "X Accuracy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "7f",
+    "x": 1,
+    "y": 9,
+    "item": "Calcium",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "7f",
+    "x": 24,
+    "y": 11,
+    "item": "TM03 Swords Dance",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "1f",
+    "x": 11,
+    "y": 0,
+    "item": "TM43 Sky Attack",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "1f",
+    "x": 9,
+    "y": 2,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "2f",
+    "x": 27,
+    "y": 5,
+    "item": "TM17 Submission",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "2f",
+    "x": 18,
+    "y": 9,
+    "item": "Full Heal",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "2f",
+    "x": 9,
+    "y": 11,
+    "item": "TM05 Mega Kick",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "2f",
+    "x": 11,
+    "y": 0,
+    "item": "Guard Spec",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "3f",
+    "x": 26,
+    "y": 5,
+    "item": "Max Revive",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "3f",
+    "x": 7,
+    "y": 7,
+    "item": "TM47 Explosion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 25,
+    "y": 11,
+    "item": "Antidote",
+    "hidden": false,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 12,
+    "y": 29,
+    "item": "Potion",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 1,
+    "y": 31,
+    "item": "Poke Ball",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 1,
+    "y": 18,
+    "item": "Potion",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 16,
+    "y": 42,
+    "item": "Antidote",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "b2f",
+    "x": 18,
+    "y": 12,
+    "item": "Moon Stone",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "b2f",
+    "x": 33,
+    "y": 9,
+    "item": "Ether",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-25",
     "x": 38,
     "y": 3,
@@ -107,6 +893,57 @@
     "x": 10,
     "y": 1,
     "item": "Elixer",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-9",
+    "x": 14,
+    "y": 7,
+    "item": "Ether",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10",
+    "x": 9,
+    "y": 17,
+    "item": "Super Potion",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10",
+    "x": 16,
+    "y": 53,
+    "item": "Max Ether",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b1f",
+    "x": 21,
+    "y": 15,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b3f",
+    "x": 27,
+    "y": 17,
+    "item": "Nugget",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "b4f",
+    "x": 25,
+    "y": 1,
+    "item": "Super Potion",
     "hidden": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -136,10 +973,239 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 6,
+    "y": 5,
+    "item": "Revive",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 12,
+    "y": 3,
+    "item": "Elixer",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "9f",
+    "x": 2,
+    "y": 15,
+    "item": "Max Potion",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 14,
+    "y": 11,
+    "item": "Rare Candy",
+    "hidden": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 27,
+    "y": 3,
+    "item": "Ultra Ball",
+    "hidden": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 17,
+    "y": 16,
+    "item": "Max Elixer",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 12,
+    "y": 1,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-20/seafoam-islands",
+    "floor": "b2f",
+    "x": 15,
+    "y": 15,
+    "item": "Nugget",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-20/seafoam-islands",
+    "floor": "b4f",
+    "x": 25,
+    "y": 17,
+    "item": "Ultra Ball",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "1f",
+    "x": 8,
+    "y": 16,
+    "item": "Moon Stone",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "3f",
+    "x": 1,
+    "y": 9,
+    "item": "Max Revive",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 1,
+    "y": 9,
+    "item": "Rare Candy",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 9,
+    "y": 44,
+    "item": "Full Restore",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 19,
+    "y": 70,
+    "item": "Ultra Ball",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 8,
+    "y": 90,
+    "item": "Max Ether",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "2f",
+    "x": 5,
+    "y": 2,
+    "item": "Ultra Ball",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "2f",
+    "x": 26,
+    "y": 7,
+    "item": "Full Restore",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city",
+    "x": 14,
+    "y": 4,
+    "item": "Potion",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-11",
+    "x": 48,
+    "y": 5,
+    "item": "Escape Rope",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-12",
     "x": 2,
     "y": 63,
     "item": "Hyper Potion",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 15,
+    "y": 14,
+    "item": "Rare Candy",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 8,
+    "y": 45,
+    "item": "Full Restore",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 17,
+    "y": 72,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 4,
+    "y": 91,
+    "item": "Max Revive",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 8,
+    "y": 121,
+    "item": "Max Elixer",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 48,
+    "y": 15,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-20/seafoam-islands",
+    "floor": "b3f",
+    "x": 9,
+    "y": 16,
+    "item": "Max Elixer",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 14,
+    "y": 11,
+    "item": "Max Ether",
     "hidden": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -150,5 +1216,156 @@
     "item": "Rare Candy",
     "hidden": true,
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4",
+    "x": 40,
+    "y": 3,
+    "item": "Great Ball",
+    "hidden": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 29,
+    "y": 16,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 7,
+    "y": 11,
+    "item": "Max Elixer",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 29,
+    "y": 9,
+    "item": "Max Revive",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 18,
+    "y": 3,
+    "item": "Ultra Ball",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 0,
+    "y": 11,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 16,
+    "y": 7,
+    "item": "Ultra Ball",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 19,
+    "y": 11,
+    "item": "Max Revive",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 27,
+    "y": 9,
+    "item": "Full Restore",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 26,
+    "y": 1,
+    "item": "Ultra Ball",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 2,
+    "y": 13,
+    "item": "Ultra Ball",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 3,
+    "y": 13,
+    "item": "Max Revive",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 15,
+    "y": 3,
+    "item": "Max Elixer",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 25,
+    "y": 11,
+    "item": "Potion",
+    "hidden": false,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "2f",
+    "x": 16,
+    "y": 13,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 8,
+    "y": 14,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "1f",
+    "x": 18,
+    "y": 7,
+    "item": "PP Up",
+    "hidden": true,
+    "games": ["yellow"]
   }
 ]

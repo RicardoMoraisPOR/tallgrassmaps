@@ -1496,6 +1496,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [24, 25],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [24, 24],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "west",
+            "levels": [25, 25],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["red"]
       },
       {
@@ -1516,6 +1528,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [22, 25],
         "chance": [19.9, 19.9],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [22, 22],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "east",
+            "levels": [24, 24],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "north",
+            "levels": [22, 22],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "west",
+            "levels": [25, 25],
+            "chance": [19.9, 19.9]
+          }
+        ],
         "games": ["blue"]
       },
       {
@@ -1551,6 +1585,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [14, 36],
         "chance": [19.9, 19.9],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [36, 36],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "east",
+            "levels": [29, 29],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "north",
+            "levels": [14, 14],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "west",
+            "levels": [21, 21],
+            "chance": [19.9, 19.9]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -1571,6 +1627,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [30, 31],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [31, 31],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "north",
+            "levels": [30, 30],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["red"]
       },
       {
@@ -1589,6 +1657,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [30, 33],
         "chance": [9.8, 9.8],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [31, 31],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "east",
+            "levels": [33, 33],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "north",
+            "levels": [30, 30],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "west",
+            "levels": [33, 33],
+            "chance": [9.8, 9.8]
+          }
+        ],
         "games": ["blue"]
       },
       {
@@ -1610,6 +1700,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [23, 32],
         "chance": [9.8, 9.8],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [32, 32],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "north",
+            "levels": [23, 23],
+            "chance": [9.8, 9.8]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -1644,6 +1746,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [22, 25],
         "chance": [19.9, 19.9],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [22, 22],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "east",
+            "levels": [24, 24],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "north",
+            "levels": [22, 22],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "west",
+            "levels": [25, 25],
+            "chance": [19.9, 19.9]
+          }
+        ],
         "games": ["red"]
       },
       {
@@ -1658,6 +1782,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [24, 25],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [24, 24],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "west",
+            "levels": [25, 25],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["blue"]
       },
       {
@@ -1693,6 +1829,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [14, 36],
         "chance": [19.9, 19.9],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [14, 14],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "east",
+            "levels": [21, 21],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "north",
+            "levels": [36, 36],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "west",
+            "levels": [29, 29],
+            "chance": [19.9, 19.9]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -1713,6 +1871,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [30, 33],
         "chance": [9.8, 9.8],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [31, 31],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "east",
+            "levels": [33, 33],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "north",
+            "levels": [30, 30],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "west",
+            "levels": [33, 33],
+            "chance": [9.8, 9.8]
+          }
+        ],
         "games": ["red"]
       },
       {
@@ -1720,6 +1900,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [30, 31],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [31, 31],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "north",
+            "levels": [30, 30],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["blue"]
       },
       {
@@ -1746,6 +1938,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [23, 32],
         "chance": [9.8, 9.8],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [23, 23],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "west",
+            "levels": [32, 32],
+            "chance": [9.8, 9.8]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -2549,6 +2753,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [22, 23],
         "chance": [15.2, 15.2],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [22, 22],
+            "chance": [15.2, 15.2]
+          },
+          {
+            "floor": "north",
+            "levels": [23, 23],
+            "chance": [15.2, 15.2]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -2575,6 +2791,13 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [27, 27],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [27, 27],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -2614,6 +2837,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [25, 30],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [30, 30],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "east",
+            "levels": [25, 25],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -2635,6 +2870,13 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [27, 32],
         "chance": [14.8, 14.8],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [27, 32],
+            "chance": [14.8, 14.8]
+          }
+        ],
         "games": ["yellow"]
       },
       {
@@ -2684,6 +2926,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [22, 23],
         "chance": [15.2, 15.2],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [22, 22],
+            "chance": [15.2, 15.2]
+          },
+          {
+            "floor": "west",
+            "levels": [23, 23],
+            "chance": [15.2, 15.2]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -2751,6 +3005,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [31, 32],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "north",
+            "levels": [32, 32],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "west",
+            "levels": [31, 31],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -2939,6 +3205,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 15],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "east",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "north",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "west",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -4345,6 +4633,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 15],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "east",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "north",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "west",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -4636,6 +4946,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [26, 26],
         "chance": [19.9, 19.9],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [26, 26],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "west",
+            "levels": [26, 26],
+            "chance": [19.9, 19.9]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -5607,6 +5929,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 15],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "east",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "north",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "west",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -5927,6 +6271,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [23, 27],
         "chance": [19.5, 19.5],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [24, 25],
+            "chance": [19.5, 19.5]
+          },
+          {
+            "floor": "east",
+            "levels": [23, 25],
+            "chance": [19.5, 19.5]
+          },
+          {
+            "floor": "north",
+            "levels": [25, 27],
+            "chance": [19.5, 19.5]
+          },
+          {
+            "floor": "west",
+            "levels": [24, 26],
+            "chance": [19.5, 19.5]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -5934,6 +6300,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [20, 26],
         "chance": [15.2, 20.3],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [24, 24],
+            "chance": [15.2, 15.2]
+          },
+          {
+            "floor": "east",
+            "levels": [22, 26],
+            "chance": [20.3, 20.3]
+          },
+          {
+            "floor": "north",
+            "levels": [20, 20],
+            "chance": [15.2, 15.2]
+          },
+          {
+            "floor": "west",
+            "levels": [22, 26],
+            "chance": [20.3, 20.3]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6019,6 +6407,23 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [16, 19],
         "chance": [5.1, 9.8],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [19, 19],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "north",
+            "levels": [16, 16],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "west",
+            "levels": [19, 19],
+            "chance": [9.8, 9.8]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6077,6 +6482,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [24, 24],
         "chance": [5.1, 5.1],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [24, 24],
+            "chance": [5.1, 5.1]
+          },
+          {
+            "floor": "west",
+            "levels": [24, 24],
+            "chance": [5.1, 5.1]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6285,6 +6702,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [25, 26],
         "chance": [19.9, 19.9],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [25, 25],
+            "chance": [19.9, 19.9]
+          },
+          {
+            "floor": "north",
+            "levels": [26, 26],
+            "chance": [19.9, 19.9]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -6311,6 +6740,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [20, 25],
         "chance": [9.8, 9.8],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [20, 20],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "north",
+            "levels": [25, 25],
+            "chance": [9.8, 9.8]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6402,6 +6843,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [23, 26],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [23, 23],
+            "chance": [1.2, 1.2]
+          },
+          {
+            "floor": "north",
+            "levels": [26, 26],
+            "chance": [4.3, 4.3]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -6423,6 +6876,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [7, 21],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [7, 7],
+            "chance": [1.2, 1.2]
+          },
+          {
+            "floor": "east",
+            "levels": [21, 21],
+            "chance": [4.3, 4.3]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6451,6 +6916,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [22, 27],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [22, 22],
+            "chance": [4.3, 4.3]
+          },
+          {
+            "floor": "west",
+            "levels": [27, 27],
+            "chance": [1.2, 1.2]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6466,6 +6943,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [25, 28],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [25, 25],
+            "chance": [4.3, 4.3]
+          },
+          {
+            "floor": "west",
+            "levels": [28, 28],
+            "chance": [1.2, 1.2]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -6473,6 +6962,13 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [28, 33],
         "chance": [14.8, 14.8],
+        "floors": [
+          {
+            "floor": "north",
+            "levels": [28, 33],
+            "chance": [14.8, 14.8]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -7186,6 +7682,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [23, 28],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [23, 23],
+            "chance": [4.3, 4.3]
+          },
+          {
+            "floor": "east",
+            "levels": [28, 28],
+            "chance": [1.2, 1.2]
+          }
+        ],
         "games": ["red"]
       },
       {
@@ -7198,6 +7706,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 25],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [15, 15],
+            "chance": [1.2, 1.2]
+          },
+          {
+            "floor": "north",
+            "levels": [25, 25],
+            "chance": [4.3, 4.3]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -7269,6 +7789,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [23, 28],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [23, 23],
+            "chance": [4.3, 4.3]
+          },
+          {
+            "floor": "east",
+            "levels": [28, 28],
+            "chance": [1.2, 1.2]
+          }
+        ],
         "games": ["blue"]
       },
       {
@@ -7281,6 +7813,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 25],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "north",
+            "levels": [15, 15],
+            "chance": [1.2, 1.2]
+          },
+          {
+            "floor": "west",
+            "levels": [25, 25],
+            "chance": [4.3, 4.3]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -7296,6 +7840,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [26, 28],
         "chance": [1.2, 4.3],
+        "floors": [
+          {
+            "floor": "north",
+            "levels": [28, 28],
+            "chance": [1.2, 1.2]
+          },
+          {
+            "floor": "west",
+            "levels": [26, 26],
+            "chance": [4.3, 4.3]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -7303,6 +7859,18 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [21, 21],
         "chance": [9.8, 9.8],
+        "floors": [
+          {
+            "floor": "east",
+            "levels": [21, 21],
+            "chance": [9.8, 9.8]
+          },
+          {
+            "floor": "west",
+            "levels": [21, 21],
+            "chance": [9.8, 9.8]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -7373,6 +7941,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [5, 15],
         "chance": [50, 75],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [5, 10],
+            "chance": [50, 50]
+          },
+          {
+            "floor": "east",
+            "levels": [5, 15],
+            "chance": [75, 75]
+          },
+          {
+            "floor": "north",
+            "levels": [5, 15],
+            "chance": [75, 75]
+          },
+          {
+            "floor": "west",
+            "levels": [5, 15],
+            "chance": [75, 75]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -7711,6 +8301,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 15],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "east",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "north",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "west",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -7723,6 +8335,28 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [10, 15],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [10, 10],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "east",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "north",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          },
+          {
+            "floor": "west",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -7743,6 +8377,13 @@
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 15],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "center",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["yellow"]
       }
     ]

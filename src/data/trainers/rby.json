@@ -209,6 +209,7 @@
     "trainerClass": "rocket",
     "path": "celadon-city/rocket-game-corner",
     "area": "Game Corner",
+    "floor": "game-corner",
     "parties": [
       {
         "pokemon": [
