@@ -40,6 +40,7 @@ export const LocationPage = () => {
     location,
     trailPath(trail),
     route.href,
+    route.game.tileSize,
     floor,
     itemsFor(route.region.versionGroup)?.filter(
       (item) =>

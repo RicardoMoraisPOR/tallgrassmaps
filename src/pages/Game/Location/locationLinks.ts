@@ -36,6 +36,7 @@ export const locationLinks = (
   location: Location,
   path: string,
   href: (path: string) => string,
+  tileSize: number,
   floor?: LocationFloor,
   items: Array<MapItem> = [],
 ) => {
@@ -81,10 +82,10 @@ export const locationLinks = (
     const layer = itemLayer(item.hidden);
 
     return {
-      x: item.x * 16 - 4,
-      y: item.y * 16 - 4,
-      width: 24,
-      height: 24,
+      x: item.x * tileSize - tileSize / 4,
+      y: item.y * tileSize - tileSize / 4,
+      width: tileSize * 1.5,
+      height: tileSize * 1.5,
       label: item.hidden ? `${item.item} (hidden)` : item.item,
       layer: layer.id,
       className: layer.className,

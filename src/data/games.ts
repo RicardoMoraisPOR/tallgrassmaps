@@ -45,6 +45,7 @@ export type Game = {
   generation: number;
   region: string;
   platform: Platform;
+  tileSize: number;
   obtainableWithoutTrading: number;
   colors: Array<string>;
 };
@@ -56,6 +57,7 @@ export const games: Array<Game> = [
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
+    tileSize: 16,
     obtainableWithoutTrading: 135,
     colors: ['oklch(0.58 0.2 27)'],
   },
@@ -65,6 +67,7 @@ export const games: Array<Game> = [
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
+    tileSize: 16,
     obtainableWithoutTrading: 135,
     colors: ['oklch(0.5 0.17 262)'],
   },
@@ -74,6 +77,7 @@ export const games: Array<Game> = [
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
+    tileSize: 16,
     obtainableWithoutTrading: 134,
     colors: ['oklch(0.86 0.16 92)'],
   },
