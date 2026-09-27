@@ -18,14 +18,21 @@ export const CreditsPage = () => {
       as="section"
       className="flex flex-col gap-12 pt-10 pb-16 sm:pt-14 sm:pb-20"
     >
-      <header className="flex max-w-[60ch] flex-col gap-3">
-        <h1 className="font-heading text-4xl leading-[1.05] font-bold tracking-[-0.035em] sm:text-5xl">
-          Credits
-        </h1>
-        <p className="text-lg text-pretty text-muted-foreground">
-          {SITE_NAME} is built on maps, sprites, research and code that other
-          people made and shared. Here is everyone, and what they made.
-        </p>
+      <header className="flex items-center gap-5 sm:gap-7">
+        <img
+          src="/favicon.svg"
+          alt=""
+          className="size-20 shrink-0 self-start sm:size-28 sm:self-center"
+        />
+        <div className="flex max-w-[60ch] flex-col gap-3">
+          <h1 className="font-heading text-4xl leading-[1.05] font-bold tracking-[-0.035em] sm:text-5xl">
+            Credits
+          </h1>
+          <p className="text-lg text-pretty text-muted-foreground">
+            {SITE_NAME} is built on maps, sprites, research and code that other
+            people made and shared. Here is everyone, and what they made.
+          </p>
+        </div>
       </header>
 
       <CreditSection id="maps" title="Maps and Town Map art">

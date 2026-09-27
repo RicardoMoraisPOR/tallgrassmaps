@@ -8,9 +8,9 @@ import { coverSources } from '@/data/covers';
 import { kantoRby } from '@/data/maps/kanto-rby';
 import { pokemonSpriteSources } from '@/data/sprites';
 
+import { ChangelogBadge } from './ChangelogBadge';
 import { GamesSection } from './GamesSection';
 import { HeroTownMap } from './HeroTownMap';
-import { MappingBadge } from './MappingBadge';
 
 export const HomePage = () => {
   const { hash } = useLocation();
@@ -46,7 +46,6 @@ const Hero = () => {
       />
       <Container className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-12 pt-10 pb-14 sm:pt-22 sm:pb-26">
         <div className="flex flex-col items-start gap-6">
-          <MappingBadge />
           <h1 className="font-heading text-[38px] leading-[1.02] font-bold tracking-[-0.04em] text-balance sm:text-6xl sm:leading-[1.02]">
             Every Pokémon map, <span className="text-brand">in one place.</span>
           </h1>
@@ -56,6 +55,7 @@ const Hero = () => {
             opens the actual map from the game, and the caves and buildings
             inside them open too.
           </p>
+          <ChangelogBadge />
         </div>
         <HeroTownMap region={kantoRby} focus="lavender-town" />
       </Container>
