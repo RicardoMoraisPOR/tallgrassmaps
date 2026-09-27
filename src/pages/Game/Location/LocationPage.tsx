@@ -99,6 +99,7 @@ export const LocationPage = () => {
                 game={route.game}
                 path={trailPath(trail)}
                 floor={floor?.id}
+                onMapOnly={location.kind === 'town'}
                 trainers={trainers}
                 pokedex={pokedex}
               />

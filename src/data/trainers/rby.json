@@ -9189,8 +9189,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9222,8 +9221,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9255,8 +9253,7 @@
   {
     "name": "Cooltrainer ♂",
     "trainerClass": "cooltrainer-m",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9276,8 +9273,7 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9297,8 +9293,7 @@
   {
     "name": "Tamer",
     "trainerClass": "tamer",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9314,8 +9309,7 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9331,8 +9325,7 @@
   {
     "name": "Cooltrainer ♂",
     "trainerClass": "cooltrainer-m",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9348,8 +9341,7 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9373,8 +9365,7 @@
   {
     "name": "Tamer",
     "trainerClass": "tamer",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [
@@ -9394,8 +9385,7 @@
   {
     "name": "Cooltrainer ♂",
     "trainerClass": "cooltrainer-m",
-    "path": "viridian-city",
-    "area": "Viridian Gym",
+    "path": "viridian-city/viridian-gym",
     "parties": [
       {
         "pokemon": [

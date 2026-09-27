@@ -10,14 +10,31 @@ type TrainersCardProps = {
   game: Game;
   path: string;
   floor?: string;
+  onMapOnly: boolean;
   trainers: Array<TrainerBattle>;
   pokedex: Array<PokedexEntry>;
+};
+
+const trainerNumbers = (battles: Array<TrainerBattle>) => {
+  const totals = new Map<string, number>();
+  const seen = new Map<string, number>();
+
+  for (const { name } of battles) totals.set(name, (totals.get(name) ?? 0) + 1);
+
+  return battles.map(({ name }) => {
+    const count = (seen.get(name) ?? 0) + 1;
+
+    seen.set(name, count);
+
+    return (totals.get(name) ?? 0) > 1 ? count : undefined;
+  });
 };
 
 export const TrainersCard = ({
   game,
   path,
   floor,
+  onMapOnly,
   trainers,
   pokedex,
 }: TrainersCardProps) => {
@@ -27,22 +44,25 @@ export const TrainersCard = ({
     (battle) =>
       battle.path === path &&
       battle.games.includes(game.id) &&
-      (!floor || battle.floor === floor),
+      (!floor || battle.floor === floor) &&
+      !(onMapOnly && battle.area),
   );
 
   if (battles.length === 0) return null;
 
   const names = new Map(pokedex.map((entry) => [entry.number, entry.name]));
-  const areas = floor
-    ? [{ area: undefined, battles }]
-    : [...new Set(battles.map((battle) => battle.area))].map((area) => ({
-        area,
-        battles: battles.filter((battle) => battle.area === area),
-      }));
+  const areas = (
+    floor
+      ? [{ area: undefined, battles }]
+      : [...new Set(battles.map((battle) => battle.area))].map((area) => ({
+          area,
+          battles: battles.filter((battle) => battle.area === area),
+        }))
+  ).map((group) => ({ ...group, numbers: trainerNumbers(group.battles) }));
 
   return (
     <ExpandableCard title="Trainer battles">
-      {areas.map(({ area, battles }) => (
+      {areas.map(({ area, battles, numbers }) => (
         <div key={area ?? ''} className="flex flex-col gap-1">
           {area && (
             <h3 className="text-[13px] text-muted-foreground">{area}</h3>
@@ -50,7 +70,15 @@ export const TrainersCard = ({
           <ul className="flex flex-col divide-y">
             {battles.map((battle, index) => (
               <li key={index} className="flex flex-col gap-2 py-2.5">
-                <span className="text-sm font-medium">{battle.name}</span>
+                <span className="text-sm font-medium">
+                  {battle.name}
+                  {numbers[index] && (
+                    <span className="font-normal text-muted-foreground/80">
+                      {' '}
+                      #{numbers[index]}
+                    </span>
+                  )}
+                </span>
                 {battle.parties.map((party) => (
                   <Party
                     key={party.label ?? ''}

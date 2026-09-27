@@ -46,6 +46,7 @@ const SILPH_CO_EVENT = 'Team Rocket leaves Silph Co.';
 
 const eventNames: Record<string, string> = {
   'viridian-city.png': "Oak's Parcel delivered",
+  'viridian-gym.png': 'Giovanni defeated',
   'cerulean-city.png': 'Thief defeated, Hall of Fame entered',
   'route-24.png': 'Bill helped',
   'route-12.png': 'Snorlax woken up',
@@ -415,6 +416,14 @@ type InsideEntry = {
 };
 
 const inside: Array<InsideEntry> = [
+  {
+    id: 'viridian-gym',
+    name: 'Viridian Gym',
+    kind: 'building',
+    size: [320, 288],
+    parent: 'viridian-city',
+    entrances: [warp(32, 7)],
+  },
   {
     id: 'viridian-forest',
     name: 'Viridian Forest',

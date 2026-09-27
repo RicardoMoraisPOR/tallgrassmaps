@@ -847,6 +847,14 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "viridian-city/viridian-gym",
+    "x": 16,
+    "y": 9,
+    "item": "Revive",
+    "hidden": false,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-2/viridian-forest",
     "x": 1,
     "y": 18,

@@ -80,6 +80,7 @@ export const forGame = (text, define) => {
 };
 
 const insideLocations = {
+  VIRIDIAN_GYM: 'viridian-city/viridian-gym',
   VIRIDIAN_FOREST: 'route-2/viridian-forest',
   MT_MOON: 'route-4/mt-moon',
   CERULEAN_CAVE: 'cerulean-city/cerulean-cave',
@@ -113,7 +114,6 @@ const buildingLocations = {
   ROUTE_18_GATE_2F: 'route-18',
   FIGHTING_DOJO: 'saffron-city',
   OAKS_LAB: 'pallet-town',
-  VIRIDIAN_GYM: 'viridian-city',
   PEWTER_GYM: 'pewter-city',
   VERMILION_GYM: 'vermilion-city',
   CELADON_GYM: 'celadon-city',
