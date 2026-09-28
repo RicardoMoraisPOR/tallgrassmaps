@@ -310,8 +310,7 @@
   --map-connection: var(--map-link);
   --map-entrance: oklch(0.75 0.16 65);
   --map-house: oklch(0.68 0.14 300);
-  --map-mart: oklch(0.65 0.15 245);
-  --map-center: oklch(0.65 0.21 25);
+  --map-service: oklch(0.65 0.21 25);
   --map-item: oklch(0.75 0.13 200);
   --map-hidden-item: oklch(0.68 0.2 330);
   --map-trainer: oklch(0.8 0.16 95);
@@ -334,47 +333,43 @@
   transition: fill-opacity 150ms;
 }
 
-.leaflet-interactive.map-link-connection {
+.map-link-connection {
   --map-link: var(--map-connection);
 }
 
-.leaflet-interactive.map-link-entrance {
+.map-link-entrance {
   --map-link: var(--map-entrance);
 }
 
-.leaflet-interactive.map-link-house {
+.map-link-house {
   --map-link: var(--map-house);
 }
 
-.leaflet-interactive.map-link-mart {
-  --map-link: var(--map-mart);
+.map-link-service {
+  --map-link: var(--map-service);
 }
 
-.leaflet-interactive.map-link-center {
-  --map-link: var(--map-center);
-}
-
-.leaflet-interactive.map-link-item {
+.map-link-item {
   --map-link: var(--map-item);
 }
 
-.leaflet-interactive.map-link-hidden-item {
+.map-link-hidden-item {
   --map-link: var(--map-hidden-item);
 }
 
-.leaflet-interactive.map-link-trainer {
+.map-link-trainer {
   --map-link: var(--map-trainer);
 }
 
-.leaflet-interactive.map-link-static-pokemon {
+.map-link-static-pokemon {
   --map-link: var(--map-static-pokemon);
 }
 
-.leaflet-interactive.map-link-npc {
+.map-link-npc {
   --map-link: var(--map-npc);
 }
 
-.leaflet-interactive.map-link-sign {
+.map-link-sign {
   --map-link: var(--map-sign);
 }
 
@@ -384,6 +379,14 @@
 
 .leaflet-interactive.map-link:hover {
   fill-opacity: 0.35;
+}
+
+.map-link-highlight {
+  stroke: var(--map-link);
+  stroke-opacity: 1;
+  stroke-width: 3;
+  fill: var(--map-link);
+  fill-opacity: 0.45;
 }
 
 @utility version-letter {

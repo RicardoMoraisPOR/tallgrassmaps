@@ -49,6 +49,7 @@ export type MarkerKind = 'house' | 'mart' | 'center';
 export type MapMarker = Rect & {
   kind: MarkerKind;
   name: string;
+  target?: string;
 };
 
 export type LocationKind = 'town' | 'route' | 'dungeon' | 'building';

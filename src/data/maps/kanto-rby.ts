@@ -7,6 +7,7 @@ import type {
   LocationKind,
   MapEvent,
   MapMarker,
+  MarkerKind,
   MapVariant,
   Rect,
   Region,
@@ -157,9 +158,7 @@ const outdoor: Array<OutdoorEntry> = [
     size: [320, 288],
     cell: [14, 5],
     markers: [
-      { kind: 'center', name: 'Pokémon Center', ...entrance(48, 80) },
       { kind: 'house', name: "Mr. Fuji's House", ...entrance(112, 144) },
-      { kind: 'mart', name: 'Poké Mart', ...entrance(240, 208) },
       { kind: 'house', name: 'Cubone House', ...entrance(48, 208) },
       { kind: 'house', name: "Name Rater's House", ...entrance(112, 208) },
     ],
@@ -398,6 +397,7 @@ type InsideEntry = {
   cell?: [x: number, y: number];
   floors?: Array<FloorEntry>;
   variants?: Array<MapVariant>;
+  marker?: MarkerKind;
 };
 
 const inside: Array<InsideEntry> = [
@@ -665,6 +665,78 @@ const inside: Array<InsideEntry> = [
   },
 ];
 
+const pokemonCenter = (
+  id: string,
+  parent: string,
+  entrances: Array<Rect>,
+): InsideEntry => ({
+  id,
+  name: 'Pokémon Center',
+  kind: 'building',
+  size: [224, 128],
+  parent,
+  entrances,
+  marker: 'center',
+  variants: [variant('yellow', `${id}.png`)],
+});
+
+const pokeMart = (
+  id: string,
+  parent: string,
+  entrances: Array<Rect>,
+): InsideEntry => ({
+  id,
+  name: 'Poké Mart',
+  kind: 'building',
+  size: [128, 128],
+  parent,
+  entrances,
+  marker: 'mart',
+  variants: [variant('yellow', `${id}.png`)],
+});
+
+const services: Array<InsideEntry> = [
+  pokemonCenter('viridian-pokemon-center', 'viridian-city', [warp(23, 25)]),
+  pokemonCenter('pewter-pokemon-center', 'pewter-city', [warp(13, 25)]),
+  pokemonCenter('cerulean-pokemon-center', 'cerulean-city', [warp(19, 17)]),
+  pokemonCenter('lavender-pokemon-center', 'lavender-town', [warp(3, 5)]),
+  pokemonCenter('vermilion-pokemon-center', 'vermilion-city', [warp(11, 3)]),
+  pokemonCenter('celadon-pokemon-center', 'celadon-city', [warp(41, 9)]),
+  pokemonCenter('fuchsia-pokemon-center', 'fuchsia-city', [warp(19, 27)]),
+  pokemonCenter('saffron-pokemon-center', 'saffron-city', [warp(9, 29)]),
+  pokemonCenter('cinnabar-pokemon-center', 'cinnabar-island', [warp(11, 11)]),
+  pokemonCenter('mt-moon-pokemon-center', 'route-4', [warp(11, 5)]),
+  pokemonCenter('rock-tunnel-pokemon-center', 'route-10', [warp(11, 19)]),
+  pokeMart('viridian-poke-mart', 'viridian-city', [warp(29, 19)]),
+  pokeMart('pewter-poke-mart', 'pewter-city', [warp(23, 17)]),
+  pokeMart('cerulean-poke-mart', 'cerulean-city', [warp(25, 25)]),
+  pokeMart('lavender-poke-mart', 'lavender-town', [warp(15, 13)]),
+  pokeMart('vermilion-poke-mart', 'vermilion-city', [warp(23, 13)]),
+  pokeMart('fuchsia-poke-mart', 'fuchsia-city', [warp(5, 13)]),
+  pokeMart('saffron-poke-mart', 'saffron-city', [warp(25, 11)]),
+  pokeMart('cinnabar-poke-mart', 'cinnabar-island', [warp(15, 11)]),
+  {
+    id: 'indigo-plateau-lobby',
+    name: 'Indigo Plateau Lobby',
+    kind: 'building',
+    size: [256, 192],
+    parent: 'indigo-plateau',
+    entrances: [rect(140, 76, 40, 24)],
+    marker: 'center',
+    variants: [variant('yellow', 'indigo-plateau-lobby.png')],
+  },
+  {
+    id: 'celadon-dept-store',
+    name: 'Celadon Dept. Store',
+    kind: 'building',
+    size: [320, 128],
+    parent: 'celadon-city',
+    entrances: [warp(8, 13), warp(10, 13)],
+    marker: 'mart',
+    floors: ['1F', '2F', '3F', '4F', '5F', 'Roof'].map((name) => ({ name })),
+  },
+];
+
 const toLocation = (
   id: string,
   name: string,
@@ -729,6 +801,8 @@ const toInsideLocation = ({
   };
 };
 
+const buildings = [...inside, ...services];
+
 const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
   ...inside.flatMap(({ id, parent, entrances, otherEntrances }) => {
     const rects =
@@ -751,9 +825,21 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
 const locations: Array<Location> = outdoor.map(
   ({ id, name, kind, size, markers = [], variants }) => ({
     ...toLocation(id, name, kind, size),
-    markers,
+    markers: [
+      ...markers,
+      ...services
+        .filter(({ parent }) => parent === id)
+        .flatMap((building) =>
+          building.entrances.map((area) => ({
+            ...area,
+            kind: building.marker ?? 'house',
+            name: building.name,
+            target: `${building.parent}/${building.id}`,
+          })),
+        ),
+    ],
     variants,
-    locations: inside
+    locations: buildings
       .filter(({ parent }) => parent === id)
       .map(toInsideLocation),
     hotspots: hotspotsFor(id),

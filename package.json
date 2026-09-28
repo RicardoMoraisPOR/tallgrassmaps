@@ -14,6 +14,7 @@
     "trainers:rby": "node scripts/trainers/rby.mjs",
     "items:rby": "node scripts/items/rby.mjs",
     "connections:rby": "node scripts/rby/connections.mjs",
+    "maps:rby": "node scripts/rby/render-maps.mjs",
     "sprites:pokemon": "node scripts/sprites/pokemon.mjs",
     "sprites:rby": "node scripts/sprites/rby.mjs",
     "town-map:tall-grass": "node scripts/town-map/tall-grass.mjs"

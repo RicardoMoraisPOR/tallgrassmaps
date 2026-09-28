@@ -7925,7 +7925,7 @@
       },
       {
         "method": "gift",
-        "path": "route-4",
+        "path": "route-4/mt-moon-pokemon-center",
         "levels": [5, 5],
         "games": ["red", "blue", "yellow"]
       },

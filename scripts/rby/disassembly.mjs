@@ -80,6 +80,27 @@ export const forGame = (text, define) => {
 };
 
 const insideLocations = {
+  VIRIDIAN_POKECENTER: 'viridian-city/viridian-pokemon-center',
+  VIRIDIAN_MART: 'viridian-city/viridian-poke-mart',
+  PEWTER_POKECENTER: 'pewter-city/pewter-pokemon-center',
+  PEWTER_MART: 'pewter-city/pewter-poke-mart',
+  CERULEAN_POKECENTER: 'cerulean-city/cerulean-pokemon-center',
+  CERULEAN_MART: 'cerulean-city/cerulean-poke-mart',
+  LAVENDER_POKECENTER: 'lavender-town/lavender-pokemon-center',
+  LAVENDER_MART: 'lavender-town/lavender-poke-mart',
+  VERMILION_POKECENTER: 'vermilion-city/vermilion-pokemon-center',
+  VERMILION_MART: 'vermilion-city/vermilion-poke-mart',
+  CELADON_POKECENTER: 'celadon-city/celadon-pokemon-center',
+  FUCHSIA_POKECENTER: 'fuchsia-city/fuchsia-pokemon-center',
+  FUCHSIA_MART: 'fuchsia-city/fuchsia-poke-mart',
+  SAFFRON_POKECENTER: 'saffron-city/saffron-pokemon-center',
+  SAFFRON_MART: 'saffron-city/saffron-poke-mart',
+  CINNABAR_POKECENTER: 'cinnabar-island/cinnabar-pokemon-center',
+  CINNABAR_MART: 'cinnabar-island/cinnabar-poke-mart',
+  MT_MOON_POKECENTER: 'route-4/mt-moon-pokemon-center',
+  ROCK_TUNNEL_POKECENTER: 'route-10/rock-tunnel-pokemon-center',
+  INDIGO_PLATEAU_LOBBY: 'indigo-plateau/indigo-plateau-lobby',
+  CELADON_MART: 'celadon-city/celadon-dept-store',
   VIRIDIAN_GYM: 'viridian-city/viridian-gym',
   VIRIDIAN_FOREST: 'route-2/viridian-forest',
   MT_MOON: 'route-4/mt-moon',
@@ -107,7 +128,6 @@ const buildingLocations = {
   CELADON_MANSION_ROOF_HOUSE: 'celadon-city',
   CINNABAR_LAB_FOSSIL_ROOM: 'cinnabar-island',
   CINNABAR_LAB_TRADE_ROOM: 'cinnabar-island',
-  MT_MOON_POKECENTER: 'route-4',
   ROUTE_2_TRADE_HOUSE: 'route-2',
   UNDERGROUND_PATH_ROUTE_5: 'route-5',
   ROUTE_11_GATE_2F: 'route-11',
@@ -174,7 +194,7 @@ export const floorFor = (mapConstant) => {
     .replaceAll('_', '')
     .toLowerCase();
 
-  return /^(b?\d+f|center|east|north|west)$/.test(floor) ? floor : undefined;
+  return /^(b?\d+f|center|east|north|west|roof)$/.test(floor) ? floor : undefined;
 };
 
 export const constantFromFile = (file) =>

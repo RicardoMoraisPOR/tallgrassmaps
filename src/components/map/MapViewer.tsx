@@ -31,10 +31,16 @@ export type MapLink = Rect & {
 type MapViewerProps = {
   map: MapImage;
   links?: Array<MapLink>;
+  highlightedHref?: string;
   className?: string;
 };
 
-export const MapViewer = ({ map, links = [], className }: MapViewerProps) => {
+export const MapViewer = ({
+  map,
+  links = [],
+  highlightedHref,
+  className,
+}: MapViewerProps) => {
   const navigate = useNavigate();
   const bounds = useMemo(() => imageBounds(map), [map]);
 
@@ -84,6 +90,22 @@ export const MapViewer = ({ map, links = [], className }: MapViewerProps) => {
             </Tooltip>
           </Rectangle>
         ))}
+        {highlightedHref &&
+          links
+            .filter((link) => link.href === highlightedHref)
+            .map((link) => (
+              <Rectangle
+                key={`highlight-${link.x},${link.y}`}
+                bounds={[
+                  toLatLng(link.x, link.y + link.height),
+                  toLatLng(link.x + link.width, link.y),
+                ]}
+                interactive={false}
+                pathOptions={{
+                  className: cn('map-link-highlight', link.className),
+                }}
+              />
+            ))}
       </Pane>
       <FitToViewport map={map} />
       {map.pixelated && <PixelatedWhenZoomedIn />}

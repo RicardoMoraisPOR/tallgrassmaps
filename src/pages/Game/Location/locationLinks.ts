@@ -66,11 +66,12 @@ export const locationLinks = (
   });
 
   const markers: Array<LayeredMapLink> = location.markers.map(
-    ({ kind, name, ...area }) => {
+    ({ kind, name, target, ...area }) => {
       const layer = markerLayer(kind);
 
       return {
         ...area,
+        href: target && href(target),
         label: name,
         layer: layer.id,
         className: layer.className,

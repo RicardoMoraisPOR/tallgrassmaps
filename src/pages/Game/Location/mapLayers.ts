@@ -1,11 +1,13 @@
+import { useState } from 'react';
+
 import type { LocationHotspot, MarkerKind } from '@/data/maps';
+import { useSettingsStore } from '@/stores/settings';
 
 export type MapLayerId =
   | 'connections'
   | 'entrances'
   | 'houses'
-  | 'marts'
-  | 'centers'
+  | 'services'
   | 'items'
   | 'hidden-items'
   | 'trainers'
@@ -42,18 +44,10 @@ export const mapLayers: Array<MapLayer> = [
     hiddenByDefault: true,
   },
   {
-    id: 'marts',
-    label: 'Poké Marts',
-    color: 'var(--map-mart)',
-    className: 'map-link-mart',
-    hiddenByDefault: true,
-  },
-  {
-    id: 'centers',
-    label: 'Pokémon Centers',
-    color: 'var(--map-center)',
-    className: 'map-link-center',
-    hiddenByDefault: true,
+    id: 'services',
+    label: 'Centers & Marts',
+    color: 'var(--map-service)',
+    className: 'map-link-service',
   },
   {
     id: 'items',
@@ -102,8 +96,8 @@ const hotspotLayers: Record<LocationHotspot['kind'], MapLayerId> = {
 
 const markerLayers: Record<MarkerKind, MapLayerId> = {
   house: 'houses',
-  mart: 'marts',
-  center: 'centers',
+  mart: 'services',
+  center: 'services',
 };
 
 const layer = (id: MapLayerId) => mapLayers.find((entry) => entry.id === id)!;
@@ -116,7 +110,43 @@ export const markerLayer = (kind: MarkerKind) => layer(markerLayers[kind]);
 export const itemLayer = (hidden: boolean) =>
   layer(hidden ? 'hidden-items' : 'items');
 
-export const defaultHiddenLayers = () =>
-  new Set(
-    mapLayers.filter((entry) => entry.hiddenByDefault).map(({ id }) => id),
+type LayerValues = Partial<Record<MapLayerId, boolean>>;
+
+export const useSavedMapLayers = () => {
+  const saved = useSettingsStore((state) => state.mapLayers);
+  const setMapLayer = useSettingsStore((state) => state.setMapLayer);
+
+  const isVisible = (id: MapLayerId) => saved[id] ?? !layer(id).hiddenByDefault;
+
+  const setVisible = (id: MapLayerId, visible: boolean) =>
+    setMapLayer(id, visible);
+
+  return { isVisible, setVisible };
+};
+
+export const useMapLayers = (scope: string) => {
+  const saved = useSavedMapLayers();
+  const [local, setLocal] = useState<{ scope: string; values: LayerValues }>({
+    scope,
+    values: {},
+  });
+
+  if (local.scope !== scope) setLocal({ scope, values: {} });
+
+  const values = local.scope === scope ? local.values : {};
+  const isVisible = (id: MapLayerId) => values[id] ?? saved.isVisible(id);
+  const hiddenLayers = new Set(
+    mapLayers.filter(({ id }) => !isVisible(id)).map(({ id }) => id),
   );
+
+  const toggle = (id: MapLayerId) =>
+    setLocal({ scope, values: { ...values, [id]: !isVisible(id) } });
+
+  const reset = (id: MapLayerId) => {
+    const { [id]: _removed, ...rest } = values;
+
+    setLocal({ scope, values: rest });
+  };
+
+  return { hiddenLayers, toggle, reset };
+};

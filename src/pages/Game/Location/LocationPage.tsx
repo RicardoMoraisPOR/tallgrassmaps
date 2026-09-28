@@ -15,7 +15,7 @@ import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
 import { locationLinks } from './locationLinks';
 import { MapInfoCard } from './MapInfoCard';
-import { defaultHiddenLayers, type MapLayerId, mapLayers } from './mapLayers';
+import { mapLayers, useMapLayers } from './mapLayers';
 import { TownMapCard } from './TownMapCard';
 import { TrainersCard } from './TrainersCard';
 import { useEventState } from './useEventState';
@@ -23,12 +23,16 @@ import { useFloor } from './useFloor';
 
 export const LocationPage = () => {
   const route = useGameRoute();
-  const [hiddenLayers, setHiddenLayers] = useState(defaultHiddenLayers);
 
   const trail = route?.trail;
   const location = trail?.at(-1);
   const { floor, selectFloor } = useFloor(location?.floors);
   const { state: eventState, selectState: selectEventState } = useEventState();
+  const scope = trail ? trailPath(trail) : '';
+  const layerState = useMapLayers(scope);
+  const [highlight, setHighlight] = useState<{ scope: string; href?: string }>({
+    scope,
+  });
 
   if (!route || !trail || !location) {
     return <NotFoundPage />;
@@ -62,15 +66,6 @@ export const LocationPage = () => {
     image: variant?.image ?? imageSource.image,
   };
 
-  const toggleLayer = (layer: MapLayerId) =>
-    setHiddenLayers((current) => {
-      const next = new Set(current);
-
-      if (!next.delete(layer)) next.add(layer);
-
-      return next;
-    });
-
   return (
     <>
       <SidebarLayout
@@ -84,8 +79,10 @@ export const LocationPage = () => {
               layers={mapLayers.filter((layer) =>
                 links.some((link) => link.layer === layer.id),
               )}
-              hiddenLayers={hiddenLayers}
-              onToggleLayer={toggleLayer}
+              hiddenLayers={layerState.hiddenLayers}
+              onToggleLayer={layerState.toggle}
+              onLayerSettingChange={layerState.reset}
+              onHighlight={(href) => setHighlight({ scope, href })}
             />
             <TownMapCard
               region={route.region}
@@ -116,7 +113,12 @@ export const LocationPage = () => {
         <div className="relative min-w-0">
           <MapViewer
             map={mapImage}
-            links={links.filter((link) => !hiddenLayers.has(link.layer))}
+            links={links.filter(
+              (link) => !layerState.hiddenLayers.has(link.layer),
+            )}
+            highlightedHref={
+              highlight.scope === scope ? highlight.href : undefined
+            }
             className="h-[60svh] min-w-0 overflow-hidden rounded-[14px] border lg:h-[min(72svh,760px)]"
           />
           {((location.floors && floor) || event) && (
