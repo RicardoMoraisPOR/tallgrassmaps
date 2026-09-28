@@ -13,53 +13,38 @@ import {
   encounterHighlightKey,
   type EncounterRowData,
 } from './encounters';
-import { ExpandableCard } from './ExpandableCard';
 import { PokedexEntryLink } from './PokedexEntryLink';
 
-type EncountersCardProps = {
+type EncountersTabProps = {
   game: Game;
   path: string;
   groups: Array<EncounterGroup>;
   onHighlight: (key: string | undefined) => void;
 };
 
-export const EncountersCard = ({
+export const EncountersTab = ({
   game,
   path,
   groups,
   onHighlight,
-}: EncountersCardProps) => {
-  const pokedexLink = usePokedexLink();
-
+}: EncountersTabProps) => {
   return (
-    <ExpandableCard title="Pokémon encounters">
-      {groups.length === 0 ? (
-        <p className="text-[13px] text-muted-foreground">
-          No Pokémon to catch here.
-        </p>
-      ) : (
-        groups.map(({ method, rows }) => (
-          <div key={method} className="flex flex-col gap-1">
-            <h3 className="text-[13px] text-muted-foreground">
-              {methodLabel({ method, path, games: [] })}
-            </h3>
-            <EncounterList
-              game={game}
-              rows={rows}
-              linked
-              highlightKeyFor={encounterHighlightKey}
-              onHighlight={onHighlight}
-            />
-          </div>
-        ))
-      )}
-      <Button variant="outline" className="w-full" asChild>
-        <Link {...pokedexLink}>
-          <BookOpen aria-hidden />
-          Open Pokédex
-        </Link>
-      </Button>
-    </ExpandableCard>
+    <>
+      {groups.map(({ method, rows }) => (
+        <div key={method} className="flex flex-col gap-1">
+          <h3 className="text-[13px] text-muted-foreground">
+            {methodLabel({ method, path, games: [] })}
+          </h3>
+          <EncounterList
+            game={game}
+            rows={rows}
+            linked
+            highlightKeyFor={encounterHighlightKey}
+            onHighlight={onHighlight}
+          />
+        </div>
+      ))}
+    </>
   );
 };
 
@@ -75,6 +60,19 @@ type EncounterListProps = {
 type EncounterRowProps = Omit<EncounterListProps, 'game' | 'rows'> & {
   row: EncounterRowData;
   sprite: PokemonSprite;
+};
+
+export const OpenPokedexButton = () => {
+  const pokedexLink = usePokedexLink();
+
+  return (
+    <Button variant="outline" className="w-full" asChild>
+      <Link {...pokedexLink}>
+        <BookOpen aria-hidden />
+        Open Pokédex
+      </Link>
+    </Button>
+  );
 };
 
 export const EncounterList = ({

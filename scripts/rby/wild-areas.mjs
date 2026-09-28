@@ -133,9 +133,22 @@ const wildAreas = mappedConstants.flatMap((constant) => {
   ]);
   const anywhere =
     grass > 0 && isIndoorMap(constant) && tiles.tileset !== 'Forest';
+  const hasWater =
+    waterTilesets.has(tiles.tileset) &&
+    !DECORATIVE_WATER_TILESETS.has(tiles.tileset);
+  const isWater = (x, y) => fishable.has(facing(x, y));
+  const water = hasWater && {
+    outline: outline(tiles.columns, tiles.rows, isWater),
+  };
+  const cutOutWater = water && water.outline.length > 0;
 
   const walk = anywhere
-    ? { whole: true }
+    ? {
+        whole: true,
+        ...(cutOutWater && {
+          outline: outline(tiles.columns, tiles.rows, (x, y) => !isWater(x, y)),
+        }),
+      }
     : grass > 0 &&
       tiles.grassTile !== undefined && {
         outline: outline(
@@ -144,12 +157,6 @@ const wildAreas = mappedConstants.flatMap((constant) => {
           (x, y) => standingOn(x, y) === tiles.grassTile,
         ),
       };
-  const water = waterTilesets.has(tiles.tileset) &&
-    !DECORATIVE_WATER_TILESETS.has(tiles.tileset) && {
-      outline: outline(tiles.columns, tiles.rows, (x, y) =>
-        fishable.has(facing(x, y)),
-      ),
-    };
 
   return [
     walk && { ...place, method: 'walk', ...walk },

@@ -24,10 +24,15 @@ export const RegionPage = () => {
   return (
     <>
       <SidebarLayout
+        fitAsideToMain
         aside={
           <>
             <PokedexCard game={game} region={region} />
-            <PlaceList places={collectPlaces(region)} href={href} />
+            <PlaceList
+              places={collectPlaces(region)}
+              href={href}
+              className="lg:min-h-0 lg:flex-1"
+            />
             <MapLegend />
           </>
         }

@@ -20,9 +20,10 @@ const tabs: Array<{ id: Tab; label: string }> = [
 type PlaceListProps = {
   places: Array<Place>;
   href: (path: string) => string;
+  className?: string;
 };
 
-export const PlaceList = ({ places, href }: PlaceListProps) => {
+export const PlaceList = ({ places, href, className }: PlaceListProps) => {
   const [query, setQuery] = useState('');
   const [tab, setTab] = useState<Tab>('all');
 
@@ -40,7 +41,10 @@ export const PlaceList = ({ places, href }: PlaceListProps) => {
   return (
     <section
       aria-label="All places"
-      className="flex flex-col overflow-hidden rounded-[14px] border bg-card"
+      className={cn(
+        'flex flex-col overflow-hidden rounded-[14px] border bg-card',
+        className,
+      )}
     >
       <div className="flex flex-col gap-2.5 border-b p-3">
         <label className="flex h-10 items-center gap-2 rounded-[10px] border border-input bg-background px-3 dark:bg-input/30">
@@ -81,7 +85,7 @@ export const PlaceList = ({ places, href }: PlaceListProps) => {
         </div>
       </div>
 
-      <ul className="flex max-h-95 flex-col overflow-y-auto p-1.5">
+      <ul className="flex max-h-95 min-h-0 flex-col overflow-y-auto p-1.5 lg:max-h-none lg:flex-1">
         {rows.map(({ path, location }) => (
           <li key={path}>
             <Link

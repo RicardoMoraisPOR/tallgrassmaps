@@ -14,16 +14,17 @@ import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 import { PokedexOverlay } from '../Pokedex/PokedexOverlay';
 import { SidebarLayout } from '../SidebarLayout';
 import { encounterGroups, wildAreaFor } from './encounters';
-import { EncountersCard } from './EncountersCard';
+import { EncountersTab, OpenPokedexButton } from './EncountersTab';
 import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
 import { locationLinks } from './locationLinks';
-import { MapInfoCard } from './MapInfoCard';
+import { EmptyTab, LocationPanel, type PanelTab } from './LocationPanel';
+import { MapInfoTab } from './MapInfoTab';
 import { mapLayers, useMapLayers } from './mapLayers';
 import { TownMapCard } from './TownMapCard';
 import { TrainerDialog } from './TrainerDialog';
 import { battleGroups } from './trainerList';
-import { TrainersCard } from './TrainersCard';
+import { TrainersTab } from './TrainersTab';
 import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 import { StaticPopup, WildPopup } from './WildPopup';
@@ -116,6 +117,64 @@ export const LocationPage = () => {
     },
   );
   const highlightTo = (key: string | undefined) => setHighlight({ scope, key });
+  const pokemonCount = new Set(
+    encounters.flatMap((group) => group.rows.map((row) => row.entry.number)),
+  ).size;
+  const panelTabs: Array<PanelTab> = [
+    {
+      id: 'info',
+      label: 'Map info',
+      content: (
+        <MapInfoTab
+          groups={[
+            { label: 'Connects to', links: connections },
+            { label: 'Entrances', links: entrances },
+          ]}
+          layers={mapLayers.filter((layer) =>
+            links.some((link) => link.layer === layer.id),
+          )}
+          hiddenLayers={layerState.hiddenLayers}
+          onToggleLayer={layerState.toggle}
+          onLayerSettingChange={layerState.reset}
+          onHighlight={highlightTo}
+        />
+      ),
+    },
+    {
+      id: 'pokemon',
+      label: 'Pokémon',
+      count: pokemonCount,
+      action: <OpenPokedexButton />,
+      content:
+        pokedex && pokemonCount > 0 ? (
+          <EncountersTab
+            game={route.game}
+            path={trailPath(trail)}
+            groups={encounters}
+            onHighlight={highlightTo}
+          />
+        ) : (
+          <EmptyTab>No Pokémon to catch here.</EmptyTab>
+        ),
+    },
+    {
+      id: 'trainers',
+      label: 'Trainers',
+      count: listedBattles.length,
+      content:
+        pokedex && listedBattles.length > 0 ? (
+          <TrainersTab
+            game={route.game}
+            groups={trainerGroups}
+            pokedex={pokedex}
+            onHighlight={highlightTo}
+            onSelect={selectTrainer}
+          />
+        ) : (
+          <EmptyTab>No trainer battles here.</EmptyTab>
+        ),
+    },
+  ];
 
   const baseImage = floor ?? location;
   const event = baseImage.event;
@@ -131,43 +190,15 @@ export const LocationPage = () => {
   return (
     <>
       <SidebarLayout
+        fitAsideToMain
         aside={
           <>
-            <MapInfoCard
-              groups={[
-                { label: 'Connects to', links: connections },
-                { label: 'Entrances', links: entrances },
-              ]}
-              layers={mapLayers.filter((layer) =>
-                links.some((link) => link.layer === layer.id),
-              )}
-              hiddenLayers={layerState.hiddenLayers}
-              onToggleLayer={layerState.toggle}
-              onLayerSettingChange={layerState.reset}
-              onHighlight={highlightTo}
-            />
             <TownMapCard
               region={route.region}
               path={trailPath(trail)}
               name={location.name}
             />
-            {pokedex && (
-              <EncountersCard
-                game={route.game}
-                path={trailPath(trail)}
-                groups={encounters}
-                onHighlight={highlightTo}
-              />
-            )}
-            {pokedex && (
-              <TrainersCard
-                game={route.game}
-                groups={trainerGroups}
-                pokedex={pokedex}
-                onHighlight={highlightTo}
-                onSelect={selectTrainer}
-              />
-            )}
+            <LocationPanel tabs={panelTabs} className="lg:flex-1" />
           </>
         }
       >

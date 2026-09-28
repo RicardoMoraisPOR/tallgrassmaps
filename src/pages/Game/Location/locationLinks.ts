@@ -15,7 +15,7 @@ import { joinPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 
 import { staticHighlightKey, wildHighlightKey } from './encounters';
-import type { PlaceLink } from './MapInfoCard';
+import type { PlaceLink } from './MapInfoTab';
 import {
   hotspotLayer,
   itemLayer,
@@ -170,18 +170,19 @@ export const locationLinks = (
       );
       const xs = scaled.flat().map(([x]) => x);
       const ys = scaled.flat().map(([, y]) => y);
-      const bounds = whole
-        ? { x: 0, y: 0, width: image.width, height: image.height }
-        : {
-            x: Math.min(...xs),
-            y: Math.min(...ys),
-            width: Math.max(...xs) - Math.min(...xs),
-            height: Math.max(...ys) - Math.min(...ys),
-          };
+      const bounds =
+        scaled.length === 0
+          ? { x: 0, y: 0, width: image.width, height: image.height }
+          : {
+              x: Math.min(...xs),
+              y: Math.min(...ys),
+              width: Math.max(...xs) - Math.min(...xs),
+              height: Math.max(...ys) - Math.min(...ys),
+            };
 
       return {
         ...bounds,
-        ...(!whole && { outline: scaled }),
+        ...(scaled.length > 0 && { outline: scaled }),
         label: method === 'water' ? 'Wild Pokémon (water)' : 'Wild Pokémon',
         layer: layer.id,
         className: cn(layer.className, whole && 'map-link-wild-whole'),

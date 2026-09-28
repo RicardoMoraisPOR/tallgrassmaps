@@ -39,6 +39,8 @@ const onFloor = (encounter: Encounter, floor: string | undefined) => {
 
 const ANYWHERE_RODS: Array<EncounterMethod> = ['old-rod', 'good-rod'];
 
+const RODS: Array<EncounterMethod> = [...ANYWHERE_RODS, 'super-rod'];
+
 const areaMethods: Partial<Record<EncounterMethod, WildArea['method']>> = {
   walk: 'walk',
   surf: 'water',
@@ -93,10 +95,5 @@ export const encounterGroups = (
           (b.encounter.chance?.[1] ?? 0) - (a.encounter.chance?.[1] ?? 0),
       ),
   })).filter(({ rows }) => rows.length > 0);
-  const fishable =
-    hasWater || groups.some(({ method }) => method === 'super-rod');
-
-  return groups.filter(
-    ({ method }) => fishable || !ANYWHERE_RODS.includes(method),
-  );
+  return groups.filter(({ method }) => hasWater || !RODS.includes(method));
 };

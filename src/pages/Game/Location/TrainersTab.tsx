@@ -4,10 +4,9 @@ import type { TrainerParty } from '@/data/trainers/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
-import { ExpandableCard } from './ExpandableCard';
 import type { BattleGroup } from './trainerList';
 
-type TrainersCardProps = {
+type TrainersTabProps = {
   game: Game;
   groups: Array<BattleGroup>;
   pokedex: Array<PokedexEntry>;
@@ -15,21 +14,19 @@ type TrainersCardProps = {
   onSelect: (key: string) => void;
 };
 
-export const TrainersCard = ({
+export const TrainersTab = ({
   game,
   groups,
   pokedex,
   onHighlight,
   onSelect,
-}: TrainersCardProps) => {
+}: TrainersTabProps) => {
   const spriteFor = usePokemonSprite(game);
-
-  if (groups.every((group) => group.battles.length === 0)) return null;
 
   const names = new Map(pokedex.map((entry) => [entry.number, entry.name]));
 
   return (
-    <ExpandableCard title="Trainer battles">
+    <>
       {groups.map(({ area, battles }) => (
         <div key={area ?? ''} className="flex flex-col gap-1">
           {area && (
@@ -72,7 +69,7 @@ export const TrainersCard = ({
           </ul>
         </div>
       ))}
-    </ExpandableCard>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 import { chanceLabel, methodLabel } from '../Pokedex/format';
 import type { EncounterGroup } from './encounters';
-import { EncounterList } from './EncountersCard';
+import { EncounterList } from './EncountersTab';
 import { PokedexEntryLink } from './PokedexEntryLink';
 
 type WildPopupProps = {
