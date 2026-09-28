@@ -1,3 +1,4 @@
+import connectionData from './kanto-rby-connections.json';
 import tallGrassMap from './tall-grass/kanto-rby.svg?raw';
 import type {
   Direction,
@@ -95,13 +96,18 @@ const eventFor = (file: string): MapEvent | undefined => {
   };
 };
 
+type Connection = { to: string; direction: Direction; area: Rect };
+
+const connections = connectionData as Partial<
+  Record<string, Array<Connection>>
+>;
+
 type OutdoorEntry = {
   id: string;
   name: string;
   kind: 'town' | 'route';
   size: Size;
   cell: [x: number, y: number];
-  exits?: Array<{ to: string; direction: Direction; area: Rect }>;
   markers?: Array<MapMarker>;
   variants?: Array<MapVariant>;
 };
@@ -113,10 +119,6 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [320, 288],
     cell: [2, 11],
-    exits: [
-      { to: 'route-1', direction: 'north', area: rect(160, 0, 32, 16) },
-      { to: 'route-21', direction: 'south', area: rect(64, 272, 64, 16) },
-    ],
   },
   {
     id: 'viridian-city',
@@ -154,11 +156,6 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [320, 288],
     cell: [14, 5],
-    exits: [
-      { to: 'route-10', direction: 'north', area: rect(96, 0, 64, 16) },
-      { to: 'route-8', direction: 'west', area: rect(0, 32, 16, 224) },
-      { to: 'route-12', direction: 'south', area: rect(128, 272, 32, 16) },
-    ],
     markers: [
       { kind: 'center', name: 'Pokémon Center', ...entrance(48, 80) },
       { kind: 'house', name: "Mr. Fuji's House", ...entrance(112, 144) },
@@ -209,10 +206,6 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'route',
     size: [320, 576],
     cell: [2, 10],
-    exits: [
-      { to: 'viridian-city', direction: 'north', area: rect(160, 0, 32, 16) },
-      { to: 'pallet-town', direction: 'south', area: rect(160, 560, 32, 16) },
-    ],
   },
   {
     id: 'route-2',
@@ -355,14 +348,6 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'route',
     size: [320, 1440],
     cell: [2, 13],
-    exits: [
-      { to: 'pallet-town', direction: 'north', area: rect(64, 0, 64, 16) },
-      {
-        to: 'cinnabar-island',
-        direction: 'south',
-        area: rect(16, 1424, 224, 16),
-      },
-    ],
   },
   {
     id: 'route-22',
@@ -755,14 +740,12 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
       target: `${parent}/${id}`,
     }));
   }),
-  ...(outdoor
-    .find(({ id }) => id === mapId)
-    ?.exits?.map(({ to, direction, area }) => ({
-      ...area,
-      kind: 'exit' as const,
-      target: to,
-      travel: direction,
-    })) ?? []),
+  ...(connections[mapId] ?? []).map(({ to, direction, area }) => ({
+    ...area,
+    kind: 'exit' as const,
+    target: to,
+    travel: direction,
+  })),
 ];
 
 const locations: Array<Location> = outdoor.map(

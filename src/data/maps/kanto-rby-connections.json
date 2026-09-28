@@ -1,0 +1,1094 @@
+{
+  "celadon-city": [
+    {
+      "to": "route-16",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 288,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-7",
+      "direction": "east",
+      "area": {
+        "x": 784,
+        "y": 160,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "cerulean-city": [
+    {
+      "to": "route-24",
+      "direction": "north",
+      "area": {
+        "x": 224,
+        "y": 0,
+        "width": 80,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-24",
+      "direction": "north",
+      "area": {
+        "x": 320,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-5",
+      "direction": "south",
+      "area": {
+        "x": 176,
+        "y": 560,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-5",
+      "direction": "south",
+      "area": {
+        "x": 256,
+        "y": 560,
+        "width": 128,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-5",
+      "direction": "south",
+      "area": {
+        "x": 400,
+        "y": 560,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-4",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 192,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-4",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 288,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "cinnabar-island": [
+    {
+      "to": "route-21",
+      "direction": "north",
+      "area": {
+        "x": 16,
+        "y": 0,
+        "width": 48,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-21",
+      "direction": "north",
+      "area": {
+        "x": 160,
+        "y": 0,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-20",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 64,
+        "width": 16,
+        "height": 208
+      }
+    }
+  ],
+  "fuchsia-city": [
+    {
+      "to": "route-19",
+      "direction": "south",
+      "area": {
+        "x": 256,
+        "y": 560,
+        "width": 96,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-19",
+      "direction": "south",
+      "area": {
+        "x": 368,
+        "y": 560,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-18",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 256,
+        "width": 16,
+        "height": 32
+      }
+    },
+    {
+      "to": "route-15",
+      "direction": "east",
+      "area": {
+        "x": 624,
+        "y": 256,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "indigo-plateau": [
+    {
+      "to": "route-23",
+      "direction": "south",
+      "area": {
+        "x": 144,
+        "y": 272,
+        "width": 32,
+        "height": 16
+      }
+    }
+  ],
+  "lavender-town": [
+    {
+      "to": "route-10",
+      "direction": "north",
+      "area": {
+        "x": 96,
+        "y": 0,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-12",
+      "direction": "south",
+      "area": {
+        "x": 128,
+        "y": 272,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-8",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 16
+      }
+    }
+  ],
+  "pallet-town": [
+    {
+      "to": "route-1",
+      "direction": "north",
+      "area": {
+        "x": 160,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-21",
+      "direction": "south",
+      "area": {
+        "x": 64,
+        "y": 272,
+        "width": 64,
+        "height": 16
+      }
+    }
+  ],
+  "pewter-city": [
+    {
+      "to": "route-2",
+      "direction": "south",
+      "area": {
+        "x": 288,
+        "y": 560,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-3",
+      "direction": "east",
+      "area": {
+        "x": 624,
+        "y": 256,
+        "width": 16,
+        "height": 64
+      }
+    }
+  ],
+  "route-1": [
+    {
+      "to": "viridian-city",
+      "direction": "north",
+      "area": {
+        "x": 160,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "pallet-town",
+      "direction": "south",
+      "area": {
+        "x": 160,
+        "y": 560,
+        "width": 32,
+        "height": 16
+      }
+    }
+  ],
+  "route-10": [
+    {
+      "to": "lavender-town",
+      "direction": "south",
+      "area": {
+        "x": 96,
+        "y": 1136,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-9",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "route-11": [
+    {
+      "to": "vermilion-city",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 96,
+        "width": 16,
+        "height": 128
+      }
+    },
+    {
+      "to": "route-12",
+      "direction": "east",
+      "area": {
+        "x": 944,
+        "y": 128,
+        "width": 16,
+        "height": 16
+      }
+    }
+  ],
+  "route-12": [
+    {
+      "to": "lavender-town",
+      "direction": "north",
+      "area": {
+        "x": 128,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-13",
+      "direction": "south",
+      "area": {
+        "x": 160,
+        "y": 1712,
+        "width": 144,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-11",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 992,
+        "width": 16,
+        "height": 16
+      }
+    }
+  ],
+  "route-13": [
+    {
+      "to": "route-12",
+      "direction": "north",
+      "area": {
+        "x": 800,
+        "y": 0,
+        "width": 144,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-14",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 64,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-14",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 96,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-14",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-14",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 160,
+        "width": 16,
+        "height": 16
+      }
+    }
+  ],
+  "route-14": [
+    {
+      "to": "route-15",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 640,
+        "width": 16,
+        "height": 48
+      }
+    },
+    {
+      "to": "route-15",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 704,
+        "width": 16,
+        "height": 96
+      }
+    },
+    {
+      "to": "route-13",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 64,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-13",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 96,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-13",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 128,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-13",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 160,
+        "width": 16,
+        "height": 16
+      }
+    }
+  ],
+  "route-15": [
+    {
+      "to": "fuchsia-city",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 32
+      }
+    },
+    {
+      "to": "route-14",
+      "direction": "east",
+      "area": {
+        "x": 944,
+        "y": 64,
+        "width": 16,
+        "height": 48
+      }
+    },
+    {
+      "to": "route-14",
+      "direction": "east",
+      "area": {
+        "x": 944,
+        "y": 128,
+        "width": 16,
+        "height": 96
+      }
+    }
+  ],
+  "route-16": [
+    {
+      "to": "route-17",
+      "direction": "south",
+      "area": {
+        "x": 16,
+        "y": 272,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-17",
+      "direction": "south",
+      "area": {
+        "x": 96,
+        "y": 272,
+        "width": 96,
+        "height": 16
+      }
+    },
+    {
+      "to": "celadon-city",
+      "direction": "east",
+      "area": {
+        "x": 624,
+        "y": 160,
+        "width": 16,
+        "height": 16
+      }
+    }
+  ],
+  "route-17": [
+    {
+      "to": "route-16",
+      "direction": "north",
+      "area": {
+        "x": 16,
+        "y": 0,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-16",
+      "direction": "north",
+      "area": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-18",
+      "direction": "south",
+      "area": {
+        "x": 16,
+        "y": 2288,
+        "width": 80,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-18",
+      "direction": "south",
+      "area": {
+        "x": 160,
+        "y": 2288,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-18",
+      "direction": "south",
+      "area": {
+        "x": 224,
+        "y": 2288,
+        "width": 80,
+        "height": 16
+      }
+    }
+  ],
+  "route-18": [
+    {
+      "to": "route-17",
+      "direction": "north",
+      "area": {
+        "x": 16,
+        "y": 0,
+        "width": 80,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-17",
+      "direction": "north",
+      "area": {
+        "x": 160,
+        "y": 0,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-17",
+      "direction": "north",
+      "area": {
+        "x": 224,
+        "y": 0,
+        "width": 80,
+        "height": 16
+      }
+    },
+    {
+      "to": "fuchsia-city",
+      "direction": "east",
+      "area": {
+        "x": 784,
+        "y": 128,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "route-19": [
+    {
+      "to": "fuchsia-city",
+      "direction": "north",
+      "area": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 16
+      }
+    },
+    {
+      "to": "fuchsia-city",
+      "direction": "north",
+      "area": {
+        "x": 208,
+        "y": 0,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-20",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 640,
+        "width": 16,
+        "height": 208
+      }
+    }
+  ],
+  "route-2": [
+    {
+      "to": "pewter-city",
+      "direction": "north",
+      "area": {
+        "x": 128,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "viridian-city",
+      "direction": "south",
+      "area": {
+        "x": 112,
+        "y": 1136,
+        "width": 32,
+        "height": 16
+      }
+    }
+  ],
+  "route-20": [
+    {
+      "to": "cinnabar-island",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 64,
+        "width": 16,
+        "height": 208
+      }
+    },
+    {
+      "to": "route-19",
+      "direction": "east",
+      "area": {
+        "x": 1584,
+        "y": 64,
+        "width": 16,
+        "height": 208
+      }
+    }
+  ],
+  "route-21": [
+    {
+      "to": "pallet-town",
+      "direction": "north",
+      "area": {
+        "x": 64,
+        "y": 0,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "cinnabar-island",
+      "direction": "south",
+      "area": {
+        "x": 16,
+        "y": 1424,
+        "width": 48,
+        "height": 16
+      }
+    },
+    {
+      "to": "cinnabar-island",
+      "direction": "south",
+      "area": {
+        "x": 160,
+        "y": 1424,
+        "width": 64,
+        "height": 16
+      }
+    }
+  ],
+  "route-22": [
+    {
+      "to": "viridian-city",
+      "direction": "east",
+      "area": {
+        "x": 624,
+        "y": 96,
+        "width": 16,
+        "height": 64
+      }
+    }
+  ],
+  "route-23": [
+    {
+      "to": "indigo-plateau",
+      "direction": "north",
+      "area": {
+        "x": 144,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    }
+  ],
+  "route-24": [
+    {
+      "to": "cerulean-city",
+      "direction": "south",
+      "area": {
+        "x": 64,
+        "y": 560,
+        "width": 80,
+        "height": 16
+      }
+    },
+    {
+      "to": "cerulean-city",
+      "direction": "south",
+      "area": {
+        "x": 160,
+        "y": 560,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-25",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 64,
+        "width": 16,
+        "height": 48
+      }
+    },
+    {
+      "to": "route-25",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 128,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "route-25": [
+    {
+      "to": "route-24",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 64,
+        "width": 16,
+        "height": 48
+      }
+    },
+    {
+      "to": "route-24",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "route-3": [
+    {
+      "to": "route-4",
+      "direction": "north",
+      "area": {
+        "x": 912,
+        "y": 0,
+        "width": 80,
+        "height": 16
+      }
+    },
+    {
+      "to": "pewter-city",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 64
+      }
+    }
+  ],
+  "route-4": [
+    {
+      "to": "route-3",
+      "direction": "south",
+      "area": {
+        "x": 112,
+        "y": 272,
+        "width": 80,
+        "height": 16
+      }
+    },
+    {
+      "to": "cerulean-city",
+      "direction": "east",
+      "area": {
+        "x": 1424,
+        "y": 64,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "cerulean-city",
+      "direction": "east",
+      "area": {
+        "x": 1424,
+        "y": 160,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "route-5": [
+    {
+      "to": "cerulean-city",
+      "direction": "north",
+      "area": {
+        "x": 16,
+        "y": 0,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "cerulean-city",
+      "direction": "north",
+      "area": {
+        "x": 96,
+        "y": 0,
+        "width": 128,
+        "height": 16
+      }
+    },
+    {
+      "to": "cerulean-city",
+      "direction": "north",
+      "area": {
+        "x": 240,
+        "y": 0,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "saffron-city",
+      "direction": "south",
+      "area": {
+        "x": 128,
+        "y": 560,
+        "width": 64,
+        "height": 16
+      }
+    }
+  ],
+  "route-6": [
+    {
+      "to": "saffron-city",
+      "direction": "north",
+      "area": {
+        "x": 160,
+        "y": 0,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "vermilion-city",
+      "direction": "south",
+      "area": {
+        "x": 128,
+        "y": 560,
+        "width": 32,
+        "height": 16
+      }
+    }
+  ],
+  "route-7": [
+    {
+      "to": "celadon-city",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 32,
+        "width": 16,
+        "height": 32
+      }
+    },
+    {
+      "to": "saffron-city",
+      "direction": "east",
+      "area": {
+        "x": 304,
+        "y": 32,
+        "width": 16,
+        "height": 144
+      }
+    }
+  ],
+  "route-8": [
+    {
+      "to": "saffron-city",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 48
+      }
+    },
+    {
+      "to": "lavender-town",
+      "direction": "east",
+      "area": {
+        "x": 944,
+        "y": 128,
+        "width": 16,
+        "height": 16
+      }
+    }
+  ],
+  "route-9": [
+    {
+      "to": "route-10",
+      "direction": "east",
+      "area": {
+        "x": 944,
+        "y": 128,
+        "width": 16,
+        "height": 32
+      }
+    }
+  ],
+  "saffron-city": [
+    {
+      "to": "route-5",
+      "direction": "north",
+      "area": {
+        "x": 288,
+        "y": 0,
+        "width": 64,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-6",
+      "direction": "south",
+      "area": {
+        "x": 320,
+        "y": 560,
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-7",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 160,
+        "width": 16,
+        "height": 144
+      }
+    },
+    {
+      "to": "route-8",
+      "direction": "east",
+      "area": {
+        "x": 624,
+        "y": 256,
+        "width": 16,
+        "height": 48
+      }
+    }
+  ],
+  "vermilion-city": [
+    {
+      "to": "route-6",
+      "direction": "north",
+      "area": {
+        "x": 288,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-11",
+      "direction": "east",
+      "area": {
+        "x": 624,
+        "y": 224,
+        "width": 16,
+        "height": 128
+      }
+    }
+  ],
+  "viridian-city": [
+    {
+      "to": "route-2",
+      "direction": "north",
+      "area": {
+        "x": 272,
+        "y": 0,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-1",
+      "direction": "south",
+      "area": {
+        "x": 320,
+        "y": 560,
+        "width": 32,
+        "height": 16
+      }
+    },
+    {
+      "to": "route-22",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 224,
+        "width": 16,
+        "height": 64
+      }
+    }
+  ]
+}
