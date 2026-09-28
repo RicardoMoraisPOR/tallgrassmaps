@@ -13,6 +13,7 @@ import type { TrainerPokemon } from '@/data/trainers/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
+import { PokedexEntryLink } from './PokedexEntryLink';
 import type { ListedBattle } from './trainerList';
 
 const NUM_MOVES = 4;
@@ -29,6 +30,7 @@ type PokemonProps = {
   pokemon: TrainerPokemon;
   name: string;
   sprite: PokemonSprite;
+  onOpenPokedex: () => void;
 };
 
 export const TrainerDialog = ({
@@ -44,6 +46,7 @@ export const TrainerDialog = ({
   const nameOf = (number: number) =>
     pokedex.find((entry) => entry.number === number)?.name ?? `#${number}`;
   const Pokemon = gameTheme ? GamePokemon : TallGrassPokemon;
+  const area = listed?.battle.floor ? undefined : listed?.battle.area;
 
   return (
     <Dialog
@@ -54,16 +57,21 @@ export const TrainerDialog = ({
     >
       <DialogContent
         className={cn(
-          'flex max-h-[85svh] flex-col gap-4 overflow-y-auto sm:max-w-2xl',
-          gameTheme && 'pokedex-game',
+          'flex max-h-[85svh] flex-col p-0 sm:max-w-2xl',
+          gameTheme && 'pokedex-game gb-frame rounded-none ring-0',
         )}
       >
         {listed && (
-          <>
+          <div
+            className={cn(
+              'flex min-h-0 flex-col gap-4 overflow-y-auto p-4',
+              gameTheme && 'p-6',
+            )}
+          >
             <DialogHeader>
               <DialogTitle>{listed.label}</DialogTitle>
-              <DialogDescription>
-                {listed.battle.area ?? place}
+              <DialogDescription className={cn(!area && 'sr-only')}>
+                {area ?? place}
               </DialogDescription>
             </DialogHeader>
             {listed.battle.parties.map((party) => (
@@ -89,19 +97,25 @@ export const TrainerDialog = ({
                       pokemon={pokemon}
                       name={nameOf(pokemon.number)}
                       sprite={spriteFor(pokemon.number)}
+                      onOpenPokedex={onClose}
                     />
                   ))}
                 </ul>
               </section>
             ))}
-          </>
+          </div>
         )}
       </DialogContent>
     </Dialog>
   );
 };
 
-const TallGrassPokemon = ({ pokemon, name, sprite }: PokemonProps) => {
+const TallGrassPokemon = ({
+  pokemon,
+  name,
+  sprite,
+  onOpenPokedex,
+}: PokemonProps) => {
   return (
     <li className="flex flex-col gap-2 rounded-[12px] border p-2.5">
       <div className="flex items-center gap-2">
@@ -116,9 +130,13 @@ const TallGrassPokemon = ({ pokemon, name, sprite }: PokemonProps) => {
             sprite.pixelated && 'pixelated',
           )}
         />
-        <span className="min-w-0 flex-1 truncate text-sm font-medium">
+        <PokedexEntryLink
+          number={pokemon.number}
+          onClick={onOpenPokedex}
+          className="min-w-0 flex-1 truncate text-sm font-medium"
+        >
           {name}
-        </span>
+        </PokedexEntryLink>
         <span className="text-[13px] text-muted-foreground tabular-nums">
           Lv. {pokemon.level}
         </span>
@@ -137,7 +155,12 @@ const TallGrassPokemon = ({ pokemon, name, sprite }: PokemonProps) => {
   );
 };
 
-const GamePokemon = ({ pokemon, name, sprite }: PokemonProps) => {
+const GamePokemon = ({
+  pokemon,
+  name,
+  sprite,
+  onOpenPokedex,
+}: PokemonProps) => {
   const emptySlots = NUM_MOVES - pokemon.moves.length;
 
   return (
@@ -152,7 +175,13 @@ const GamePokemon = ({ pokemon, name, sprite }: PokemonProps) => {
           className="size-10 flex-none object-contain"
         />
         <div className="gb-status flex min-w-0 flex-1 items-end justify-between gap-2 pr-2 pb-2 text-[10px] leading-none">
-          <span className="truncate">{name}</span>
+          <PokedexEntryLink
+            number={pokemon.number}
+            onClick={onOpenPokedex}
+            className="truncate"
+          >
+            {name}
+          </PokedexEntryLink>
           <span className="flex-none">:L{pokemon.level}</span>
         </div>
       </div>

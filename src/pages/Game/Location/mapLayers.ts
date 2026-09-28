@@ -12,6 +12,7 @@ export type MapLayerId =
   | 'hidden-items'
   | 'trainers'
   | 'static-pokemon'
+  | 'wild-pokemon'
   | 'npcs'
   | 'signs';
 
@@ -75,6 +76,13 @@ export const mapLayers: Array<MapLayer> = [
     className: 'map-link-static-pokemon',
   },
   {
+    id: 'wild-pokemon',
+    label: 'Wild Pokémon',
+    color: 'var(--map-wild-pokemon)',
+    className: 'map-link-wild-pokemon',
+    hiddenByDefault: true,
+  },
+  {
     id: 'npcs',
     label: 'Special NPCs',
     color: 'var(--map-npc)',
@@ -111,6 +119,10 @@ export const itemLayer = (hidden: boolean) =>
   layer(hidden ? 'hidden-items' : 'items');
 
 export const trainerLayer = () => layer('trainers');
+
+export const wildLayer = () => layer('wild-pokemon');
+
+export const staticLayer = () => layer('static-pokemon');
 
 type LayerValues = Partial<Record<MapLayerId, boolean>>;
 

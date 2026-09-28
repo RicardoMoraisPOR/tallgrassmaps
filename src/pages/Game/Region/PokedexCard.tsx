@@ -6,7 +6,7 @@ import type { Game } from '@/data/games';
 import type { Region } from '@/data/maps';
 
 import { hasPokedex } from '../Pokedex/pokedexViews';
-import { pokedexLink } from '../Pokedex/usePokedex';
+import { usePokedexLink } from '../Pokedex/usePokedex';
 
 type PokedexCardProps = {
   game: Game;
@@ -14,6 +14,8 @@ type PokedexCardProps = {
 };
 
 export const PokedexCard = ({ game, region }: PokedexCardProps) => {
+  const pokedexLink = usePokedexLink();
+
   const shortName = game.name.replace(/^Pokémon /, '');
 
   return (

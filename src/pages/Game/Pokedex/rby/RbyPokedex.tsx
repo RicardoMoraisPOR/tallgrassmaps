@@ -16,7 +16,12 @@ const names = new Map(rbyPokedex.map((entry) => [entry.number, entry.name]));
 
 const nameOf = (number: number) => names.get(number) ?? `#${number}`;
 
-export const RbyPokedex = ({ game, region, href }: PokedexContentProps) => {
+export const RbyPokedex = ({
+  game,
+  region,
+  href,
+  focus,
+}: PokedexContentProps) => {
   const [query, setQuery] = useState('');
   const [toggles, setToggles] = useState<Array<Toggle>>([]);
 
@@ -105,6 +110,7 @@ export const RbyPokedex = ({ game, region, href }: PokedexContentProps) => {
             region={region}
             href={href}
             nameOf={nameOf}
+            focused={entry.number === focus}
           />
         ))}
       </ul>

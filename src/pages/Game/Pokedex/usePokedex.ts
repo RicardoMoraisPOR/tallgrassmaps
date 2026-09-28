@@ -4,9 +4,20 @@ const POKEDEX_PARAM = 'pokedex';
 
 type PokedexState = { openedInApp?: boolean };
 
-export const pokedexLink = {
-  to: { search: `?${POKEDEX_PARAM}` },
-  state: { openedInApp: true } satisfies PokedexState,
+export const usePokedexLink = (number?: number) => {
+  const [params] = useSearchParams();
+
+  const kept = new URLSearchParams(params);
+  const pokedex = number ? `${POKEDEX_PARAM}=${number}` : POKEDEX_PARAM;
+
+  kept.delete(POKEDEX_PARAM);
+
+  return {
+    to: {
+      search: `?${[kept.toString(), pokedex].filter(Boolean).join('&')}`,
+    },
+    state: { openedInApp: true } satisfies PokedexState,
+  };
 };
 
 export const usePokedex = () => {
@@ -15,6 +26,7 @@ export const usePokedex = () => {
   const navigate = useNavigate();
 
   const open = params.has(POKEDEX_PARAM);
+  const focus = Number(params.get(POKEDEX_PARAM)) || undefined;
   const openedInApp = (location.state as PokedexState | null)?.openedInApp;
 
   const close = () => {
@@ -36,5 +48,5 @@ export const usePokedex = () => {
     );
   };
 
-  return { open, close };
+  return { open, focus, close };
 };

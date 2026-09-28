@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import { ChevronDown, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router';
@@ -27,6 +27,7 @@ type PokedexRowProps = {
   region: Region;
   href: (path: string) => string;
   nameOf: (number: number) => string;
+  focused?: boolean;
 };
 
 export const PokedexRow = ({
@@ -35,19 +36,26 @@ export const PokedexRow = ({
   region,
   href,
   nameOf,
+  focused = false,
 }: PokedexRowProps) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(focused);
   const panelId = useId();
+  const rowRef = useRef<HTMLLIElement>(null);
   const spriteFor = usePokemonSprite(game);
 
   const sprite = spriteFor(entry.number);
 
   const inGame = entry.games.includes(game.id);
 
+  useEffect(() => {
+    if (focused) rowRef.current?.scrollIntoView({ block: 'start' });
+  }, [focused]);
+
   return (
     <li
+      ref={rowRef}
       data-expanded={expanded || undefined}
-      className="group/row rounded-[12px] border bg-card pokedex-game:rounded-none pokedex-game:border-0 pokedex-game:border-b-2 pokedex-game:border-dashed pokedex-game:bg-transparent"
+      className="group/row scroll-mt-36 rounded-[12px] border bg-card pokedex-game:rounded-none pokedex-game:border-0 pokedex-game:border-b-2 pokedex-game:border-dashed pokedex-game:bg-transparent"
     >
       <div className="relative flex items-center gap-3 p-2 pokedex-game:grid pokedex-game:grid-cols-[auto_auto_1fr_auto] pokedex-game:grid-rows-[auto_auto] pokedex-game:gap-x-2 pokedex-game:gap-y-1 pokedex-game:overflow-y-clip pokedex-game:py-3">
         <span

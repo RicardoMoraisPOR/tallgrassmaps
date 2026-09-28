@@ -37,7 +37,7 @@ type PokedexOverlayProps = {
 };
 
 export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
-  const { open, close } = usePokedex();
+  const { open, focus, close } = usePokedex();
   const themeStyle = useThemeStyle('pokedex');
 
   const view = pokedexViews[region.versionGroup];
@@ -57,7 +57,7 @@ export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
   };
   const content = (
     <Suspense fallback={<Loading />}>
-      <view.Content game={game} region={region} href={href} />
+      <view.Content game={game} region={region} href={href} focus={focus} />
     </Suspense>
   );
 

@@ -102,6 +102,14 @@ export type RegionLabel = {
   uppercase: boolean;
 };
 
+export type WildArea = {
+  path: string;
+  floor?: string;
+  method: 'walk' | 'water';
+  whole?: boolean;
+  outline?: Array<Array<[number, number]>>;
+};
+
 export type Region = MapImage & {
   id: string;
   name: string;
@@ -113,4 +121,5 @@ export type Region = MapImage & {
   pointer?: RegionPointer;
   label?: RegionLabel;
   tallGrassMap?: string;
+  wildAreas?: Array<WildArea>;
 };

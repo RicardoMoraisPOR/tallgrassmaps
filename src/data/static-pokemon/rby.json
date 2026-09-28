@@ -1,0 +1,227 @@
+[
+  {
+    "path": "cerulean-city/cerulean-cave",
+    "floor": "b1f",
+    "x": 27,
+    "y": 13,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 150,
+        "level": 70
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 9,
+    "y": 20,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 100,
+        "level": 40
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 32,
+    "y": 18,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 100,
+        "level": 40
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 21,
+    "y": 25,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 100,
+        "level": 40
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 25,
+    "y": 18,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 101,
+        "level": 43
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 23,
+    "y": 34,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 100,
+        "level": 40
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 26,
+    "y": 28,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 100,
+        "level": 40
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 21,
+    "y": 14,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 101,
+        "level": 43
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 37,
+    "y": 32,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 100,
+        "level": 40
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/power-plant",
+    "x": 4,
+    "y": 9,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 145,
+        "level": 50
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-20/seafoam-islands",
+    "floor": "b4f",
+    "x": 6,
+    "y": 1,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 144,
+        "level": 50
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23/victory-road",
+    "floor": "2f",
+    "x": 11,
+    "y": 5,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 146,
+        "level": 50
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12",
+    "x": 10,
+    "y": 62,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 143,
+        "level": 30
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16",
+    "x": 26,
+    "y": 10,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 143,
+        "level": 30
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "7f",
+    "x": 1,
+    "y": 5,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 131,
+        "level": 15
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-24",
+    "x": 6,
+    "y": 5,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 4,
+        "level": 10
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 19,
+    "y": 15,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 7,
+        "level": 10
+      }
+    ],
+    "games": ["yellow"]
+  }
+]

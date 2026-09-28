@@ -3,74 +3,33 @@ import { Link } from 'react-router';
 
 import { Button } from '@/components/ui/button';
 import type { Game } from '@/data/games';
-import type {
-  Encounter,
-  EncounterMethod,
-  PokedexEntry,
-} from '@/data/pokedex/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
 import { chanceLabel, levelLabel, methodLabel } from '../Pokedex/format';
-import { pokedexLink } from '../Pokedex/usePokedex';
+import { usePokedexLink } from '../Pokedex/usePokedex';
+import {
+  type EncounterGroup,
+  encounterHighlightKey,
+  type EncounterRowData,
+} from './encounters';
 import { ExpandableCard } from './ExpandableCard';
-
-const CATCHABLE: Array<EncounterMethod> = [
-  'walk',
-  'surf',
-  'old-rod',
-  'good-rod',
-  'super-rod',
-  'static',
-];
-
-type Row = { entry: PokedexEntry; encounter: Encounter };
+import { PokedexEntryLink } from './PokedexEntryLink';
 
 type EncountersCardProps = {
   game: Game;
   path: string;
-  floor?: string;
-  pokedex: Array<PokedexEntry>;
-};
-
-const onFloor = (encounter: Encounter, floor: string | undefined) => {
-  if (!floor) return encounter;
-
-  const match = encounter.floors?.find((entry) => entry.floor === floor);
-
-  return match && { ...encounter, levels: match.levels, chance: match.chance };
+  groups: Array<EncounterGroup>;
+  onHighlight: (key: string | undefined) => void;
 };
 
 export const EncountersCard = ({
   game,
   path,
-  floor,
-  pokedex,
+  groups,
+  onHighlight,
 }: EncountersCardProps) => {
-  const spriteFor = usePokemonSprite(game);
-
-  const groups = CATCHABLE.map((method) => ({
-    method,
-    rows: pokedex
-      .flatMap((entry) =>
-        entry.encounters
-          .filter(
-            (encounter) =>
-              encounter.method === method &&
-              encounter.path === path &&
-              encounter.games.includes(game.id),
-          )
-          .flatMap((encounter) => {
-            const shown = onFloor(encounter, floor);
-
-            return shown ? [{ entry, encounter: shown }] : [];
-          }),
-      )
-      .sort(
-        (a, b) =>
-          (b.encounter.chance?.[1] ?? 0) - (a.encounter.chance?.[1] ?? 0),
-      ),
-  })).filter(({ rows }) => rows.length > 0);
+  const pokedexLink = usePokedexLink();
 
   return (
     <ExpandableCard title="Pokémon encounters">
@@ -84,15 +43,13 @@ export const EncountersCard = ({
             <h3 className="text-[13px] text-muted-foreground">
               {methodLabel({ method, path, games: [] })}
             </h3>
-            <ul className="flex flex-col divide-y">
-              {rows.map((row) => (
-                <EncounterRow
-                  key={row.entry.number}
-                  row={row}
-                  sprite={spriteFor(row.entry.number)}
-                />
-              ))}
-            </ul>
+            <EncounterList
+              game={game}
+              rows={rows}
+              linked
+              highlightKeyFor={encounterHighlightKey}
+              onHighlight={onHighlight}
+            />
           </div>
         ))
       )}
@@ -106,12 +63,74 @@ export const EncountersCard = ({
   );
 };
 
-const EncounterRow = ({ row, sprite }: { row: Row; sprite: PokemonSprite }) => {
-  const { entry, encounter } = row;
-  const chance = chanceLabel(encounter);
+type EncounterListProps = {
+  game: Game;
+  rows: Array<EncounterRowData>;
+  compact?: boolean;
+  linked?: boolean;
+  highlightKeyFor?: (row: EncounterRowData) => string | undefined;
+  onHighlight?: (key: string | undefined) => void;
+};
+
+type EncounterRowProps = Omit<EncounterListProps, 'game' | 'rows'> & {
+  row: EncounterRowData;
+  sprite: PokemonSprite;
+};
+
+export const EncounterList = ({
+  game,
+  rows,
+  ...options
+}: EncounterListProps) => {
+  const spriteFor = usePokemonSprite(game);
 
   return (
-    <li className="flex items-center gap-3 py-1.5">
+    <ul className="flex flex-col">
+      {rows.map((row) => (
+        <EncounterRow
+          key={row.entry.number}
+          row={row}
+          sprite={spriteFor(row.entry.number)}
+          {...options}
+        />
+      ))}
+    </ul>
+  );
+};
+
+const EncounterRow = ({
+  row,
+  sprite,
+  compact = false,
+  linked = false,
+  highlightKeyFor,
+  onHighlight,
+}: EncounterRowProps) => {
+  const { entry, encounter } = row;
+  const highlightKey = highlightKeyFor?.(row);
+  const chance = chanceLabel(encounter);
+
+  const nameClassName = cn(
+    'truncate font-medium',
+    compact ? 'text-[13px]' : 'text-sm',
+  );
+  const highlightHandlers =
+    highlightKey && onHighlight
+      ? {
+          onMouseEnter: () => onHighlight(highlightKey),
+          onMouseLeave: () => onHighlight(undefined),
+          onFocus: () => onHighlight(highlightKey),
+          onBlur: () => onHighlight(undefined),
+        }
+      : {};
+
+  return (
+    <li
+      className={cn(
+        'flex items-center',
+        compact ? 'gap-2 py-0.5' : 'gap-3 py-1.5',
+      )}
+    >
       <img
         src={sprite.src}
         alt=""
@@ -119,12 +138,30 @@ const EncounterRow = ({ row, sprite }: { row: Row; sprite: PokemonSprite }) => {
         height={96}
         loading="lazy"
         className={cn(
-          'size-10 flex-none object-contain',
+          'flex-none object-contain',
+          compact ? 'size-7' : 'size-10',
           sprite.pixelated && 'pixelated',
         )}
       />
-      <div className="flex min-w-0 flex-1 flex-col">
-        <span className="truncate text-sm font-medium">{entry.name}</span>
+      <div
+        className={cn(
+          'flex min-w-0 flex-1',
+          compact ? 'items-baseline gap-2' : 'flex-col',
+        )}
+      >
+        {linked ? (
+          <PokedexEntryLink
+            number={entry.number}
+            className={nameClassName}
+            {...highlightHandlers}
+          >
+            {entry.name}
+          </PokedexEntryLink>
+        ) : (
+          <span className={nameClassName} {...highlightHandlers}>
+            {entry.name}
+          </span>
+        )}
         <span className="text-xs text-muted-foreground">
           {levelLabel(encounter)}
         </span>
@@ -132,7 +169,10 @@ const EncounterRow = ({ row, sprite }: { row: Row; sprite: PokemonSprite }) => {
       {chance && (
         <span
           title="Chance to appear here"
-          className="text-sm font-medium tabular-nums"
+          className={cn(
+            'font-medium tabular-nums',
+            compact ? 'text-[13px]' : 'text-sm',
+          )}
         >
           {chance}
           <span className="sr-only"> chance to appear</span>

@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import type { MapLink } from '@/components/map/MapViewer';
 import type { MapItem } from '@/data/items/types';
 import {
@@ -6,20 +8,36 @@ import {
   type LocationFloor,
   type LocationHotspot,
   type Region,
+  type WildArea,
 } from '@/data/maps';
+import type { StaticPokemon } from '@/data/static-pokemon/types';
 import { joinPath } from '@/lib/paths';
+import { cn } from '@/lib/utils';
 
+import { staticHighlightKey, wildHighlightKey } from './encounters';
 import type { PlaceLink } from './MapInfoCard';
 import {
   hotspotLayer,
   itemLayer,
   type MapLayerId,
   markerLayer,
+  staticLayer,
   trainerLayer,
+  wildLayer,
 } from './mapLayers';
 import type { ListedBattle } from './trainerList';
 
 export type LayeredMapLink = MapLink & { layer: MapLayerId };
+
+type MarkerSources = {
+  items?: Array<MapItem>;
+  trainers?: Array<ListedBattle>;
+  onSelectTrainer?: (key: string) => void;
+  wildAreas?: Array<WildArea>;
+  wildPopup?: (method: WildArea['method']) => ReactNode;
+  staticPokemon?: Array<StaticPokemon>;
+  staticPopup?: (pokemon: StaticPokemon) => ReactNode;
+};
 
 const floorLabel = (
   location: Location,
@@ -40,9 +58,15 @@ export const locationLinks = (
   href: (path: string) => string,
   tileSize: number,
   floor?: LocationFloor,
-  items: Array<MapItem> = [],
-  trainers: Array<ListedBattle> = [],
-  onSelectTrainer?: (key: string) => void,
+  {
+    items = [],
+    trainers = [],
+    onSelectTrainer,
+    wildAreas = [],
+    wildPopup,
+    staticPokemon = [],
+    staticPopup,
+  }: MarkerSources = {},
 ) => {
   const hotspotLink = (hotspot: LocationHotspot) => {
     const target = getLocation(region, hotspot.target);
@@ -119,6 +143,55 @@ export const locationLinks = (
     },
   );
 
+  const staticMarkers: Array<LayeredMapLink> = staticPokemon.map((marker) => {
+    const layer = staticLayer();
+
+    return {
+      x: marker.x * tileSize - tileSize / 4,
+      y: marker.y * tileSize - tileSize / 4,
+      width: tileSize * 1.5,
+      height: tileSize * 1.5,
+      label: marker.kind === 'gift' ? 'Gift Pokémon' : 'Static Pokémon',
+      layer: layer.id,
+      className: layer.className,
+      highlightKey: marker.pokemon.map(({ number }) =>
+        staticHighlightKey(number),
+      ),
+      popup: staticPopup?.(marker),
+    };
+  });
+
+  const image = floor ?? location;
+  const wildMarkers: Array<LayeredMapLink> = wildAreas.map(
+    ({ method, whole, outline = [] }) => {
+      const layer = wildLayer();
+      const scaled = outline.map((ring) =>
+        ring.map(([x, y]): [number, number] => [x * tileSize, y * tileSize]),
+      );
+      const xs = scaled.flat().map(([x]) => x);
+      const ys = scaled.flat().map(([, y]) => y);
+      const bounds = whole
+        ? { x: 0, y: 0, width: image.width, height: image.height }
+        : {
+            x: Math.min(...xs),
+            y: Math.min(...ys),
+            width: Math.max(...xs) - Math.min(...xs),
+            height: Math.max(...ys) - Math.min(...ys),
+          };
+
+      return {
+        ...bounds,
+        ...(!whole && { outline: scaled }),
+        label: method === 'water' ? 'Wild Pokémon (water)' : 'Wild Pokémon',
+        layer: layer.id,
+        className: cn(layer.className, whole && 'map-link-wild-whole'),
+        highlightKey: wildHighlightKey(method),
+        popup: wildPopup?.(method),
+        behind: true,
+      };
+    },
+  );
+
   const placeLinks = (layer: MapLayerId, initial: Array<PlaceLink> = []) => {
     const places = new Map(initial.map((link) => [link.href, link]));
 
@@ -142,7 +215,14 @@ export const locationLinks = (
   }));
 
   return {
-    links: [...links, ...markers, ...itemMarkers, ...trainerMarkers],
+    links: [
+      ...wildMarkers,
+      ...links,
+      ...markers,
+      ...itemMarkers,
+      ...staticMarkers,
+      ...trainerMarkers,
+    ],
     connections: placeLinks('connections'),
     entrances: placeLinks('entrances', inside),
   };

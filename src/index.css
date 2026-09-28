@@ -301,25 +301,27 @@
   background: var(--gb-screen);
 }
 
-.gb-frame {
-  position: relative;
-  border: 4px solid var(--gb-ink);
-  box-shadow:
-    inset 0 0 0 3px var(--gb-screen),
-    inset 0 0 0 5px var(--gb-ink);
-}
+@layer components {
+  .gb-frame {
+    position: relative;
+    border: 4px solid var(--gb-ink);
+    box-shadow:
+      inset 0 0 0 3px var(--gb-screen),
+      inset 0 0 0 5px var(--gb-ink);
+  }
 
-.gb-frame::before {
-  --gb-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 6' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h2v1h1v1h1v2h-1v1h-1v1h-2v-1h-1v-1h-1v-2h1v-1h1z' fill='%23292929'/%3E%3Cpath d='M2 2h2v2h-2z' fill='%23f6f4f7'/%3E%3C/svg%3E");
-  content: '';
-  position: absolute;
-  inset: -8px;
-  pointer-events: none;
-  background:
-    var(--gb-corner) left top / 12px no-repeat,
-    var(--gb-corner) right top / 12px no-repeat,
-    var(--gb-corner) left bottom / 12px no-repeat,
-    var(--gb-corner) right bottom / 12px no-repeat;
+  .gb-frame::before {
+    --gb-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 6' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h2v1h1v1h1v2h-1v1h-1v1h-2v-1h-1v-1h-1v-2h1v-1h1z' fill='%23292929'/%3E%3Cpath d='M2 2h2v2h-2z' fill='%23f6f4f7'/%3E%3C/svg%3E");
+    content: '';
+    position: absolute;
+    inset: -8px;
+    pointer-events: none;
+    background:
+      var(--gb-corner) left top / 12px no-repeat,
+      var(--gb-corner) right top / 12px no-repeat,
+      var(--gb-corner) left bottom / 12px no-repeat,
+      var(--gb-corner) right bottom / 12px no-repeat;
+  }
 }
 
 .gb-status {
@@ -353,6 +355,7 @@
   --map-hidden-item: oklch(0.68 0.2 330);
   --map-trainer: oklch(0.8 0.16 95);
   --map-static-pokemon: oklch(0.72 0.14 170);
+  --map-wild-pokemon: oklch(0.74 0.17 125);
   --map-npc: oklch(0.6 0.19 275);
   --map-sign: oklch(0.7 0.03 250);
   --brand: #6cc46a;
@@ -401,6 +404,74 @@
 
 .map-link-static-pokemon {
   --map-link: var(--map-static-pokemon);
+}
+
+.map-link-wild-pokemon {
+  --map-link: var(--map-wild-pokemon);
+}
+
+.leaflet-interactive.map-link-wild-whole {
+  stroke-dasharray: 6 4;
+  fill-opacity: 0.06;
+}
+
+.leaflet-interactive.map-link-wild-whole:hover {
+  fill-opacity: 0.12;
+}
+
+.map-link-highlight.map-link-wild-whole {
+  fill-opacity: 0.2;
+}
+
+.map-popup .leaflet-popup-content-wrapper,
+.map-popup .leaflet-popup-tip {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--foreground) 10%, transparent),
+    0 8px 24px -8px oklch(0 0 0 / 0.3);
+}
+
+.map-popup .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+}
+
+.map-popup .leaflet-popup-content {
+  margin: 12px;
+  font: inherit;
+  font-family: var(--font-sans);
+}
+
+.map-popup:has(.pokedex-game) .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.map-popup:has(.pokedex-game) .leaflet-popup-content {
+  margin: 0;
+}
+
+.map-popup:has(.pokedex-game) .leaflet-popup-tip-container {
+  margin-top: -8px;
+}
+
+.map-popup:has(.pokedex-game) .leaflet-popup-tip {
+  background: #292929;
+  box-shadow: none;
+}
+
+.map-popup:has(.pokedex-game) a.leaflet-popup-close-button {
+  display: none;
+}
+
+.map-popup .leaflet-popup-content a {
+  color: inherit;
+}
+
+.map-popup a.leaflet-popup-close-button {
+  color: var(--muted-foreground);
 }
 
 .map-link-npc {

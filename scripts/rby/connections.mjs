@@ -1,99 +1,14 @@
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { writeFileSync } from 'node:fs';
 
 import { locationFor, pokeredDir, read } from './disassembly.mjs';
+import { headers, mapTiles, STEP, WATER_TILE } from './tiles.mjs';
 
 const OUTPUT = new URL(
   '../../src/data/maps/kanto-rby-connections.json',
   import.meta.url,
 );
-const STEP = 16;
-const WATER_TILES = new Set([0x14, 0x32, 0x48]);
+const WATER_TILES = new Set([WATER_TILE, 0x32, 0x48]);
 const OUTDOOR = /^(ROUTE_\d+|[A-Z_]+_(TOWN|CITY|ISLAND)|INDIGO_PLATEAU)$/;
-
-const camel = (constant) =>
-  constant
-    .toLowerCase()
-    .split('_')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('');
-
-const labelledValues = (text, suffix, value) => {
-  const table = {};
-  let pending = [];
-
-  for (const line of text.split('\n')) {
-    const label = line.match(new RegExp(`^(\\w+)_${suffix}::`));
-
-    if (label) pending.push(label[1]);
-
-    const found = value(line);
-
-    if (found !== undefined && pending.length > 0) {
-      for (const name of pending) table[name] = found;
-      pending = [];
-    }
-  }
-
-  return table;
-};
-
-const blocksets = labelledValues(
-  read(pokeredDir, 'gfx/tilesets.asm'),
-  'Block',
-  (line) => line.match(/INCBIN "([^"]+\.bst)"/)?.[1],
-);
-
-const collisions = labelledValues(
-  read(pokeredDir, 'data/tilesets/collision_tile_ids.asm'),
-  'Coll',
-  (line) => {
-    const tiles = line.match(/coll_tiles\s+(.*)$/)?.[1];
-
-    return tiles
-      ? new Set(
-          tiles.split(',').map((tile) => parseInt(tile.trim().slice(1), 16)),
-        )
-      : undefined;
-  },
-);
-
-const mapSizes = Object.fromEntries(
-  [
-    ...read(pokeredDir, 'constants/map_constants.asm').matchAll(
-      /map_const (\w+),\s*(\d+),\s*(\d+)/g,
-    ),
-  ].map(([, constant, width, height]) => [
-    constant,
-    { width: Number(width), height: Number(height) },
-  ]),
-);
-
-const blockFiles = Object.fromEntries(
-  [
-    ...read(pokeredDir, 'maps.asm').matchAll(
-      /^(\w+)_Blocks:\s*INCBIN "([^"]+)"/gm,
-    ),
-  ].map(([, name, file]) => [name, file]),
-);
-
-const headers = Object.fromEntries(
-  readdirSync(join(pokeredDir, 'data/maps/headers')).map((file) => {
-    const text = read(pokeredDir, `data/maps/headers/${file}`);
-    const [, name, constant, tileset] = text.match(
-      /map_header\s+(\w+),\s*(\w+),\s*(\w+)/,
-    );
-    const connections = [
-      ...text.matchAll(/connection (\w+),\s*\w+,\s*(\w+),\s*(-?\d+)/g),
-    ].map(([, direction, target, offset]) => ({
-      direction,
-      target,
-      offset: Number(offset),
-    }));
-
-    return [constant, { name, tileset: camel(tileset), connections }];
-  }),
-);
 
 const ledgeTiles = new Set(
   [
@@ -108,22 +23,16 @@ const grids = {};
 const gridFor = (constant) => {
   if (grids[constant]) return grids[constant];
 
-  const { name, tileset } = headers[constant];
-  const { width, height } = mapSizes[constant];
-  const blockset = readFileSync(join(pokeredDir, blocksets[tileset]));
-  const blocks = readFileSync(join(pokeredDir, blockFiles[name]));
-  const passable = collisions[tileset];
+  const {
+    name,
+    columns,
+    rows,
+    passable,
+    tileAt: tileAtTile,
+  } = mapTiles(constant);
 
-  const tileAt = (stepX, stepY) => {
-    const tileX = stepX * 2;
-    const tileY = stepY * 2 + 1;
-    const block = blocks[Math.floor(tileY / 4) * width + Math.floor(tileX / 4)];
+  const tileAt = (stepX, stepY) => tileAtTile(stepX * 2, stepY * 2 + 1);
 
-    return blockset[block * 16 + (tileY % 4) * 4 + (tileX % 4)];
-  };
-
-  const columns = width * 2;
-  const rows = height * 2;
   const inside = (x, y) => x >= 0 && y >= 0 && x < columns && y < rows;
 
   const walkable = (x, y) => {

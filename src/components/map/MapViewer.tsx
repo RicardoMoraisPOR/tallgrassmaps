@@ -1,14 +1,23 @@
-import { useEffect, useMemo } from 'react';
+import { type ReactNode, useEffect, useMemo } from 'react';
 
-import { CRS, Util } from 'leaflet';
+import {
+  CRS,
+  type LatLngBoundsLiteral,
+  type LeafletEventHandlerFnMap,
+  type PathOptions,
+  Util,
+} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
   ImageOverlay,
   MapContainer,
   Pane,
+  Polygon,
+  Popup,
   Rectangle,
   Tooltip,
   useMap,
+  useMapEvents,
 } from 'react-leaflet';
 import { useNavigate } from 'react-router';
 
@@ -26,13 +35,17 @@ export type MapLink = Rect & {
   travel?: Direction;
   className?: string;
   replace?: boolean;
-  highlightKey?: string;
+  highlightKey?: string | Array<string>;
   onClick?: () => void;
+  popup?: ReactNode;
+  behind?: boolean;
+  outline?: Array<Array<[number, number]>>;
 };
 
 type MapViewerProps = {
   map: MapImage;
   links?: Array<MapLink>;
+  highlightable?: Array<MapLink>;
   highlighted?: string;
   className?: string;
 };
@@ -40,6 +53,7 @@ type MapViewerProps = {
 export const MapViewer = ({
   map,
   links = [],
+  highlightable = links,
   highlighted,
   className,
 }: MapViewerProps) => {
@@ -63,20 +77,20 @@ export const MapViewer = ({
       <ImageOverlay url={map.image} bounds={bounds} />
       <Pane name="links" style={{ zIndex: 450 }}>
         {links.map((link) => (
-          <Rectangle
+          <LinkShape
             key={`${link.href ?? link.label}@${link.x},${link.y}`}
-            bounds={[
-              toLatLng(link.x, link.y + link.height),
-              toLatLng(link.x + link.width, link.y),
-            ]}
+            link={link}
             pathOptions={{
               className: cn(
                 'map-link',
-                !link.href && !link.onClick && 'map-link-static',
+                !link.href && !link.onClick && !link.popup && 'map-link-static',
                 link.className,
               ),
             }}
             eventHandlers={{
+              add: ({ target }) => {
+                if (link.behind) target.bringToBack();
+              },
               click: () => {
                 link.onClick?.();
 
@@ -89,21 +103,32 @@ export const MapViewer = ({
               },
             }}
           >
-            <Tooltip sticky pane="tooltipPane">
-              {link.label}
-            </Tooltip>
-          </Rectangle>
+            {link.popup ? (
+              <Popup
+                className="map-popup"
+                pane="popupPane"
+                maxWidth={280}
+                autoPanPaddingTopLeft={[16, 64]}
+                autoPanPaddingBottomRight={[16, 16]}
+              >
+                {link.popup}
+              </Popup>
+            ) : (
+              <Tooltip sticky pane="tooltipPane">
+                {link.label}
+              </Tooltip>
+            )}
+          </LinkShape>
         ))}
         {highlighted &&
-          links
-            .filter((link) => (link.highlightKey ?? link.href) === highlighted)
+          highlightable
+            .filter((link) =>
+              [link.highlightKey ?? link.href].flat().includes(highlighted),
+            )
             .map((link) => (
-              <Rectangle
+              <LinkShape
                 key={`highlight-${link.x},${link.y}`}
-                bounds={[
-                  toLatLng(link.x, link.y + link.height),
-                  toLatLng(link.x + link.width, link.y),
-                ]}
+                link={link}
                 interactive={false}
                 pathOptions={{
                   className: cn('map-link-highlight', link.className),
@@ -111,10 +136,65 @@ export const MapViewer = ({
               />
             ))}
       </Pane>
+      <PanPastEdgesForPopups bounds={bounds} />
+      <ClosePopupOnOutsidePress />
       <FitToViewport map={map} />
       {map.pixelated && <PixelatedWhenZoomedIn />}
     </MapContainer>
   );
+};
+
+const LinkShape = ({
+  link,
+  ...props
+}: {
+  link: MapLink;
+  pathOptions: PathOptions;
+  eventHandlers?: LeafletEventHandlerFnMap;
+  interactive?: boolean;
+  children?: ReactNode;
+}) =>
+  link.outline ? (
+    <Polygon
+      positions={link.outline.map((ring) =>
+        ring.map(([x, y]) => toLatLng(x, y)),
+      )}
+      {...props}
+    />
+  ) : (
+    <Rectangle
+      bounds={[
+        toLatLng(link.x, link.y + link.height),
+        toLatLng(link.x + link.width, link.y),
+      ]}
+      {...props}
+    />
+  );
+
+const PanPastEdgesForPopups = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
+  useMapEvents({
+    popupopen: ({ target }) => target.setMaxBounds(undefined),
+    popupclose: ({ target }) => target.setMaxBounds(bounds),
+  });
+
+  return null;
+};
+
+const ClosePopupOnOutsidePress = () => {
+  const leafletMap = useMap();
+
+  useEffect(() => {
+    const closeIfOutside = (event: PointerEvent) => {
+      if (!leafletMap.getContainer().contains(event.target as Node))
+        leafletMap.closePopup();
+    };
+
+    document.addEventListener('pointerdown', closeIfOutside);
+
+    return () => document.removeEventListener('pointerdown', closeIfOutside);
+  }, [leafletMap]);
+
+  return null;
 };
 
 const FitToViewport = ({ map }: { map: MapImage }) => {

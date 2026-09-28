@@ -3,7 +3,9 @@ import { useState } from 'react';
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
 import { itemsFor } from '@/data/items';
+import type { WildArea } from '@/data/maps';
 import { pokedexFor } from '@/data/pokedex';
+import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
@@ -11,6 +13,7 @@ import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
 import { PokedexOverlay } from '../Pokedex/PokedexOverlay';
 import { SidebarLayout } from '../SidebarLayout';
+import { encounterGroups, wildAreaFor } from './encounters';
 import { EncountersCard } from './EncountersCard';
 import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
@@ -23,6 +26,7 @@ import { battleGroups } from './trainerList';
 import { TrainersCard } from './TrainersCard';
 import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
+import { StaticPopup, WildPopup } from './WildPopup';
 
 export const LocationPage = () => {
   const route = useGameRoute();
@@ -57,6 +61,38 @@ export const LocationPage = () => {
   const listedBattles = trainerGroups.flatMap((group) => group.battles);
   const selectTrainer = (key: string | undefined) =>
     setSelected({ scope, key });
+  const onThisMap = (marker: {
+    path: string;
+    floor?: string;
+    games: Array<string>;
+  }) =>
+    marker.path === trailPath(trail) &&
+    marker.floor === floor?.id &&
+    marker.games.includes(route.game.id);
+  const wildAreas =
+    route.region.wildAreas?.filter(
+      (area) => area.path === trailPath(trail) && area.floor === floor?.id,
+    ) ?? [];
+  const encounters = pokedex
+    ? encounterGroups(pokedex, {
+        game: route.game,
+        path: trailPath(trail),
+        floor: floor?.id,
+        hasWater: wildAreas.some((area) => area.method === 'water'),
+      })
+    : [];
+  const wildPopup = (area: WildArea['method']) => {
+    const groups = encounters.filter(
+      ({ method }) => wildAreaFor(method) === area,
+    );
+
+    return (
+      groups.length > 0 && (
+        <WildPopup game={route.game} path={trailPath(trail)} groups={groups} />
+      )
+    );
+  };
+
   const { links, connections, entrances } = locationLinks(
     route.region,
     location,
@@ -64,14 +100,20 @@ export const LocationPage = () => {
     route.href,
     route.game.tileSize,
     floor,
-    itemsFor(route.region.versionGroup)?.filter(
-      (item) =>
-        item.path === trailPath(trail) &&
-        item.floor === floor?.id &&
-        item.games.includes(route.game.id),
-    ),
-    listedBattles,
-    selectTrainer,
+    {
+      items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
+      trainers: listedBattles,
+      onSelectTrainer: selectTrainer,
+      wildAreas,
+      wildPopup,
+      staticPokemon: staticPokemonFor(route.region.versionGroup)?.filter(
+        onThisMap,
+      ),
+      staticPopup: (marker) =>
+        pokedex && (
+          <StaticPopup game={route.game} marker={marker} pokedex={pokedex} />
+        ),
+    },
   );
   const highlightTo = (key: string | undefined) => setHighlight({ scope, key });
 
@@ -113,8 +155,8 @@ export const LocationPage = () => {
               <EncountersCard
                 game={route.game}
                 path={trailPath(trail)}
-                floor={floor?.id}
-                pokedex={pokedex}
+                groups={encounters}
+                onHighlight={highlightTo}
               />
             )}
             {pokedex && (
@@ -137,6 +179,7 @@ export const LocationPage = () => {
                 links={links.filter(
                   (link) => !layerState.hiddenLayers.has(link.layer),
                 )}
+                highlightable={links}
                 highlighted={
                   highlight.scope === scope ? highlight.key : undefined
                 }
@@ -171,7 +214,7 @@ export const LocationPage = () => {
               ? listedBattles.find((listed) => listed.key === selected.key)
               : undefined
           }
-          place={floor ? `${location.name}, ${floor.name}` : location.name}
+          place={location.name}
           game={route.game}
           pokedex={pokedex}
           onClose={() => selectTrainer(undefined)}

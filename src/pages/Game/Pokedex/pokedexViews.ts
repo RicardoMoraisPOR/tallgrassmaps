@@ -7,6 +7,7 @@ export type PokedexContentProps = {
   game: Game;
   region: Region;
   href: (path: string) => string;
+  focus?: number;
 };
 
 export type PokedexView = {

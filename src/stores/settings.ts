@@ -1,7 +1,12 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-export type ThemeArea = 'pokedex' | 'townMap' | 'trainers' | 'sprites';
+export type ThemeArea =
+  | 'pokedex'
+  | 'townMap'
+  | 'trainers'
+  | 'wildPokemon'
+  | 'sprites';
 
 export type ThemeStyle = 'game' | 'tall-grass';
 
@@ -25,6 +30,7 @@ export const useSettingsStore = create<SettingsState>()(
         pokedex: 'game',
         townMap: 'game',
         trainers: 'game',
+        wildPokemon: 'game',
         sprites: 'tall-grass',
       },
       mapLayers: {},

@@ -1,4 +1,5 @@
 import connectionData from './kanto-rby-connections.json';
+import wildAreaData from './kanto-rby-wild.json';
 import tallGrassMap from './tall-grass/kanto-rby.svg?raw';
 import type {
   Direction,
@@ -11,6 +12,7 @@ import type {
   MapVariant,
   Rect,
   Region,
+  WildArea,
 } from './types';
 
 const IMAGE_DIR = '/maps/rby';
@@ -865,6 +867,7 @@ export const kantoRby: Region = {
   },
   locations,
   tallGrassMap,
+  wildAreas: wildAreaData as Array<WildArea>,
   label: {
     x: 8,
     y: 0.5,
