@@ -6,11 +6,16 @@ import { Collapse } from '@/components/Collapse';
 
 type ExpandableCardProps = {
   title: ReactNode;
+  defaultExpanded?: boolean;
   children: ReactNode;
 };
 
-export const ExpandableCard = ({ title, children }: ExpandableCardProps) => {
-  const [expanded, setExpanded] = useState(false);
+export const ExpandableCard = ({
+  title,
+  defaultExpanded = false,
+  children,
+}: ExpandableCardProps) => {
+  const [expanded, setExpanded] = useState(defaultExpanded);
   const headingId = useId();
   const panelId = useId();
 

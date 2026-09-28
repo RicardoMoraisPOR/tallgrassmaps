@@ -16,6 +16,7 @@ import { FloorPicker } from './FloorPicker';
 import { locationLinks } from './locationLinks';
 import { MapInfoCard } from './MapInfoCard';
 import { defaultHiddenLayers, type MapLayerId, mapLayers } from './mapLayers';
+import { TownMapCard } from './TownMapCard';
 import { TrainersCard } from './TrainersCard';
 import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
@@ -85,6 +86,11 @@ export const LocationPage = () => {
               )}
               hiddenLayers={hiddenLayers}
               onToggleLayer={toggleLayer}
+            />
+            <TownMapCard
+              region={route.region}
+              path={trailPath(trail)}
+              name={location.name}
             />
             {pokedex && (
               <EncountersCard

@@ -395,6 +395,15 @@
   }
 }
 
+@utility version-letter-surface {
+  color: inherit;
+  color: oklch(from var(--letter) min(l, 0.52) c h);
+
+  &:is(.dark *) {
+    color: oklch(from var(--letter) max(l, 0.62) c h);
+  }
+}
+
 @utility game-card-glow {
   box-shadow:
     0 12px 28px -16px color-mix(in oklch, var(--card-accent) 35%, transparent),

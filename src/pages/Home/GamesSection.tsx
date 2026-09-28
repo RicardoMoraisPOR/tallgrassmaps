@@ -12,27 +12,27 @@ import { GameCard } from './GameCard';
 import { GameFilters } from './GameFilters';
 import { useFilters } from './useFilters';
 
-const STAGGER_SECONDS = 0.04;
-const MAX_STAGGERED_ITEMS = 12;
+const STAGGER_SECONDS = 0.02;
+const MAX_STAGGERED_ITEMS = 8;
 
-const exitTransition = { duration: 0.15, ease: 'easeIn' } as const;
+const exitTransition = { duration: 0.12, ease: 'easeIn' } as const;
 
 const results = {
-  exit: { opacity: 0, transition: exitTransition },
-};
+  exit: { transition: { when: 'afterChildren' } },
+} as const;
 
 const chainItem = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 32 },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.45,
+      duration: 0.25,
       ease: easeOutSoft,
       delay: Math.min(index, MAX_STAGGERED_ITEMS) * STAGGER_SECONDS,
     },
   }),
-  exit: { opacity: 0, transition: exitTransition },
+  exit: { opacity: 0, y: -24, transition: exitTransition },
 };
 
 export const GamesSection = () => {
