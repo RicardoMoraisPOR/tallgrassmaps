@@ -6,10 +6,12 @@ import {
   floorFor,
   forGame,
   games,
+  hasOwnMapImage,
   locationFor,
   pokeredDir,
   read,
 } from '../rby/disassembly.mjs';
+import { trainerMoves } from './rby-moves.mjs';
 
 const OUTPUT = new URL('../../src/data/trainers/rby.json', import.meta.url);
 
@@ -218,10 +220,13 @@ const parseParty = (line) => {
   if (body[0] === '$FF') {
     const pairs = body.slice(1);
 
-    return Array.from({ length: pairs.length / 2 }, (_, index) => ({
-      species: pairs[index * 2 + 1],
-      level: Number(pairs[index * 2]),
-    }));
+    return Object.assign(
+      Array.from({ length: pairs.length / 2 }, (_, index) => ({
+        species: pairs[index * 2 + 1],
+        level: Number(pairs[index * 2]),
+      })),
+      { special: true },
+    );
   }
 
   return body.slice(1).map((species) => ({ species, level: Number(body[0]) }));
@@ -231,19 +236,24 @@ const battles = [];
 
 for (const game of games) {
   const trainers = parseParties(game);
+  const movesFor = trainerMoves(game);
 
-  const partyFor = (trainer, index) => {
+  const partyFor = (file, trainer, index) => {
     const party = trainers.get(trainer)?.parties[index - 1];
 
     if (!party) throw new Error(`${game.id}: no party ${trainer} #${index}`);
 
-    return party;
+    const moves = movesFor({ file, trainer, index, party });
+
+    return party.map((pokemon, slot) => ({ ...pokemon, moves: moves[slot] }));
   };
 
-  const addBattle = ({ file, slot, trainer, name, parties }) => {
+  const addBattle = ({ file, slot, trainer, name, parties, position }) => {
     const map = constantFromFile(file);
     const path = locationFor(map);
     const floor = floorFor(map);
+    const placed =
+      position && hasOwnMapImage(game.dir, map, path, floor) ? position : {};
 
     battles.push({
       game: game.id,
@@ -253,11 +263,13 @@ for (const game of games) {
       path,
       area: areaFor(file, path),
       ...(floor && { floor }),
+      ...placed,
       parties: parties.map(({ label, party }) => ({
         ...(label && { label }),
-        pokemon: party.map(({ species, level }) => ({
+        pokemon: party.map(({ species, level, moves }) => ({
           number: speciesNumber(species),
           level,
+          moves,
         })),
       })),
     });
@@ -267,18 +279,19 @@ for (const game of games) {
     const file = basename(fileName, '.asm');
     const objects = [
       ...read(game.dir, `data/maps/objects/${fileName}`).matchAll(
-        /^\s*object_event .*, TEXT_\w+, OPP_(\w+), (\d+)$/gm,
+        /^\s*object_event\s+(\d+),\s*(\d+),.*, TEXT_\w+, OPP_(\w+), (\d+)$/gm,
       ),
     ];
 
-    objects.forEach(([, trainer, index], slot) => {
+    objects.forEach(([, x, y, trainer, index], slot) => {
       if (trainer.startsWith('RIVAL')) return;
 
       addBattle({
         file,
         slot,
         trainer,
-        parties: [{ party: partyFor(trainer, Number(index)) }],
+        position: { x: Number(x), y: Number(y) },
+        parties: [{ party: partyFor(file, trainer, Number(index)) }],
       });
     });
   }
@@ -317,7 +330,7 @@ for (const game of games) {
       trainer,
       name,
       parties: indices.map((index, variant) => {
-        const party = partyFor(trainer, index);
+        const party = partyFor(script, trainer, index);
 
         if (variants) {
           const signature = rivalTeamSignature[game.id][variant];

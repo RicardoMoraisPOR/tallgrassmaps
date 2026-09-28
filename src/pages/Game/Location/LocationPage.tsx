@@ -18,6 +18,8 @@ import { locationLinks } from './locationLinks';
 import { MapInfoCard } from './MapInfoCard';
 import { mapLayers, useMapLayers } from './mapLayers';
 import { TownMapCard } from './TownMapCard';
+import { TrainerDialog } from './TrainerDialog';
+import { battleGroups } from './trainerList';
 import { TrainersCard } from './TrainersCard';
 import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
@@ -31,7 +33,10 @@ export const LocationPage = () => {
   const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
   const layerState = useMapLayers(scope);
-  const [highlight, setHighlight] = useState<{ scope: string; href?: string }>({
+  const [highlight, setHighlight] = useState<{ scope: string; key?: string }>({
+    scope,
+  });
+  const [selected, setSelected] = useState<{ scope: string; key?: string }>({
     scope,
   });
 
@@ -41,6 +46,17 @@ export const LocationPage = () => {
 
   const pokedex = pokedexFor(route.region.versionGroup);
   const trainers = trainersFor(route.region.versionGroup);
+  const trainerGroups = trainers
+    ? battleGroups(trainers, {
+        game: route.game,
+        path: trailPath(trail),
+        floor: floor?.id,
+        onMapOnly: location.kind === 'town',
+      })
+    : [];
+  const listedBattles = trainerGroups.flatMap((group) => group.battles);
+  const selectTrainer = (key: string | undefined) =>
+    setSelected({ scope, key });
   const { links, connections, entrances } = locationLinks(
     route.region,
     location,
@@ -54,7 +70,10 @@ export const LocationPage = () => {
         item.floor === floor?.id &&
         item.games.includes(route.game.id),
     ),
+    listedBattles,
+    selectTrainer,
   );
+  const highlightTo = (key: string | undefined) => setHighlight({ scope, key });
 
   const baseImage = floor ?? location;
   const event = baseImage.event;
@@ -83,7 +102,7 @@ export const LocationPage = () => {
               hiddenLayers={layerState.hiddenLayers}
               onToggleLayer={layerState.toggle}
               onLayerSettingChange={layerState.reset}
-              onHighlight={(href) => setHighlight({ scope, href })}
+              onHighlight={highlightTo}
             />
             <TownMapCard
               region={route.region}
@@ -98,14 +117,13 @@ export const LocationPage = () => {
                 pokedex={pokedex}
               />
             )}
-            {pokedex && trainers && (
+            {pokedex && (
               <TrainersCard
                 game={route.game}
-                path={trailPath(trail)}
-                floor={floor?.id}
-                onMapOnly={location.kind === 'town'}
-                trainers={trainers}
+                groups={trainerGroups}
                 pokedex={pokedex}
+                onHighlight={highlightTo}
+                onSelect={selectTrainer}
               />
             )}
           </>
@@ -119,8 +137,8 @@ export const LocationPage = () => {
                 links={links.filter(
                   (link) => !layerState.hiddenLayers.has(link.layer),
                 )}
-                highlightedHref={
-                  highlight.scope === scope ? highlight.href : undefined
+                highlighted={
+                  highlight.scope === scope ? highlight.key : undefined
                 }
                 className="h-[60svh] min-w-0 overflow-hidden rounded-[14px] border lg:h-[min(72svh,760px)]"
               />
@@ -146,6 +164,19 @@ export const LocationPage = () => {
           </PageTransition>
         </div>
       </SidebarLayout>
+      {pokedex && (
+        <TrainerDialog
+          listed={
+            selected.scope === scope
+              ? listedBattles.find((listed) => listed.key === selected.key)
+              : undefined
+          }
+          place={floor ? `${location.name}, ${floor.name}` : location.name}
+          game={route.game}
+          pokedex={pokedex}
+          onClose={() => selectTrainer(undefined)}
+        />
+      )}
       <PokedexOverlay
         game={route.game}
         region={route.region}

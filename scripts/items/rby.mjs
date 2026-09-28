@@ -1,20 +1,17 @@
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { readdirSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import {
   constantFromFile,
   floorFor,
   forGame,
   games,
-  locationFor,
+  hasOwnMapImage,
   read,
+  siteLocation,
 } from '../rby/disassembly.mjs';
 
 const OUTPUT = new URL('../../src/data/items/rby.json', import.meta.url);
-const MAP_IMAGES = fileURLToPath(
-  new URL('../../public/maps/rby/', import.meta.url),
-);
 
 const specialWords = { HP: 'HP', PP: 'PP', X: 'X' };
 
@@ -45,39 +42,12 @@ const machineNames = (game) => {
   return names;
 };
 
-const imageSize = (file) => {
-  const header = readFileSync(file);
-
-  return [header.readUInt32BE(16), header.readUInt32BE(20)];
-};
-
-const mapKey = (constant) => constant.replaceAll('_', '');
-
-const siteLocation = (map) => {
-  try {
-    return locationFor(map);
-  } catch {
-    return undefined;
-  }
-};
-
 const items = [];
 const skipped = new Set();
 
 for (const game of games) {
   const machines = machineNames(game);
   const itemName = (constant) => machines.get(constant) ?? titleCase(constant);
-  const mapSizes = new Map(
-    [
-      ...read(game.dir, 'constants/map_constants.asm').matchAll(
-        /map_const (\w+),\s+(\d+),\s+(\d+)/g,
-      ),
-    ].map(([, constant, width, height]) => [
-      mapKey(constant),
-      [Number(width) * 32, Number(height) * 32],
-    ]),
-  );
-
   const addItem = (map, x, y, item, hidden) => {
     const path = siteLocation(map);
 
@@ -88,21 +58,8 @@ for (const game of games) {
     }
 
     const floor = floorFor(map);
-    const place = path.split('/').at(-1);
-    const image = join(
-      MAP_IMAGES,
-      floor ? `${place}/${floor}.png` : `${place}.png`,
-    );
-    const size = mapSizes.get(mapKey(map));
-    const ownMap =
-      floor || mapKey(map) === mapKey(place.toUpperCase().replaceAll('-', '_'));
 
-    if (
-      !ownMap ||
-      !existsSync(image) ||
-      !size ||
-      imageSize(image).join() !== size.join()
-    ) {
+    if (!hasOwnMapImage(game.dir, map, path, floor)) {
       skipped.add(floor ? `${path} ${floor}` : path);
 
       return;

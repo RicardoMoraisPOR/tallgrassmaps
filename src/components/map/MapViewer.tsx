@@ -26,19 +26,21 @@ export type MapLink = Rect & {
   travel?: Direction;
   className?: string;
   replace?: boolean;
+  highlightKey?: string;
+  onClick?: () => void;
 };
 
 type MapViewerProps = {
   map: MapImage;
   links?: Array<MapLink>;
-  highlightedHref?: string;
+  highlighted?: string;
   className?: string;
 };
 
 export const MapViewer = ({
   map,
   links = [],
-  highlightedHref,
+  highlighted,
   className,
 }: MapViewerProps) => {
   const navigate = useNavigate();
@@ -70,12 +72,14 @@ export const MapViewer = ({
             pathOptions={{
               className: cn(
                 'map-link',
-                !link.href && 'map-link-static',
+                !link.href && !link.onClick && 'map-link-static',
                 link.className,
               ),
             }}
             eventHandlers={{
               click: () => {
+                link.onClick?.();
+
                 if (link.href)
                   navigate(link.href, {
                     state: travelState(link.travel),
@@ -90,9 +94,9 @@ export const MapViewer = ({
             </Tooltip>
           </Rectangle>
         ))}
-        {highlightedHref &&
+        {highlighted &&
           links
-            .filter((link) => link.href === highlightedHref)
+            .filter((link) => (link.highlightKey ?? link.href) === highlighted)
             .map((link) => (
               <Rectangle
                 key={`highlight-${link.x},${link.y}`}

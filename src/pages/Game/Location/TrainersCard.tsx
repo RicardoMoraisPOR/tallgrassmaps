@@ -1,84 +1,64 @@
 import type { Game } from '@/data/games';
 import type { PokedexEntry } from '@/data/pokedex/types';
-import type { TrainerBattle, TrainerParty } from '@/data/trainers/types';
+import type { TrainerParty } from '@/data/trainers/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
 import { ExpandableCard } from './ExpandableCard';
+import type { BattleGroup } from './trainerList';
 
 type TrainersCardProps = {
   game: Game;
-  path: string;
-  floor?: string;
-  onMapOnly: boolean;
-  trainers: Array<TrainerBattle>;
+  groups: Array<BattleGroup>;
   pokedex: Array<PokedexEntry>;
-};
-
-const trainerNumbers = (battles: Array<TrainerBattle>) => {
-  const totals = new Map<string, number>();
-  const seen = new Map<string, number>();
-
-  for (const { name } of battles) totals.set(name, (totals.get(name) ?? 0) + 1);
-
-  return battles.map(({ name }) => {
-    const count = (seen.get(name) ?? 0) + 1;
-
-    seen.set(name, count);
-
-    return (totals.get(name) ?? 0) > 1 ? count : undefined;
-  });
+  onHighlight: (key: string | undefined) => void;
+  onSelect: (key: string) => void;
 };
 
 export const TrainersCard = ({
   game,
-  path,
-  floor,
-  onMapOnly,
-  trainers,
+  groups,
   pokedex,
+  onHighlight,
+  onSelect,
 }: TrainersCardProps) => {
   const spriteFor = usePokemonSprite(game);
 
-  const battles = trainers.filter(
-    (battle) =>
-      battle.path === path &&
-      battle.games.includes(game.id) &&
-      (!floor || battle.floor === floor) &&
-      !(onMapOnly && battle.area),
-  );
-
-  if (battles.length === 0) return null;
+  if (groups.every((group) => group.battles.length === 0)) return null;
 
   const names = new Map(pokedex.map((entry) => [entry.number, entry.name]));
-  const areas = (
-    floor
-      ? [{ area: undefined, battles }]
-      : [...new Set(battles.map((battle) => battle.area))].map((area) => ({
-          area,
-          battles: battles.filter((battle) => battle.area === area),
-        }))
-  ).map((group) => ({ ...group, numbers: trainerNumbers(group.battles) }));
 
   return (
     <ExpandableCard title="Trainer battles">
-      {areas.map(({ area, battles, numbers }) => (
+      {groups.map(({ area, battles }) => (
         <div key={area ?? ''} className="flex flex-col gap-1">
           {area && (
             <h3 className="text-[13px] text-muted-foreground">{area}</h3>
           )}
           <ul className="flex flex-col divide-y">
-            {battles.map((battle, index) => (
-              <li key={index} className="flex flex-col gap-2 py-2.5">
-                <span className="text-sm font-medium">
+            {battles.map(({ battle, key, number }) => (
+              <li key={key} className="flex flex-col gap-2 py-2.5">
+                <button
+                  type="button"
+                  onClick={() => onSelect(key)}
+                  {...(battle.x === undefined
+                    ? {}
+                    : {
+                        onMouseEnter: () => onHighlight(key),
+                        onMouseLeave: () => onHighlight(undefined),
+                        onFocus: () => onHighlight(key),
+                        onBlur: () => onHighlight(undefined),
+                      })}
+                  className="cursor-pointer self-start rounded-sm text-left text-sm font-medium underline-offset-4 outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                >
                   {battle.name}
-                  {numbers[index] && (
+                  {number && (
                     <span className="font-normal text-muted-foreground/80">
                       {' '}
-                      #{numbers[index]}
+                      #{number}
                     </span>
                   )}
-                </span>
+                </button>
                 {battle.parties.map((party) => (
                   <Party
                     key={party.label ?? ''}

@@ -110,6 +110,8 @@ export const markerLayer = (kind: MarkerKind) => layer(markerLayers[kind]);
 export const itemLayer = (hidden: boolean) =>
   layer(hidden ? 'hidden-items' : 'items');
 
+export const trainerLayer = () => layer('trainers');
+
 type LayerValues = Partial<Record<MapLayerId, boolean>>;
 
 export const useSavedMapLayers = () => {

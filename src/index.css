@@ -301,6 +301,44 @@
   background: var(--gb-screen);
 }
 
+.gb-frame {
+  position: relative;
+  border: 4px solid var(--gb-ink);
+  box-shadow:
+    inset 0 0 0 3px var(--gb-screen),
+    inset 0 0 0 5px var(--gb-ink);
+}
+
+.gb-frame::before {
+  --gb-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 6' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h2v1h1v1h1v2h-1v1h-1v1h-2v-1h-1v-1h-1v-2h1v-1h1z' fill='%23292929'/%3E%3Cpath d='M2 2h2v2h-2z' fill='%23f6f4f7'/%3E%3C/svg%3E");
+  content: '';
+  position: absolute;
+  inset: -8px;
+  pointer-events: none;
+  background:
+    var(--gb-corner) left top / 12px no-repeat,
+    var(--gb-corner) right top / 12px no-repeat,
+    var(--gb-corner) left bottom / 12px no-repeat,
+    var(--gb-corner) right bottom / 12px no-repeat;
+}
+
+.gb-status {
+  position: relative;
+  border-right: 3px solid var(--gb-ink);
+  border-bottom: 3px solid var(--gb-ink);
+}
+
+.gb-status::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: -9px;
+  width: 12px;
+  height: 6px;
+  background: var(--gb-ink);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
 .map-pixelated .leaflet-image-layer {
   image-rendering: pixelated;
 }

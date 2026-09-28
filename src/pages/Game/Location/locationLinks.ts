@@ -15,7 +15,9 @@ import {
   itemLayer,
   type MapLayerId,
   markerLayer,
+  trainerLayer,
 } from './mapLayers';
+import type { ListedBattle } from './trainerList';
 
 export type LayeredMapLink = MapLink & { layer: MapLayerId };
 
@@ -39,6 +41,8 @@ export const locationLinks = (
   tileSize: number,
   floor?: LocationFloor,
   items: Array<MapItem> = [],
+  trainers: Array<ListedBattle> = [],
+  onSelectTrainer?: (key: string) => void,
 ) => {
   const hotspotLink = (hotspot: LocationHotspot) => {
     const target = getLocation(region, hotspot.target);
@@ -93,6 +97,28 @@ export const locationLinks = (
     };
   });
 
+  const trainerMarkers: Array<LayeredMapLink> = trainers.flatMap(
+    ({ battle, key, label }) => {
+      if (battle.x === undefined || battle.y === undefined) return [];
+
+      const layer = trainerLayer();
+
+      return [
+        {
+          x: battle.x * tileSize - tileSize / 4,
+          y: battle.y * tileSize - tileSize / 4,
+          width: tileSize * 1.5,
+          height: tileSize * 1.5,
+          label,
+          layer: layer.id,
+          className: layer.className,
+          highlightKey: key,
+          onClick: onSelectTrainer && (() => onSelectTrainer(key)),
+        },
+      ];
+    },
+  );
+
   const placeLinks = (layer: MapLayerId, initial: Array<PlaceLink> = []) => {
     const places = new Map(initial.map((link) => [link.href, link]));
 
@@ -116,7 +142,7 @@ export const locationLinks = (
   }));
 
   return {
-    links: [...links, ...markers, ...itemMarkers],
+    links: [...links, ...markers, ...itemMarkers, ...trainerMarkers],
     connections: placeLinks('connections'),
     entrances: placeLinks('entrances', inside),
   };

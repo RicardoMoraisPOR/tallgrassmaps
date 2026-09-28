@@ -194,7 +194,9 @@ export const floorFor = (mapConstant) => {
     .replaceAll('_', '')
     .toLowerCase();
 
-  return /^(b?\d+f|center|east|north|west|roof)$/.test(floor) ? floor : undefined;
+  return /^(b?\d+f|center|east|north|west|roof)$/.test(floor)
+    ? floor
+    : undefined;
 };
 
 export const constantFromFile = (file) =>
@@ -214,3 +216,63 @@ const specialNames = {
 
 export const displayName = (species) =>
   specialNames[species] ?? species.charAt(0) + species.slice(1).toLowerCase();
+
+const MAP_IMAGES = fileURLToPath(
+  new URL('../../public/maps/rby/', import.meta.url),
+);
+
+const mapKey = (constant) => constant.replaceAll('_', '');
+
+const imageSize = (file) => {
+  const header = readFileSync(file);
+
+  return [header.readUInt32BE(16), header.readUInt32BE(20)];
+};
+
+const mapSizeCache = new Map();
+
+const mapSizes = (dir) => {
+  if (!mapSizeCache.has(dir)) {
+    mapSizeCache.set(
+      dir,
+      new Map(
+        [
+          ...read(dir, 'constants/map_constants.asm').matchAll(
+            /map_const (\w+),\s+(\d+),\s+(\d+)/g,
+          ),
+        ].map(([, constant, width, height]) => [
+          mapKey(constant),
+          [Number(width) * 32, Number(height) * 32],
+        ]),
+      ),
+    );
+  }
+
+  return mapSizeCache.get(dir);
+};
+
+export const siteLocation = (map) => {
+  try {
+    return locationFor(map);
+  } catch {
+    return undefined;
+  }
+};
+
+export const hasOwnMapImage = (dir, map, path, floor) => {
+  const place = path.split('/').at(-1);
+  const image = join(
+    MAP_IMAGES,
+    floor ? `${place}/${floor}.png` : `${place}.png`,
+  );
+  const size = mapSizes(dir).get(mapKey(map));
+  const ownMap =
+    floor || mapKey(map) === mapKey(place.toUpperCase().replaceAll('-', '_'));
+
+  return Boolean(
+    ownMap &&
+    existsSync(image) &&
+    size &&
+    imageSize(image).join() === size.join(),
+  );
+};

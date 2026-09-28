@@ -1,6 +1,7 @@
 export type TrainerPokemon = {
   number: number;
   level: number;
+  moves: Array<string>;
 };
 
 export type TrainerParty = {
@@ -14,6 +15,8 @@ export type TrainerBattle = {
   path: string;
   area?: string;
   floor?: string;
+  x?: number;
+  y?: number;
   games: Array<string>;
   parties: Array<TrainerParty>;
 };
