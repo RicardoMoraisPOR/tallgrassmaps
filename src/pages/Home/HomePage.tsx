@@ -50,10 +50,9 @@ const Hero = () => {
             Every Pokémon map, <span className="text-brand">in one place.</span>
           </h1>
           <p className="max-w-[52ch] text-lg text-pretty text-muted-foreground">
-            Tall Grass Maps is an atlas for the Pokémon games. Pick a game and
-            you start on its own Town Map. From there, every town and route
-            opens the actual map from the game, and the caves and buildings
-            inside them open too.
+            An interactive atlas of the main Pokémon games, with wild
+            encounters, trainer battles, items and more mapped to their exact
+            place in every town, route and cave.
           </p>
           <ChangelogBadge />
         </div>

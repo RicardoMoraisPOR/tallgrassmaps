@@ -5,6 +5,8 @@ import { easeOutSoft } from '@/lib/motion';
 export const EXPLODE_SECONDS = 1.2;
 export const COLLAPSE_SECONDS = 0.9;
 export const INTRO_EXPLODE_SECONDS = 2.7;
+export const MAP_SWAP_IN_SECONDS = 0.6;
+export const MAP_SWAP_OUT_SECONDS = 0.2;
 
 export const timelineEase = cubicBezier(...easeOutSoft);
 

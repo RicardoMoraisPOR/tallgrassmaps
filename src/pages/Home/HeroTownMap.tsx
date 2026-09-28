@@ -1,4 +1,10 @@
-import { type PointerEvent, useEffect, useState } from 'react';
+import {
+  type PointerEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import {
   animate,
@@ -17,6 +23,8 @@ import {
   COLLAPSE_SECONDS,
   EXPLODE_SECONDS,
   INTRO_EXPLODE_SECONDS,
+  MAP_SWAP_IN_SECONDS,
+  MAP_SWAP_OUT_SECONDS,
   STAGE_RANGE,
   timelineEase,
 } from './heroMapTimeline';
@@ -50,6 +58,8 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
   const pointerY = useMotionValue(0.5);
   const hovered = useMotionValue(0);
   const explode = useMotionValue(0);
+  const mapSwap = useMotionValue(0);
+  const explodedRef = useRef(false);
   const stage = useTransform(explode, STAGE_RANGE, [0, 1], {
     ease: timelineEase,
   });
@@ -109,27 +119,50 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
     hovered.set(0);
   };
 
+  const swapInMap = useCallback(() => {
+    if (!explodedRef.current) return;
+
+    animate(mapSwap, 1, {
+      duration: reducedMotion ? 0 : MAP_SWAP_IN_SECONDS,
+      ease: 'easeInOut',
+    });
+  }, [mapSwap, reducedMotion]);
+
   useEffect(() => {
     if (reducedMotion || touched) return;
 
     const timer = setTimeout(() => {
       setTouched(true);
       setExploded(true);
-      animate(explode, 1, { duration: INTRO_EXPLODE_SECONDS, ease: 'linear' });
+      explodedRef.current = true;
+      animate(explode, 1, {
+        duration: INTRO_EXPLODE_SECONDS,
+        ease: 'linear',
+      }).then(swapInMap);
     }, INTRO_DELAY_MS);
 
     return () => clearTimeout(timer);
-  }, [reducedMotion, touched, explode]);
+  }, [reducedMotion, touched, explode, swapInMap]);
 
   const toggle = () => {
     const next = !exploded;
 
     setTouched(true);
     setExploded(next);
-    animate(explode, next ? 1 : 0, {
+    explodedRef.current = next;
+
+    if (!next)
+      animate(mapSwap, 0, {
+        duration: reducedMotion ? 0 : MAP_SWAP_OUT_SECONDS,
+        ease: 'easeOut',
+      });
+
+    const explosion = animate(explode, next ? 1 : 0, {
       duration: reducedMotion ? 0 : next ? EXPLODE_SECONDS : COLLAPSE_SECONDS,
       ease: 'linear',
     });
+
+    if (next) explosion.then(swapInMap);
   };
 
   return (
@@ -151,7 +184,7 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
         onClick={toggle}
         onPointerMove={track}
         onPointerLeave={reset}
-        className="block w-full max-w-110 cursor-pointer rounded-[3px] outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+        className="group/hero block w-full max-w-110 cursor-pointer rounded-[3px] outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         style={{
           rotateX,
           rotateY,
@@ -168,6 +201,7 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
           hotspot={hotspot}
           locationName={location?.name}
           explode={explode}
+          mapSwap={mapSwap}
         >
           <m.span
             aria-hidden
