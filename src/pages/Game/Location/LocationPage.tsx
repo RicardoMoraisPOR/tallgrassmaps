@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { MapViewer } from '@/components/map/MapViewer';
+import { PageTransition } from '@/components/PageTransition';
 import { itemsFor } from '@/data/items';
 import { pokedexFor } from '@/data/pokedex';
 import { trainersFor } from '@/data/trainers';
@@ -110,35 +111,39 @@ export const LocationPage = () => {
           </>
         }
       >
-        <div className="relative min-w-0">
-          <MapViewer
-            map={mapImage}
-            links={links.filter(
-              (link) => !layerState.hiddenLayers.has(link.layer),
-            )}
-            highlightedHref={
-              highlight.scope === scope ? highlight.href : undefined
-            }
-            className="h-[60svh] min-w-0 overflow-hidden rounded-[14px] border lg:h-[min(72svh,760px)]"
-          />
-          {((location.floors && floor) || event) && (
-            <div className="pointer-events-none absolute top-3 right-3 left-16 z-10 flex flex-col items-end gap-2">
-              {location.floors && floor && (
-                <FloorPicker
-                  floors={location.floors}
-                  selected={floor.id}
-                  onSelect={selectFloor}
-                />
-              )}
-              {event && (
-                <EventPicker
-                  event={event}
-                  selected={eventState}
-                  onSelect={selectEventState}
-                />
+        <div className="flex min-w-0 flex-col overflow-clip rounded-[14px]">
+          <PageTransition mapMotion>
+            <div className="relative min-w-0">
+              <MapViewer
+                map={mapImage}
+                links={links.filter(
+                  (link) => !layerState.hiddenLayers.has(link.layer),
+                )}
+                highlightedHref={
+                  highlight.scope === scope ? highlight.href : undefined
+                }
+                className="h-[60svh] min-w-0 overflow-hidden rounded-[14px] border lg:h-[min(72svh,760px)]"
+              />
+              {((location.floors && floor) || event) && (
+                <div className="pointer-events-none absolute top-3 right-3 left-16 z-10 flex flex-col items-end gap-2">
+                  {location.floors && floor && (
+                    <FloorPicker
+                      floors={location.floors}
+                      selected={floor.id}
+                      onSelect={selectFloor}
+                    />
+                  )}
+                  {event && (
+                    <EventPicker
+                      event={event}
+                      selected={eventState}
+                      onSelect={selectEventState}
+                    />
+                  )}
+                </div>
               )}
             </div>
-          )}
+          </PageTransition>
         </div>
       </SidebarLayout>
       <PokedexOverlay

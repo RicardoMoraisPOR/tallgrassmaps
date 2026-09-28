@@ -70,28 +70,33 @@ const motionFor = (
 type PageTransitionProps = {
   depth?: number;
   mapMotion?: boolean;
+  keyFor?: (pathname: string) => string;
+  children?: ReactNode;
 };
 
 export const PageTransition = ({
   depth,
   mapMotion = false,
+  keyFor,
+  children,
 }: PageTransitionProps) => {
   const { pathname } = useLocation();
   const outlet = useOutlet();
   const motionRef = useRef<Motion>(undefined);
 
-  const key = pageKey(pathname, depth);
+  const keyOf = keyFor ?? ((path: string) => pageKey(path, depth));
+  const key = keyOf(pathname);
 
   return (
     <SwitchTransition>
       <PageFrame
         key={key}
         path={key}
-        depth={depth}
+        keyOf={keyOf}
         mapMotion={mapMotion}
         motionRef={motionRef}
       >
-        {outlet}
+        {children ?? outlet}
       </PageFrame>
     </SwitchTransition>
   );
@@ -105,14 +110,14 @@ const pageKey = (pathname: string, depth: number | undefined) =>
 const PageFrame = ({
   children,
   path,
-  depth,
+  keyOf,
   mapMotion,
   motionRef,
   ...transitionProps
 }: {
   children: ReactNode;
   path: string;
-  depth: number | undefined;
+  keyOf: (pathname: string) => string;
   mapMotion: boolean;
   motionRef: RefObject<Motion | undefined>;
 } & Pick<TransitionProps<HTMLDivElement>, 'in' | 'onExited'>) => {
@@ -124,7 +129,7 @@ const PageFrame = ({
     navigationType === 'POP'
       ? undefined
       : (state as TravelState | null)?.travel;
-  const nextPath = pageKey(pathname, depth);
+  const nextPath = keyOf(pathname);
 
   const animate = (
     keyframes: Array<Keyframe>,
