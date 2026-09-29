@@ -2,7 +2,6 @@ import {
   type PointerEvent,
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from 'react';
 
@@ -23,6 +22,7 @@ import {
   COLLAPSE_SECONDS,
   EXPLODE_SECONDS,
   INTRO_EXPLODE_SECONDS,
+  LAYER_START,
   MAP_SWAP_IN_SECONDS,
   MAP_SWAP_OUT_SECONDS,
   STAGE_RANGE,
@@ -59,7 +59,6 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
   const hovered = useMotionValue(0);
   const explode = useMotionValue(0);
   const mapSwap = useMotionValue(0);
-  const explodedRef = useRef(false);
   const stage = useTransform(explode, STAGE_RANGE, [0, 1], {
     ease: timelineEase,
   });
@@ -119,14 +118,16 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
     hovered.set(0);
   };
 
-  const swapInMap = useCallback(() => {
-    if (!explodedRef.current) return;
-
-    animate(mapSwap, 1, {
-      duration: reducedMotion ? 0 : MAP_SWAP_IN_SECONDS,
-      ease: 'easeInOut',
-    });
-  }, [mapSwap, reducedMotion]);
+  const swapInMap = useCallback(
+    (explodeSeconds: number) => {
+      animate(mapSwap, 1, {
+        delay: explodeSeconds * LAYER_START,
+        duration: reducedMotion ? 0 : MAP_SWAP_IN_SECONDS,
+        ease: 'easeInOut',
+      });
+    },
+    [mapSwap, reducedMotion],
+  );
 
   useEffect(() => {
     if (reducedMotion || touched) return;
@@ -134,11 +135,11 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
     const timer = setTimeout(() => {
       setTouched(true);
       setExploded(true);
-      explodedRef.current = true;
       animate(explode, 1, {
         duration: INTRO_EXPLODE_SECONDS,
         ease: 'linear',
-      }).then(swapInMap);
+      });
+      swapInMap(INTRO_EXPLODE_SECONDS);
     }, INTRO_DELAY_MS);
 
     return () => clearTimeout(timer);
@@ -149,20 +150,18 @@ export const HeroTownMap = ({ region, focus }: HeroTownMapProps) => {
 
     setTouched(true);
     setExploded(next);
-    explodedRef.current = next;
 
-    if (!next)
+    if (next) swapInMap(reducedMotion ? 0 : EXPLODE_SECONDS);
+    else
       animate(mapSwap, 0, {
         duration: reducedMotion ? 0 : MAP_SWAP_OUT_SECONDS,
         ease: 'easeOut',
       });
 
-    const explosion = animate(explode, next ? 1 : 0, {
+    animate(explode, next ? 1 : 0, {
       duration: reducedMotion ? 0 : next ? EXPLODE_SECONDS : COLLAPSE_SECONDS,
       ease: 'linear',
     });
-
-    if (next) explosion.then(swapInMap);
   };
 
   return (

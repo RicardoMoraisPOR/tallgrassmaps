@@ -13,7 +13,7 @@ export const timelineEase = cubicBezier(...easeOutSoft);
 export const STAGE_RANGE: [number, number] = [0, 0.45];
 export const SLAB_RANGE: [number, number] = [0.45, 1];
 
-const LAYER_START = 0.45;
+export const LAYER_START = 0.45;
 const LAYER_STAGGER = 0.08;
 const LAYER_LENGTH = 0.3;
 
