@@ -7,6 +7,7 @@ import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
 import { chanceLabel, levelLabel, methodLabel } from '../Pokedex/format';
+import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import {
   type EncounterGroup,
@@ -83,7 +84,12 @@ export const EncounterList = ({
   const spriteFor = usePokemonSprite(game);
 
   return (
-    <ul className="flex flex-col">
+    <ul
+      className={cn(
+        'flex flex-col',
+        options.compact && 'divide-y divide-border/60',
+      )}
+    >
       {rows.map((row) => (
         <EncounterRow
           key={row.entry.number}
@@ -121,12 +127,24 @@ const EncounterRow = ({
           onBlur: () => onHighlight(undefined),
         }
       : {};
-
+  const pokemonName = linked ? (
+    <PokedexEntryLink
+      number={entry.number}
+      className={nameClassName}
+      {...highlightHandlers}
+    >
+      {entry.name}
+    </PokedexEntryLink>
+  ) : (
+    <span className={nameClassName} {...highlightHandlers}>
+      {entry.name}
+    </span>
+  );
   return (
     <li
       className={cn(
         'flex items-center',
-        compact ? 'gap-2 py-0.5' : 'gap-3 py-1.5',
+        compact ? 'gap-2 pt-1 pb-2' : 'gap-3 py-1.5',
       )}
     >
       <img
@@ -141,28 +159,14 @@ const EncounterRow = ({
           sprite.pixelated && 'pixelated',
         )}
       />
-      <div
-        className={cn(
-          'flex min-w-0 flex-1',
-          compact ? 'items-baseline gap-2' : 'flex-col',
-        )}
-      >
-        {linked ? (
-          <PokedexEntryLink
-            number={entry.number}
-            className={nameClassName}
-            {...highlightHandlers}
-          >
-            {entry.name}
-          </PokedexEntryLink>
-        ) : (
-          <span className={nameClassName} {...highlightHandlers}>
-            {entry.name}
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
+        <div className="flex min-w-0 items-center gap-2">
+          {pokemonName}
+          <span className="shrink-0 text-xs text-muted-foreground">
+            {levelLabel(encounter)}
           </span>
-        )}
-        <span className="text-xs text-muted-foreground">
-          {levelLabel(encounter)}
-        </span>
+        </div>
+        <PokemonTypeTags types={entry.types} compact={compact} />
       </div>
       {chance && (
         <span

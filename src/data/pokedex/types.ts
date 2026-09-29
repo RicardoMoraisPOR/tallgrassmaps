@@ -34,6 +34,7 @@ export type Evolution = {
 };
 
 export type PokedexEntry = {
+  id: number;
   number: number;
   name: string;
   types: Array<string>;

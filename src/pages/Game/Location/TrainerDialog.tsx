@@ -13,6 +13,7 @@ import type { TrainerPokemon } from '@/data/trainers/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
+import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
 import { PokedexEntryLink } from './PokedexEntryLink';
 import type { ListedBattle } from './trainerList';
 
@@ -29,6 +30,7 @@ type TrainerDialogProps = {
 type PokemonProps = {
   pokemon: TrainerPokemon;
   name: string;
+  types: Array<string>;
   sprite: PokemonSprite;
   onOpenPokedex: () => void;
 };
@@ -43,8 +45,11 @@ export const TrainerDialog = ({
   const spriteFor = usePokemonSprite(game);
   const gameTheme = useThemeStyle('trainers') === 'game';
 
+  const pokedexByNumber = new Map(
+    pokedex.map((entry) => [entry.number, entry]),
+  );
   const nameOf = (number: number) =>
-    pokedex.find((entry) => entry.number === number)?.name ?? `#${number}`;
+    pokedexByNumber.get(number)?.name ?? `#${number}`;
   const Pokemon = gameTheme ? GamePokemon : TallGrassPokemon;
   const area = listed?.battle.floor ? undefined : listed?.battle.area;
 
@@ -96,6 +101,7 @@ export const TrainerDialog = ({
                       key={index}
                       pokemon={pokemon}
                       name={nameOf(pokemon.number)}
+                      types={pokedexByNumber.get(pokemon.number)?.types ?? []}
                       sprite={spriteFor(pokemon.number)}
                       onOpenPokedex={onClose}
                     />
@@ -113,6 +119,7 @@ export const TrainerDialog = ({
 const TallGrassPokemon = ({
   pokemon,
   name,
+  types,
   sprite,
   onOpenPokedex,
 }: PokemonProps) => {
@@ -130,13 +137,16 @@ const TallGrassPokemon = ({
             sprite.pixelated && 'pixelated',
           )}
         />
-        <PokedexEntryLink
-          number={pokemon.number}
-          onClick={onOpenPokedex}
-          className="min-w-0 flex-1 truncate text-sm font-medium"
-        >
-          {name}
-        </PokedexEntryLink>
+        <div className="flex min-w-0 flex-1 flex-col items-start gap-1">
+          <PokedexEntryLink
+            number={pokemon.number}
+            onClick={onOpenPokedex}
+            className="max-w-full truncate text-sm font-medium"
+          >
+            {name}
+          </PokedexEntryLink>
+          <PokemonTypeTags types={types} />
+        </div>
         <span className="text-[13px] text-muted-foreground tabular-nums">
           Lv. {pokemon.level}
         </span>
@@ -158,6 +168,7 @@ const TallGrassPokemon = ({
 const GamePokemon = ({
   pokemon,
   name,
+  types,
   sprite,
   onOpenPokedex,
 }: PokemonProps) => {
@@ -174,15 +185,18 @@ const GamePokemon = ({
           loading="lazy"
           className="size-10 flex-none object-contain"
         />
-        <div className="gb-status flex min-w-0 flex-1 items-end justify-between gap-2 pr-2 pb-2 text-[10px] leading-none">
-          <PokedexEntryLink
-            number={pokemon.number}
-            onClick={onOpenPokedex}
-            className="truncate"
-          >
-            {name}
-          </PokedexEntryLink>
-          <span className="flex-none">:L{pokemon.level}</span>
+        <div className="gb-status flex min-w-0 flex-1 flex-col gap-1 pr-2 pb-2 text-[10px] leading-none">
+          <div className="flex min-w-0 items-end justify-between gap-2">
+            <PokedexEntryLink
+              number={pokemon.number}
+              onClick={onOpenPokedex}
+              className="truncate"
+            >
+              {name}
+            </PokedexEntryLink>
+            <span className="flex-none">:L{pokemon.level}</span>
+          </div>
+          <PokemonTypeTags types={types} />
         </div>
       </div>
       <ul

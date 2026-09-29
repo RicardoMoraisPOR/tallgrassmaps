@@ -11,15 +11,15 @@ import type { PokedexEntry } from '@/data/pokedex/types';
 import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn, formatList } from '@/lib/utils';
 
-import { ColorDot } from '../../ColorDot';
+import { ColorDot } from '../ColorDot';
+import { PokemonTypeTags } from './PokemonTypeTags';
 import {
   bulbapediaUrl,
-  dexNumber,
   evolutionLabel,
   levelLabel,
   methodLabel,
-} from '../format';
-import { PlacesMap } from '../PlacesMap';
+} from './format';
+import { PlacesMap } from './PlacesMap';
 
 type PokedexRowProps = {
   entry: PokedexEntry;
@@ -57,7 +57,7 @@ export const PokedexRow = ({
       data-expanded={expanded || undefined}
       className="group/row scroll-mt-36 rounded-[12px] border bg-card pokedex-game:rounded-none pokedex-game:border-0 pokedex-game:border-b-2 pokedex-game:border-dashed pokedex-game:bg-transparent"
     >
-      <div className="relative flex items-center gap-3 p-2 pokedex-game:grid pokedex-game:grid-cols-[auto_auto_1fr_auto] pokedex-game:grid-rows-[auto_auto] pokedex-game:gap-x-2 pokedex-game:gap-y-1 pokedex-game:overflow-y-clip pokedex-game:py-3">
+      <div className="relative flex items-center gap-3 p-2.5 pokedex-game:grid pokedex-game:grid-cols-[auto_auto_auto_1fr_auto] pokedex-game:grid-rows-[auto_auto] pokedex-game:gap-x-2 pokedex-game:gap-y-1 pokedex-game:overflow-y-clip pokedex-game:px-2 pokedex-game:py-3">
         <span
           aria-hidden
           className="hidden text-[16px] leading-none opacity-0 pokedex-game:row-span-2 pokedex-game:block pokedex-game:group-hover/row:opacity-100 pokedex-game:group-has-[:focus-visible]/row:opacity-100"
@@ -66,7 +66,7 @@ export const PokedexRow = ({
         </span>
         <span className="w-10 flex-none font-mono text-xs text-muted-foreground tabular-nums pokedex-game:col-start-3 pokedex-game:row-start-1 pokedex-game:w-auto pokedex-game:text-[10px] pokedex-game:text-foreground">
           <span className="pokedex-game:hidden">#</span>
-          {dexNumber(entry.number).slice(1)}
+          {String(entry.id).padStart(3, '0')}
         </span>
         <span className="flex size-12 flex-none items-center justify-center rounded-lg bg-muted pokedex-game:col-start-2 pokedex-game:row-span-2 pokedex-game:row-start-1 pokedex-game:bg-transparent">
           <img
@@ -81,21 +81,26 @@ export const PokedexRow = ({
             )}
           />
         </span>
-        <span
-          className={cn(
-            'min-w-0 flex-1 truncate font-medium pokedex-game:col-start-3 pokedex-game:row-start-2 pokedex-game:pl-6 pokedex-game:text-[10px]',
-            !inGame && 'text-muted-foreground',
-          )}
-        >
-          {entry.name}
-        </span>
+        <div className="flex min-w-0 flex-1 flex-col gap-1 pokedex-game:contents">
+          <span
+            className={cn(
+              'min-w-0 truncate font-medium pokedex-game:col-start-4 pokedex-game:row-start-1 pokedex-game:text-[10px]',
+              !inGame && 'text-muted-foreground',
+            )}
+          >
+            {entry.name}
+          </span>
+          <span className="pokedex-game:col-start-3 pokedex-game:col-span-2 pokedex-game:row-start-2">
+            <PokemonTypeTags types={entry.types} />
+          </span>
+        </div>
         <Button
           variant="ghost"
           size="sm"
           aria-expanded={expanded}
           aria-controls={panelId}
           onClick={() => setExpanded((current) => !current)}
-          className="group flex-none pokedex-game:relative pokedex-game:col-start-4 pokedex-game:row-span-2 pokedex-game:row-start-1 pokedex-game:gap-2 pokedex-game:px-2 pokedex-game:text-[10px]"
+          className="group flex-none pokedex-game:relative pokedex-game:col-start-5 pokedex-game:row-span-2 pokedex-game:row-start-1 pokedex-game:gap-2 pokedex-game:px-2 pokedex-game:text-[10px]"
         >
           <span
             aria-hidden
@@ -144,7 +149,8 @@ export const PokedexRow = ({
 };
 
 const GameTags = ({ entry, game }: { entry: PokedexEntry; game: Game }) => {
-  const appearsIn = gamesSharingMap(game).filter((other) =>
+  const games = gamesSharingMap(game);
+  const appearsIn = games.filter((other) =>
     entry.games.includes(other.id),
   );
 
@@ -156,9 +162,11 @@ const GameTags = ({ entry, game }: { entry: PokedexEntry; game: Game }) => {
     );
   }
 
+  if (games.length < 2) return null;
+
   return (
     <div className="flex flex-col gap-2">
-      <ul aria-label="Appears in" className="flex flex-wrap gap-1.5">
+      <ul aria-label="Available in" className="flex flex-wrap gap-1.5">
         {appearsIn.map((other) => (
           <li
             key={other.id}
@@ -179,7 +187,15 @@ const GameTags = ({ entry, game }: { entry: PokedexEntry; game: Game }) => {
   );
 };
 
-const Places = ({ entry, game, region, href, nameOf }: PokedexRowProps) => {
+const Places = ({
+  entry,
+  game,
+  region,
+  href,
+  nameOf,
+}: Omit<PokedexRowProps, 'entry'> & {
+  entry: PokedexEntry;
+}) => {
   const encounters = entry.encounters.filter((encounter) =>
     encounter.games.includes(game.id),
   );
@@ -189,6 +205,7 @@ const Places = ({ entry, game, region, href, nameOf }: PokedexRowProps) => {
   const shortName = game.shortName;
 
   if (!entry.games.includes(game.id)) return null;
+  if (encounters.length === 0 && !entry.evolvesFrom) return null;
 
   return (
     <div className="flex flex-col gap-3">

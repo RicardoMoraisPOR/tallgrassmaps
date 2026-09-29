@@ -26,6 +26,14 @@ export const pokedexViews: Partial<Record<string, PokedexView>> = {
       })),
     ),
   },
+  ZA: {
+    presentation: 'drawer',
+    Content: lazy(() =>
+      import('./za/ZaPokedex').then((module) => ({
+        default: module.ZaPokedex,
+      })),
+    ),
+  },
 };
 
 export const hasPokedex = (region: Region) =>

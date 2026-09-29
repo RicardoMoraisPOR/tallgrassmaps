@@ -1,0 +1,2910 @@
+[
+  {
+    "id": 1,
+    "number": 152,
+    "name": "Chikorita",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 2,
+    "number": 153,
+    "name": "Bayleef",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 3,
+    "number": 154,
+    "name": "Meganium",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 4,
+    "number": 498,
+    "name": "Tepig",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 5,
+    "number": 499,
+    "name": "Pignite",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 6,
+    "number": 500,
+    "name": "Emboar",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 7,
+    "number": 158,
+    "name": "Totodile",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 8,
+    "number": 159,
+    "name": "Croconaw",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 9,
+    "number": 160,
+    "name": "Feraligatr",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 10,
+    "number": 661,
+    "name": "Fletchling",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 11,
+    "number": 662,
+    "name": "Fletchinder",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 12,
+    "number": 663,
+    "name": "Talonflame",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 13,
+    "number": 659,
+    "name": "Bunnelby",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 14,
+    "number": 660,
+    "name": "Diggersby",
+    "types": [
+      "normal",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 15,
+    "number": 664,
+    "name": "Scatterbug",
+    "types": [
+      "bug"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 16,
+    "number": 665,
+    "name": "Spewpa",
+    "types": [
+      "bug"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 17,
+    "number": 666,
+    "name": "Vivillon",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 18,
+    "number": 13,
+    "name": "Weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 19,
+    "number": 14,
+    "name": "Kakuna",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 20,
+    "number": 15,
+    "name": "Beedrill",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 21,
+    "number": 16,
+    "name": "Pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 22,
+    "number": 17,
+    "name": "Pidgeotto",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 23,
+    "number": 18,
+    "name": "Pidgeot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 24,
+    "number": 179,
+    "name": "Mareep",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 25,
+    "number": 180,
+    "name": "Flaaffy",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 26,
+    "number": 181,
+    "name": "Ampharos",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 27,
+    "number": 504,
+    "name": "Patrat",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 28,
+    "number": 505,
+    "name": "Watchog",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 29,
+    "number": 406,
+    "name": "Budew",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 30,
+    "number": 315,
+    "name": "Roselia",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 31,
+    "number": 407,
+    "name": "Roserade",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 32,
+    "number": 129,
+    "name": "Magikarp",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 33,
+    "number": 130,
+    "name": "Gyarados",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 34,
+    "number": 688,
+    "name": "Binacle",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 35,
+    "number": 689,
+    "name": "Barbaracle",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 36,
+    "number": 120,
+    "name": "Staryu",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 37,
+    "number": 121,
+    "name": "Starmie",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 38,
+    "number": 669,
+    "name": "Flabébé",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 39,
+    "number": 670,
+    "name": "Floette",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 40,
+    "number": 671,
+    "name": "Florges",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 41,
+    "number": 672,
+    "name": "Skiddo",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 42,
+    "number": 673,
+    "name": "Gogoat",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 43,
+    "number": 677,
+    "name": "Espurr",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 44,
+    "number": 678,
+    "name": "Meowstic",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 45,
+    "number": 667,
+    "name": "Litleo",
+    "types": [
+      "fire",
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 46,
+    "number": 668,
+    "name": "Pyroar",
+    "types": [
+      "fire",
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 47,
+    "number": 674,
+    "name": "Pancham",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 48,
+    "number": 675,
+    "name": "Pangoro",
+    "types": [
+      "fighting",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 49,
+    "number": 568,
+    "name": "Trubbish",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 50,
+    "number": 569,
+    "name": "Garbodor",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 51,
+    "number": 702,
+    "name": "Dedenne",
+    "types": [
+      "electric",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 52,
+    "number": 172,
+    "name": "Pichu",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 53,
+    "number": 25,
+    "name": "Pikachu",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 54,
+    "number": 26,
+    "name": "Raichu",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 55,
+    "number": 173,
+    "name": "Cleffa",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 56,
+    "number": 35,
+    "name": "Clefairy",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 57,
+    "number": 36,
+    "name": "Clefable",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 58,
+    "number": 167,
+    "name": "Spinarak",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 59,
+    "number": 168,
+    "name": "Ariados",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 60,
+    "number": 23,
+    "name": "Ekans",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 61,
+    "number": 24,
+    "name": "Arbok",
+    "types": [
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 62,
+    "number": 63,
+    "name": "Abra",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 63,
+    "number": 64,
+    "name": "Kadabra",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 64,
+    "number": 65,
+    "name": "Alakazam",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 65,
+    "number": 92,
+    "name": "Gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 66,
+    "number": 93,
+    "name": "Haunter",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 67,
+    "number": 94,
+    "name": "Gengar",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 68,
+    "number": 543,
+    "name": "Venipede",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 69,
+    "number": 544,
+    "name": "Whirlipede",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 70,
+    "number": 545,
+    "name": "Scolipede",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 71,
+    "number": 679,
+    "name": "Honedge",
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 72,
+    "number": 680,
+    "name": "Doublade",
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 73,
+    "number": 681,
+    "name": "Aegislash",
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 74,
+    "number": 69,
+    "name": "Bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 75,
+    "number": 70,
+    "name": "Weepinbell",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 76,
+    "number": 71,
+    "name": "Victreebel",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 77,
+    "number": 511,
+    "name": "Pansage",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 78,
+    "number": 512,
+    "name": "Simisage",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 79,
+    "number": 513,
+    "name": "Pansear",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 80,
+    "number": 514,
+    "name": "Simisear",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 81,
+    "number": 515,
+    "name": "Panpour",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 82,
+    "number": 516,
+    "name": "Simipour",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 83,
+    "number": 307,
+    "name": "Meditite",
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 84,
+    "number": 308,
+    "name": "Medicham",
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 85,
+    "number": 309,
+    "name": "Electrike",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 86,
+    "number": 310,
+    "name": "Manectric",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 87,
+    "number": 280,
+    "name": "Ralts",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 88,
+    "number": 281,
+    "name": "Kirlia",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 89,
+    "number": 282,
+    "name": "Gardevoir",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 90,
+    "number": 475,
+    "name": "Gallade",
+    "types": [
+      "psychic",
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 91,
+    "number": 228,
+    "name": "Houndour",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 92,
+    "number": 229,
+    "name": "Houndoom",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 93,
+    "number": 333,
+    "name": "Swablu",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 94,
+    "number": 334,
+    "name": "Altaria",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 95,
+    "number": 531,
+    "name": "Audino",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 96,
+    "number": 682,
+    "name": "Spritzee",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 97,
+    "number": 683,
+    "name": "Aromatisse",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 98,
+    "number": 684,
+    "name": "Swirlix",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 99,
+    "number": 685,
+    "name": "Slurpuff",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 100,
+    "number": 133,
+    "name": "Eevee",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 101,
+    "number": 134,
+    "name": "Vaporeon",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 102,
+    "number": 135,
+    "name": "Jolteon",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 103,
+    "number": 136,
+    "name": "Flareon",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 104,
+    "number": 196,
+    "name": "Espeon",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 105,
+    "number": 197,
+    "name": "Umbreon",
+    "types": [
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 106,
+    "number": 470,
+    "name": "Leafeon",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 107,
+    "number": 471,
+    "name": "Glaceon",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 108,
+    "number": 700,
+    "name": "Sylveon",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 109,
+    "number": 427,
+    "name": "Buneary",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 110,
+    "number": 428,
+    "name": "Lopunny",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 111,
+    "number": 353,
+    "name": "Shuppet",
+    "types": [
+      "ghost"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 112,
+    "number": 354,
+    "name": "Banette",
+    "types": [
+      "ghost"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 113,
+    "number": 582,
+    "name": "Vanillite",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 114,
+    "number": 583,
+    "name": "Vanillish",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 115,
+    "number": 584,
+    "name": "Vanilluxe",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 116,
+    "number": 322,
+    "name": "Numel",
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 117,
+    "number": 323,
+    "name": "Camerupt",
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 118,
+    "number": 449,
+    "name": "Hippopotas",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 119,
+    "number": 450,
+    "name": "Hippowdon",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 120,
+    "number": 529,
+    "name": "Drilbur",
+    "types": [
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 121,
+    "number": 530,
+    "name": "Excadrill",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 122,
+    "number": 551,
+    "name": "Sandile",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 123,
+    "number": 552,
+    "name": "Krokorok",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 124,
+    "number": 553,
+    "name": "Krookodile",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 125,
+    "number": 66,
+    "name": "Machop",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 126,
+    "number": 67,
+    "name": "Machoke",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 127,
+    "number": 68,
+    "name": "Machamp",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 128,
+    "number": 443,
+    "name": "Gible",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 129,
+    "number": 444,
+    "name": "Gabite",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 130,
+    "number": 445,
+    "name": "Garchomp",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 131,
+    "number": 703,
+    "name": "Carbink",
+    "types": [
+      "rock",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 132,
+    "number": 302,
+    "name": "Sableye",
+    "types": [
+      "dark",
+      "ghost"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 133,
+    "number": 303,
+    "name": "Mawile",
+    "types": [
+      "steel",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 134,
+    "number": 359,
+    "name": "Absol",
+    "types": [
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 135,
+    "number": 447,
+    "name": "Riolu",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 136,
+    "number": 448,
+    "name": "Lucario",
+    "types": [
+      "fighting",
+      "steel"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 137,
+    "number": 79,
+    "name": "Slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 138,
+    "number": 80,
+    "name": "Slowbro",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 139,
+    "number": 199,
+    "name": "Slowking",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 140,
+    "number": 318,
+    "name": "Carvanha",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 141,
+    "number": 319,
+    "name": "Sharpedo",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 142,
+    "number": 602,
+    "name": "Tynamo",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 143,
+    "number": 603,
+    "name": "Eelektrik",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 144,
+    "number": 604,
+    "name": "Eelektross",
+    "types": [
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 145,
+    "number": 147,
+    "name": "Dratini",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 146,
+    "number": 148,
+    "name": "Dragonair",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 147,
+    "number": 149,
+    "name": "Dragonite",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 148,
+    "number": 1,
+    "name": "Bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 149,
+    "number": 2,
+    "name": "Ivysaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 150,
+    "number": 3,
+    "name": "Venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 151,
+    "number": 4,
+    "name": "Charmander",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 152,
+    "number": 5,
+    "name": "Charmeleon",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 153,
+    "number": 6,
+    "name": "Charizard",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 154,
+    "number": 7,
+    "name": "Squirtle",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 155,
+    "number": 8,
+    "name": "Wartortle",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 156,
+    "number": 9,
+    "name": "Blastoise",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 157,
+    "number": 618,
+    "name": "Stunfisk",
+    "types": [
+      "ground",
+      "electric"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 158,
+    "number": 676,
+    "name": "Furfrou",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 159,
+    "number": 686,
+    "name": "Inkay",
+    "types": [
+      "dark",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 160,
+    "number": 687,
+    "name": "Malamar",
+    "types": [
+      "dark",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 161,
+    "number": 690,
+    "name": "Skrelp",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 162,
+    "number": 691,
+    "name": "Dragalge",
+    "types": [
+      "poison",
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 163,
+    "number": 692,
+    "name": "Clauncher",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 164,
+    "number": 693,
+    "name": "Clawitzer",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 165,
+    "number": 704,
+    "name": "Goomy",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 166,
+    "number": 705,
+    "name": "Sliggoo",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 167,
+    "number": 706,
+    "name": "Goodra",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 168,
+    "number": 225,
+    "name": "Delibird",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 169,
+    "number": 361,
+    "name": "Snorunt",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 170,
+    "number": 362,
+    "name": "Glalie",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 171,
+    "number": 478,
+    "name": "Froslass",
+    "types": [
+      "ice",
+      "ghost"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 172,
+    "number": 459,
+    "name": "Snover",
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 173,
+    "number": 460,
+    "name": "Abomasnow",
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 174,
+    "number": 712,
+    "name": "Bergmite",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 175,
+    "number": 713,
+    "name": "Avalugg",
+    "types": [
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 176,
+    "number": 123,
+    "name": "Scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 177,
+    "number": 212,
+    "name": "Scizor",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 178,
+    "number": 127,
+    "name": "Pinsir",
+    "types": [
+      "bug"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 179,
+    "number": 214,
+    "name": "Heracross",
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 180,
+    "number": 587,
+    "name": "Emolga",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 181,
+    "number": 701,
+    "name": "Hawlucha",
+    "types": [
+      "fighting",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 182,
+    "number": 708,
+    "name": "Phantump",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 183,
+    "number": 709,
+    "name": "Trevenant",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 184,
+    "number": 559,
+    "name": "Scraggy",
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 185,
+    "number": 560,
+    "name": "Scrafty",
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 186,
+    "number": 714,
+    "name": "Noibat",
+    "types": [
+      "flying",
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 187,
+    "number": 715,
+    "name": "Noivern",
+    "types": [
+      "flying",
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 188,
+    "number": 707,
+    "name": "Klefki",
+    "types": [
+      "steel",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 189,
+    "number": 607,
+    "name": "Litwick",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 190,
+    "number": 608,
+    "name": "Lampent",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 191,
+    "number": 609,
+    "name": "Chandelure",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 192,
+    "number": 142,
+    "name": "Aerodactyl",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 193,
+    "number": 696,
+    "name": "Tyrunt",
+    "types": [
+      "rock",
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 194,
+    "number": 697,
+    "name": "Tyrantrum",
+    "types": [
+      "rock",
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 195,
+    "number": 698,
+    "name": "Amaura",
+    "types": [
+      "rock",
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 196,
+    "number": 699,
+    "name": "Aurorus",
+    "types": [
+      "rock",
+      "ice"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 197,
+    "number": 95,
+    "name": "Onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 198,
+    "number": 208,
+    "name": "Steelix",
+    "types": [
+      "steel",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 199,
+    "number": 304,
+    "name": "Aron",
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 200,
+    "number": 305,
+    "name": "Lairon",
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 201,
+    "number": 306,
+    "name": "Aggron",
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 202,
+    "number": 694,
+    "name": "Helioptile",
+    "types": [
+      "electric",
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 203,
+    "number": 695,
+    "name": "Heliolisk",
+    "types": [
+      "electric",
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 204,
+    "number": 710,
+    "name": "Pumpkaboo",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 205,
+    "number": 711,
+    "name": "Gourgeist",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 206,
+    "number": 246,
+    "name": "Larvitar",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 207,
+    "number": 247,
+    "name": "Pupitar",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 208,
+    "number": 248,
+    "name": "Tyranitar",
+    "types": [
+      "rock",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 209,
+    "number": 656,
+    "name": "Froakie",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 210,
+    "number": 657,
+    "name": "Frogadier",
+    "types": [
+      "water"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 211,
+    "number": 658,
+    "name": "Greninja",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 212,
+    "number": 870,
+    "name": "Falinks",
+    "types": [
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 213,
+    "number": 650,
+    "name": "Chespin",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 214,
+    "number": 651,
+    "name": "Quilladin",
+    "types": [
+      "grass"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 215,
+    "number": 652,
+    "name": "Chesnaught",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 216,
+    "number": 227,
+    "name": "Skarmory",
+    "types": [
+      "steel",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 217,
+    "number": 653,
+    "name": "Fennekin",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 218,
+    "number": 654,
+    "name": "Braixen",
+    "types": [
+      "fire"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 219,
+    "number": 655,
+    "name": "Delphox",
+    "types": [
+      "fire",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 220,
+    "number": 371,
+    "name": "Bagon",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 221,
+    "number": 372,
+    "name": "Shelgon",
+    "types": [
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 222,
+    "number": 373,
+    "name": "Salamence",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 223,
+    "number": 115,
+    "name": "Kangaskhan",
+    "types": [
+      "normal"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 224,
+    "number": 780,
+    "name": "Drampa",
+    "types": [
+      "normal",
+      "dragon"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 225,
+    "number": 374,
+    "name": "Beldum",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 226,
+    "number": 375,
+    "name": "Metang",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 227,
+    "number": 376,
+    "name": "Metagross",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 228,
+    "number": 716,
+    "name": "Xerneas",
+    "types": [
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 229,
+    "number": 717,
+    "name": "Yveltal",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 230,
+    "number": 718,
+    "name": "Zygarde",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 231,
+    "number": 719,
+    "name": "Diancie",
+    "types": [
+      "rock",
+      "fairy"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  },
+  {
+    "id": 232,
+    "number": 150,
+    "name": "Mewtwo",
+    "types": [
+      "psychic"
+    ],
+    "games": [
+      "legends-za"
+    ],
+    "encounters": []
+  }
+]

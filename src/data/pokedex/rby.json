@@ -1,6 +1,7 @@
 [
   {
     "number": 1,
+    "id": 1,
     "name": "Bulbasaur",
     "types": ["grass", "poison"],
     "games": ["red", "blue", "yellow"],
@@ -21,11 +22,13 @@
   },
   {
     "number": 2,
+    "id": 2,
     "name": "Ivysaur",
     "types": ["grass", "poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 1,
+      "id": 1,
       "method": "level",
       "level": 16
     },
@@ -33,11 +36,13 @@
   },
   {
     "number": 3,
+    "id": 3,
     "name": "Venusaur",
     "types": ["grass", "poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 2,
+      "id": 2,
       "method": "level",
       "level": 32
     },
@@ -45,6 +50,7 @@
   },
   {
     "number": 4,
+    "id": 4,
     "name": "Charmander",
     "types": ["fire"],
     "games": ["red", "blue", "yellow"],
@@ -65,11 +71,13 @@
   },
   {
     "number": 5,
+    "id": 5,
     "name": "Charmeleon",
     "types": ["fire"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 4,
+      "id": 4,
       "method": "level",
       "level": 16
     },
@@ -77,11 +85,13 @@
   },
   {
     "number": 6,
+    "id": 6,
     "name": "Charizard",
     "types": ["fire", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 5,
+      "id": 5,
       "method": "level",
       "level": 36
     },
@@ -89,6 +99,7 @@
   },
   {
     "number": 7,
+    "id": 7,
     "name": "Squirtle",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -109,11 +120,13 @@
   },
   {
     "number": 8,
+    "id": 8,
     "name": "Wartortle",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 7,
+      "id": 7,
       "method": "level",
       "level": 16
     },
@@ -121,11 +134,13 @@
   },
   {
     "number": 9,
+    "id": 9,
     "name": "Blastoise",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 8,
+      "id": 8,
       "method": "level",
       "level": 36
     },
@@ -133,6 +148,7 @@
   },
   {
     "number": 10,
+    "id": 10,
     "name": "Caterpie",
     "types": ["bug"],
     "games": ["red", "blue", "yellow"],
@@ -190,11 +206,13 @@
   },
   {
     "number": 11,
+    "id": 11,
     "name": "Metapod",
     "types": ["bug"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 10,
+      "id": 10,
       "method": "level",
       "level": 7
     },
@@ -245,11 +263,13 @@
   },
   {
     "number": 12,
+    "id": 12,
     "name": "Butterfree",
     "types": ["bug", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 11,
+      "id": 11,
       "method": "level",
       "level": 10
     },
@@ -257,6 +277,7 @@
   },
   {
     "number": 13,
+    "id": 13,
     "name": "Weedle",
     "types": ["bug", "poison"],
     "games": ["red", "blue"],
@@ -307,11 +328,13 @@
   },
   {
     "number": 14,
+    "id": 14,
     "name": "Kakuna",
     "types": ["bug", "poison"],
     "games": ["red", "blue"],
     "evolvesFrom": {
       "number": 13,
+      "id": 13,
       "method": "level",
       "level": 7
     },
@@ -355,11 +378,13 @@
   },
   {
     "number": 15,
+    "id": 15,
     "name": "Beedrill",
     "types": ["bug", "poison"],
     "games": ["red", "blue"],
     "evolvesFrom": {
       "number": 14,
+      "id": 14,
       "method": "level",
       "level": 10
     },
@@ -367,6 +392,7 @@
   },
   {
     "number": 16,
+    "id": 16,
     "name": "Pidgey",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -564,11 +590,13 @@
   },
   {
     "number": 17,
+    "id": 17,
     "name": "Pidgeotto",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 16,
+      "id": 16,
       "method": "level",
       "level": 18
     },
@@ -689,11 +717,13 @@
   },
   {
     "number": 18,
+    "id": 18,
     "name": "Pidgeot",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 17,
+      "id": 17,
       "method": "level",
       "level": 36
     },
@@ -701,6 +731,7 @@
   },
   {
     "number": 19,
+    "id": 19,
     "name": "Rattata",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -887,11 +918,13 @@
   },
   {
     "number": 20,
+    "id": 20,
     "name": "Raticate",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 19,
+      "id": 19,
       "method": "level",
       "level": 20
     },
@@ -999,6 +1032,7 @@
   },
   {
     "number": 21,
+    "id": 21,
     "name": "Spearow",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -1119,11 +1153,13 @@
   },
   {
     "number": 22,
+    "id": 22,
     "name": "Fearow",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 21,
+      "id": 21,
       "method": "level",
       "level": 20
     },
@@ -1188,6 +1224,7 @@
   },
   {
     "number": 23,
+    "id": 23,
     "name": "Ekans",
     "types": ["poison"],
     "games": ["red"],
@@ -1238,11 +1275,13 @@
   },
   {
     "number": 24,
+    "id": 24,
     "name": "Arbok",
     "types": ["poison"],
     "games": ["red"],
     "evolvesFrom": {
       "number": 23,
+      "id": 23,
       "method": "level",
       "level": 22
     },
@@ -1277,6 +1316,7 @@
   },
   {
     "number": 25,
+    "id": 25,
     "name": "Pikachu",
     "types": ["electric"],
     "games": ["red", "blue", "yellow"],
@@ -1305,11 +1345,13 @@
   },
   {
     "number": 26,
+    "id": 26,
     "name": "Raichu",
     "types": ["electric"],
     "games": ["red", "blue"],
     "evolvesFrom": {
       "number": 25,
+      "id": 25,
       "method": "item",
       "item": "thunder stone"
     },
@@ -1344,6 +1386,7 @@
   },
   {
     "number": 27,
+    "id": 27,
     "name": "Sandshrew",
     "types": ["ground"],
     "games": ["blue", "yellow"],
@@ -1422,11 +1465,13 @@
   },
   {
     "number": 28,
+    "id": 28,
     "name": "Sandslash",
     "types": ["ground"],
     "games": ["blue", "yellow"],
     "evolvesFrom": {
       "number": 27,
+      "id": 27,
       "method": "level",
       "level": 22
     },
@@ -1480,6 +1525,7 @@
   },
   {
     "number": 29,
+    "id": 29,
     "name": "Nidoran♀",
     "types": ["poison"],
     "games": ["red", "blue", "yellow"],
@@ -1613,11 +1659,13 @@
   },
   {
     "number": 30,
+    "id": 30,
     "name": "Nidorina",
     "types": ["poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 29,
+      "id": 29,
       "method": "level",
       "level": 16
     },
@@ -1718,11 +1766,13 @@
   },
   {
     "number": 31,
+    "id": 31,
     "name": "Nidoqueen",
     "types": ["poison", "ground"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 30,
+      "id": 30,
       "method": "item",
       "item": "moon stone"
     },
@@ -1730,6 +1780,7 @@
   },
   {
     "number": 32,
+    "id": 32,
     "name": "Nidoran♂",
     "types": ["poison"],
     "games": ["red", "blue", "yellow"],
@@ -1857,11 +1908,13 @@
   },
   {
     "number": 33,
+    "id": 33,
     "name": "Nidorino",
     "types": ["poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 32,
+      "id": 32,
       "method": "level",
       "level": 16
     },
@@ -1956,11 +2009,13 @@
   },
   {
     "number": 34,
+    "id": 34,
     "name": "Nidoking",
     "types": ["poison", "ground"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 33,
+      "id": 33,
       "method": "item",
       "item": "moon stone"
     },
@@ -1968,6 +2023,7 @@
   },
   {
     "number": 35,
+    "id": 35,
     "name": "Clefairy",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -2029,11 +2085,13 @@
   },
   {
     "number": 36,
+    "id": 36,
     "name": "Clefable",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 35,
+      "id": 35,
       "method": "item",
       "item": "moon stone"
     },
@@ -2041,6 +2099,7 @@
   },
   {
     "number": 37,
+    "id": 37,
     "name": "Vulpix",
     "types": ["fire"],
     "games": ["blue", "yellow"],
@@ -2097,11 +2156,13 @@
   },
   {
     "number": 38,
+    "id": 38,
     "name": "Ninetales",
     "types": ["fire"],
     "games": ["blue", "yellow"],
     "evolvesFrom": {
       "number": 37,
+      "id": 37,
       "method": "item",
       "item": "fire stone"
     },
@@ -2109,6 +2170,7 @@
   },
   {
     "number": 39,
+    "id": 39,
     "name": "Jigglypuff",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -2152,11 +2214,13 @@
   },
   {
     "number": 40,
+    "id": 40,
     "name": "Wigglytuff",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 39,
+      "id": 39,
       "method": "item",
       "item": "moon stone"
     },
@@ -2184,6 +2248,7 @@
   },
   {
     "number": 41,
+    "id": 41,
     "name": "Zubat",
     "types": ["poison", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -2369,11 +2434,13 @@
   },
   {
     "number": 42,
+    "id": 42,
     "name": "Golbat",
     "types": ["poison", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 41,
+      "id": 41,
       "method": "level",
       "level": 22
     },
@@ -2521,6 +2588,7 @@
   },
   {
     "number": 43,
+    "id": 43,
     "name": "Oddish",
     "types": ["grass", "poison"],
     "games": ["red", "yellow"],
@@ -2634,11 +2702,13 @@
   },
   {
     "number": 44,
+    "id": 44,
     "name": "Gloom",
     "types": ["grass", "poison"],
     "games": ["red", "yellow"],
     "evolvesFrom": {
       "number": 43,
+      "id": 43,
       "method": "level",
       "level": 21
     },
@@ -2708,11 +2778,13 @@
   },
   {
     "number": 45,
+    "id": 45,
     "name": "Vileplume",
     "types": ["grass", "poison"],
     "games": ["red", "yellow"],
     "evolvesFrom": {
       "number": 44,
+      "id": 44,
       "method": "item",
       "item": "leaf stone"
     },
@@ -2720,6 +2792,7 @@
   },
   {
     "number": 46,
+    "id": 46,
     "name": "Paras",
     "types": ["bug", "grass"],
     "games": ["red", "blue", "yellow"],
@@ -2804,11 +2877,13 @@
   },
   {
     "number": 47,
+    "id": 47,
     "name": "Parasect",
     "types": ["bug", "grass"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 46,
+      "id": 46,
       "method": "level",
       "level": 24
     },
@@ -2889,6 +2964,7 @@
   },
   {
     "number": 48,
+    "id": 48,
     "name": "Venonat",
     "types": ["bug", "poison"],
     "games": ["red", "blue", "yellow"],
@@ -2972,11 +3048,13 @@
   },
   {
     "number": 49,
+    "id": 49,
     "name": "Venomoth",
     "types": ["bug", "poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 48,
+      "id": 48,
       "method": "level",
       "level": 31
     },
@@ -3065,6 +3143,7 @@
   },
   {
     "number": 50,
+    "id": 50,
     "name": "Diglett",
     "types": ["ground"],
     "games": ["red", "blue", "yellow"],
@@ -3080,11 +3159,13 @@
   },
   {
     "number": 51,
+    "id": 51,
     "name": "Dugtrio",
     "types": ["ground"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 50,
+      "id": 50,
       "method": "level",
       "level": 26
     },
@@ -3106,6 +3187,7 @@
   },
   {
     "number": 52,
+    "id": 52,
     "name": "Meowth",
     "types": ["normal"],
     "games": ["blue"],
@@ -3142,11 +3224,13 @@
   },
   {
     "number": 53,
+    "id": 53,
     "name": "Persian",
     "types": ["normal"],
     "games": ["blue"],
     "evolvesFrom": {
       "number": 52,
+      "id": 52,
       "method": "level",
       "level": 28
     },
@@ -3154,6 +3238,7 @@
   },
   {
     "number": 54,
+    "id": 54,
     "name": "Psyduck",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -3274,11 +3359,13 @@
   },
   {
     "number": 55,
+    "id": 55,
     "name": "Golduck",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 54,
+      "id": 54,
       "method": "level",
       "level": 33
     },
@@ -3327,6 +3414,7 @@
   },
   {
     "number": 56,
+    "id": 56,
     "name": "Mankey",
     "types": ["fighting"],
     "games": ["red", "yellow"],
@@ -3391,11 +3479,13 @@
   },
   {
     "number": 57,
+    "id": 57,
     "name": "Primeape",
     "types": ["fighting"],
     "games": ["red", "yellow"],
     "evolvesFrom": {
       "number": 56,
+      "id": 56,
       "method": "level",
       "level": 28
     },
@@ -3411,6 +3501,7 @@
   },
   {
     "number": 58,
+    "id": 58,
     "name": "Growlithe",
     "types": ["fire"],
     "games": ["red", "yellow"],
@@ -3476,11 +3567,13 @@
   },
   {
     "number": 59,
+    "id": 59,
     "name": "Arcanine",
     "types": ["fire"],
     "games": ["red", "yellow"],
     "evolvesFrom": {
       "number": 58,
+      "id": 58,
       "method": "item",
       "item": "fire stone"
     },
@@ -3488,6 +3581,7 @@
   },
   {
     "number": 60,
+    "id": 60,
     "name": "Poliwag",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -3545,11 +3639,13 @@
   },
   {
     "number": 61,
+    "id": 61,
     "name": "Poliwhirl",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 60,
+      "id": 60,
       "method": "level",
       "level": 25
     },
@@ -3586,11 +3682,13 @@
   },
   {
     "number": 62,
+    "id": 62,
     "name": "Poliwrath",
     "types": ["water", "fighting"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 61,
+      "id": 61,
       "method": "item",
       "item": "water stone"
     },
@@ -3598,6 +3696,7 @@
   },
   {
     "number": 63,
+    "id": 63,
     "name": "Abra",
     "types": ["psychic"],
     "games": ["red", "blue", "yellow"],
@@ -3653,11 +3752,13 @@
   },
   {
     "number": 64,
+    "id": 64,
     "name": "Kadabra",
     "types": ["psychic"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 63,
+      "id": 63,
       "method": "level",
       "level": 16
     },
@@ -3692,17 +3793,20 @@
   },
   {
     "number": 65,
+    "id": 65,
     "name": "Alakazam",
     "types": ["psychic"],
     "games": [],
     "evolvesFrom": {
       "number": 64,
+      "id": 64,
       "method": "trade"
     },
     "encounters": []
   },
   {
     "number": 66,
+    "id": 66,
     "name": "Machop",
     "types": ["fighting"],
     "games": ["red", "blue", "yellow"],
@@ -3780,11 +3884,13 @@
   },
   {
     "number": 67,
+    "id": 67,
     "name": "Machoke",
     "types": ["fighting"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 66,
+      "id": 66,
       "method": "level",
       "level": 28
     },
@@ -3842,11 +3948,13 @@
   },
   {
     "number": 68,
+    "id": 68,
     "name": "Machamp",
     "types": ["fighting"],
     "games": ["yellow"],
     "evolvesFrom": {
       "number": 67,
+      "id": 67,
       "method": "trade"
     },
     "encounters": [
@@ -3860,6 +3968,7 @@
   },
   {
     "number": 69,
+    "id": 69,
     "name": "Bellsprout",
     "types": ["grass", "poison"],
     "games": ["blue", "yellow"],
@@ -3973,11 +4082,13 @@
   },
   {
     "number": 70,
+    "id": 70,
     "name": "Weepinbell",
     "types": ["grass", "poison"],
     "games": ["blue", "yellow"],
     "evolvesFrom": {
       "number": 69,
+      "id": 69,
       "method": "level",
       "level": 21
     },
@@ -4047,11 +4158,13 @@
   },
   {
     "number": 71,
+    "id": 71,
     "name": "Victreebel",
     "types": ["grass", "poison"],
     "games": ["blue", "yellow"],
     "evolvesFrom": {
       "number": 70,
+      "id": 70,
       "method": "item",
       "item": "leaf stone"
     },
@@ -4059,6 +4172,7 @@
   },
   {
     "number": 72,
+    "id": 72,
     "name": "Tentacool",
     "types": ["water", "poison"],
     "games": ["red", "blue", "yellow"],
@@ -4219,11 +4333,13 @@
   },
   {
     "number": 73,
+    "id": 73,
     "name": "Tentacruel",
     "types": ["water", "poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 72,
+      "id": 72,
       "method": "level",
       "level": 30
     },
@@ -4253,6 +4369,7 @@
   },
   {
     "number": 74,
+    "id": 74,
     "name": "Geodude",
     "types": ["rock", "ground"],
     "games": ["red", "blue", "yellow"],
@@ -4395,11 +4512,13 @@
   },
   {
     "number": 75,
+    "id": 75,
     "name": "Graveler",
     "types": ["rock", "ground"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 74,
+      "id": 74,
       "method": "level",
       "level": 25
     },
@@ -4480,17 +4599,20 @@
   },
   {
     "number": 76,
+    "id": 76,
     "name": "Golem",
     "types": ["rock", "ground"],
     "games": [],
     "evolvesFrom": {
       "number": 75,
+      "id": 75,
       "method": "trade"
     },
     "encounters": []
   },
   {
     "number": 77,
+    "id": 77,
     "name": "Ponyta",
     "types": ["fire"],
     "games": ["red", "blue", "yellow"],
@@ -4564,11 +4686,13 @@
   },
   {
     "number": 78,
+    "id": 78,
     "name": "Rapidash",
     "types": ["fire"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 77,
+      "id": 77,
       "method": "level",
       "level": 40
     },
@@ -4576,6 +4700,7 @@
   },
   {
     "number": 79,
+    "id": 79,
     "name": "Slowpoke",
     "types": ["water", "psychic"],
     "games": ["red", "blue", "yellow"],
@@ -4713,11 +4838,13 @@
   },
   {
     "number": 80,
+    "id": 80,
     "name": "Slowbro",
     "types": ["water", "psychic"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 79,
+      "id": 79,
       "method": "level",
       "level": 37
     },
@@ -4818,6 +4945,7 @@
   },
   {
     "number": 81,
+    "id": 81,
     "name": "Magnemite",
     "types": ["electric"],
     "games": ["red", "blue", "yellow"],
@@ -4847,11 +4975,13 @@
   },
   {
     "number": 82,
+    "id": 82,
     "name": "Magneton",
     "types": ["electric"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 81,
+      "id": 81,
       "method": "level",
       "level": 30
     },
@@ -4888,6 +5018,7 @@
   },
   {
     "number": 83,
+    "id": 83,
     "name": "Farfetch'd",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -4916,6 +5047,7 @@
   },
   {
     "number": 84,
+    "id": 84,
     "name": "Doduo",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -4985,11 +5117,13 @@
   },
   {
     "number": 85,
+    "id": 85,
     "name": "Dodrio",
     "types": ["normal", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 84,
+      "id": 84,
       "method": "level",
       "level": 31
     },
@@ -5024,6 +5158,7 @@
   },
   {
     "number": 86,
+    "id": 86,
     "name": "Seel",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -5101,11 +5236,13 @@
   },
   {
     "number": 87,
+    "id": 87,
     "name": "Dewgong",
     "types": ["water", "ice"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 86,
+      "id": 86,
       "method": "level",
       "level": 34
     },
@@ -5158,6 +5295,7 @@
   },
   {
     "number": 88,
+    "id": 88,
     "name": "Grimer",
     "types": ["poison"],
     "games": ["red", "blue", "yellow"],
@@ -5260,11 +5398,13 @@
   },
   {
     "number": 89,
+    "id": 89,
     "name": "Muk",
     "types": ["poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 88,
+      "id": 88,
       "method": "level",
       "level": 38
     },
@@ -5368,6 +5508,7 @@
   },
   {
     "number": 90,
+    "id": 90,
     "name": "Shellder",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -5518,11 +5659,13 @@
   },
   {
     "number": 91,
+    "id": 91,
     "name": "Cloyster",
     "types": ["water", "ice"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 90,
+      "id": 90,
       "method": "item",
       "item": "water stone"
     },
@@ -5530,6 +5673,7 @@
   },
   {
     "number": 92,
+    "id": 92,
     "name": "Gastly",
     "types": ["ghost", "poison"],
     "games": ["red", "blue", "yellow"],
@@ -5606,11 +5750,13 @@
   },
   {
     "number": 93,
+    "id": 93,
     "name": "Haunter",
     "types": ["ghost", "poison"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 92,
+      "id": 92,
       "method": "level",
       "level": 25
     },
@@ -5687,17 +5833,20 @@
   },
   {
     "number": 94,
+    "id": 94,
     "name": "Gengar",
     "types": ["ghost", "poison"],
     "games": [],
     "evolvesFrom": {
       "number": 93,
+      "id": 93,
       "method": "trade"
     },
     "encounters": []
   },
   {
     "number": 95,
+    "id": 95,
     "name": "Onix",
     "types": ["rock", "ground"],
     "games": ["red", "blue", "yellow"],
@@ -5787,6 +5936,7 @@
   },
   {
     "number": 96,
+    "id": 96,
     "name": "Drowzee",
     "types": ["psychic"],
     "games": ["red", "blue", "yellow"],
@@ -5809,11 +5959,13 @@
   },
   {
     "number": 97,
+    "id": 97,
     "name": "Hypno",
     "types": ["psychic"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 96,
+      "id": 96,
       "method": "level",
       "level": 26
     },
@@ -5836,6 +5988,7 @@
   },
   {
     "number": 98,
+    "id": 98,
     "name": "Krabby",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -6058,11 +6211,13 @@
   },
   {
     "number": 99,
+    "id": 99,
     "name": "Kingler",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 98,
+      "id": 98,
       "method": "level",
       "level": 28
     },
@@ -6183,6 +6338,7 @@
   },
   {
     "number": 100,
+    "id": 100,
     "name": "Voltorb",
     "types": ["electric"],
     "games": ["red", "blue", "yellow"],
@@ -6218,11 +6374,13 @@
   },
   {
     "number": 101,
+    "id": 101,
     "name": "Electrode",
     "types": ["electric"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 100,
+      "id": 100,
       "method": "level",
       "level": 30
     },
@@ -6262,6 +6420,7 @@
   },
   {
     "number": 102,
+    "id": 102,
     "name": "Exeggcute",
     "types": ["grass", "psychic"],
     "games": ["red", "blue", "yellow"],
@@ -6328,11 +6487,13 @@
   },
   {
     "number": 103,
+    "id": 103,
     "name": "Exeggutor",
     "types": ["grass", "psychic"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 102,
+      "id": 102,
       "method": "item",
       "item": "leaf stone"
     },
@@ -6340,6 +6501,7 @@
   },
   {
     "number": 104,
+    "id": 104,
     "name": "Cubone",
     "types": ["ground"],
     "games": ["red", "blue", "yellow"],
@@ -6430,11 +6592,13 @@
   },
   {
     "number": 105,
+    "id": 105,
     "name": "Marowak",
     "types": ["ground"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 104,
+      "id": 104,
       "method": "level",
       "level": 28
     },
@@ -6500,6 +6664,7 @@
   },
   {
     "number": 106,
+    "id": 106,
     "name": "Hitmonlee",
     "types": ["fighting"],
     "games": ["red", "blue", "yellow"],
@@ -6514,6 +6679,7 @@
   },
   {
     "number": 107,
+    "id": 107,
     "name": "Hitmonchan",
     "types": ["fighting"],
     "games": ["red", "blue", "yellow"],
@@ -6528,6 +6694,7 @@
   },
   {
     "number": 108,
+    "id": 108,
     "name": "Lickitung",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -6556,6 +6723,7 @@
   },
   {
     "number": 109,
+    "id": 109,
     "name": "Koffing",
     "types": ["poison"],
     "games": ["red", "blue"],
@@ -6622,11 +6790,13 @@
   },
   {
     "number": 110,
+    "id": 110,
     "name": "Weezing",
     "types": ["poison"],
     "games": ["red", "blue"],
     "evolvesFrom": {
       "number": 109,
+      "id": 109,
       "method": "level",
       "level": 35
     },
@@ -6693,6 +6863,7 @@
   },
   {
     "number": 111,
+    "id": 111,
     "name": "Rhyhorn",
     "types": ["ground", "rock"],
     "games": ["red", "blue", "yellow"],
@@ -6758,11 +6929,13 @@
   },
   {
     "number": 112,
+    "id": 112,
     "name": "Rhydon",
     "types": ["ground", "rock"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 111,
+      "id": 111,
       "method": "level",
       "level": 42
     },
@@ -6815,6 +6988,7 @@
   },
   {
     "number": 113,
+    "id": 113,
     "name": "Chansey",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -6894,6 +7068,7 @@
   },
   {
     "number": 114,
+    "id": 114,
     "name": "Tangela",
     "types": ["grass"],
     "games": ["red", "blue", "yellow"],
@@ -6934,6 +7109,7 @@
   },
   {
     "number": 115,
+    "id": 115,
     "name": "Kangaskhan",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -6975,6 +7151,7 @@
   },
   {
     "number": 116,
+    "id": 116,
     "name": "Horsea",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -7099,11 +7276,13 @@
   },
   {
     "number": 117,
+    "id": 117,
     "name": "Seadra",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 116,
+      "id": 116,
       "method": "level",
       "level": 32
     },
@@ -7176,6 +7355,7 @@
   },
   {
     "number": 118,
+    "id": 118,
     "name": "Goldeen",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -7362,11 +7542,13 @@
   },
   {
     "number": 119,
+    "id": 119,
     "name": "Seaking",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 118,
+      "id": 118,
       "method": "level",
       "level": 33
     },
@@ -7453,6 +7635,7 @@
   },
   {
     "number": 120,
+    "id": 120,
     "name": "Staryu",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -7641,11 +7824,13 @@
   },
   {
     "number": 121,
+    "id": 121,
     "name": "Starmie",
     "types": ["water", "psychic"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 120,
+      "id": 120,
       "method": "item",
       "item": "water stone"
     },
@@ -7653,6 +7838,7 @@
   },
   {
     "number": 122,
+    "id": 122,
     "name": "Mr. Mime",
     "types": ["psychic"],
     "games": ["red", "blue", "yellow"],
@@ -7673,6 +7859,7 @@
   },
   {
     "number": 123,
+    "id": 123,
     "name": "Scyther",
     "types": ["bug", "flying"],
     "games": ["red", "yellow"],
@@ -7724,6 +7911,7 @@
   },
   {
     "number": 124,
+    "id": 124,
     "name": "Jynx",
     "types": ["ice", "psychic"],
     "games": ["red", "blue"],
@@ -7738,6 +7926,7 @@
   },
   {
     "number": 125,
+    "id": 125,
     "name": "Electabuzz",
     "types": ["electric"],
     "games": ["red"],
@@ -7753,6 +7942,7 @@
   },
   {
     "number": 126,
+    "id": 126,
     "name": "Magmar",
     "types": ["fire"],
     "games": ["blue"],
@@ -7780,6 +7970,7 @@
   },
   {
     "number": 127,
+    "id": 127,
     "name": "Pinsir",
     "types": ["bug"],
     "games": ["blue", "yellow"],
@@ -7831,6 +8022,7 @@
   },
   {
     "number": 128,
+    "id": 128,
     "name": "Tauros",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -7877,6 +8069,7 @@
   },
   {
     "number": 129,
+    "id": 129,
     "name": "Magikarp",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
@@ -7969,11 +8162,13 @@
   },
   {
     "number": 130,
+    "id": 130,
     "name": "Gyarados",
     "types": ["water", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 129,
+      "id": 129,
       "method": "level",
       "level": 20
     },
@@ -7989,6 +8184,7 @@
   },
   {
     "number": 131,
+    "id": 131,
     "name": "Lapras",
     "types": ["water", "ice"],
     "games": ["red", "blue", "yellow"],
@@ -8003,6 +8199,7 @@
   },
   {
     "number": 132,
+    "id": 132,
     "name": "Ditto",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -8101,6 +8298,7 @@
   },
   {
     "number": 133,
+    "id": 133,
     "name": "Eevee",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -8115,11 +8313,13 @@
   },
   {
     "number": 134,
+    "id": 134,
     "name": "Vaporeon",
     "types": ["water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 133,
+      "id": 133,
       "method": "item",
       "item": "water stone"
     },
@@ -8127,11 +8327,13 @@
   },
   {
     "number": 135,
+    "id": 135,
     "name": "Jolteon",
     "types": ["electric"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 133,
+      "id": 133,
       "method": "item",
       "item": "thunder stone"
     },
@@ -8139,11 +8341,13 @@
   },
   {
     "number": 136,
+    "id": 136,
     "name": "Flareon",
     "types": ["fire"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 133,
+      "id": 133,
       "method": "item",
       "item": "fire stone"
     },
@@ -8151,6 +8355,7 @@
   },
   {
     "number": 137,
+    "id": 137,
     "name": "Porygon",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -8164,6 +8369,7 @@
   },
   {
     "number": 138,
+    "id": 138,
     "name": "Omanyte",
     "types": ["rock", "water"],
     "games": ["red", "blue", "yellow"],
@@ -8178,11 +8384,13 @@
   },
   {
     "number": 139,
+    "id": 139,
     "name": "Omastar",
     "types": ["rock", "water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 138,
+      "id": 138,
       "method": "level",
       "level": 40
     },
@@ -8190,6 +8398,7 @@
   },
   {
     "number": 140,
+    "id": 140,
     "name": "Kabuto",
     "types": ["rock", "water"],
     "games": ["red", "blue", "yellow"],
@@ -8204,11 +8413,13 @@
   },
   {
     "number": 141,
+    "id": 141,
     "name": "Kabutops",
     "types": ["rock", "water"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 140,
+      "id": 140,
       "method": "level",
       "level": 40
     },
@@ -8216,6 +8427,7 @@
   },
   {
     "number": 142,
+    "id": 142,
     "name": "Aerodactyl",
     "types": ["rock", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -8230,6 +8442,7 @@
   },
   {
     "number": 143,
+    "id": 143,
     "name": "Snorlax",
     "types": ["normal"],
     "games": ["red", "blue", "yellow"],
@@ -8250,6 +8463,7 @@
   },
   {
     "number": 144,
+    "id": 144,
     "name": "Articuno",
     "types": ["ice", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -8264,6 +8478,7 @@
   },
   {
     "number": 145,
+    "id": 145,
     "name": "Zapdos",
     "types": ["electric", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -8278,6 +8493,7 @@
   },
   {
     "number": 146,
+    "id": 146,
     "name": "Moltres",
     "types": ["fire", "flying"],
     "games": ["red", "blue", "yellow"],
@@ -8292,6 +8508,7 @@
   },
   {
     "number": 147,
+    "id": 147,
     "name": "Dratini",
     "types": ["dragon"],
     "games": ["red", "blue", "yellow"],
@@ -8363,11 +8580,13 @@
   },
   {
     "number": 148,
+    "id": 148,
     "name": "Dragonair",
     "types": ["dragon"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 147,
+      "id": 147,
       "method": "level",
       "level": 30
     },
@@ -8390,11 +8609,13 @@
   },
   {
     "number": 149,
+    "id": 149,
     "name": "Dragonite",
     "types": ["dragon", "flying"],
     "games": ["red", "blue", "yellow"],
     "evolvesFrom": {
       "number": 148,
+      "id": 148,
       "method": "level",
       "level": 55
     },
@@ -8402,6 +8623,7 @@
   },
   {
     "number": 150,
+    "id": 150,
     "name": "Mewtwo",
     "types": ["psychic"],
     "games": ["red", "blue", "yellow"],
@@ -8416,6 +8638,7 @@
   },
   {
     "number": 151,
+    "id": 151,
     "name": "Mew",
     "types": ["psychic"],
     "games": [],

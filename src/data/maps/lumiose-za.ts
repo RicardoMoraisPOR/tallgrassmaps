@@ -3,7 +3,7 @@ import type { Region } from './types';
 export const lumioseZa: Region = {
   id: 'lumiose-za',
   name: 'Lumiose City',
-  versionGroup: 'Z-A',
+  versionGroup: 'ZA',
   pokedexSize: 232,
   image: '/maps/za/town-map.webp',
   width: 4096,
