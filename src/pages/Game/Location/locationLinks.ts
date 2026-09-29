@@ -56,7 +56,7 @@ export const locationLinks = (
   location: Location,
   path: string,
   href: (path: string) => string,
-  tileSize: number,
+  tileSize = 1,
   floor?: LocationFloor,
   {
     items = [],

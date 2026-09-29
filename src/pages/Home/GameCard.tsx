@@ -1,6 +1,6 @@
-import type { CSSProperties, ReactNode } from 'react';
+import { type CSSProperties, type ReactNode, useState } from 'react';
 
-import { ArrowRight, Lock } from 'lucide-react';
+import { ArrowRight, CircleAlert, Lock } from 'lucide-react';
 import { Link } from 'react-router';
 
 import {
@@ -9,23 +9,32 @@ import {
   versionGroupNames,
 } from '@/data/catalog';
 import { getCover } from '@/data/covers';
-import type { Game, Platform } from '@/data/games';
+import type { Game, GameStatus, Platform } from '@/data/games';
 import { getRegion } from '@/data/maps';
 import { cn, formatList } from '@/lib/utils';
+
+import { MissingContentDialog } from './MissingContentDialog';
 
 type GameCardProps = {
   entry: CatalogEntry;
 };
 
 export const GameCard = ({ entry }: GameCardProps) => {
-  return entry.status === 'available' ? (
-    <AvailableCard game={entry.game} />
-  ) : (
+  return entry.status === 'coming-soon' ? (
     <UpcomingCard game={entry.game} />
+  ) : (
+    <CatalogGameCard game={entry.game} status={entry.status} />
   );
 };
 
-const AvailableCard = ({ game }: { game: Game }) => {
+const CatalogGameCard = ({
+  game,
+  status,
+}: {
+  game: Game;
+  status: Exclude<GameStatus, 'coming-soon'>;
+}) => {
+  const [missingOpen, setMissingOpen] = useState(false);
   const region = getRegion(game.region);
 
   if (!region) return null;
@@ -33,16 +42,35 @@ const AvailableCard = ({ game }: { game: Game }) => {
   const accent = game.colors[0];
 
   return (
-    <Link
-      to={`/${game.id}`}
-      aria-label={`Open ${game.fullName} map`}
-      className="group/card block h-full rounded-2xl outline-none"
+    <div
+      className="group/card relative isolate block h-full rounded-2xl"
       style={{ '--card-accent': accent } as CSSProperties}
     >
-      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-xs transition-[box-shadow,border-color] duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:border-[color-mix(in_oklch,var(--card-accent)_45%,var(--border))] group-hover/card:game-card-glow group-focus-visible/card:border-ring group-focus-visible/card:ring-3 group-focus-visible/card:ring-ring/55">
+      {status === 'missing-content' ? (
+        <button
+          type="button"
+          aria-label={`Show missing content details for ${game.fullName}`}
+          aria-haspopup="dialog"
+          onClick={() => setMissingOpen(true)}
+          className="absolute inset-0 z-0 rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/55"
+        />
+      ) : (
+        <Link
+          to={`/${game.id}`}
+          aria-label={`Open ${game.fullName} map`}
+          className="absolute inset-0 z-0 rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/55"
+        />
+      )}
+      <div className="pointer-events-none relative z-10 flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-xs transition-[box-shadow,border-color] duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:border-[var(--card-accent)] group-hover/card:game-card-glow group-has-[:focus-visible]/card:border-ring">
         <ColorStripe colors={game.colors} />
         <Cover gameId={game.id} accent={accent} interactive>
           <MapTag versionGroup={region.versionGroup} />
+          {status === 'missing-content' && (
+            <CoverTag className="right-2.5">
+              <CircleAlert aria-hidden className="size-3" />
+              Missing Content
+            </CoverTag>
+          )}
         </Cover>
         <div className="flex flex-1 flex-col gap-3 p-4">
           <div className="flex min-w-0 flex-col gap-1">
@@ -51,13 +79,27 @@ const AvailableCard = ({ game }: { game: Game }) => {
             </span>
             <Details regions={[region.name]} platform={game.platform} />
           </div>
-          <span className="mt-auto inline-flex h-11 items-center justify-center gap-1.5 rounded-[10px] border border-input bg-background text-sm font-medium transition-colors duration-200 group-hover/card:border-primary group-hover/card:bg-primary group-hover/card:text-primary-foreground group-focus-visible/card:border-primary group-focus-visible/card:bg-primary group-focus-visible/card:text-primary-foreground sm:h-9 dark:bg-input/30 dark:group-hover/card:bg-primary dark:group-focus-visible/card:bg-primary">
-            Open map
-            <ArrowRight className="size-4 transition-transform duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1" />
-          </span>
+          {status === 'missing-content' ? (
+            <span
+              className="mt-auto inline-flex h-11 items-center justify-center gap-1.5 rounded-[10px] border border-input bg-background text-sm font-medium transition-colors duration-200 group-hover/card:border-primary group-hover/card:bg-primary group-hover/card:text-primary-foreground group-focus-visible/card:border-primary group-focus-visible/card:bg-primary group-focus-visible/card:text-primary-foreground sm:h-9 dark:bg-input/30 dark:group-hover/card:bg-primary dark:group-focus-visible/card:bg-primary"
+            >
+              Details
+              <ArrowRight className="size-4 transition-transform duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1" />
+            </span>
+          ) : (
+            <span className="mt-auto inline-flex h-11 items-center justify-center gap-1.5 rounded-[10px] border border-input bg-background text-sm font-medium transition-colors duration-200 group-hover/card:border-primary group-hover/card:bg-primary group-hover/card:text-primary-foreground group-focus-visible/card:border-primary group-focus-visible/card:bg-primary group-focus-visible/card:text-primary-foreground sm:h-9 dark:bg-input/30 dark:group-hover/card:bg-primary dark:group-focus-visible/card:bg-primary">
+              Open map
+              <ArrowRight className="size-4 transition-transform duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1" />
+            </span>
+          )}
         </div>
       </div>
-    </Link>
+      <MissingContentDialog
+        game={game}
+        open={missingOpen}
+        onOpenChange={setMissingOpen}
+      />
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ import {
 import { type LabelPart, platformParts } from '@/data/games';
 import { formatList, slugify } from '@/lib/utils';
 
-export type FilterKey = 'region' | 'map' | 'console';
+export type FilterKey = 'region' | 'map' | 'console' | 'status';
 
 export type Filters = Record<FilterKey, Array<string>>;
 
@@ -64,6 +64,15 @@ export const filterGroups: Array<FilterGroup> = [
       parts: versionGroupParts(option.label),
     })),
   },
+  {
+    key: 'status',
+    label: 'Status',
+    options: [
+      { value: 'complete', label: 'Complete' },
+      { value: 'missing-content', label: 'Missing Content' },
+      { value: 'coming-soon', label: 'Coming Soon' },
+    ],
+  },
 ];
 
 export const totalGames = allEntries.length;
@@ -72,6 +81,7 @@ const entryValues = (entry: CatalogEntry): Filters => ({
   region: entryRegions(entry).map(slugify),
   map: entryMaps(entry).map(slugify),
   console: [slugify(entry.game.platform)],
+  status: [entry.status],
 });
 
 const matches = (entry: CatalogEntry, filters: Filters) => {

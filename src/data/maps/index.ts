@@ -1,11 +1,12 @@
 import { pathSegments } from '@/lib/paths';
 
 import { kantoRby } from './kanto-rby';
+import { lumioseZa } from './lumiose-za';
 import type { Location, Region } from './types';
 
 export type * from './types';
 
-export const regions: Array<Region> = [kantoRby];
+export const regions: Array<Region> = [kantoRby, lumioseZa];
 
 export const getRegion = (id: string) =>
   regions.find((region) => region.id === id);

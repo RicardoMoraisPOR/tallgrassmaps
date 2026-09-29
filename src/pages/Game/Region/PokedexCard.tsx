@@ -35,10 +35,12 @@ export const PokedexCard = ({ game, region }: PokedexCardProps) => {
       </div>
       <dl className="grid grid-cols-2 gap-2">
         <Stat label="In the Pokédex" value={region.pokedexSize} />
-        <Stat
-          label={`In ${game.shortName} without trading`}
-          value={game.obtainableWithoutTrading}
-        />
+        {game.obtainableWithoutTrading !== undefined && (
+          <Stat
+            label={`In ${game.shortName} without trading`}
+            value={game.obtainableWithoutTrading}
+          />
+        )}
       </dl>
       {hasPokedex(region) ? (
         <Button size="lg" className="w-full" asChild>

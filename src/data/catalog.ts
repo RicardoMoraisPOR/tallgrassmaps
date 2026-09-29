@@ -1,9 +1,15 @@
-import { type Game, games, type Platform } from './games';
+import {
+  type Game,
+  games,
+  type GameStatus,
+  type Platform,
+} from './games';
 import { getRegion } from './maps';
 
 export type UpcomingGame = {
   id: string;
   title: string;
+  status: 'coming-soon';
   regions: Array<string>;
   platform: Platform;
   versionGroup: string;
@@ -11,8 +17,8 @@ export type UpcomingGame = {
 };
 
 export type CatalogEntry =
-  | { status: 'available'; game: Game }
-  | { status: 'soon'; game: UpcomingGame };
+  | { status: Exclude<GameStatus, 'coming-soon'>; game: Game }
+  | { status: 'coming-soon'; game: UpcomingGame };
 
 export type Generation = {
   number: number;
@@ -20,7 +26,7 @@ export type Generation = {
   entries: Array<CatalogEntry>;
 };
 
-const C = {
+const catalogColors = {
   yellow: 'oklch(0.86 0.16 92)',
   gold: 'oklch(0.76 0.12 85)',
   silver: 'oklch(0.78 0.01 250)',
@@ -57,25 +63,33 @@ const soon = (
   titles: Array<[id: string, title: string, color: string]>,
 ): Array<CatalogEntry> =>
   titles.map(([id, title, color]) => ({
-    status: 'soon',
-    game: { id, title, regions, platform, versionGroup, colors: [color] },
+    status: 'coming-soon',
+    game: {
+      id,
+      title,
+      status: 'coming-soon',
+      regions,
+      platform,
+      versionGroup,
+      colors: [color],
+    },
   }));
 
-const available = (generation: number): Array<CatalogEntry> =>
+const catalogedGames = (generation: number): Array<CatalogEntry> =>
   games
     .filter((game) => game.generation === generation)
-    .map((game) => ({ status: 'available', game }));
+    .map((game) => ({ status: game.status, game }));
 
 export const entryName = (entry: CatalogEntry) =>
-  entry.status === 'soon' ? entry.game.title : entry.game.fullName;
+  entry.status === 'coming-soon' ? entry.game.title : entry.game.fullName;
 
 export const entryRegions = (entry: CatalogEntry): Array<string> =>
-  entry.status === 'soon'
+  entry.status === 'coming-soon'
     ? entry.game.regions
     : [getRegion(entry.game.region)?.name ?? entry.game.region];
 
 export const entryVersionGroup = (entry: CatalogEntry) =>
-  entry.status === 'soon'
+  entry.status === 'coming-soon'
     ? entry.game.versionGroup
     : getRegion(entry.game.region)?.versionGroup;
 
@@ -84,7 +98,7 @@ export const generationRegions = (generation: Generation) => [
 ];
 
 export const generations: Array<Generation> = [
-  { number: 1, roman: 'I', entries: available(1) },
+  { number: 1, roman: 'I', entries: catalogedGames(1) },
   {
     number: 2,
     roman: 'II',
@@ -93,9 +107,9 @@ export const generations: Array<Generation> = [
       'Game Boy Color',
       ['Johto', 'Kanto'],
       [
-        ['gold', 'Pokémon Gold', C.gold],
-        ['silver', 'Pokémon Silver', C.silver],
-        ['crystal', 'Pokémon Crystal', C.crystal],
+        ['gold', 'Pokémon Gold', catalogColors.gold],
+        ['silver', 'Pokémon Silver', catalogColors.silver],
+        ['crystal', 'Pokémon Crystal', catalogColors.crystal],
       ],
     ),
   },
@@ -108,9 +122,9 @@ export const generations: Array<Generation> = [
         'Game Boy Advance',
         ['Hoenn'],
         [
-          ['ruby', 'Pokémon Ruby', C.ruby],
-          ['sapphire', 'Pokémon Sapphire', C.sapphire],
-          ['emerald', 'Pokémon Emerald', C.emerald],
+          ['ruby', 'Pokémon Ruby', catalogColors.ruby],
+          ['sapphire', 'Pokémon Sapphire', catalogColors.sapphire],
+          ['emerald', 'Pokémon Emerald', catalogColors.emerald],
         ],
       ),
       ...soon(
@@ -118,8 +132,8 @@ export const generations: Array<Generation> = [
         'Game Boy Advance',
         ['Kanto'],
         [
-          ['firered', 'Pokémon FireRed', C.fire],
-          ['leafgreen', 'Pokémon LeafGreen', C.leaf],
+          ['firered', 'Pokémon FireRed', catalogColors.fire],
+          ['leafgreen', 'Pokémon LeafGreen', catalogColors.leaf],
         ],
       ),
     ],
@@ -133,9 +147,9 @@ export const generations: Array<Generation> = [
         'Nintendo DS',
         ['Sinnoh'],
         [
-          ['diamond', 'Pokémon Diamond', C.diamond],
-          ['pearl', 'Pokémon Pearl', C.pearl],
-          ['platinum', 'Pokémon Platinum', C.platinum],
+          ['diamond', 'Pokémon Diamond', catalogColors.diamond],
+          ['pearl', 'Pokémon Pearl', catalogColors.pearl],
+          ['platinum', 'Pokémon Platinum', catalogColors.platinum],
         ],
       ),
       ...soon(
@@ -143,8 +157,8 @@ export const generations: Array<Generation> = [
         'Nintendo DS',
         ['Johto', 'Kanto'],
         [
-          ['heartgold', 'Pokémon HeartGold', C.gold],
-          ['soulsilver', 'Pokémon SoulSilver', C.silver],
+          ['heartgold', 'Pokémon HeartGold', catalogColors.gold],
+          ['soulsilver', 'Pokémon SoulSilver', catalogColors.silver],
         ],
       ),
     ],
@@ -158,8 +172,8 @@ export const generations: Array<Generation> = [
         'Nintendo DS',
         ['Unova'],
         [
-          ['black', 'Pokémon Black', C.black],
-          ['white', 'Pokémon White', C.white],
+          ['black', 'Pokémon Black', catalogColors.black],
+          ['white', 'Pokémon White', catalogColors.white],
         ],
       ),
       ...soon(
@@ -167,8 +181,8 @@ export const generations: Array<Generation> = [
         'Nintendo DS',
         ['Unova'],
         [
-          ['black-2', 'Pokémon Black 2', C.black],
-          ['white-2', 'Pokémon White 2', C.white],
+          ['black-2', 'Pokémon Black 2', catalogColors.black],
+          ['white-2', 'Pokémon White 2', catalogColors.white],
         ],
       ),
     ],
@@ -182,8 +196,8 @@ export const generations: Array<Generation> = [
         'Nintendo 3DS',
         ['Kalos'],
         [
-          ['x', 'Pokémon X', C.x],
-          ['y', 'Pokémon Y', C.y],
+          ['x', 'Pokémon X', catalogColors.x],
+          ['y', 'Pokémon Y', catalogColors.y],
         ],
       ),
       ...soon(
@@ -191,8 +205,8 @@ export const generations: Array<Generation> = [
         'Nintendo 3DS',
         ['Hoenn'],
         [
-          ['omega-ruby', 'Pokémon Omega Ruby', C.ruby],
-          ['alpha-sapphire', 'Pokémon Alpha Sapphire', C.sapphire],
+          ['omega-ruby', 'Pokémon Omega Ruby', catalogColors.ruby],
+          ['alpha-sapphire', 'Pokémon Alpha Sapphire', catalogColors.sapphire],
         ],
       ),
     ],
@@ -206,8 +220,8 @@ export const generations: Array<Generation> = [
         'Nintendo 3DS',
         ['Alola'],
         [
-          ['sun', 'Pokémon Sun', C.sun],
-          ['moon', 'Pokémon Moon', C.moon],
+          ['sun', 'Pokémon Sun', catalogColors.sun],
+          ['moon', 'Pokémon Moon', catalogColors.moon],
         ],
       ),
       ...soon(
@@ -215,8 +229,8 @@ export const generations: Array<Generation> = [
         'Nintendo 3DS',
         ['Alola'],
         [
-          ['ultra-sun', 'Pokémon Ultra Sun', C.ultraSun],
-          ['ultra-moon', 'Pokémon Ultra Moon', C.ultraMoon],
+          ['ultra-sun', 'Pokémon Ultra Sun', catalogColors.ultraSun],
+          ['ultra-moon', 'Pokémon Ultra Moon', catalogColors.ultraMoon],
         ],
       ),
       ...soon(
@@ -224,8 +238,8 @@ export const generations: Array<Generation> = [
         'Nintendo Switch',
         ['Kanto'],
         [
-          ['lets-go-pikachu', "Pokémon Let's Go, Pikachu!", C.yellow],
-          ['lets-go-eevee', "Pokémon Let's Go, Eevee!", C.eevee],
+          ['lets-go-pikachu', "Pokémon Let's Go, Pikachu!", catalogColors.yellow],
+          ['lets-go-eevee', "Pokémon Let's Go, Eevee!", catalogColors.eevee],
         ],
       ),
     ],
@@ -239,8 +253,8 @@ export const generations: Array<Generation> = [
         'Nintendo Switch',
         ['Galar'],
         [
-          ['sword', 'Pokémon Sword', C.sword],
-          ['shield', 'Pokémon Shield', C.shield],
+          ['sword', 'Pokémon Sword', catalogColors.sword],
+          ['shield', 'Pokémon Shield', catalogColors.shield],
         ],
       ),
       ...soon(
@@ -248,15 +262,15 @@ export const generations: Array<Generation> = [
         'Nintendo Switch',
         ['Sinnoh'],
         [
-          ['brilliant-diamond', 'Pokémon Brilliant Diamond', C.diamond],
-          ['shining-pearl', 'Pokémon Shining Pearl', C.pearl],
+          ['brilliant-diamond', 'Pokémon Brilliant Diamond', catalogColors.diamond],
+          ['shining-pearl', 'Pokémon Shining Pearl', catalogColors.pearl],
         ],
       ),
       ...soon(
         'PLA',
         'Nintendo Switch',
         ['Hisui'],
-        [['legends-arceus', 'Pokémon Legends: Arceus', C.arceus]],
+        [['legends-arceus', 'Pokémon Legends: Arceus', catalogColors.arceus]],
       ),
     ],
   },
@@ -269,16 +283,11 @@ export const generations: Array<Generation> = [
         'Nintendo Switch',
         ['Paldea'],
         [
-          ['scarlet', 'Pokémon Scarlet', C.scarlet],
-          ['violet', 'Pokémon Violet', C.violet],
+          ['scarlet', 'Pokémon Scarlet', catalogColors.scarlet],
+          ['violet', 'Pokémon Violet', catalogColors.violet],
         ],
       ),
-      ...soon(
-        'Z-A',
-        'Nintendo Switch',
-        ['Kalos'],
-        [['legends-za', 'Pokémon Legends: Z-A', C.za]],
-      ),
+      ...catalogedGames(9),
     ],
   },
 ];
@@ -393,11 +402,11 @@ export const mapSets = generations
 
     if (!versionGroup) return sets;
 
-    const available = entry.status === 'available';
+    const available = entry.status !== 'coming-soon';
     const game = {
       id: entry.game.id,
       name:
-        entry.status === 'available'
+        entry.status !== 'coming-soon'
           ? entry.game.shortName
           : entry.game.title,
       color: entry.game.colors[0],
