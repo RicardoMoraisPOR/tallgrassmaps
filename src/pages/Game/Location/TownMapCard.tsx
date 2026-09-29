@@ -1,21 +1,24 @@
 import type { Region } from '@/data/maps';
 
-import { PlacesMap } from '../Pokedex/PlacesMap';
+import { RegionMap } from '@/components/map/RegionMap';
+
 import { ExpandableCard } from './ExpandableCard';
 
 type TownMapCardProps = {
   region: Region;
   path: string;
-  name: string;
+  href: (path: string) => string;
 };
 
-export const TownMapCard = ({ region, path, name }: TownMapCardProps) => {
+export const TownMapCard = ({ region, path, href }: TownMapCardProps) => {
   return (
     <ExpandableCard title="Town Map" defaultExpanded>
-      <PlacesMap
+      <RegionMap
         region={region}
-        paths={[path]}
-        label={`${region.name} Town Map showing where ${name} is`}
+        locationHref={href}
+        focus={path}
+        miniMap
+        className="gap-1"
       />
     </ExpandableCard>
   );

@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import { useThemeStyle } from '@/components/settings/themes';
 import { getHotspot, getLocation, type Region } from '@/data/maps';
+import { pathSegments } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
@@ -14,6 +15,8 @@ import { RegionImage } from './RegionImage';
 type RegionMapProps = {
   region: Region;
   locationHref: (path: string) => string;
+  focus?: string;
+  miniMap?: boolean;
   className?: string;
   style?: CSSProperties;
 };
@@ -21,10 +24,12 @@ type RegionMapProps = {
 export const RegionMap = ({
   region,
   locationHref,
+  focus,
+  miniMap = false,
   className,
   style,
 }: RegionMapProps) => {
-  const [active, setActive] = useState<string>();
+  const [hovered, setHovered] = useState<string>();
   const flyerRef = useRef<HTMLDivElement>(null);
 
   const gamePointer = useSettingsStore((state) => state.gamePointer);
@@ -35,8 +40,17 @@ export const RegionMap = ({
   const { cursor, label } = region;
   const pointer =
     gamePointer && mapStyle === 'game' ? region.pointer : undefined;
+  const active = hovered ?? (miniMap ? undefined : focus);
   const activeName = active ? getLocation(region, active)?.name : undefined;
-  const activeHotspot = active ? getHotspot(region, active) : undefined;
+  const activeHotspot = hovered
+    ? getHotspot(region, hovered)
+    : !miniMap && focus
+      ? getHotspot(region, focus)
+      : undefined;
+  const focusHotspot = focus
+    ? (getHotspot(region, focus) ??
+      getHotspot(region, pathSegments(focus)[0]))
+    : undefined;
 
   const moveFlyer = (event: PointerEvent<HTMLDivElement>) => {
     const flyer = flyerRef.current;
@@ -51,22 +65,24 @@ export const RegionMap = ({
 
   return (
     <figure className={cn('flex flex-col gap-2', className)} style={style}>
-      <figcaption
-        className={cn(
-          'h-6 text-center font-medium',
-          tallGrass
-            ? 'order-last text-[13px] leading-6 font-semibold tracking-[0.28em] uppercase'
-            : label && 'sr-only',
-        )}
-        aria-live="polite"
-      >
-        {activeName ??
-          (!tallGrass && (
-            <span className="font-normal text-muted-foreground">
-              Pick a town or route
-            </span>
-          ))}
-      </figcaption>
+      {!miniMap && (
+        <figcaption
+          className={cn(
+            'h-6 text-center font-medium',
+            tallGrass
+              ? 'order-last text-[13px] leading-6 font-semibold tracking-[0.28em] uppercase'
+              : label && 'sr-only',
+          )}
+          aria-live="polite"
+        >
+          {activeName ??
+            (!tallGrass && (
+              <span className="font-normal text-muted-foreground">
+                Pick a town or route
+              </span>
+            ))}
+        </figcaption>
+      )}
       <RegionImage
         region={region}
         alt={`${region.name} map`}
@@ -76,6 +92,31 @@ export const RegionMap = ({
         className={cn('group/map', pointer && 'cursor-none')}
         onPointerMove={pointer && moveFlyer}
       >
+        {miniMap && tallGrass && activeName && (
+          <span
+            aria-live="polite"
+            className="pointer-events-none absolute top-1.5 left-1.5 z-10 max-w-[55%] truncate rounded-sm border bg-background/90 px-1 py-0.5 text-[12px] leading-tight font-medium shadow-sm"
+          >
+            {activeName}
+          </span>
+        )}
+        {miniMap && focusHotspot && (
+          <span
+            aria-hidden
+            className={cn(
+              'pointer-events-none absolute',
+              tallGrass
+                ? 'rounded-[22%] bg-(--tg-cursor)/35 ring-2 ring-(--tg-cursor)'
+                : 'rounded-[2px] bg-[oklch(0.62_0.24_25/0.6)] ring-2 ring-[oklch(0.45_0.2_25)]',
+            )}
+            style={{
+              left: percent(focusHotspot.x, region.width),
+              top: percent(focusHotspot.y, region.height),
+              width: percent(focusHotspot.width, region.width),
+              height: percent(focusHotspot.height, region.height),
+            }}
+          />
+        )}
         {region.hotspots.map((hotspot) => {
           const location = getLocation(region, hotspot.target);
 
@@ -99,10 +140,10 @@ export const RegionMap = ({
                 width: percent(hotspot.width, region.width),
                 height: percent(hotspot.height, region.height),
               }}
-              onMouseEnter={() => setActive(hotspot.target)}
-              onMouseLeave={() => setActive(undefined)}
-              onFocus={() => setActive(hotspot.target)}
-              onBlur={() => setActive(undefined)}
+              onMouseEnter={() => setHovered(hotspot.target)}
+              onMouseLeave={() => setHovered(undefined)}
+              onFocus={() => setHovered(hotspot.target)}
+              onBlur={() => setHovered(undefined)}
             />
           );
         })}

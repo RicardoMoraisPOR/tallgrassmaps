@@ -196,7 +196,7 @@ export const LocationPage = () => {
             <TownMapCard
               region={route.region}
               path={trailPath(trail)}
-              name={location.name}
+              href={route.href}
             />
             <LocationPanel tabs={panelTabs} className="lg:flex-1" />
           </>
