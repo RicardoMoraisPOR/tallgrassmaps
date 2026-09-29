@@ -67,7 +67,7 @@ const available = (generation: number): Array<CatalogEntry> =>
     .map((game) => ({ status: 'available', game }));
 
 export const entryName = (entry: CatalogEntry) =>
-  entry.status === 'soon' ? entry.game.title : entry.game.name;
+  entry.status === 'soon' ? entry.game.title : entry.game.fullName;
 
 export const entryRegions = (entry: CatalogEntry): Array<string> =>
   entry.status === 'soon'
@@ -396,7 +396,10 @@ export const mapSets = generations
     const available = entry.status === 'available';
     const game = {
       id: entry.game.id,
-      name: entryName(entry),
+      name:
+        entry.status === 'available'
+          ? entry.game.shortName
+          : entry.game.title,
       color: entry.game.colors[0],
       available,
     };

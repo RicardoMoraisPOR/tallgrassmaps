@@ -36,7 +36,7 @@ export const GameSwitcher = ({ game, path }: GameSwitcherProps) => {
     return (
       <span className="flex items-center gap-2">
         <ColorDot color={game.colors[0]} />
-        {game.name}
+        {game.shortName}
       </span>
     );
   }
@@ -44,11 +44,11 @@ export const GameSwitcher = ({ game, path }: GameSwitcherProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        aria-label={`${game.name}, switch game`}
+        aria-label={`${game.fullName}, switch game`}
         className="group flex items-center gap-2 rounded-sm outline-offset-2 hover:text-foreground data-[state=open]:text-foreground"
       >
         <ColorDot color={game.colors[0]} />
-        {game.name}
+        {game.shortName}
         <ChevronDown
           aria-hidden
           className="size-3.5 opacity-60 transition-transform group-data-[state=open]:rotate-180"
@@ -60,7 +60,7 @@ export const GameSwitcher = ({ game, path }: GameSwitcherProps) => {
           {siblings.map((other) => (
             <DropdownMenuRadioItem key={other.id} value={other.id}>
               <ColorDot color={other.colors[0]} />
-              {other.name}
+              {other.shortName}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

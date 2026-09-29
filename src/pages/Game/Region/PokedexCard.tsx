@@ -16,8 +16,6 @@ type PokedexCardProps = {
 export const PokedexCard = ({ game, region }: PokedexCardProps) => {
   const pokedexLink = usePokedexLink();
 
-  const shortName = game.name.replace(/^Pokémon /, '');
-
   return (
     <section
       aria-labelledby="pokedex-heading"
@@ -38,7 +36,7 @@ export const PokedexCard = ({ game, region }: PokedexCardProps) => {
       <dl className="grid grid-cols-2 gap-2">
         <Stat label="In the Pokédex" value={region.pokedexSize} />
         <Stat
-          label={`In ${shortName} without trading`}
+          label={`In ${game.shortName} without trading`}
           value={game.obtainableWithoutTrading}
         />
       </dl>

@@ -67,7 +67,7 @@ export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
       onOpenChange={onOpenChange}
       gameTheme={gameTheme}
       title={title}
-      description={game.name}
+      description={game.fullName}
     >
       {content}
     </PokedexModal>
@@ -77,7 +77,7 @@ export const PokedexOverlay = ({ game, region, href }: PokedexOverlayProps) => {
       onOpenChange={onOpenChange}
       gameTheme={gameTheme}
       title={title}
-      description={game.name}
+      description={game.fullName}
     >
       {content}
     </PokedexDrawer>

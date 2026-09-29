@@ -41,7 +41,8 @@ export const platformParts: Record<Platform, Array<LabelPart>> = {
 
 export type Game = {
   id: string;
-  name: string;
+  fullName: string;
+  shortName: string;
   generation: number;
   region: string;
   platform: Platform;
@@ -54,7 +55,8 @@ export type Game = {
 export const games: Array<Game> = [
   {
     id: 'red',
-    name: 'Pokémon Red',
+    fullName: 'Pokémon Red',
+    shortName: 'Red',
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
@@ -65,7 +67,8 @@ export const games: Array<Game> = [
   },
   {
     id: 'blue',
-    name: 'Pokémon Blue',
+    fullName: 'Pokémon Blue',
+    shortName: 'Blue',
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
@@ -76,7 +79,8 @@ export const games: Array<Game> = [
   },
   {
     id: 'yellow',
-    name: 'Pokémon Yellow',
+    fullName: 'Pokémon Yellow',
+    shortName: 'Yellow',
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',

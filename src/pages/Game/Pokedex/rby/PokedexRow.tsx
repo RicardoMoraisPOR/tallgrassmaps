@@ -157,17 +157,25 @@ const GameTags = ({ entry, game }: { entry: PokedexEntry; game: Game }) => {
   }
 
   return (
-    <ul aria-label="Appears in" className="flex flex-wrap gap-1.5">
-      {appearsIn.map((other) => (
-        <li
-          key={other.id}
-          className="inline-flex h-6 items-center gap-1.5 rounded-full border px-2 text-xs font-medium pokedex-game:rounded-none pokedex-game:border-2"
-        >
-          <ColorDot color={other.colors[0]} />
-          {other.name.replace(/^Pokémon /, '')}
-        </li>
-      ))}
-    </ul>
+    <div className="flex flex-col gap-2">
+      <ul aria-label="Appears in" className="flex flex-wrap gap-1.5">
+        {appearsIn.map((other) => (
+          <li
+            key={other.id}
+            className="inline-flex h-6 items-center gap-1.5 rounded-full border px-2 text-xs font-medium pokedex-game:rounded-none pokedex-game:border-2"
+          >
+            <ColorDot color={other.colors[0]} />
+            {other.shortName}
+          </li>
+        ))}
+      </ul>
+        {!entry.games.includes(game.id) && (
+        <p className="text-[13px] text-muted-foreground pokedex-game:text-[10px] pokedex-game:leading-loose">
+          Only obtainable in {game.fullName} by trading from{' '}
+          {formatList(appearsIn.map((other) => other.fullName))}.
+        </p>
+      )}
+    </div>
   );
 };
 
@@ -178,7 +186,7 @@ const Places = ({ entry, game, region, href, nameOf }: PokedexRowProps) => {
   const paths = encounters.flatMap((encounter) =>
     encounter.path ? [encounter.path] : [],
   );
-  const shortName = game.name.replace(/^Pokémon /, '');
+  const shortName = game.shortName;
 
   if (!entry.games.includes(game.id)) return null;
 

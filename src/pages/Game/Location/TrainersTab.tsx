@@ -5,6 +5,7 @@ import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
 import type { BattleGroup } from './trainerList';
+import { PokedexEntryLink } from './PokedexEntryLink';
 
 type TrainersTabProps = {
   game: Game;
@@ -91,24 +92,29 @@ const Party = ({
         {party.pokemon.map((pokemon, index) => (
           <li
             key={index}
-            title={`${nameOf(pokemon.number)}, Lv. ${pokemon.level}`}
-            className="flex w-11 flex-col items-center rounded-lg bg-muted pt-0.5 pb-1"
+            className="w-11"
           >
-            <img
-              src={spriteFor(pokemon.number).src}
-              alt=""
-              width={96}
-              height={96}
-              loading="lazy"
-              className={cn(
-                'size-9 object-contain',
-                spriteFor(pokemon.number).pixelated && 'pixelated',
-              )}
-            />
-            <span className="sr-only">{nameOf(pokemon.number)}, </span>
-            <span className="text-[11px] leading-none text-muted-foreground tabular-nums">
-              Lv. {pokemon.level}
-            </span>
+            <PokedexEntryLink
+              number={pokemon.number}
+              title={`${nameOf(pokemon.number)}, Lv. ${pokemon.level}`}
+              aria-label={`${nameOf(pokemon.number)}, Lv. ${pokemon.level}; open Pokédex entry`}
+              className="flex w-full flex-col items-center rounded-lg bg-muted pt-0.5 pb-1 no-underline transition-colors hover:bg-accent hover:no-underline hover:ring-1 hover:ring-ring/30 focus-visible:bg-accent focus-visible:no-underline focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            >
+              <img
+                src={spriteFor(pokemon.number).src}
+                alt=""
+                width={96}
+                height={96}
+                loading="lazy"
+                className={cn(
+                  'size-9 object-contain',
+                  spriteFor(pokemon.number).pixelated && 'pixelated',
+                )}
+              />
+              <span className="text-[11px] leading-none text-muted-foreground tabular-nums">
+                Lv. {pokemon.level}
+              </span>
+            </PokedexEntryLink>
           </li>
         ))}
       </ul>

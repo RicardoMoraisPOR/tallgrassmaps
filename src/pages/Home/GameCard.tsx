@@ -35,7 +35,7 @@ const AvailableCard = ({ game }: { game: Game }) => {
   return (
     <Link
       to={`/${game.id}`}
-      aria-label={`Open ${game.name} map`}
+      aria-label={`Open ${game.fullName} map`}
       className="group/card block h-full rounded-2xl outline-none"
       style={{ '--card-accent': accent } as CSSProperties}
     >
@@ -47,7 +47,7 @@ const AvailableCard = ({ game }: { game: Game }) => {
         <div className="flex flex-1 flex-col gap-3 p-4">
           <div className="flex min-w-0 flex-col gap-1">
             <span className="font-semibold tracking-tight text-pretty">
-              {game.name}
+              {game.fullName}
             </span>
             <Details regions={[region.name]} platform={game.platform} />
           </div>

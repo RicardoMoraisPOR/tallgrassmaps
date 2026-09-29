@@ -26,7 +26,6 @@ export const RbyPokedex = ({
   const [toggles, setToggles] = useState<Array<Toggle>>([]);
 
   const setGames = gamesSharingMap(game).map(({ id }) => id);
-  const shortName = game.name.replace(/^Pokémon /, '');
   const search = query.trim().toLowerCase().replace(/^#0*/, '');
 
   const checks: Record<Toggle, (entry: PokedexEntry) => boolean> = {
@@ -43,7 +42,7 @@ export const RbyPokedex = ({
   const toggleLabels: Record<Toggle, string> = {
     exclusive: 'Version exclusive',
     trade: 'In-game trade',
-    obtainable: `Obtainable in ${shortName}`,
+    obtainable: `Obtainable in ${game.shortName}`,
   };
 
   const matches = (entry: PokedexEntry) =>

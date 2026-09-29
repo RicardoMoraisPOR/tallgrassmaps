@@ -49,7 +49,7 @@ export const PageHeader = ({ game, region, trail, href }: PageHeaderProps) => {
       {cover && (
         <img
           src={cover}
-          alt={`${game.name} box art`}
+          alt={`${game.fullName} box art`}
           className="h-18 w-auto flex-none rounded-md border shadow-[0_8px_20px_-10px_oklch(0_0_0/0.45)] sm:h-24"
         />
       )}
