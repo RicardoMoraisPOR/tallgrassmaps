@@ -41,6 +41,7 @@ export const RegionPage = () => {
           <RegionMap
             region={region}
             locationHref={href}
+            tagLabel
             style={{
               maxWidth: `calc((100svh - 13rem) * ${region.width} / ${region.height})`,
             }}

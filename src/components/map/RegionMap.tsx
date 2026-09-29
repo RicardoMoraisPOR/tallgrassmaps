@@ -17,6 +17,7 @@ type RegionMapProps = {
   locationHref: (path: string) => string;
   focus?: string;
   miniMap?: boolean;
+  tagLabel?: boolean;
   className?: string;
   style?: CSSProperties;
 };
@@ -26,6 +27,7 @@ export const RegionMap = ({
   locationHref,
   focus,
   miniMap = false,
+  tagLabel = false,
   className,
   style,
 }: RegionMapProps) => {
@@ -65,7 +67,7 @@ export const RegionMap = ({
 
   return (
     <figure className={cn('flex flex-col gap-2', className)} style={style}>
-      {!miniMap && (
+      {!miniMap && !tagLabel && (
         <figcaption
           className={cn(
             'h-6 text-center font-medium',
@@ -92,10 +94,15 @@ export const RegionMap = ({
         className={cn('group/map', pointer && 'cursor-none')}
         onPointerMove={pointer && moveFlyer}
       >
-        {miniMap && tallGrass && activeName && (
+        {(miniMap || tagLabel) && tallGrass && activeName && (
           <span
             aria-live="polite"
-            className="pointer-events-none absolute top-1.5 left-1.5 z-10 max-w-[55%] truncate rounded-sm border bg-background/90 px-1 py-0.5 text-[12px] leading-tight font-medium shadow-sm"
+            className={cn(
+              'pointer-events-none absolute top-1.5 left-1.5 z-10 max-w-[55%] truncate rounded-sm border bg-background/90 px-1 py-0.5 leading-tight shadow-sm',
+              miniMap
+                ? 'text-[12px] font-medium'
+                : 'text-[28px] font-semibold tracking-[0.28em] uppercase',
+            )}
           >
             {activeName}
           </span>
