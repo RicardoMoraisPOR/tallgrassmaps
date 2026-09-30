@@ -20,6 +20,7 @@ export type MapNpc = {
   name: string;
   sprite: string;
   facing: SpriteFacing;
+  spriteOffset?: [x: number, y: number];
   dialog: Array<NpcDialog>;
   cutscene?: boolean;
   games: Array<string>;

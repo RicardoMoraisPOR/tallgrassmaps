@@ -67,6 +67,14 @@ export const mapText = (game, file, textId) => {
   return farText(game, fars[0]);
 };
 
+export const labelText = (game, path, label) => {
+  const lines = forGame(read(game.dir, path), game.define);
+  const start = labelLine(lines, label);
+  const far = lines[start + 1]?.match(/^text_far (\w+)$/)?.[1];
+
+  return start >= 0 && far ? farText(game, far) : undefined;
+};
+
 export const farText = (game, far) => {
   const source = textFiles(game).find((text) => text.includes(`${far}::`));
 

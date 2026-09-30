@@ -34,6 +34,8 @@ const maps = [
     ['IndigoPlateauLobby', 'indigo-plateau-lobby'],
     ['OaksLab', 'oaks-lab'],
     ['BluesHouse', 'blues-house'],
+    ['ViridianSchoolHouse', 'viridian-school-house'],
+    ['ViridianNicknameHouse', 'viridian-nickname-house'],
     ['RedsHouse1F', 'reds-house/1f'],
     ['RedsHouse2F', 'reds-house/2f'],
   ].map(([name, out]) => ({ name, out: `${out}.png` })),

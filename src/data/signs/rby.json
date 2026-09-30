@@ -102,5 +102,13 @@
     "y": 7,
     "text": "VIRIDIAN CITY POKéMON GYM",
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-nickname-house",
+    "x": 4,
+    "y": 0,
+    "text": "SPEAROW Name: SPEARY",
+    "sprite": "clipboard",
+    "games": ["red", "blue", "yellow"]
   }
 ]

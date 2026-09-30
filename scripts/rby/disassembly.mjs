@@ -260,7 +260,7 @@ export const siteLocation = (map) => {
   }
 };
 
-export const hasOwnMapImage = (dir, map, path, floor) => {
+export const hasOwnMapImage = (dir, map, path, floor, listed = false) => {
   const place = path.split('/').at(-1);
   const image = join(
     MAP_IMAGES,
@@ -268,7 +268,9 @@ export const hasOwnMapImage = (dir, map, path, floor) => {
   );
   const size = mapSizes(dir).get(mapKey(map));
   const ownMap =
-    floor || mapKey(map) === mapKey(place.toUpperCase().replaceAll('-', '_'));
+    listed ||
+    floor ||
+    mapKey(map) === mapKey(place.toUpperCase().replaceAll('-', '_'));
 
   return Boolean(
     ownMap &&

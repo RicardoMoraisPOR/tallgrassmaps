@@ -42,7 +42,15 @@ const ICON_PREVIEW_PLACES = [
   'pallet-town/blues-house',
   'route-1',
   'viridian-city',
+  'viridian-city/viridian-pokemon-center',
+  'viridian-city/viridian-poke-mart',
+  'viridian-city/viridian-gym',
+  'viridian-city/viridian-school-house',
+  'viridian-city/viridian-nickname-house',
 ];
+
+const TILE_PIXELS = 16;
+const DEFAULT_SPRITE_OFFSET = [0, -4];
 
 const edgeCenter = (
   { x, y, width, height }: Rect,
@@ -322,10 +330,11 @@ export const locationLinks = (
 
   const npcMarkers: Array<LayeredMapLink> = npcs.map((npc) => {
     const layer = npcLayer();
+    const [offsetX, offsetY] = npc.spriteOffset ?? DEFAULT_SPRITE_OFFSET;
 
     return {
-      x: npc.x * tileSize,
-      y: npc.y * tileSize - tileSize / 4,
+      x: (npc.x + offsetX / TILE_PIXELS) * tileSize,
+      y: (npc.y + offsetY / TILE_PIXELS) * tileSize,
       width: tileSize,
       height: tileSize,
       label: npc.name,
@@ -343,8 +352,8 @@ export const locationLinks = (
 
   const signMarkers: Array<LayeredMapLink> = signs.map((sign) => {
     if (sign.sprite) {
-      const layer = itemLayer(false);
       const { opens } = sign;
+      const layer = opens ? itemLayer(false) : signLayer();
 
       return {
         x: sign.x * tileSize,
@@ -355,6 +364,7 @@ export const locationLinks = (
         layer: layer.id,
         className: layer.className,
         tooltip: signTooltip?.(sign),
+        tooltipOnClick: !opens,
         onClick: opens && onOpen && (() => onOpen(opens)),
         sprite: { src: sign.sprite, facing: 'down' as const },
       };

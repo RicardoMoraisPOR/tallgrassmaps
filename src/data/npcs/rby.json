@@ -387,6 +387,216 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "viridian-city/viridian-gym",
+    "x": 16,
+    "y": 15,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yo! Champ in making!\n\nEven I don't know VIRIDIAN LEADER's identity!\n\nThis will be the toughest of all the GYM LEADERs!\n\nI heard that the trainers here like ground-type POKéMON!",
+        "trigger": "Before you beat Giovanni"
+      },
+      {
+        "text": "Blow me away! GIOVANNI was the GYM LEADER here?",
+        "trigger": "After you beat Giovanni"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-poke-mart",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hey! You came from PALLET TOWN?\n\nYou know PROF. OAK, right?\n\nHis order came in. Will you take it to him?\n\nRED got OAK's PARCEL!",
+        "trigger": "When you first walk in, he gives you Oak’s Parcel",
+        "gift": {
+          "name": "Oak’s Parcel",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Okay! Say hi to PROF.OAK for me!",
+        "trigger": "Until you deliver the parcel"
+      },
+      {
+        "text": "Hi there! May I help you?",
+        "trigger": "After you deliver the parcel, he runs the shop"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-poke-mart",
+    "x": 5,
+    "y": 5,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This shop sells many ANTIDOTEs."
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "viridian-city/viridian-poke-mart",
+    "x": 3,
+    "y": 3,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "No! POTIONs are all sold out."
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "viridian-city/viridian-nickname-house",
+    "x": 5,
+    "y": 3,
+    "name": "Balding Guy",
+    "sprite": "balding_guy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Coming up with nicknames is fun, but hard.\n\nSimple names are the easiest to remember."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-nickname-house",
+    "x": 1,
+    "y": 4,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My Daddy loves POKéMON too."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-nickname-house",
+    "x": 5,
+    "y": 5,
+    "name": "Spearow",
+    "sprite": "bird",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SPEARY: Tetweet!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 10,
+    "y": 5,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can use that PC in the corner.\n\nThe receptionist told me. So kind!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 4,
+    "y": 3,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "There's a POKéMON CENTER in every town ahead.\n\nThey don't charge any money either!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-school-house",
+    "x": 3,
+    "y": 5,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Whew! I'm trying to memorize all my notes."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-school-house",
+    "x": 4,
+    "y": 1,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Okay!\n\nBe sure to read the blackboard carefully!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pallet-town/blues-house",
     "x": 2,
     "y": 3,
@@ -553,5 +763,113 @@
       }
     ],
     "games": ["yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-poke-mart",
+    "x": 5,
+    "y": 5,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This shop sells a lot of PARLYZ HEALs."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-poke-mart",
+    "x": 3,
+    "y": 3,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The shop finally has some POTIONs in stock."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 4,
+    "y": 3,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "There's a POKéMON CENTER in every town ahead.\n\nThey don't charge any money either!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-school-house",
+    "x": 4,
+    "y": 5,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Sis says POKéMON will become tame if you treat them nicely."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "viridian-city/viridian-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "POKéMON CENTERs heal your tired, hurt or fainted POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
   }
 ]

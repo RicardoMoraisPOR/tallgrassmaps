@@ -19,12 +19,19 @@ const SIGN_MAPS = {
   BLUES_HOUSE: 'pallet-town/blues-house',
   ROUTE_1: 'route-1',
   VIRIDIAN_CITY: 'viridian-city',
+  VIRIDIAN_POKECENTER: 'viridian-city/viridian-pokemon-center',
+  VIRIDIAN_MART: 'viridian-city/viridian-poke-mart',
+  VIRIDIAN_GYM: 'viridian-city/viridian-gym',
+  VIRIDIAN_SCHOOL_HOUSE: 'viridian-city/viridian-school-house',
+  VIRIDIAN_NICKNAME_HOUSE: 'viridian-city/viridian-nickname-house',
 };
 
 const OPENABLE_OBJECTS = [
   [/_POKEDEX\d*$/, 'pokedex'],
   [/_TOWN_MAP$/, 'town-map'],
 ];
+
+const READABLE_SPRITES = new Set(['CLIPBOARD', 'PAPER']);
 
 const opensFor = (textId) =>
   OPENABLE_OBJECTS.find(([pattern]) => pattern.test(textId))?.[1];
@@ -42,7 +49,7 @@ for (const game of games) {
 
     const floor = floorFor(map);
 
-    if (!hasOwnMapImage(game.dir, map, path, floor)) continue;
+    if (!hasOwnMapImage(game.dir, map, path, floor, true)) continue;
 
     const text = forGame(
       read(game.dir, `data/maps/objects/${fileName}`),
@@ -70,7 +77,8 @@ for (const game of games) {
       /^object_event\s+(\d+),\s*(\d+),\s*SPRITE_(\w+),.*TEXT_(\w+)(?:,.*)?$/gm,
     )) {
       const opens = opensFor(textId);
-      const message = opens && mapText(game, file, textId);
+      const message =
+        (opens || READABLE_SPRITES.has(sprite)) && mapText(game, file, textId);
 
       if (!message) continue;
 
@@ -82,7 +90,7 @@ for (const game of games) {
         y: Number(y),
         text: message,
         sprite: sprite.toLowerCase(),
-        opens,
+        ...(opens && { opens }),
       });
     }
   }

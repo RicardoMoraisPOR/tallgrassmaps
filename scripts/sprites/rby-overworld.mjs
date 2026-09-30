@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import { readPng, writePng } from '../lib/png.mjs';
 import { pokeredDir, pokeyellowDir } from '../rby/disassembly.mjs';
+import { mapTiles, TILE } from '../rby/map-tiles.mjs';
 
 const OUTPUT = fileURLToPath(
   new URL('../../public/sprites/rby/overworld/', import.meta.url),
@@ -72,6 +73,65 @@ for (const file of spriteFiles(pokeyellowDir)) {
 
   writePng(join(OUTPUT, 'yellow', file), STEP, STEP * FRAMES, sheet(yellow));
   written.yellow++;
+}
+
+const CUTOUTS = [
+  {
+    file: 'bench_guy.png',
+    map: 'ViridianPokecenter',
+    origin: [6, 64],
+    rows: [
+      [4, 8],
+      [2, 9],
+      [1, 10],
+      [0, 11],
+      [0, 11],
+      [0, 10],
+      [0, 10],
+      [0, 10],
+      [1, 10],
+      [3, 9],
+      [3, 9],
+      [2, 9],
+      [2, 10],
+      [3, 11],
+      [5, 10],
+      [8, 9],
+    ],
+  },
+];
+
+const cutout = ({ map, origin: [left, top], rows }) => {
+  const { tileAt, shadeAt } = mapTiles(pokeredDir, map);
+  const rgba = Buffer.alloc(STEP * STEP * FRAMES * 4);
+
+  rows.forEach(([from, to], y) => {
+    for (let x = from; x <= to; x++) {
+      const mapX = left + x;
+      const mapY = top + y;
+      const shade = shadeAt(
+        tileAt(Math.floor(mapX / TILE), Math.floor(mapY / TILE)),
+        mapX % TILE,
+        mapY % TILE,
+      );
+
+      for (let frame = 0; frame < FRAMES; frame++) {
+        const i = ((frame * STEP + y) * STEP + x) * 4;
+
+        rgba[i] = shade;
+        rgba[i + 1] = shade;
+        rgba[i + 2] = shade;
+        rgba[i + 3] = 255;
+      }
+    }
+  });
+
+  return rgba;
+};
+
+for (const entry of CUTOUTS) {
+  writePng(join(OUTPUT, entry.file), STEP, STEP * FRAMES, cutout(entry));
+  written.red++;
 }
 
 console.log(

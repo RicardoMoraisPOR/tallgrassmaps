@@ -11,7 +11,7 @@ import {
   read,
   spritePath,
 } from '../rby/disassembly.mjs';
-import { farText, mapText } from '../rby/text.mjs';
+import { farText, labelText, mapText } from '../rby/text.mjs';
 
 const OUTPUT = new URL('../../src/data/npcs/rby.json', import.meta.url);
 
@@ -22,9 +22,45 @@ const NPC_MAPS = {
   BLUES_HOUSE: { path: 'pallet-town/blues-house' },
   ROUTE_1: { path: 'route-1' },
   VIRIDIAN_CITY: { path: 'viridian-city' },
+  VIRIDIAN_POKECENTER: { path: 'viridian-city/viridian-pokemon-center' },
+  VIRIDIAN_MART: { path: 'viridian-city/viridian-poke-mart' },
+  VIRIDIAN_GYM: { path: 'viridian-city/viridian-gym' },
+  VIRIDIAN_SCHOOL_HOUSE: { path: 'viridian-city/viridian-school-house' },
+  VIRIDIAN_NICKNAME_HOUSE: { path: 'viridian-city/viridian-nickname-house' },
 };
 
-const OBJECT_SPRITES = new Set(['POKE_BALL', 'POKEDEX']);
+const OBJECT_SPRITES = new Set(['POKE_BALL', 'POKEDEX', 'CLIPBOARD', 'PAPER']);
+
+const SPRITE_DIALOG = {
+  NURSE: [
+    {
+      trigger: 'When you talk to her',
+      texts: ['_PokemonCenterWelcomeText', '_ShallWeHealYourPokemonText'],
+    },
+    {
+      trigger: 'If you say yes, she heals your party',
+      texts: [
+        '_NeedYourPokemonText',
+        '_PokemonFightingFitText',
+        '_PokemonCenterFarewellText',
+      ],
+    },
+    {
+      trigger: 'If you say no',
+      texts: ['_PokemonCenterFarewellText'],
+    },
+  ],
+  CHANSEY: [{ texts: ['_NurseChanseyText'] }],
+  LINK_RECEPTIONIST: [
+    {
+      trigger: 'Without a link cable connection',
+      texts: [
+        '_CableClubNPCAreaReservedFor2FriendsLinkedByCableText',
+        '_CableClubNPCPleaseComeAgainText',
+      ],
+    },
+  ],
+};
 
 const SCRIPTED_NPCS = {
   PALLETTOWN_OAK: {
@@ -184,6 +220,38 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
+  VIRIDIANMART_CLERK: {
+    dialog: [
+      {
+        trigger: 'When you first walk in, he gives you Oak’s Parcel',
+        texts: [
+          '_ViridianMartClerkYouCameFromPalletTownText',
+          '_ViridianMartClerkParcelQuestText',
+        ],
+        gift: { name: 'Oak’s Parcel' },
+      },
+      {
+        trigger: 'Until you deliver the parcel',
+        texts: ['_ViridianMartClerkSayHiToOakText'],
+      },
+      {
+        trigger: 'After you deliver the parcel, he runs the shop',
+        texts: ['_PokemartGreetingText'],
+      },
+    ],
+  },
+  VIRIDIANGYM_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Giovanni',
+        texts: ['_ViridianGymGuidePreBattleText'],
+      },
+      {
+        trigger: 'After you beat Giovanni',
+        texts: ['_ViridianGymGuidePostBattleText'],
+      },
+    ],
+  },
   OAKSLAB_OAK1: {
     dialog: [
       {
@@ -284,6 +352,8 @@ const specialNames = {
   OAK: 'Prof. Oak',
   DAISY_SITTING: 'Daisy',
   GAMBLER: 'Old Man',
+  COOLTRAINER_M: 'Cooltrainer',
+  COOLTRAINER_F: 'Cooltrainer',
   OLD_MAN_SLEEPY: 'Old Man',
 };
 
@@ -321,7 +391,7 @@ for (const game of games) {
 
     const { path, floor = floorFor(map) } = NPC_MAPS[map];
 
-    if (!hasOwnMapImage(game.dir, map, path, floor)) continue;
+    if (!hasOwnMapImage(game.dir, map, path, floor, true)) continue;
 
     const text = forGame(
       read(game.dir, `data/maps/objects/${fileName}`),
@@ -348,11 +418,14 @@ for (const game of games) {
       if (hidden.has(toggles[index]) && !scripted) return;
 
       const text = !scripted && mapText(game, file, textId);
+      const shared = SPRITE_DIALOG[sprite];
       const dialog = scripted
         ? scriptedDialog(game, scripted.dialog)
         : text
           ? [{ text }]
-          : [];
+          : shared
+            ? scriptedDialog(game, shared)
+            : [];
 
       npcs.push({
         game: game.id,
@@ -369,6 +442,59 @@ for (const game of games) {
     });
   }
 }
+
+const benchGuys = (game) => {
+  const texts = new Map(
+    [
+      ...read(game.dir, 'data/events/bench_guys.asm').matchAll(
+        /bench_guy_text\s+(\w+),\s*\w+,\s*(\w+)/g,
+      ),
+    ].map(([, map, label]) => [map, label]),
+  );
+  const events = forGame(
+    read(game.dir, 'data/events/hidden_events.asm'),
+    game.define,
+  );
+  const guys = [];
+  let map;
+
+  for (const line of events) {
+    map = line.match(/^hidden_events_for (\w+)$/)?.[1] ?? map;
+
+    const [, x, y] =
+      line.match(/^hidden_event\s+(\d+),\s*(\d+),\s*PrintBenchGuyText/) ?? [];
+
+    if (x !== undefined && texts.has(map)) guys.push({ map, x, y });
+  }
+
+  return guys.flatMap(({ map, x, y }) => {
+    const place = NPC_MAPS[map];
+    const text = labelText(
+      game,
+      'engine/events/hidden_events/bench_guys.asm',
+      texts.get(map),
+    );
+
+    if (!place || !text) return [];
+
+    return [
+      {
+        game: game.id,
+        path: place.path,
+        ...(place.floor && { floor: place.floor }),
+        x: Number(x),
+        y: Number(y),
+        name: 'Bench Guy',
+        sprite: 'bench_guy',
+        facing: 'down',
+        spriteOffset: [6, 0],
+        dialog: [{ text }],
+      },
+    ];
+  });
+};
+
+for (const game of games) npcs.push(...benchGuys(game));
 
 const merged = new Map();
 

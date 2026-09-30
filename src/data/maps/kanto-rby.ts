@@ -75,10 +75,6 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [640, 576],
     cell: [2, 8],
-    markers: [
-      { kind: 'house', name: 'Trainer School', ...warp(21, 15) },
-      { kind: 'house', name: 'Nickname House', ...warp(21, 9) },
-    ],
   },
   {
     id: 'pewter-city',
@@ -367,6 +363,7 @@ const inside: Array<InsideEntry> = [
     size: [320, 288],
     parent: 'viridian-city',
     entrances: [warp(32, 7)],
+    exits: [rect(256, 272, 32, 16)],
   },
   {
     id: 'viridian-forest',
@@ -630,6 +627,7 @@ const pokemonCenter = (
   size: [224, 128],
   parent,
   entrances,
+  exits: [rect(48, 112, 32, 16)],
   marker: 'center',
   variants: [variant('yellow', `${id}.png`)],
 });
@@ -645,6 +643,7 @@ const pokeMart = (
   size: [128, 128],
   parent,
   entrances,
+  exits: [rect(48, 112, 32, 16)],
   marker: 'mart',
   variants: [variant('yellow', `${id}.png`)],
 });
@@ -688,6 +687,26 @@ const services: Array<InsideEntry> = [
     entrances: [warp(8, 13), warp(10, 13)],
     marker: 'mart',
     floors: ['1F', '2F', '3F', '4F', '5F', 'Roof'].map((name) => ({ name })),
+  },
+  {
+    id: 'viridian-school-house',
+    name: 'Trainer School',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'viridian-city',
+    entrances: [warp(21, 15)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'viridian-nickname-house',
+    name: 'Nickname House',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'viridian-city',
+    entrances: [warp(21, 9)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
   },
   {
     id: 'reds-house',
