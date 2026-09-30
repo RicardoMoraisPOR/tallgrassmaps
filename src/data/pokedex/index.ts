@@ -1,6 +1,6 @@
 import { rbyPokedex } from './rby';
-import { zaPokedex } from './za';
 import type { PokedexEntry } from './types';
+import { zaPokedex } from './za';
 
 const pokedexes: Partial<Record<string, Array<PokedexEntry>>> = {
   RBY: rbyPokedex,

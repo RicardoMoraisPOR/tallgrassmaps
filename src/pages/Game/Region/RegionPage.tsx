@@ -4,7 +4,7 @@ import { RegionMap } from '@/components/map/RegionMap';
 import { useGameRoute } from '@/hooks/useGameRoute';
 
 import { collectPlaces } from '../places';
-import { PokedexOverlay } from '../Pokedex/PokedexOverlay';
+import { Pokedex } from '../Pokedex/Pokedex';
 import { SidebarLayout } from '../SidebarLayout';
 import { MapLegend } from './MapLegend';
 import { PlaceList } from './PlaceList';
@@ -48,7 +48,7 @@ export const RegionPage = () => {
           />
         </div>
       </SidebarLayout>
-      <PokedexOverlay game={game} region={region} href={href} />
+      <Pokedex game={game} region={region} href={href} />
     </>
   );
 };

@@ -11,7 +11,7 @@ import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-import { PokedexOverlay } from '../Pokedex/PokedexOverlay';
+import { Pokedex } from '../Pokedex/Pokedex';
 import { SidebarLayout } from '../SidebarLayout';
 import { encounterGroups, wildAreaFor } from './encounters';
 import { EncountersTab, OpenPokedexButton } from './EncountersTab';
@@ -251,11 +251,7 @@ export const LocationPage = () => {
           onClose={() => selectTrainer(undefined)}
         />
       )}
-      <PokedexOverlay
-        game={route.game}
-        region={route.region}
-        href={route.href}
-      />
+      <Pokedex game={route.game} region={route.region} href={route.href} />
     </>
   );
 };

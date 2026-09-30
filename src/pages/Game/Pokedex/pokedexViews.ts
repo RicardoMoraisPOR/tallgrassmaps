@@ -1,39 +1,29 @@
 import { type ComponentType, lazy } from 'react';
 
-import type { Game } from '@/data/games';
 import type { Region } from '@/data/maps';
+import type { ThemeStyle } from '@/stores/settings';
 
-export type PokedexContentProps = {
-  game: Game;
-  region: Region;
-  href: (path: string) => string;
-  focus?: number;
-};
+import type { PokedexProps } from './types';
 
-export type PokedexView = {
-  presentation: 'drawer' | 'modal';
-  gameTheme?: boolean;
-  Content: ComponentType<PokedexContentProps>;
-};
+export type PokedexView = Partial<
+  Record<ThemeStyle, ComponentType<PokedexProps>>
+>;
+
+const TallGrassPokedex = lazy(() =>
+  import('./tall-grass/TallGrassPokedex').then((module) => ({
+    default: module.TallGrassPokedex,
+  })),
+);
+
+const RbyPokedex = lazy(() =>
+  import('./rby/RbyPokedex').then((module) => ({
+    default: module.RbyPokedex,
+  })),
+);
 
 export const pokedexViews: Partial<Record<string, PokedexView>> = {
-  RBY: {
-    presentation: 'drawer',
-    gameTheme: true,
-    Content: lazy(() =>
-      import('./rby/RbyPokedex').then((module) => ({
-        default: module.RbyPokedex,
-      })),
-    ),
-  },
-  ZA: {
-    presentation: 'drawer',
-    Content: lazy(() =>
-      import('./za/ZaPokedex').then((module) => ({
-        default: module.ZaPokedex,
-      })),
-    ),
-  },
+  RBY: { 'tall-grass': TallGrassPokedex, game: RbyPokedex },
+  ZA: { 'tall-grass': TallGrassPokedex },
 };
 
 export const hasPokedex = (region: Region) =>

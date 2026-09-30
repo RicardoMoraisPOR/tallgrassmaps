@@ -30,3 +30,7 @@ vendor/
 
 # Local design specs
 docs/superpowers/
+
+# Storybook
+storybook-static
+*storybook.log

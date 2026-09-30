@@ -1,9 +1,10 @@
-import { percent } from '@/components/map/coordinates';
-import { RegionImage } from '@/components/map/RegionImage';
 import { useThemeStyle } from '@/components/settings/themes';
 import { type Hotspot, type Region } from '@/data/maps';
 import { pathSegments } from '@/lib/paths';
 import { cn } from '@/lib/utils';
+
+import { percent } from './coordinates';
+import { RegionImage } from './RegionImage';
 
 const hotspotFor = (region: Region, path: string) =>
   region.hotspots.find((hotspot) => hotspot.target === path) ??

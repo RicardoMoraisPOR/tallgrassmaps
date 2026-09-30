@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 
 import {
@@ -12,7 +12,29 @@ import {
   read,
 } from '../rby/disassembly.mjs';
 
-const OUTPUT = new URL('../../src/data/pokedex/rby.json', import.meta.url);
+const OUTPUT = new URL('../../src/data/pokedex/rby/rby.json', import.meta.url);
+const MASTER = new URL(
+  '../../src/data/pokedex/master-data.json',
+  import.meta.url,
+);
+
+const master = new Map(
+  JSON.parse(readFileSync(MASTER, 'utf8')).map((entry) => [
+    entry.number,
+    entry,
+  ]),
+);
+
+const overrides = (number, name, types) => {
+  const base = master.get(number);
+
+  if (!base) throw new Error(`Pokémon #${number} is missing from master data`);
+
+  return {
+    ...(name !== base.name && { name }),
+    ...(types.join() !== base.types.join() && { types }),
+  };
+};
 
 const EXPECTED_OBTAINABLE = { red: 135, blue: 135, yellow: 134 };
 
@@ -535,14 +557,15 @@ const pokedex = [...species]
 
     return {
       number: entry.number,
-      name: entry.name,
-      types: entry.types,
+      id: entry.number,
+      ...overrides(entry.number, entry.name, entry.types),
       games: games
         .map(({ id }) => id)
         .filter((id) => obtainable[id].has(constant)),
       ...(evolvesFrom && {
         evolvesFrom: {
           number: species.get(evolvesFrom.from).number,
+          id: species.get(evolvesFrom.from).number,
           method: evolvesFrom.method,
           ...(evolvesFrom.level && { level: evolvesFrom.level }),
           ...(evolvesFrom.item && { item: evolvesFrom.item }),

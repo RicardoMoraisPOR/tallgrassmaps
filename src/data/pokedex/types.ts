@@ -42,3 +42,12 @@ export type PokedexEntry = {
   evolvesFrom?: Evolution;
   encounters: Array<Encounter>;
 };
+
+export type Species = {
+  number: number;
+  name: string;
+  types: Array<string>;
+};
+
+export type PokedexData = Omit<PokedexEntry, 'name' | 'types'> &
+  Partial<Pick<Species, 'name' | 'types'>>;

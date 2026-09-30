@@ -17,7 +17,7 @@ export const PokemonTypeTags = ({ types }: { types: Array<string> }) => (
                 } as CSSProperties)
               : undefined
           }
-          className="rounded-full border border-(--pokemon-type-white-theme-color) px-1.5 py-0.5 text-[11px] leading-none capitalize text-(--pokemon-type-white-theme-color) dark:border-(--pokemon-type-dark-theme-color) dark:text-(--pokemon-type-dark-theme-color) pokedex-game:rounded-none pokedex-game:border-2 pokedex-game:px-1 pokedex-game:py-[3px] pokedex-game:text-[8px]"
+          className="rounded-full border border-(--pokemon-type-white-theme-color) px-1.5 py-0.5 text-[11px] leading-none text-(--pokemon-type-white-theme-color) capitalize dark:border-(--pokemon-type-dark-theme-color) dark:text-(--pokemon-type-dark-theme-color) pokedex-game:rounded-none pokedex-game:border-2 pokedex-game:px-1 pokedex-game:py-[3px] pokedex-game:text-[8px]"
         >
           {type}
         </li>

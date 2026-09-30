@@ -1,0 +1,1394 @@
+[
+  {
+    "id": 1,
+    "number": 152,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 2,
+    "number": 153,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 3,
+    "number": 154,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 4,
+    "number": 498,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 5,
+    "number": 499,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 6,
+    "number": 500,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 7,
+    "number": 158,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 8,
+    "number": 159,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 9,
+    "number": 160,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 10,
+    "number": 661,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 11,
+    "number": 662,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 12,
+    "number": 663,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 13,
+    "number": 659,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 14,
+    "number": 660,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 15,
+    "number": 664,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 16,
+    "number": 665,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 17,
+    "number": 666,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 18,
+    "number": 13,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 19,
+    "number": 14,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 20,
+    "number": 15,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 21,
+    "number": 16,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 22,
+    "number": 17,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 23,
+    "number": 18,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 24,
+    "number": 179,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 25,
+    "number": 180,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 26,
+    "number": 181,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 27,
+    "number": 504,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 28,
+    "number": 505,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 29,
+    "number": 406,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 30,
+    "number": 315,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 31,
+    "number": 407,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 32,
+    "number": 129,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 33,
+    "number": 130,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 34,
+    "number": 688,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 35,
+    "number": 689,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 36,
+    "number": 120,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 37,
+    "number": 121,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 38,
+    "number": 669,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 39,
+    "number": 670,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 40,
+    "number": 671,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 41,
+    "number": 672,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 42,
+    "number": 673,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 43,
+    "number": 677,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 44,
+    "number": 678,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 45,
+    "number": 667,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 46,
+    "number": 668,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 47,
+    "number": 674,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 48,
+    "number": 675,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 49,
+    "number": 568,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 50,
+    "number": 569,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 51,
+    "number": 702,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 52,
+    "number": 172,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 53,
+    "number": 25,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 54,
+    "number": 26,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 55,
+    "number": 173,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 56,
+    "number": 35,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 57,
+    "number": 36,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 58,
+    "number": 167,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 59,
+    "number": 168,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 60,
+    "number": 23,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 61,
+    "number": 24,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 62,
+    "number": 63,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 63,
+    "number": 64,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 64,
+    "number": 65,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 65,
+    "number": 92,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 66,
+    "number": 93,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 67,
+    "number": 94,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 68,
+    "number": 543,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 69,
+    "number": 544,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 70,
+    "number": 545,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 71,
+    "number": 679,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 72,
+    "number": 680,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 73,
+    "number": 681,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 74,
+    "number": 69,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 75,
+    "number": 70,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 76,
+    "number": 71,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 77,
+    "number": 511,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 78,
+    "number": 512,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 79,
+    "number": 513,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 80,
+    "number": 514,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 81,
+    "number": 515,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 82,
+    "number": 516,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 83,
+    "number": 307,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 84,
+    "number": 308,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 85,
+    "number": 309,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 86,
+    "number": 310,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 87,
+    "number": 280,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 88,
+    "number": 281,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 89,
+    "number": 282,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 90,
+    "number": 475,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 91,
+    "number": 228,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 92,
+    "number": 229,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 93,
+    "number": 333,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 94,
+    "number": 334,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 95,
+    "number": 531,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 96,
+    "number": 682,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 97,
+    "number": 683,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 98,
+    "number": 684,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 99,
+    "number": 685,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 100,
+    "number": 133,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 101,
+    "number": 134,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 102,
+    "number": 135,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 103,
+    "number": 136,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 104,
+    "number": 196,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 105,
+    "number": 197,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 106,
+    "number": 470,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 107,
+    "number": 471,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 108,
+    "number": 700,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 109,
+    "number": 427,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 110,
+    "number": 428,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 111,
+    "number": 353,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 112,
+    "number": 354,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 113,
+    "number": 582,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 114,
+    "number": 583,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 115,
+    "number": 584,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 116,
+    "number": 322,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 117,
+    "number": 323,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 118,
+    "number": 449,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 119,
+    "number": 450,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 120,
+    "number": 529,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 121,
+    "number": 530,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 122,
+    "number": 551,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 123,
+    "number": 552,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 124,
+    "number": 553,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 125,
+    "number": 66,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 126,
+    "number": 67,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 127,
+    "number": 68,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 128,
+    "number": 443,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 129,
+    "number": 444,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 130,
+    "number": 445,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 131,
+    "number": 703,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 132,
+    "number": 302,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 133,
+    "number": 303,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 134,
+    "number": 359,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 135,
+    "number": 447,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 136,
+    "number": 448,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 137,
+    "number": 79,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 138,
+    "number": 80,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 139,
+    "number": 199,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 140,
+    "number": 318,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 141,
+    "number": 319,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 142,
+    "number": 602,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 143,
+    "number": 603,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 144,
+    "number": 604,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 145,
+    "number": 147,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 146,
+    "number": 148,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 147,
+    "number": 149,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 148,
+    "number": 1,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 149,
+    "number": 2,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 150,
+    "number": 3,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 151,
+    "number": 4,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 152,
+    "number": 5,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 153,
+    "number": 6,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 154,
+    "number": 7,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 155,
+    "number": 8,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 156,
+    "number": 9,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 157,
+    "number": 618,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 158,
+    "number": 676,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 159,
+    "number": 686,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 160,
+    "number": 687,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 161,
+    "number": 690,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 162,
+    "number": 691,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 163,
+    "number": 692,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 164,
+    "number": 693,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 165,
+    "number": 704,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 166,
+    "number": 705,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 167,
+    "number": 706,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 168,
+    "number": 225,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 169,
+    "number": 361,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 170,
+    "number": 362,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 171,
+    "number": 478,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 172,
+    "number": 459,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 173,
+    "number": 460,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 174,
+    "number": 712,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 175,
+    "number": 713,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 176,
+    "number": 123,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 177,
+    "number": 212,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 178,
+    "number": 127,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 179,
+    "number": 214,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 180,
+    "number": 587,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 181,
+    "number": 701,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 182,
+    "number": 708,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 183,
+    "number": 709,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 184,
+    "number": 559,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 185,
+    "number": 560,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 186,
+    "number": 714,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 187,
+    "number": 715,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 188,
+    "number": 707,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 189,
+    "number": 607,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 190,
+    "number": 608,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 191,
+    "number": 609,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 192,
+    "number": 142,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 193,
+    "number": 696,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 194,
+    "number": 697,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 195,
+    "number": 698,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 196,
+    "number": 699,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 197,
+    "number": 95,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 198,
+    "number": 208,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 199,
+    "number": 304,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 200,
+    "number": 305,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 201,
+    "number": 306,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 202,
+    "number": 694,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 203,
+    "number": 695,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 204,
+    "number": 710,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 205,
+    "number": 711,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 206,
+    "number": 246,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 207,
+    "number": 247,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 208,
+    "number": 248,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 209,
+    "number": 656,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 210,
+    "number": 657,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 211,
+    "number": 658,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 212,
+    "number": 870,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 213,
+    "number": 650,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 214,
+    "number": 651,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 215,
+    "number": 652,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 216,
+    "number": 227,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 217,
+    "number": 653,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 218,
+    "number": 654,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 219,
+    "number": 655,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 220,
+    "number": 371,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 221,
+    "number": 372,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 222,
+    "number": 373,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 223,
+    "number": 115,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 224,
+    "number": 780,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 225,
+    "number": 374,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 226,
+    "number": 375,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 227,
+    "number": 376,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 228,
+    "number": 716,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 229,
+    "number": 717,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 230,
+    "number": 718,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 231,
+    "number": 719,
+    "games": ["legends-za"],
+    "encounters": []
+  },
+  {
+    "id": 232,
+    "number": 150,
+    "games": ["legends-za"],
+    "encounters": []
+  }
+]
