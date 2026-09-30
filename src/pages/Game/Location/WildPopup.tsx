@@ -77,13 +77,13 @@ const GameWildPopup = ({
                     width={96}
                     height={96}
                     loading="lazy"
-                    className="size-7 flex-none object-contain"
+                    className="size-8 flex-none object-contain"
                   />
                   <div className="flex min-w-0 flex-1 flex-col gap-1 leading-none">
                     <div className="flex min-w-0 items-center gap-1.5">
                       <PokedexEntryLink
                         number={entry.number}
-                        className="truncate text-[8px] leading-[12px]"
+                        className="truncate text-[10px] leading-[14px]"
                       >
                         {entry.name}
                       </PokedexEntryLink>
@@ -91,7 +91,7 @@ const GameWildPopup = ({
                         {gameLevelLabel(encounter)}
                       </span>
                     </div>
-                    <PokemonTypeTags types={entry.types} compact />
+                    <PokemonTypeTags types={entry.types} />
                   </div>
                   <span className="text-[8px] leading-none">
                     {chanceLabel(encounter)}
@@ -147,8 +147,8 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
             >
               {nameOf(number)}
             </PokedexEntryLink>
-            <PokemonTypeTags types={typesOf(number)} compact />
             <span className="text-[8px]">:L{level}</span>
+            <PokemonTypeTags types={typesOf(number)} />
           </div>
         </div>
       ))}
@@ -184,7 +184,7 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
                   Lv. {level}
                 </span>
               </div>
-              <PokemonTypeTags types={typesOf(number)} compact />
+              <PokemonTypeTags types={typesOf(number)} />
             </div>
           </div>
         );

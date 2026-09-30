@@ -140,6 +140,7 @@ const EncounterRow = ({
       {entry.name}
     </span>
   );
+
   return (
     <li
       className={cn(
@@ -155,7 +156,7 @@ const EncounterRow = ({
         loading="lazy"
         className={cn(
           'flex-none object-contain',
-          compact ? 'size-7' : 'size-10',
+          compact ? 'size-9' : 'size-10',
           sprite.pixelated && 'pixelated',
         )}
       />
@@ -166,7 +167,7 @@ const EncounterRow = ({
             {levelLabel(encounter)}
           </span>
         </div>
-        <PokemonTypeTags types={entry.types} compact={compact} />
+        <PokemonTypeTags types={entry.types} />
       </div>
       {chance && (
         <span
