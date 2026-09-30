@@ -498,6 +498,27 @@
   fill-opacity: 0.45;
 }
 
+.leaflet-interactive.map-link-sprite,
+.leaflet-interactive.map-link-sprite:hover {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}
+
+.map-sprite {
+  transition: filter 150ms;
+}
+
+.map-sprite image {
+  image-rendering: pixelated;
+}
+
+.map-sprite-active {
+  filter: drop-shadow(1.5px 0 0 var(--map-link))
+    drop-shadow(-1.5px 0 0 var(--map-link))
+    drop-shadow(0 1.5px 0 var(--map-link))
+    drop-shadow(0 -1.5px 0 var(--map-link)) drop-shadow(0 0 4px var(--map-link));
+}
+
 @utility version-letter {
   color: inherit;
   color: oklch(from var(--letter) max(l, 0.62) c h);

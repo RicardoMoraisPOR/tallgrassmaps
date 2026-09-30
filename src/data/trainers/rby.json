@@ -4,6 +4,7 @@
     "trainerClass": "erika",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "silph_worker_f",
     "parties": [
       {
         "pokemon": [
@@ -37,6 +38,7 @@
     "trainerClass": "erika",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "silph_worker_f",
     "parties": [
       {
         "pokemon": [
@@ -65,6 +67,7 @@
     "trainerClass": "lass",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -88,6 +91,7 @@
     "trainerClass": "beauty",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -121,6 +125,7 @@
     "trainerClass": "jr-trainer-f",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -144,6 +149,7 @@
     "trainerClass": "beauty",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -167,6 +173,7 @@
     "trainerClass": "lass",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -190,6 +197,7 @@
     "trainerClass": "beauty",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -208,6 +216,7 @@
     "trainerClass": "cooltrainer-f",
     "path": "celadon-city",
     "area": "Celadon Gym",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -239,6 +248,8 @@
     "floor": "game-corner",
     "x": 9,
     "y": 5,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -265,6 +276,8 @@
     "floor": "b1f",
     "x": 26,
     "y": 8,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -291,6 +304,8 @@
     "floor": "b1f",
     "x": 12,
     "y": 6,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -317,6 +332,8 @@
     "floor": "b1f",
     "x": 18,
     "y": 17,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -348,6 +365,8 @@
     "floor": "b1f",
     "x": 15,
     "y": 25,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -384,6 +403,8 @@
     "floor": "b1f",
     "x": 28,
     "y": 18,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -410,6 +431,8 @@
     "floor": "b2f",
     "x": 20,
     "y": 12,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -451,6 +474,8 @@
     "floor": "b3f",
     "x": 10,
     "y": 22,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -482,6 +507,8 @@
     "floor": "b3f",
     "x": 26,
     "y": 12,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -506,6 +533,7 @@
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
     "floor": "b4f",
+    "sprite": "yellow/jessie",
     "parties": [
       {
         "pokemon": [
@@ -537,6 +565,8 @@
     "floor": "b4f",
     "x": 25,
     "y": 3,
+    "facing": "down",
+    "sprite": "giovanni",
     "parties": [
       {
         "pokemon": [
@@ -568,6 +598,8 @@
     "floor": "b4f",
     "x": 25,
     "y": 3,
+    "facing": "down",
+    "sprite": "giovanni",
     "parties": [
       {
         "pokemon": [
@@ -599,6 +631,8 @@
     "floor": "b4f",
     "x": 23,
     "y": 12,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -630,6 +664,8 @@
     "floor": "b4f",
     "x": 11,
     "y": 2,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -656,6 +692,8 @@
     "floor": "b4f",
     "x": 26,
     "y": 12,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -687,6 +725,8 @@
     "floor": "b4f",
     "x": 11,
     "y": 2,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -709,6 +749,7 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "cerulean-city",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -792,6 +833,7 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "cerulean-city",
+    "sprite": "blue",
     "parties": [
       {
         "pokemon": [
@@ -826,6 +868,8 @@
     "path": "cerulean-city",
     "x": 30,
     "y": 8,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -849,6 +893,7 @@
     "trainerClass": "misty",
     "path": "cerulean-city",
     "area": "Cerulean Gym",
+    "sprite": "brunette_girl",
     "parties": [
       {
         "pokemon": [
@@ -872,6 +917,7 @@
     "trainerClass": "misty",
     "path": "cerulean-city",
     "area": "Cerulean Gym",
+    "sprite": "brunette_girl",
     "parties": [
       {
         "pokemon": [
@@ -895,6 +941,7 @@
     "trainerClass": "jr-trainer-f",
     "path": "cerulean-city",
     "area": "Cerulean Gym",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -913,6 +960,7 @@
     "trainerClass": "swimmer",
     "path": "cerulean-city",
     "area": "Cerulean Gym",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -936,6 +984,7 @@
     "trainerClass": "blaine",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "middle_aged_man",
     "parties": [
       {
         "pokemon": [
@@ -969,6 +1018,7 @@
     "trainerClass": "blaine",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "silph_president",
     "parties": [
       {
         "pokemon": [
@@ -1002,6 +1052,7 @@
     "trainerClass": "super-nerd",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1030,6 +1081,7 @@
     "trainerClass": "burglar",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1058,6 +1110,7 @@
     "trainerClass": "super-nerd",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1091,6 +1144,7 @@
     "trainerClass": "burglar",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1109,6 +1163,7 @@
     "trainerClass": "super-nerd",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1127,6 +1182,7 @@
     "trainerClass": "burglar",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1150,6 +1206,7 @@
     "trainerClass": "super-nerd",
     "path": "cinnabar-island",
     "area": "Cinnabar Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1176,6 +1233,8 @@
     "floor": "1f",
     "x": 17,
     "y": 17,
+    "facing": "left",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -1202,6 +1261,8 @@
     "floor": "2f",
     "x": 3,
     "y": 17,
+    "facing": "down",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1228,6 +1289,8 @@
     "floor": "3f",
     "x": 5,
     "y": 11,
+    "facing": "down",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1249,6 +1312,8 @@
     "floor": "3f",
     "x": 20,
     "y": 11,
+    "facing": "left",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -1280,6 +1345,8 @@
     "floor": "b1f",
     "x": 16,
     "y": 23,
+    "facing": "down",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -1306,6 +1373,8 @@
     "floor": "b1f",
     "x": 27,
     "y": 11,
+    "facing": "down",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -1329,6 +1398,7 @@
     "trainerClass": "koga",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "koga",
     "parties": [
       {
         "pokemon": [
@@ -1362,6 +1432,7 @@
     "trainerClass": "koga",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "silph_worker_m",
     "parties": [
       {
         "pokemon": [
@@ -1395,6 +1466,7 @@
     "trainerClass": "juggler",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -1413,6 +1485,7 @@
     "trainerClass": "juggler",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -1446,6 +1519,7 @@
     "trainerClass": "juggler",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -1469,6 +1543,7 @@
     "trainerClass": "tamer",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -1492,6 +1567,7 @@
     "trainerClass": "tamer",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -1520,6 +1596,7 @@
     "trainerClass": "juggler",
     "path": "fuchsia-city",
     "area": "Fuchsia Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -1543,6 +1620,7 @@
     "trainerClass": "agatha",
     "path": "indigo-plateau",
     "area": "Agatha's Room",
+    "sprite": "agatha",
     "parties": [
       {
         "pokemon": [
@@ -1581,6 +1659,7 @@
     "trainerClass": "agatha",
     "path": "indigo-plateau",
     "area": "Agatha's Room",
+    "sprite": "agatha",
     "parties": [
       {
         "pokemon": [
@@ -1619,6 +1698,7 @@
     "trainerClass": "bruno",
     "path": "indigo-plateau",
     "area": "Bruno's Room",
+    "sprite": "bruno",
     "parties": [
       {
         "pokemon": [
@@ -1657,6 +1737,7 @@
     "trainerClass": "bruno",
     "path": "indigo-plateau",
     "area": "Bruno's Room",
+    "sprite": "bruno",
     "parties": [
       {
         "pokemon": [
@@ -1695,6 +1776,7 @@
     "trainerClass": "rival3",
     "path": "indigo-plateau",
     "area": "Champion's Room",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -1809,6 +1891,7 @@
     "trainerClass": "rival3",
     "path": "indigo-plateau",
     "area": "Champion's Room",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
@@ -1923,6 +2006,7 @@
     "trainerClass": "lance",
     "path": "indigo-plateau",
     "area": "Lance's Room",
+    "sprite": "lance",
     "parties": [
       {
         "pokemon": [
@@ -1961,6 +2045,7 @@
     "trainerClass": "lance",
     "path": "indigo-plateau",
     "area": "Lance's Room",
+    "sprite": "lance",
     "parties": [
       {
         "pokemon": [
@@ -1999,6 +2084,7 @@
     "trainerClass": "lorelei",
     "path": "indigo-plateau",
     "area": "Lorelei's Room",
+    "sprite": "lorelei",
     "parties": [
       {
         "pokemon": [
@@ -2037,6 +2123,7 @@
     "trainerClass": "lorelei",
     "path": "indigo-plateau",
     "area": "Lorelei's Room",
+    "sprite": "lorelei",
     "parties": [
       {
         "pokemon": [
@@ -2076,6 +2163,7 @@
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
     "floor": "2f",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -2176,6 +2264,7 @@
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
     "floor": "2f",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
@@ -2278,6 +2367,8 @@
     "floor": "3f",
     "x": 12,
     "y": 3,
+    "facing": "left",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2299,6 +2390,8 @@
     "floor": "3f",
     "x": 9,
     "y": 8,
+    "facing": "down",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2320,6 +2413,8 @@
     "floor": "3f",
     "x": 10,
     "y": 13,
+    "facing": "down",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2341,6 +2436,8 @@
     "floor": "4f",
     "x": 5,
     "y": 10,
+    "facing": "right",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2362,6 +2459,8 @@
     "floor": "4f",
     "x": 15,
     "y": 7,
+    "facing": "down",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2388,6 +2487,8 @@
     "floor": "4f",
     "x": 14,
     "y": 12,
+    "facing": "left",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2409,6 +2510,8 @@
     "floor": "5f",
     "x": 17,
     "y": 7,
+    "facing": "left",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2430,6 +2533,8 @@
     "floor": "5f",
     "x": 14,
     "y": 3,
+    "facing": "left",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2451,6 +2556,8 @@
     "floor": "5f",
     "x": 6,
     "y": 10,
+    "facing": "right",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2472,6 +2579,8 @@
     "floor": "5f",
     "x": 9,
     "y": 16,
+    "facing": "right",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2493,6 +2602,8 @@
     "floor": "6f",
     "x": 12,
     "y": 10,
+    "facing": "right",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2524,6 +2635,8 @@
     "floor": "6f",
     "x": 9,
     "y": 5,
+    "facing": "down",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2545,6 +2658,8 @@
     "floor": "6f",
     "x": 16,
     "y": 5,
+    "facing": "left",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -2564,6 +2679,7 @@
     "path": "lavender-town/pokemon-tower",
     "area": "7F",
     "floor": "7f",
+    "sprite": "yellow/jessie",
     "parties": [
       {
         "pokemon": [
@@ -2595,6 +2711,8 @@
     "floor": "7f",
     "x": 9,
     "y": 11,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -2626,6 +2744,8 @@
     "floor": "7f",
     "x": 12,
     "y": 9,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -2652,6 +2772,8 @@
     "floor": "7f",
     "x": 9,
     "y": 7,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -2685,6 +2807,7 @@
     "trainerClass": "rival1",
     "path": "pallet-town",
     "area": "Oak's Lab",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -2724,6 +2847,7 @@
     "trainerClass": "rival1",
     "path": "pallet-town",
     "area": "Oak's Lab",
+    "sprite": "blue",
     "parties": [
       {
         "pokemon": [
@@ -2742,6 +2866,7 @@
     "trainerClass": "brock",
     "path": "pewter-city",
     "area": "Pewter Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -2765,6 +2890,7 @@
     "trainerClass": "brock",
     "path": "pewter-city",
     "area": "Pewter Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -2788,6 +2914,7 @@
     "trainerClass": "jr-trainer-m",
     "path": "pewter-city",
     "area": "Pewter Gym",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -2811,6 +2938,7 @@
     "trainerClass": "jr-trainer-m",
     "path": "pewter-city",
     "area": "Pewter Gym",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -2835,6 +2963,8 @@
     "path": "route-2/viridian-forest",
     "x": 30,
     "y": 33,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -2859,6 +2989,8 @@
     "path": "route-2/viridian-forest",
     "x": 30,
     "y": 33,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -2883,6 +3015,8 @@
     "path": "route-2/viridian-forest",
     "x": 30,
     "y": 19,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -2912,6 +3046,8 @@
     "path": "route-2/viridian-forest",
     "x": 30,
     "y": 19,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -2941,6 +3077,8 @@
     "path": "route-2/viridian-forest",
     "x": 2,
     "y": 18,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -2960,6 +3098,8 @@
     "path": "route-2/viridian-forest",
     "x": 2,
     "y": 18,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -2979,6 +3119,8 @@
     "path": "route-2/viridian-forest",
     "x": 2,
     "y": 41,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3003,6 +3145,8 @@
     "path": "route-2/viridian-forest",
     "x": 13,
     "y": 17,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3027,6 +3171,8 @@
     "path": "route-3",
     "x": 10,
     "y": 6,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3056,6 +3202,8 @@
     "path": "route-3",
     "x": 14,
     "y": 4,
+    "facing": "down",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3080,6 +3228,8 @@
     "path": "route-3",
     "x": 16,
     "y": 9,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3104,6 +3254,8 @@
     "path": "route-3",
     "x": 19,
     "y": 5,
+    "facing": "down",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3138,6 +3290,8 @@
     "path": "route-3",
     "x": 23,
     "y": 4,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3162,6 +3316,8 @@
     "path": "route-3",
     "x": 22,
     "y": 9,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3181,6 +3337,8 @@
     "path": "route-3",
     "x": 24,
     "y": 6,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3205,6 +3363,8 @@
     "path": "route-3",
     "x": 33,
     "y": 10,
+    "facing": "up",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3224,6 +3384,8 @@
     "path": "route-4",
     "x": 63,
     "y": 3,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3255,6 +3417,8 @@
     "floor": "1f",
     "x": 5,
     "y": 6,
+    "facing": "down",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -3286,6 +3450,8 @@
     "floor": "1f",
     "x": 12,
     "y": 16,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3317,6 +3483,8 @@
     "floor": "1f",
     "x": 30,
     "y": 4,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3343,6 +3511,8 @@
     "floor": "1f",
     "x": 24,
     "y": 31,
+    "facing": "up",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -3369,6 +3539,8 @@
     "floor": "1f",
     "x": 16,
     "y": 23,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3390,6 +3562,8 @@
     "floor": "1f",
     "x": 7,
     "y": 22,
+    "facing": "down",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3416,6 +3590,8 @@
     "floor": "1f",
     "x": 30,
     "y": 27,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3445,6 +3621,7 @@
     "path": "route-4/mt-moon",
     "area": "B2F",
     "floor": "b2f",
+    "sprite": "yellow/jessie",
     "parties": [
       {
         "pokemon": [
@@ -3476,6 +3653,8 @@
     "floor": "b2f",
     "x": 12,
     "y": 8,
+    "facing": "right",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -3507,6 +3686,8 @@
     "floor": "b2f",
     "x": 11,
     "y": 16,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -3533,6 +3714,8 @@
     "floor": "b2f",
     "x": 15,
     "y": 22,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -3564,6 +3747,8 @@
     "floor": "b2f",
     "x": 15,
     "y": 22,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -3595,6 +3780,8 @@
     "floor": "b2f",
     "x": 29,
     "y": 11,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -3621,6 +3808,8 @@
     "floor": "b2f",
     "x": 29,
     "y": 11,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -3647,6 +3836,8 @@
     "floor": "b2f",
     "x": 29,
     "y": 17,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -3673,6 +3864,8 @@
     "floor": "b2f",
     "x": 29,
     "y": 17,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -3692,6 +3885,8 @@
     "path": "route-6",
     "x": 10,
     "y": 21,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -3711,6 +3906,8 @@
     "path": "route-6",
     "x": 10,
     "y": 21,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -3730,6 +3927,8 @@
     "path": "route-6",
     "x": 11,
     "y": 21,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3754,6 +3953,8 @@
     "path": "route-6",
     "x": 11,
     "y": 21,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3773,6 +3974,8 @@
     "path": "route-6",
     "x": 0,
     "y": 15,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3802,6 +4005,8 @@
     "path": "route-6",
     "x": 11,
     "y": 31,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -3826,6 +4031,8 @@
     "path": "route-6",
     "x": 11,
     "y": 30,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -3855,6 +4062,8 @@
     "path": "route-6",
     "x": 19,
     "y": 26,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3874,6 +4083,8 @@
     "path": "route-6",
     "x": 19,
     "y": 26,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -3898,6 +4109,8 @@
     "path": "route-8",
     "x": 8,
     "y": 5,
+    "facing": "right",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -3932,6 +4145,8 @@
     "path": "route-8",
     "x": 13,
     "y": 9,
+    "facing": "up",
+    "sprite": "gambler",
     "parties": [
       {
         "pokemon": [
@@ -3961,6 +4176,8 @@
     "path": "route-8",
     "x": 42,
     "y": 6,
+    "facing": "up",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -3990,6 +4207,8 @@
     "path": "route-8",
     "x": 26,
     "y": 3,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4014,6 +4233,8 @@
     "path": "route-8",
     "x": 26,
     "y": 3,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4038,6 +4259,8 @@
     "path": "route-8",
     "x": 26,
     "y": 4,
+    "facing": "right",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -4057,6 +4280,8 @@
     "path": "route-8",
     "x": 26,
     "y": 5,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4086,6 +4311,8 @@
     "path": "route-8",
     "x": 26,
     "y": 6,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4125,6 +4352,8 @@
     "path": "route-8",
     "x": 26,
     "y": 6,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4164,6 +4393,8 @@
     "path": "route-8",
     "x": 46,
     "y": 13,
+    "facing": "down",
+    "sprite": "gambler",
     "parties": [
       {
         "pokemon": [
@@ -4188,6 +4419,8 @@
     "path": "route-8",
     "x": 51,
     "y": 12,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4212,6 +4445,8 @@
     "path": "route-9",
     "x": 13,
     "y": 10,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4246,6 +4481,8 @@
     "path": "route-9",
     "x": 24,
     "y": 7,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -4270,6 +4507,8 @@
     "path": "route-9",
     "x": 24,
     "y": 7,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -4289,6 +4528,8 @@
     "path": "route-9",
     "x": 31,
     "y": 7,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -4323,6 +4564,8 @@
     "path": "route-9",
     "x": 48,
     "y": 8,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4342,6 +4585,8 @@
     "path": "route-9",
     "x": 16,
     "y": 15,
+    "facing": "left",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4366,6 +4611,8 @@
     "path": "route-9",
     "x": 43,
     "y": 3,
+    "facing": "left",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4395,6 +4642,8 @@
     "path": "route-9",
     "x": 22,
     "y": 2,
+    "facing": "down",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -4419,6 +4668,8 @@
     "path": "route-9",
     "x": 45,
     "y": 15,
+    "facing": "right",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4443,6 +4694,8 @@
     "path": "route-9",
     "x": 40,
     "y": 8,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -4472,6 +4725,8 @@
     "path": "route-9",
     "x": 40,
     "y": 8,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -4501,6 +4756,8 @@
     "path": "route-10",
     "x": 10,
     "y": 44,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -4525,6 +4782,8 @@
     "path": "route-10",
     "x": 3,
     "y": 57,
+    "facing": "up",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4549,6 +4808,8 @@
     "path": "route-10",
     "x": 14,
     "y": 64,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -4573,6 +4834,8 @@
     "path": "route-10",
     "x": 14,
     "y": 64,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -4597,6 +4860,8 @@
     "path": "route-10",
     "x": 7,
     "y": 25,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4621,6 +4886,8 @@
     "path": "route-10",
     "x": 7,
     "y": 25,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4645,6 +4912,8 @@
     "path": "route-10",
     "x": 3,
     "y": 61,
+    "facing": "down",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4669,6 +4938,8 @@
     "path": "route-10",
     "x": 7,
     "y": 54,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4695,6 +4966,8 @@
     "floor": "1f",
     "x": 7,
     "y": 5,
+    "facing": "down",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4731,6 +5004,8 @@
     "floor": "1f",
     "x": 5,
     "y": 16,
+    "facing": "down",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4762,6 +5037,8 @@
     "floor": "1f",
     "x": 17,
     "y": 15,
+    "facing": "left",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4788,6 +5065,8 @@
     "floor": "1f",
     "x": 23,
     "y": 8,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -4814,6 +5093,8 @@
     "floor": "1f",
     "x": 23,
     "y": 8,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -4840,6 +5121,8 @@
     "floor": "1f",
     "x": 37,
     "y": 21,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4866,6 +5149,8 @@
     "floor": "1f",
     "x": 22,
     "y": 24,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4897,6 +5182,8 @@
     "floor": "1f",
     "x": 32,
     "y": 24,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4933,6 +5220,8 @@
     "floor": "b1f",
     "x": 11,
     "y": 13,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -4964,6 +5253,8 @@
     "floor": "b1f",
     "x": 6,
     "y": 10,
+    "facing": "down",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -4995,6 +5286,8 @@
     "floor": "b1f",
     "x": 3,
     "y": 5,
+    "facing": "down",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -5026,6 +5319,8 @@
     "floor": "b1f",
     "x": 20,
     "y": 21,
+    "facing": "right",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -5052,6 +5347,8 @@
     "floor": "b1f",
     "x": 20,
     "y": 21,
+    "facing": "right",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -5078,6 +5375,8 @@
     "floor": "b1f",
     "x": 30,
     "y": 10,
+    "facing": "down",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -5099,6 +5398,8 @@
     "floor": "b1f",
     "x": 14,
     "y": 28,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -5125,6 +5426,8 @@
     "floor": "b1f",
     "x": 33,
     "y": 5,
+    "facing": "right",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -5151,6 +5454,8 @@
     "floor": "b1f",
     "x": 26,
     "y": 30,
+    "facing": "down",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -5170,6 +5475,8 @@
     "path": "route-11",
     "x": 10,
     "y": 14,
+    "facing": "down",
+    "sprite": "gambler",
     "parties": [
       {
         "pokemon": [
@@ -5194,6 +5501,8 @@
     "path": "route-11",
     "x": 26,
     "y": 9,
+    "facing": "down",
+    "sprite": "gambler",
     "parties": [
       {
         "pokemon": [
@@ -5218,6 +5527,8 @@
     "path": "route-11",
     "x": 13,
     "y": 5,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -5237,6 +5548,8 @@
     "path": "route-11",
     "x": 36,
     "y": 11,
+    "facing": "down",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -5256,6 +5569,8 @@
     "path": "route-11",
     "x": 22,
     "y": 4,
+    "facing": "up",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -5280,6 +5595,8 @@
     "path": "route-11",
     "x": 45,
     "y": 7,
+    "facing": "down",
+    "sprite": "gambler",
     "parties": [
       {
         "pokemon": [
@@ -5304,6 +5621,8 @@
     "path": "route-11",
     "x": 33,
     "y": 3,
+    "facing": "up",
+    "sprite": "gambler",
     "parties": [
       {
         "pokemon": [
@@ -5328,6 +5647,8 @@
     "path": "route-11",
     "x": 43,
     "y": 5,
+    "facing": "right",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -5357,6 +5678,8 @@
     "path": "route-11",
     "x": 45,
     "y": 16,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -5386,6 +5709,8 @@
     "path": "route-11",
     "x": 22,
     "y": 12,
+    "facing": "up",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -5410,6 +5735,8 @@
     "path": "route-11",
     "x": 22,
     "y": 12,
+    "facing": "up",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -5434,6 +5761,8 @@
     "path": "route-12",
     "x": 14,
     "y": 31,
+    "facing": "left",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -5463,6 +5792,8 @@
     "path": "route-12",
     "x": 5,
     "y": 39,
+    "facing": "up",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -5487,6 +5818,8 @@
     "path": "route-12",
     "x": 11,
     "y": 92,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -5516,6 +5849,8 @@
     "path": "route-12",
     "x": 11,
     "y": 92,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -5550,6 +5885,8 @@
     "path": "route-12",
     "x": 14,
     "y": 76,
+    "facing": "up",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -5574,6 +5911,8 @@
     "path": "route-12",
     "x": 12,
     "y": 40,
+    "facing": "left",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -5593,6 +5932,8 @@
     "path": "route-12",
     "x": 9,
     "y": 52,
+    "facing": "right",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -5627,6 +5968,8 @@
     "path": "route-12",
     "x": 6,
     "y": 87,
+    "facing": "down",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -5651,6 +5994,8 @@
     "path": "route-13",
     "x": 49,
     "y": 10,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -5675,6 +6020,8 @@
     "path": "route-13",
     "x": 48,
     "y": 10,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -5714,6 +6061,8 @@
     "path": "route-13",
     "x": 48,
     "y": 10,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -5753,6 +6102,8 @@
     "path": "route-13",
     "x": 27,
     "y": 9,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -5777,6 +6128,8 @@
     "path": "route-13",
     "x": 23,
     "y": 10,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -5811,6 +6164,8 @@
     "path": "route-13",
     "x": 50,
     "y": 5,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -5840,6 +6195,8 @@
     "path": "route-13",
     "x": 12,
     "y": 4,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -5879,6 +6236,8 @@
     "path": "route-13",
     "x": 33,
     "y": 6,
+    "facing": "down",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -5908,6 +6267,8 @@
     "path": "route-13",
     "x": 33,
     "y": 6,
+    "facing": "down",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -5937,6 +6298,8 @@
     "path": "route-13",
     "x": 32,
     "y": 6,
+    "facing": "down",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -5961,6 +6324,8 @@
     "path": "route-13",
     "x": 10,
     "y": 7,
+    "facing": "up",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -5990,6 +6355,8 @@
     "path": "route-13",
     "x": 7,
     "y": 13,
+    "facing": "up",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6024,6 +6391,8 @@
     "path": "route-14",
     "x": 4,
     "y": 4,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6053,6 +6422,8 @@
     "path": "route-14",
     "x": 15,
     "y": 6,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6087,6 +6458,8 @@
     "path": "route-14",
     "x": 12,
     "y": 11,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6111,6 +6484,8 @@
     "path": "route-14",
     "x": 14,
     "y": 15,
+    "facing": "up",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6140,6 +6515,8 @@
     "path": "route-14",
     "x": 15,
     "y": 31,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6159,6 +6536,8 @@
     "path": "route-14",
     "x": 6,
     "y": 49,
+    "facing": "up",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6183,6 +6562,8 @@
     "path": "route-14",
     "x": 5,
     "y": 39,
+    "facing": "down",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6217,6 +6598,8 @@
     "path": "route-14",
     "x": 4,
     "y": 30,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6246,6 +6629,8 @@
     "path": "route-14",
     "x": 15,
     "y": 30,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6270,6 +6655,8 @@
     "path": "route-14",
     "x": 4,
     "y": 31,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6294,6 +6681,8 @@
     "path": "route-15",
     "x": 41,
     "y": 11,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -6323,6 +6712,8 @@
     "path": "route-15",
     "x": 53,
     "y": 10,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -6347,6 +6738,8 @@
     "path": "route-15",
     "x": 53,
     "y": 10,
+    "facing": "left",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -6371,6 +6764,8 @@
     "path": "route-15",
     "x": 31,
     "y": 13,
+    "facing": "up",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6405,6 +6800,8 @@
     "path": "route-15",
     "x": 35,
     "y": 13,
+    "facing": "up",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -6434,6 +6831,8 @@
     "path": "route-15",
     "x": 53,
     "y": 11,
+    "facing": "down",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -6458,6 +6857,8 @@
     "path": "route-15",
     "x": 41,
     "y": 10,
+    "facing": "right",
+    "sprite": "beauty",
     "parties": [
       {
         "pokemon": [
@@ -6482,6 +6883,8 @@
     "path": "route-15",
     "x": 48,
     "y": 10,
+    "facing": "down",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6521,6 +6924,8 @@
     "path": "route-15",
     "x": 46,
     "y": 10,
+    "facing": "down",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6550,6 +6955,8 @@
     "path": "route-15",
     "x": 37,
     "y": 5,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -6569,6 +6976,8 @@
     "path": "route-15",
     "x": 18,
     "y": 13,
+    "facing": "up",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -6598,6 +7007,8 @@
     "path": "route-15",
     "x": 18,
     "y": 13,
+    "facing": "up",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -6627,6 +7038,8 @@
     "path": "route-16",
     "x": 17,
     "y": 12,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6651,6 +7064,8 @@
     "path": "route-16",
     "x": 14,
     "y": 13,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6680,6 +7095,8 @@
     "path": "route-16",
     "x": 14,
     "y": 13,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6709,6 +7126,8 @@
     "path": "route-16",
     "x": 11,
     "y": 12,
+    "facing": "up",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6733,6 +7152,8 @@
     "path": "route-16",
     "x": 11,
     "y": 12,
+    "facing": "up",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6757,6 +7178,8 @@
     "path": "route-16",
     "x": 9,
     "y": 11,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6776,6 +7199,8 @@
     "path": "route-16",
     "x": 6,
     "y": 10,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6795,6 +7220,8 @@
     "path": "route-16",
     "x": 3,
     "y": 12,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6829,6 +7256,8 @@
     "path": "route-17",
     "x": 12,
     "y": 19,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6853,6 +7282,8 @@
     "path": "route-17",
     "x": 12,
     "y": 19,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6877,6 +7308,8 @@
     "path": "route-17",
     "x": 11,
     "y": 16,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6901,6 +7334,8 @@
     "path": "route-17",
     "x": 4,
     "y": 18,
+    "facing": "up",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6930,6 +7365,8 @@
     "path": "route-17",
     "x": 7,
     "y": 32,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6949,6 +7386,8 @@
     "path": "route-17",
     "x": 14,
     "y": 34,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6973,6 +7412,8 @@
     "path": "route-17",
     "x": 17,
     "y": 58,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -6992,6 +7433,8 @@
     "path": "route-17",
     "x": 2,
     "y": 68,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -7026,6 +7469,8 @@
     "path": "route-17",
     "x": 2,
     "y": 68,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -7060,6 +7505,8 @@
     "path": "route-17",
     "x": 14,
     "y": 98,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -7084,6 +7531,8 @@
     "path": "route-17",
     "x": 14,
     "y": 98,
+    "facing": "right",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -7108,6 +7557,8 @@
     "path": "route-17",
     "x": 5,
     "y": 98,
+    "facing": "left",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -7132,6 +7583,8 @@
     "path": "route-17",
     "x": 10,
     "y": 118,
+    "facing": "down",
+    "sprite": "biker",
     "parties": [
       {
         "pokemon": [
@@ -7171,6 +7624,8 @@
     "path": "route-18",
     "x": 36,
     "y": 11,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7195,6 +7650,8 @@
     "path": "route-18",
     "x": 40,
     "y": 15,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7214,6 +7671,8 @@
     "path": "route-18",
     "x": 42,
     "y": 13,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7248,6 +7707,8 @@
     "path": "route-19",
     "x": 8,
     "y": 7,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7272,6 +7733,8 @@
     "path": "route-19",
     "x": 9,
     "y": 7,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7296,6 +7759,8 @@
     "path": "route-19",
     "x": 13,
     "y": 7,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7325,6 +7790,8 @@
     "path": "route-19",
     "x": 12,
     "y": 9,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7354,6 +7821,8 @@
     "path": "route-19",
     "x": 13,
     "y": 25,
+    "facing": "left",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7378,6 +7847,8 @@
     "path": "route-19",
     "x": 4,
     "y": 27,
+    "facing": "right",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7412,6 +7883,8 @@
     "path": "route-19",
     "x": 16,
     "y": 31,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7441,6 +7914,8 @@
     "path": "route-19",
     "x": 9,
     "y": 11,
+    "facing": "down",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7465,6 +7940,8 @@
     "path": "route-19",
     "x": 9,
     "y": 13,
+    "facing": "down",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7489,6 +7966,8 @@
     "path": "route-19",
     "x": 8,
     "y": 43,
+    "facing": "left",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7528,6 +8007,8 @@
     "path": "route-19",
     "x": 11,
     "y": 43,
+    "facing": "right",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7552,6 +8033,8 @@
     "path": "route-19",
     "x": 9,
     "y": 42,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7591,6 +8074,8 @@
     "path": "route-19",
     "x": 10,
     "y": 44,
+    "facing": "down",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7620,6 +8105,8 @@
     "path": "route-20",
     "x": 87,
     "y": 8,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7644,6 +8131,8 @@
     "path": "route-20",
     "x": 68,
     "y": 11,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7673,6 +8162,8 @@
     "path": "route-20",
     "x": 45,
     "y": 10,
+    "facing": "down",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7692,6 +8183,8 @@
     "path": "route-20",
     "x": 55,
     "y": 14,
+    "facing": "right",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7721,6 +8214,8 @@
     "path": "route-20",
     "x": 38,
     "y": 13,
+    "facing": "down",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7740,6 +8235,8 @@
     "path": "route-20",
     "x": 87,
     "y": 13,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7774,6 +8271,8 @@
     "path": "route-20",
     "x": 34,
     "y": 9,
+    "facing": "up",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -7803,6 +8302,8 @@
     "path": "route-20",
     "x": 25,
     "y": 7,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7832,6 +8333,8 @@
     "path": "route-20",
     "x": 24,
     "y": 12,
+    "facing": "down",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7856,6 +8359,8 @@
     "path": "route-20",
     "x": 15,
     "y": 8,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7880,6 +8385,8 @@
     "path": "route-21",
     "x": 4,
     "y": 24,
+    "facing": "left",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -7914,6 +8421,8 @@
     "path": "route-21",
     "x": 6,
     "y": 25,
+    "facing": "down",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -7958,6 +8467,8 @@
     "path": "route-21",
     "x": 10,
     "y": 31,
+    "facing": "up",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -7982,6 +8493,8 @@
     "path": "route-21",
     "x": 12,
     "y": 30,
+    "facing": "right",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -8011,6 +8524,8 @@
     "path": "route-21",
     "x": 16,
     "y": 63,
+    "facing": "down",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -8030,6 +8545,8 @@
     "path": "route-21",
     "x": 5,
     "y": 71,
+    "facing": "right",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -8054,6 +8571,8 @@
     "path": "route-21",
     "x": 15,
     "y": 71,
+    "facing": "left",
+    "sprite": "swimmer",
     "parties": [
       {
         "pokemon": [
@@ -8083,6 +8602,8 @@
     "path": "route-21",
     "x": 14,
     "y": 56,
+    "facing": "left",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -8107,6 +8628,8 @@
     "path": "route-21",
     "x": 17,
     "y": 57,
+    "facing": "right",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -8129,6 +8652,7 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "route-22",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -8182,6 +8706,7 @@
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "route-22",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -8295,6 +8820,7 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "route-22",
+    "sprite": "blue",
     "parties": [
       {
         "pokemon": [
@@ -8317,6 +8843,7 @@
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "route-22",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
@@ -8434,6 +8961,8 @@
     "floor": "1f",
     "x": 7,
     "y": 5,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -8460,6 +8989,8 @@
     "floor": "1f",
     "x": 3,
     "y": 2,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8496,6 +9027,8 @@
     "floor": "2f",
     "x": 12,
     "y": 9,
+    "facing": "left",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -8527,6 +9060,8 @@
     "floor": "2f",
     "x": 21,
     "y": 13,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -8563,6 +9098,8 @@
     "floor": "2f",
     "x": 19,
     "y": 8,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8589,6 +9126,8 @@
     "floor": "2f",
     "x": 4,
     "y": 2,
+    "facing": "down",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -8620,6 +9159,8 @@
     "floor": "2f",
     "x": 26,
     "y": 3,
+    "facing": "left",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -8641,6 +9182,8 @@
     "floor": "3f",
     "x": 28,
     "y": 5,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8672,6 +9215,8 @@
     "floor": "3f",
     "x": 7,
     "y": 13,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -8703,6 +9248,8 @@
     "floor": "3f",
     "x": 6,
     "y": 14,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8734,6 +9281,8 @@
     "floor": "3f",
     "x": 13,
     "y": 3,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -8763,6 +9312,8 @@
     "path": "route-24",
     "x": 11,
     "y": 15,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8787,6 +9338,8 @@
     "path": "route-24",
     "x": 5,
     "y": 20,
+    "facing": "up",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8811,6 +9364,8 @@
     "path": "route-24",
     "x": 11,
     "y": 19,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8830,6 +9385,8 @@
     "path": "route-24",
     "x": 11,
     "y": 19,
+    "facing": "left",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -8849,6 +9406,8 @@
     "path": "route-24",
     "x": 10,
     "y": 22,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -8873,6 +9432,8 @@
     "path": "route-24",
     "x": 10,
     "y": 22,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -8897,6 +9458,8 @@
     "path": "route-24",
     "x": 11,
     "y": 25,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -8926,6 +9489,8 @@
     "path": "route-24",
     "x": 10,
     "y": 28,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -8950,6 +9515,8 @@
     "path": "route-24",
     "x": 10,
     "y": 28,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -8974,6 +9541,8 @@
     "path": "route-24",
     "x": 11,
     "y": 31,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -8998,6 +9567,8 @@
     "path": "route-25",
     "x": 14,
     "y": 2,
+    "facing": "down",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -9022,6 +9593,8 @@
     "path": "route-25",
     "x": 18,
     "y": 5,
+    "facing": "up",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -9041,6 +9614,8 @@
     "path": "route-25",
     "x": 24,
     "y": 4,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -9065,6 +9640,8 @@
     "path": "route-25",
     "x": 18,
     "y": 8,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -9089,6 +9666,8 @@
     "path": "route-25",
     "x": 18,
     "y": 8,
+    "facing": "right",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -9113,6 +9692,8 @@
     "path": "route-25",
     "x": 32,
     "y": 3,
+    "facing": "left",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -9137,6 +9718,8 @@
     "path": "route-25",
     "x": 37,
     "y": 4,
+    "facing": "down",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -9166,6 +9749,8 @@
     "path": "route-25",
     "x": 8,
     "y": 4,
+    "facing": "right",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9190,6 +9775,8 @@
     "path": "route-25",
     "x": 23,
     "y": 9,
+    "facing": "up",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9224,6 +9811,8 @@
     "path": "route-25",
     "x": 13,
     "y": 7,
+    "facing": "right",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9242,6 +9831,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9265,6 +9855,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9293,6 +9884,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9321,6 +9913,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9344,6 +9937,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9362,6 +9956,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9380,6 +9975,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9408,6 +10004,7 @@
     "trainerClass": "blackbelt",
     "path": "saffron-city",
     "area": "Fighting Dojo",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -9436,6 +10033,7 @@
     "trainerClass": "sabrina",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "girl",
     "parties": [
       {
         "pokemon": [
@@ -9469,6 +10067,7 @@
     "trainerClass": "sabrina",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -9497,6 +10096,7 @@
     "trainerClass": "channeler",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -9520,6 +10120,7 @@
     "trainerClass": "psychic-tr",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -9553,6 +10154,7 @@
     "trainerClass": "channeler",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -9571,6 +10173,7 @@
     "trainerClass": "psychic-tr",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -9594,6 +10197,7 @@
     "trainerClass": "channeler",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "channeler",
     "parties": [
       {
         "pokemon": [
@@ -9622,6 +10226,7 @@
     "trainerClass": "psychic-tr",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -9650,6 +10255,7 @@
     "trainerClass": "psychic-tr",
     "path": "saffron-city",
     "area": "Saffron Gym",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -9671,6 +10277,8 @@
     "floor": "2f",
     "x": 5,
     "y": 12,
+    "facing": "down",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -9707,6 +10315,8 @@
     "floor": "2f",
     "x": 24,
     "y": 13,
+    "facing": "left",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -9738,6 +10348,8 @@
     "floor": "2f",
     "x": 16,
     "y": 11,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -9764,6 +10376,8 @@
     "floor": "2f",
     "x": 16,
     "y": 11,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -9790,6 +10404,8 @@
     "floor": "2f",
     "x": 24,
     "y": 7,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -9831,6 +10447,8 @@
     "floor": "3f",
     "x": 20,
     "y": 7,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -9862,6 +10480,8 @@
     "floor": "3f",
     "x": 7,
     "y": 9,
+    "facing": "down",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -9888,6 +10508,8 @@
     "floor": "4f",
     "x": 9,
     "y": 14,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -9914,6 +10536,8 @@
     "floor": "4f",
     "x": 14,
     "y": 6,
+    "facing": "left",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -9935,6 +10559,8 @@
     "floor": "4f",
     "x": 26,
     "y": 10,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -9966,6 +10592,8 @@
     "floor": "4f",
     "x": 26,
     "y": 10,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -9997,6 +10625,8 @@
     "floor": "5f",
     "x": 8,
     "y": 16,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10018,6 +10648,8 @@
     "floor": "5f",
     "x": 8,
     "y": 3,
+    "facing": "right",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -10054,6 +10686,8 @@
     "floor": "5f",
     "x": 18,
     "y": 10,
+    "facing": "up",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -10080,6 +10714,8 @@
     "floor": "5f",
     "x": 18,
     "y": 10,
+    "facing": "up",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -10106,6 +10742,8 @@
     "floor": "5f",
     "x": 28,
     "y": 4,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10127,6 +10765,8 @@
     "floor": "6f",
     "x": 17,
     "y": 3,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10153,6 +10793,8 @@
     "floor": "6f",
     "x": 7,
     "y": 8,
+    "facing": "down",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -10194,6 +10836,8 @@
     "floor": "6f",
     "x": 14,
     "y": 15,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10223,6 +10867,7 @@
     "path": "saffron-city/silph-co",
     "area": "7F",
     "floor": "7f",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -10323,6 +10968,7 @@
     "path": "saffron-city/silph-co",
     "area": "7F",
     "floor": "7f",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
@@ -10430,6 +11076,8 @@
     "floor": "7f",
     "x": 13,
     "y": 1,
+    "facing": "down",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10466,6 +11114,8 @@
     "floor": "7f",
     "x": 2,
     "y": 13,
+    "facing": "down",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -10492,6 +11142,8 @@
     "floor": "7f",
     "x": 20,
     "y": 2,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10518,6 +11170,8 @@
     "floor": "7f",
     "x": 20,
     "y": 2,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10544,6 +11198,8 @@
     "floor": "7f",
     "x": 19,
     "y": 14,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10570,6 +11226,8 @@
     "floor": "8f",
     "x": 19,
     "y": 2,
+    "facing": "left",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10606,6 +11264,8 @@
     "floor": "8f",
     "x": 10,
     "y": 2,
+    "facing": "down",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -10632,6 +11292,8 @@
     "floor": "8f",
     "x": 12,
     "y": 15,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10663,6 +11325,8 @@
     "floor": "9f",
     "x": 2,
     "y": 4,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10694,6 +11358,8 @@
     "floor": "9f",
     "x": 21,
     "y": 13,
+    "facing": "down",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -10725,6 +11391,8 @@
     "floor": "9f",
     "x": 13,
     "y": 16,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10756,6 +11424,8 @@
     "floor": "10f",
     "x": 1,
     "y": 9,
+    "facing": "right",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10777,6 +11447,8 @@
     "floor": "10f",
     "x": 10,
     "y": 2,
+    "facing": "left",
+    "sprite": "scientist",
     "parties": [
       {
         "pokemon": [
@@ -10801,6 +11473,7 @@
     "path": "saffron-city/silph-co",
     "area": "11F",
     "floor": "11f",
+    "sprite": "yellow/jessie",
     "parties": [
       {
         "pokemon": [
@@ -10832,6 +11505,8 @@
     "floor": "11f",
     "x": 6,
     "y": 9,
+    "facing": "down",
+    "sprite": "giovanni",
     "parties": [
       {
         "pokemon": [
@@ -10873,6 +11548,8 @@
     "floor": "11f",
     "x": 6,
     "y": 9,
+    "facing": "down",
+    "sprite": "giovanni",
     "parties": [
       {
         "pokemon": [
@@ -10914,6 +11591,8 @@
     "floor": "11f",
     "x": 3,
     "y": 16,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10945,6 +11624,8 @@
     "floor": "11f",
     "x": 15,
     "y": 9,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -10986,6 +11667,8 @@
     "floor": "11f",
     "x": 15,
     "y": 9,
+    "facing": "up",
+    "sprite": "rocket",
     "parties": [
       {
         "pokemon": [
@@ -11024,6 +11707,7 @@
     "trainerClass": "lt-surge",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -11052,6 +11736,7 @@
     "trainerClass": "lt-surge",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -11070,6 +11755,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11088,6 +11774,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11111,6 +11798,7 @@
     "trainerClass": "rocker",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -11139,6 +11827,7 @@
     "trainerClass": "rocker",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "super_nerd",
     "parties": [
       {
         "pokemon": [
@@ -11167,6 +11856,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11190,6 +11880,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city",
     "area": "Vermilion Gym",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11208,6 +11899,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11231,6 +11923,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11254,6 +11947,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11277,6 +11971,7 @@
     "trainerClass": "youngster",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -11295,6 +11990,7 @@
     "trainerClass": "youngster",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "sprite": "youngster",
     "parties": [
       {
         "pokemon": [
@@ -11313,6 +12009,7 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -11336,6 +12033,7 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -11360,6 +12058,7 @@
     "path": "vermilion-city/ss-anne",
     "area": "2F",
     "floor": "2f",
+    "sprite": "blue",
     "parties": [
       {
         "label": "If you chose Charmander",
@@ -11445,6 +12144,7 @@
     "path": "vermilion-city/ss-anne",
     "area": "2F",
     "floor": "2f",
+    "sprite": "blue",
     "parties": [
       {
         "pokemon": [
@@ -11478,6 +12178,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11496,6 +12197,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11519,6 +12221,7 @@
     "trainerClass": "fisher",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -11547,6 +12250,7 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "sprite": "gentleman",
     "parties": [
       {
         "pokemon": [
@@ -11570,6 +12274,7 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -11593,6 +12298,7 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "sprite": "cooltrainer_f",
     "parties": [
       {
         "pokemon": [
@@ -11611,6 +12317,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11629,6 +12336,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11657,6 +12365,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11680,6 +12389,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11708,6 +12418,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11726,6 +12437,7 @@
     "trainerClass": "fisher",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "sprite": "fisher",
     "parties": [
       {
         "pokemon": [
@@ -11754,6 +12466,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "Bow",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11777,6 +12490,7 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "Bow",
+    "sprite": "sailor",
     "parties": [
       {
         "pokemon": [
@@ -11801,6 +12515,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 2,
     "y": 1,
+    "facing": "down",
+    "sprite": "giovanni",
     "parties": [
       {
         "pokemon": [
@@ -11840,6 +12556,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 2,
     "y": 1,
+    "facing": "down",
+    "sprite": "giovanni",
     "parties": [
       {
         "pokemon": [
@@ -11879,6 +12597,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 12,
     "y": 7,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -11903,6 +12623,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 11,
     "y": 11,
+    "facing": "up",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -11927,6 +12649,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 10,
     "y": 7,
+    "facing": "down",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -11946,6 +12670,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 3,
     "y": 7,
+    "facing": "left",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -11965,6 +12691,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 13,
     "y": 5,
+    "facing": "right",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -11984,6 +12712,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 10,
     "y": 1,
+    "facing": "down",
+    "sprite": "hiker",
     "parties": [
       {
         "pokemon": [
@@ -12013,6 +12743,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 2,
     "y": 16,
+    "facing": "right",
+    "sprite": "rocker",
     "parties": [
       {
         "pokemon": [
@@ -12037,6 +12769,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 6,
     "y": 5,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [
@@ -12066,6 +12800,8 @@
     "path": "viridian-city/viridian-gym",
     "x": 6,
     "y": 5,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
     "parties": [
       {
         "pokemon": [

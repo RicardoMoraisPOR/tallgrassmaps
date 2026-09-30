@@ -33,6 +33,7 @@ type MarkerSources = {
   items?: Array<MapItem>;
   trainers?: Array<ListedBattle>;
   onSelectTrainer?: (key: string) => void;
+  trainerTooltip?: (listed: ListedBattle) => ReactNode;
   wildAreas?: Array<WildArea>;
   wildPopup?: (method: WildArea['method']) => ReactNode;
   staticPokemon?: Array<StaticPokemon>;
@@ -62,6 +63,7 @@ export const locationLinks = (
     items = [],
     trainers = [],
     onSelectTrainer,
+    trainerTooltip,
     wildAreas = [],
     wildPopup,
     staticPokemon = [],
@@ -121,27 +123,49 @@ export const locationLinks = (
     };
   });
 
-  const trainerMarkers: Array<LayeredMapLink> = trainers.flatMap(
-    ({ battle, key, label }) => {
-      if (battle.x === undefined || battle.y === undefined) return [];
+  const trainerMarkers: Array<LayeredMapLink> = trainers.flatMap((listed) => {
+    const { battle, key, label } = listed;
 
-      const layer = trainerLayer();
+    if (battle.x === undefined || battle.y === undefined) return [];
 
+    const layer = trainerLayer();
+
+    const onClick = onSelectTrainer && (() => onSelectTrainer(key));
+    const tooltip = trainerTooltip?.(listed);
+
+    if (battle.sprite) {
       return [
         {
-          x: battle.x * tileSize - tileSize / 4,
+          x: battle.x * tileSize,
           y: battle.y * tileSize - tileSize / 4,
-          width: tileSize * 1.5,
-          height: tileSize * 1.5,
+          width: tileSize,
+          height: tileSize,
           label,
           layer: layer.id,
           className: layer.className,
           highlightKey: key,
-          onClick: onSelectTrainer && (() => onSelectTrainer(key)),
+          onClick,
+          tooltip,
+          sprite: { src: battle.sprite, facing: battle.facing ?? 'down' },
         },
       ];
-    },
-  );
+    }
+
+    return [
+      {
+        x: battle.x * tileSize - tileSize / 4,
+        y: battle.y * tileSize - tileSize / 4,
+        width: tileSize * 1.5,
+        height: tileSize * 1.5,
+        label,
+        layer: layer.id,
+        className: layer.className,
+        highlightKey: key,
+        onClick,
+        tooltip,
+      },
+    ];
+  });
 
   const staticMarkers: Array<LayeredMapLink> = staticPokemon.map((marker) => {
     const layer = staticLayer();

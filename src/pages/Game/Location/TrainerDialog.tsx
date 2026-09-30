@@ -16,6 +16,7 @@ import { cn } from '@/lib/utils';
 import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
 import { PokedexEntryLink } from './PokedexEntryLink';
 import type { ListedBattle } from './trainerList';
+import { TrainerSprite } from './TrainerSprite';
 
 const NUM_MOVES = 4;
 
@@ -73,12 +74,17 @@ export const TrainerDialog = ({
               gameTheme && 'p-6',
             )}
           >
-            <DialogHeader>
-              <DialogTitle>{listed.label}</DialogTitle>
-              <DialogDescription className={cn(!area && 'sr-only')}>
-                {area ?? place}
-              </DialogDescription>
-            </DialogHeader>
+            <div className="flex items-center gap-3">
+              {listed.battle.sprite && (
+                <TrainerSprite src={listed.battle.sprite} />
+              )}
+              <DialogHeader className="min-w-0 flex-1">
+                <DialogTitle>{listed.label}</DialogTitle>
+                <DialogDescription className={cn(!area && 'sr-only')}>
+                  {area ?? place}
+                </DialogDescription>
+              </DialogHeader>
+            </div>
             {listed.battle.parties.map((party) => (
               <section
                 key={party.label ?? ''}
@@ -190,7 +196,7 @@ const GamePokemon = ({
             <PokedexEntryLink
               number={pokemon.number}
               onClick={onOpenPokedex}
-              className="truncate"
+              className="truncate leading-[14px]"
             >
               {name}
             </PokedexEntryLink>

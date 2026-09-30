@@ -9,6 +9,8 @@ export type TrainerParty = {
   pokemon: Array<TrainerPokemon>;
 };
 
+export type SpriteFacing = 'down' | 'up' | 'left' | 'right';
+
 export type TrainerBattle = {
   name: string;
   trainerClass: string;
@@ -17,6 +19,8 @@ export type TrainerBattle = {
   floor?: string;
   x?: number;
   y?: number;
+  sprite?: string;
+  facing?: SpriteFacing;
   games: Array<string>;
   parties: Array<TrainerParty>;
 };

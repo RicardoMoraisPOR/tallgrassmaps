@@ -1,11 +1,9 @@
 import type { Game } from '@/data/games';
 import type { PokedexEntry } from '@/data/pokedex/types';
-import type { TrainerParty } from '@/data/trainers/types';
-import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
-import { cn } from '@/lib/utils';
+import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 
 import type { BattleGroup } from './trainerList';
-import { PokedexEntryLink } from './PokedexEntryLink';
+import { TrainerPartyTiles } from './TrainerPartyTiles';
 
 type TrainersTabProps = {
   game: Game;
@@ -58,7 +56,7 @@ export const TrainersTab = ({
                   )}
                 </button>
                 {battle.parties.map((party) => (
-                  <Party
+                  <TrainerPartyTiles
                     key={party.label ?? ''}
                     party={party}
                     spriteFor={spriteFor}
@@ -71,53 +69,5 @@ export const TrainersTab = ({
         </div>
       ))}
     </>
-  );
-};
-
-const Party = ({
-  party,
-  spriteFor,
-  nameOf,
-}: {
-  party: TrainerParty;
-  spriteFor: (number: number) => PokemonSprite;
-  nameOf: (number: number) => string;
-}) => {
-  return (
-    <div className="flex flex-col gap-1">
-      {party.label && (
-        <span className="text-xs text-muted-foreground">{party.label}</span>
-      )}
-      <ul aria-label={party.label ?? 'Party'} className="flex flex-wrap gap-1">
-        {party.pokemon.map((pokemon, index) => (
-          <li
-            key={index}
-            className="w-11"
-          >
-            <PokedexEntryLink
-              number={pokemon.number}
-              title={`${nameOf(pokemon.number)}, Lv. ${pokemon.level}`}
-              aria-label={`${nameOf(pokemon.number)}, Lv. ${pokemon.level}; open Pokédex entry`}
-              className="flex w-full flex-col items-center rounded-lg bg-muted pt-0.5 pb-1 no-underline transition-colors hover:bg-accent hover:no-underline hover:ring-1 hover:ring-ring/30 focus-visible:bg-accent focus-visible:no-underline focus-visible:ring-[3px] focus-visible:ring-ring/50"
-            >
-              <img
-                src={spriteFor(pokemon.number).src}
-                alt=""
-                width={96}
-                height={96}
-                loading="lazy"
-                className={cn(
-                  'size-9 object-contain',
-                  spriteFor(pokemon.number).pixelated && 'pixelated',
-                )}
-              />
-              <span className="text-[11px] leading-none text-muted-foreground tabular-nums">
-                Lv. {pokemon.level}
-              </span>
-            </PokedexEntryLink>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 };

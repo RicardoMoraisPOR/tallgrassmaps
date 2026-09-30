@@ -2,25 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
 import { Button } from '@/components/ui/button';
-import { rbyTrainers } from '@/data/trainers/rby';
 import type { TrainerBattle } from '@/data/trainers/types';
 
 import { pokedexStoryContext, storyEntries } from '../Pokedex/pokedexStoryData';
 import { TrainerDialog } from './TrainerDialog';
-
-const findBattle = (
-  name: string,
-  path: string,
-  pokemonCount?: number,
-): TrainerBattle =>
-  rbyTrainers.find(
-    (battle) =>
-      battle.name === name &&
-      battle.path === path &&
-      battle.games.includes('red') &&
-      (pokemonCount === undefined ||
-        battle.parties[0].pokemon.length === pokemonCount),
-  )!;
+import { findBattle } from './trainerStoryData';
 
 type TrainerDialogStoryProps = {
   battle: TrainerBattle;

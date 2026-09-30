@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 
 import {
@@ -9,11 +9,26 @@ import {
   hasOwnMapImage,
   locationFor,
   pokeredDir,
+  pokeyellowDir,
   read,
 } from '../rby/disassembly.mjs';
 import { trainerMoves } from './rby-moves.mjs';
 
 const OUTPUT = new URL('../../src/data/trainers/rby.json', import.meta.url);
+
+const facings = { DOWN: 'down', UP: 'up', LEFT: 'left', RIGHT: 'right' };
+
+const spriteFile = (dir, file) => join(dir, 'gfx/sprites', file);
+
+const yellowSprites = new Set(
+  readdirSync(join(pokeyellowDir, 'gfx/sprites')).filter(
+    (file) =>
+      !existsSync(spriteFile(pokeredDir, file)) ||
+      !readFileSync(spriteFile(pokeyellowDir, file)).equals(
+        readFileSync(spriteFile(pokeredDir, file)),
+      ),
+  ),
+);
 
 const dexNumbers = new Map(
   [
@@ -146,6 +161,7 @@ const scripted = [
     script,
     trainer: 'ROCKET',
     name: 'Jessie & James',
+    sprite: 'JESSIE',
     teams: { yellow: [index] },
   })),
 ];
@@ -248,7 +264,23 @@ for (const game of games) {
     return party.map((pokemon, slot) => ({ ...pokemon, moves: moves[slot] }));
   };
 
-  const addBattle = ({ file, slot, trainer, name, parties, position }) => {
+  const spritePath = (game, sprite) => {
+    const file = `${sprite.toLowerCase()}.png`;
+
+    return game.id === 'yellow' && yellowSprites.has(file)
+      ? `yellow/${sprite.toLowerCase()}`
+      : sprite.toLowerCase();
+  };
+
+  const addBattle = ({
+    file,
+    slot,
+    trainer,
+    name,
+    parties,
+    sprite,
+    position,
+  }) => {
     const map = constantFromFile(file);
     const path = locationFor(map);
     const floor = floorFor(map);
@@ -264,6 +296,7 @@ for (const game of games) {
       area: areaFor(file, path),
       ...(floor && { floor }),
       ...placed,
+      ...(sprite && { sprite: spritePath(game, sprite) }),
       parties: parties.map(({ label, party }) => ({
         ...(label && { label }),
         pokemon: party.map(({ species, level, moves }) => ({
@@ -279,18 +312,23 @@ for (const game of games) {
     const file = basename(fileName, '.asm');
     const objects = [
       ...read(game.dir, `data/maps/objects/${fileName}`).matchAll(
-        /^\s*object_event\s+(\d+),\s*(\d+),.*, TEXT_\w+, OPP_(\w+), (\d+)$/gm,
+        /^\s*object_event\s+(\d+),\s*(\d+),\s*SPRITE_(\w+),\s*\w+,\s*(\w+),\s*TEXT_\w+,\s*OPP_(\w+),\s*(\d+)$/gm,
       ),
     ];
 
-    objects.forEach(([, x, y, trainer, index], slot) => {
+    objects.forEach(([, x, y, sprite, direction, trainer, index], slot) => {
       if (trainer.startsWith('RIVAL')) return;
 
       addBattle({
         file,
         slot,
         trainer,
-        position: { x: Number(x), y: Number(y) },
+        sprite,
+        position: {
+          x: Number(x),
+          y: Number(y),
+          facing: facings[direction] ?? 'down',
+        },
         parties: [{ party: partyFor(file, trainer, Number(index)) }],
       });
     });
@@ -315,7 +353,7 @@ for (const game of games) {
       `${game.id}: scripted battles in source [${found}] do not match the list [${listed}]`,
     );
 
-  for (const { script, trainer, name, teams } of scripted) {
+  for (const { script, trainer, name, sprite, teams } of scripted) {
     const indices = teams[game.id];
 
     if (!indices) continue;
@@ -329,6 +367,7 @@ for (const game of games) {
       slot: -1,
       trainer,
       name,
+      sprite: sprite ?? (trainer.startsWith('RIVAL') ? 'BLUE' : undefined),
       parties: indices.map((index, variant) => {
         const party = partyFor(script, trainer, index);
 

@@ -25,6 +25,7 @@ import { TownMapCard } from './TownMapCard';
 import { TrainerDialog } from './TrainerDialog';
 import { battleGroups } from './trainerList';
 import { TrainersTab } from './TrainersTab';
+import { TrainerTooltip } from './TrainerTooltip';
 import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 import { StaticPopup, WildPopup } from './WildPopup';
@@ -105,6 +106,10 @@ export const LocationPage = () => {
       items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
       trainers: listedBattles,
       onSelectTrainer: selectTrainer,
+      trainerTooltip: (listed) =>
+        pokedex && (
+          <TrainerTooltip listed={listed} game={route.game} pokedex={pokedex} />
+        ),
       wildAreas,
       wildPopup,
       staticPokemon: staticPokemonFor(route.region.versionGroup)?.filter(

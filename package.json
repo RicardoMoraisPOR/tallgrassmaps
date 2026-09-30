@@ -20,8 +20,10 @@
     "connections:rby": "node scripts/rby/connections.mjs",
     "wild:rby": "node scripts/rby/wild-areas.mjs",
     "maps:rby": "node scripts/rby/render-maps.mjs",
+    "maps:rby-clean": "node scripts/rby/clean-maps.mjs",
     "sprites:pokemon": "node scripts/sprites/pokemon.mjs",
     "sprites:rby": "node scripts/sprites/rby.mjs",
+    "sprites:rby-overworld": "node scripts/sprites/rby-overworld.mjs",
     "town-map:tall-grass": "node scripts/town-map/tall-grass.mjs"
   },
   "dependencies": {
