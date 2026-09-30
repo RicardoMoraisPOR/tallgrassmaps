@@ -40,6 +40,7 @@ const ICON_PREVIEW_PLACES = [
   'pallet-town/oaks-lab',
   'pallet-town/reds-house',
   'pallet-town/blues-house',
+  'route-1',
 ];
 
 const edgeCenter = (
@@ -238,14 +239,33 @@ export const locationLinks = (
   const itemMarkers: Array<LayeredMapLink> = items.map((item) => {
     const layer = itemLayer(item.hidden);
 
+    const common = {
+      label: item.hidden ? `${item.item} (hidden)` : item.item,
+      layer: layer.id,
+      className: layer.className,
+    };
+
+    if (item.sprite) {
+      return {
+        ...common,
+        x: item.x * tileSize,
+        y: item.y * tileSize - tileSize / 4,
+        width: tileSize,
+        height: tileSize,
+        sprite: {
+          src: item.sprite,
+          facing: 'down' as const,
+          faded: item.hidden,
+        },
+      };
+    }
+
     return {
+      ...common,
       x: item.x * tileSize - tileSize / 4,
       y: item.y * tileSize - tileSize / 4,
       width: tileSize * 1.5,
       height: tileSize * 1.5,
-      label: item.hidden ? `${item.item} (hidden)` : item.item,
-      layer: layer.id,
-      className: layer.className,
     };
   });
 

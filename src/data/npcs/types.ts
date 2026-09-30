@@ -1,8 +1,15 @@
 import type { SpriteFacing } from '@/data/trainers/types';
 
+export type NpcGift = {
+  name: string;
+  sprite: string;
+  count?: number;
+};
+
 export type NpcDialog = {
   text: string;
   trigger?: string;
+  gift?: NpcGift;
 };
 
 export type MapNpc = {

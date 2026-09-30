@@ -5,5 +5,6 @@ export type MapItem = {
   y: number;
   item: string;
   hidden: boolean;
+  sprite?: string;
   games: Array<string>;
 };

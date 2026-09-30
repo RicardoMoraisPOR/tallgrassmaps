@@ -44,6 +44,8 @@ export const mapText = (game, file, textId) => {
     (line) => line.match(/^text_far (\w+)$/)?.slice(1) ?? [],
   );
 
+  if (fars.length === 0 && block.some((line) => line.startsWith('farcall ')))
+    return farText(game, `_${label}`);
   if (fars.length !== 1) return undefined;
   if (block[0] !== 'text_asm' && block[1] !== 'text_end') return undefined;
 
@@ -71,7 +73,7 @@ export const farText = (game, far) => {
     if (value === undefined) return undefined;
     if (['text', 'para', 'page'].includes(command)) paragraphs.push(value);
     else if (['line', 'cont', 'next'].includes(command))
-      paragraphs[paragraphs.length - 1] += paragraphs.at(-1).endsWith('-')
+      paragraphs[paragraphs.length - 1] += /\w-$/.test(paragraphs.at(-1))
         ? value
         : ` ${value}`;
     else return undefined;

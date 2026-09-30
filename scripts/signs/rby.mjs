@@ -17,6 +17,7 @@ const SIGN_MAPS = {
   PALLET_TOWN: 'pallet-town',
   OAKS_LAB: 'pallet-town/oaks-lab',
   BLUES_HOUSE: 'pallet-town/blues-house',
+  ROUTE_1: 'route-1',
 };
 
 const OPENABLE_OBJECTS = [

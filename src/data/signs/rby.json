@@ -53,5 +53,12 @@
     "y": 5,
     "text": "BLUE's house",
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-1",
+    "x": 9,
+    "y": 27,
+    "text": "ROUTE 1 PALLET TOWN - VIRIDIAN CITY",
+    "games": ["red", "blue", "yellow"]
   }
 ]

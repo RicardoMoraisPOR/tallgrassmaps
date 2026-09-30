@@ -20,6 +20,7 @@ const NPC_MAPS = {
   OAKS_LAB: { path: 'pallet-town/oaks-lab' },
   REDS_HOUSE_1_F: { path: 'pallet-town/reds-house', floor: '1f' },
   BLUES_HOUSE: { path: 'pallet-town/blues-house' },
+  ROUTE_1: { path: 'route-1' },
 };
 
 const OBJECT_SPRITES = new Set(['POKE_BALL', 'POKEDEX']);
@@ -64,6 +65,7 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get the Pokédex, she gives you the Town Map',
         texts: ['_BluesHouseDaisyOfferMapText'],
+        gift: { name: 'Town Map', sprite: 'POKEDEX' },
       },
       {
         trigger: 'If your bag is full when she offers the Town Map',
@@ -76,6 +78,23 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'Once you come back later, she gets up and walks around',
         texts: ['_BluesHouseDaisyWalkingText'],
+      },
+    ],
+  },
+  ROUTE1_YOUNGSTER1: {
+    dialog: [
+      {
+        trigger: 'The first time you talk to him, he gives you a Potion',
+        texts: ['_Route1Youngster1MartSampleText'],
+        gift: { name: 'Potion' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_Route1Youngster1NoRoomText'],
+      },
+      {
+        trigger: 'After you get the Potion',
+        texts: ['_Route1Youngster1AlsoGotPokeballsText'],
       },
     ],
   },
@@ -131,6 +150,7 @@ const SCRIPTED_NPCS = {
           '_OaksLabOakThatWasMyDreamText',
           '_OaksLabRivalLeaveItAllToMeText',
         ],
+        gift: { name: 'Pokédex', sprite: 'POKEDEX' },
       },
       {
         trigger: 'After you get the Pokédex',
@@ -143,6 +163,7 @@ const SCRIPTED_NPCS = {
           '_OaksLabOak1ReceivedPokeballsText',
           '_OaksLabGivePokeballsExplanationText',
         ],
+        gift: { name: 'Poké Ball', count: 5 },
       },
       {
         trigger: 'Once you have Poké Balls',
@@ -156,14 +177,21 @@ const SCRIPTED_NPCS = {
   },
 };
 
+const giftFor = (game, { sprite = 'POKE_BALL', ...gift }) => ({
+  ...gift,
+  sprite: spritePath(game, sprite),
+});
+
 const scriptedDialog = (game, dialog) =>
-  dialog.flatMap(({ trigger, texts }) => {
+  dialog.flatMap(({ trigger, texts, gift }) => {
     const text = texts
       .map((label) => farText(game, label))
       .filter(Boolean)
       .join('\n\n');
 
-    return text ? [{ text, trigger }] : [];
+    return text
+      ? [{ text, trigger, ...(gift && { gift: giftFor(game, gift) }) }]
+      : [];
   });
 
 const specialNames = { OAK: 'Prof. Oak', DAISY_SITTING: 'Daisy' };
