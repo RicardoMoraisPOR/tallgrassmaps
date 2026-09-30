@@ -60,5 +60,47 @@
     "y": 27,
     "text": "ROUTE 1 PALLET TOWN - VIRIDIAN CITY",
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city",
+    "x": 17,
+    "y": 17,
+    "text": "VIRIDIAN CITY The Eternally Green Paradise",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city",
+    "x": 19,
+    "y": 1,
+    "text": "TRAINER TIPS\n\nCatch POKéMON and expand your collection!\n\nThe more you have, the easier it is to fight!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city",
+    "x": 21,
+    "y": 29,
+    "text": "TRAINER TIPS\n\nThe battle moves of POKéMON are limited by their POWER POINTs, PP.\n\nTo replenish PP, rest your tired POKéMON at a POKéMON CENTER!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city",
+    "x": 30,
+    "y": 19,
+    "text": "All your item needs fulfilled! POKéMON MART",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city",
+    "x": 24,
+    "y": 25,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "viridian-city",
+    "x": 27,
+    "y": 7,
+    "text": "VIRIDIAN CITY POKéMON GYM",
+    "games": ["red", "blue", "yellow"]
   }
 ]

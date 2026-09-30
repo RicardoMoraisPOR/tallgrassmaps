@@ -15,6 +15,7 @@ import {
   type LeafletEventHandlerFnMap,
   type Marker as LeafletMarker,
   type PathOptions,
+  type PointTuple,
   type SVGOverlay as LeafletSVGOverlay,
   Util,
 } from 'leaflet';
@@ -293,6 +294,7 @@ export const MapViewer = ({
       <ClosePopupOnOutsidePress />
       <FitToViewport map={map} />
       {map.pixelated && <PixelatedWhenZoomedIn />}
+      <IconSizeForZoom />
     </MapContainer>
   );
 };
@@ -325,6 +327,13 @@ const LinkShape = ({
   );
 
 const MAP_ICON_SIZE = 28;
+
+const edgeAnchors: Record<Direction, PointTuple> = {
+  north: [MAP_ICON_SIZE / 2, 0],
+  south: [MAP_ICON_SIZE / 2, MAP_ICON_SIZE],
+  west: [0, MAP_ICON_SIZE / 2],
+  east: [MAP_ICON_SIZE, MAP_ICON_SIZE / 2],
+};
 
 const iconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
   arrow: {
@@ -373,10 +382,15 @@ const MapIcon = ({
   const marker = useMemo(
     () =>
       divIcon({
-        className: '',
+        className: cn(
+          'map-icon-anchor',
+          direction && `map-icon-anchor-${direction}`,
+        ),
         html: `<span class="${cn('map-icon', link.className, style === 'game' && 'map-icon-game')}"${direction ? ` data-direction="${direction}"` : ''}>${iconArt[icon.kind][style]}</span>`,
         iconSize: [MAP_ICON_SIZE, MAP_ICON_SIZE],
-        iconAnchor: [MAP_ICON_SIZE / 2, MAP_ICON_SIZE / 2],
+        iconAnchor: direction
+          ? edgeAnchors[direction]
+          : [MAP_ICON_SIZE / 2, MAP_ICON_SIZE / 2],
       }),
     [style, icon.kind, direction, link.className],
   );
@@ -640,6 +654,38 @@ const FitToViewport = ({ map }: { map: MapImage }) => {
       leafletMap.off('resize', onResize);
     };
   }, [leafletMap, map]);
+
+  return null;
+};
+
+const TILE = 16;
+const MIN_ICON_SIZE = 16;
+const ICON_TILE_RATIO = 1.3;
+
+const IconSizeForZoom = () => {
+  const leafletMap = useMap();
+
+  useEffect(() => {
+    const container = leafletMap.getContainer();
+    const update = () => {
+      const tile =
+        leafletMap.latLngToContainerPoint(toLatLng(TILE, 0)).x -
+        leafletMap.latLngToContainerPoint(toLatLng(0, 0)).x;
+      const size = Math.min(
+        MAP_ICON_SIZE,
+        Math.max(MIN_ICON_SIZE, tile * ICON_TILE_RATIO),
+      );
+
+      container.style.setProperty('--map-icon-size', `${size}px`);
+    };
+
+    update();
+    leafletMap.on('zoomend resize', update);
+
+    return () => {
+      leafletMap.off('zoomend resize', update);
+    };
+  }, [leafletMap]);
 
   return null;
 };

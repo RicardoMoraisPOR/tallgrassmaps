@@ -517,12 +517,35 @@
   fill-opacity: 0;
 }
 
-.map-icon {
+.map-icon-anchor {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+}
+
+.map-icon-anchor-north {
+  align-items: start;
+}
+
+.map-icon-anchor-south {
+  align-items: end;
+}
+
+.map-icon-anchor-west {
+  justify-items: start;
+}
+
+.map-icon-anchor-east {
+  justify-items: end;
+}
+
+.map-icon {
+  --icon-size: var(--map-icon-size, 28px);
+
+  display: grid;
+  place-items: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: calc(var(--icon-size) * 0.28);
   background: var(--popover);
   color: var(--map-link);
   box-shadow:
@@ -544,8 +567,8 @@
 }
 
 .map-icon svg {
-  width: 16px;
-  height: 16px;
+  width: calc(var(--icon-size) * 0.57);
+  height: calc(var(--icon-size) * 0.57);
 }
 
 .map-icon[data-direction='east'] svg {
@@ -569,12 +592,12 @@
 }
 
 .map-icon-game svg {
-  width: 14px;
-  height: 14px;
+  width: calc(var(--icon-size) * 0.5);
+  height: calc(var(--icon-size) * 0.5);
 }
 
-.map-icon-game:is(.map-link-entrance, .map-link-house) svg {
-  height: 16px;
+.map-icon-game:is(.map-link-entrance, .map-link-house, .map-link-service) svg {
+  height: calc(var(--icon-size) * 0.57);
 }
 
 .map-sprite {

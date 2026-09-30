@@ -21,6 +21,7 @@ const NPC_MAPS = {
   REDS_HOUSE_1_F: { path: 'pallet-town/reds-house', floor: '1f' },
   BLUES_HOUSE: { path: 'pallet-town/blues-house' },
   ROUTE_1: { path: 'route-1' },
+  VIRIDIAN_CITY: { path: 'viridian-city' },
 };
 
 const OBJECT_SPRITES = new Set(['POKE_BALL', 'POKEDEX']);
@@ -95,6 +96,91 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get the Potion',
         texts: ['_Route1Youngster1AlsoGotPokeballsText'],
+      },
+    ],
+  },
+  VIRIDIANCITY_GAMBLER1: {
+    dialog: [
+      {
+        trigger: 'Until you have the other seven badges',
+        texts: ['_ViridianCityGambler1GymAlwaysClosedText'],
+      },
+      {
+        trigger: 'Once you have the other seven badges',
+        texts: ['_ViridianCityGambler1GymLeaderReturnedText'],
+      },
+    ],
+  },
+  VIRIDIANCITY_YOUNGSTER2: {
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_ViridianCityYoungster2YouWantToKnowAboutText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['ViridianCityYoungster2CaterpieAndWeedleDescriptionText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['ViridianCityYoungster2OkThenText'],
+      },
+    ],
+  },
+  VIRIDIANCITY_GIRL: {
+    dialog: [
+      {
+        trigger: 'Before you get the Pokédex',
+        texts: ['_ViridianCityGirlHasntHadHisCoffeeYetText'],
+      },
+      {
+        trigger: 'After you get the Pokédex',
+        texts: ['_ViridianCityGirlWhenIGoShopText'],
+      },
+    ],
+  },
+  VIRIDIANCITY_OLD_MAN_SLEEPY: {
+    cutscene: true,
+    dialog: [
+      {
+        trigger: 'Blocks the road north until you get the Pokédex',
+        texts: ['_ViridianCityOldManSleepyPrivatePropertyText'],
+      },
+    ],
+  },
+  VIRIDIANCITY_FISHER: {
+    dialog: [
+      {
+        trigger: 'The first time you talk to him, he gives you TM42',
+        texts: ['ViridianCityFisherYouCanHaveThisText'],
+        gift: { name: 'TM42' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_ViridianCityFisherTM42NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM42',
+        texts: ['_ViridianCityFisherTM42ExplanationText'],
+      },
+    ],
+  },
+  VIRIDIANCITY_OLD_MAN: {
+    dialog: [
+      {
+        trigger: 'After you get the Pokédex, he asks if you are in a hurry',
+        texts: ['_ViridianCityOldManHadMyCoffeeNowText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_ViridianCityOldManTimeIsMoneyText'],
+      },
+      {
+        trigger: 'If you say no, he shows you how to catch Pokémon',
+        texts: [
+          '_ViridianCityOldManKnowHowToCatchPokemonText',
+          '_ViridianCityOldManYouNeedToWeakenTheTargetText',
+        ],
       },
     ],
   },
@@ -194,7 +280,12 @@ const scriptedDialog = (game, dialog) =>
       : [];
   });
 
-const specialNames = { OAK: 'Prof. Oak', DAISY_SITTING: 'Daisy' };
+const specialNames = {
+  OAK: 'Prof. Oak',
+  DAISY_SITTING: 'Daisy',
+  GAMBLER: 'Old Man',
+  OLD_MAN_SLEEPY: 'Old Man',
+};
 
 const titleCase = (constant) =>
   constant

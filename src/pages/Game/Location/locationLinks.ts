@@ -41,6 +41,7 @@ const ICON_PREVIEW_PLACES = [
   'pallet-town/reds-house',
   'pallet-town/blues-house',
   'route-1',
+  'viridian-city',
 ];
 
 const edgeCenter = (
@@ -222,18 +223,14 @@ export const locationLinks = (
   );
 
   const markerLinks: Array<LayeredMapLink> = ICON_PREVIEW_PLACES.includes(path)
-    ? markers.map((marker) =>
-        marker.layer === 'houses'
-          ? {
-              ...marker,
-              x: marker.x + marker.width / 2,
-              y: marker.y + marker.height / 2,
-              width: 0,
-              height: 0,
-              icon: { kind: 'door' as const },
-            }
-          : marker,
-      )
+    ? markers.map((marker) => ({
+        ...marker,
+        x: marker.x + marker.width / 2,
+        y: marker.y + marker.height / 2,
+        width: 0,
+        height: 0,
+        icon: { kind: 'door' as const },
+      }))
     : markers;
 
   const itemMarkers: Array<LayeredMapLink> = items.map((item) => {

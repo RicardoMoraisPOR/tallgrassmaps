@@ -17,10 +17,19 @@ const readText = (text) =>
     text,
   ).replace(/ {2,}/g, ' ');
 
+const TEXT_DIRS = ['text', 'data/text'];
+
+const SHARED_TEXT_POINTERS = 'home/overworld_text.asm';
+
 const textFiles = (game) =>
-  readdirSync(join(game.dir, 'text')).map((file) =>
-    read(game.dir, `text/${file}`),
+  TEXT_DIRS.flatMap((dir) =>
+    readdirSync(join(game.dir, dir)).map((file) =>
+      read(game.dir, `${dir}/${file}`),
+    ),
   );
+
+const labelLine = (lines, label) =>
+  lines.findIndex((line) => line === `${label}:` || line === `${label}::`);
 
 export const mapText = (game, file, textId) => {
   const script = forGame(read(game.dir, `scripts/${file}.asm`), game.define);
@@ -29,14 +38,20 @@ export const mapText = (game, file, textId) => {
       line.match(new RegExp(`^dw_const (\\w+),\\s*TEXT_${textId}$`)),
     )
     .find(Boolean)?.[1];
-  const start = label && script.indexOf(`${label}:`);
+  if (!label) return undefined;
 
-  if (!start || start < 0) return undefined;
+  const source = [
+    script,
+    forGame(read(game.dir, SHARED_TEXT_POINTERS), game.define),
+  ].find((lines) => labelLine(lines, label) >= 0);
 
-  const next = script
+  if (!source) return undefined;
+
+  const start = labelLine(source, label);
+  const next = source
     .slice(start + 1)
     .findIndex((line) => /^[A-Za-z_]\w*:/.test(line));
-  const block = script.slice(
+  const block = source.slice(
     start + 1,
     next < 0 ? undefined : start + 1 + next,
   );

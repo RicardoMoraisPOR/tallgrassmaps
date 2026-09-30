@@ -18,6 +18,7 @@ const SIGN_MAPS = {
   OAKS_LAB: 'pallet-town/oaks-lab',
   BLUES_HOUSE: 'pallet-town/blues-house',
   ROUTE_1: 'route-1',
+  VIRIDIAN_CITY: 'viridian-city',
 };
 
 const OPENABLE_OBJECTS = [

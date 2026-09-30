@@ -75,6 +75,10 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [640, 576],
     cell: [2, 8],
+    markers: [
+      { kind: 'house', name: 'Trainer School', ...warp(21, 15) },
+      { kind: 'house', name: 'Nickname House', ...warp(21, 9) },
+    ],
   },
   {
     id: 'pewter-city',
