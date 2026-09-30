@@ -11,7 +11,7 @@ const TypeTagsStory = ({ pokemon }: { pokemon: number }) => (
 );
 
 const meta = {
-  title: 'Pokédex/Shared/Type tags',
+  title: 'Pokédex/Type tags',
   component: TypeTagsStory,
   decorators: [withStyleSurface],
   argTypes: { pokemon: pokemonArgType },

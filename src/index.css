@@ -504,8 +504,57 @@
   fill-opacity: 0;
 }
 
+.map-arrow {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--popover);
+  color: var(--map-connection);
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--foreground) 12%, transparent),
+    0 4px 12px -4px oklch(0 0 0 / 0.35);
+  cursor: pointer;
+  transition: scale 50ms;
+}
+
+.map-arrow:hover {
+  scale: 1.12;
+}
+
+.map-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.map-arrow[data-direction='east'] svg {
+  rotate: 90deg;
+}
+
+.map-arrow[data-direction='south'] svg {
+  rotate: 180deg;
+}
+
+.map-arrow[data-direction='west'] svg {
+  rotate: 270deg;
+}
+
+.map-arrow-game {
+  border: 2px solid #292929;
+  border-radius: 0;
+  background: #f6f4f7;
+  color: #292929;
+  box-shadow: none;
+}
+
+.map-arrow-game svg {
+  width: 14px;
+  height: 14px;
+}
+
 .map-sprite {
-  transition: filter 150ms;
+  transition: filter 50ms;
 }
 
 .map-sprite image {

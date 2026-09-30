@@ -24,6 +24,7 @@ export const SettingsSync = ({
         townMap: style,
         trainers: style,
         wildPokemon: style,
+        mapIcons: style,
         sprites,
       },
     });

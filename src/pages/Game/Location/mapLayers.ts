@@ -5,6 +5,7 @@ import { useSettingsStore } from '@/stores/settings';
 
 export type MapLayerId =
   | 'connections'
+  | 'connection-arrows'
   | 'entrances'
   | 'houses'
   | 'services'
@@ -28,6 +29,12 @@ export const mapLayers: Array<MapLayer> = [
   {
     id: 'connections',
     label: 'Connections',
+    color: 'var(--map-connection)',
+    className: 'map-link-connection',
+  },
+  {
+    id: 'connection-arrows',
+    label: 'Connection arrows (preview)',
     color: 'var(--map-connection)',
     className: 'map-link-connection',
   },
@@ -119,6 +126,8 @@ export const itemLayer = (hidden: boolean) =>
   layer(hidden ? 'hidden-items' : 'items');
 
 export const trainerLayer = () => layer('trainers');
+
+export const connectionArrowLayer = () => layer('connection-arrows');
 
 export const wildLayer = () => layer('wild-pokemon');
 

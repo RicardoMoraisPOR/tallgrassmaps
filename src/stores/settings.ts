@@ -6,6 +6,7 @@ export type ThemeArea =
   | 'townMap'
   | 'trainers'
   | 'wildPokemon'
+  | 'mapIcons'
   | 'sprites';
 
 export type ThemeStyle = 'game' | 'tall-grass';
@@ -35,6 +36,7 @@ export const useSettingsStore = create<SettingsState>()(
         townMap: 'game',
         trainers: 'game',
         wildPokemon: 'game',
+        mapIcons: 'game',
         sprites: 'tall-grass',
       },
       mapLayers: {},

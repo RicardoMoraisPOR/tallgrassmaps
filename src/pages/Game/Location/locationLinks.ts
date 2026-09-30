@@ -3,10 +3,12 @@ import type { ReactNode } from 'react';
 import type { MapLink } from '@/components/map/MapViewer';
 import type { MapItem } from '@/data/items/types';
 import {
+  type Direction,
   getLocation,
   type Location,
   type LocationFloor,
   type LocationHotspot,
+  type Rect,
   type Region,
   type WildArea,
 } from '@/data/maps';
@@ -17,6 +19,7 @@ import { cn } from '@/lib/utils';
 import { staticHighlightKey, wildHighlightKey } from './encounters';
 import type { PlaceLink } from './MapInfoTab';
 import {
+  connectionArrowLayer,
   hotspotLayer,
   itemLayer,
   type MapLayerId,
@@ -26,6 +29,20 @@ import {
   wildLayer,
 } from './mapLayers';
 import type { ListedBattle } from './trainerList';
+
+const ARROW_PREVIEW_PLACES = ['pallet-town'];
+
+const edgeCenter = (
+  { x, y, width, height }: Rect,
+  direction: Direction,
+  map: { width: number; height: number },
+) => {
+  if (direction === 'north') return { x: x + width / 2, y: 0 };
+  if (direction === 'south') return { x: x + width / 2, y: map.height };
+  if (direction === 'west') return { x: 0, y: y + height / 2 };
+
+  return { x: map.width, y: y + height / 2 };
+};
 
 export type LayeredMapLink = MapLink & { layer: MapLayerId };
 
@@ -94,6 +111,27 @@ export const locationLinks = (
       ? [{ ...hotspot, ...link, layer: layer.id, className: layer.className }]
       : [];
   });
+
+  const arrowLayer = connectionArrowLayer();
+  const connectionArrows: Array<LayeredMapLink> = ARROW_PREVIEW_PLACES.includes(
+    path,
+  )
+    ? links.flatMap((link) => {
+        if (link.layer !== 'connections' || !link.travel) return [];
+
+        return [
+          {
+            ...link,
+            ...edgeCenter(link, link.travel, location),
+            width: 0,
+            height: 0,
+            layer: arrowLayer.id,
+            className: arrowLayer.className,
+            arrow: link.travel,
+          },
+        ];
+      })
+    : [];
 
   const markers: Array<LayeredMapLink> = location.markers.map(
     ({ kind, name, target, ...area }) => {
@@ -243,6 +281,7 @@ export const locationLinks = (
     links: [
       ...wildMarkers,
       ...links,
+      ...connectionArrows,
       ...markers,
       ...itemMarkers,
       ...staticMarkers,

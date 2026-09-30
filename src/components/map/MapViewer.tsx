@@ -9,6 +9,7 @@ import {
 
 import {
   CRS,
+  divIcon,
   type LatLngBoundsLiteral,
   type LeafletEventHandlerFnMap,
   type PathOptions,
@@ -20,6 +21,7 @@ import 'leaflet/dist/leaflet.css';
 import {
   ImageOverlay,
   MapContainer,
+  Marker,
   Pane,
   Polygon,
   Popup,
@@ -31,6 +33,7 @@ import {
 } from 'react-leaflet';
 import { useNavigate } from 'react-router';
 
+import { useThemeStyle } from '@/components/settings/themes';
 import type { Direction, MapImage, Rect } from '@/data/maps';
 import type { SpriteFacing } from '@/data/trainers/types';
 import { travelState } from '@/lib/motion';
@@ -64,6 +67,7 @@ export type MapLink = Rect & {
   behind?: boolean;
   outline?: Array<Array<[number, number]>>;
   sprite?: { src: string; facing: SpriteFacing };
+  arrow?: Direction;
 };
 
 type MapViewerProps = {
@@ -120,60 +124,75 @@ export const MapViewer = ({
             />
           ),
       )}
+      {links.map(
+        (link) =>
+          link.arrow && (
+            <ConnectionArrow
+              key={`arrow-${linkKey(link)}`}
+              link={link}
+              direction={link.arrow}
+            />
+          ),
+      )}
       <Pane name="links" style={{ zIndex: 450 }}>
-        {links.map((link) => (
-          <LinkShape
-            key={linkKey(link)}
-            link={link}
-            pathOptions={{
-              className: cn(
-                'map-link',
-                !link.href && !link.onClick && !link.popup && 'map-link-static',
-                link.sprite && 'map-link-sprite',
-                link.className,
-              ),
-            }}
-            eventHandlers={{
-              add: ({ target }) => {
-                if (link.behind) target.bringToBack();
-              },
-              mouseover: () => {
-                if (link.sprite) setHoveredSprite(spriteKey(link));
-                if (link.tooltip) setHoverCardKey(linkKey(link));
-              },
-              mouseout: () => {
-                if (link.sprite) setHoveredSprite(undefined);
-                if (link.tooltip) setHoverCardKey(undefined);
-              },
-              click: () => {
-                link.onClick?.();
+        {links
+          .filter((link) => !link.arrow)
+          .map((link) => (
+            <LinkShape
+              key={linkKey(link)}
+              link={link}
+              pathOptions={{
+                className: cn(
+                  'map-link',
+                  !link.href &&
+                    !link.onClick &&
+                    !link.popup &&
+                    'map-link-static',
+                  link.sprite && 'map-link-sprite',
+                  link.className,
+                ),
+              }}
+              eventHandlers={{
+                add: ({ target }) => {
+                  if (link.behind) target.bringToBack();
+                },
+                mouseover: () => {
+                  if (link.sprite) setHoveredSprite(spriteKey(link));
+                  if (link.tooltip) setHoverCardKey(linkKey(link));
+                },
+                mouseout: () => {
+                  if (link.sprite) setHoveredSprite(undefined);
+                  if (link.tooltip) setHoverCardKey(undefined);
+                },
+                click: () => {
+                  link.onClick?.();
 
-                if (link.href)
-                  navigate(link.href, {
-                    state: travelState(link.travel),
-                    replace: link.replace,
-                    preventScrollReset: link.replace,
-                  });
-              },
-            }}
-          >
-            {link.popup ? (
-              <Popup
-                className="map-popup"
-                pane="popupPane"
-                maxWidth={280}
-                autoPanPaddingTopLeft={[16, 64]}
-                autoPanPaddingBottomRight={[16, 16]}
-              >
-                {link.popup}
-              </Popup>
-            ) : link.tooltip ? null : (
-              <Tooltip sticky pane="tooltipPane">
-                {link.label}
-              </Tooltip>
-            )}
-          </LinkShape>
-        ))}
+                  if (link.href)
+                    navigate(link.href, {
+                      state: travelState(link.travel),
+                      replace: link.replace,
+                      preventScrollReset: link.replace,
+                    });
+                },
+              }}
+            >
+              {link.popup ? (
+                <Popup
+                  className="map-popup"
+                  pane="popupPane"
+                  maxWidth={280}
+                  autoPanPaddingTopLeft={[16, 64]}
+                  autoPanPaddingBottomRight={[16, 16]}
+                >
+                  {link.popup}
+                </Popup>
+              ) : link.tooltip ? null : (
+                <Tooltip sticky pane="tooltipPane">
+                  {link.label}
+                </Tooltip>
+              )}
+            </LinkShape>
+          ))}
         {highlighted &&
           highlightable
             .filter((link) => !link.sprite && isHighlighted(link))
@@ -224,6 +243,48 @@ const LinkShape = ({
     />
   );
 
+const ARROW_SIZE = 28;
+
+const arrowIcons = {
+  'tall-grass':
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>',
+  game: '<svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h1v1h1v1h1v1h1v1h-2v3h-3v-3h-2v-1h1v-1h1v-1h1z"/></svg>',
+};
+
+const ConnectionArrow = ({
+  link,
+  direction,
+}: {
+  link: MapLink;
+  direction: Direction;
+}) => {
+  const navigate = useNavigate();
+  const style = useThemeStyle('mapIcons');
+
+  const icon = useMemo(
+    () =>
+      divIcon({
+        className: '',
+        html: `<span class="map-arrow${style === 'game' ? ' map-arrow-game' : ''}" data-direction="${direction}">${arrowIcons[style]}</span>`,
+        iconSize: [ARROW_SIZE, ARROW_SIZE],
+        iconAnchor: [ARROW_SIZE / 2, ARROW_SIZE / 2],
+      }),
+    [style, direction],
+  );
+
+  return (
+    <Marker
+      position={toLatLng(link.x, link.y)}
+      icon={icon}
+      title={link.label}
+      eventHandlers={{
+        click: () =>
+          link.href && navigate(link.href, { state: travelState(link.travel) }),
+      }}
+    />
+  );
+};
+
 const spriteKey = (link: MapLink) => `${link.x},${link.y}`;
 
 const linkKey = (link: MapLink) =>
@@ -262,7 +323,7 @@ const HoverCard = ({ link }: { link: MapLink }) => {
   return createPortal(
     <div
       ref={card}
-      className="pointer-events-none absolute z-1000 animate-in duration-100 fade-in-0 zoom-in-95"
+      className="pointer-events-none absolute z-1000 animate-in duration-50 fade-in-0 zoom-in-95"
       style={{
         left,
         top: below

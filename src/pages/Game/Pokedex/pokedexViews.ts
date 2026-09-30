@@ -15,6 +15,8 @@ const TallGrassPokedex = lazy(() =>
   })),
 );
 
+export const defaultPokedexView = TallGrassPokedex;
+
 const RbyPokedex = lazy(() =>
   import('./rby/RbyPokedex').then((module) => ({
     default: module.RbyPokedex,

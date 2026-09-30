@@ -13,6 +13,7 @@ export const themeAreas: Array<{
   { area: 'townMap', label: 'Town Map' },
   { area: 'trainers', label: 'Trainers' },
   { area: 'wildPokemon', label: 'Wild Pokémon' },
+  { area: 'mapIcons', label: 'Map icons' },
   {
     area: 'sprites',
     label: 'Pokémon sprites',
@@ -30,6 +31,7 @@ const available: Record<ThemeArea, Array<ThemeStyle>> = {
   townMap: ['game', 'tall-grass'],
   trainers: ['game', 'tall-grass'],
   wildPokemon: ['game', 'tall-grass'],
+  mapIcons: ['game', 'tall-grass'],
   sprites: ['tall-grass', 'game'],
 };
 

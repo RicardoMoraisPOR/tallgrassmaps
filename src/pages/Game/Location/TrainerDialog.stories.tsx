@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
+import { useStoryGameId } from '../../../../.storybook/StoryGame';
 
 import { Button } from '@/components/ui/button';
 import type { TrainerBattle } from '@/data/trainers/types';
@@ -22,21 +23,25 @@ const TrainerDialogStory = ({
   place,
   open,
   onOpenChange,
-}: TrainerDialogStoryProps) => (
-  <div className="flex min-h-svh items-center justify-center bg-background">
-    <Button onClick={() => onOpenChange(true)}>Open trainer</Button>
-    <TrainerDialog
-      listed={open ? { battle, key: label, label } : undefined}
-      place={place}
-      game={pokedexStoryContext('red').game}
-      pokedex={storyEntries('red', 151)}
-      onClose={() => onOpenChange(false)}
-    />
-  </div>
-);
+}: TrainerDialogStoryProps) => {
+  const gameId = useStoryGameId();
+
+  return (
+    <div className="flex min-h-svh items-center justify-center bg-background">
+      <Button onClick={() => onOpenChange(true)}>Open trainer</Button>
+      <TrainerDialog
+        listed={open ? { battle, key: label, label } : undefined}
+        place={place}
+        game={pokedexStoryContext(gameId).game}
+        pokedex={storyEntries(gameId, 151)}
+        onClose={() => onOpenChange(false)}
+      />
+    </div>
+  );
+};
 
 const meta = {
-  title: 'Location/Trainer dialog',
+  title: 'Dialog/Trainer',
   component: TrainerDialogStory,
   parameters: { layout: 'fullscreen' },
   argTypes: { battle: { control: false } },

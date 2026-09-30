@@ -2,19 +2,20 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react-vite';
 
 import '../src/index.css';
+import { games } from '../src/data/games';
 import { withRouter, withSettings } from './decorators';
 import { systemTheme } from './tallGrassTheme';
 
 const preview: Preview = {
   globalTypes: {
     style: {
-      description: 'Tall Grass or Game style',
+      description: 'Tall Grass or Game Themes',
       toolbar: {
         title: 'Style',
         icon: 'component',
         items: [
-          { value: 'tall-grass', title: 'Tall Grass' },
-          { value: 'game', title: 'Game' },
+          { value: 'tall-grass', title: 'Tall Grass Theme' },
+          { value: 'game', title: 'Game Theme' },
         ],
         dynamicTitle: true,
       },
@@ -25,9 +26,21 @@ const preview: Preview = {
         title: 'Sprites',
         icon: 'photo',
         items: [
-          { value: 'tall-grass', title: 'Showdown sprites' },
-          { value: 'game', title: 'Game sprites' },
+          { value: 'tall-grass', title: 'Showdown Pokémon Sprites' },
+          { value: 'game', title: 'Game Pokémon Sprites' },
         ],
+        dynamicTitle: true,
+      },
+    },
+    game: {
+      description: 'Game data used by stories',
+      toolbar: {
+        title: 'Game',
+        icon: 'play',
+        items: games.map(({ id, fullName }) => ({
+          value: id,
+          title: fullName,
+        })),
         dynamicTitle: true,
       },
     },
@@ -35,6 +48,7 @@ const preview: Preview = {
   initialGlobals: {
     style: 'game',
     sprites: 'tall-grass',
+    game: 'red',
   },
   decorators: [
     withRouter,

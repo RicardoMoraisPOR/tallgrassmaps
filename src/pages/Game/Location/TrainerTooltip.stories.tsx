@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import type { TrainerBattle } from '@/data/trainers/types';
 
+import { useStoryGameId } from '../../../../.storybook/StoryGame';
 import { pokedexStoryContext, storyEntries } from '../Pokedex/pokedexStoryData';
 import { findBattle } from './trainerStoryData';
 import { TrainerTooltip } from './TrainerTooltip';
@@ -11,16 +12,20 @@ type TrainerTooltipStoryProps = {
   number?: number;
 };
 
-const TrainerTooltipStory = ({ battle, number }: TrainerTooltipStoryProps) => (
-  <TrainerTooltip
-    listed={{ battle, key: battle.name, label: battle.name, number }}
-    game={pokedexStoryContext('red').game}
-    pokedex={storyEntries('red', 151)}
-  />
-);
+const TrainerTooltipStory = ({ battle, number }: TrainerTooltipStoryProps) => {
+  const gameId = useStoryGameId();
+
+  return (
+    <TrainerTooltip
+      listed={{ battle, key: battle.name, label: battle.name, number }}
+      game={pokedexStoryContext(gameId).game}
+      pokedex={storyEntries(gameId, 151)}
+    />
+  );
+};
 
 const meta = {
-  title: 'Location/Trainer tooltip',
+  title: 'Map/Trainer Tooltip',
   component: TrainerTooltipStory,
   decorators: [
     (Story) => (
