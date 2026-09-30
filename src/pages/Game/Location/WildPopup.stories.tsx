@@ -7,7 +7,6 @@ import type { Encounter, EncounterMethod } from '@/data/pokedex/types';
 import { useStoryGameId } from '../../../../.storybook/StoryGame';
 import { pokedexStoryContext, storyEntry } from '../Pokedex/pokedexStoryData';
 import type { EncounterGroup } from './encounters';
-import { MapPopupStoryFrame } from './MapPopupStoryFrame';
 import { WildPopup } from './WildPopup';
 
 type WildPopupProps = ComponentProps<typeof WildPopup>;
@@ -82,9 +81,9 @@ const meta = {
   component: WildPopupStory,
   decorators: [
     (Story) => (
-      <MapPopupStoryFrame>
+      <div className="p-10">
         <Story />
-      </MapPopupStoryFrame>
+      </div>
     ),
   ],
   argTypes: { groups: { control: false } },

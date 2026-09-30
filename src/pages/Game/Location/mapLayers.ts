@@ -6,6 +6,7 @@ import { useSettingsStore } from '@/stores/settings';
 export type MapLayerId =
   | 'connections'
   | 'connection-arrows'
+  | 'entrance-icons'
   | 'entrances'
   | 'houses'
   | 'services'
@@ -41,6 +42,12 @@ export const mapLayers: Array<MapLayer> = [
   {
     id: 'entrances',
     label: 'Entrances',
+    color: 'var(--map-entrance)',
+    className: 'map-link-entrance',
+  },
+  {
+    id: 'entrance-icons',
+    label: 'Entrance icons (preview)',
     color: 'var(--map-entrance)',
     className: 'map-link-entrance',
   },
@@ -91,7 +98,7 @@ export const mapLayers: Array<MapLayer> = [
   },
   {
     id: 'npcs',
-    label: 'Special NPCs',
+    label: 'NPCs',
     color: 'var(--map-npc)',
     className: 'map-link-npc',
   },
@@ -100,7 +107,6 @@ export const mapLayers: Array<MapLayer> = [
     label: 'Signs',
     color: 'var(--map-sign)',
     className: 'map-link-sign',
-    hiddenByDefault: true,
   },
 ];
 
@@ -127,7 +133,13 @@ export const itemLayer = (hidden: boolean) =>
 
 export const trainerLayer = () => layer('trainers');
 
+export const npcLayer = () => layer('npcs');
+
+export const signLayer = () => layer('signs');
+
 export const connectionArrowLayer = () => layer('connection-arrows');
+
+export const entranceIconLayer = () => layer('entrance-icons');
 
 export const wildLayer = () => layer('wild-pokemon');
 

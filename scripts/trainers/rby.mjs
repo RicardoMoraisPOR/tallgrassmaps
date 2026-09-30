@@ -1,34 +1,22 @@
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 
 import {
   constantFromFile,
+  facings,
   floorFor,
   forGame,
   games,
   hasOwnMapImage,
   locationFor,
   pokeredDir,
-  pokeyellowDir,
   read,
+  spritePath,
 } from '../rby/disassembly.mjs';
+import { farText } from '../rby/text.mjs';
 import { trainerMoves } from './rby-moves.mjs';
 
 const OUTPUT = new URL('../../src/data/trainers/rby.json', import.meta.url);
-
-const facings = { DOWN: 'down', UP: 'up', LEFT: 'left', RIGHT: 'right' };
-
-const spriteFile = (dir, file) => join(dir, 'gfx/sprites', file);
-
-const yellowSprites = new Set(
-  readdirSync(join(pokeyellowDir, 'gfx/sprites')).filter(
-    (file) =>
-      !existsSync(spriteFile(pokeredDir, file)) ||
-      !readFileSync(spriteFile(pokeyellowDir, file)).equals(
-        readFileSync(spriteFile(pokeredDir, file)),
-      ),
-  ),
-);
 
 const dexNumbers = new Map(
   [
@@ -57,7 +45,6 @@ const trainerName = (constant, raw) =>
     );
 
 const specialAreaNames = {
-  OaksLab: "Oak's Lab",
   LoreleisRoom: "Lorelei's Room",
   BrunosRoom: "Bruno's Room",
   AgathasRoom: "Agatha's Room",
@@ -82,17 +69,24 @@ const areaFor = (file, path) => {
   return area || undefined;
 };
 
-const rivalLabels = {
-  red: ['Charmander', 'Squirtle', 'Bulbasaur'].map(
-    (starter) => `If you chose ${starter}`,
-  ),
-  blue: ['Charmander', 'Squirtle', 'Bulbasaur'].map(
-    (starter) => `If you chose ${starter}`,
-  ),
-  yellow: ['Jolteon', 'Flareon', 'Vaporeon'].map(
-    (evolution) => `If Eevee becomes ${evolution}`,
-  ),
+const starterChoice = {
+  prompt: 'Your starter',
+  label: 'If you chose',
+  species: ['CHARMANDER', 'SQUIRTLE', 'BULBASAUR'],
 };
+
+const rivalChoices = {
+  red: starterChoice,
+  blue: starterChoice,
+  yellow: {
+    prompt: 'If Eevee becomes',
+    label: 'If Eevee becomes',
+    species: ['JOLTEON', 'FLAREON', 'VAPOREON'],
+  },
+};
+
+const speciesName = (species) =>
+  species.charAt(0) + species.slice(1).toLowerCase();
 
 const rivalTeamSignature = {
   red: [
@@ -116,11 +110,29 @@ const scripted = [
     script: 'OaksLab',
     trainer: 'RIVAL1',
     teams: { ...rb([1, 2, 3]), yellow: [1] },
+    path: 'pallet-town/oaks-lab',
+    object: 'OAKSLAB_RIVAL',
+    dialog: [
+      { label: 'Before battle', texts: ['_OaksLabRivalIllTakeYouOnText'] },
+      {
+        label: 'If you win',
+        texts: ['_OaksLabRivalIPickedTheWrongPokemonText'],
+      },
+      { label: 'If you lose', texts: ['_OaksLabRivalAmIGreatOrWhatText'] },
+      { label: 'After battle', texts: ['_OaksLabRivalSmellYouLaterText'] },
+    ],
   },
   {
     script: 'Route22',
     trainer: 'RIVAL1',
     teams: { ...rb([4, 5, 6]), yellow: [2] },
+    object: 'ROUTE22_RIVAL1',
+    dialog: [
+      { label: 'Before battle', texts: ['_Route22RivalBeforeBattleText1'] },
+      { label: 'If you win', texts: ['_Route22Rival1DefeatedText'] },
+      { label: 'If you lose', texts: ['_Route22Rival1VictoryText'] },
+      { label: 'After battle', texts: ['_Route22RivalAfterBattleText1'] },
+    ],
   },
   {
     script: 'CeruleanCity',
@@ -146,6 +158,13 @@ const scripted = [
     script: 'Route22',
     trainer: 'RIVAL2',
     teams: { ...rb([10, 11, 12]), yellow: [8, 9, 10] },
+    object: 'ROUTE22_RIVAL2',
+    dialog: [
+      { label: 'Before battle', texts: ['_Route22RivalBeforeBattleText2'] },
+      { label: 'If you win', texts: ['_Route22Rival2DefeatedText'] },
+      { label: 'If you lose', texts: ['_Route22Rival2VictoryText'] },
+      { label: 'After battle', texts: ['_Route22RivalAfterBattleText2'] },
+    ],
   },
   {
     script: 'ChampionsRoom',
@@ -264,14 +283,6 @@ for (const game of games) {
     return party.map((pokemon, slot) => ({ ...pokemon, moves: moves[slot] }));
   };
 
-  const spritePath = (game, sprite) => {
-    const file = `${sprite.toLowerCase()}.png`;
-
-    return game.id === 'yellow' && yellowSprites.has(file)
-      ? `yellow/${sprite.toLowerCase()}`
-      : sprite.toLowerCase();
-  };
-
   const addBattle = ({
     file,
     slot,
@@ -280,9 +291,12 @@ for (const game of games) {
     parties,
     sprite,
     position,
+    path = locationFor(constantFromFile(file)),
+    dialog = [],
+    choicePrompt,
+    cutscene,
   }) => {
     const map = constantFromFile(file);
-    const path = locationFor(map);
     const floor = floorFor(map);
     const placed =
       position && hasOwnMapImage(game.dir, map, path, floor) ? position : {};
@@ -296,9 +310,13 @@ for (const game of games) {
       area: areaFor(file, path),
       ...(floor && { floor }),
       ...placed,
+      ...(cutscene && placed.x !== undefined && { cutscene }),
       ...(sprite && { sprite: spritePath(game, sprite) }),
-      parties: parties.map(({ label, party }) => ({
+      ...(dialog.length > 0 && { dialog }),
+      ...(choicePrompt && { choicePrompt }),
+      parties: parties.map(({ label, choice, party }) => ({
         ...(label && { label }),
+        ...(choice && { choice }),
         pokemon: party.map(({ species, level, moves }) => ({
           number: speciesNumber(species),
           level,
@@ -353,7 +371,47 @@ for (const game of games) {
       `${game.id}: scripted battles in source [${found}] do not match the list [${listed}]`,
     );
 
-  for (const { script, trainer, name, sprite, teams } of scripted) {
+  const hiddenObjects = new Set(
+    [
+      ...read(game.dir, 'data/maps/toggleable_objects.asm').matchAll(
+        /toggle_object_state\s+(\w+),\s*OFF/g,
+      ),
+    ].map(([, name]) => name),
+  );
+
+  const objectPosition = (script, object) => {
+    const [, x, y, direction] =
+      read(game.dir, `data/maps/objects/${script}.asm`).match(
+        new RegExp(
+          `object_event\\s+(\\d+),\\s*(\\d+),\\s*SPRITE_\\w+,\\s*\\w+,\\s*(\\w+),\\s*TEXT_${object}\\b`,
+        ),
+      ) ?? [];
+
+    return x === undefined
+      ? undefined
+      : { x: Number(x), y: Number(y), facing: facings[direction] ?? 'down' };
+  };
+
+  const battleDialog = (dialog = []) =>
+    dialog.flatMap(({ label, texts }) => {
+      const text = texts
+        .map((far) => farText(game, far))
+        .filter(Boolean)
+        .join('\n\n');
+
+      return text ? [{ label, text }] : [];
+    });
+
+  for (const {
+    script,
+    trainer,
+    name,
+    sprite,
+    teams,
+    path,
+    object,
+    dialog,
+  } of scripted) {
     const indices = teams[game.id];
 
     if (!indices) continue;
@@ -368,6 +426,13 @@ for (const game of games) {
       trainer,
       name,
       sprite: sprite ?? (trainer.startsWith('RIVAL') ? 'BLUE' : undefined),
+      ...(path && { path }),
+      ...(object && {
+        position: objectPosition(script, object),
+        cutscene: hiddenObjects.has(object),
+      }),
+      dialog: battleDialog(dialog),
+      ...(variants && { choicePrompt: rivalChoices[game.id].prompt }),
       parties: indices.map((index, variant) => {
         const party = partyFor(script, trainer, index);
 
@@ -380,8 +445,13 @@ for (const game of games) {
             );
         }
 
+        if (!variants) return { party };
+
+        const { label, species } = rivalChoices[game.id];
+
         return {
-          label: variants ? rivalLabels[game.id][variant] : undefined,
+          label: `${label} ${speciesName(species[variant])}`,
+          choice: speciesNumber(species[variant]),
           party,
         };
       }),

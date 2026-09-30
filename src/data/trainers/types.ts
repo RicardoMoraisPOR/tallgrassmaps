@@ -6,7 +6,13 @@ export type TrainerPokemon = {
 
 export type TrainerParty = {
   label?: string;
+  choice?: number;
   pokemon: Array<TrainerPokemon>;
+};
+
+export type BattleDialog = {
+  label: string;
+  text: string;
 };
 
 export type SpriteFacing = 'down' | 'up' | 'left' | 'right';
@@ -21,6 +27,9 @@ export type TrainerBattle = {
   y?: number;
   sprite?: string;
   facing?: SpriteFacing;
+  cutscene?: boolean;
+  dialog?: Array<BattleDialog>;
+  choicePrompt?: string;
   games: Array<string>;
   parties: Array<TrainerParty>;
 };

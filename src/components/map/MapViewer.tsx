@@ -10,8 +10,10 @@ import {
 import {
   CRS,
   divIcon,
+  DomEvent,
   type LatLngBoundsLiteral,
   type LeafletEventHandlerFnMap,
+  type Marker as LeafletMarker,
   type PathOptions,
   type SVGOverlay as LeafletSVGOverlay,
   Util,
@@ -38,6 +40,7 @@ import type { Direction, MapImage, Rect } from '@/data/maps';
 import type { SpriteFacing } from '@/data/trainers/types';
 import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
+import type { ThemeStyle } from '@/stores/settings';
 
 import { imageBounds, toLatLng } from './coordinates';
 
@@ -64,11 +67,20 @@ export type MapLink = Rect & {
   onClick?: () => void;
   popup?: ReactNode;
   tooltip?: ReactNode;
+  tooltipOnClick?: boolean;
+  tooltipAtClick?: boolean;
   behind?: boolean;
   outline?: Array<Array<[number, number]>>;
-  sprite?: { src: string; facing: SpriteFacing };
-  arrow?: Direction;
+  sprite?: { src: string; facing: SpriteFacing; faded?: boolean };
+  icon?: MapIconKind;
 };
+
+export type MapIconKind =
+  | { kind: 'arrow'; direction: Direction }
+  | { kind: 'door' }
+  | { kind: 'exit' }
+  | { kind: 'stairs' }
+  | { kind: 'sign' };
 
 type MapViewerProps = {
   map: MapImage;
@@ -90,8 +102,16 @@ export const MapViewer = ({
   const [hoveredSprite, setHoveredSprite] = useState<string>();
   const [hoverCardKey, setHoverCardKey] = useState<string>();
 
+  const [pinnedCardKey, setPinnedCardKey] = useState<string>();
+  const [pinnedAnchor, setPinnedAnchor] = useState<{ x: number; y: number }>();
+
+  const cardKey = pinnedCardKey ?? hoverCardKey;
   const hoverCard = links.find(
-    (link) => link.tooltip && linkKey(link) === hoverCardKey,
+    (link) => link.tooltip && linkKey(link) === cardKey,
+  );
+
+  const iconHrefs = new Set(
+    links.flatMap((link) => (link.icon && link.href ? [link.href] : [])),
   );
 
   const isHighlighted = (link: MapLink) =>
@@ -120,23 +140,40 @@ export const MapViewer = ({
               key={`sprite-${link.x},${link.y}`}
               link={link}
               sprite={link.sprite}
-              active={hoveredSprite === spriteKey(link) || isHighlighted(link)}
+              active={
+                hoveredSprite === spriteKey(link) ||
+                pinnedCardKey === linkKey(link) ||
+                isHighlighted(link)
+              }
+              revealed={
+                hoveredSprite === spriteKey(link) ||
+                pinnedCardKey === linkKey(link)
+              }
             />
           ),
       )}
       {links.map(
         (link) =>
-          link.arrow && (
-            <ConnectionArrow
-              key={`arrow-${linkKey(link)}`}
+          link.icon && (
+            <MapIcon
+              key={`icon-${linkKey(link)}`}
               link={link}
-              direction={link.arrow}
+              icon={link.icon}
+              active={isHighlighted(link) || pinnedCardKey === linkKey(link)}
+              onSelect={
+                link.tooltip && link.tooltipOnClick
+                  ? () =>
+                      setPinnedCardKey((current) =>
+                        current === linkKey(link) ? undefined : linkKey(link),
+                      )
+                  : undefined
+              }
             />
           ),
       )}
       <Pane name="links" style={{ zIndex: 450 }}>
         {links
-          .filter((link) => !link.arrow)
+          .filter((link) => !link.icon)
           .map((link) => (
             <LinkShape
               key={linkKey(link)}
@@ -147,6 +184,7 @@ export const MapViewer = ({
                   !link.href &&
                     !link.onClick &&
                     !link.popup &&
+                    !link.tooltipOnClick &&
                     'map-link-static',
                   link.sprite && 'map-link-sprite',
                   link.className,
@@ -158,14 +196,28 @@ export const MapViewer = ({
                 },
                 mouseover: () => {
                   if (link.sprite) setHoveredSprite(spriteKey(link));
-                  if (link.tooltip) setHoverCardKey(linkKey(link));
+                  if (link.tooltip && !link.tooltipOnClick)
+                    setHoverCardKey(linkKey(link));
                 },
                 mouseout: () => {
                   if (link.sprite) setHoveredSprite(undefined);
-                  if (link.tooltip) setHoverCardKey(undefined);
+                  if (link.tooltip && !link.tooltipOnClick)
+                    setHoverCardKey(undefined);
                 },
-                click: () => {
+                click: (event) => {
                   link.onClick?.();
+
+                  if (link.tooltip && link.tooltipOnClick) {
+                    DomEvent.stopPropagation(event);
+                    setPinnedAnchor(
+                      link.tooltipAtClick
+                        ? { x: event.latlng.lng, y: -event.latlng.lat }
+                        : undefined,
+                    );
+                    setPinnedCardKey((current) =>
+                      current === linkKey(link) ? undefined : linkKey(link),
+                    );
+                  }
 
                   if (link.href)
                     navigate(link.href, {
@@ -195,7 +247,13 @@ export const MapViewer = ({
           ))}
         {highlighted &&
           highlightable
-            .filter((link) => !link.sprite && isHighlighted(link))
+            .filter(
+              (link) =>
+                !link.sprite &&
+                !link.icon &&
+                !(link.href && iconHrefs.has(link.href)) &&
+                isHighlighted(link),
+            )
             .map((link) => (
               <LinkShape
                 key={`highlight-${link.x},${link.y}`}
@@ -206,8 +264,31 @@ export const MapViewer = ({
                 }}
               />
             ))}
+        {hoverCard &&
+          pinnedCardKey === linkKey(hoverCard) &&
+          !hoverCard.sprite &&
+          !hoverCard.icon && (
+            <LinkShape
+              key={`pinned-${linkKey(hoverCard)}`}
+              link={hoverCard}
+              interactive={false}
+              pathOptions={{
+                className: cn('map-link-pinned', hoverCard.className),
+              }}
+            />
+          )}
       </Pane>
-      {hoverCard && <HoverCard key={linkKey(hoverCard)} link={hoverCard} />}
+      {hoverCard && (
+        <HoverCard
+          key={`${linkKey(hoverCard)}@${pinnedAnchor?.x},${pinnedAnchor?.y}`}
+          link={hoverCard}
+          anchor={pinnedCardKey ? pinnedAnchor : undefined}
+          interactive={pinnedCardKey !== undefined}
+        />
+      )}
+      {pinnedCardKey && (
+        <UnpinOnDismiss onDismiss={() => setPinnedCardKey(undefined)} />
+      )}
       <PanPastEdgesForPopups bounds={bounds} />
       <ClosePopupOnOutsidePress />
       <FitToViewport map={map} />
@@ -243,43 +324,86 @@ const LinkShape = ({
     />
   );
 
-const ARROW_SIZE = 28;
+const MAP_ICON_SIZE = 28;
 
-const arrowIcons = {
-  'tall-grass':
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>',
-  game: '<svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h1v1h1v1h1v1h1v1h-2v3h-3v-3h-2v-1h1v-1h1v-1h1z"/></svg>',
+const iconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
+  arrow: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>',
+    game: '<svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h1v1h1v1h1v1h1v1h-2v3h-3v-3h-2v-1h1v-1h1v-1h1z"/></svg>',
+  },
+  exit: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>',
+    game: '<svg viewBox="0 0 8 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 0h4v1h-4zM0 1h1v5h-1zM0 6h4v1h-4zM2 3h6v1h-6zM5 1h1v1h-1zM5 2h2v1h-2zM5 4h2v1h-2zM5 5h1v1h-1z"/></svg>',
+  },
+  stairs: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg>',
+    game: '<svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M6 0h2v8h-8v-2h2v-2h2v-2h2z"/></svg>',
+  },
+  sign: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 13v8"/><path d="M12 3v3"/><path d="M18 6a2 2 0 0 1 1.387.56l2.307 2.22a1 1 0 0 1 0 1.44l-2.307 2.22A2 2 0 0 1 18 13H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z"/></svg>',
+    game: '<svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M0 0h8v5h-8zM1 1h6v1h-6zM1 3h4v1h-4z"/><path fill="currentColor" d="M3 5h2v3h-2z"/></svg>',
+  },
+  door: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.01"/><path d="M22 20h-3"/></svg>',
+    game: '<svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1 0h5v7h-5zM4 3h1v1h-1z"/><path fill="currentColor" d="M0 7h7v1h-7z"/></svg>',
+  },
 };
 
-const ConnectionArrow = ({
+const MapIcon = ({
   link,
-  direction,
+  icon,
+  active,
+  onSelect,
 }: {
   link: MapLink;
-  direction: Direction;
+  icon: MapIconKind;
+  active: boolean;
+  onSelect?: () => void;
 }) => {
   const navigate = useNavigate();
   const style = useThemeStyle('mapIcons');
+  const markerRef = useRef<LeafletMarker>(null);
 
-  const icon = useMemo(
+  const direction = icon.kind === 'arrow' ? icon.direction : undefined;
+  const marker = useMemo(
     () =>
       divIcon({
         className: '',
-        html: `<span class="map-arrow${style === 'game' ? ' map-arrow-game' : ''}" data-direction="${direction}">${arrowIcons[style]}</span>`,
-        iconSize: [ARROW_SIZE, ARROW_SIZE],
-        iconAnchor: [ARROW_SIZE / 2, ARROW_SIZE / 2],
+        html: `<span class="${cn('map-icon', link.className, style === 'game' && 'map-icon-game')}"${direction ? ` data-direction="${direction}"` : ''}>${iconArt[icon.kind][style]}</span>`,
+        iconSize: [MAP_ICON_SIZE, MAP_ICON_SIZE],
+        iconAnchor: [MAP_ICON_SIZE / 2, MAP_ICON_SIZE / 2],
       }),
-    [style, direction],
+    [style, icon.kind, direction, link.className],
   );
+
+  useEffect(() => {
+    markerRef.current
+      ?.getElement()
+      ?.querySelector('.map-icon')
+      ?.classList.toggle('map-icon-active', active);
+  }, [active, marker]);
 
   return (
     <Marker
+      ref={markerRef}
       position={toLatLng(link.x, link.y)}
-      icon={icon}
+      icon={marker}
       title={link.label}
       eventHandlers={{
-        click: () =>
-          link.href && navigate(link.href, { state: travelState(link.travel) }),
+        click: (event) => {
+          if (onSelect) {
+            DomEvent.stopPropagation(event);
+            onSelect();
+          }
+
+          if (link.href)
+            navigate(link.href, { state: travelState(link.travel) });
+        },
       }}
     />
   );
@@ -290,7 +414,15 @@ const spriteKey = (link: MapLink) => `${link.x},${link.y}`;
 const linkKey = (link: MapLink) =>
   `${link.href ?? link.label}@${link.x},${link.y}`;
 
-const HoverCard = ({ link }: { link: MapLink }) => {
+const HoverCard = ({
+  link,
+  anchor,
+  interactive,
+}: {
+  link: MapLink;
+  anchor?: { x: number; y: number };
+  interactive: boolean;
+}) => {
   const leafletMap = useMap();
   const card = useRef<HTMLDivElement>(null);
   const [, setViewChanges] = useState(0);
@@ -302,19 +434,38 @@ const HoverCard = ({ link }: { link: MapLink }) => {
   });
 
   useLayoutEffect(() => {
-    setSize({
-      width: card.current?.offsetWidth ?? 0,
-      height: card.current?.offsetHeight ?? 0,
-    });
+    const measure = () =>
+      setSize({
+        width: card.current?.offsetWidth ?? 0,
+        height: card.current?.offsetHeight ?? 0,
+      });
+    const observer = new ResizeObserver(measure);
+
+    measure();
+
+    if (card.current) observer.observe(card.current);
+
+    return () => observer.disconnect();
   }, []);
 
-  const centerX = link.x + link.width / 2;
-  const top = leafletMap.latLngToContainerPoint(toLatLng(centerX, link.y));
+  useLayoutEffect(() => {
+    if (interactive && card.current) {
+      DomEvent.disableClickPropagation(card.current);
+      DomEvent.disableScrollPropagation(card.current);
+    }
+  }, [interactive]);
+
+  const centerX = anchor?.x ?? link.x + link.width / 2;
+  const top = leafletMap.latLngToContainerPoint(
+    toLatLng(centerX, anchor?.y ?? link.y),
+  );
   const bottom = leafletMap.latLngToContainerPoint(
-    toLatLng(centerX, link.y + link.height),
+    toLatLng(centerX, anchor?.y ?? link.y + link.height),
   );
   const container = leafletMap.getSize();
-  const below = top.y - HOVER_CARD_GAP - size.height < HOVER_CARD_EDGE;
+  const gap =
+    link.icon && !anchor ? MAP_ICON_SIZE / 2 + HOVER_CARD_GAP : HOVER_CARD_GAP;
+  const below = top.y - gap - size.height < HOVER_CARD_EDGE;
   const left = Math.min(
     Math.max(top.x - size.width / 2, HOVER_CARD_EDGE),
     container.x - size.width - HOVER_CARD_EDGE,
@@ -323,12 +474,13 @@ const HoverCard = ({ link }: { link: MapLink }) => {
   return createPortal(
     <div
       ref={card}
-      className="pointer-events-none absolute z-1000 animate-in duration-50 fade-in-0 zoom-in-95"
+      className={cn(
+        'map-card absolute z-1000 w-max animate-in duration-50 fade-in-0 zoom-in-95',
+        !interactive && 'pointer-events-none',
+      )}
       style={{
         left,
-        top: below
-          ? bottom.y + HOVER_CARD_GAP
-          : top.y - HOVER_CARD_GAP - size.height,
+        top: below ? bottom.y + gap : top.y - gap - size.height,
         visibility: size.height === 0 ? 'hidden' : undefined,
       }}
     >
@@ -340,12 +492,14 @@ const HoverCard = ({ link }: { link: MapLink }) => {
 
 const MapSprite = ({
   link,
-  sprite: { src, facing },
+  sprite: { src, facing, faded },
   active,
+  revealed,
 }: {
   link: MapLink;
   sprite: NonNullable<MapLink['sprite']>;
   active: boolean;
+  revealed: boolean;
 }) => {
   const overlay = useRef<LeafletSVGOverlay>(null);
 
@@ -354,6 +508,12 @@ const MapSprite = ({
       ?.getElement()
       ?.classList.toggle('map-sprite-active', active);
   }, [active]);
+
+  useEffect(() => {
+    overlay.current
+      ?.getElement()
+      ?.classList.toggle('map-sprite-faded', Boolean(faded) && !revealed);
+  }, [faded, revealed]);
 
   return (
     <SVGOverlay
@@ -380,6 +540,30 @@ const MapSprite = ({
       />
     </SVGOverlay>
   );
+};
+
+const UnpinOnDismiss = ({ onDismiss }: { onDismiss: () => void }) => {
+  const leafletMap = useMapEvents({ click: onDismiss });
+
+  useEffect(() => {
+    const dismissOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onDismiss();
+    };
+    const dismissOutside = (event: PointerEvent) => {
+      if (!leafletMap.getContainer().contains(event.target as Node))
+        onDismiss();
+    };
+
+    document.addEventListener('keydown', dismissOnEscape);
+    document.addEventListener('pointerdown', dismissOutside, true);
+
+    return () => {
+      document.removeEventListener('keydown', dismissOnEscape);
+      document.removeEventListener('pointerdown', dismissOutside, true);
+    };
+  }, [leafletMap, onDismiss]);
+
+  return null;
 };
 
 const PanPastEdgesForPopups = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {

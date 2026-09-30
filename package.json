@@ -16,6 +16,8 @@
     "pokedex:rby": "node scripts/pokedex/rby.mjs",
     "trainers:rby": "node scripts/trainers/rby.mjs",
     "items:rby": "node scripts/items/rby.mjs",
+    "npcs:rby": "node scripts/npcs/rby.mjs",
+    "signs:rby": "node scripts/signs/rby.mjs",
     "static-pokemon:rby": "node scripts/static-pokemon/rby.mjs",
     "connections:rby": "node scripts/rby/connections.mjs",
     "wild:rby": "node scripts/rby/wild-areas.mjs",

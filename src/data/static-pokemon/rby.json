@@ -223,5 +223,50 @@
       }
     ],
     "games": ["yellow"]
+  },
+  {
+    "path": "pallet-town/oaks-lab",
+    "x": 6,
+    "y": 3,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 4,
+        "level": 5
+      }
+    ],
+    "sprite": "poke_ball",
+    "note": "Starter, choose one",
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "pallet-town/oaks-lab",
+    "x": 7,
+    "y": 3,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 7,
+        "level": 5
+      }
+    ],
+    "sprite": "poke_ball",
+    "note": "Starter, choose one",
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "pallet-town/oaks-lab",
+    "x": 8,
+    "y": 3,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 1,
+        "level": 5
+      }
+    ],
+    "sprite": "poke_ball",
+    "note": "Starter, choose one",
+    "games": ["red", "blue"]
   }
 ]

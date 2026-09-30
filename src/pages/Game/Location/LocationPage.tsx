@@ -1,10 +1,15 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router';
+
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
 import { itemsFor } from '@/data/items';
 import type { WildArea } from '@/data/maps';
+import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
+import { signsFor } from '@/data/signs';
+import type { MapSign } from '@/data/signs/types';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
@@ -12,6 +17,7 @@ import { trailPath } from '@/lib/paths';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
 import { Pokedex } from '../Pokedex/Pokedex';
+import { usePokedexLink } from '../Pokedex/usePokedex';
 import { SidebarLayout } from '../SidebarLayout';
 import { encounterGroups, wildAreaFor } from './encounters';
 import { EncountersTab, OpenPokedexButton } from './EncountersTab';
@@ -21,7 +27,9 @@ import { locationLinks } from './locationLinks';
 import { EmptyTab, LocationPanel, type PanelTab } from './LocationPanel';
 import { MapInfoTab } from './MapInfoTab';
 import { mapLayers, useMapLayers } from './mapLayers';
+import { MapTextTooltip } from './MapTextTooltip';
 import { TownMapCard } from './TownMapCard';
+import { TownMapDialog } from './TownMapDialog';
 import { TrainerDialog } from './TrainerDialog';
 import { battleGroups } from './trainerList';
 import { TrainersTab } from './TrainersTab';
@@ -30,8 +38,15 @@ import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 import { StaticPopup, WildPopup } from './WildPopup';
 
+const openableNames: Record<NonNullable<MapSign['opens']>, string> = {
+  pokedex: 'Pokédex',
+  'town-map': 'Town Map',
+};
+
 export const LocationPage = () => {
   const route = useGameRoute();
+  const navigate = useNavigate();
+  const pokedexLink = usePokedexLink();
 
   const trail = route?.trail;
   const location = trail?.at(-1);
@@ -45,6 +60,7 @@ export const LocationPage = () => {
   const [selected, setSelected] = useState<{ scope: string; key?: string }>({
     scope,
   });
+  const [townMapOpen, setTownMapOpen] = useState(false);
 
   if (!route || !trail || !location) {
     return <NotFoundPage />;
@@ -106,9 +122,28 @@ export const LocationPage = () => {
       items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
       trainers: listedBattles,
       onSelectTrainer: selectTrainer,
-      trainerTooltip: (listed) =>
+      npcs: npcsFor(route.region.versionGroup)?.filter(onThisMap),
+      npcTooltip: (npc) => (
+        <MapTextTooltip name={npc.name} dialog={npc.dialog} />
+      ),
+      signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
+      signTooltip: (sign) => (
+        <MapTextTooltip
+          text={sign.opens ? openableNames[sign.opens] : sign.text}
+        />
+      ),
+      onOpen: (target) =>
+        target === 'pokedex'
+          ? navigate(pokedexLink.to, { state: pokedexLink.state })
+          : setTownMapOpen(true),
+      trainerTooltip: ([listed, ...others]) =>
         pokedex && (
-          <TrainerTooltip listed={listed} game={route.game} pokedex={pokedex} />
+          <TrainerTooltip
+            listed={listed}
+            encounters={others.length + 1}
+            game={route.game}
+            pokedex={pokedex}
+          />
         ),
       wildAreas,
       wildPopup,
@@ -250,12 +285,21 @@ export const LocationPage = () => {
               ? listedBattles.find((listed) => listed.key === selected.key)
               : undefined
           }
+          battles={listedBattles}
           place={location.name}
           game={route.game}
           pokedex={pokedex}
+          onSelect={selectTrainer}
           onClose={() => selectTrainer(undefined)}
         />
       )}
+      <TownMapDialog
+        open={townMapOpen}
+        region={route.region}
+        path={trailPath(trail)}
+        href={route.href}
+        onClose={() => setTownMapOpen(false)}
+      />
       <Pokedex game={route.game} region={route.region} href={route.href} />
     </>
   );

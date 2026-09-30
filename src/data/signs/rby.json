@@ -1,0 +1,57 @@
+[
+  {
+    "path": "pallet-town/blues-house",
+    "x": 3,
+    "y": 3,
+    "text": "It's a big map! This is useful!",
+    "sprite": "pokedex",
+    "opens": "town-map",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pallet-town/oaks-lab",
+    "x": 2,
+    "y": 1,
+    "text": "It's encyclopedia-like, but the pages are blank!",
+    "sprite": "pokedex",
+    "opens": "pokedex",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pallet-town/oaks-lab",
+    "x": 3,
+    "y": 1,
+    "text": "It's encyclopedia-like, but the pages are blank!",
+    "sprite": "pokedex",
+    "opens": "pokedex",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pallet-town",
+    "x": 13,
+    "y": 13,
+    "text": "OAK POKéMON RESEARCH LAB",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pallet-town",
+    "x": 7,
+    "y": 9,
+    "text": "PALLET TOWN Shades of your journey await!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pallet-town",
+    "x": 3,
+    "y": 5,
+    "text": "RED's house",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pallet-town",
+    "x": 11,
+    "y": 5,
+    "text": "BLUE's house",
+    "games": ["red", "blue", "yellow"]
+  }
+]

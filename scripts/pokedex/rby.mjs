@@ -331,7 +331,7 @@ const scripted = [
   {
     species: ['BULBASAUR', 'CHARMANDER', 'SQUIRTLE'],
     method: 'gift',
-    path: 'pallet-town',
+    path: 'pallet-town/oaks-lab',
     games: ['red', 'blue'],
     level: 5,
     source: 'scripts/OaksLab.asm',
@@ -339,7 +339,7 @@ const scripted = [
   {
     species: ['PIKACHU'],
     method: 'gift',
-    path: 'pallet-town',
+    path: 'pallet-town/oaks-lab',
     games: ['yellow'],
     level: 5,
     source: 'scripts/OaksLab.asm',

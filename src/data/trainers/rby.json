@@ -750,9 +750,11 @@
     "trainerClass": "rival1",
     "path": "cerulean-city",
     "sprite": "blue",
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 17,
@@ -778,6 +780,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 17,
@@ -803,6 +806,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 17,
@@ -1777,9 +1781,11 @@
     "path": "indigo-plateau",
     "area": "Champion's Room",
     "sprite": "blue",
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 18,
@@ -1815,6 +1821,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 18,
@@ -1850,6 +1857,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 18,
@@ -1892,9 +1900,11 @@
     "path": "indigo-plateau",
     "area": "Champion's Room",
     "sprite": "blue",
+    "choicePrompt": "If Eevee becomes",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
+        "choice": 135,
         "pokemon": [
           {
             "number": 28,
@@ -1930,6 +1940,7 @@
       },
       {
         "label": "If Eevee becomes Flareon",
+        "choice": 136,
         "pokemon": [
           {
             "number": 28,
@@ -1965,6 +1976,7 @@
       },
       {
         "label": "If Eevee becomes Vaporeon",
+        "choice": 134,
         "pokemon": [
           {
             "number": 28,
@@ -2164,9 +2176,11 @@
     "area": "2F",
     "floor": "2f",
     "sprite": "blue",
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 17,
@@ -2197,6 +2211,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 17,
@@ -2227,6 +2242,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 17,
@@ -2265,9 +2281,11 @@
     "area": "2F",
     "floor": "2f",
     "sprite": "blue",
+    "choicePrompt": "If Eevee becomes",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
+        "choice": 135,
         "pokemon": [
           {
             "number": 22,
@@ -2298,6 +2316,7 @@
       },
       {
         "label": "If Eevee becomes Flareon",
+        "choice": 136,
         "pokemon": [
           {
             "number": 22,
@@ -2328,6 +2347,7 @@
       },
       {
         "label": "If Eevee becomes Vaporeon",
+        "choice": 134,
         "pokemon": [
           {
             "number": 22,
@@ -2805,12 +2825,34 @@
   {
     "name": "Rival",
     "trainerClass": "rival1",
-    "path": "pallet-town",
-    "area": "Oak's Lab",
+    "path": "pallet-town/oaks-lab",
+    "x": 4,
+    "y": 3,
+    "facing": "down",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Wait RED! Let's check out our POKéMON!\n\nCome on, I'll take you on!"
+      },
+      {
+        "label": "If you win",
+        "text": "WHAT? Unbelievable! I picked the wrong POKéMON!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: Yeah! Am I great or what?"
+      },
+      {
+        "label": "After battle",
+        "text": "BLUE: Okay! I'll make my POKéMON fight to toughen it up!\n\nRED! Gramps! Smell you later!"
+      }
+    ],
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 7,
@@ -2821,6 +2863,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 1,
@@ -2831,6 +2874,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 4,
@@ -2845,9 +2889,29 @@
   {
     "name": "Rival",
     "trainerClass": "rival1",
-    "path": "pallet-town",
-    "area": "Oak's Lab",
+    "path": "pallet-town/oaks-lab",
+    "x": 4,
+    "y": 3,
+    "facing": "down",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Wait RED! Let's check out our POKéMON!\n\nCome on, I'll take you on!"
+      },
+      {
+        "label": "If you win",
+        "text": "WHAT? Unbelievable! I picked the wrong POKéMON!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: Yeah! Am I great or what?"
+      },
+      {
+        "label": "After battle",
+        "text": "BLUE: Okay! I'll make my POKéMON fight to toughen it up!\n\nRED! Gramps! Smell you later!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8652,10 +8716,34 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "route-22",
+    "x": 25,
+    "y": 5,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hey! RED!\n\nYou're going to POKéMON LEAGUE?\n\nForget it! You probably don't have any BADGEs!\n\nThe guard won't let you through!\n\nBy the way, did your POKéMON get any stronger?"
+      },
+      {
+        "label": "If you win",
+        "text": "Awww! You just lucked out!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: What? Why do I have 2 POKéMON?\n\nYou should catch some more too!"
+      },
+      {
+        "label": "After battle",
+        "text": "I heard POKéMON LEAGUE has many tough trainers!\n\nI have to figure out how to get past them!\n\nYou should quit dawdling and get a move on!"
+      }
+    ],
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 16,
@@ -8671,6 +8759,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 16,
@@ -8686,6 +8775,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 16,
@@ -8706,10 +8796,34 @@
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "route-22",
+    "x": 25,
+    "y": 5,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: What? RED! What a surprise to see you here!\n\nSo you're going to POKéMON LEAGUE?\n\nYou collected all the BADGEs too? That's cool!\n\nThen I'll whip you RED as a warm up for POKéMON LEAGUE!\n\nCome on!"
+      },
+      {
+        "label": "If you win",
+        "text": "What!?\n\nI was just careless!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: Hahaha! RED! That's your best? You're nowhere near as good as me, pal!\n\nGo train some more! You loser!"
+      },
+      {
+        "label": "After battle",
+        "text": "That loosened me up! I'm ready for POKéMON LEAGUE!\n\nRED, you need more practice!\n\nBut hey, you know that! I'm out of here. Smell ya!"
+      }
+    ],
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 18,
@@ -8745,6 +8859,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 18,
@@ -8780,6 +8895,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 18,
@@ -8820,7 +8936,29 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "route-22",
+    "x": 25,
+    "y": 5,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hey! RED!\n\nYou're going to POKéMON LEAGUE?\n\nForget it! You probably don't have any BADGEs!\n\nThe guard won't let you through!\n\nBy the way, did your POKéMON get any stronger?"
+      },
+      {
+        "label": "If you win",
+        "text": "Awww! You just lucked out!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: What? Why do I have 2 POKéMON?\n\nYou should catch some more too!"
+      },
+      {
+        "label": "After battle",
+        "text": "I heard POKéMON LEAGUE has many tough trainers!\n\nI have to figure out how to get past them!\n\nYou should quit dawdling and get a move on!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8843,10 +8981,34 @@
     "name": "Rival",
     "trainerClass": "rival2",
     "path": "route-22",
+    "x": 25,
+    "y": 5,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: What? RED! What a surprise to see you here!\n\nSo you're going to POKéMON LEAGUE?\n\nYou collected all the BADGEs too? That's cool!\n\nThen I'll whip you, RED, as a warmup for POKéMON LEAGUE!\n\nCome on!"
+      },
+      {
+        "label": "If you win",
+        "text": "What!?\n\nI was just careless!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: Hahaha! RED! That's your best? You're nowhere near as good as me, pal!\n\nGo train some more! You loser!"
+      },
+      {
+        "label": "After battle",
+        "text": "That loosened me up! I'm ready for POKéMON LEAGUE!\n\nRED, you need more practice!\n\nBut hey, you know that! I'm out of here. Smell ya!"
+      }
+    ],
+    "choicePrompt": "If Eevee becomes",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
+        "choice": 135,
         "pokemon": [
           {
             "number": 28,
@@ -8882,6 +9044,7 @@
       },
       {
         "label": "If Eevee becomes Flareon",
+        "choice": 136,
         "pokemon": [
           {
             "number": 28,
@@ -8917,6 +9080,7 @@
       },
       {
         "label": "If Eevee becomes Vaporeon",
+        "choice": 134,
         "pokemon": [
           {
             "number": 28,
@@ -10868,9 +11032,11 @@
     "area": "7F",
     "floor": "7f",
     "sprite": "blue",
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 18,
@@ -10901,6 +11067,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 18,
@@ -10931,6 +11098,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 18,
@@ -10969,9 +11137,11 @@
     "area": "7F",
     "floor": "7f",
     "sprite": "blue",
+    "choicePrompt": "If Eevee becomes",
     "parties": [
       {
         "label": "If Eevee becomes Jolteon",
+        "choice": 135,
         "pokemon": [
           {
             "number": 28,
@@ -11007,6 +11177,7 @@
       },
       {
         "label": "If Eevee becomes Flareon",
+        "choice": 136,
         "pokemon": [
           {
             "number": 28,
@@ -11037,6 +11208,7 @@
       },
       {
         "label": "If Eevee becomes Vaporeon",
+        "choice": 134,
         "pokemon": [
           {
             "number": 28,
@@ -12059,9 +12231,11 @@
     "area": "2F",
     "floor": "2f",
     "sprite": "blue",
+    "choicePrompt": "Your starter",
     "parties": [
       {
         "label": "If you chose Charmander",
+        "choice": 4,
         "pokemon": [
           {
             "number": 17,
@@ -12087,6 +12261,7 @@
       },
       {
         "label": "If you chose Squirtle",
+        "choice": 7,
         "pokemon": [
           {
             "number": 17,
@@ -12112,6 +12287,7 @@
       },
       {
         "label": "If you chose Bulbasaur",
+        "choice": 1,
         "pokemon": [
           {
             "number": 17,

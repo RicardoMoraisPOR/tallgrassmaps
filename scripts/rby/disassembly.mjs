@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import {
   existsSync,
   mkdirSync,
+  readdirSync,
   readFileSync,
   rmSync,
   writeFileSync,
@@ -275,4 +276,26 @@ export const hasOwnMapImage = (dir, map, path, floor) => {
     size &&
     imageSize(image).join() === size.join(),
   );
+};
+
+export const facings = { DOWN: 'down', UP: 'up', LEFT: 'left', RIGHT: 'right' };
+
+const spriteFile = (dir, file) => join(dir, 'gfx/sprites', file);
+
+const yellowSprites = new Set(
+  readdirSync(join(pokeyellowDir, 'gfx/sprites')).filter(
+    (file) =>
+      !existsSync(spriteFile(pokeredDir, file)) ||
+      !readFileSync(spriteFile(pokeyellowDir, file)).equals(
+        readFileSync(spriteFile(pokeredDir, file)),
+      ),
+  ),
+);
+
+export const spritePath = (game, sprite) => {
+  const name = sprite.toLowerCase();
+
+  return game.id === 'yellow' && yellowSprites.has(`${name}.png`)
+    ? `yellow/${name}`
+    : name;
 };

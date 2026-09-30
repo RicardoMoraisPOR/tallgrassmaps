@@ -35,15 +35,17 @@ export const WildPopup = ({ game, path, groups }: WildPopupProps) => {
   return gameTheme ? (
     <GameWildPopup game={game} groups={groups} titleOf={titleOf} />
   ) : (
-    <div className="flex max-h-56 w-64 flex-col gap-3 overflow-y-auto pr-2">
-      {groups.map((group) => (
-        <section key={group.method} className="flex flex-col gap-1">
-          <h3 className="text-[13px] text-muted-foreground">
-            {titleOf(group)}
-          </h3>
-          <EncounterList game={game} rows={group.rows} compact linked />
-        </section>
-      ))}
+    <div className="w-68 rounded-xl bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+      <div className="flex max-h-56 flex-col gap-3 overflow-y-auto pr-2">
+        {groups.map((group) => (
+          <section key={group.method} className="flex flex-col gap-1">
+            <h3 className="text-[13px] text-muted-foreground">
+              {titleOf(group)}
+            </h3>
+            <EncounterList game={game} rows={group.rows} compact linked />
+          </section>
+        ))}
+      </div>
     </div>
   );
 };
@@ -60,7 +62,7 @@ const GameWildPopup = ({
   const spriteFor = usePokemonSprite(game);
 
   return (
-    <div className="pokedex-game gb-frame m-2 w-72 px-4 py-3.5">
+    <div className="pokedex-game gb-frame w-72 px-4 py-3.5">
       <div className="flex max-h-52 flex-col gap-4 overflow-y-auto pr-2">
         {groups.map((group) => (
           <section key={group.method} className="flex flex-col gap-3">
@@ -112,7 +114,8 @@ type StaticPopupProps = {
   pokedex: Array<PokedexEntry>;
 };
 
-const staticNote = ({ kind, pokemon }: StaticPokemon) => {
+const staticNote = ({ kind, note, pokemon }: StaticPokemon) => {
+  if (note) return note;
   if (kind === 'static') return 'One-time encounter';
 
   return pokemon.length > 1 ? 'Gift, choose one' : 'Gift';

@@ -98,6 +98,19 @@ const scripted = [
   },
 ];
 
+const STARTERS = {
+  map: 'OaksLab',
+  path: 'pallet-town/oaks-lab',
+  games: ['red', 'blue'],
+  level: 5,
+  note: 'Starter, choose one',
+  balls: [
+    ['OAKSLAB_CHARMANDER_POKE_BALL', 'CHARMANDER'],
+    ['OAKSLAB_SQUIRTLE_POKE_BALL', 'SQUIRTLE'],
+    ['OAKSLAB_BULBASAUR_POKE_BALL', 'BULBASAUR'],
+  ],
+};
+
 const dexNumbers = new Map(
   [
     ...read(pokeredDir, 'constants/pokedex_constants.asm').matchAll(
@@ -166,9 +179,9 @@ const checkScriptedList = (game) => {
 
 const placed = [];
 
-const place = (game, map, x, y, kind, pokemon) => {
+const place = (game, map, x, y, kind, pokemon, extra = {}) => {
   const constant = constantFromFile(map);
-  const path = siteLocation(constant);
+  const { path = siteLocation(constant), ...details } = extra;
   const floor = floorFor(constant);
 
   if (!path || !hasOwnMapImage(game.dir, constant, path, floor)) return;
@@ -181,7 +194,18 @@ const place = (game, map, x, y, kind, pokemon) => {
     y: Number(y),
     kind,
     pokemon,
+    ...details,
   });
+};
+
+const objectAt = (game, map, text) => {
+  const object = read(game.dir, `data/maps/objects/${map}.asm`).match(
+    new RegExp(`object_event\\s+(\\d+),\\s*(\\d+),.*, TEXT_${text}\\b`),
+  );
+
+  if (!object) throw new Error(`${game.id}: no object TEXT_${text} in ${map}`);
+
+  return object;
 };
 
 for (const game of games) {
@@ -212,25 +236,33 @@ for (const game of games) {
     if (!existsSync(objects))
       throw new Error(`${game.id}: missing objects for ${entry.map}`);
 
-    const object = read(game.dir, `data/maps/objects/${entry.map}.asm`).match(
-      new RegExp(`object_event\\s+(\\d+),\\s*(\\d+),.*, TEXT_${entry.text}\\b`),
-    );
-
-    if (!object)
-      throw new Error(
-        `${game.id}: no object TEXT_${entry.text} in ${entry.map}`,
-      );
-
+    const [, x, y] = objectAt(game, entry.map, entry.text);
     const level = scriptedLevel(game, entry);
 
     place(
       game,
       entry.map,
-      object[1],
-      object[2],
+      x,
+      y,
       entry.kind,
       entry.species.map((species) => ({ number: numberOf(species), level })),
     );
+  }
+}
+
+for (const game of games) {
+  if (!STARTERS.games.includes(game.id)) continue;
+
+  const { map, path, level, note, balls } = STARTERS;
+
+  for (const [text, species] of balls) {
+    const [, x, y] = objectAt(game, map, text);
+
+    place(game, map, x, y, 'gift', [{ number: numberOf(species), level }], {
+      path,
+      sprite: 'poke_ball',
+      note,
+    });
   }
 }
 

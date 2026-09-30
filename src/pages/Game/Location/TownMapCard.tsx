@@ -1,6 +1,5 @@
-import type { Region } from '@/data/maps';
-
 import { RegionMap } from '@/components/map/RegionMap';
+import type { Region } from '@/data/maps';
 
 import { ExpandableCard } from './ExpandableCard';
 

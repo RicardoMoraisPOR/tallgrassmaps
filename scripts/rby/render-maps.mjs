@@ -32,6 +32,10 @@ const maps = [
     ['SaffronMart', 'saffron-poke-mart'],
     ['CinnabarMart', 'cinnabar-poke-mart'],
     ['IndigoPlateauLobby', 'indigo-plateau-lobby'],
+    ['OaksLab', 'oaks-lab'],
+    ['BluesHouse', 'blues-house'],
+    ['RedsHouse1F', 'reds-house/1f'],
+    ['RedsHouse2F', 'reds-house/2f'],
   ].map(([name, out]) => ({ name, out: `${out}.png` })),
   ...['1F', '2F', '3F', '4F', '5F', 'Roof'].map((floor) => ({
     name: `CeladonMart${floor}`,

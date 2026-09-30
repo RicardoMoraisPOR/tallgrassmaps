@@ -410,16 +410,28 @@
   --map-link: var(--map-wild-pokemon);
 }
 
+.leaflet-interactive.map-link.map-link-wild-pokemon {
+  stroke-opacity: 1;
+  stroke-width: 3;
+  fill-opacity: 0;
+}
+
+.leaflet-interactive.map-link.map-link-wild-pokemon:hover {
+  fill-opacity: 0;
+}
+
+.map-link-highlight.map-link-wild-pokemon {
+  stroke-opacity: 0;
+  fill-opacity: 0.2;
+}
+
 .leaflet-interactive.map-link-wild-whole {
   stroke-dasharray: 6 4;
-  fill-opacity: 0.06;
 }
 
-.leaflet-interactive.map-link-wild-whole:hover {
-  fill-opacity: 0.12;
-}
-
-.map-link-highlight.map-link-wild-whole {
+.map-link-pinned {
+  stroke-opacity: 0;
+  fill: var(--map-link);
   fill-opacity: 0.2;
 }
 
@@ -466,6 +478,7 @@
   display: none;
 }
 
+.leaflet-container .map-card a,
 .map-popup .leaflet-popup-content a {
   color: inherit;
 }
@@ -504,43 +517,50 @@
   fill-opacity: 0;
 }
 
-.map-arrow {
+.map-icon {
   display: grid;
   place-items: center;
   width: 28px;
   height: 28px;
   border-radius: 8px;
   background: var(--popover);
-  color: var(--map-connection);
+  color: var(--map-link);
   box-shadow:
     0 0 0 1px color-mix(in oklch, var(--foreground) 12%, transparent),
     0 4px 12px -4px oklch(0 0 0 / 0.35);
   cursor: pointer;
-  transition: scale 50ms;
+  transition:
+    scale 50ms,
+    filter 50ms;
 }
 
-.map-arrow:hover {
+.map-icon:hover,
+.map-icon-active {
   scale: 1.12;
+  filter: drop-shadow(1.5px 0 0 var(--map-link))
+    drop-shadow(-1.5px 0 0 var(--map-link))
+    drop-shadow(0 1.5px 0 var(--map-link))
+    drop-shadow(0 -1.5px 0 var(--map-link)) drop-shadow(0 0 4px var(--map-link));
 }
 
-.map-arrow svg {
+.map-icon svg {
   width: 16px;
   height: 16px;
 }
 
-.map-arrow[data-direction='east'] svg {
+.map-icon[data-direction='east'] svg {
   rotate: 90deg;
 }
 
-.map-arrow[data-direction='south'] svg {
+.map-icon[data-direction='south'] svg {
   rotate: 180deg;
 }
 
-.map-arrow[data-direction='west'] svg {
+.map-icon[data-direction='west'] svg {
   rotate: 270deg;
 }
 
-.map-arrow-game {
+.map-icon-game {
   border: 2px solid #292929;
   border-radius: 0;
   background: #f6f4f7;
@@ -548,17 +568,27 @@
   box-shadow: none;
 }
 
-.map-arrow-game svg {
+.map-icon-game svg {
   width: 14px;
   height: 14px;
 }
 
+.map-icon-game:is(.map-link-entrance, .map-link-house) svg {
+  height: 16px;
+}
+
 .map-sprite {
-  transition: filter 50ms;
+  transition:
+    filter 50ms,
+    opacity 50ms;
 }
 
 .map-sprite image {
   image-rendering: pixelated;
+}
+
+.map-sprite-faded {
+  opacity: 0.5;
 }
 
 .map-sprite-active {

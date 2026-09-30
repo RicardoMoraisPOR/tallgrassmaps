@@ -18,6 +18,7 @@ type RegionMapProps = {
   focus?: string;
   miniMap?: boolean;
   tagLabel?: boolean;
+  gameStyle?: boolean;
   className?: string;
   style?: CSSProperties;
 };
@@ -28,6 +29,7 @@ export const RegionMap = ({
   focus,
   miniMap = false,
   tagLabel = false,
+  gameStyle = false,
   className,
   style,
 }: RegionMapProps) => {
@@ -37,7 +39,7 @@ export const RegionMap = ({
   const gamePointer = useSettingsStore((state) => state.gamePointer);
   const themeStyle = useThemeStyle('townMap');
 
-  const mapStyle = region.tallGrassMap ? themeStyle : 'game';
+  const mapStyle = region.tallGrassMap && !gameStyle ? themeStyle : 'game';
   const tallGrass = mapStyle === 'tall-grass';
   const { cursor, label } = region;
   const pointer =
@@ -50,8 +52,7 @@ export const RegionMap = ({
       ? getHotspot(region, focus)
       : undefined;
   const focusHotspot = focus
-    ? (getHotspot(region, focus) ??
-      getHotspot(region, pathSegments(focus)[0]))
+    ? (getHotspot(region, focus) ?? getHotspot(region, pathSegments(focus)[0]))
     : undefined;
 
   const moveFlyer = (event: PointerEvent<HTMLDivElement>) => {

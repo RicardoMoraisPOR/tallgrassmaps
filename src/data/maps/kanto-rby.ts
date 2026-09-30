@@ -338,6 +338,7 @@ type InsideEntry = {
   parent: string;
   entrances: Array<Rect>;
   otherEntrances?: Record<string, Array<Rect>>;
+  exits?: Array<Rect>;
   cell?: [x: number, y: number];
   floors?: Array<FloorEntry>;
   variants?: Array<MapVariant>;
@@ -345,6 +346,16 @@ type InsideEntry = {
 };
 
 const inside: Array<InsideEntry> = [
+  {
+    id: 'oaks-lab',
+    name: "Oak's Lab",
+    kind: 'building',
+    size: [160, 192],
+    parent: 'pallet-town',
+    entrances: [warp(12, 11)],
+    exits: [rect(64, 176, 32, 16)],
+    variants: [variant('yellow', 'oaks-lab.png')],
+  },
   {
     id: 'viridian-gym',
     name: 'Viridian Gym',
@@ -674,6 +685,35 @@ const services: Array<InsideEntry> = [
     marker: 'mart',
     floors: ['1F', '2F', '3F', '4F', '5F', 'Roof'].map((name) => ({ name })),
   },
+  {
+    id: 'reds-house',
+    name: "Red's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'pallet-town',
+    entrances: [warp(5, 5)],
+    marker: 'house',
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'pallet-town', area: rect(32, 112, 32, 16) },
+          { floor: '2F', area: warp(7, 1) },
+        ],
+      },
+      { name: '2F', exits: [{ floor: '1F', area: warp(7, 1) }] },
+    ],
+  },
+  {
+    id: 'blues-house',
+    name: "Blue's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'pallet-town',
+    entrances: [warp(13, 5)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
 ];
 
 const toLocation = (
@@ -708,10 +748,19 @@ const toInsideLocation = ({
   kind,
   size,
   parent,
+  exits = [],
   floors,
   variants,
 }: InsideEntry): Location => {
-  const location = { ...toLocation(id, name, kind, size), variants };
+  const location = {
+    ...toLocation(id, name, kind, size),
+    variants,
+    hotspots: exits.map((area) => ({
+      ...area,
+      kind: 'exit' as const,
+      target: parent,
+    })),
+  };
 
   if (!floors) return location;
 
