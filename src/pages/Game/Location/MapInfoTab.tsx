@@ -81,10 +81,11 @@ const EntryChip = ({
   onHighlight: (key: string | undefined) => void;
   onOpen?: (key: string) => void;
 }) => {
+  const target = entry.target ?? entry.key;
   const highlightHandlers = {
-    onMouseEnter: () => onHighlight(entry.key),
+    onMouseEnter: () => onHighlight(target),
     onMouseLeave: () => onHighlight(undefined),
-    onFocus: () => onHighlight(entry.key),
+    onFocus: () => onHighlight(target),
     onBlur: () => onHighlight(undefined),
   };
   const name = <span className="truncate">{entry.name}</span>;
@@ -94,7 +95,7 @@ const EntryChip = ({
       <button
         type="button"
         title={entry.name}
-        onClick={() => onOpen(entry.key)}
+        onClick={() => onOpen(target)}
         className={`${chipClassName} cursor-pointer hover:bg-muted`}
         {...highlightHandlers}
       >

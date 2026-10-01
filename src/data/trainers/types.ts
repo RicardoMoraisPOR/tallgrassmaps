@@ -1,3 +1,5 @@
+import type { NpcGift } from '@/data/npcs/types';
+
 export type TrainerPokemon = {
   number: number;
   level: number;
@@ -13,6 +15,7 @@ export type TrainerParty = {
 export type BattleDialog = {
   label: string;
   text: string;
+  gift?: NpcGift;
 };
 
 export type SpriteFacing = 'down' | 'up' | 'left' | 'right';

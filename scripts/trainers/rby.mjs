@@ -115,9 +115,34 @@ const TRAINER_DIALOG_MAPS = new Set([
   'MtMoonB2F',
   'CeruleanCity',
   'CeruleanGym',
+  'Route24',
 ]);
 
 const OBJECT_DIALOG = {
+  ROUTE24_COOLTRAINER_M1: [
+    {
+      label: 'After you beat the 5 bridge trainers, he gives you a Nugget',
+      texts: [
+        '_Route24CooltrainerM1YouBeatOurContestText',
+        '_Route24CooltrainerM1YouJustEarnedAPrizeText',
+        '_Route24CooltrainerM1ReceivedNuggetText',
+      ],
+      gift: { name: 'Nugget' },
+    },
+    {
+      label: 'If your bag is full',
+      texts: ['_Route24CooltrainerM1NoRoomText'],
+    },
+    {
+      label: 'Before battle',
+      texts: ['_Route24CooltrainerM1JoinTeamRocketText'],
+    },
+    { label: 'If you win', texts: ['_Route24CooltrainerM1DefeatedText'] },
+    {
+      label: 'After battle',
+      texts: ['_Route24CooltrainerM1YouCouldBecomeATopLeaderText'],
+    },
+  ],
   CERULEANCITY_ROCKET: [
     { label: 'Before battle', texts: ['_CeruleanCityRocketText'] },
     { label: 'If you win', texts: ['_CeruleanCityRocketIGiveUpText'] },
@@ -128,6 +153,7 @@ const OBJECT_DIALOG = {
         '_CeruleanCityRocketReceivedTM28Text',
         '_CeruleanCityRocketIBetterGetMovingText',
       ],
+      gift: { name: 'TM28' },
     },
     {
       label: 'If your bag is full',
@@ -144,6 +170,7 @@ const OBJECT_DIALOG = {
         '_CeruleanGymMistyReceivedTM11Text',
         '_CeruleanGymMistyTM11ExplanationText',
       ],
+      gift: { name: 'TM11' },
     },
     {
       label: 'If your bag is full',
@@ -177,6 +204,7 @@ const OBJECT_DIALOG = {
         '_PewterGymReceivedTM34Text',
         '_TM34ExplanationText',
       ],
+      gift: { name: 'TM34' },
     },
     { label: 'If your bag is full', texts: ['_PewterGymTM34NoRoomText'] },
     { label: 'After battle', texts: ['_PewterGymBrockPostBattleAdviceText'] },
@@ -191,6 +219,7 @@ const OBJECT_DIALOG = {
         '_ViridianGymGiovanniReceivedTM27Text',
         '_ViridianGymGiovanniTM27ExplanationText',
       ],
+      gift: { name: 'TM27' },
     },
     {
       label: 'If your bag is full',
@@ -445,13 +474,26 @@ for (const game of games) {
   };
 
   const battleDialog = (dialog = []) =>
-    dialog.flatMap(({ label, texts }) => {
+    dialog.flatMap(({ label, texts, gift }) => {
       const text = texts
         .map((far) => farText(game, far))
         .filter(Boolean)
         .join('\n\n');
 
-      return text ? [{ label, text }] : [];
+      return text
+        ? [
+            {
+              label,
+              text,
+              ...(gift && {
+                gift: {
+                  ...gift,
+                  sprite: spritePath(game, gift.sprite ?? 'POKE_BALL'),
+                },
+              }),
+            },
+          ]
+        : [];
     });
 
   const objectDialog = (file, textId) => {

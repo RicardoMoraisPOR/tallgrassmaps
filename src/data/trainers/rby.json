@@ -929,7 +929,11 @@
       },
       {
         "label": "After battle, he returns TM28",
-        "text": "OK! I'll return the TM I stole!\n\nRED recovered TM28!\n\nI better get moving! Bye!"
+        "text": "OK! I'll return the TM I stole!\n\nRED recovered TM28!\n\nI better get moving! Bye!",
+        "gift": {
+          "name": "TM28",
+          "sprite": "poke_ball"
+        }
       },
       {
         "label": "If your bag is full",
@@ -969,7 +973,11 @@
       },
       {
         "label": "If you win, she gives you the Cascade Badge and TM11",
-        "text": "Wow! You're too much!\n\nAll right!\n\nYou can have the CASCADEBADGE to show you beat me!\n\nThe CASCADEBADGE makes all POKéMON up to L30 obey!\n\nThat includes even outsiders!\n\nThere's more, you can now use CUT any time!\n\nYou can CUT down small bushes to open new paths!\n\nYou can also have my favorite TM!\n\nRED received TM11!\n\nTM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!"
+        "text": "Wow! You're too much!\n\nAll right!\n\nYou can have the CASCADEBADGE to show you beat me!\n\nThe CASCADEBADGE makes all POKéMON up to L30 obey!\n\nThat includes even outsiders!\n\nThere's more, you can now use CUT any time!\n\nYou can CUT down small bushes to open new paths!\n\nYou can also have my favorite TM!\n\nRED received TM11!\n\nTM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!",
+        "gift": {
+          "name": "TM11",
+          "sprite": "poke_ball"
+        }
       },
       {
         "label": "If your bag is full",
@@ -1013,7 +1021,11 @@
       },
       {
         "label": "If you win, she gives you the Cascade Badge and TM11",
-        "text": "I can't believe I lost!\n\nAll right!\n\nYou can have the CASCADEBADGE to show you beat me!\n\nThe CASCADEBADGE makes all POKéMON up to L30 obey!\n\nThat includes even outsiders!\n\nThere's more, you can now use CUT anytime!\n\nYou can CUT down small bushes to open new paths!\n\nYou can also have my favorite TM!\n\nRED received TM11!\n\nTM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!"
+        "text": "I can't believe I lost!\n\nAll right!\n\nYou can have the CASCADEBADGE to show you beat me!\n\nThe CASCADEBADGE makes all POKéMON up to L30 obey!\n\nThat includes even outsiders!\n\nThere's more, you can now use CUT anytime!\n\nYou can CUT down small bushes to open new paths!\n\nYou can also have my favorite TM!\n\nRED received TM11!\n\nTM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!",
+        "gift": {
+          "name": "TM11",
+          "sprite": "poke_ball"
+        }
       },
       {
         "label": "If your bag is full",
@@ -3074,7 +3086,11 @@
       },
       {
         "label": "If you win, he gives you the Boulder Badge and TM34",
-        "text": "I took you for granted.\n\nAs proof of your victory, here's the BOULDERBADGE!\n\nRED received the BOULDERBADGE!\n\nThat's an official POKéMON LEAGUE BADGE!\n\nIts bearer's POKéMON become more powerful!\n\nThe technique FLASH can now be used any time!\n\nWait! Take this with you!\n\nRED received TM34!\n\nA TM contains a technique that can be taught to POKéMON!\n\nA TM is good only once! So when you use one to teach a new technique, pick the POKéMON carefully!\n\nTM34 contains BIDE!\n\nYour POKéMON will absorb damage in battle then pay it back double!"
+        "text": "I took you for granted.\n\nAs proof of your victory, here's the BOULDERBADGE!\n\nRED received the BOULDERBADGE!\n\nThat's an official POKéMON LEAGUE BADGE!\n\nIts bearer's POKéMON become more powerful!\n\nThe technique FLASH can now be used any time!\n\nWait! Take this with you!\n\nRED received TM34!\n\nA TM contains a technique that can be taught to POKéMON!\n\nA TM is good only once! So when you use one to teach a new technique, pick the POKéMON carefully!\n\nTM34 contains BIDE!\n\nYour POKéMON will absorb damage in battle then pay it back double!",
+        "gift": {
+          "name": "TM34",
+          "sprite": "poke_ball"
+        }
       },
       {
         "label": "If your bag is full",
@@ -3118,7 +3134,11 @@
       },
       {
         "label": "If you win, he gives you the Boulder Badge and TM34",
-        "text": "I took you for granted.\n\nAs proof of your victory, here's the BOULDERBADGE!\n\nRED received the BOULDERBADGE!\n\nThat's an official POKéMON LEAGUE BADGE!\n\nIts bearer's POKéMON become more powerful!\n\nThe technique FLASH can now be used anytime!\n\nWait! Take this with you!\n\nRED received TM34!\n\nA TM contains a technique that can be taught to POKéMON!\n\nA TM is good only once! So when you use one to teach a new technique, pick the POKéMON carefully!\n\nTM34 contains BIDE!\n\nYour POKéMON will absorb damage in battle then pay it back double!"
+        "text": "I took you for granted.\n\nAs proof of your victory, here's the BOULDERBADGE!\n\nRED received the BOULDERBADGE!\n\nThat's an official POKéMON LEAGUE BADGE!\n\nIts bearer's POKéMON become more powerful!\n\nThe technique FLASH can now be used anytime!\n\nWait! Take this with you!\n\nRED received TM34!\n\nA TM contains a technique that can be taught to POKéMON!\n\nA TM is good only once! So when you use one to teach a new technique, pick the POKéMON carefully!\n\nTM34 contains BIDE!\n\nYour POKéMON will absorb damage in battle then pay it back double!",
+        "gift": {
+          "name": "TM34",
+          "sprite": "poke_ball"
+        }
       },
       {
         "label": "If your bag is full",
@@ -10204,6 +10224,32 @@
     "y": 15,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "After you beat the 5 bridge trainers, he gives you a Nugget",
+        "text": "Congratulations! You beat our 5 contest trainers!\n\nYou just earned a fabulous prize!",
+        "gift": {
+          "name": "Nugget",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You don't have any room!"
+      },
+      {
+        "label": "Before battle",
+        "text": "By the way, would you like to join TEAM ROCKET?\n\nWe're a group dedicated to evil using POKéMON!\n\nWant to join?\n\nAre you sure?\n\nCome on, join us!\n\nI'm telling you to join!\n\nOK, you need convincing!\n\nI'll make you an offer you can't refuse!"
+      },
+      {
+        "label": "If you win",
+        "text": "Arrgh! You are good!"
+      },
+      {
+        "label": "After battle",
+        "text": "With your ability, you could become a top leader in TEAM ROCKET!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10230,6 +10276,20 @@
     "y": 20,
     "facing": "up",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I saw your feat from the grass!"
+      },
+      {
+        "label": "If you win",
+        "text": "I thought not!"
+      },
+      {
+        "label": "After battle",
+        "text": "I hid because the people on the bridge scared me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10256,6 +10316,20 @@
     "y": 19,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "OK! I'm No. 5! I'll stomp you!"
+      },
+      {
+        "label": "If you win",
+        "text": "Whoa! Too much!"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, I have no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10277,6 +10351,20 @@
     "y": 19,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "OK! I'm No. 5! I'll stomp you!"
+      },
+      {
+        "label": "If you win",
+        "text": "Whoa! Too much!"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, I have no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10298,6 +10386,20 @@
     "y": 22,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm No. 4! Getting tired?"
+      },
+      {
+        "label": "If you win",
+        "text": "I lost too!"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, so I've no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10324,6 +10426,20 @@
     "y": 22,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm No. 4! Getting tired?"
+      },
+      {
+        "label": "If you win",
+        "text": "I lost too!"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, so I've no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10350,6 +10466,20 @@
     "y": 25,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Here's No. 3! I won't be easy!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ow! Stomped flat!"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, I have no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10381,6 +10511,20 @@
     "y": 28,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm second! Now it's serious!"
+      },
+      {
+        "label": "If you win",
+        "text": "How could I lose?"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, I have no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10407,6 +10551,20 @@
     "y": 28,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm second! Now it's serious!"
+      },
+      {
+        "label": "If you win",
+        "text": "How could I lose?"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, I have no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10433,6 +10591,20 @@
     "y": 31,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This is NUGGET BRIDGE! Beat us 5 trainers and win a fabulous prize!\n\nThink you got what it takes?"
+      },
+      {
+        "label": "If you win",
+        "text": "Whoo! Good stuff!"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best, I have no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13426,7 +13598,11 @@
       },
       {
         "label": "If you win, he gives you the Earth Badge and TM27",
-        "text": "Ha! That was a truly intense fight! You have won! As proof, here is the EARTHBADGE!\n\nThe EARTHBADGE makes POKéMON of any level obey!\n\nIt is evidence of your mastery as a POKéMON trainer!\n\nWith it, you can enter the POKéMON LEAGUE!\n\nIt is my gift for your POKéMON LEAGUE challenge!\n\nRED received TM27!\n\nTM27 is FISSURE! It will take out POKéMON with just one hit!\n\nI made it when I ran the GYM here, too long ago..."
+        "text": "Ha! That was a truly intense fight! You have won! As proof, here is the EARTHBADGE!\n\nThe EARTHBADGE makes POKéMON of any level obey!\n\nIt is evidence of your mastery as a POKéMON trainer!\n\nWith it, you can enter the POKéMON LEAGUE!\n\nIt is my gift for your POKéMON LEAGUE challenge!\n\nRED received TM27!\n\nTM27 is FISSURE! It will take out POKéMON with just one hit!\n\nI made it when I ran the GYM here, too long ago...",
+        "gift": {
+          "name": "TM27",
+          "sprite": "poke_ball"
+        }
       },
       {
         "label": "If your bag is full",
@@ -13485,7 +13661,11 @@
       },
       {
         "label": "If you win, he gives you the Earth Badge and TM27",
-        "text": "Ha! That was a truly intense fight! You have won! As proof, here is the EARTHBADGE!\n\nThe EARTHBADGE makes POKéMON of any level obey!\n\nIt is evidence of your mastery as a POKéMON trainer!\n\nWith it, you can enter the POKéMON LEAGUE!\n\nIt is my gift for your POKéMON LEAGUE challenge!\n\nRED received TM27!\n\nTM27 is FISSURE! It will take out POKéMON with just one hit!\n\nI made it when I ran the GYM here, too long ago..."
+        "text": "Ha! That was a truly intense fight! You have won! As proof, here is the EARTHBADGE!\n\nThe EARTHBADGE makes POKéMON of any level obey!\n\nIt is evidence of your mastery as a POKéMON trainer!\n\nWith it, you can enter the POKéMON LEAGUE!\n\nIt is my gift for your POKéMON LEAGUE challenge!\n\nRED received TM27!\n\nTM27 is FISSURE! It will take out POKéMON with just one hit!\n\nI made it when I ran the GYM here, too long ago...",
+        "gift": {
+          "name": "TM27",
+          "sprite": "poke_ball"
+        }
       },
       {
         "label": "If your bag is full",

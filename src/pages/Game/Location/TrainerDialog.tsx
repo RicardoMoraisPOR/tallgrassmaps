@@ -1,7 +1,7 @@
 import '@fontsource/press-start-2p';
 import { useId, useState } from 'react';
 
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, Trophy } from 'lucide-react';
 
 import { Collapse } from '@/components/Collapse';
 import { useThemeStyle } from '@/components/settings/themes';
@@ -15,12 +15,14 @@ import {
 } from '@/components/ui/dialog';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import type { Game } from '@/data/games';
+import type { NpcGift } from '@/data/npcs/types';
 import type { PokedexEntry } from '@/data/pokedex/types';
 import type { BattleDialog, TrainerPokemon } from '@/data/trainers/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
 import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
+import { GiftBox } from './GiftBox';
 import { PokedexEntryLink } from './PokedexEntryLink';
 import type { ListedBattle } from './trainerList';
 import { TrainerSprite } from './TrainerSprite';
@@ -70,6 +72,7 @@ export const TrainerDialog = ({
   const Pokemon = gameTheme ? GamePokemon : TallGrassPokemon;
   const area = listed?.battle.floor ? undefined : listed?.battle.area;
   const battleDialog = listed?.battle.dialog ?? [];
+  const gifts = battleDialog.flatMap(({ gift }) => gift ?? []);
   const encounters =
     listed?.battle.x === undefined
       ? []
@@ -119,28 +122,31 @@ export const TrainerDialog = ({
                     {area ?? place}
                   </DialogDescription>
                 </DialogHeader>
-                {battleDialog.length > 0 &&
-                  (gameTheme ? (
-                    <button
-                      type="button"
-                      aria-pressed={showingDialog}
-                      onClick={() => setShowingDialog((showing) => !showing)}
-                      className="mr-8 cursor-pointer border-2 border-(--gb-ink) px-2 py-1.5 text-[8px] leading-none transition-colors hover:bg-(--gb-ink) hover:text-(--gb-screen) aria-pressed:bg-(--gb-ink) aria-pressed:text-(--gb-screen)"
-                    >
-                      DIALOG
-                    </button>
-                  ) : (
-                    <Button
-                      variant="outline"
-                      size="xs"
-                      aria-pressed={showingDialog}
-                      onClick={() => setShowingDialog((showing) => !showing)}
-                      className="mr-8 aria-pressed:bg-muted"
-                    >
-                      <MessageSquare />
-                      Dialog
-                    </Button>
-                  ))}
+                {battleDialog.length > 0 && (
+                  <div className="mr-8 flex items-center gap-2">
+                    {gameTheme ? (
+                      <button
+                        type="button"
+                        aria-pressed={showingDialog}
+                        onClick={() => setShowingDialog((showing) => !showing)}
+                        className="cursor-pointer border-2 border-(--gb-ink) px-2 py-1.5 text-[8px] leading-none transition-colors hover:bg-(--gb-ink) hover:text-(--gb-screen) aria-pressed:bg-(--gb-ink) aria-pressed:text-(--gb-screen)"
+                      >
+                        DIALOG
+                      </button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="xs"
+                        aria-pressed={showingDialog}
+                        onClick={() => setShowingDialog((showing) => !showing)}
+                        className="aria-pressed:bg-muted"
+                      >
+                        <MessageSquare />
+                        Dialog
+                      </Button>
+                    )}
+                  </div>
+                )}
               </div>
               {encounters.length > 1 && onSelect && (
                 <div className="pt-4">
@@ -207,6 +213,33 @@ export const TrainerDialog = ({
                 </ul>
               </section>
             ))}
+            {gifts.length > 0 && (
+              <section
+                aria-label="Gives you"
+                className={cn(
+                  'flex flex-wrap items-center gap-x-3 gap-y-1',
+                  gameTheme && 'px-2',
+                )}
+              >
+                <h3
+                  className={cn(
+                    'text-muted-foreground',
+                    gameTheme
+                      ? 'text-[8px] leading-none'
+                      : 'text-xs font-medium tracking-wider uppercase',
+                  )}
+                >
+                  Gives you
+                </h3>
+                {gifts.map((gift) => (
+                  <GiftBadge
+                    key={gift.name}
+                    gift={gift}
+                    gameTheme={gameTheme}
+                  />
+                ))}
+              </section>
+            )}
           </div>
         )}
       </DialogContent>
@@ -296,6 +329,36 @@ const ChoicePicker = ({
   );
 };
 
+const GiftBadge = ({
+  gift,
+  gameTheme,
+}: {
+  gift: NpcGift;
+  gameTheme: boolean;
+}) => (
+  <span
+    title={`Gives you ${gift.name}`}
+    aria-label={`Gives you ${gift.name}`}
+    className={cn(
+      'inline-flex shrink-0 items-center gap-1 whitespace-nowrap',
+      gameTheme ? 'text-[8px] leading-none' : 'text-xs font-medium',
+    )}
+  >
+    {!gameTheme && (
+      <Trophy
+        aria-hidden
+        className="size-3.5 text-amber-600 dark:text-amber-400"
+      />
+    )}
+    <img
+      src={gift.sprite}
+      alt=""
+      className="size-4 object-cover object-top pixelated"
+    />
+    {gift.name}
+  </span>
+);
+
 const BattleDialogList = ({
   dialog,
   gameTheme,
@@ -309,7 +372,7 @@ const BattleDialogList = ({
       gameTheme ? 'gb-frame gap-4 px-4 py-3' : 'rounded-[12px] border p-3',
     )}
   >
-    {dialog.map(({ label, text }) => (
+    {dialog.map(({ label, text, gift }) => (
       <div key={label} className="flex flex-col gap-1">
         <dt
           className={cn(
@@ -329,6 +392,11 @@ const BattleDialogList = ({
         >
           {text}
         </dd>
+        {gift && (
+          <dd className="pt-1">
+            <GiftBox gift={gift} gameTheme={gameTheme} />
+          </dd>
+        )}
       </div>
     ))}
   </dl>

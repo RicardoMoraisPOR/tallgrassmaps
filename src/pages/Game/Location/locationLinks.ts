@@ -58,6 +58,7 @@ const entryKey = (layer: MapLayerId, name: string) => `${layer}:${name}`;
 
 export type LayerEntry = {
   key: string;
+  target?: string;
   name: string;
   href?: string;
   travel?: Direction;
@@ -347,6 +348,23 @@ export const locationLinks = (
     trainersByTile.set(tile, [...(trainersByTile.get(tile) ?? []), listed]);
   }
 
+  const giftEntries: Array<LayerEntry> = [];
+
+  const addGifts = (
+    target: string,
+    giver: string,
+    dialog: Array<{ gift?: { name: string } }>,
+  ) => {
+    for (const { gift } of dialog)
+      if (gift)
+        giftEntries.push({
+          key: `gift:${target}:${gift.name}`,
+          target,
+          name: `${gift.name} (${giver})`,
+          opens: true,
+        });
+  };
+
   const trainerMarkers: Array<LayeredMapLink> = [
     ...trainersByTile.values(),
   ].map((group) => {
@@ -355,6 +373,10 @@ export const locationLinks = (
     const y = battle.y ?? 0;
 
     const layer = trainerLayer();
+
+    if (trainerTooltip)
+      for (const listed of group)
+        addGifts(listed.key, listed.label, listed.battle.dialog ?? []);
 
     const common = {
       label,
@@ -402,6 +424,7 @@ export const locationLinks = (
       (npcTotals.get(npc.name) ?? 0) > 1 ? `${npc.name} #${count}` : npc.name;
 
     npcSeen.set(npc.name, count);
+    addGifts(entryKey(layer.id, label), label, npc.dialog);
     const [offsetX, offsetY] = npc.spriteOffset ?? DEFAULT_SPRITE_OFFSET;
 
     return {
@@ -416,6 +439,9 @@ export const locationLinks = (
         entryKey(layer.id, label),
         ...npc.dialog.flatMap(({ trade }) =>
           trade ? [tradeHighlightKey(trade.receive.number)] : [],
+        ),
+        ...npc.dialog.flatMap(({ pokemon }) =>
+          pokemon ? [staticHighlightKey(pokemon.number)] : [],
         ),
       ],
       tooltip: npcTooltip?.(npc),
@@ -467,41 +493,47 @@ export const locationLinks = (
     };
   });
 
-  const staticMarkers: Array<LayeredMapLink> = staticPokemon.map((marker) => {
-    const layer = staticLayer();
+  const npcTiles = new Set(npcs.map(({ x, y }) => `${x},${y}`));
 
-    const label = marker.kind === 'gift' ? 'Gift Pokémon' : 'Static Pokémon';
+  const staticMarkers: Array<LayeredMapLink> = staticPokemon
+    .filter(
+      (marker) => marker.sprite || !npcTiles.has(`${marker.x},${marker.y}`),
+    )
+    .map((marker) => {
+      const layer = staticLayer();
 
-    const common = {
-      label,
-      layer: layer.id,
-      className: layer.className,
-      highlightKey: [
-        entryKey(layer.id, label),
-        ...marker.pokemon.map(({ number }) => staticHighlightKey(number)),
-      ],
-      popup: staticPopup?.(marker),
-    };
+      const label = marker.kind === 'gift' ? 'Gift Pokémon' : 'Static Pokémon';
 
-    if (marker.sprite) {
+      const common = {
+        label,
+        layer: layer.id,
+        className: layer.className,
+        highlightKey: [
+          entryKey(layer.id, label),
+          ...marker.pokemon.map(({ number }) => staticHighlightKey(number)),
+        ],
+        popup: staticPopup?.(marker),
+      };
+
+      if (marker.sprite) {
+        return {
+          ...common,
+          x: marker.x * tileSize,
+          y: marker.y * tileSize - tileSize / 4,
+          width: tileSize,
+          height: tileSize,
+          sprite: { src: marker.sprite, facing: marker.facing ?? 'down' },
+        };
+      }
+
       return {
         ...common,
-        x: marker.x * tileSize,
+        x: marker.x * tileSize - tileSize / 4,
         y: marker.y * tileSize - tileSize / 4,
-        width: tileSize,
-        height: tileSize,
-        sprite: { src: marker.sprite, facing: marker.facing ?? 'down' },
+        width: tileSize * 1.5,
+        height: tileSize * 1.5,
       };
-    }
-
-    return {
-      ...common,
-      x: marker.x * tileSize - tileSize / 4,
-      y: marker.y * tileSize - tileSize / 4,
-      width: tileSize * 1.5,
-      height: tileSize * 1.5,
-    };
-  });
+    });
 
   const image = floor ?? location;
   const wildMarkers: Array<LayeredMapLink> = wildAreas.map(
@@ -587,6 +619,8 @@ export const locationLinks = (
 
     if (id === 'buildings')
       for (const entry of unlistedChildren) entries.set(entry.key, entry);
+    if (id === 'items')
+      for (const entry of giftEntries) entries.set(entry.key, entry);
 
     return { layer, entries: [...entries.values()] };
   };

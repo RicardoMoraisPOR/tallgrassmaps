@@ -173,7 +173,11 @@ export const LocationPage = () => {
         <MapInfoTab
           sections={layerSections}
           onHighlight={highlightTo}
-          onOpen={(key) => setPinRequest({ scope, key })}
+          onOpen={(key) =>
+            listedBattles.some((listed) => listed.key === key)
+              ? selectTrainer(key)
+              : setPinRequest({ scope, key })
+          }
           hiddenLayers={hiddenLayers}
         />
       ),

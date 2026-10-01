@@ -59,6 +59,7 @@ const NPC_MAPS = {
   CERULEAN_TRASHED_HOUSE: { path: 'cerulean-city/cerulean-trashed-house' },
   CERULEAN_MART: { path: 'cerulean-city/cerulean-poke-mart' },
   CERULEAN_POKECENTER: { path: 'cerulean-city/cerulean-pokemon-center' },
+  ROUTE_24: { path: 'route-24' },
 };
 
 const OBJECT_SPRITES = new Set([
@@ -773,6 +774,25 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get Bulbasaur',
         texts: ['MelanieText4'],
+      },
+    ],
+  },
+  ROUTE24_COOLTRAINER_M4: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'He offers you a Charmander',
+        texts: ['_Route24DamianText1'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_Route24DamianText2'],
+        pokemon: 'CHARMANDER',
+      },
+      { trigger: 'If you say no', texts: ['_Route24DamianText3'] },
+      {
+        trigger: 'After you get Charmander',
+        texts: ['_Route24DamianText4'],
       },
     ],
   },

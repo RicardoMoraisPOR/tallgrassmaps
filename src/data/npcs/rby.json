@@ -2598,6 +2598,38 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-24",
+    "x": 6,
+    "y": 5,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm not good at raising POKéMON.\n\nI should release my CHARMANDER because I haven't raised it well...\n\nIf you promise me you'll care for it, it's yours.",
+        "trigger": "He offers you a Charmander"
+      },
+      {
+        "text": "Take good care of my CHARMANDER!",
+        "trigger": "If you say yes",
+        "pokemon": {
+          "number": 4,
+          "name": "Charmander"
+        }
+      },
+      {
+        "text": "Oh... I'd better release it then.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "How's CHARMANDER doing?",
+        "trigger": "After you get Charmander"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
     "path": "route-2/route-2-trade-house",
     "x": 4,
     "y": 1,

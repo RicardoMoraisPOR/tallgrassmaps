@@ -17,6 +17,7 @@ import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
 import { usePokedexLink } from '../Pokedex/usePokedex';
+import { GiftBox } from './GiftBox';
 
 const LONG_TEXT = 60;
 
@@ -251,28 +252,8 @@ export const MapTextTooltip = ({
     </p>
   );
 
-  const gift = current?.gift;
-  const giftLabel =
-    gift && (gift.count ? `${gift.name} ×${gift.count}` : gift.name);
-  const giftSquare = gift && (
-    <div className="flex justify-center">
-      <div
-        aria-label={`Gift: ${giftLabel}`}
-        className={cn(
-          'flex items-center gap-1 py-0.5 pr-2 pl-0.5',
-          gameTheme
-            ? 'border-2 border-(--gb-ink) text-[8px] leading-none'
-            : 'rounded-md border border-border bg-muted/60 text-xs font-medium',
-        )}
-      >
-        <img
-          src={gift.sprite}
-          alt=""
-          className="size-6 object-cover object-top pixelated"
-        />
-        {giftLabel}
-      </div>
-    </div>
+  const giftSquare = current?.gift && (
+    <GiftBox gift={current.gift} gameTheme={gameTheme} />
   );
 
   const pokemonSquare = current?.pokemon && game && (

@@ -3,8 +3,20 @@ import type { TrainerBattle } from './types';
 
 const SPRITES = '/sprites/rby/overworld';
 
-export const rbyTrainers = (data as Array<TrainerBattle>).map((battle) =>
-  battle.sprite
-    ? { ...battle, sprite: `${SPRITES}/${battle.sprite}.png` }
-    : battle,
-);
+export const rbyTrainers = (data as Array<TrainerBattle>).map((battle) => ({
+  ...battle,
+  ...(battle.sprite && { sprite: `${SPRITES}/${battle.sprite}.png` }),
+  ...(battle.dialog && {
+    dialog: battle.dialog.map((entry) =>
+      entry.gift
+        ? {
+            ...entry,
+            gift: {
+              ...entry.gift,
+              sprite: `${SPRITES}/${entry.gift.sprite}.png`,
+            },
+          }
+        : entry,
+    ),
+  }),
+}));
