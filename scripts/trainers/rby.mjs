@@ -117,9 +117,32 @@ const TRAINER_DIALOG_MAPS = new Set([
   'CeruleanGym',
   'Route24',
   'Route25',
+  'Route6',
+  'VermilionGym',
 ]);
 
 const OBJECT_DIALOG = {
+  VERMILIONGYM_LT_SURGE: [
+    { label: 'Before battle', texts: ['_VermilionGymLTSurgePreBattleText'] },
+    {
+      label: 'If you win, he gives you the Thunder Badge and TM24',
+      texts: [
+        '_VermilionGymLTSurgeReceivedThunderBadgeText',
+        '_VermilionGymLTSurgeThunderBadgeInfoText',
+        '_VermilionGymLTSurgeReceivedTM24Text',
+        '_TM24ExplanationText',
+      ],
+      gift: { name: 'TM24' },
+    },
+    {
+      label: 'If your bag is full',
+      texts: ['_VermilionGymLTSurgeTM24NoRoomText'],
+    },
+    {
+      label: 'After battle',
+      texts: ['_VermilionGymLTSurgePostBattleAdviceText'],
+    },
+  ],
   ROUTE24_COOLTRAINER_M1: [
     {
       label: 'After you beat the 5 bridge trainers, he gives you a Nugget',

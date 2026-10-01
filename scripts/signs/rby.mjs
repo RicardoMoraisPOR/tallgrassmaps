@@ -63,6 +63,16 @@ const SIGN_MAPS = {
   UNDERGROUND_PATH_ROUTE_5: 'route-5/underground-path-route-5',
   DAYCARE: 'route-5/daycare',
   UNDERGROUND_PATH_ROUTE_6: 'route-6/underground-path-route-6',
+  ROUTE_6: 'route-6',
+  ROUTE_6_GATE: 'route-6/route-6-gate',
+  VERMILION_CITY: 'vermilion-city',
+  VERMILION_GYM: 'vermilion-city/vermilion-gym',
+  VERMILION_TRADE_HOUSE: 'vermilion-city/vermilion-trade-house',
+  POKEMON_FAN_CLUB: 'vermilion-city/pokemon-fan-club',
+  VERMILION_PIDGEY_HOUSE: 'vermilion-city/vermilion-pidgey-house',
+  VERMILION_OLD_ROD_HOUSE: 'vermilion-city/vermilion-old-rod-house',
+  VERMILION_MART: 'vermilion-city/vermilion-poke-mart',
+  VERMILION_POKECENTER: 'vermilion-city/vermilion-pokemon-center',
   UNDERGROUND_PATH_NORTH_SOUTH: 'route-5/underground-path-north-south',
 };
 

@@ -20,7 +20,7 @@ type MapInfoTabProps = {
 };
 
 const sectionTitles: Record<LayerSection['id'], string> = {
-  interactions: 'On this map',
+  interactions: 'On this place',
   exits: 'Navigation',
 };
 
@@ -30,8 +30,7 @@ export const MapInfoTab = ({
   onOpen,
   hiddenLayers,
 }: MapInfoTabProps) => {
-  if (sections.length === 0)
-    return <EmptyTab>Nothing on this map yet.</EmptyTab>;
+  if (sections.length === 0) return <EmptyTab>Nothing on this place.</EmptyTab>;
 
   return sections.map(({ id, groups }, index) => (
     <section

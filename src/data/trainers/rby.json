@@ -4697,6 +4697,20 @@
     "y": 21,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Who's there? Quit listening in on us!"
+      },
+      {
+        "label": "If you win",
+        "text": "I just can't win!"
+      },
+      {
+        "label": "After battle",
+        "text": "Whisper... whisper..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4718,6 +4732,20 @@
     "y": 21,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm doing this out of love. Leave me alone!"
+      },
+      {
+        "label": "If you win",
+        "text": "No, this can't be..."
+      },
+      {
+        "label": "After battle",
+        "text": "My love will leave me in disgust."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4739,6 +4767,20 @@
     "y": 21,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Excuse me! This is a private conversation!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ugh! I hate losing!"
+      },
+      {
+        "label": "After battle",
+        "text": "Whisper... whisper..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4765,6 +4807,20 @@
     "y": 21,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm training for my love. Don't bother me!"
+      },
+      {
+        "label": "If you win",
+        "text": "My textbook never..."
+      },
+      {
+        "label": "After battle",
+        "text": "Now I understand, POKéMON isn't about calculated numbers."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4786,6 +4842,20 @@
     "y": 15,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "There aren't many bugs out here."
+      },
+      {
+        "label": "If you win",
+        "text": "No! You're kidding!"
+      },
+      {
+        "label": "After battle",
+        "text": "I like bugs, so I'm going back to VIRIDIAN FOREST."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4817,6 +4887,20 @@
     "y": 31,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Huh? You want to talk to me?"
+      },
+      {
+        "label": "If you win",
+        "text": "I didn't start it!"
+      },
+      {
+        "label": "After battle",
+        "text": "I should carry more POKéMON with me for safety."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4843,6 +4927,20 @@
     "y": 30,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Me? Well, OK. I'll play!"
+      },
+      {
+        "label": "If you win",
+        "text": "Just didn't work!"
+      },
+      {
+        "label": "After battle",
+        "text": "I want to get stronger! What's your secret?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4874,6 +4972,20 @@
     "y": 26,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I've never seen you around! Are you good?"
+      },
+      {
+        "label": "If you win",
+        "text": "You are too good!"
+      },
+      {
+        "label": "After battle",
+        "text": "Are my POKéMON weak? Or, am I just bad?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4895,6 +5007,20 @@
     "y": 26,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I've never seen you around! Are you good?"
+      },
+      {
+        "label": "If you win",
+        "text": "You are too good!"
+      },
+      {
+        "label": "After battle",
+        "text": "Are my POKéMON weak? Or, am I just bad?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12913,198 +13039,6 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Lt. Surge",
-    "trainerClass": "lt-surge",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "rocker",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 100,
-            "level": 21,
-            "moves": ["Tackle", "Screech", "SonicBoom"]
-          },
-          {
-            "number": 25,
-            "level": 18,
-            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
-          },
-          {
-            "number": 26,
-            "level": 24,
-            "moves": ["ThunderShock", "Growl", "Thunderbolt"]
-          }
-        ]
-      }
-    ],
-    "games": ["red", "blue"]
-  },
-  {
-    "name": "Lt. Surge",
-    "trainerClass": "lt-surge",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "rocker",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 26,
-            "level": 28,
-            "moves": ["Thunderbolt", "Mega Punch", "Mega Kick", "Growl"]
-          }
-        ]
-      }
-    ],
-    "games": ["yellow"]
-  },
-  {
-    "name": "Gentleman",
-    "trainerClass": "gentleman",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "gentleman",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 25,
-            "level": 23,
-            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
-          }
-        ]
-      }
-    ],
-    "games": ["red", "blue"]
-  },
-  {
-    "name": "Gentleman",
-    "trainerClass": "gentleman",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "gentleman",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 100,
-            "level": 22,
-            "moves": ["Tackle", "Screech", "SonicBoom", "Selfdestruct"]
-          },
-          {
-            "number": 81,
-            "level": 22,
-            "moves": ["Tackle", "SonicBoom"]
-          }
-        ]
-      }
-    ],
-    "games": ["yellow"]
-  },
-  {
-    "name": "Rocker",
-    "trainerClass": "rocker",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "super_nerd",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 100,
-            "level": 20,
-            "moves": ["Tackle", "Screech", "SonicBoom"]
-          },
-          {
-            "number": 81,
-            "level": 20,
-            "moves": ["Tackle"]
-          },
-          {
-            "number": 100,
-            "level": 20,
-            "moves": ["Tackle", "Screech", "SonicBoom"]
-          }
-        ]
-      }
-    ],
-    "games": ["red", "blue"]
-  },
-  {
-    "name": "Rocker",
-    "trainerClass": "rocker",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "super_nerd",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 100,
-            "level": 20,
-            "moves": ["Tackle", "Screech", "SonicBoom"]
-          },
-          {
-            "number": 100,
-            "level": 20,
-            "moves": ["Tackle", "Screech", "SonicBoom"]
-          },
-          {
-            "number": 100,
-            "level": 20,
-            "moves": ["Tackle", "Screech", "SonicBoom"]
-          }
-        ]
-      }
-    ],
-    "games": ["yellow"]
-  },
-  {
-    "name": "Sailor",
-    "trainerClass": "sailor",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "sailor",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 25,
-            "level": 21,
-            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
-          },
-          {
-            "number": 25,
-            "level": 21,
-            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
-          }
-        ]
-      }
-    ],
-    "games": ["red", "blue"]
-  },
-  {
-    "name": "Sailor",
-    "trainerClass": "sailor",
-    "path": "vermilion-city",
-    "area": "Vermilion Gym",
-    "sprite": "sailor",
-    "parties": [
-      {
-        "pokemon": [
-          {
-            "number": 81,
-            "level": 24,
-            "moves": ["Tackle", "SonicBoom"]
-          }
-        ]
-      }
-    ],
-    "games": ["yellow"]
-  },
-  {
     "name": "Gentleman",
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
@@ -13722,6 +13656,342 @@
       }
     ],
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "name": "Lt. Surge",
+    "trainerClass": "lt-surge",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 5,
+    "y": 1,
+    "facing": "down",
+    "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey, kid! What do you think you're doing here?\n\nYou won't live long in combat! That's for sure!\n\nI tell you kid, electric POKéMON saved me during the war!\n\nThey zapped my enemies into paralysis!\n\nThe same as I'll do to you!"
+      },
+      {
+        "label": "If you win, he gives you the Thunder Badge and TM24",
+        "text": "Whoa!\n\nYou're the real deal, kid!\n\nFine then, take the THUNDERBADGE!\n\nThe THUNDERBADGE cranks up your POKéMON's SPEED!\n\nIt also lets your POKéMON FLY any time, kid!\n\nYou're special, kid! Take this!\n\nTM24 contains THUNDERBOLT!\n\nTeach it to an electric POKéMON!",
+        "gift": {
+          "name": "TM24",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Yo kid, make room in your pack!"
+      },
+      {
+        "label": "After battle",
+        "text": "A little word of advice, kid!\n\nElectricity is sure powerful!\n\nBut, it's useless against ground-type POKéMON!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 21,
+            "moves": ["Tackle", "Screech", "SonicBoom"]
+          },
+          {
+            "number": 25,
+            "level": 18,
+            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
+          },
+          {
+            "number": 26,
+            "level": 24,
+            "moves": ["ThunderShock", "Growl", "Thunderbolt"]
+          }
+        ]
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Lt. Surge",
+    "trainerClass": "lt-surge",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 5,
+    "y": 1,
+    "facing": "down",
+    "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ten-hut! Welcome to VERMILION GYM!\n\nWill you look at that, a pint-size challenger!\n\nHahaha! You've got big and brassy nerves to take me on with your puny power!\n\nA POKéMON battle is war! I'll show you, civilian!\n\nI'll shock you into surrender!"
+      },
+      {
+        "label": "If you win, he gives you the Thunder Badge and TM24",
+        "text": "Whoa!\n\nYou're the real deal, kid!\n\nFine then, take the THUNDERBADGE!\n\nThe THUNDERBADGE cranks up your POKéMON's SPEED!\n\nIt also lets your POKéMON FLY any-time, kid!\n\nYou're special, kid! Take this!\n\nTM24 contains THUNDERBOLT!\n\nTeach it to an electric POKéMON!",
+        "gift": {
+          "name": "TM24",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Yo kid, make room in your pack!"
+      },
+      {
+        "label": "After battle",
+        "text": "A little word of advice, kid!\n\nElectricity is sure powerful!\n\nBut, it's useless against ground-type POKéMON!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 26,
+            "level": 28,
+            "moves": ["Thunderbolt", "Mega Punch", "Mega Kick", "Growl"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 9,
+    "y": 6,
+    "facing": "left",
+    "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "When I was in the Army, LT.SURGE was my strict CO!"
+      },
+      {
+        "label": "If you win",
+        "text": "Stop! You're very good!"
+      },
+      {
+        "label": "After battle",
+        "text": "The door won't open?\n\nLT.SURGE always was cautious!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 25,
+            "level": 23,
+            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
+          }
+        ]
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Gentleman",
+    "trainerClass": "gentleman",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 9,
+    "y": 6,
+    "facing": "left",
+    "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "When I was in the Army, LT.SURGE was my strict CO!"
+      },
+      {
+        "label": "If you win",
+        "text": "Stop! You're very good!"
+      },
+      {
+        "label": "After battle",
+        "text": "The door won't open?\n\nLT.SURGE always was cautious!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 22,
+            "moves": ["Tackle", "Screech", "SonicBoom", "Selfdestruct"]
+          },
+          {
+            "number": 81,
+            "level": 22,
+            "moves": ["Tackle", "SonicBoom"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "name": "Rocker",
+    "trainerClass": "rocker",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 3,
+    "y": 8,
+    "facing": "left",
+    "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm a lightweight, but I'm good with electricity!"
+      },
+      {
+        "label": "If you win",
+        "text": "Fried!"
+      },
+      {
+        "label": "After battle",
+        "text": "OK, I'll talk!\n\nLT.SURGE said he hid door switches inside something!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 20,
+            "moves": ["Tackle", "Screech", "SonicBoom"]
+          },
+          {
+            "number": 81,
+            "level": 20,
+            "moves": ["Tackle"]
+          },
+          {
+            "number": 100,
+            "level": 20,
+            "moves": ["Tackle", "Screech", "SonicBoom"]
+          }
+        ]
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Rocker",
+    "trainerClass": "rocker",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 3,
+    "y": 8,
+    "facing": "left",
+    "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm a lightweight, but I'm good with electricity!"
+      },
+      {
+        "label": "If you win",
+        "text": "Fried!"
+      },
+      {
+        "label": "After battle",
+        "text": "OK, I'll talk!\n\nLT.SURGE said he hid door switches inside something!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 100,
+            "level": 20,
+            "moves": ["Tackle", "Screech", "SonicBoom"]
+          },
+          {
+            "number": 100,
+            "level": 20,
+            "moves": ["Tackle", "Screech", "SonicBoom"]
+          },
+          {
+            "number": 100,
+            "level": 20,
+            "moves": ["Tackle", "Screech", "SonicBoom"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 0,
+    "y": 10,
+    "facing": "right",
+    "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This is no place for kids!"
+      },
+      {
+        "label": "If you win",
+        "text": "Wow! Surprised me!"
+      },
+      {
+        "label": "After battle",
+        "text": "LT.SURGE set up double locks! Here's a hint!\n\nWhen you open the 1st lock, the 2nd lock is right next to it!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 25,
+            "level": 21,
+            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
+          },
+          {
+            "number": 25,
+            "level": 21,
+            "moves": ["ThunderShock", "Growl", "Thunder Wave", "Quick Attack"]
+          }
+        ]
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Sailor",
+    "trainerClass": "sailor",
+    "path": "vermilion-city/vermilion-gym",
+    "x": 0,
+    "y": 10,
+    "facing": "right",
+    "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This is no place for kids!"
+      },
+      {
+        "label": "If you win",
+        "text": "Wow! Surprised me!"
+      },
+      {
+        "label": "After battle",
+        "text": "LT.SURGE set up double locks! Here's a hint!\n\nWhen you open the 1st lock, the 2nd lock is right next to it!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 81,
+            "level": 24,
+            "moves": ["Tackle", "SonicBoom"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
   },
   {
     "name": "Giovanni",

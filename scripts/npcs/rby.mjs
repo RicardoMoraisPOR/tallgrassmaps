@@ -67,6 +67,16 @@ const NPC_MAPS = {
   UNDERGROUND_PATH_ROUTE_5: { path: 'route-5/underground-path-route-5' },
   DAYCARE: { path: 'route-5/daycare' },
   UNDERGROUND_PATH_ROUTE_6: { path: 'route-6/underground-path-route-6' },
+  ROUTE_6: { path: 'route-6' },
+  ROUTE_6_GATE: { path: 'route-6/route-6-gate' },
+  VERMILION_CITY: { path: 'vermilion-city' },
+  VERMILION_GYM: { path: 'vermilion-city/vermilion-gym' },
+  VERMILION_TRADE_HOUSE: { path: 'vermilion-city/vermilion-trade-house' },
+  POKEMON_FAN_CLUB: { path: 'vermilion-city/pokemon-fan-club' },
+  VERMILION_PIDGEY_HOUSE: { path: 'vermilion-city/vermilion-pidgey-house' },
+  VERMILION_OLD_ROD_HOUSE: { path: 'vermilion-city/vermilion-old-rod-house' },
+  VERMILION_MART: { path: 'vermilion-city/vermilion-poke-mart' },
+  VERMILION_POKECENTER: { path: 'vermilion-city/vermilion-pokemon-center' },
   UNDERGROUND_PATH_NORTH_SOUTH: {
     path: 'route-5/underground-path-north-south',
   },
@@ -112,7 +122,30 @@ const SPRITE_DIALOG = {
   ],
 };
 
+const SAFFRON_GATE_GUARD = {
+  special: true,
+  dialog: [
+    {
+      trigger: "Without a drink, he won't let you through",
+      texts: ['_SaffronGateGuardGeeImThirstyText'],
+    },
+    {
+      trigger: 'If you have a drink, you give him one',
+      texts: [
+        '_SaffronGateGuardImParchedText',
+        '_SaffronGateGuardYouCanGoOnThroughText',
+      ],
+    },
+    {
+      trigger: 'After you give him a drink',
+      texts: ['_SaffronGateGuardThanksForTheDrinkText'],
+    },
+  ],
+};
+
 const SCRIPTED_NPCS = {
+  ROUTE5GATE_GUARD: SAFFRON_GATE_GUARD,
+  ROUTE6GATE_GUARD: SAFFRON_GATE_GUARD,
   PALLETTOWN_OAK: {
     cutscene: true,
     dialog: [
@@ -847,26 +880,6 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
-  ROUTE5GATE_GUARD: {
-    special: true,
-    dialog: [
-      {
-        trigger: "Without a drink, he won't let you through",
-        texts: ['_SaffronGateGuardGeeImThirstyText'],
-      },
-      {
-        trigger: 'If you have a drink, you give him one',
-        texts: [
-          '_SaffronGateGuardImParchedText',
-          '_SaffronGateGuardYouCanGoOnThroughText',
-        ],
-      },
-      {
-        trigger: 'After you give him a drink',
-        texts: ['_SaffronGateGuardThanksForTheDrinkText'],
-      },
-    ],
-  },
   DAYCARE_GENTLEMAN: {
     special: true,
     values: {
@@ -935,6 +948,201 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'If your party is full',
         texts: ['_DaycareGentlemanNoRoomForMonText'],
+      },
+    ],
+  },
+  VERMILIONCITY_GAMBLER1: {
+    dialog: [
+      {
+        trigger: 'Before the S.S. Anne leaves',
+        texts: ['_VermilionCityGambler1DidYouSeeText'],
+      },
+      {
+        trigger: 'After the S.S. Anne leaves',
+        texts: ['_VermilionCityGambler1SSAnneDepartedText'],
+      },
+    ],
+  },
+  VERMILIONCITY_SAILOR1: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'If you talk to him from the side',
+        texts: ['_VermilionCitySailor1WelcomeToSSAnneText'],
+      },
+      {
+        trigger: 'If you walk up to the dock',
+        texts: ['_VermilionCitySailor1DoYouHaveATicketText'],
+      },
+      {
+        trigger: 'If you have the S.S. Ticket',
+        texts: ['_VermilionCitySailor1FlashedTicketText'],
+      },
+      {
+        trigger: 'Without a ticket',
+        texts: ['_VermilionCitySailor1YouNeedATicketText'],
+      },
+      {
+        trigger: 'After the S.S. Anne leaves',
+        texts: ['_VermilionCitySailor1ShipSetSailText'],
+      },
+    ],
+  },
+  VERMILIONCITY_MACHOP: {
+    dialog: [
+      {
+        trigger: 'When you talk to it',
+        texts: [
+          '_VermilionCityMachopText',
+          '_VermilionCityMachopStompingTheLandFlatText',
+        ],
+      },
+    ],
+  },
+  VERMILIONCITY_OFFICER_JENNY: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'Before you have the Thunder Badge',
+        texts: ['_OfficerJennyText1'],
+      },
+      {
+        trigger: 'With the Thunder Badge, she offers you Squirtle',
+        texts: ['_OfficerJennyText2'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_OfficerJennyText3'],
+        pokemon: 'SQUIRTLE',
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_OfficerJennyText4'],
+      },
+      {
+        trigger: 'After you get Squirtle',
+        texts: ['_OfficerJennyText5'],
+      },
+    ],
+  },
+  POKEMONFANCLUB_PIKACHU_FAN: {
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_PokemonFanClubPikachuFanNormalText'],
+      },
+      {
+        trigger: 'If you talked to the Seel fan first',
+        texts: ['_PokemonFanClubPikachuFanBetterText'],
+      },
+      {
+        trigger: 'After you get the Bike Voucher and come back',
+        texts: ['_PokemonFanClubPikachuFanText'],
+      },
+    ],
+  },
+  POKEMONFANCLUB_CLEFAIRY_FAN: {
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_PokemonFanClubClefairyFanNormalText'],
+      },
+      {
+        trigger: 'If you talked to the Seel fan first',
+        texts: ['_PokemonFanClubClefairyFanBetterText'],
+      },
+      {
+        trigger: 'After you get the Bike Voucher and come back',
+        texts: ['_PokemonFanClubClefairyFanText'],
+      },
+    ],
+  },
+  POKEMONFANCLUB_SEEL_FAN: {
+    dialog: [
+      {
+        trigger: 'When you talk to her',
+        texts: ['_PokemonFanClubSeelFanNormalText'],
+      },
+      {
+        trigger: 'If you talked to the other fan first',
+        texts: ['_PokemonFanClubSeelFanBetterText'],
+      },
+      {
+        trigger: 'After you get the Bike Voucher and come back',
+        texts: ['_PokemonFanClubSeelFanText'],
+      },
+    ],
+  },
+  POKEMONFANCLUB_CHAIRMAN: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_PokemonFanClubChairmanIntroText'],
+      },
+      {
+        trigger:
+          'If you say yes, he tells his story and gives you a Bike Voucher',
+        texts: [
+          '_PokemonFanClubChairmanStoryText',
+          '_PokemonFanClubReceivedBikeVoucherText',
+          '_PokemonFanClubExplainBikeVoucherText',
+        ],
+        gift: { name: 'Bike Voucher' },
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_PokemonFanClubNoStoryText'],
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_PokemonFanClubBagFullText'],
+      },
+      {
+        trigger: 'After you get the Bike Voucher',
+        texts: ['_PokemonFanClubChairFinalText'],
+      },
+    ],
+  },
+  VERMILIONOLDRODHOUSE_FISHING_GURU: {
+    special: true,
+    values: { wStringBuffer: 'OLD ROD' },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_VermilionOldRodHouseFishingGuruDoYouLikeToFishText'],
+      },
+      {
+        trigger: 'If you say yes, he gives you the Old Rod',
+        texts: [
+          '_VermilionOldRodHouseFishingGuruTakeThisText',
+          '_VermilionOldRodHouseFishingGuruFishingIsAWayOfLifeText',
+        ],
+        gift: { name: 'Old Rod' },
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_VermilionOldRodHouseFishingGuruThatsSoDisappointingText'],
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_VermilionOldRodHouseFishingGuruNoRoomText'],
+      },
+      {
+        trigger: 'After you get the Old Rod',
+        texts: ['_VermilionOldRodHouseFishingGuruHowAreTheFishBitingText'],
+      },
+    ],
+  },
+  VERMILIONGYM_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Lt. Surge',
+        texts: ['_VermilionGymGymGuideChampInMakingText'],
+      },
+      {
+        trigger: 'After you beat Lt. Surge',
+        texts: ['_VermilionGymGymGuideBeatLTSurgeText'],
       },
     ],
   },

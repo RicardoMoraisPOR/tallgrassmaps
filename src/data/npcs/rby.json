@@ -1449,6 +1449,122 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 6,
+    "y": 3,
+    "name": "Pikachu Fan",
+    "sprite": "fisher",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Won't you admire my PIKACHU's adorable tail?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Humph! My PIKACHU is twice as cute as that one!",
+        "trigger": "If you talked to the Seel fan first"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 1,
+    "y": 3,
+    "name": "Seel Fan",
+    "sprite": "girl",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I just love my SEEL!\n\nIt squeals when I hug it!",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "Oh dear!\n\nMy SEEL is far more attractive!",
+        "trigger": "If you talked to the other fan first"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 6,
+    "y": 4,
+    "name": "Pikachu",
+    "sprite": "fairy",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "PIKACHU: Chu! Pikachu!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 1,
+    "y": 4,
+    "name": "Seel",
+    "sprite": "seel",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "SEEL: Kyuoo!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 3,
+    "y": 1,
+    "name": "Chairman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I chair the POKéMON Fan Club!\n\nI have collected over 100 POKéMON!\n\nI'm very fussy when it comes to POKéMON!\n\nSo...\n\nDid you come visit to hear about my POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Good! Then listen up!\n\nMy favorite RAPIDASH...\n\nIt...cute... lovely...smart... plus...amazing... you think so?... oh yes...it... stunning... kindly... love it!\n\nHug it...when... sleeping...warm and cuddly... spectacular... ravishing... ...Oops! Look at the time! I kept you too long!\n\nThanks for hearing me out! I want you to have this!\n\nExchange that for a BICYCLE!\n\nDon't worry, my FEAROW will FLY me anywhere!\n\nSo, I don't need a BICYCLE!\n\nI hope you like cycling!",
+        "trigger": "If you say yes, he tells his story and gives you a Bike Voucher",
+        "gift": {
+          "name": "Bike Voucher",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh. Come back when you want to hear my story!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Make room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Hello, RED!\n\nDid you come see me about my POKéMON again?\n\nNo? Too bad!",
+        "trigger": "After you get the Bike Voucher"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 5,
+    "y": 1,
+    "name": "Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Our Chairman is very vocal about POKéMON."
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
     "path": "pallet-town/reds-house",
     "floor": "1f",
     "x": 5,
@@ -1673,6 +1789,30 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "route-6/route-6-gate",
+    "x": 6,
+    "y": 2,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
     "path": "route-5/underground-path-route-5",
     "x": 2,
     "y": 3,
@@ -1727,6 +1867,347 @@
       }
     ],
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 19,
+    "y": 7,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "We're careful about pollution!\n\nWe've heard GRIMER multiplies in toxic sludge!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 14,
+    "y": 6,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Did you see S.S. ANNE moored in the harbor?",
+        "trigger": "Before the S.S. Anne leaves"
+      },
+      {
+        "text": "So, S.S.ANNE has departed!\n\nShe'll be back in about a year.",
+        "trigger": "After the S.S. Anne leaves"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 19,
+    "y": 30,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Welcome to S.S. ANNE!",
+        "trigger": "If you talk to him from the side"
+      },
+      {
+        "text": "Welcome to S.S. ANNE!\n\nExcuse me, do you have a ticket?",
+        "trigger": "If you walk up to the dock"
+      },
+      {
+        "text": "RED flashed the S.S.TICKET!\n\nGreat! Welcome to S.S.ANNE!",
+        "trigger": "If you have the S.S. Ticket"
+      },
+      {
+        "text": "RED doesn't have the needed S.S.TICKET.\n\nSorry!\n\nYou need a ticket to get aboard.",
+        "trigger": "Without a ticket"
+      },
+      {
+        "text": "The ship set sail.",
+        "trigger": "After the S.S. Anne leaves"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 30,
+    "y": 7,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm putting up a building on this plot of land.\n\nMy POKéMON is tamping the land."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 29,
+    "y": 9,
+    "name": "Machop",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "MACHOP: Guoh! Gogogoh!\n\nA MACHOP is stomping the land flat.",
+        "trigger": "When you talk to it"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 25,
+    "y": 27,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "S.S.ANNE is a famous luxury cruise ship.\n\nWe visit VERMILION once a year."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-gym",
+    "x": 4,
+    "y": 14,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yo! Champ in making!\n\nLT.SURGE has a nickname. People refer to him as the Lightning American!\n\nHe's an expert on electric POKéMON!\n\nBirds and water POKéMON are at risk! Beware of paralysis too!\n\nLT.SURGE is very cautious!\n\nYou'll have to break a code to get to him!",
+        "trigger": "Before you beat Lt. Surge"
+      },
+      {
+        "text": "Whew! That match was electric!",
+        "trigger": "After you beat Lt. Surge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-poke-mart",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-poke-mart",
+    "x": 5,
+    "y": 6,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "There are evil people who will use POKéMON for criminal acts.\n\nTEAM ROCKET traffics in rare POKéMON.\n\nThey also abandon POKéMON that they consider not to be popular or useful."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-poke-mart",
+    "x": 3,
+    "y": 3,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I think POKéMON can be good or evil. It depends on the trainer."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-old-rod-house",
+    "x": 2,
+    "y": 4,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I'm the FISHING GURU!\n\nI simply Looove fishing!\n\nDo you like to fish?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Grand! I like your style!\n\nTake this and fish, young one!\n\nRED received an OLD ROD!\n\nFishing is a way of life!\n\nFrom the seas to rivers, go out and land the big one, young one!",
+        "trigger": "If you say yes, he gives you the Old Rod",
+        "gift": {
+          "name": "Old Rod",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh... That's so disappointing...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Oh no!\n\nYou have no room for my gift!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Hello there, RED!\n\nHow are the fish biting?",
+        "trigger": "After you get the Old Rod"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pidgey-house",
+    "x": 5,
+    "y": 3,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm getting my PIDGEY to fly a letter to SAFFRON in the north!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pidgey-house",
+    "x": 3,
+    "y": 5,
+    "name": "Pidgey",
+    "sprite": "bird",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "PIDGEY: Kurukkoo!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pokemon-center",
+    "x": 10,
+    "y": 5,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Even if they are the same level, POKéMON can have very different abilities.\n\nA POKéMON raised by a trainer is stronger than one in the wild."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pokemon-center",
+    "x": 5,
+    "y": 4,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My POKéMON was poisoned! It fainted while we were walking!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-trade-house",
+    "x": 3,
+    "y": 5,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Hi! Do you have SPEAROW?\n\nWant to trade it for FARFETCH'D?",
+        "trigger": "Offers Farfetch'd for your Spearow",
+        "trade": {
+          "give": {
+            "number": 21,
+            "name": "Spearow"
+          },
+          "receive": {
+            "number": 83,
+            "name": "Farfetch'd"
+          }
+        }
+      },
+      {
+        "text": "That's too bad.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "...This is no SPEAROW.\n\nIf you get one, trade it with me!",
+        "trigger": "If you offer a Pokémon other than Spearow"
+      },
+      {
+        "text": "Thanks pal!",
+        "trigger": "After the trade, you get Farfetch'd nicknamed Dux"
+      },
+      {
+        "text": "How is my old FARFETCH'D?\n\nMy SPEAROW is doing great!",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
   },
   {
     "path": "viridian-city",
@@ -2834,6 +3315,116 @@
     "games": ["yellow"]
   },
   {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 6,
+    "y": 3,
+    "name": "Clefairy Fan",
+    "sprite": "fisher",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Won't you admire my CLEFAIRY's adorable tail?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Humph! My CLEFAIRY is twice as cute as that one!",
+        "trigger": "If you talked to the Seel fan first"
+      },
+      {
+        "text": "Our CHAIRMAN's new hobby is taking POKéMON photos.\n\nHe gave me a nice PRINT of my cute CLEFAIRY.",
+        "trigger": "After you get the Bike Voucher and come back"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 1,
+    "y": 3,
+    "name": "Seel Fan",
+    "sprite": "girl",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I just love my SEEL!\n\nIt squeals when I hug it!",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "Oh dear!\n\nMy SEEL is far more attractive!",
+        "trigger": "If you talked to the other fan first"
+      },
+      {
+        "text": "I'm going to hook up the cable to get a photo PRINT of my SEEL!",
+        "trigger": "After you get the Bike Voucher and come back"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 6,
+    "y": 4,
+    "name": "Clefairy",
+    "sprite": "yellow/clefairy",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "CLEFAIRY: Pippii!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 3,
+    "y": 1,
+    "name": "Chairman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I chair the POKéMON Fan Club!\n\nI have more than 100 POKéMON. I love them all!\n\nI'm very fussy when it comes to POKéMON!\n\nSo...\n\nDid you come to hear me brag about my POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Good! Then listen up!\n\nMy favorite RAPIDASH...\n\nIt...cute... lovely...smart... plus...amazing... you think so?... oh yes...it... stunning... kindly... love it!\n\nHug it...when... sleeping...warm and cuddly... spectacular... ravishing... ...Oops! Look at the time! I kept you too long!\n\nThanks for hearing me out! I want you to have this!\n\nExchange that for a BICYCLE!\n\nDon't worry, my FEAROW will FLY me anywhere!\n\nSo, I don't need a BICYCLE!\n\nI hope you like cycling!",
+        "trigger": "If you say yes, he tells his story and gives you a Bike Voucher",
+        "gift": {
+          "name": "Bike Voucher",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh. Come back when you want to hear my story!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Make room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Hello, RED!\n\nDid you come see me about my POKéMON again?\n\nNo? Too bad!",
+        "trigger": "After you get the Bike Voucher"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/pokemon-fan-club",
+    "x": 5,
+    "y": 1,
+    "name": "Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Our CHAIRMAN is very vocal about POKéMON."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "pallet-town/reds-house",
     "floor": "1f",
     "x": 5,
@@ -2952,6 +3543,30 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-6/route-6-gate",
+    "x": 6,
+    "y": 2,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh, wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug, glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
     "path": "route-5/underground-path-route-5",
     "x": 2,
     "y": 3,
@@ -2991,6 +3606,107 @@
       }
     ],
     "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 19,
+    "y": 7,
+    "name": "Beauty",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "We're careful about pollution!\n\nWe've heard GRIMER multiplies in toxic sludge!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city",
+    "x": 19,
+    "y": 15,
+    "name": "Officer Jenny",
+    "sprite": "yellow/officer_jenny",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I just caught a SQUIRTLE that was always getting into mischief.\n\nI think it needs a good trainer to set it straight.",
+        "trigger": "Before you have the Thunder Badge"
+      },
+      {
+        "text": "You have the THUNDERBADGE!?\n\nYou must be a good trainer!\n\nI just caught a SQUIRTLE that was always getting into mischief.\n\nWould you take good care of it?",
+        "trigger": "With the Thunder Badge, she offers you Squirtle"
+      },
+      {
+        "text": "OK! Please treat SQUIRTLE right!",
+        "trigger": "If you say yes",
+        "pokemon": {
+          "number": 7,
+          "name": "Squirtle"
+        }
+      },
+      {
+        "text": "Oh... What am I to do now?",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "How is SQUIRTLE doing?",
+        "trigger": "After you get Squirtle"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-trade-house",
+    "x": 3,
+    "y": 5,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Once a POKéMON learns an HM, the technique can't be replaced.\n\nBetter think care-fully before you teach HM moves."
+      }
+    ],
     "games": ["yellow"]
   },
   {
@@ -3174,6 +3890,21 @@
     "dialog": [
       {
         "text": "BILL has lots of POKéMON!\n\nHe collects rare ones too!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/vermilion-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "It is true that a higher level POKéMON will be more powerful...\n\nBut, all POKéMON will have weak points against specific types.\n\nSo, there is no universally strong POKéMON."
       }
     ],
     "games": ["red", "blue", "yellow"]

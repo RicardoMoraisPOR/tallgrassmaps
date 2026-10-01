@@ -4872,7 +4872,7 @@
     "encounters": [
       {
         "method": "trade",
-        "path": "vermilion-city",
+        "path": "vermilion-city/vermilion-trade-house",
         "tradeFor": 21,
         "games": ["red", "blue"]
       },
