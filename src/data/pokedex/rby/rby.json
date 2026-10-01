@@ -7608,13 +7608,13 @@
     "encounters": [
       {
         "method": "trade",
-        "path": "route-2",
+        "path": "route-2/route-2-trade-house",
         "tradeFor": 63,
         "games": ["red", "blue"]
       },
       {
         "method": "trade",
-        "path": "route-2",
+        "path": "route-2/route-2-trade-house",
         "tradeFor": 35,
         "games": ["yellow"]
       }

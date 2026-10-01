@@ -3029,6 +3029,20 @@
     "y": 33,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey! You have POKéMON! Come on! Let's battle'em!"
+      },
+      {
+        "label": "If you win",
+        "text": "No! CATERPIE can't cut it!"
+      },
+      {
+        "label": "After battle",
+        "text": "Ssh! You'll scare the bugs away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3055,6 +3069,20 @@
     "y": 33,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey! You have POKéMON! Come on! Let's battle 'em!"
+      },
+      {
+        "label": "If you win",
+        "text": "No! CATERPIE can't cut it!"
+      },
+      {
+        "label": "After battle",
+        "text": "Ssh! You'll scare the bugs away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3081,6 +3109,20 @@
     "y": 19,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Yo! You can't jam out if you're a POKéMON trainer!"
+      },
+      {
+        "label": "If you win",
+        "text": "Huh? I ran out of POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "Darn! I'm going to catch some stronger ones!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3112,6 +3154,20 @@
     "y": 19,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Yo! You can't jam out if you're a POKéMON trainer!"
+      },
+      {
+        "label": "If you win",
+        "text": "Huh? I ran out of POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "Darn! I'm going to catch some stronger ones!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3143,6 +3199,20 @@
     "y": 18,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey, wait up! What's the hurry?"
+      },
+      {
+        "label": "If you win",
+        "text": "I give! You're good at this!"
+      },
+      {
+        "label": "After battle",
+        "text": "Sometimes, you can find stuff on the ground!\n\nI'm looking for the stuff I dropped!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3164,6 +3234,20 @@
     "y": 18,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey, wait up! What's the hurry?"
+      },
+      {
+        "label": "If you win",
+        "text": "I give! You're good at this!"
+      },
+      {
+        "label": "After battle",
+        "text": "Sometimes, you can find stuff on the ground!\n\nI'm looking for the stuff I dropped!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3185,6 +3269,20 @@
     "y": 41,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi, do you have a PIKACHU?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh no, really?"
+      },
+      {
+        "label": "After battle",
+        "text": "I looked forever, but I never found a PIKACHU here!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3211,6 +3309,20 @@
     "y": 17,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm gonna be the best. You just can't beat me!"
+      },
+      {
+        "label": "If you win",
+        "text": "After all I did..."
+      },
+      {
+        "label": "After battle",
+        "text": "A METAPOD is cool because its attack is its defense!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

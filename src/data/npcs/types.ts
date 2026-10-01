@@ -6,10 +6,21 @@ export type NpcGift = {
   count?: number;
 };
 
+export type NpcTradePokemon = {
+  number: number;
+  name: string;
+};
+
+export type NpcTrade = {
+  give: NpcTradePokemon;
+  receive: NpcTradePokemon;
+};
+
 export type NpcDialog = {
   text: string;
   trigger?: string;
   gift?: NpcGift;
+  trade?: NpcTrade;
 };
 
 export type MapNpc = {

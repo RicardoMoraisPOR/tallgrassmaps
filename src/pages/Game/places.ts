@@ -32,6 +32,8 @@ export const collectPlaces = (region: Region): Array<Place> => {
 
   const addInside = (locations: Array<Location>, parentPath: string) => {
     for (const location of locations) {
+      if (location.dataPath) continue;
+
       const path = joinPath(parentPath, location.id);
 
       add(path, location);

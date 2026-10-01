@@ -33,7 +33,6 @@ const groupPrefixes = {
   'rock-tunnel': 'ROCKTUNNEL',
   'ss-anne': 'SSANNE',
   'celadon-dept-store': 'CELADONMART',
-  'digletts-cave': 'DIGLETTSCAVE',
 };
 
 const namedMaps = { 'rocket-game-corner/game-corner': 'GAMECORNER' };

@@ -105,7 +105,7 @@ rivalTeamSignature.blue = rivalTeamSignature.red;
 
 const rb = (teams) => ({ red: teams, blue: teams });
 
-const TRAINER_DIALOG_MAPS = new Set(['ViridianGym']);
+const TRAINER_DIALOG_MAPS = new Set(['ViridianGym', 'ViridianForest']);
 
 const OBJECT_DIALOG = {
   VIRIDIANGYM_GIOVANNI: [

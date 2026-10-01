@@ -62,6 +62,20 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-2",
+    "x": 5,
+    "y": 65,
+    "text": "ROUTE 2 VIRIDIAN CITY - PEWTER CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2",
+    "x": 11,
+    "y": 11,
+    "text": "DIGLETT's CAVE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "viridian-city",
     "x": 17,
     "y": 17,
@@ -104,11 +118,60 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-2/viridian-forest",
+    "x": 24,
+    "y": 40,
+    "text": "TRAINER TIPS\n\nIf you want to avoid battles, stay away from grassy areas!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 16,
+    "y": 32,
+    "text": "For poison, use ANTIDOTE! Get it at POKéMON MARTs!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 26,
+    "y": 17,
+    "text": "TRAINER TIPS\n\nContact PROF.OAK via PC to get your POKéDEX evaluated!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 4,
+    "y": 24,
+    "text": "TRAINER TIPS\n\nNo stealing of POKéMON from other trainers! Catch only wild POKéMON!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 18,
+    "y": 45,
+    "text": "TRAINER TIPS\n\nWeaken POKéMON before attempting capture!\n\nWhen healthy, they may escape!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 2,
+    "y": 1,
+    "text": "LEAVING VIRIDIAN FOREST PEWTER CITY AHEAD",
+    "games": ["red", "blue"]
+  },
+  {
     "path": "viridian-city/viridian-nickname-house",
     "x": 4,
     "y": 0,
     "text": "SPEAROW Name: SPEARY",
     "sprite": "clipboard",
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 2,
+    "y": 1,
+    "text": "TRAINER TIPS\n\nIf you want to avoid battles, stay away from grassy areas!",
+    "games": ["yellow"]
   }
 ]

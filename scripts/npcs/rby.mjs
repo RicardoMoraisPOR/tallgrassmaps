@@ -3,6 +3,7 @@ import { basename, join } from 'node:path';
 
 import {
   constantFromFile,
+  displayName as speciesName,
   facings,
   floorFor,
   forGame,
@@ -11,7 +12,7 @@ import {
   read,
   spritePath,
 } from '../rby/disassembly.mjs';
-import { farText, labelText, mapText } from '../rby/text.mjs';
+import { farText, labelText, mapText, mapTextBlock } from '../rby/text.mjs';
 
 const OUTPUT = new URL('../../src/data/npcs/rby.json', import.meta.url);
 
@@ -27,6 +28,14 @@ const NPC_MAPS = {
   VIRIDIAN_GYM: { path: 'viridian-city/viridian-gym' },
   VIRIDIAN_SCHOOL_HOUSE: { path: 'viridian-city/viridian-school-house' },
   VIRIDIAN_NICKNAME_HOUSE: { path: 'viridian-city/viridian-nickname-house' },
+  ROUTE_2: { path: 'route-2' },
+  ROUTE_2_GATE: { path: 'route-2/route-2-gate' },
+  ROUTE_2_TRADE_HOUSE: { path: 'route-2/route-2-trade-house' },
+  VIRIDIAN_FOREST_NORTH_GATE: { path: 'route-2/viridian-forest-north-gate' },
+  VIRIDIAN_FOREST_SOUTH_GATE: { path: 'route-2/viridian-forest-south-gate' },
+  DIGLETTS_CAVE_ROUTE_2: { path: 'route-2/digletts-cave-route-2' },
+  DIGLETTS_CAVE_ROUTE_11: { path: 'route-11/digletts-cave-route-11' },
+  VIRIDIAN_FOREST: { path: 'route-2/viridian-forest' },
 };
 
 const OBJECT_SPRITES = new Set(['POKE_BALL', 'POKEDEX', 'CLIPBOARD', 'PAPER']);
@@ -252,6 +261,46 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
+  ROUTE2GATE_OAKS_AIDE: {
+    values: {
+      wOaksAideRewardItemName: 'HM05',
+      hOaksAideRequirement: '10',
+    },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_OaksAideHiText'],
+      },
+      {
+        trigger:
+          'If you say yes with at least 10 kinds caught, he gives you HM05',
+        texts: [
+          '_OaksAideHereYouGoText',
+          '_OaksAideGotItemText',
+          '_Route2GateOaksAideFlashExplanationText',
+        ],
+        values: { hOaksAideNumMonsOwned: '10' },
+        gift: { name: 'HM05' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_OaksAideNoRoomText'],
+      },
+      {
+        trigger: 'If you say yes with fewer than 10 kinds caught',
+        texts: ['_OaksAideUhOhText'],
+        values: { hOaksAideNumMonsOwned: 'X' },
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_OaksAideComeBackText'],
+      },
+      {
+        trigger: 'After you get HM05',
+        texts: ['_Route2GateOaksAideFlashExplanationText'],
+      },
+    ],
+  },
   OAKSLAB_OAK1: {
     dialog: [
       {
@@ -331,15 +380,98 @@ const SCRIPTED_NPCS = {
   },
 };
 
+const TRADE_DIALOGSETS = { CASUAL: 1, EVOLUTION: 2, HAPPY: 3 };
+
+const monNames = (game) => {
+  const names = [
+    ...read(game.dir, 'data/pokemon/names.asm').matchAll(/dname "(.+)"/g),
+  ].map(([, name]) => name);
+
+  return new Map(
+    [
+      ...read(game.dir, 'constants/pokemon_constants.asm').matchAll(
+        /^\s*const (\w+)\s*; \$(\w+)/gm,
+      ),
+    ].map(([, constant, id]) => [constant, names[parseInt(id, 16) - 1]]),
+  );
+};
+
+const dexNumbers = (game) =>
+  new Map(
+    [
+      ...read(game.dir, 'constants/pokedex_constants.asm').matchAll(
+        /const DEX_(\w+)\s*; (\d+)/g,
+      ),
+    ].map(([, constant, number]) => [constant, Number(number)]),
+  );
+
+const npcTrade = (game, file, textId) => {
+  const nickname = mapTextBlock(game, file, textId)
+    ?.block.map((line) => line.match(/^ld a, TRADE_FOR_(\w+)$/)?.[1])
+    .find(Boolean);
+
+  if (!nickname) return undefined;
+
+  const [, give, receive, dialogSet] =
+    [
+      ...read(game.dir, 'data/events/trades.asm').matchAll(
+        /npctrade (\w+),\s*(\w+),\s*TRADE_DIALOGSET_(\w+),\s*"(\w+)"/g,
+      ),
+    ].find(([, , , , name]) => name === nickname) ?? [];
+
+  if (!give) return undefined;
+
+  const set = TRADE_DIALOGSETS[dialogSet];
+  const names = monNames(game);
+  const values = {
+    wInGameTradeGiveMonName: names.get(give),
+    wInGameTradeReceiveMonName: names.get(receive),
+  };
+  const nicknameName = nickname.charAt(0) + nickname.slice(1).toLowerCase();
+  const dex = dexNumbers(game);
+  const trade = {
+    give: { number: dex.get(give), name: speciesName(give) },
+    receive: { number: dex.get(receive), name: speciesName(receive) },
+  };
+
+  return [
+    {
+      trigger: `Offers ${speciesName(receive)} for your ${speciesName(give)}`,
+      texts: [`_WannaTrade${set}Text`],
+      trade,
+    },
+    { trigger: 'If you say no', texts: [`_NoTrade${set}Text`] },
+    {
+      trigger: `If you offer a Pokémon other than ${speciesName(give)}`,
+      texts: [`_WrongMon${set}Text`],
+    },
+    {
+      trigger: `After the trade, you get ${speciesName(receive)} nicknamed ${nicknameName}`,
+      texts: [`_Thanks${set}Text`],
+    },
+    {
+      trigger: 'Talking again after the trade',
+      texts: [`_AfterTrade${set}Text`],
+    },
+  ].flatMap(({ trigger, texts, trade }) => {
+    const text = texts
+      .map((label) => farText(game, label, values))
+      .filter(Boolean)
+      .join('\n\n');
+
+    return text ? [{ text, trigger, ...(trade && { trade }) }] : [];
+  });
+};
+
 const giftFor = (game, { sprite = 'POKE_BALL', ...gift }) => ({
   ...gift,
   sprite: spritePath(game, sprite),
 });
 
-const scriptedDialog = (game, dialog) =>
-  dialog.flatMap(({ trigger, texts, gift }) => {
+const scriptedDialog = (game, dialog, values = {}) =>
+  dialog.flatMap(({ trigger, texts, gift, values: own }) => {
     const text = texts
-      .map((label) => farText(game, label))
+      .map((label) => farText(game, label, { ...values, ...own }))
       .filter(Boolean)
       .join('\n\n');
 
@@ -355,6 +487,7 @@ const specialNames = {
   COOLTRAINER_M: 'Cooltrainer',
   COOLTRAINER_F: 'Cooltrainer',
   OLD_MAN_SLEEPY: 'Old Man',
+  OAKS_AIDE: "Oak's Aide",
 };
 
 const titleCase = (constant) =>
@@ -417,15 +550,18 @@ for (const game of games) {
       if (OBJECT_SPRITES.has(sprite)) return;
       if (hidden.has(toggles[index]) && !scripted) return;
 
-      const text = !scripted && mapText(game, file, textId);
+      const trade = !scripted && npcTrade(game, file, textId);
+      const text = !scripted && !trade && mapText(game, file, textId);
       const shared = SPRITE_DIALOG[sprite];
       const dialog = scripted
-        ? scriptedDialog(game, scripted.dialog)
-        : text
-          ? [{ text }]
-          : shared
-            ? scriptedDialog(game, shared)
-            : [];
+        ? scriptedDialog(game, scripted.dialog, scripted.values)
+        : trade
+          ? trade
+          : text
+            ? [{ text }]
+            : shared
+              ? scriptedDialog(game, shared)
+              : [];
 
       npcs.push({
         game: game.id,
@@ -438,7 +574,8 @@ for (const game of games) {
         facing: facings[direction] ?? 'down',
         dialog,
         ...(scripted?.cutscene && { cutscene: true }),
-        ...((scripted?.special ||
+        ...((trade ||
+          scripted?.special ||
           scripted?.cutscene ||
           dialog.some(({ gift }) => gift)) && { special: true }),
       });

@@ -47,6 +47,7 @@ export const LocationPage = () => {
   const { floor, selectFloor } = useFloor(location?.floors);
   const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
+  const dataPath = location?.dataPath ?? scope;
   const hiddenLayers = useMapLayers();
   const [pinRequest, setPinRequest] = useState<{
     scope: string;
@@ -69,7 +70,7 @@ export const LocationPage = () => {
   const trainerGroups = trainers
     ? battleGroups(trainers, {
         game: route.game,
-        path: trailPath(trail),
+        path: dataPath,
         floor: floor?.id,
         onMapOnly: location.kind === 'town',
       })
@@ -82,17 +83,17 @@ export const LocationPage = () => {
     floor?: string;
     games: Array<string>;
   }) =>
-    marker.path === trailPath(trail) &&
+    marker.path === dataPath &&
     marker.floor === floor?.id &&
     marker.games.includes(route.game.id);
   const wildAreas =
     route.region.wildAreas?.filter(
-      (area) => area.path === trailPath(trail) && area.floor === floor?.id,
+      (area) => area.path === dataPath && area.floor === floor?.id,
     ) ?? [];
   const encounters = pokedex
     ? encounterGroups(pokedex, {
         game: route.game,
-        path: trailPath(trail),
+        path: dataPath,
         floor: floor?.id,
         hasWater: wildAreas.some((area) => area.method === 'water'),
       })
@@ -104,7 +105,7 @@ export const LocationPage = () => {
 
     return (
       groups.length > 0 && (
-        <WildPopup game={route.game} path={trailPath(trail)} groups={groups} />
+        <WildPopup game={route.game} path={dataPath} groups={groups} />
       )
     );
   };
@@ -127,7 +128,7 @@ export const LocationPage = () => {
       onSelectTrainer: selectTrainer,
       npcs: npcsFor(route.region.versionGroup)?.filter(onThisMap),
       npcTooltip: (npc) => (
-        <MapTextTooltip name={npc.name} dialog={npc.dialog} />
+        <MapTextTooltip name={npc.name} dialog={npc.dialog} game={route.game} />
       ),
       signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
       signTooltip: (sign) => (
@@ -186,7 +187,7 @@ export const LocationPage = () => {
         pokedex && pokemonCount > 0 ? (
           <EncountersTab
             game={route.game}
-            path={trailPath(trail)}
+            path={dataPath}
             groups={encounters}
             onHighlight={highlightTo}
           />

@@ -15,10 +15,14 @@ import {
 import type { MapNpc } from '@/data/npcs/types';
 import type { MapSign } from '@/data/signs/types';
 import type { StaticPokemon } from '@/data/static-pokemon/types';
-import { joinPath } from '@/lib/paths';
+import { joinPath, pathSegments } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 
-import { staticHighlightKey, wildHighlightKey } from './encounters';
+import {
+  staticHighlightKey,
+  tradeHighlightKey,
+  wildHighlightKey,
+} from './encounters';
 import {
   hotspotLayer,
   itemLayer,
@@ -151,12 +155,34 @@ export const locationLinks = (
     staticPopup,
   }: MarkerSources = {},
 ) => {
+  const hotspots = floor?.hotspots ?? location.hotspots;
+  const targetNames = [
+    ...new Set(hotspots.map(({ target }) => getLocation(region, target))),
+  ].flatMap((target) => (target ? [target.name] : []));
+  const sharedNames = new Set(
+    targetNames.filter((name, index) => targetNames.indexOf(name) !== index),
+  );
+
+  const placeName = (path: string, name: string) => {
+    if (!sharedNames.has(name)) return name;
+
+    const parent = getLocation(
+      region,
+      pathSegments(path).slice(0, -1).join('/'),
+    );
+
+    return parent ? `${name} (${parent.name})` : name;
+  };
+
   const hotspotLink = (hotspot: LocationHotspot) => {
     const target = getLocation(region, hotspot.target);
 
     if (!target) return undefined;
     if (!hotspot.floor)
-      return { href: href(hotspot.target), label: target.name };
+      return {
+        href: href(hotspot.target),
+        label: placeName(hotspot.target, target.name),
+      };
 
     return {
       href: `${href(hotspot.target)}?floor=${hotspot.floor}`,
@@ -170,9 +196,7 @@ export const locationLinks = (
     };
   };
 
-  const links: Array<LayeredMapLink> = (
-    floor?.hotspots ?? location.hotspots
-  ).flatMap((hotspot) => {
+  const links: Array<LayeredMapLink> = hotspots.flatMap((hotspot) => {
     const link = hotspotLink(hotspot);
     const layer = hotspotLayer(hotspot);
 
@@ -349,7 +373,12 @@ export const locationLinks = (
       label,
       layer: layer.id,
       className: layer.className,
-      highlightKey: entryKey(layer.id, label),
+      highlightKey: [
+        entryKey(layer.id, label),
+        ...npc.dialog.flatMap(({ trade }) =>
+          trade ? [tradeHighlightKey(trade.receive.number)] : [],
+        ),
+      ],
       tooltip: npcTooltip?.(npc),
       tooltipOnClick: true,
       sprite: {

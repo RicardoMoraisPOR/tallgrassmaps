@@ -19,7 +19,7 @@ const labelledValues = (text, suffix, value) => {
   let pending = [];
 
   for (const line of text.split('\n')) {
-    const label = line.match(new RegExp(`^(\\w+)_${suffix}::`));
+    const label = line.match(new RegExp(`^(\\w+)_${suffix}::?`));
 
     if (label) pending.push(label[1]);
 
@@ -97,12 +97,10 @@ const mapSizes = Object.fromEntries(
 export const isIndoorMap = (constant) =>
   mapOrder.findIndex(([, name]) => name === constant) > firstIndoorIndex;
 
-const blockFiles = Object.fromEntries(
-  [
-    ...read(pokeredDir, 'maps.asm').matchAll(
-      /^(\w+)_Blocks:\s*INCBIN "([^"]+)"/gm,
-    ),
-  ].map(([, name, file]) => [name, file]),
+const blockFiles = labelledValues(
+  read(pokeredDir, 'maps.asm'),
+  'Blocks',
+  (line) => line.match(/INCBIN "([^"]+)"/)?.[1],
 );
 
 export const headers = Object.fromEntries(

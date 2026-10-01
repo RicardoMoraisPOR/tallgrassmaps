@@ -24,6 +24,14 @@ const SIGN_MAPS = {
   VIRIDIAN_GYM: 'viridian-city/viridian-gym',
   VIRIDIAN_SCHOOL_HOUSE: 'viridian-city/viridian-school-house',
   VIRIDIAN_NICKNAME_HOUSE: 'viridian-city/viridian-nickname-house',
+  ROUTE_2: 'route-2',
+  ROUTE_2_GATE: 'route-2/route-2-gate',
+  ROUTE_2_TRADE_HOUSE: 'route-2/route-2-trade-house',
+  VIRIDIAN_FOREST_NORTH_GATE: 'route-2/viridian-forest-north-gate',
+  VIRIDIAN_FOREST_SOUTH_GATE: 'route-2/viridian-forest-south-gate',
+  DIGLETTS_CAVE_ROUTE_2: 'route-2/digletts-cave-route-2',
+  DIGLETTS_CAVE_ROUTE_11: 'route-11/digletts-cave-route-11',
+  VIRIDIAN_FOREST: 'route-2/viridian-forest',
 };
 
 const OPENABLE_OBJECTS = [

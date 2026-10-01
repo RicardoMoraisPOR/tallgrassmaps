@@ -14,6 +14,7 @@ const CATCHABLE: Array<EncounterMethod> = [
   'super-rod',
   'static',
   'gift',
+  'trade',
 ];
 
 export type EncounterRowData = { entry: PokedexEntry; encounter: Encounter };
@@ -56,12 +57,15 @@ export const wildAreaFor = (method: EncounterMethod) => areaMethods[method];
 
 export const staticHighlightKey = (number: number) => `static:${number}`;
 
+export const tradeHighlightKey = (number: number) => `trade:${number}`;
+
 export const encounterHighlightKey = ({
   entry,
   encounter,
 }: EncounterRowData) => {
   if (encounter.method === 'static' || encounter.method === 'gift')
     return staticHighlightKey(entry.number);
+  if (encounter.method === 'trade') return tradeHighlightKey(entry.number);
 
   const area = areaMethods[encounter.method];
 

@@ -176,6 +176,11 @@
     ]
   },
   {
+    "path": "route-11/digletts-cave",
+    "method": "walk",
+    "whole": true
+  },
+  {
     "path": "fuchsia-city",
     "method": "water",
     "outline": [

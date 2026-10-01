@@ -36,6 +36,34 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "route-11/digletts-cave-route-11",
+    "x": 2,
+    "y": 3,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "What a surprise! DIGLETTs dug this long tunnel!\n\nIt goes right to VIRIDIAN CITY!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/digletts-cave-route-2",
+    "x": 3,
+    "y": 3,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I went to ROCK TUNNEL, but it's dark and scary.\n\nIf a POKéMON's FLASH could light it up..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pallet-town/oaks-lab",
     "x": 5,
     "y": 2,
@@ -250,6 +278,116 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-2/route-2-gate",
+    "x": 1,
+    "y": 4,
+    "name": "Oak's Aide",
+    "sprite": "scientist",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Hi! Remember me? I'm PROF.OAK's AIDE!\n\nIf you caught 10 kinds of POKéMON, I'm supposed to give you an HM05!\n\nSo, RED! Have you caught at least 10 kinds of POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Great! You have caught 10 kinds of POKéMON! Congratulations!\n\nHere you go!\n\nRED got the HM05!\n\nThe HM FLASH lights even the darkest dungeons.",
+        "trigger": "If you say yes with at least 10 kinds caught, he gives you HM05",
+        "gift": {
+          "name": "HM05",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh! I see you don't have any room for the HM05.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Let's see... Uh-oh! You have caught only X kinds of POKéMON!\n\nYou need 10 kinds if you want the HM05.",
+        "trigger": "If you say yes with fewer than 10 kinds caught"
+      },
+      {
+        "text": "Oh. I see.\n\nWhen you get 10 kinds, come back for HM05.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "The HM FLASH lights even the darkest dungeons.",
+        "trigger": "After you get HM05"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/route-2-gate",
+    "x": 5,
+    "y": 4,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Once a POKéMON learns FLASH, you can get through ROCK TUNNEL."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/route-2-trade-house",
+    "x": 2,
+    "y": 4,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "A fainted POKéMON can't fight. But, it can still use moves like CUT!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/route-2-trade-house",
+    "x": 4,
+    "y": 1,
+    "name": "Gameboy Kid",
+    "sprite": "gameboy_kid",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm looking for ABRA! Wanna\n\ntrade one for MR.MIME?",
+        "trigger": "Offers Mr. Mime for your Abra",
+        "trade": {
+          "give": {
+            "number": 63,
+            "name": "Abra"
+          },
+          "receive": {
+            "number": 122,
+            "name": "Mr. Mime"
+          }
+        }
+      },
+      {
+        "text": "Awww! Oh well...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "What? That's not ABRA!\n\nIf you get one, come back here!",
+        "trigger": "If you offer a Pokémon other than Abra"
+      },
+      {
+        "text": "Hey thanks!",
+        "trigger": "After the trade, you get Mr. Mime nicknamed Marcel"
+      },
+      {
+        "text": "Isn't my old MR.MIME great?",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
     "path": "viridian-city",
     "x": 13,
     "y": 20,
@@ -388,6 +526,90 @@
       {
         "text": "I see you're using a POKéDEX.\n\nWhen you catch a POKéMON, POKéDEX is automatically updated.\n\nWhat? Don't you know how to catch POKéMON?\n\nI'll show you how to then.\n\nFirst, you need to weaken the target POKéMON.",
         "trigger": "If you say no, he shows you how to catch Pokémon"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 16,
+    "y": 43,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I came here with some friends!\n\nThey're out for POKéMON fights!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest",
+    "x": 27,
+    "y": 40,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I ran out of POKé BALLs to catch POKéMON with!\n\nYou should carry extras!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest-north-gate",
+    "x": 3,
+    "y": 2,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Many POKéMON live only in forests and caves.\n\nYou need to look everywhere to get different kinds!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest-north-gate",
+    "x": 2,
+    "y": 5,
+    "name": "Gramps",
+    "sprite": "gramps",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Have you noticed the bushes on the roadside?\n\nThey can be cut down by a special POKéMON move."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest-south-gate",
+    "x": 8,
+    "y": 4,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Are you going to VIRIDIAN FOREST? Be careful, it's a natural maze!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest-south-gate",
+    "x": 2,
+    "y": 4,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "RATTATA may be small, but its bite is wicked! Did you get one?"
       }
     ],
     "games": ["red", "blue"]
@@ -742,6 +964,48 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-2/route-2-trade-house",
+    "x": 4,
+    "y": 1,
+    "name": "Gameboy Kid",
+    "sprite": "gameboy_kid",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm looking for CLEFAIRY! Wanna\n\ntrade one for MR.MIME?",
+        "trigger": "Offers Mr. Mime for your Clefairy",
+        "trade": {
+          "give": {
+            "number": 35,
+            "name": "Clefairy"
+          },
+          "receive": {
+            "number": 122,
+            "name": "Mr. Mime"
+          }
+        }
+      },
+      {
+        "text": "Awww! Oh well...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "What? That's not CLEFAIRY!\n\nIf you get one, come back here!",
+        "trigger": "If you offer a Pokémon other than Clefairy"
+      },
+      {
+        "text": "Hey thanks!",
+        "trigger": "After the trade, you get Mr. Mime nicknamed Miles"
+      },
+      {
+        "text": "Isn't my old MR.MIME great?",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
     "path": "viridian-city",
     "x": 13,
     "y": 20,
@@ -770,6 +1034,20 @@
       {
         "text": "First, you need to weaken the target POKéMON.",
         "trigger": "If you say no, he shows you how to catch Pokémon"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-2/viridian-forest-south-gate",
+    "x": 2,
+    "y": 4,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You have to roam far to get new kinds of POKéMON.\n\nLook for other types outside of VIRIDIAN FOREST."
       }
     ],
     "games": ["yellow"]

@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { forGame, read } from './disassembly.mjs';
@@ -31,7 +31,18 @@ const textFiles = (game) =>
 const labelLine = (lines, label) =>
   lines.findIndex((line) => line === `${label}:` || line === `${label}::`);
 
-export const mapText = (game, file, textId) => {
+const blockAfter = (lines, start) => {
+  const next = lines
+    .slice(start + 1)
+    .findIndex((line) => /^[A-Za-z_]\w*:/.test(line));
+
+  return lines.slice(start + 1, next < 0 ? undefined : start + 1 + next);
+};
+
+const firstFar = (lines) =>
+  lines.map((line) => line.match(/^text_far (\w+)$/)?.[1]).find(Boolean);
+
+export const mapTextBlock = (game, file, textId) => {
   const script = forGame(read(game.dir, `scripts/${file}.asm`), game.define);
   const label = script
     .map((line) =>
@@ -47,20 +58,36 @@ export const mapText = (game, file, textId) => {
 
   if (!source) return undefined;
 
-  const start = labelLine(source, label);
-  const next = source
-    .slice(start + 1)
-    .findIndex((line) => /^[A-Za-z_]\w*:/.test(line));
-  const block = source.slice(
-    start + 1,
-    next < 0 ? undefined : start + 1 + next,
-  );
+  return { label, block: blockAfter(source, labelLine(source, label)) };
+};
+
+const splitScriptText = (game, file, label) => {
+  const path = `scripts/${file}_2.asm`;
+
+  if (!existsSync(join(game.dir, path))) return undefined;
+
+  const lines = forGame(read(game.dir, path), game.define);
+  const start = labelLine(lines, label);
+  const far = start >= 0 && firstFar(blockAfter(lines, start));
+
+  return far ? farText(game, far) : undefined;
+};
+
+export const mapText = (game, file, textId) => {
+  const { label, block } = mapTextBlock(game, file, textId) ?? {};
+
+  if (!block) return undefined;
+
   const fars = block.flatMap(
     (line) => line.match(/^text_far (\w+)$/)?.slice(1) ?? [],
   );
+  const printed = block
+    .map((line) => line.match(/^ld hl, (\w+)$/)?.[1])
+    .find(Boolean);
 
   if (fars.length === 0 && block.some((line) => line.startsWith('farcall ')))
     return farText(game, `_${label}`);
+  if (fars.length === 0 && printed) return splitScriptText(game, file, printed);
   if (fars.length !== 1) return undefined;
   if (block[0] !== 'text_asm' && block[1] !== 'text_end') return undefined;
 
@@ -105,15 +132,26 @@ export const labelText = (game, path, label) => {
   return start >= 0 && far ? farText(game, far) : undefined;
 };
 
-export const farText = (game, far) => {
+export const farText = (game, far, values = {}) => {
   const source = textFiles(game).find((text) => text.includes(`${far}::`));
 
   if (!source) return undefined;
 
   const lines = forGame(source, game.define);
   const paragraphs = [];
+  let inline = false;
 
   for (const line of lines.slice(lines.indexOf(`${far}::`) + 1)) {
+    const ram = line.match(/^text_(?:ram|decimal) (\w+)/)?.[1];
+
+    if (ram) {
+      if (values[ram] === undefined) return undefined;
+
+      paragraphs[paragraphs.length - 1] += values[ram];
+      inline = true;
+      continue;
+    }
+
     const [, command, value] = line.match(/^(\w+)(?: "(.*)")?$/) ?? [];
 
     if (['done', 'prompt', 'text_end'].includes(command)) {
@@ -122,14 +160,21 @@ export const farText = (game, far) => {
         .join('\n\n');
     }
 
-    if (command === 'text_start') continue;
+    if (command === 'text_start') {
+      inline = false;
+      continue;
+    }
     if (value === undefined) return undefined;
-    if (['text', 'para', 'page'].includes(command)) paragraphs.push(value);
+    if (command === 'text' && inline)
+      paragraphs[paragraphs.length - 1] += value;
+    else if (['text', 'para', 'page'].includes(command)) paragraphs.push(value);
     else if (['line', 'cont', 'next'].includes(command))
       paragraphs[paragraphs.length - 1] += /\w-$/.test(paragraphs.at(-1))
         ? value
         : ` ${value}`;
     else return undefined;
+
+    inline = false;
   }
 
   return undefined;

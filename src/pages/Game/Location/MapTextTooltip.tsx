@@ -1,12 +1,22 @@
 import '@fontsource/press-start-2p';
 import { type ReactNode, useState } from 'react';
 
-import { ChevronLeft, ChevronRight, CircleHelp } from 'lucide-react';
+import {
+  ArrowLeftRight,
+  ChevronLeft,
+  ChevronRight,
+  CircleHelp,
+} from 'lucide-react';
+import { Link } from 'react-router';
 
 import { Collapse } from '@/components/Collapse';
 import { useThemeStyle } from '@/components/settings/themes';
-import type { NpcDialog } from '@/data/npcs/types';
+import type { Game } from '@/data/games';
+import type { NpcDialog, NpcTrade, NpcTradePokemon } from '@/data/npcs/types';
+import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
+
+import { usePokedexLink } from '../Pokedex/usePokedex';
 
 const LONG_TEXT = 60;
 
@@ -26,12 +36,18 @@ const pixelIcons = {
     size: 'h-[10px] w-[6px]',
     path: 'M0 0h1v7h-1zM1 1h1v5h-1zM2 2h1v3h-1zM3 3h1v1h-1z',
   },
+  trade: {
+    viewBox: '0 0 7 7',
+    size: 'h-[10px] w-[10px]',
+    path: 'M5 0h1v1h-1zM0 1h7v1h-7zM5 2h1v1h-1zM1 4h1v1h-1zM0 5h7v1h-7zM1 6h1v1h-1z',
+  },
 };
 
 const lucideIcons = {
   question: CircleHelp,
   previous: ChevronLeft,
   next: ChevronRight,
+  trade: ArrowLeftRight,
 };
 
 type IconName = keyof typeof pixelIcons;
@@ -90,16 +106,70 @@ const CardButton = ({
   </button>
 );
 
+const TradePokemon = ({
+  pokemon: { number, name },
+  game,
+  gameTheme,
+}: {
+  pokemon: NpcTradePokemon;
+  game: Game;
+  gameTheme: boolean;
+}) => {
+  const sprite = usePokemonSprite(game)(number);
+  const pokedexLink = usePokedexLink(number);
+
+  return (
+    <Link
+      {...pokedexLink}
+      title={name}
+      aria-label={`${name} in the Pokédex`}
+      className={cn(
+        'flex items-center justify-center p-0.5 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        gameTheme
+          ? 'border-2 border-(--gb-ink) hover:bg-(--gb-ink)/15'
+          : 'rounded-md border border-border bg-muted/60 hover:bg-muted',
+      )}
+    >
+      <img
+        src={sprite.src}
+        alt=""
+        className={cn('size-8 object-contain', sprite.pixelated && 'pixelated')}
+      />
+    </Link>
+  );
+};
+
+const TradeSquare = ({
+  trade,
+  game,
+  gameTheme,
+}: {
+  trade: NpcTrade;
+  game: Game;
+  gameTheme: boolean;
+}) => (
+  <div
+    aria-label={`Trade: your ${trade.give.name} for ${trade.receive.name}`}
+    className="flex items-center justify-center gap-2"
+  >
+    <TradePokemon pokemon={trade.give} game={game} gameTheme={gameTheme} />
+    <Icon name="trade" gameTheme={gameTheme} />
+    <TradePokemon pokemon={trade.receive} game={game} gameTheme={gameTheme} />
+  </div>
+);
+
 type MapTextTooltipProps = {
   name?: string;
   text?: string;
   dialog?: Array<NpcDialog>;
+  game?: Game;
 };
 
 export const MapTextTooltip = ({
   name,
   text,
   dialog = [],
+  game,
 }: MapTextTooltipProps) => {
   const gameTheme = useThemeStyle('mapIcons') === 'game';
   const [page, setPage] = useState(0);
@@ -191,6 +261,10 @@ export const MapTextTooltip = ({
     </div>
   );
 
+  const tradeSquare = current?.trade && game && (
+    <TradeSquare trade={current.trade} game={game} gameTheme={gameTheme} />
+  );
+
   const pager = paged && (
     <div className="flex items-center justify-center gap-2">
       <CardButton
@@ -240,6 +314,7 @@ export const MapTextTooltip = ({
       )}
       {body}
       {giftSquare}
+      {tradeSquare}
       {pager && <div className={cn(!gameTheme && 'pt-1')}>{pager}</div>}
     </div>
   );

@@ -336,9 +336,10 @@ type InsideEntry = {
   kind: LocationKind;
   size: Size;
   parent: string;
+  otherParents?: Array<string>;
   entrances: Array<Rect>;
   otherEntrances?: Record<string, Array<Rect>>;
-  exits?: Array<Rect>;
+  exits?: Array<Rect | { area: Rect; to: string }>;
   cell?: [x: number, y: number];
   floors?: Array<FloorEntry>;
   variants?: Array<MapVariant>;
@@ -372,7 +373,14 @@ const inside: Array<InsideEntry> = [
     size: [544, 768],
     parent: 'route-2',
     cell: [2, 4],
-    entrances: [entrance(48, 688), entrance(48, 176)],
+    entrances: [],
+    exits: [
+      { area: rect(16, 0, 32, 16), to: 'route-2/viridian-forest-north-gate' },
+      {
+        area: rect(240, 752, 64, 16),
+        to: 'route-2/viridian-forest-south-gate',
+      },
+    ],
   },
   {
     id: 'mt-moon',
@@ -428,10 +436,14 @@ const inside: Array<InsideEntry> = [
     id: 'digletts-cave',
     name: "Diglett's Cave",
     kind: 'dungeon',
-    size: [1146, 629],
+    size: [640, 576],
     parent: 'route-11',
-    entrances: [entrance(64, 80)],
-    otherEntrances: { 'route-2': [entrance(192, 144)] },
+    otherParents: ['route-2'],
+    entrances: [],
+    exits: [
+      { area: warp(5, 5), to: 'route-2/digletts-cave-route-2' },
+      { area: warp(37, 31), to: 'route-11/digletts-cave-route-11' },
+    ],
   },
   {
     id: 'rock-tunnel',
@@ -709,6 +721,78 @@ const services: Array<InsideEntry> = [
     marker: 'house',
   },
   {
+    id: 'route-2-gate',
+    name: 'Route 2 Gate',
+    kind: 'building',
+    size: [160, 128],
+    parent: 'route-2',
+    entrances: [warp(16, 35), warp(15, 39)],
+    exits: [rect(64, 0, 32, 16), rect(64, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'route-2-trade-house',
+    name: 'Trade House',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'route-2',
+    entrances: [warp(15, 19)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'viridian-forest-north-gate',
+    name: 'Viridian Forest North Gate',
+    kind: 'building',
+    size: [160, 128],
+    parent: 'route-2',
+    entrances: [warp(3, 11)],
+    exits: [
+      rect(64, 0, 32, 16),
+      { area: rect(64, 112, 32, 16), to: 'route-2/viridian-forest' },
+    ],
+    marker: 'house',
+  },
+  {
+    id: 'viridian-forest-south-gate',
+    name: 'Viridian Forest South Gate',
+    kind: 'building',
+    size: [160, 128],
+    parent: 'route-2',
+    entrances: [warp(3, 43)],
+    exits: [
+      { area: rect(64, 0, 32, 16), to: 'route-2/viridian-forest' },
+      rect(64, 112, 32, 16),
+    ],
+    marker: 'house',
+  },
+  {
+    id: 'digletts-cave-route-2',
+    name: "Diglett's Cave Entrance",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'route-2',
+    entrances: [warp(12, 9)],
+    exits: [
+      rect(32, 112, 32, 16),
+      { area: warp(4, 4), to: 'route-2/digletts-cave' },
+    ],
+    marker: 'house',
+  },
+  {
+    id: 'digletts-cave-route-11',
+    name: "Diglett's Cave Entrance",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'route-11',
+    entrances: [warp(4, 5)],
+    exits: [
+      rect(32, 112, 32, 16),
+      { area: warp(4, 4), to: 'route-11/digletts-cave' },
+    ],
+    marker: 'house',
+  },
+  {
     id: 'reds-house',
     name: "Red's House",
     kind: 'building',
@@ -778,10 +862,10 @@ const toInsideLocation = ({
   const location = {
     ...toLocation(id, name, kind, size),
     variants,
-    hotspots: exits.map((area) => ({
-      ...area,
+    hotspots: exits.map((exit) => ({
+      ...('to' in exit ? exit.area : exit),
       kind: 'exit' as const,
-      target: parent,
+      target: 'to' in exit ? exit.to : parent,
     })),
   };
 
@@ -849,8 +933,18 @@ const locations: Array<Location> = outdoor.map(
     ],
     variants,
     locations: buildings
-      .filter(({ parent }) => parent === id)
-      .map(toInsideLocation),
+      .filter(
+        ({ parent, otherParents = [] }) =>
+          parent === id || otherParents.includes(id),
+      )
+      .map((building) =>
+        building.parent === id
+          ? toInsideLocation(building)
+          : {
+              ...toInsideLocation(building),
+              dataPath: `${building.parent}/${building.id}`,
+            },
+      ),
     hotspots: hotspotsFor(id),
   }),
 );

@@ -129,7 +129,7 @@ const buildingLocations = {
   CELADON_MANSION_ROOF_HOUSE: 'celadon-city',
   CINNABAR_LAB_FOSSIL_ROOM: 'cinnabar-island',
   CINNABAR_LAB_TRADE_ROOM: 'cinnabar-island',
-  ROUTE_2_TRADE_HOUSE: 'route-2',
+  ROUTE_2_TRADE_HOUSE: 'route-2/route-2-trade-house',
   UNDERGROUND_PATH_ROUTE_5: 'route-5',
   ROUTE_11_GATE_2F: 'route-11',
   ROUTE_18_GATE_2F: 'route-18',
