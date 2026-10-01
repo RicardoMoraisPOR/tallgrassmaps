@@ -38,6 +38,7 @@ export type Hotspot = Rect & {
   target: string;
   travel?: Direction;
   floor?: string;
+  ladder?: boolean;
 };
 
 export type LocationHotspot = Hotspot & {

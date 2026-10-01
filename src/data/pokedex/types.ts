@@ -6,6 +6,7 @@ export type EncounterMethod =
   | 'super-rod'
   | 'gift'
   | 'fossil'
+  | 'fossil-item'
   | 'static'
   | 'trade'
   | 'prize';

@@ -6,14 +6,14 @@ export type NpcGift = {
   count?: number;
 };
 
-export type NpcTradePokemon = {
+export type NpcPokemon = {
   number: number;
   name: string;
 };
 
 export type NpcTrade = {
-  give: NpcTradePokemon;
-  receive: NpcTradePokemon;
+  give: NpcPokemon;
+  receive: NpcPokemon;
 };
 
 export type NpcDialog = {
@@ -21,6 +21,7 @@ export type NpcDialog = {
   trigger?: string;
   gift?: NpcGift;
   trade?: NpcTrade;
+  pokemon?: NpcPokemon;
 };
 
 export type MapNpc = {
@@ -35,5 +36,6 @@ export type MapNpc = {
   dialog: Array<NpcDialog>;
   cutscene?: boolean;
   special?: boolean;
+  item?: boolean;
   games: Array<string>;
 };

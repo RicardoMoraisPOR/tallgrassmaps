@@ -64,6 +64,164 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-4/mt-moon",
+    "floor": "b2f",
+    "x": 12,
+    "y": 6,
+    "name": "Dome Fossil",
+    "sprite": "fossil",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You want the DOME FOSSIL?",
+        "trigger": "After you beat the Super Nerd"
+      },
+      {
+        "text": "RED got the DOME FOSSIL!\n\nAll right. Then this is mine!",
+        "trigger": "If you say yes, you get the Dome Fossil and he takes the other one",
+        "gift": {
+          "name": "Dome Fossil",
+          "sprite": "fossil"
+        }
+      },
+      {
+        "text": "Look, you've got no room for this.",
+        "trigger": "If your bag is full"
+      }
+    ],
+    "item": true,
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon",
+    "floor": "b2f",
+    "x": 13,
+    "y": 6,
+    "name": "Helix Fossil",
+    "sprite": "fossil",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You want the HELIX FOSSIL?",
+        "trigger": "After you beat the Super Nerd"
+      },
+      {
+        "text": "RED got the HELIX FOSSIL!\n\nAll right. Then this is mine!",
+        "trigger": "If you say yes, you get the Helix Fossil and he takes the other one",
+        "gift": {
+          "name": "Helix Fossil",
+          "sprite": "fossil"
+        }
+      },
+      {
+        "text": "Look, you've got no room for this.",
+        "trigger": "If your bag is full"
+      }
+    ],
+    "item": true,
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 4,
+    "y": 3,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "I've 6 POKé BALLs set in my belt.\n\nAt most, you can carry 6 POKéMON."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 7,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "TEAM ROCKET attacks CERULEAN citizens...\n\nTEAM ROCKET is always in the news!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 10,
+    "y": 6,
+    "name": "Magikarp Salesman",
+    "sprite": "middle_aged_man",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "MAN: Hello, there! Have I got a deal just for you!\n\nI'll let you have a swell MAGIKARP for just ¥500! What do you say?",
+        "trigger": "He offers to sell you a Magikarp for ¥500",
+        "pokemon": {
+          "number": 129,
+          "name": "Magikarp"
+        }
+      },
+      {
+        "text": "No? I'm only doing this as a favor to you!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "You'll need more money than that!",
+        "trigger": "If you don't have enough money"
+      },
+      {
+        "text": "MAN: Well, I don't give refunds!",
+        "trigger": "After you buy the Magikarp"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pewter-city/pewter-museum",
     "floor": "1f",
     "x": 12,
@@ -867,6 +1025,34 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "route-3",
+    "x": 57,
+    "y": 11,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Whew... I better take a rest... Groan...\n\nThat tunnel from CERULEAN takes a lot out of you!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4",
+    "x": 9,
+    "y": 8,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Ouch! I tripped over a rocky POKéMON, GEODUDE!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "viridian-city",
     "x": 13,
     "y": 20,
@@ -1341,6 +1527,43 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "pewter-city/pewter-museum",
     "floor": "1f",
     "x": 15,
@@ -1782,6 +2005,21 @@
     "dialog": [
       {
         "text": "Yawn!\n\nWhen JIGGLYPUFF sings, POKéMON get drowsy...\n\n...Me too... Snore..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-4/mt-moon-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "If you have too many POKéMON, you should store them via PC!"
       }
     ],
     "games": ["red", "blue", "yellow"]

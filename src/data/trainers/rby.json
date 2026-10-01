@@ -3421,6 +3421,20 @@
     "y": 6,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey! I met you in VIRIDIAN FOREST!"
+      },
+      {
+        "label": "If you win",
+        "text": "You beat me again!"
+      },
+      {
+        "label": "After battle",
+        "text": "There are other kinds of POKéMON than those found in the forest!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3452,6 +3466,20 @@
     "y": 4,
     "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi! I like shorts! They're comfy and easy to wear!"
+      },
+      {
+        "label": "If you win",
+        "text": "I don't believe it!"
+      },
+      {
+        "label": "After battle",
+        "text": "Are you storing your POKéMON on PC? Each BOX can hold 20 POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3478,6 +3506,20 @@
     "y": 9,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You looked at me, didn't you?"
+      },
+      {
+        "label": "If you win",
+        "text": "You're mean!"
+      },
+      {
+        "label": "After battle",
+        "text": "Quit staring if you don't want to fight!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3504,6 +3546,20 @@
     "y": 5,
     "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Are you a trainer? Let's fight!"
+      },
+      {
+        "label": "If you win",
+        "text": "If I had new POKéMON I would've won!"
+      },
+      {
+        "label": "After battle",
+        "text": "If a POKéMON BOX on the PC gets full, just switch to another BOX!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3530,7 +3586,57 @@
         ]
       }
     ],
-    "games": ["red", "blue", "yellow"]
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Bug Catcher",
+    "trainerClass": "bug-catcher",
+    "path": "route-3",
+    "x": 19,
+    "y": 5,
+    "facing": "down",
+    "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Are you a trainer? Let's fight!"
+      },
+      {
+        "label": "If you win",
+        "text": "If I had new POKéMON, I would've won!"
+      },
+      {
+        "label": "After battle",
+        "text": "If a POKéMON BOX on the PC gets full, just switch to another BOX!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 13,
+            "level": 9,
+            "moves": ["Poison Sting", "String Shot"]
+          },
+          {
+            "number": 14,
+            "level": 9,
+            "moves": ["Harden"]
+          },
+          {
+            "number": 10,
+            "level": 9,
+            "moves": ["Tackle", "String Shot"]
+          },
+          {
+            "number": 11,
+            "level": 9,
+            "moves": ["Harden"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
   },
   {
     "name": "Lass",
@@ -3540,6 +3646,20 @@
     "y": 4,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "That look you gave me, it's so intriguing!"
+      },
+      {
+        "label": "If you win",
+        "text": "Be nice!"
+      },
+      {
+        "label": "After battle",
+        "text": "Avoid fights by not letting people see you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3566,6 +3686,20 @@
     "y": 9,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey! You're not wearing shorts!"
+      },
+      {
+        "label": "If you win",
+        "text": "Lost! Lost! Lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "I always wear shorts, even in winter!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3587,6 +3721,20 @@
     "y": 6,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You can fight my new POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Done like dinner!"
+      },
+      {
+        "label": "After battle",
+        "text": "Trained POKéMON are stronger than the wild ones!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3613,6 +3761,20 @@
     "y": 10,
     "facing": "up",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Eek! Did you touch me?"
+      },
+      {
+        "label": "If you win",
+        "text": "That's it?"
+      },
+      {
+        "label": "After battle",
+        "text": "ROUTE 4 is at the foot of MT.MOON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3634,6 +3796,20 @@
     "y": 3,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I came to get my mushroom POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! My cute mushroom POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "There might not be any more mushrooms here.\n\nI think I got them all."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3667,6 +3843,20 @@
     "y": 6,
     "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "WHOA! You shocked me! Oh, you're just a kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "Wow! Shocked again!"
+      },
+      {
+        "label": "After battle",
+        "text": "Kids like you shouldn't be here!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3700,6 +3890,20 @@
     "y": 16,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Did you come to explore too?"
+      },
+      {
+        "label": "If you win",
+        "text": "Losing stinks!"
+      },
+      {
+        "label": "After battle",
+        "text": "I came down here to show off to girls."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3733,6 +3937,20 @@
     "y": 4,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Wow! It's way bigger in here than I thought!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! I lost it!"
+      },
+      {
+        "label": "After battle",
+        "text": "How do you get out of here?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3761,6 +3979,20 @@
     "y": 31,
     "facing": "up",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What! Don't sneak up on me!"
+      },
+      {
+        "label": "If you win",
+        "text": "My POKéMON won't do!"
+      },
+      {
+        "label": "After battle",
+        "text": "I have to find stronger POKéMON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3789,6 +4021,20 @@
     "y": 23,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What? I'm waiting for my friends to find me here."
+      },
+      {
+        "label": "If you win",
+        "text": "I lost?"
+      },
+      {
+        "label": "After battle",
+        "text": "I heard there are some very rare fossils here."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3812,6 +4058,20 @@
     "y": 22,
     "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Suspicious men are in the cave. What about you?"
+      },
+      {
+        "label": "If you win",
+        "text": "You got me!"
+      },
+      {
+        "label": "After battle",
+        "text": "I saw them! I'm sure they're from TEAM ROCKET!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3840,6 +4100,20 @@
     "y": 27,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Go through this cave to get to CERULEAN CITY!"
+      },
+      {
+        "label": "If you win",
+        "text": "I lost."
+      },
+      {
+        "label": "After battle",
+        "text": "ZUBAT is tough! But, it can be useful if you catch one."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3869,7 +4143,25 @@
     "path": "route-4/mt-moon",
     "area": "B2F",
     "floor": "b2f",
+    "x": 9,
+    "y": 3,
+    "facing": "left",
+    "cutscene": true,
     "sprite": "yellow/jessie",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Stop right there!\n\nThat fossil is TEAM ROCKET's!\n\nSurrender now, or prepare to fight!"
+      },
+      {
+        "label": "If you win",
+        "text": "A brat beat us?"
+      },
+      {
+        "label": "After battle",
+        "text": "TEAM ROCKET, blast off at the speed of light!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3903,6 +4195,24 @@
     "y": 8,
     "facing": "right",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey, stop!\n\nI found these fossils! They're both mine!"
+      },
+      {
+        "label": "If you win",
+        "text": "OK! I'll share!"
+      },
+      {
+        "label": "After battle, before you pick a fossil",
+        "text": "We'll each take one! No being greedy!"
+      },
+      {
+        "label": "After you pick a fossil",
+        "text": "Far away, on CINNABAR ISLAND, there's a POKéMON LAB.\n\nThey do research on regenerating fossils."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3936,6 +4246,20 @@
     "y": 16,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "TEAM ROCKET will find the fossils, revive and sell them for cash!"
+      },
+      {
+        "label": "If you win",
+        "text": "Urgh! Now I'm mad!"
+      },
+      {
+        "label": "After battle",
+        "text": "You made me mad! TEAM ROCKET will blacklist you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3964,6 +4288,20 @@
     "y": 22,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We, TEAM ROCKET, are POKéMON gangsters!"
+      },
+      {
+        "label": "If you win",
+        "text": "I blew it!"
+      },
+      {
+        "label": "After battle",
+        "text": "Darn it all! My associates won't stand for this!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3997,6 +4335,20 @@
     "y": 22,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We, TEAM ROCKET, are POKéMON gangsters!"
+      },
+      {
+        "label": "If you win",
+        "text": "I blew it!"
+      },
+      {
+        "label": "After battle",
+        "text": "Darn it all! My associates won't stand for this!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4030,6 +4382,20 @@
     "y": 11,
     "facing": "up",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We're pulling a big job here! Get lost, kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "So, you are good."
+      },
+      {
+        "label": "After battle",
+        "text": "If you find a fossil, give it to me and scram!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4058,6 +4424,20 @@
     "y": 11,
     "facing": "up",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We're pulling a big job here! Get lost, kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "So, you are good."
+      },
+      {
+        "label": "After battle",
+        "text": "If you find a fossil, give it to me and scram!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4086,6 +4466,20 @@
     "y": 17,
     "facing": "left",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Little kids should leave grown-ups alone!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm steamed!"
+      },
+      {
+        "label": "After battle",
+        "text": "POKéMON lived here long before people came."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -4114,6 +4508,20 @@
     "y": 17,
     "facing": "left",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Little kids should leave grown-ups alone!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm steamed!"
+      },
+      {
+        "label": "After battle",
+        "text": "POKéMON lived here long before people came."
+      }
+    ],
     "parties": [
       {
         "pokemon": [

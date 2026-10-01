@@ -12,7 +12,7 @@ import { Link } from 'react-router';
 import { Collapse } from '@/components/Collapse';
 import { useThemeStyle } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
-import type { NpcDialog, NpcTrade, NpcTradePokemon } from '@/data/npcs/types';
+import type { NpcDialog, NpcTrade, NpcPokemon } from '@/data/npcs/types';
 import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
@@ -106,12 +106,12 @@ const CardButton = ({
   </button>
 );
 
-const TradePokemon = ({
+const PokemonTile = ({
   pokemon: { number, name },
   game,
   gameTheme,
 }: {
-  pokemon: NpcTradePokemon;
+  pokemon: NpcPokemon;
   game: Game;
   gameTheme: boolean;
 }) => {
@@ -152,9 +152,23 @@ const TradeSquare = ({
     aria-label={`Trade: your ${trade.give.name} for ${trade.receive.name}`}
     className="flex items-center justify-center gap-2"
   >
-    <TradePokemon pokemon={trade.give} game={game} gameTheme={gameTheme} />
+    <PokemonTile pokemon={trade.give} game={game} gameTheme={gameTheme} />
     <Icon name="trade" gameTheme={gameTheme} />
-    <TradePokemon pokemon={trade.receive} game={game} gameTheme={gameTheme} />
+    <PokemonTile pokemon={trade.receive} game={game} gameTheme={gameTheme} />
+  </div>
+);
+
+const PokemonSquare = ({
+  pokemon,
+  game,
+  gameTheme,
+}: {
+  pokemon: NpcPokemon;
+  game: Game;
+  gameTheme: boolean;
+}) => (
+  <div aria-label={`Pokémon: ${pokemon.name}`} className="flex justify-center">
+    <PokemonTile pokemon={pokemon} game={game} gameTheme={gameTheme} />
   </div>
 );
 
@@ -261,6 +275,14 @@ export const MapTextTooltip = ({
     </div>
   );
 
+  const pokemonSquare = current?.pokemon && game && (
+    <PokemonSquare
+      pokemon={current.pokemon}
+      game={game}
+      gameTheme={gameTheme}
+    />
+  );
+
   const tradeSquare = current?.trade && game && (
     <TradeSquare trade={current.trade} game={game} gameTheme={gameTheme} />
   );
@@ -315,6 +337,7 @@ export const MapTextTooltip = ({
       {body}
       {giftSquare}
       {tradeSquare}
+      {pokemonSquare}
       {pager && <div className={cn(!gameTheme && 'pt-1')}>{pager}</div>}
     </div>
   );

@@ -14,6 +14,7 @@ const CATCHABLE: Array<EncounterMethod> = [
   'super-rod',
   'static',
   'gift',
+  'fossil-item',
   'trade',
 ];
 

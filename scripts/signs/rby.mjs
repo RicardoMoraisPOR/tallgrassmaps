@@ -40,6 +40,12 @@ const SIGN_MAPS = {
   PEWTER_SPEECH_HOUSE: 'pewter-city/pewter-speech-house',
   PEWTER_MART: 'pewter-city/pewter-poke-mart',
   PEWTER_POKECENTER: 'pewter-city/pewter-pokemon-center',
+  ROUTE_3: 'route-3',
+  ROUTE_4: 'route-4',
+  MT_MOON_POKECENTER: 'route-4/mt-moon-pokemon-center',
+  MT_MOON_1_F: 'route-4/mt-moon',
+  MT_MOON_B_1_F: 'route-4/mt-moon',
+  MT_MOON_B_2_F: 'route-4/mt-moon',
 };
 
 const OPENABLE_OBJECTS = [

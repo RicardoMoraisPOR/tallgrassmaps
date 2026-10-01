@@ -81,6 +81,7 @@ export type MapIconKind =
   | { kind: 'door' }
   | { kind: 'exit' }
   | { kind: 'stairs' }
+  | { kind: 'ladder' }
   | { kind: 'sign' };
 
 type MapViewerProps = {
@@ -361,6 +362,11 @@ const iconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg>',
     game: '<svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M6 0h2v8h-8v-2h2v-2h2v-2h2z"/></svg>',
+  },
+  ladder: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v18"/><path d="M16 3v18"/><path d="M8 7h8"/><path d="M8 12h8"/><path d="M8 17h8"/></svg>',
+    game: '<svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M1 0h1v8h-1zM5 0h1v8h-1zM2 1h3v1h-3zM2 4h3v1h-3zM2 7h3v1h-3z"/></svg>',
   },
   sign: {
     'tall-grass':

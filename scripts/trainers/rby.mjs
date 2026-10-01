@@ -109,9 +109,28 @@ const TRAINER_DIALOG_MAPS = new Set([
   'ViridianGym',
   'ViridianForest',
   'PewterGym',
+  'Route3',
+  'Route4',
+  'MtMoon1F',
+  'MtMoonB2F',
 ]);
 
 const OBJECT_DIALOG = {
+  MTMOONB2F_SUPER_NERD: [
+    {
+      label: 'Before battle',
+      texts: ['_MtMoonB2FSuperNerdTheyreBothMineText'],
+    },
+    { label: 'If you win', texts: ['_MtMoonB2FSuperNerdOkIllShareText'] },
+    {
+      label: 'After battle, before you pick a fossil',
+      texts: ['_MtMoonB2fSuperNerdEachTakeOneText'],
+    },
+    {
+      label: 'After you pick a fossil',
+      texts: ['_MtMoonB2FSuperNerdTheresAPokemonLabText'],
+    },
+  ],
   PEWTERGYM_BROCK: [
     { label: 'Before battle', texts: ['_PewterGymBrockPreBattleText'] },
     {
@@ -216,16 +235,29 @@ const scripted = [
     teams: { ...rb([1, 2, 3]), yellow: [1, 2, 3] },
   },
   ...[
-    ['MtMoonB2F', 0x2a],
+    [
+      'MtMoonB2F',
+      0x2a,
+      'MTMOONB2F_JESSIE',
+      [
+        {
+          label: 'Before battle',
+          texts: ['_MtMoonJessieJamesText1', '_MtMoonJessieJamesText2'],
+        },
+        { label: 'If you win', texts: ['_MtMoonJessieJamesText3'] },
+        { label: 'After battle', texts: ['_MtMoonJessieJamesText4'] },
+      ],
+    ],
     ['RocketHideoutB4F', 0x2b],
     ['PokemonTower7F', 0x2c],
     ['SilphCo11F', 0x2d],
-  ].map(([script, index]) => ({
+  ].map(([script, index, object, dialog]) => ({
     script,
     trainer: 'ROCKET',
     name: 'Jessie & James',
     sprite: 'JESSIE',
     teams: { yellow: [index] },
+    ...(object && { object, dialog }),
   })),
 ];
 

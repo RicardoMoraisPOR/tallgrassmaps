@@ -93,6 +93,7 @@ const edgeCenter = (
 export type LayeredMapLink = MapLink & {
   layer: MapLayerId;
   stairs?: boolean;
+  ladder?: boolean;
 };
 
 type MarkerSources = {
@@ -125,11 +126,11 @@ const floorStep = (
   return index(to) > index(from?.id) ? 'up' : 'down';
 };
 
-const floorLabel = (location: Location, step: FloorStep, to: string) => {
-  const name = location.floors?.find((entry) => entry.id === to)?.name ?? to;
+const floorName = (location: Location, id: string) =>
+  location.floors?.find((entry) => entry.id === id)?.name ?? id;
 
-  return `${step === 'up' ? 'Up' : 'Down'} to ${name}`;
-};
+const floorLabel = (location: Location, step: FloorStep, to: string) =>
+  `${step === 'up' ? 'Up' : 'Down'} to ${floorName(location, to)}`;
 
 export const locationLinks = (
   region: Region,
@@ -174,6 +175,33 @@ export const locationLinks = (
     return parent ? `${name} (${parent.name})` : name;
   };
 
+  const floorExitTotals = new Map<string, number>();
+  const floorExitSeen = new Map<string, number>();
+
+  for (const hotspot of hotspots)
+    if (hotspot.floor && hotspot.target === path)
+      floorExitTotals.set(
+        hotspot.floor,
+        (floorExitTotals.get(hotspot.floor) ?? 0) + 1,
+      );
+
+  const floorExitLabel = (hotspot: LocationHotspot, target: Location) => {
+    const floorId = hotspot.floor!;
+    const count = (floorExitSeen.get(floorId) ?? 0) + 1;
+
+    floorExitSeen.set(floorId, count);
+
+    if ((floorExitTotals.get(floorId) ?? 0) === 1)
+      return {
+        label: floorLabel(target, floorStep(target, floor, floorId), floorId),
+      };
+
+    return {
+      label: `${hotspot.ladder ? 'Ladder' : 'Stairs'} #${count} to ${floorName(target, floorId)}`,
+      highlightKey: `floor-exit:${floorId}:${count}`,
+    };
+  };
+
   const hotspotLink = (hotspot: LocationHotspot) => {
     const target = getLocation(region, hotspot.target);
 
@@ -183,14 +211,15 @@ export const locationLinks = (
         href: href(hotspot.target),
         label: placeName(hotspot.target, target.name),
       };
+    if (hotspot.target !== path)
+      return {
+        href: `${href(hotspot.target)}?floor=${hotspot.floor}`,
+        label: placeName(hotspot.target, target.name),
+      };
 
     return {
       href: `${href(hotspot.target)}?floor=${hotspot.floor}`,
-      label: floorLabel(
-        target,
-        floorStep(target, floor, hotspot.floor),
-        hotspot.floor,
-      ),
+      ...floorExitLabel(hotspot, target),
       replace: true,
       stairs: true,
     };
@@ -218,7 +247,11 @@ export const locationLinks = (
             x: link.x + link.width / 2,
             y: link.y + link.height / 2,
             icon: {
-              kind: link.stairs ? ('stairs' as const) : ('exit' as const),
+              kind: link.ladder
+                ? ('ladder' as const)
+                : link.stairs
+                  ? ('stairs' as const)
+                  : ('exit' as const),
             },
           },
         ];
@@ -357,7 +390,7 @@ export const locationLinks = (
     npcTotals.set(name, (npcTotals.get(name) ?? 0) + 1);
 
   const npcMarkers: Array<LayeredMapLink> = npcs.map((npc) => {
-    const layer = npcLayer(npc.special);
+    const layer = npc.item ? itemLayer(false) : npcLayer(npc.special);
     const count = (npcSeen.get(npc.name) ?? 0) + 1;
     const label =
       (npcTotals.get(npc.name) ?? 0) > 1 ? `${npc.name} #${count}` : npc.name;
@@ -516,7 +549,7 @@ export const locationLinks = (
     const entries = new Map<string, LayerEntry>();
 
     for (const link of mapLinks) {
-      const key = link.href ?? [link.highlightKey].flat()[0];
+      const key = [link.highlightKey].flat()[0] ?? link.href;
 
       if (link.layer !== layer || !key || entries.has(key)) continue;
 

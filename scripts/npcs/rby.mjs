@@ -44,6 +44,12 @@ const NPC_MAPS = {
   PEWTER_SPEECH_HOUSE: { path: 'pewter-city/pewter-speech-house' },
   PEWTER_MART: { path: 'pewter-city/pewter-poke-mart' },
   PEWTER_POKECENTER: { path: 'pewter-city/pewter-pokemon-center' },
+  ROUTE_3: { path: 'route-3' },
+  ROUTE_4: { path: 'route-4' },
+  MT_MOON_POKECENTER: { path: 'route-4/mt-moon-pokemon-center' },
+  MT_MOON_1_F: { path: 'route-4/mt-moon' },
+  MT_MOON_B_1_F: { path: 'route-4/mt-moon' },
+  MT_MOON_B_2_F: { path: 'route-4/mt-moon' },
 };
 
 const OBJECT_SPRITES = new Set([
@@ -465,6 +471,74 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
+  MTMOONPOKECENTER_MAGIKARP_SALESMAN: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'He offers to sell you a Magikarp for ¥500',
+        texts: ['_MtMoonPokecenterMagikarpSalesmanIGotADealText'],
+        pokemon: 'MAGIKARP',
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_MtMoonPokecenterMagikarpSalesmanNoText'],
+      },
+      {
+        trigger: "If you don't have enough money",
+        texts: ['_MtMoonPokecenterMagikarpSalesmanNoMoneyText'],
+      },
+      {
+        trigger: 'After you buy the Magikarp',
+        texts: ['_MtMoonPokecenterMagikarpSalesmanNoRefundsText'],
+      },
+    ],
+  },
+  MTMOONB2F_DOME_FOSSIL: {
+    item: true,
+    values: { wStringBuffer: 'DOME FOSSIL' },
+    dialog: [
+      {
+        trigger: 'After you beat the Super Nerd',
+        texts: ['_MtMoonB2FDomeFossilYouWantText'],
+      },
+      {
+        trigger:
+          'If you say yes, you get the Dome Fossil and he takes the other one',
+        texts: [
+          '_MtMoonB2FReceivedFossilText',
+          '_MtMoonB2FSuperNerdThenThisIsMineText',
+        ],
+        gift: { name: 'Dome Fossil', sprite: 'FOSSIL' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_MtMoonB2FYouHaveNoRoomText'],
+      },
+    ],
+  },
+  MTMOONB2F_HELIX_FOSSIL: {
+    item: true,
+    values: { wStringBuffer: 'HELIX FOSSIL' },
+    dialog: [
+      {
+        trigger: 'After you beat the Super Nerd',
+        texts: ['_MtMoonB2FHelixFossilYouWantText'],
+      },
+      {
+        trigger:
+          'If you say yes, you get the Helix Fossil and he takes the other one',
+        texts: [
+          '_MtMoonB2FReceivedFossilText',
+          '_MtMoonB2FSuperNerdThenThisIsMineText',
+        ],
+        gift: { name: 'Helix Fossil', sprite: 'FOSSIL' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_MtMoonB2FYouHaveNoRoomText'],
+      },
+    ],
+  },
   OAKSLAB_OAK1: {
     dialog: [
       {
@@ -633,14 +707,26 @@ const giftFor = (game, { sprite = 'POKE_BALL', ...gift }) => ({
 });
 
 const scriptedDialog = (game, dialog, values = {}) =>
-  dialog.flatMap(({ trigger, texts, gift, values: own }) => {
+  dialog.flatMap(({ trigger, texts, gift, pokemon, values: own }) => {
     const text = texts
       .map((label) => farText(game, label, { ...values, ...own }))
       .filter(Boolean)
       .join('\n\n');
 
     return text
-      ? [{ text, trigger, ...(gift && { gift: giftFor(game, gift) }) }]
+      ? [
+          {
+            text,
+            trigger,
+            ...(gift && { gift: giftFor(game, gift) }),
+            ...(pokemon && {
+              pokemon: {
+                number: dexNumbers(game).get(pokemon),
+                name: speciesName(pokemon),
+              },
+            }),
+          },
+        ]
       : [];
   });
 
@@ -742,6 +828,7 @@ for (const game of games) {
         facing: facings[direction] ?? 'down',
         dialog,
         ...(scripted?.cutscene && { cutscene: true }),
+        ...(scripted?.item && { item: true }),
         ...((trade ||
           scripted?.special ||
           scripted?.cutscene ||

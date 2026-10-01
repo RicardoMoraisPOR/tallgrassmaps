@@ -326,7 +326,9 @@ const outdoor: Array<OutdoorEntry> = [
 type FloorEntry = {
   name: string;
   size?: Size;
-  exits?: Array<{ area: Rect } & ({ to: string } | { floor: string })>;
+  exits?: Array<
+    { area: Rect; ladder?: boolean } & ({ to: string } | { floor: string })
+  >;
   variants?: Array<MapVariant>;
 };
 
@@ -337,7 +339,7 @@ type InsideEntry = {
   size: Size;
   parent: string;
   otherParents?: Array<string>;
-  entrances: Array<Rect>;
+  entrances: Array<Rect | { area: Rect; floor: string }>;
   otherEntrances?: Record<string, Array<Rect>>;
   exits?: Array<Rect | { area: Rect; to: string }>;
   cell?: [x: number, y: number];
@@ -421,13 +423,41 @@ const inside: Array<InsideEntry> = [
     size: [640, 576],
     parent: 'route-4',
     cell: [6, 2],
-    entrances: [entrance(288, 80)],
+    entrances: [entrance(288, 80), { area: warp(24, 5), floor: 'B1F' }],
     floors: [
-      { name: '1F', size: [640, 576] },
-      { name: 'B1F', size: [448, 448] },
+      {
+        name: '1F',
+        size: [640, 576],
+        exits: [
+          { to: 'route-4', area: rect(224, 560, 32, 16) },
+          ...[warp(5, 5), warp(17, 11), warp(25, 15)].map((area) => ({
+            floor: 'B1F',
+            area,
+            ladder: true,
+          })),
+        ],
+      },
+      {
+        name: 'B1F',
+        size: [448, 448],
+        exits: [
+          ...[warp(5, 5), warp(25, 9), warp(25, 15)].map((area) => ({
+            floor: '1F',
+            area,
+            ladder: true,
+          })),
+          ...[warp(17, 11), warp(21, 17), warp(13, 27), warp(23, 3)].map(
+            (area) => ({ floor: 'B2F', area, ladder: true }),
+          ),
+          { to: 'route-4', area: warp(27, 3), ladder: true },
+        ],
+      },
       {
         name: 'B2F',
         size: [640, 576],
+        exits: [warp(25, 9), warp(21, 17), warp(15, 27), warp(5, 7)].map(
+          (area) => ({ floor: 'B1F', area, ladder: true }),
+        ),
       },
     ],
   },
@@ -930,8 +960,9 @@ const toInsideLocation = ({
       id: floorId(floor.name),
       name: floor.name,
       image: floorImage(id, floor.name),
-      hotspots: (floor.exits ?? []).map(({ area, ...exit }) => ({
+      hotspots: (floor.exits ?? []).map(({ area, ladder, ...exit }) => ({
         ...area,
+        ...(ladder && { ladder }),
         kind: 'exit' as const,
         ...('to' in exit
           ? { target: exit.to }
@@ -953,8 +984,10 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
     const rects =
       mapId === parent ? entrances : (otherEntrances?.[mapId] ?? []);
 
-    return rects.map((area) => ({
-      ...area,
+    return rects.map((entry) => ({
+      ...('floor' in entry
+        ? { ...entry.area, floor: floorId(entry.floor) }
+        : entry),
       kind: 'entrance' as const,
       target: `${parent}/${id}`,
     }));
@@ -975,8 +1008,8 @@ const locations: Array<Location> = outdoor.map(
       ...services
         .filter(({ parent }) => parent === id)
         .flatMap((building) =>
-          building.entrances.map((area) => ({
-            ...area,
+          building.entrances.map((entry) => ({
+            ...('area' in entry ? entry.area : entry),
             kind: building.marker ?? 'house',
             name: building.name,
             target: `${building.parent}/${building.id}`,

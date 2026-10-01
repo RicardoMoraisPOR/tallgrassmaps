@@ -8110,6 +8110,18 @@
         "path": "cinnabar-island",
         "levels": [30, 30],
         "games": ["red", "blue", "yellow"]
+      },
+      {
+        "method": "fossil-item",
+        "path": "route-4/mt-moon",
+        "levels": [30, 30],
+        "floors": [
+          {
+            "floor": "b2f",
+            "levels": [30, 30]
+          }
+        ],
+        "games": ["red", "blue", "yellow"]
       }
     ]
   },
@@ -8135,6 +8147,18 @@
         "path": "cinnabar-island",
         "levels": [30, 30],
         "games": ["red", "blue", "yellow"]
+      },
+      {
+        "method": "fossil-item",
+        "path": "route-4/mt-moon",
+        "levels": [30, 30],
+        "floors": [
+          {
+            "floor": "b2f",
+            "levels": [30, 30]
+          }
+        ],
+        "games": ["red", "blue", "yellow"]
       }
     ]
   },
@@ -8159,6 +8183,18 @@
         "method": "fossil",
         "path": "cinnabar-island",
         "levels": [30, 30],
+        "games": ["red", "blue", "yellow"]
+      },
+      {
+        "method": "fossil-item",
+        "path": "pewter-city/pewter-museum",
+        "levels": [30, 30],
+        "floors": [
+          {
+            "floor": "1f",
+            "levels": [30, 30]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       }
     ]

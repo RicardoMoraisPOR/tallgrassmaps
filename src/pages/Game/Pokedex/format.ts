@@ -12,6 +12,7 @@ const methodLabels: Record<EncounterMethod, string> = {
   'super-rod': 'Super Rod',
   gift: 'Gift',
   fossil: 'Revived fossil',
+  'fossil-item': 'Fossil',
   static: 'One-time encounter',
   trade: 'In-game trade',
   prize: 'Game Corner prize',
