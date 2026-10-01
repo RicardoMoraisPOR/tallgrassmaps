@@ -62,6 +62,14 @@ const NPC_MAPS = {
   ROUTE_24: { path: 'route-24' },
   ROUTE_25: { path: 'route-25' },
   BILLS_HOUSE: { path: 'route-25/bills-house' },
+  ROUTE_5: { path: 'route-5' },
+  ROUTE_5_GATE: { path: 'route-5/route-5-gate' },
+  UNDERGROUND_PATH_ROUTE_5: { path: 'route-5/underground-path-route-5' },
+  DAYCARE: { path: 'route-5/daycare' },
+  UNDERGROUND_PATH_ROUTE_6: { path: 'route-6/underground-path-route-6' },
+  UNDERGROUND_PATH_NORTH_SOUTH: {
+    path: 'route-5/underground-path-north-south',
+  },
 };
 
 const OBJECT_SPRITES = new Set([
@@ -836,6 +844,97 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'Later, he moves to his PC',
         texts: ['_BillsHouseBillCheckOutMyRarePokemonText'],
+      },
+    ],
+  },
+  ROUTE5GATE_GUARD: {
+    special: true,
+    dialog: [
+      {
+        trigger: "Without a drink, he won't let you through",
+        texts: ['_SaffronGateGuardGeeImThirstyText'],
+      },
+      {
+        trigger: 'If you have a drink, you give him one',
+        texts: [
+          '_SaffronGateGuardImParchedText',
+          '_SaffronGateGuardYouCanGoOnThroughText',
+        ],
+      },
+      {
+        trigger: 'After you give him a drink',
+        texts: ['_SaffronGateGuardThanksForTheDrinkText'],
+      },
+    ],
+  },
+  DAYCARE_GENTLEMAN: {
+    special: true,
+    values: {
+      wNameBuffer: 'POKéMON',
+      wDayCareMonName: 'POKéMON',
+      wDayCareNumLevelsGrown: 'X',
+      wDayCareTotalCost: 'X',
+    },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_DaycareGentlemanIntroText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_DaycareGentlemanWhichMonText'],
+      },
+      {
+        trigger: 'If you leave a Pokémon with him',
+        texts: [
+          '_DaycareGentlemanWillLookAfterMonText',
+          '_DaycareGentlemanComeSeeMeInAWhileText',
+        ],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_DaycareGentlemanComeAgainText'],
+      },
+      {
+        trigger: 'If you only have one Pokémon',
+        texts: ['_DaycareGentlemanOnlyHaveOneMonText'],
+      },
+      {
+        trigger: 'If the Pokémon knows an HM',
+        texts: ['_DaycareGentlemanCantAcceptMonWithHMText'],
+      },
+      {
+        trigger: 'If you cancel, or decline to pay when picking it up',
+        texts: [
+          '_DaycareGentlemanAllRightThenText',
+          '_DaycareGentlemanComeAgainText',
+        ],
+      },
+      {
+        trigger: 'When you come back, if it has grown',
+        texts: [
+          '_DaycareGentlemanMonHasGrownText',
+          '_DaycareGentlemanOweMoneyText',
+        ],
+      },
+      {
+        trigger: "If it hasn't grown yet",
+        texts: ['_DaycareGentlemanMonNeedsMoreTimeText'],
+      },
+      {
+        trigger: 'If you pay',
+        texts: [
+          '_DaycareGentlemanHeresYourMonText',
+          '_DaycareGentlemanGotMonBackText',
+        ],
+      },
+      {
+        trigger: "If you don't have enough money",
+        texts: ['_DaycareGentlemanNotEnoughMoneyText'],
+      },
+      {
+        trigger: 'If your party is full',
+        texts: ['_DaycareGentlemanNoRoomForMonText'],
       },
     ],
   },

@@ -54,6 +54,11 @@ const maps = [
     ['CeruleanBadgeHouse', 'cerulean-badge-house'],
     ['CeruleanTrashedHouse', 'cerulean-trashed-house'],
     ['BillsHouse', 'bills-house'],
+    ['Route5Gate', 'route-5-gate'],
+    ['UndergroundPathRoute5', 'underground-path-route-5'],
+    ['Daycare', 'daycare'],
+    ['UndergroundPathRoute6', 'underground-path-route-6'],
+    ['UndergroundPathNorthSouth', 'underground-path-north-south'],
     ['RedsHouse1F', 'reds-house/1f'],
     ['RedsHouse2F', 'reds-house/2f'],
   ].map(([name, out, yellowName]) => ({

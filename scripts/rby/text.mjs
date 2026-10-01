@@ -147,7 +147,7 @@ export const farText = (game, far, values = {}) => {
   let inline = false;
 
   for (const line of lines.slice(lines.indexOf(`${far}::`) + 1)) {
-    const ram = line.match(/^text_(?:ram|decimal) (\w+)/)?.[1];
+    const ram = line.match(/^text_(?:ram|decimal|bcd) (\w+)/)?.[1];
 
     if (ram) {
       if (values[ram] === undefined) return undefined;

@@ -572,6 +572,66 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-5/daycare",
+    "x": 2,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I run a DAYCARE. Would you like me to raise one of your POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Which POKéMON should I raise?",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Fine, I'll look after POKéMON for a while.\n\nCome see me in a while.",
+        "trigger": "If you leave a Pokémon with him"
+      },
+      {
+        "text": "come again.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "You only have one POKéMON with you.",
+        "trigger": "If you only have one Pokémon"
+      },
+      {
+        "text": "I can't accept a POKéMON that knows an HM move.",
+        "trigger": "If the Pokémon knows an HM"
+      },
+      {
+        "text": "All right then,\n\ncome again.",
+        "trigger": "If you cancel, or decline to pay when picking it up"
+      },
+      {
+        "text": "Your POKéMON has grown a lot!\n\nBy level, it's grown by X!\n\nAren't I great?\n\nYou owe me ¥X for the return of this POKéMON.",
+        "trigger": "When you come back, if it has grown"
+      },
+      {
+        "text": "Back already? Your POKéMON needs some more time with me.",
+        "trigger": "If it hasn't grown yet"
+      },
+      {
+        "text": "Thank you! Here's your POKéMON!\n\nRED got POKéMON back!",
+        "trigger": "If you pay"
+      },
+      {
+        "text": "Hey, you don't have enough ¥!",
+        "trigger": "If you don't have enough money"
+      },
+      {
+        "text": "You have no room for this POKéMON!",
+        "trigger": "If your party is full"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
     "path": "route-11/digletts-cave-route-11",
     "x": 2,
     "y": 3,
@@ -1589,6 +1649,86 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-5/route-5-gate",
+    "x": 1,
+    "y": 3,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-5/underground-path-route-5",
+    "x": 2,
+    "y": 3,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi! Do you have NIDORAN♂?\n\nWant to trade it for NIDORAN♀?",
+        "trigger": "Offers Nidoran♀ for your Nidoran♂",
+        "trade": {
+          "give": {
+            "number": 32,
+            "name": "Nidoran♂"
+          },
+          "receive": {
+            "number": 29,
+            "name": "Nidoran♀"
+          }
+        }
+      },
+      {
+        "text": "That's too bad.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "...This is no NIDORAN♂.\n\nIf you get one, trade it with me!",
+        "trigger": "If you offer a Pokémon other than Nidoran♂"
+      },
+      {
+        "text": "Thanks pal!",
+        "trigger": "After the trade, you get Nidoran♀ nicknamed Spot"
+      },
+      {
+        "text": "How is my old NIDORAN♀?\n\nMy NIDORAN♂ is doing great!",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-6/underground-path-route-6",
+    "x": 2,
+    "y": 3,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "People often lose things in that UNDERGROUND PATH."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "viridian-city",
     "x": 13,
     "y": 20,
@@ -2383,6 +2523,66 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-5/daycare",
+    "x": 2,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I run a DAYCARE. Would you like me to raise one of your POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Which POKéMON should I raise?",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Fine, I'll look after POKéMON for a while.\n\nCome see me in a while.",
+        "trigger": "If you leave a Pokémon with him"
+      },
+      {
+        "text": "Come again.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "You only have one POKéMON with you.",
+        "trigger": "If you only have one Pokémon"
+      },
+      {
+        "text": "I can't accept a POKéMON that knows an HM move.",
+        "trigger": "If the Pokémon knows an HM"
+      },
+      {
+        "text": "All right then,\n\nCome again.",
+        "trigger": "If you cancel, or decline to pay when picking it up"
+      },
+      {
+        "text": "Your POKéMON has grown a lot!\n\nBy level, it's grown by X!\n\nAren't I great?\n\nYou owe me ¥X for the return of this POKéMON.",
+        "trigger": "When you come back, if it has grown"
+      },
+      {
+        "text": "Back already? Your POKéMON needs some more time with me.",
+        "trigger": "If it hasn't grown yet"
+      },
+      {
+        "text": "Thank you! Here's your POKéMON!\n\nRED got POKéMON back!",
+        "trigger": "If you pay"
+      },
+      {
+        "text": "Hey, you don't have enough ¥!",
+        "trigger": "If you don't have enough money"
+      },
+      {
+        "text": "You have no room for this POKéMON!",
+        "trigger": "If your party is full"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
     "path": "route-4/mt-moon-pokemon-center",
     "x": 3,
     "y": 1,
@@ -2721,6 +2921,72 @@
       },
       {
         "text": "Isn't my old MR.MIME great?",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-5/route-5-gate",
+    "x": 1,
+    "y": 3,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh, wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug, glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-5/underground-path-route-5",
+    "x": 2,
+    "y": 3,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi! Do you have CUBONE?\n\nWant to trade it for MACHOKE?",
+        "trigger": "Offers Machoke for your Cubone",
+        "trade": {
+          "give": {
+            "number": 104,
+            "name": "Cubone"
+          },
+          "receive": {
+            "number": 67,
+            "name": "Machoke"
+          }
+        }
+      },
+      {
+        "text": "That's too bad.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "...This is no CUBONE.\n\nIf you get one, trade it with me!",
+        "trigger": "If you offer a Pokémon other than Cubone"
+      },
+      {
+        "text": "Thanks, pal!",
+        "trigger": "After the trade, you get Machoke nicknamed Ricky"
+      },
+      {
+        "text": "How is my old MACHOKE?\n\nMy CUBONE is doing great!",
         "trigger": "Talking again after the trade"
       }
     ],

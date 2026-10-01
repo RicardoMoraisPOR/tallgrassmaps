@@ -58,6 +58,12 @@ const SIGN_MAPS = {
   ROUTE_24: 'route-24',
   ROUTE_25: 'route-25',
   BILLS_HOUSE: 'route-25/bills-house',
+  ROUTE_5: 'route-5',
+  ROUTE_5_GATE: 'route-5/route-5-gate',
+  UNDERGROUND_PATH_ROUTE_5: 'route-5/underground-path-route-5',
+  DAYCARE: 'route-5/daycare',
+  UNDERGROUND_PATH_ROUTE_6: 'route-6/underground-path-route-6',
+  UNDERGROUND_PATH_NORTH_SOUTH: 'route-5/underground-path-north-south',
 };
 
 const OPENABLE_OBJECTS = [

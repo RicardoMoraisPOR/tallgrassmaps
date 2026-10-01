@@ -1500,7 +1500,7 @@
       },
       {
         "method": "trade",
-        "path": "route-5",
+        "path": "route-5/underground-path-route-5",
         "tradeFor": 32,
         "games": ["red", "blue"]
       },
@@ -3817,7 +3817,7 @@
       },
       {
         "method": "trade",
-        "path": "route-5",
+        "path": "route-5/underground-path-route-5",
         "tradeFor": 104,
         "games": ["yellow"]
       }
@@ -3835,7 +3835,7 @@
     "encounters": [
       {
         "method": "trade",
-        "path": "route-5",
+        "path": "route-5/underground-path-route-5",
         "tradeFor": 104,
         "games": ["yellow"]
       }

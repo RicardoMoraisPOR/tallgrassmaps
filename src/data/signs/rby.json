@@ -233,6 +233,13 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-5",
+    "x": 17,
+    "y": 29,
+    "text": "UNDERGROUND PATH CERULEAN CITY - VERMILION CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "viridian-city",
     "x": 17,
     "y": 17,
