@@ -9,6 +9,22 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 11,
+    "y": 2,
+    "text": "SPACE SHUTTLE COLUMBIA",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 2,
+    "y": 5,
+    "text": "Meteorite that fell on MT.MOON. (MOON STONE?)",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pallet-town/oaks-lab",
     "x": 2,
     "y": 1,
@@ -52,6 +68,55 @@
     "x": 11,
     "y": 5,
     "text": "BLUE's house",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 19,
+    "y": 29,
+    "text": "TRAINER TIPS\n\nAny POKéMON that takes part in battle, however short, earns EXP!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 33,
+    "y": 19,
+    "text": "NOTICE!\n\nThieves have been stealing POKéMON fossils at MT. MOON! Please call PEWTER POLICE with any info!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 24,
+    "y": 17,
+    "text": "All your item needs fulfilled! POKéMON MART",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 14,
+    "y": 25,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 15,
+    "y": 9,
+    "text": "PEWTER MUSEUM OF SCIENCE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 11,
+    "y": 17,
+    "text": "PEWTER CITY POKéMON GYM LEADER: BROCK\n\nThe Rock Solid POKéMON Trainer!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 25,
+    "y": 23,
+    "text": "PEWTER CITY A Stone Gray City",
     "games": ["red", "blue", "yellow"]
   },
   {

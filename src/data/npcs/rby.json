@@ -64,6 +64,188 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "pewter-city/pewter-museum",
+    "floor": "1f",
+    "x": 12,
+    "y": 4,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "It's ¥50 for a child's ticket.\n\nWould you like to come in?",
+        "trigger": "When you walk up to the counter, he asks for the ¥50 fee"
+      },
+      {
+        "text": "Right, ¥50! Thank you!",
+        "trigger": "If you pay"
+      },
+      {
+        "text": "You don't have enough money.\n\nCome again!",
+        "trigger": "If you don't have enough money"
+      },
+      {
+        "text": "Come again!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Take plenty of time to look!",
+        "trigger": "After you buy a ticket"
+      },
+      {
+        "text": "Please go to the other side!",
+        "trigger": "If you talk to him from the side without a ticket"
+      },
+      {
+        "text": "You can't sneak in the back way!\n\nOh, whatever! Do you know what AMBER is?",
+        "trigger": "If you talk to him from behind the counter"
+      },
+      {
+        "text": "There's a lab somewhere trying to resurrect ancient POKéMON from AMBER.",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "AMBER is fossil-ized tree sap.",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "1f",
+    "x": 1,
+    "y": 4,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "That is one magnificent fossil!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "1f",
+    "x": 15,
+    "y": 2,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Ssh! I think that this chunk of AMBER contains POKéMON DNA!\n\nIt would be great if POKéMON could be resurrected from it!\n\nBut, my colleagues just ignore me!\n\nSo I have a favor to ask!\n\nTake this to a POKéMON LAB and get it examined!\n\nRED received OLD AMBER!",
+        "trigger": "He gives you the Old Amber",
+        "gift": {
+          "name": "Old Amber",
+          "sprite": "old_amber"
+        }
+      },
+      {
+        "text": "You don't have space for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Ssh! Get the OLD AMBER checked!",
+        "trigger": "After you get the Old Amber"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "1f",
+    "x": 17,
+    "y": 4,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "We are proud of 2 fossils of very rare, prehistoric POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 1,
+    "y": 7,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "MOON STONE?\n\nWhat's so special about it?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 0,
+    "y": 5,
+    "name": "Gramps",
+    "sprite": "gramps",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "July 20, 1969!\n\nThe 1st lunar landing!\n\nI bought a color TV to watch it!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 7,
+    "y": 5,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "We have a space exhibit now."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 11,
+    "y": 5,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I want a PIKACHU! It's so cute!\n\nI asked my Daddy to catch me one!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 12,
+    "y": 5,
+    "name": "Hiker",
+    "sprite": "hiker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yeah, a PIKACHU soon, I promise!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
     "path": "pallet-town/oaks-lab",
     "x": 5,
     "y": 2,
@@ -211,6 +393,303 @@
     "dialog": [
       {
         "text": "Technology is incredible!\n\nYou can now store and recall items and POKéMON as data via PC!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 8,
+    "y": 15,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "It's rumored that CLEFAIRYs came from the moon!\n\nThey appeared after MOON STONE fell on MT.MOON."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 17,
+    "y": 25,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "There aren't many serious POKéMON trainers here!\n\nThey're all like BUG CATCHERs, but PEWTER GYM's BROCK is totally into it!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 27,
+    "y": 17,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Did you check out the MUSEUM?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Weren't those fossils from MT. MOON amazing?",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Really? You absolutely have to go!\n\nIt's right here! You have to pay to get in, but it's worth it! See you around!",
+        "trigger": "If you say no, he walks you to the Museum"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 26,
+    "y": 25,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Psssst! Do you know what I'm doing?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "That's right! It's hard work!",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "I'm spraying REPEL to keep POKéMON out of my garden!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city",
+    "x": 35,
+    "y": 16,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You're a trainer right? BROCK's looking for new challengers! Follow me!\n\nIf you have the right stuff, go take on BROCK!",
+        "trigger": "When you talk to him, or try to leave east before beating Brock, he walks you to the Gym"
+      }
+    ],
+    "cutscene": true,
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-gym",
+    "x": 7,
+    "y": 10,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hiya! I can tell you have what it takes to become a POKéMON champ!\n\nI'm no trainer, but I can tell you how to win!\n\nLet me take you to the top!",
+        "trigger": "Before you beat Brock"
+      },
+      {
+        "text": "All right! Let's get happening!\n\nThe 1st POKéMON out in a match is at the top of the POKéMON LIST!\n\nBy changing the order of POKéMON, matches could be made easier!",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "It's a free service! Let's get happening!\n\nThe 1st POKéMON out in a match is at the top of the POKéMON LIST!\n\nBy changing the order of POKéMON, matches could be made easier!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Just as I thought! You're POKéMON champ material!",
+        "trigger": "After you beat Brock"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-poke-mart",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-poke-mart",
+    "x": 3,
+    "y": 3,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "A shady, old man got me to buy this really weird fish POKéMON!\n\nIt's totally weak and it cost ¥500!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "pewter-city/pewter-poke-mart",
+    "x": 5,
+    "y": 5,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Good things can happen if you raise POKéMON diligently, even the weak ones!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-nidoran-house",
+    "x": 4,
+    "y": 5,
+    "name": "Nidoran",
+    "sprite": "monster",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "NIDORAN: Bowbow!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-nidoran-house",
+    "x": 3,
+    "y": 5,
+    "name": "Little Boy",
+    "sprite": "little_boy",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "NIDORAN sit!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-nidoran-house",
+    "x": 1,
+    "y": 2,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Our POKéMON's an outsider, so it's hard to handle.\n\nAn outsider is a POKéMON that you get in a trade.\n\nIt grows fast, but it may ignore an unskilled trainer in battle!\n\nIf only we had some BADGEs..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 11,
+    "y": 7,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "What!?\n\nTEAM ROCKET is at MT.MOON? Huh? I'm on the phone!\n\nScram!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 1,
+    "y": 3,
+    "name": "Jigglypuff",
+    "sprite": "fairy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "JIGGLYPUFF: Puu pupuu!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-speech-house",
+    "x": 2,
+    "y": 3,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "POKéMON learn new techniques as they grow!\n\nBut, some moves must be taught by the trainer!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-speech-house",
+    "x": 4,
+    "y": 5,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "POKéMON become easier to catch when they are hurt or asleep!\n\nBut, it's not a sure thing!"
       }
     ],
     "games": ["red", "blue", "yellow"]
@@ -862,6 +1341,59 @@
     "games": ["yellow"]
   },
   {
+    "path": "pewter-city/pewter-museum",
+    "floor": "1f",
+    "x": 15,
+    "y": 2,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Ssh! I think that this chunk of AMBER contains POKéMON DNA!\n\nIt would be great if POKéMON could be resurrected from it!\n\nBut, my colleagues just ignore me!\n\nSo, I have a favor to ask!\n\nTake this to a POKéMON LAB and get it examined!\n\nRED received OLD AMBER!",
+        "trigger": "He gives you the Old Amber",
+        "gift": {
+          "name": "Old Amber",
+          "sprite": "old_amber"
+        }
+      },
+      {
+        "text": "You don't have space for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Ssh! Get the OLD AMBER checked!",
+        "trigger": "After you get the Old Amber"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-museum",
+    "floor": "2f",
+    "x": 12,
+    "y": 5,
+    "name": "Hiker",
+    "sprite": "hiker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yeah, a PIKACHU soon, I promise!",
+        "trigger": "When Pikachu isn't following you"
+      },
+      {
+        "text": "Your PIKACHU looks untamed. May I have it for my daughter?",
+        "trigger": "When Pikachu is following you with low friendship"
+      },
+      {
+        "text": "I'd like to get that PIKACHU off you, but it's too attached to you.",
+        "trigger": "When Pikachu is following you with high friendship"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "pallet-town/oaks-lab",
     "x": 5,
     "y": 2,
@@ -941,6 +1473,85 @@
     ],
     "cutscene": true,
     "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-poke-mart",
+    "x": 3,
+    "y": 3,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "A shady old man got me to buy this really weird fish POKéMON!\n\nIt's totally weak and it cost ¥500!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 1,
+    "y": 3,
+    "name": "Jigglypuff",
+    "sprite": "yellow/jigglypuff",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "JIGGLYPUFF: Puu pupuu!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 4,
+    "y": 3,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "POKéMON CENTERS are wonderful!\n\nThey heal POKéMON completely.\n\nEven conditions like sleep, burn, poison and others are cured."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
     "games": ["yellow"]
   },
   {
@@ -1156,6 +1767,21 @@
     "dialog": [
       {
         "text": "POKéMON CENTERs heal your tired, hurt or fainted POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "pewter-city/pewter-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "Yawn!\n\nWhen JIGGLYPUFF sings, POKéMON get drowsy...\n\n...Me too... Snore..."
       }
     ],
     "games": ["red", "blue", "yellow"]

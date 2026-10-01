@@ -85,11 +85,16 @@ export const mapText = (game, file, textId) => {
     .map((line) => line.match(/^ld hl, (\w+)$/)?.[1])
     .find(Boolean);
 
-  if (fars.length === 0 && block.some((line) => line.startsWith('farcall ')))
-    return farText(game, `_${label}`);
+  const farcalled = block
+    .map((line) => line.match(/^farcall (\w+)$/)?.[1])
+    .find(Boolean);
+
+  if (fars.length === 0 && farcalled)
+    return farText(game, `_${label}`) ?? splitScriptText(game, file, farcalled);
   if (fars.length === 0 && printed) return splitScriptText(game, file, printed);
   if (fars.length !== 1) return undefined;
-  if (block[0] !== 'text_asm' && block[1] !== 'text_end') return undefined;
+  if (block[0] !== 'text_asm' && !['text_end', 'text_asm'].includes(block[1]))
+    return undefined;
 
   return farText(game, fars[0]);
 };

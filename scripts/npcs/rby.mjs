@@ -36,9 +36,23 @@ const NPC_MAPS = {
   DIGLETTS_CAVE_ROUTE_2: { path: 'route-2/digletts-cave-route-2' },
   DIGLETTS_CAVE_ROUTE_11: { path: 'route-11/digletts-cave-route-11' },
   VIRIDIAN_FOREST: { path: 'route-2/viridian-forest' },
+  PEWTER_CITY: { path: 'pewter-city' },
+  PEWTER_GYM: { path: 'pewter-city/pewter-gym' },
+  MUSEUM_1_F: { path: 'pewter-city/pewter-museum' },
+  MUSEUM_2_F: { path: 'pewter-city/pewter-museum' },
+  PEWTER_NIDORAN_HOUSE: { path: 'pewter-city/pewter-nidoran-house' },
+  PEWTER_SPEECH_HOUSE: { path: 'pewter-city/pewter-speech-house' },
+  PEWTER_MART: { path: 'pewter-city/pewter-poke-mart' },
+  PEWTER_POKECENTER: { path: 'pewter-city/pewter-pokemon-center' },
 };
 
-const OBJECT_SPRITES = new Set(['POKE_BALL', 'POKEDEX', 'CLIPBOARD', 'PAPER']);
+const OBJECT_SPRITES = new Set([
+  'POKE_BALL',
+  'POKEDEX',
+  'CLIPBOARD',
+  'PAPER',
+  'OLD_AMBER',
+]);
 
 const SPRITE_DIALOG = {
   NURSE: [
@@ -60,6 +74,7 @@ const SPRITE_DIALOG = {
     },
   ],
   CHANSEY: [{ texts: ['_NurseChanseyText'] }],
+  CLERK: [{ texts: ['_PokemartGreetingText'] }],
   LINK_RECEPTIONIST: [
     {
       trigger: 'Without a link cable connection',
@@ -298,6 +313,155 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get HM05',
         texts: ['_Route2GateOaksAideFlashExplanationText'],
+      },
+    ],
+  },
+  PEWTERCITY_SUPER_NERD1: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_PewterCitySuperNerd1DidYouCheckOutMuseumText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_PewterCitySuperNerd1WerentThoseFossilsAmazingText'],
+      },
+      {
+        trigger: 'If you say no, he walks you to the Museum',
+        texts: [
+          '_PewterCitySuperNerd1YouHaveToGoText',
+          '_PewterCitySuperNerd1ItsRightHereText',
+        ],
+      },
+    ],
+  },
+  PEWTERCITY_SUPER_NERD2: {
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_PewterCitySuperNerd2DoYouKnowWhatImDoingText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_PewterCitySuperNerd2ThatsRightText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_PewterCitySuperNerd2ImSprayingRepelText'],
+      },
+    ],
+  },
+  PEWTERCITY_YOUNGSTER: {
+    cutscene: true,
+    dialog: [
+      {
+        trigger:
+          'When you talk to him, or try to leave east before beating Brock, he walks you to the Gym',
+        texts: [
+          '_PewterCityYoungsterYoureATrainerFollowMeText',
+          '_PewterCityYoungsterGoTakeOnBrockText',
+        ],
+      },
+    ],
+  },
+  PEWTERGYM_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Brock',
+        texts: ['_PewterGymGuidePreAdviceText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_PewterGymGuideBeginAdviceText', '_PewterGymGuideAdviceText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_PewterGymGuideFreeServiceText', '_PewterGymGuideAdviceText'],
+      },
+      {
+        trigger: 'After you beat Brock',
+        texts: ['_PewterGymGuidePostBattleText'],
+      },
+    ],
+  },
+  MUSEUM1F_SCIENTIST1: {
+    dialog: [
+      {
+        trigger: 'When you walk up to the counter, he asks for the ¥50 fee',
+        texts: ['_Museum1FScientist1WouldYouLikeToComeInText'],
+      },
+      {
+        trigger: 'If you pay',
+        texts: ['_Museum1FScientist1ThankYouText'],
+      },
+      {
+        trigger: "If you don't have enough money",
+        texts: [
+          '_Museum1FScientist1DontHaveEnoughMoneyText',
+          '_Museum1FScientist1ComeAgainText',
+        ],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_Museum1FScientist1ComeAgainText'],
+      },
+      {
+        trigger: 'After you buy a ticket',
+        texts: ['_Museum1FScientist1TakePlentyOfTimeText'],
+      },
+      {
+        trigger: 'If you talk to him from the side without a ticket',
+        texts: ['_Museum1FScientist1GoToOtherSideText'],
+      },
+      {
+        trigger: 'If you talk to him from behind the counter',
+        texts: ['_Museum1FScientist1DoYouKnowWhatAmberIsText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_Museum1FScientist1TheresALabSomewhereText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_Museum1FScientist1AmberIsFossilizedTreeSapText'],
+      },
+    ],
+  },
+  MUSEUM1F_SCIENTIST2: {
+    dialog: [
+      {
+        trigger: 'He gives you the Old Amber',
+        texts: [
+          '_Museum1FScientist2TakeThisToAPokemonLabText',
+          '_Museum1FScientist2ReceivedOldAmberText',
+        ],
+        gift: { name: 'Old Amber', sprite: 'OLD_AMBER' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_Museum1FScientist2YouDontHaveSpaceText'],
+      },
+      {
+        trigger: 'After you get the Old Amber',
+        texts: ['_Museum1FScientist2GetTheOldAmberCheckText'],
+      },
+    ],
+  },
+  MUSEUM2F_HIKER: {
+    games: ['yellow'],
+    dialog: [
+      {
+        trigger: "When Pikachu isn't following you",
+        texts: ['_Museum2FHikerText'],
+      },
+      {
+        trigger: 'When Pikachu is following you with low friendship',
+        texts: ['_Museum2FPikachuText1'],
+      },
+      {
+        trigger: 'When Pikachu is following you with high friendship',
+        texts: ['_Museum2FPikachuText2'],
       },
     ],
   },
@@ -545,7 +709,11 @@ for (const game of games) {
       if (!npc) return;
 
       const [, x, y, sprite, direction, textId] = npc;
-      const scripted = SCRIPTED_NPCS[toggles[index]];
+      const entry = SCRIPTED_NPCS[toggles[index]];
+      const scripted =
+        entry && (!entry.games || entry.games.includes(game.id))
+          ? entry
+          : undefined;
 
       if (OBJECT_SPRITES.has(sprite)) return;
       if (hidden.has(toggles[index]) && !scripted) return;

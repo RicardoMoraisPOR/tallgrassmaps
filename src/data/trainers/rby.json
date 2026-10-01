@@ -2928,9 +2928,29 @@
   {
     "name": "Brock",
     "trainerClass": "brock",
-    "path": "pewter-city",
-    "area": "Pewter Gym",
+    "path": "pewter-city/pewter-gym",
+    "x": 4,
+    "y": 1,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm BROCK! I'm PEWTER's GYM LEADER!\n\nI believe in rock hard defense and determination!\n\nThat's why my POKéMON are all the rock-type!\n\nDo you still want to challenge me? Fine then! Show me your best!"
+      },
+      {
+        "label": "If you win, he gives you the Boulder Badge and TM34",
+        "text": "I took you for granted.\n\nAs proof of your victory, here's the BOULDERBADGE!\n\nRED received the BOULDERBADGE!\n\nThat's an official POKéMON LEAGUE BADGE!\n\nIts bearer's POKéMON become more powerful!\n\nThe technique FLASH can now be used any time!\n\nWait! Take this with you!\n\nRED received TM34!\n\nA TM contains a technique that can be taught to POKéMON!\n\nA TM is good only once! So when you use one to teach a new technique, pick the POKéMON carefully!\n\nTM34 contains BIDE!\n\nYour POKéMON will absorb damage in battle then pay it back double!"
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You don't have room for this!"
+      },
+      {
+        "label": "After battle",
+        "text": "There are all kinds of trainers in the world!\n\nYou appear to be very gifted as a POKéMON trainer!\n\nGo to the GYM in CERULEAN and test your abilities!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2952,9 +2972,29 @@
   {
     "name": "Brock",
     "trainerClass": "brock",
-    "path": "pewter-city",
-    "area": "Pewter Gym",
+    "path": "pewter-city/pewter-gym",
+    "x": 4,
+    "y": 1,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm BROCK! I'm PEWTER's GYM LEADER!\n\nI believe in rock hard defense and determination!\n\nThat's why my POKéMON are all the rock-type!\n\nDo you still want to challenge me? Fine then! Show me your best!"
+      },
+      {
+        "label": "If you win, he gives you the Boulder Badge and TM34",
+        "text": "I took you for granted.\n\nAs proof of your victory, here's the BOULDERBADGE!\n\nRED received the BOULDERBADGE!\n\nThat's an official POKéMON LEAGUE BADGE!\n\nIts bearer's POKéMON become more powerful!\n\nThe technique FLASH can now be used anytime!\n\nWait! Take this with you!\n\nRED received TM34!\n\nA TM contains a technique that can be taught to POKéMON!\n\nA TM is good only once! So when you use one to teach a new technique, pick the POKéMON carefully!\n\nTM34 contains BIDE!\n\nYour POKéMON will absorb damage in battle then pay it back double!"
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You don't have room for this!"
+      },
+      {
+        "label": "After battle",
+        "text": "There are all kinds of trainers in the world!\n\nSome raise POKéMON for fights. Some see them as pets.\n\nI'm in training to become a POKéMON breeder.\n\nIf you take your POKéMON training seriously, go visit the GYM in CERULEAN and test your abilities!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2976,9 +3016,25 @@
   {
     "name": "Jr. Trainer ♂",
     "trainerClass": "jr-trainer-m",
-    "path": "pewter-city",
-    "area": "Pewter Gym",
+    "path": "pewter-city/pewter-gym",
+    "x": 3,
+    "y": 6,
+    "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Stop right there, kid!\n\nYou're still light years from facing BROCK!"
+      },
+      {
+        "label": "If you win",
+        "text": "Darn!\n\nLight years isn't time! It measures distance!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're pretty hot, but not as hot as BROCK!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -3000,9 +3056,25 @@
   {
     "name": "Jr. Trainer ♂",
     "trainerClass": "jr-trainer-m",
-    "path": "pewter-city",
-    "area": "Pewter Gym",
+    "path": "pewter-city/pewter-gym",
+    "x": 3,
+    "y": 6,
+    "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Stop right there, kid!\n\nYou're still light years from facing BROCK!"
+      },
+      {
+        "label": "If you win",
+        "text": "Darn!\n\nLight years isn't time! It measures distance!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're pretty hot, but not as hot as BROCK!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

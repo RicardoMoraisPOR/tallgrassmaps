@@ -105,9 +105,28 @@ rivalTeamSignature.blue = rivalTeamSignature.red;
 
 const rb = (teams) => ({ red: teams, blue: teams });
 
-const TRAINER_DIALOG_MAPS = new Set(['ViridianGym', 'ViridianForest']);
+const TRAINER_DIALOG_MAPS = new Set([
+  'ViridianGym',
+  'ViridianForest',
+  'PewterGym',
+]);
 
 const OBJECT_DIALOG = {
+  PEWTERGYM_BROCK: [
+    { label: 'Before battle', texts: ['_PewterGymBrockPreBattleText'] },
+    {
+      label: 'If you win, he gives you the Boulder Badge and TM34',
+      texts: [
+        '_PewterGymBrockReceivedBoulderBadgeText',
+        '_PewterGymBrockBoulderBadgeInfoText',
+        '_PewterGymBrockWaitTakeThisText',
+        '_PewterGymReceivedTM34Text',
+        '_TM34ExplanationText',
+      ],
+    },
+    { label: 'If your bag is full', texts: ['_PewterGymTM34NoRoomText'] },
+    { label: 'After battle', texts: ['_PewterGymBrockPostBattleAdviceText'] },
+  ],
   VIRIDIANGYM_GIOVANNI: [
     { label: 'Before battle', texts: ['_ViridianGymGiovanniPreBattleText'] },
     {

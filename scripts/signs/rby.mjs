@@ -32,6 +32,14 @@ const SIGN_MAPS = {
   DIGLETTS_CAVE_ROUTE_2: 'route-2/digletts-cave-route-2',
   DIGLETTS_CAVE_ROUTE_11: 'route-11/digletts-cave-route-11',
   VIRIDIAN_FOREST: 'route-2/viridian-forest',
+  PEWTER_CITY: 'pewter-city',
+  PEWTER_GYM: 'pewter-city/pewter-gym',
+  MUSEUM_1_F: 'pewter-city/pewter-museum',
+  MUSEUM_2_F: 'pewter-city/pewter-museum',
+  PEWTER_NIDORAN_HOUSE: 'pewter-city/pewter-nidoran-house',
+  PEWTER_SPEECH_HOUSE: 'pewter-city/pewter-speech-house',
+  PEWTER_MART: 'pewter-city/pewter-poke-mart',
+  PEWTER_POKECENTER: 'pewter-city/pewter-pokemon-center',
 };
 
 const OPENABLE_OBJECTS = [
