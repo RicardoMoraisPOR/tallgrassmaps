@@ -95,6 +95,7 @@ export type LayeredMapLink = MapLink & {
   layer: MapLayerId;
   stairs?: boolean;
   ladder?: boolean;
+  door?: boolean;
 };
 
 type MarkerSources = {
@@ -198,14 +199,21 @@ export const locationLinks = (
 
     floorExitSeen.set(floorId, count);
 
-    if ((floorExitTotals.get(floorId) ?? 0) === 1)
+    const single = (floorExitTotals.get(floorId) ?? 0) === 1;
+
+    if (single && !hotspot.door)
       return {
         label: floorLabel(target, floorStep(target, floor, floorId), floorId),
       };
 
+    const kind = hotspot.door ? 'Door' : hotspot.ladder ? 'Ladder' : 'Stairs';
+
+    if (single) return { label: `${kind} to ${floorName(target, floorId)}` };
+
     return {
-      label: `${hotspot.ladder ? 'Ladder' : 'Stairs'} #${count} to ${floorName(target, floorId)}`,
+      label: `${kind} #${count} to ${floorName(target, floorId)}`,
       highlightKey: `floor-exit:${floorId}:${count}`,
+      via: floor && `${floor.id}:${count}`,
     };
   };
 
@@ -224,9 +232,11 @@ export const locationLinks = (
         label: placeName(hotspot.target, target.name),
       };
 
+    const { via, ...exit } = floorExitLabel(hotspot, target);
+
     return {
-      href: `${href(hotspot.target)}?floor=${hotspot.floor}`,
-      ...floorExitLabel(hotspot, target),
+      href: `${href(hotspot.target)}?floor=${hotspot.floor}${via ? `&via=${via}` : ''}`,
+      ...exit,
       replace: true,
       stairs: true,
     };
@@ -256,9 +266,11 @@ export const locationLinks = (
             icon: {
               kind: link.ladder
                 ? ('ladder' as const)
-                : link.stairs
-                  ? ('stairs' as const)
-                  : ('exit' as const),
+                : link.door
+                  ? ('door' as const)
+                  : link.stairs
+                    ? ('stairs' as const)
+                    : ('exit' as const),
             },
           },
         ];

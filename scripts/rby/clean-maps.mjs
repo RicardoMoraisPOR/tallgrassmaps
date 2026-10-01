@@ -31,7 +31,6 @@ const groupPrefixes = {
   'seafoam-islands': 'SEAFOAMISLANDS',
   'victory-road': 'VICTORYROAD',
   'rock-tunnel': 'ROCKTUNNEL',
-  'ss-anne': 'SSANNE',
   'celadon-dept-store': 'CELADONMART',
 };
 

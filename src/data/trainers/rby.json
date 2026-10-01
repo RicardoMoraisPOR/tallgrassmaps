@@ -13043,7 +13043,25 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "floor": "1f-cabins",
+    "x": 2,
+    "y": 3,
+    "facing": "left",
     "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I travel alone on my journeys!\n\nMy POKéMON are my only friends!"
+      },
+      {
+        "label": "If you win",
+        "text": "My, my friends..."
+      },
+      {
+        "label": "After battle",
+        "text": "You should be nice to friends!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13067,7 +13085,25 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "floor": "1f-cabins",
+    "x": 11,
+    "y": 4,
+    "facing": "up",
     "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You pup! How dare you barge in!"
+      },
+      {
+        "label": "If you win",
+        "text": "Humph! You rude child!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish to be left alone! Get out!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13091,7 +13127,25 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "floor": "1f-cabins",
+    "x": 11,
+    "y": 4,
+    "facing": "up",
     "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You pup! How dare you barge in!"
+      },
+      {
+        "label": "If you win",
+        "text": "Humph! You rude child!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish to be left alone! Get out!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13115,7 +13169,25 @@
     "trainerClass": "youngster",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "floor": "1f-cabins",
+    "x": 11,
+    "y": 14,
+    "facing": "up",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I love POKéMON! Do you?"
+      },
+      {
+        "label": "If you win",
+        "text": "Wow! You're great!"
+      },
+      {
+        "label": "After battle",
+        "text": "Let me be your friend, OK?\n\nThen we can trade POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13134,7 +13206,25 @@
     "trainerClass": "youngster",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "floor": "1f-cabins",
+    "x": 11,
+    "y": 14,
+    "facing": "up",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I love POKéMON! Do you?"
+      },
+      {
+        "label": "If you win",
+        "text": "Wow! You're great!"
+      },
+      {
+        "label": "After battle",
+        "text": "Let me be your friend, OK?\n\nThen we can trade POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13153,7 +13243,25 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "floor": "1f-cabins",
+    "x": 13,
+    "y": 11,
+    "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I collected these POKéMON from all around the world!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh no! I went around the world for these!"
+      },
+      {
+        "label": "After battle",
+        "text": "You hurt my poor worldly POKéMON!\n\nI demand that you heal them at a POKéMON CENTER!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13177,7 +13285,25 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "1F Rooms",
+    "floor": "1f-cabins",
+    "x": 13,
+    "y": 11,
+    "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I collected these POKéMON from all around the world!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh no! I went around the world for these!"
+      },
+      {
+        "label": "After battle",
+        "text": "You hurt my poor worldly POKéMON!\n\nI demand that you heal them at a POKéMON CENTER!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13202,7 +13328,29 @@
     "path": "vermilion-city/ss-anne",
     "area": "2F",
     "floor": "2f",
+    "x": 37,
+    "y": 4,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Bonjour! RED!\n\nImagine seeing you here!\n\nRED, were you really invited?\n\nSo how's your POKéDEX coming?\n\nI already caught 40 kinds, pal!\n\nDifferent kinds are everywhere!\n\nCrawl around in grassy areas!"
+      },
+      {
+        "label": "If you win",
+        "text": "Humph!\n\nAt least you're raising your POKéMON!"
+      },
+      {
+        "label": "If you lose",
+        "text": "RED! What are you, seasick?\n\nYou should shape up, pal!"
+      },
+      {
+        "label": "After battle",
+        "text": "BLUE: I heard there was a CUT master on board.\n\nBut, he was just a seasick, old man!\n\nBut, CUT itself is really useful!\n\nYou should go see him! Smell ya!"
+      }
+    ],
     "choicePrompt": "Your starter",
     "parties": [
       {
@@ -13292,7 +13440,29 @@
     "path": "vermilion-city/ss-anne",
     "area": "2F",
     "floor": "2f",
+    "x": 37,
+    "y": 4,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Bonjour! RED!\n\nImagine seeing you here!\n\nRED, were you really invited?\n\nSo how's your POKéDEX coming?\n\nI already caught 40 kinds, pal!\n\nDifferent kinds are everywhere!\n\nCrawl around in grassy areas!"
+      },
+      {
+        "label": "If you win",
+        "text": "Humph!\n\nAt least you're raising your POKéMON!"
+      },
+      {
+        "label": "If you lose",
+        "text": "RED! What are you, seasick?\n\nYou should shape up, pal!"
+      },
+      {
+        "label": "After battle",
+        "text": "BLUE: I heard there was a CUT master on board.\n\nBut, he was just a seasick, old man!\n\nBut, CUT itself is really useful!\n\nYou should go see him! Smell ya!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13326,7 +13496,25 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "floor": "2f-cabins",
+    "x": 10,
+    "y": 2,
+    "facing": "right",
     "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Competing against the young keeps me youthful."
+      },
+      {
+        "label": "If you win",
+        "text": "Good fight! Ah, I feel young again!"
+      },
+      {
+        "label": "After battle",
+        "text": "15 years ago, I would have won!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13345,7 +13533,25 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "floor": "2f-cabins",
+    "x": 10,
+    "y": 2,
+    "facing": "right",
     "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Competing against the young keeps me youthful."
+      },
+      {
+        "label": "If you win",
+        "text": "Good fight! Ah, I feel young again!"
+      },
+      {
+        "label": "After battle",
+        "text": "15 years ago, I would have won!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13369,7 +13575,25 @@
     "trainerClass": "fisher",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "floor": "2f-cabins",
+    "x": 13,
+    "y": 4,
+    "facing": "left",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Check out what I fished up!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm all out!"
+      },
+      {
+        "label": "After battle",
+        "text": "Party?\n\nThe cruise ship's party should be over by now."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13398,7 +13622,25 @@
     "trainerClass": "gentleman",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "floor": "2f-cabins",
+    "x": 0,
+    "y": 14,
+    "facing": "right",
     "sprite": "gentleman",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Which do you like, a strong or a rare POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "I must salute you!"
+      },
+      {
+        "label": "After battle",
+        "text": "I prefer strong and rare POKéMON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13422,7 +13664,25 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "floor": "2f-cabins",
+    "x": 2,
+    "y": 11,
+    "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I never saw you at the party."
+      },
+      {
+        "label": "If you win",
+        "text": "Take it easy!"
+      },
+      {
+        "label": "After battle",
+        "text": "Oh, I adore your strong POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13446,7 +13706,25 @@
     "trainerClass": "lass",
     "path": "vermilion-city/ss-anne",
     "area": "2F Rooms",
+    "floor": "2f-cabins",
+    "x": 2,
+    "y": 11,
+    "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I never saw you at the party."
+      },
+      {
+        "label": "If you win",
+        "text": "Take it easy!"
+      },
+      {
+        "label": "After battle",
+        "text": "Oh, I adore your strong POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13465,7 +13743,25 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "floor": "b1f-cabins",
+    "x": 0,
+    "y": 13,
+    "facing": "down",
     "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You know what they say about sailors and fighting!"
+      },
+      {
+        "label": "If you win",
+        "text": "Right! Good fight, mate!"
+      },
+      {
+        "label": "After battle",
+        "text": "Haha! Want to be a sailor, mate?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13484,7 +13780,25 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "floor": "b1f-cabins",
+    "x": 2,
+    "y": 11,
+    "facing": "down",
     "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My sailor's pride is at stake!"
+      },
+      {
+        "label": "If you win",
+        "text": "Your spirit sank me!"
+      },
+      {
+        "label": "After battle",
+        "text": "Did you see the FISHING GURU in VERMILION CITY?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13513,7 +13827,25 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "floor": "b1f-cabins",
+    "x": 12,
+    "y": 3,
+    "facing": "left",
     "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Us sailors have POKéMON too!"
+      },
+      {
+        "label": "If you win",
+        "text": "OK, you're not bad."
+      },
+      {
+        "label": "After battle",
+        "text": "We caught all our POKéMON while out at sea!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13537,7 +13869,25 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "floor": "b1f-cabins",
+    "x": 22,
+    "y": 2,
+    "facing": "down",
     "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I like feisty kids like you!"
+      },
+      {
+        "label": "If you win",
+        "text": "Argh! Lost it!"
+      },
+      {
+        "label": "After battle",
+        "text": "Sea POKéMON live in deep water. You'll need a ROD!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13566,7 +13916,25 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "floor": "b1f-cabins",
+    "x": 0,
+    "y": 2,
+    "facing": "right",
     "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Matey, you're walking the plank if you lose!"
+      },
+      {
+        "label": "If you win",
+        "text": "Argh! Beaten by a kid!"
+      },
+      {
+        "label": "After battle",
+        "text": "Jellyfish some-times drift into the ship."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13585,7 +13953,25 @@
     "trainerClass": "fisher",
     "path": "vermilion-city/ss-anne",
     "area": "B1F Rooms",
+    "floor": "b1f-cabins",
+    "x": 0,
+    "y": 4,
+    "facing": "right",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hello stranger! Stop and chat!\n\nAll my POKéMON are from the sea!"
+      },
+      {
+        "label": "If you win",
+        "text": "Darn! I let that one get away!"
+      },
+      {
+        "label": "After battle",
+        "text": "I was going to make you my assistant too!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13614,7 +14000,25 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "Bow",
+    "floor": "bow",
+    "x": 4,
+    "y": 4,
+    "facing": "down",
     "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey matey!\n\nLet's do a little jig!"
+      },
+      {
+        "label": "If you win",
+        "text": "You're impressive!"
+      },
+      {
+        "label": "After battle",
+        "text": "How many kinds of POKéMON do you think there are?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -13638,7 +14042,25 @@
     "trainerClass": "sailor",
     "path": "vermilion-city/ss-anne",
     "area": "Bow",
+    "floor": "bow",
+    "x": 10,
+    "y": 8,
+    "facing": "up",
     "sprite": "sailor",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ahoy there! Are you seasick?"
+      },
+      {
+        "label": "If you win",
+        "text": "I was just careless!"
+      },
+      {
+        "label": "After battle",
+        "text": "My Pa said there are 100 kinds of POKéMON. I think there are more."
+      }
+    ],
     "parties": [
       {
         "pokemon": [

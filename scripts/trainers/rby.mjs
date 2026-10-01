@@ -119,6 +119,11 @@ const TRAINER_DIALOG_MAPS = new Set([
   'Route25',
   'Route6',
   'VermilionGym',
+  'SSAnne1FRooms',
+  'SSAnne2FRooms',
+  'SSAnneB1FRooms',
+  'SSAnneBow',
+  'SSAnne2F',
 ]);
 
 const OBJECT_DIALOG = {
@@ -301,6 +306,14 @@ const scripted = [
     script: 'SSAnne2F',
     trainer: 'RIVAL2',
     teams: { ...rb([1, 2, 3]), yellow: [1] },
+    object: 'SSANNE2F_RIVAL',
+    shift: { x: 1 },
+    dialog: [
+      { label: 'Before battle', texts: ['_SSAnne2FRivalText'] },
+      { label: 'If you win', texts: ['_SSAnne2FRivalDefeatedText'] },
+      { label: 'If you lose', texts: ['_SSAnne2FRivalVictoryText'] },
+      { label: 'After battle', texts: ['_SSAnne2FRivalCutMasterText'] },
+    ],
   },
   {
     script: 'PokemonTower2F',
@@ -602,6 +615,15 @@ for (const game of games) {
       : { x: Number(x), y: Number(y), facing: facings[direction] ?? 'down' };
   };
 
+  const shifted = (position, shift) =>
+    position && shift
+      ? {
+          ...position,
+          x: position.x + (shift.x ?? 0),
+          y: position.y + (shift.y ?? 0),
+        }
+      : position;
+
   for (const {
     script,
     trainer,
@@ -610,6 +632,7 @@ for (const game of games) {
     teams,
     path,
     object,
+    shift,
     dialog,
   } of scripted) {
     const indices = teams[game.id];
@@ -628,7 +651,7 @@ for (const game of games) {
       sprite: sprite ?? (trainer.startsWith('RIVAL') ? 'BLUE' : undefined),
       ...(path && { path }),
       ...(object && {
-        position: objectPosition(script, object),
+        position: shifted(objectPosition(script, object), shift),
         cutscene: hiddenObjects.has(object),
       }),
       dialog: battleDialog(dialog),

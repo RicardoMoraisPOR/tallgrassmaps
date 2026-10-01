@@ -305,7 +305,15 @@ const wildAreas = mappedConstants.flatMap((constant) => {
       superRodMaps.has(constant));
   const anyWater = (x, y) => fishable.has(facing(x, y));
   const reachable = hasWater && reachableSteps(constant, tiles);
-  const isWater = (x, y) => anyWater(x, y) && reachable(x, y);
+  const isWater = (x, y) =>
+    anyWater(x, y) &&
+    reachable(x, y) &&
+    [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ].some(([dx, dy]) => anyWater(x + dx, y + dy));
   const water = hasWater && {
     outline: outline(tiles.columns, tiles.rows, isWater),
   };

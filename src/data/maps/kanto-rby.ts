@@ -327,7 +327,10 @@ type FloorEntry = {
   name: string;
   size?: Size;
   exits?: Array<
-    { area: Rect; ladder?: boolean } & ({ to: string } | { floor: string })
+    { area: Rect; ladder?: boolean; door?: boolean } & (
+      | { to: string }
+      | { floor: string }
+    )
   >;
   variants?: Array<MapVariant>;
 };
@@ -542,9 +545,126 @@ const inside: Array<InsideEntry> = [
     id: 'ss-anne',
     name: 'S.S. Anne',
     kind: 'dungeon',
-    size: [2000, 2000],
+    size: [448, 192],
     parent: 'vermilion-city',
     entrances: [rect(284, 492, 40, 24)],
+    floors: [
+      {
+        name: 'Dock',
+        size: [448, 192],
+        exits: [
+          { to: 'vermilion-city', area: warp(14, 0) },
+          { floor: '1F', area: warp(14, 2), door: true },
+        ],
+      },
+      {
+        name: '1F',
+        size: [640, 288],
+        exits: [
+          { floor: 'Dock', area: rect(416, 0, 32, 16), door: true },
+          ...[
+            warp(31, 8),
+            warp(23, 8),
+            warp(19, 8),
+            warp(15, 8),
+            warp(11, 8),
+            warp(7, 8),
+          ].map((area) => ({ floor: '1F Cabins', area, door: true })),
+          { floor: '2F', area: warp(2, 6) },
+          { floor: 'B1F', area: warp(37, 15) },
+          { floor: 'Kitchen', area: warp(3, 16), door: true },
+        ],
+      },
+      {
+        name: '1F Cabins',
+        size: [384, 256],
+        exits: [
+          warp(0, 0),
+          warp(10, 0),
+          warp(20, 0),
+          warp(0, 10),
+          warp(10, 10),
+          warp(20, 10),
+        ].map((area) => ({ floor: '1F', area, door: true })),
+      },
+      {
+        name: '2F',
+        size: [640, 288],
+        exits: [
+          ...[
+            warp(9, 11),
+            warp(13, 11),
+            warp(17, 11),
+            warp(21, 11),
+            warp(25, 11),
+            warp(29, 11),
+          ].map((area) => ({ floor: '2F Cabins', area, door: true })),
+          { floor: '1F', area: warp(2, 4) },
+          { floor: '3F', area: warp(2, 12) },
+          { floor: "Captain's Room", area: warp(36, 4), door: true },
+        ],
+      },
+      {
+        name: '2F Cabins',
+        size: [384, 256],
+        exits: [
+          rect(32, 80, 32, 16),
+          rect(192, 80, 32, 16),
+          rect(352, 80, 32, 16),
+          rect(32, 240, 32, 16),
+          rect(192, 240, 32, 16),
+          rect(352, 240, 32, 16),
+        ].map((area) => ({ floor: '2F', area, door: true })),
+      },
+      {
+        name: '3F',
+        size: [320, 96],
+        exits: [
+          { floor: 'Bow', area: warp(0, 3), door: true },
+          { floor: '2F', area: warp(19, 3) },
+        ],
+      },
+      {
+        name: 'Bow',
+        size: [320, 224],
+        exits: [{ floor: '3F', area: rect(208, 96, 16, 32), door: true }],
+      },
+      {
+        name: 'B1F',
+        size: [480, 128],
+        exits: [
+          ...[
+            warp(7, 3),
+            warp(11, 3),
+            warp(15, 3),
+            warp(19, 3),
+            warp(23, 3),
+          ].map((area) => ({ floor: 'B1F Cabins', area, door: true })),
+          { floor: '1F', area: warp(27, 5) },
+        ],
+      },
+      {
+        name: 'B1F Cabins',
+        size: [384, 256],
+        exits: [
+          rect(32, 80, 32, 16),
+          rect(192, 80, 32, 16),
+          rect(352, 80, 32, 16),
+          rect(32, 240, 32, 16),
+          rect(192, 240, 32, 16),
+        ].map((area) => ({ floor: 'B1F', area, door: true })),
+      },
+      {
+        name: 'Kitchen',
+        size: [224, 256],
+        exits: [{ floor: '1F', area: warp(6, 0), door: true }],
+      },
+      {
+        name: "Captain's Room",
+        size: [96, 128],
+        exits: [{ floor: '2F', area: warp(0, 7), door: true }],
+      },
+    ],
   },
   {
     id: 'digletts-cave',
@@ -1122,7 +1242,11 @@ const toLocation = (
   markers: [],
 });
 
-const floorId = (name: string) => name.toLowerCase().replaceAll(' ', '-');
+const floorId = (name: string) =>
+  name
+    .toLowerCase()
+    .replaceAll(' ', '-')
+    .replace(/[^a-z0-9-]/g, '');
 
 const floorFile = (id: string, floor: string) => `${id}/${floorId(floor)}.png`;
 
@@ -1158,9 +1282,10 @@ const toInsideLocation = ({
       id: floorId(floor.name),
       name: floor.name,
       image: floorImage(id, floor.name),
-      hotspots: (floor.exits ?? []).map(({ area, ladder, ...exit }) => ({
+      hotspots: (floor.exits ?? []).map(({ area, ladder, door, ...exit }) => ({
         ...area,
         ...(ladder && { ladder }),
+        ...(door && { door }),
         kind: 'exit' as const,
         ...('to' in exit
           ? { target: exit.to }

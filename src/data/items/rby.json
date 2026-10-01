@@ -758,6 +758,84 @@
     ]
   },
   {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 12,
+    "y": 15,
+    "item": "TM08 Body Slam",
+    "hidden": false,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 12,
+    "y": 1,
+    "item": "Max Ether",
+    "hidden": false,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 0,
+    "y": 12,
+    "item": "Rare Candy",
+    "hidden": false,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "b1f-cabins",
+    "x": 20,
+    "y": 2,
+    "item": "Ether",
+    "hidden": false,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "b1f-cabins",
+    "x": 10,
+    "y": 2,
+    "item": "TM44 Rest",
+    "hidden": false,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "b1f-cabins",
+    "x": 12,
+    "y": 11,
+    "item": "Max Potion",
+    "hidden": false,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
     "path": "fuchsia-city/safari-zone",
     "floor": "center",
     "x": 14,
@@ -1312,6 +1390,32 @@
     "x": 14,
     "y": 7,
     "item": "Ether",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 13,
+    "y": 9,
+    "item": "Great Ball",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "b1f-cabins",
+    "x": 3,
+    "y": 1,
+    "item": "Hyper Potion",
     "hidden": true,
     "games": [
       "red",

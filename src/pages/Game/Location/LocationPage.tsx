@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
@@ -37,6 +37,8 @@ import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 import { StaticPopup, WildPopup } from './WildPopup';
 
+const ARRIVAL_HIGHLIGHT_MS = 2000;
+
 export const LocationPage = () => {
   const route = useGameRoute();
   const navigate = useNavigate();
@@ -44,7 +46,9 @@ export const LocationPage = () => {
 
   const trail = route?.trail;
   const location = trail?.at(-1);
-  const { floor, selectFloor } = useFloor(location?.floors);
+  const { floor, arrivedAt, selectFloor } = useFloor(location?.floors);
+  const { key: visitKey } = useLocation();
+  const [arrivalShown, setArrivalShown] = useState<string>();
   const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
   const dataPath = location?.dataPath ?? scope;
@@ -60,6 +64,19 @@ export const LocationPage = () => {
     scope,
   });
   const [townMapOpen, setTownMapOpen] = useState(false);
+
+  useEffect(() => {
+    if (!arrivedAt) return;
+
+    const timer = setTimeout(
+      () => setArrivalShown(visitKey),
+      ARRIVAL_HIGHLIGHT_MS,
+    );
+
+    return () => clearTimeout(timer);
+  }, [arrivedAt, visitKey]);
+
+  const arrival = arrivalShown === visitKey ? undefined : arrivedAt;
 
   if (!route || !trail || !location) {
     return <NotFoundPage />;
@@ -252,8 +269,10 @@ export const LocationPage = () => {
                 links={links.filter((link) => !hiddenLayers.has(link.layer))}
                 highlightable={links}
                 highlighted={
-                  highlight.scope === scope ? highlight.key : undefined
+                  (highlight.scope === scope ? highlight.key : undefined) ??
+                  arrival
                 }
+                focusKey={arrivedAt}
                 pinRequest={
                   pinRequest?.scope === scope ? pinRequest : undefined
                 }

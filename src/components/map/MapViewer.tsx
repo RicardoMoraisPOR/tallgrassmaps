@@ -12,7 +12,9 @@ import {
   divIcon,
   DomEvent,
   type LatLngBoundsLiteral,
+  type LatLngTuple,
   type LeafletEventHandlerFnMap,
+  type Map as LeafletMap,
   type Marker as LeafletMarker,
   type PathOptions,
   type PointTuple,
@@ -46,6 +48,8 @@ import type { ThemeStyle } from '@/stores/settings';
 import { imageBounds, toLatLng } from './coordinates';
 
 const MAX_ZOOM = 3;
+const FOCUS_DELAY = 250;
+const FOCUS_DURATION = 0.6;
 const HOVER_CARD_GAP = 10;
 const HOVER_CARD_EDGE = 8;
 const SPRITE_SIZE = 16;
@@ -90,6 +94,7 @@ type MapViewerProps = {
   highlightable?: Array<MapLink>;
   highlighted?: string;
   pinRequest?: { key: string };
+  focusKey?: string;
   className?: string;
 };
 
@@ -99,6 +104,7 @@ export const MapViewer = ({
   highlightable = links,
   highlighted,
   pinRequest,
+  focusKey,
   className,
 }: MapViewerProps) => {
   const navigate = useNavigate();
@@ -113,6 +119,16 @@ export const MapViewer = ({
   const hoverCard = links.find(
     (link) => link.tooltip && linkKey(link) === cardKey,
   );
+
+  const focusLink =
+    focusKey &&
+    links.find((link) => [link.highlightKey].flat().includes(focusKey));
+  const focusPoint = focusLink
+    ? toLatLng(
+        focusLink.x + focusLink.width / 2,
+        focusLink.y + focusLink.height / 2,
+      )
+    : undefined;
 
   const iconHrefs = new Set(
     links.flatMap((link) => (link.icon && link.href ? [link.href] : [])),
@@ -302,9 +318,9 @@ export const MapViewer = ({
           setPinnedCardKey(linkKey(link));
         }}
       />
-      <PanPastEdgesForPopups bounds={bounds} />
+      <PanBounds bounds={bounds} />
       <ClosePopupOnOutsidePress />
-      <FitToViewport map={map} />
+      <FitToViewport map={map} focus={focusPoint} />
       {map.pixelated && <PixelatedWhenZoomedIn />}
       <IconSizeForZoom />
     </MapContainer>
@@ -631,10 +647,37 @@ const PinOnRequest = ({
   return null;
 };
 
-const PanPastEdgesForPopups = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
+const PanBounds = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
+  const [[bottom, left], [top, right]] = bounds;
+  const popupOpen = useRef(false);
+
+  const update = (leafletMap: LeafletMap) => {
+    if (popupOpen.current) return leafletMap.setMaxBounds(undefined);
+    if (leafletMap.getZoom() <= leafletMap.getMinZoom())
+      return leafletMap.setMaxBounds(bounds);
+
+    const { x, y } = leafletMap.getSize();
+    const scale = 2 ** leafletMap.getZoom();
+    const padX = x / scale / 2;
+    const padY = y / scale / 2;
+
+    leafletMap.setMaxBounds([
+      [bottom - padY, left - padX],
+      [top + padY, right + padX],
+    ]);
+  };
+
   useMapEvents({
-    popupopen: ({ target }) => target.setMaxBounds(undefined),
-    popupclose: ({ target }) => target.setMaxBounds(bounds),
+    zoomend: ({ target }) => update(target),
+    resize: ({ target }) => update(target),
+    popupopen: ({ target }) => {
+      popupOpen.current = true;
+      update(target);
+    },
+    popupclose: ({ target }) => {
+      popupOpen.current = false;
+      update(target);
+    },
   });
 
   return null;
@@ -657,13 +700,21 @@ const ClosePopupOnOutsidePress = () => {
   return null;
 };
 
-const FitToViewport = ({ map }: { map: MapImage }) => {
+const FitToViewport = ({
+  map,
+  focus,
+}: {
+  map: MapImage;
+  focus?: LatLngTuple;
+}) => {
   const leafletMap = useMap();
+  const { width, height } = map;
+  const [focusLat, focusLng] = focus ?? [];
 
   useEffect(() => {
     const fitZoom = () => {
       const { x, y } = leafletMap.getSize();
-      const zoom = Math.log2(Math.min(x / map.width, y / map.height));
+      const zoom = Math.log2(Math.min(x / width, y / height));
 
       return zoom < 0 ? zoom : Math.floor(zoom);
     };
@@ -672,7 +723,7 @@ const FitToViewport = ({ map }: { map: MapImage }) => {
       const zoom = fitZoom();
 
       Util.setOptions(leafletMap, { zoomSnap: 0 });
-      leafletMap.setView(toLatLng(map.width / 2, map.height / 2), zoom, {
+      leafletMap.setView(toLatLng(width / 2, height / 2), zoom, {
         animate: false,
       });
       Util.setOptions(leafletMap, { zoomSnap: 1 });
@@ -680,6 +731,18 @@ const FitToViewport = ({ map }: { map: MapImage }) => {
     };
 
     fitView();
+
+    const focusOn = (lat: number, lng: number) =>
+      leafletMap.flyTo(
+        [lat, lng],
+        Math.min(Math.floor(leafletMap.getMinZoom()) + 1, MAX_ZOOM),
+        { duration: FOCUS_DURATION },
+      );
+
+    const focusTimer =
+      focusLat !== undefined && focusLng !== undefined
+        ? setTimeout(() => focusOn(focusLat, focusLng), FOCUS_DELAY)
+        : undefined;
 
     const onResize = () => {
       const zoom = fitZoom();
@@ -701,10 +764,11 @@ const FitToViewport = ({ map }: { map: MapImage }) => {
     observer.observe(leafletMap.getContainer());
 
     return () => {
+      clearTimeout(focusTimer);
       observer.disconnect();
       leafletMap.off('resize', onResize);
     };
-  }, [leafletMap, map]);
+  }, [leafletMap, width, height, focusLat, focusLng]);
 
   return null;
 };

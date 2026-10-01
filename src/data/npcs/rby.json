@@ -1813,6 +1813,479 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f",
+    "x": 12,
+    "y": 6,
+    "name": "Waiter",
+    "sprite": "waiter",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Bonjour! I am le waiter on this ship!\n\nI will be happy to serve you any-thing you please!\n\nAh! Le strong silent type!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f",
+    "x": 27,
+    "y": 5,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The passengers are restless!\n\nYou might be challenged by the more bored ones!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 22,
+    "y": 3,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Waiter, I would like a cherry pie please!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 0,
+    "y": 14,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "A cruise is so elegant yet cozy!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 2,
+    "y": 11,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I always travel with WIGGLYTUFF!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 3,
+    "y": 11,
+    "name": "Wigglytuff",
+    "sprite": "fairy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "WIGGLYTUFF: Puup pupuu!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 10,
+    "y": 13,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "We are cruising around the world."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 21,
+    "y": 13,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Ssh! I'm a GLOBAL POLICE agent!\n\nI'm on the trail of TEAM ROCKET!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f",
+    "x": 3,
+    "y": 7,
+    "name": "Waiter",
+    "sprite": "waiter",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This ship, she is a luxury liner for trainers!\n\nAt every port, we hold parties with invited trainers!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 1,
+    "y": 2,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "In all my travels I've never seen any POKéMON sleep like this one!\n\nIt was something like this!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 21,
+    "y": 2,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Ah yes, I have seen some POKéMON ferry people across the water!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 22,
+    "y": 1,
+    "name": "Gramps",
+    "sprite": "gramps",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "POKéMON can CUT down small bushes."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 12,
+    "y": 12,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Have you gone to the SAFARI ZONE in FUCHSIA CITY?\n\nIt had many rare kinds of POKéMON!!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 11,
+    "y": 14,
+    "name": "Little Boy",
+    "sprite": "little_boy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Me and my Daddy think the SAFARI ZONE is awesome!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 22,
+    "y": 12,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "The CAPTAIN looked really sick and pale!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 20,
+    "y": 12,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I hear many people get seasick!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "3f",
+    "x": 9,
+    "y": 3,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Our CAPTAIN is a sword master!\n\nHe even teaches CUT to POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "b1f-cabins",
+    "x": 10,
+    "y": 13,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "My buddy, MACHOKE, is super strong!\n\nHe has enough STRENGTH to move big rocks!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "b1f-cabins",
+    "x": 11,
+    "y": 12,
+    "name": "Machoke",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "MACHOKE: Gwoh! Goggoh!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "bow",
+    "x": 5,
+    "y": 2,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "The party's over. The ship will be departing soon."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "bow",
+    "x": 4,
+    "y": 9,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Scrubbing decks is hard work!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "bow",
+    "x": 7,
+    "y": 11,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Urf. I feel ill.\n\nI stepped out to get some air."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "captains-room",
+    "x": 4,
+    "y": 2,
+    "name": "Captain",
+    "sprite": "captain",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "CAPTAIN: Ooargh... I feel hideous... Urrp! Seasick...\n\nRED rubbed the CAPTAIN's back!\n\nRub-rub... Rub-rub...\n\nCAPTAIN: Whew! Thank you! I feel much better!\n\nYou want to see my CUT technique?\n\nI could show you if I wasn't ill...\n\nI know! You can have this!\n\nTeach it to your POKéMON and you can see it CUT any time!",
+        "trigger": "You rub his back, and he gives you HM01",
+        "gift": {
+          "name": "HM01",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh no! You have no room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "CAPTAIN: Whew!\n\nNow that I'm not sick any more, I guess it's time.",
+        "trigger": "After you get HM01"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 1,
+    "y": 8,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You, mon petit! We're busy here! Out of the way!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 5,
+    "y": 8,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I saw an odd ball in the trash."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 9,
+    "y": 7,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm so busy I'm getting dizzy!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 13,
+    "y": 6,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hum-de-hum-de-ho...\n\nI peel spuds every day! Hum-hum..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 13,
+    "y": 8,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Did you hear about SNORLAX?\n\nAll it does is eat and sleep!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 13,
+    "y": 10,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Snivel...Sniff...\n\nI only get to peel onions... Snivel..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 11,
+    "y": 13,
+    "name": "Chef",
+    "sprite": "cook",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Er-hem! Indeed I am le CHEF!\n\nLe main course is\n\nSalmon du Salad!\n\nLes guests may gripe it's fish again, however!",
+        "trigger": "Usually (50%)"
+      },
+      {
+        "text": "Er-hem! Indeed I am le CHEF!\n\nLe main course is\n\nEels au Barbecue!\n\nLes guests will mutiny, I fear.",
+        "trigger": "Sometimes (25%)"
+      },
+      {
+        "text": "Er-hem! Indeed I am le CHEF!\n\nLe main course is\n\nPrime Beef Steak!\n\nBut, have I enough fillets du beef?",
+        "trigger": "Sometimes (25%)"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
     "path": "route-5/underground-path-route-5",
     "x": 2,
     "y": 3,
@@ -3564,6 +4037,89 @@
       }
     ],
     "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "1f-cabins",
+    "x": 3,
+    "y": 11,
+    "name": "Wigglytuff",
+    "sprite": "yellow/jigglypuff",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "WIGGLYTUFF: Puup pupuu!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "2f-cabins",
+    "x": 1,
+    "y": 2,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "In all my travels, I've never seen any POKéMON sleep like this one!\n\nIt was something like this!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "captains-room",
+    "x": 4,
+    "y": 2,
+    "name": "Captain",
+    "sprite": "captain",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "CAPTAIN: Ooargh... I feel hideous... Urrp! Seasick...\n\nRED rubbed the CAPTAIN's back!\n\nRub-rub... Rub-rub...\n\nCAPTAIN: Whew! Thank you! I feel much better!\n\nYou want to see my CUT technique?\n\nI could show you if I wasn't ill...\n\nI know! You can have this!\n\nTeach it to your POKéMON and you can see it CUT anytime!",
+        "trigger": "You rub his back, and he gives you HM01",
+        "gift": {
+          "name": "HM01",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh no! You have no room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "CAPTAIN: Whew!\n\nNow that I'm not sick anymore, I guess it's time.",
+        "trigger": "After you get HM01"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "vermilion-city/ss-anne",
+    "floor": "kitchen",
+    "x": 11,
+    "y": 13,
+    "name": "Chef",
+    "sprite": "cook",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Er-hem! Indeed I am le CHEF!\n\nLe main course is\n\nSalade de Salmon!\n\nLes guests may gripe it's fish again, however!",
+        "trigger": "Usually (50%)"
+      },
+      {
+        "text": "Er-hem! Indeed I am le CHEF!\n\nLe main course is\n\nEels au Barbecue!\n\nLes guests will mutiny, I fear.",
+        "trigger": "Sometimes (25%)"
+      },
+      {
+        "text": "Er-hem! Indeed I am le CHEF!\n\nLe main course is\n\nPrime Beef Steak!\n\nBut, have I enough fillets du beef?",
+        "trigger": "Sometimes (25%)"
+      }
+    ],
     "games": ["yellow"]
   },
   {

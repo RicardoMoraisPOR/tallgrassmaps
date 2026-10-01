@@ -126,7 +126,7 @@ const buildingLocations = {
   CERULEAN_GYM: 'cerulean-city/cerulean-gym',
   CERULEAN_TRADE_HOUSE: 'cerulean-city/cerulean-trade-house',
   CERULEAN_MELANIES_HOUSE: 'cerulean-city/cerulean-trade-house',
-  VERMILION_DOCK: 'vermilion-city',
+  VERMILION_DOCK: 'vermilion-city/ss-anne',
   VERMILION_TRADE_HOUSE: 'vermilion-city/vermilion-trade-house',
   CELADON_MANSION_ROOF_HOUSE: 'celadon-city',
   CINNABAR_LAB_FOSSIL_ROOM: 'cinnabar-island',
@@ -184,7 +184,19 @@ export const locationFor = (mapConstant) => {
 export const insidePrefixFor = (mapConstant) =>
   Object.keys(insideLocations).find((prefix) => mapConstant.startsWith(prefix));
 
-const namedFloors = { GAME_CORNER: 'game-corner' };
+const namedFloors = {
+  GAME_CORNER: 'game-corner',
+  VERMILION_DOCK: 'dock',
+  SS_ANNE_1F_ROOMS: '1f-cabins',
+  SS_ANNE_2F_ROOMS: '2f-cabins',
+  SS_ANNE_B1F_ROOMS: 'b1f-cabins',
+  SS_ANNE_1_F_ROOMS: '1f-cabins',
+  SS_ANNE_2_F_ROOMS: '2f-cabins',
+  SS_ANNE_B_1_F_ROOMS: 'b1f-cabins',
+  SS_ANNE_BOW: 'bow',
+  SS_ANNE_KITCHEN: 'kitchen',
+  SS_ANNE_CAPTAINS_ROOM: 'captains-room',
+};
 
 export const floorFor = (mapConstant) => {
   if (namedFloors[mapConstant]) return namedFloors[mapConstant];

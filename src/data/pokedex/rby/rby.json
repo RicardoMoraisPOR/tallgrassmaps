@@ -4137,7 +4137,7 @@
         "method": "super-rod",
         "path": "vermilion-city",
         "levels": [10, 20],
-        "chance": [50, 75],
+        "chance": [75, 75],
         "games": ["yellow"]
       },
       {
@@ -4194,6 +4194,20 @@
         "path": "route-21",
         "levels": [15, 30],
         "chance": [50, 50],
+        "games": ["yellow"]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city/ss-anne",
+        "levels": [10, 15],
+        "chance": [50, 50],
+        "floors": [
+          {
+            "floor": "dock",
+            "levels": [10, 15],
+            "chance": [50, 50]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -5431,6 +5445,20 @@
       },
       {
         "method": "super-rod",
+        "path": "vermilion-city/ss-anne",
+        "levels": [15, 15],
+        "chance": [50, 50],
+        "floors": [
+          {
+            "floor": "dock",
+            "levels": [15, 15],
+            "chance": [50, 50]
+          }
+        ],
+        "games": ["red", "blue"]
+      },
+      {
+        "method": "super-rod",
         "path": "route-20/seafoam-islands",
         "levels": [15, 15],
         "chance": [25, 25],
@@ -5483,9 +5511,16 @@
       },
       {
         "method": "super-rod",
-        "path": "vermilion-city",
+        "path": "vermilion-city/ss-anne",
         "levels": [10, 10],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "dock",
+            "levels": [10, 10],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -5899,6 +5934,20 @@
         "path": "cerulean-city/cerulean-gym",
         "levels": [15, 15],
         "chance": [33.3, 33.3],
+        "games": ["red", "blue"]
+      },
+      {
+        "method": "super-rod",
+        "path": "vermilion-city/ss-anne",
+        "levels": [15, 15],
+        "chance": [50, 50],
+        "floors": [
+          {
+            "floor": "dock",
+            "levels": [15, 15],
+            "chance": [50, 50]
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -7583,9 +7632,16 @@
       },
       {
         "method": "super-rod",
-        "path": "vermilion-city",
+        "path": "vermilion-city/ss-anne",
         "levels": [15, 15],
         "chance": [25, 25],
+        "floors": [
+          {
+            "floor": "dock",
+            "levels": [15, 15],
+            "chance": [25, 25]
+          }
+        ],
         "games": ["yellow"]
       },
       {

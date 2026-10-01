@@ -77,6 +77,17 @@ const NPC_MAPS = {
   VERMILION_OLD_ROD_HOUSE: { path: 'vermilion-city/vermilion-old-rod-house' },
   VERMILION_MART: { path: 'vermilion-city/vermilion-poke-mart' },
   VERMILION_POKECENTER: { path: 'vermilion-city/vermilion-pokemon-center' },
+  VERMILION_DOCK: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_1_F: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_1_F_ROOMS: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_2_F: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_2_F_ROOMS: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_3_F: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_BOW: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_B_1_F: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_B_1_F_ROOMS: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_KITCHEN: { path: 'vermilion-city/ss-anne' },
+  SS_ANNE_CAPTAINS_ROOM: { path: 'vermilion-city/ss-anne' },
   UNDERGROUND_PATH_NORTH_SOUTH: {
     path: 'route-5/underground-path-north-south',
   },
@@ -1143,6 +1154,54 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you beat Lt. Surge',
         texts: ['_VermilionGymGymGuideBeatLTSurgeText'],
+      },
+    ],
+  },
+  SSANNEKITCHEN_COOK7: {
+    name: 'Chef',
+    dialog: [
+      {
+        trigger: 'Usually (50%)',
+        texts: [
+          '_SSAnneKitchenCook7MainCourseIsText',
+          'SSAnneKitchenCook7SalmonDuSaladText',
+        ],
+      },
+      {
+        trigger: 'Sometimes (25%)',
+        texts: [
+          '_SSAnneKitchenCook7MainCourseIsText',
+          'SSAnneKitchenCook7EelsAuBarbecueText',
+        ],
+      },
+      {
+        trigger: 'Sometimes (25%)',
+        texts: [
+          '_SSAnneKitchenCook7MainCourseIsText',
+          'SSAnneKitchenCook7PrimeBeefSteakText',
+        ],
+      },
+    ],
+  },
+  SSANNECAPTAINSROOM_CAPTAIN: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'You rub his back, and he gives you HM01',
+        texts: [
+          '_SSAnneCaptainsRoomRubCaptainsBackText',
+          '_SSAnneCaptainsRoomCaptainIFeelMuchBetterText',
+          '_SSAnneCaptainsRoomCaptainReceivedHM01Text',
+        ],
+        gift: { name: 'HM01' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_SSAnneCaptainsRoomCaptainHM01NoRoomText'],
+      },
+      {
+        trigger: 'After you get HM01',
+        texts: ['_SSAnneCaptainsRoomCaptainNotSickAnymoreText'],
       },
     ],
   },

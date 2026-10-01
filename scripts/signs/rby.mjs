@@ -73,6 +73,17 @@ const SIGN_MAPS = {
   VERMILION_OLD_ROD_HOUSE: 'vermilion-city/vermilion-old-rod-house',
   VERMILION_MART: 'vermilion-city/vermilion-poke-mart',
   VERMILION_POKECENTER: 'vermilion-city/vermilion-pokemon-center',
+  VERMILION_DOCK: 'vermilion-city/ss-anne',
+  SS_ANNE_1_F: 'vermilion-city/ss-anne',
+  SS_ANNE_1_F_ROOMS: 'vermilion-city/ss-anne',
+  SS_ANNE_2_F: 'vermilion-city/ss-anne',
+  SS_ANNE_2_F_ROOMS: 'vermilion-city/ss-anne',
+  SS_ANNE_3_F: 'vermilion-city/ss-anne',
+  SS_ANNE_BOW: 'vermilion-city/ss-anne',
+  SS_ANNE_B_1_F: 'vermilion-city/ss-anne',
+  SS_ANNE_B_1_F_ROOMS: 'vermilion-city/ss-anne',
+  SS_ANNE_KITCHEN: 'vermilion-city/ss-anne',
+  SS_ANNE_CAPTAINS_ROOM: 'vermilion-city/ss-anne',
   UNDERGROUND_PATH_NORTH_SOUTH: 'route-5/underground-path-north-south',
 };
 
