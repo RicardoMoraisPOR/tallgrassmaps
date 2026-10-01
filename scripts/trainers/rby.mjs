@@ -118,6 +118,7 @@ const TRAINER_DIALOG_MAPS = new Set([
   'Route24',
   'Route25',
   'Route6',
+  'Route11',
   'VermilionGym',
   'SSAnne1FRooms',
   'SSAnne2FRooms',

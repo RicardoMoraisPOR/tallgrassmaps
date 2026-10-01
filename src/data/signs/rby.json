@@ -198,6 +198,29 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-11",
+    "x": 1,
+    "y": 5,
+    "text": "DIGLETT's CAVE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-11/route-11-gate",
+    "floor": "2f",
+    "x": 1,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nA big POKéMON is asleep on a road!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-11/route-11-gate",
+    "floor": "2f",
+    "x": 6,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nThe only way to get from CERULEAN CITY to LAVENDER is by way of the ROCK TUNNEL.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-2",
     "x": 5,
     "y": 65,

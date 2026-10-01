@@ -64,6 +64,8 @@ const maps = [
     ['PokemonFanClub', 'pokemon-fan-club'],
     ['VermilionPidgeyHouse', 'vermilion-pidgey-house'],
     ['VermilionOldRodHouse', 'vermilion-old-rod-house'],
+    ['Route11Gate1F', 'route-11-gate/1f'],
+    ['Route11Gate2F', 'route-11-gate/2f'],
     ['VermilionDock', 'ss-anne/dock'],
     ['SSAnne1F', 'ss-anne/1f'],
     ['SSAnne1FRooms', 'ss-anne/1f-cabins'],

@@ -1027,6 +1027,30 @@ const services: Array<InsideEntry> = [
     marker: 'house',
   },
   {
+    id: 'route-11-gate',
+    name: 'Route 11 Gate',
+    kind: 'building',
+    size: [128, 160],
+    parent: 'route-11',
+    entrances: [warp(49, 8), warp(58, 8)],
+    marker: 'house',
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'route-11', area: rect(0, 64, 16, 32) },
+          { to: 'route-11', area: rect(112, 64, 16, 32) },
+          { floor: '2F', area: warp(6, 8) },
+        ],
+      },
+      {
+        name: '2F',
+        size: [128, 128],
+        exits: [{ floor: '1F', area: warp(7, 7) }],
+      },
+    ],
+  },
+  {
     id: 'pewter-nidoran-house',
     name: 'Nidoran House',
     kind: 'building',

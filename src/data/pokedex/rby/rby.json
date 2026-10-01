@@ -1631,8 +1631,13 @@
       },
       {
         "method": "trade",
-        "path": "route-11",
+        "path": "route-11/route-11-gate",
         "tradeFor": 33,
+        "floors": [
+          {
+            "floor": "2f"
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -3081,8 +3086,13 @@
       },
       {
         "method": "trade",
-        "path": "route-11",
+        "path": "route-11/route-11-gate",
         "tradeFor": 108,
+        "floors": [
+          {
+            "floor": "2f"
+          }
+        ],
         "games": ["yellow"]
       }
     ]

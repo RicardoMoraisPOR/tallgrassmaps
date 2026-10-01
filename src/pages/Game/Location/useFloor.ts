@@ -2,6 +2,8 @@ import { useSearchParams } from 'react-router';
 
 import type { LocationFloor } from '@/data/maps';
 
+import { arrivalKey } from './locationLinks';
+
 const FLOOR_PARAM = 'floor';
 const VIA_PARAM = 'via';
 
@@ -11,7 +13,7 @@ export const useFloor = (floors: Array<LocationFloor> | undefined) => {
   const requested = params.get(FLOOR_PARAM);
   const floor = floors?.find(({ id }) => id === requested) ?? floors?.at(0);
   const via = params.get(VIA_PARAM);
-  const arrivedAt = via ? `floor-exit:${via}` : undefined;
+  const arrivedAt = via ? arrivalKey(via) : undefined;
 
   const selectFloor = (id: string) =>
     setParams(

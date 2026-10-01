@@ -1627,6 +1627,105 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-11/route-11-gate",
+    "floor": "1f",
+    "x": 4,
+    "y": 1,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "When you catch lots of POKéMON, isn't it hard to think up names?\n\nIn LAVENDER TOWN, there's a man who rates POKéMON nicknames.\n\nHe'll help you rename them too!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-11/route-11-gate",
+    "floor": "2f",
+    "x": 4,
+    "y": 2,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm looking for NIDORINO! Wanna\n\ntrade one for NIDORINA?",
+        "trigger": "Offers Nidorina for your Nidorino",
+        "trade": {
+          "give": {
+            "number": 33,
+            "name": "Nidorino"
+          },
+          "receive": {
+            "number": 30,
+            "name": "Nidorina"
+          }
+        }
+      },
+      {
+        "text": "Awww! Oh well...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "What? That's not NIDORINO!\n\nIf you get one, come back here!",
+        "trigger": "If you offer a Pokémon other than Nidorino"
+      },
+      {
+        "text": "Hey thanks!",
+        "trigger": "After the trade, you get Nidorina nicknamed Terry"
+      },
+      {
+        "text": "Isn't my old NIDORINA great?",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-11/route-11-gate",
+    "floor": "2f",
+    "x": 2,
+    "y": 6,
+    "name": "Oak's Aide",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi! Remember me? I'm PROF.OAK's AIDE!\n\nIf you caught 30 kinds of POKéMON, I'm supposed to give you an ITEMFINDER!\n\nSo, RED! Have you caught at least 30 kinds of POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Great! You have caught 30 kinds of POKéMON! Congratulations!\n\nHere you go!\n\nRED got the ITEMFINDER!\n\nThere are items on the ground that can't be seen.\n\nITEMFINDER will detect an item close to you.\n\nIt can't pinpoint it, so you have to look yourself!",
+        "trigger": "If you say yes with at least 30 kinds caught, he gives you the Itemfinder",
+        "gift": {
+          "name": "Itemfinder",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh! I see you don't have any room for the ITEMFINDER.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Let's see... Uh-oh! You have caught only X kinds of POKéMON!\n\nYou need 30 kinds if you want the ITEMFINDER.",
+        "trigger": "If you say yes with fewer than 30 kinds caught"
+      },
+      {
+        "text": "Oh. I see.\n\nWhen you get 30 kinds, come back for ITEMFINDER.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "There are items on the ground that can't be seen.\n\nITEMFINDER will detect an item close to you.\n\nIt can't pinpoint it, so you have to look yourself!",
+        "trigger": "After you get the Itemfinder"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-2/route-2-gate",
     "x": 1,
     "y": 4,
@@ -3915,6 +4014,49 @@
         "trigger": "After you get your first Pokémon, she heals your party"
       }
     ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-11/route-11-gate",
+    "floor": "2f",
+    "x": 4,
+    "y": 2,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm looking for LICKITUNG! Wanna\n\ntrade one for DUGTRIO?",
+        "trigger": "Offers Dugtrio for your Lickitung",
+        "trade": {
+          "give": {
+            "number": 108,
+            "name": "Lickitung"
+          },
+          "receive": {
+            "number": 51,
+            "name": "Dugtrio"
+          }
+        }
+      },
+      {
+        "text": "Awww! Oh well...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "What? That's not LICKITUNG!\n\nIf you get one, come back here!",
+        "trigger": "If you offer a Pokémon other than Lickitung"
+      },
+      {
+        "text": "Hey thanks!",
+        "trigger": "After the trade, you get Dugtrio nicknamed Gurio"
+      },
+      {
+        "text": "Isn't my old DUGTRIO great?",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
     "games": ["yellow"]
   },
   {

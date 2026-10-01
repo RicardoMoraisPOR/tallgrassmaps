@@ -9,7 +9,7 @@ import {
   hasOwnMapImage,
   read,
 } from '../rby/disassembly.mjs';
-import { mapText } from '../rby/text.mjs';
+import { farText, mapText } from '../rby/text.mjs';
 
 const OUTPUT = new URL('../../src/data/signs/rby.json', import.meta.url);
 
@@ -31,6 +31,8 @@ const SIGN_MAPS = {
   VIRIDIAN_FOREST_SOUTH_GATE: 'route-2/viridian-forest-south-gate',
   DIGLETTS_CAVE_ROUTE_2: 'route-2/digletts-cave-route-2',
   DIGLETTS_CAVE_ROUTE_11: 'route-11/digletts-cave-route-11',
+  ROUTE_11: 'route-11',
+  ROUTE_11_GATE_2_F: 'route-11/route-11-gate',
   VIRIDIAN_FOREST: 'route-2/viridian-forest',
   PEWTER_CITY: 'pewter-city',
   PEWTER_GYM: 'pewter-city/pewter-gym',
@@ -87,6 +89,10 @@ const SIGN_MAPS = {
   UNDERGROUND_PATH_NORTH_SOUTH: 'route-5/underground-path-north-south',
 };
 
+const SIGN_TEXTS = {
+  ROUTE11GATE2F_LEFT_BINOCULARS: '_Route11Gate2FLeftBinocularsSnorlaxText',
+};
+
 const OPENABLE_OBJECTS = [
   [/_POKEDEX\d*$/, 'pokedex'],
   [/_TOWN_MAP$/, 'town-map'],
@@ -120,7 +126,9 @@ for (const game of games) {
     for (const [, x, y, textId] of text.matchAll(
       /^bg_event\s+(\d+),\s*(\d+),\s*TEXT_(\w+)$/gm,
     )) {
-      const message = mapText(game, file, textId);
+      const message = SIGN_TEXTS[textId]
+        ? farText(game, SIGN_TEXTS[textId])
+        : mapText(game, file, textId);
 
       if (!message) continue;
 

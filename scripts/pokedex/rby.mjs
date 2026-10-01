@@ -270,6 +270,7 @@ for (const game of games) {
         path: locationFor(trade[3]),
         game: game.id,
         tradeFor: trade[1],
+        map: trade[3],
       };
 
       addEncounter(trade[2], encounter);

@@ -6413,6 +6413,20 @@
     "y": 14,
     "facing": "down",
     "sprite": "gambler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Win, lose or draw!"
+      },
+      {
+        "label": "If you win",
+        "text": "Atcha! Didn't go my way!"
+      },
+      {
+        "label": "After battle",
+        "text": "POKéMON is life! And to live is to gamble!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6439,6 +6453,20 @@
     "y": 9,
     "facing": "down",
     "sprite": "gambler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Competition! I can't get enough!"
+      },
+      {
+        "label": "If you win",
+        "text": "I had a chance!"
+      },
+      {
+        "label": "After battle",
+        "text": "You can't be a coward in the world of POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6465,6 +6493,20 @@
     "y": 5,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Let's go, but don't cheat!"
+      },
+      {
+        "label": "If you win",
+        "text": "Huh? That's not right!"
+      },
+      {
+        "label": "After battle",
+        "text": "I did my best! I have no regrets!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6486,6 +6528,20 @@
     "y": 11,
     "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Careful! I'm laying down some cables!"
+      },
+      {
+        "label": "If you win",
+        "text": "That was electric!"
+      },
+      {
+        "label": "After battle",
+        "text": "Spread the word to save energy!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6507,6 +6563,20 @@
     "y": 4,
     "facing": "up",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I just became a trainer! But, I think I can win!"
+      },
+      {
+        "label": "If you win",
+        "text": "My POKéMON couldn't!"
+      },
+      {
+        "label": "After battle",
+        "text": "What do you want? Leave me alone!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6533,6 +6603,20 @@
     "y": 7,
     "facing": "down",
     "sprite": "gambler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Fwahaha! I have never lost!"
+      },
+      {
+        "label": "If you win",
+        "text": "My first loss!"
+      },
+      {
+        "label": "After battle",
+        "text": "Luck of the draw! Just luck!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6559,6 +6643,20 @@
     "y": 3,
     "facing": "up",
     "sprite": "gambler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I have never won before..."
+      },
+      {
+        "label": "If you win",
+        "text": "I saw this coming..."
+      },
+      {
+        "label": "After battle",
+        "text": "It's just luck. Luck of the draw."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6585,6 +6683,20 @@
     "y": 5,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm the best in my class!"
+      },
+      {
+        "label": "If you win",
+        "text": "Darn! I need to make my POKéMON stronger!"
+      },
+      {
+        "label": "After battle",
+        "text": "There's a fat POKéMON that comes down from the mountains.\n\nIt's strong if you can get it."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6616,6 +6728,20 @@
     "y": 16,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Watch out for live wires!"
+      },
+      {
+        "label": "If you win",
+        "text": "Whoa! You spark plug!"
+      },
+      {
+        "label": "After battle",
+        "text": "Well, better get back to work."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6647,6 +6773,20 @@
     "y": 12,
     "facing": "up",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My POKéMON should be ready by now!"
+      },
+      {
+        "label": "If you win",
+        "text": "Too much, too young!"
+      },
+      {
+        "label": "After battle",
+        "text": "I better go find stronger ones!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6673,6 +6813,20 @@
     "y": 12,
     "facing": "up",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My POKéMON should be ready by now!"
+      },
+      {
+        "label": "If you win",
+        "text": "Too much, too young!"
+      },
+      {
+        "label": "After battle",
+        "text": "I better go find stronger ones!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

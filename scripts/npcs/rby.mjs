@@ -35,6 +35,9 @@ const NPC_MAPS = {
   VIRIDIAN_FOREST_SOUTH_GATE: { path: 'route-2/viridian-forest-south-gate' },
   DIGLETTS_CAVE_ROUTE_2: { path: 'route-2/digletts-cave-route-2' },
   DIGLETTS_CAVE_ROUTE_11: { path: 'route-11/digletts-cave-route-11' },
+  ROUTE_11: { path: 'route-11' },
+  ROUTE_11_GATE_1_F: { path: 'route-11/route-11-gate' },
+  ROUTE_11_GATE_2_F: { path: 'route-11/route-11-gate' },
   VIRIDIAN_FOREST: { path: 'route-2/viridian-forest' },
   PEWTER_CITY: { path: 'pewter-city' },
   PEWTER_GYM: { path: 'pewter-city/pewter-gym' },
@@ -383,6 +386,46 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get HM05',
         texts: ['_Route2GateOaksAideFlashExplanationText'],
+      },
+    ],
+  },
+  ROUTE11GATE2F_OAKS_AIDE: {
+    values: {
+      wOaksAideRewardItemName: 'ITEMFINDER',
+      hOaksAideRequirement: '30',
+    },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_OaksAideHiText'],
+      },
+      {
+        trigger:
+          'If you say yes with at least 30 kinds caught, he gives you the Itemfinder',
+        texts: [
+          '_OaksAideHereYouGoText',
+          '_OaksAideGotItemText',
+          '_Route11Gate2FOaksAideItemfinderDescriptionText',
+        ],
+        values: { hOaksAideNumMonsOwned: '30' },
+        gift: { name: 'Itemfinder' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_OaksAideNoRoomText'],
+      },
+      {
+        trigger: 'If you say yes with fewer than 30 kinds caught',
+        texts: ['_OaksAideUhOhText'],
+        values: { hOaksAideNumMonsOwned: 'X' },
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_OaksAideComeBackText'],
+      },
+      {
+        trigger: 'After you get the Itemfinder',
+        texts: ['_Route11Gate2FOaksAideItemfinderDescriptionText'],
       },
     ],
   },
@@ -1310,18 +1353,24 @@ const dexNumbers = (game) =>
   );
 
 const npcTrade = (game, file, textId) => {
-  const nickname = mapTextBlock(game, file, textId)
-    ?.block.map((line) => line.match(/^ld a, TRADE_FOR_(\w+)$/)?.[1])
-    .find(Boolean);
+  const block = mapTextBlock(game, file, textId)?.block ?? [];
+  const trades = [
+    ...read(game.dir, 'data/events/trades.asm').matchAll(
+      /npctrade (\w+),\s*(\w+),\s*TRADE_DIALOGSET_(\w+),\s*"(\w+)"/g,
+    ),
+  ];
+  const whichTrade = block.indexOf('ld [wWhichTrade], a');
+  const nickname =
+    block[whichTrade - 1] === 'xor a'
+      ? trades[0]?.[4]
+      : block
+          .map((line) => line.match(/^ld a, TRADE_FOR_(\w+)$/)?.[1])
+          .find(Boolean);
 
-  if (!nickname) return undefined;
+  if (whichTrade < 0 || !nickname) return undefined;
 
   const [, give, receive, dialogSet] =
-    [
-      ...read(game.dir, 'data/events/trades.asm').matchAll(
-        /npctrade (\w+),\s*(\w+),\s*TRADE_DIALOGSET_(\w+),\s*"(\w+)"/g,
-      ),
-    ].find(([, , , , name]) => name === nickname) ?? [];
+    trades.find(([, , , , name]) => name === nickname) ?? [];
 
   if (!give) return undefined;
 

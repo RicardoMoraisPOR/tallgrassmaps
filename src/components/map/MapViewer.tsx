@@ -50,6 +50,7 @@ import { imageBounds, toLatLng } from './coordinates';
 const MAX_ZOOM = 3;
 const FOCUS_DELAY = 250;
 const FOCUS_DURATION = 0.6;
+const FOCUS_BELOW_ZOOM = 1;
 const HOVER_CARD_GAP = 10;
 const HOVER_CARD_EDGE = 8;
 const SPRITE_SIZE = 16;
@@ -740,7 +741,9 @@ const FitToViewport = ({
       );
 
     const focusTimer =
-      focusLat !== undefined && focusLng !== undefined
+      focusLat !== undefined &&
+      focusLng !== undefined &&
+      leafletMap.getMinZoom() < FOCUS_BELOW_ZOOM
         ? setTimeout(() => focusOn(focusLat, focusLng), FOCUS_DELAY)
         : undefined;
 

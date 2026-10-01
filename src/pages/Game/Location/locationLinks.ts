@@ -140,6 +140,55 @@ const floorName = (location: Location, id: string) =>
 const floorLabel = (location: Location, step: FloorStep, to: string) =>
   `${step === 'up' ? 'Up' : 'Down'} to ${floorName(location, to)}`;
 
+export const arrivalKey = (via: string) => `arrival:${via}`;
+
+const withQuery = (base: string, query: Record<string, string | undefined>) => {
+  const params = new URLSearchParams(
+    Object.entries(query).flatMap(([key, value]) =>
+      value ? [[key, value]] : [],
+    ),
+  ).toString();
+
+  return params ? `${base}?${params}` : base;
+};
+
+type Landing = { target: string; floor?: string };
+
+const landings = (location: Location, floor?: LocationFloor) => [
+  ...(floor?.hotspots ?? location.hotspots),
+  ...location.markers.flatMap(({ target }) => (target ? [{ target }] : [])),
+];
+
+export const arrivals = (
+  region: Region,
+  location: Location,
+  floor?: LocationFloor,
+) => {
+  const landingKey = ({ target, floor: to }: Landing) =>
+    `${target}:${to ?? getLocation(region, target)?.floors?.[0]?.id ?? ''}`;
+  const lookKey = ({ target, floor: to }: Landing) =>
+    `${getLocation(region, target)?.name}:${to ?? ''}`;
+  const all = landings(location, floor);
+  const looks = new Map<string, number>();
+  const seen = new Map<string, number>();
+
+  for (const landing of all)
+    looks.set(lookKey(landing), (looks.get(lookKey(landing)) ?? 0) + 1);
+
+  return all.map((landing) => {
+    const key = landingKey(landing);
+    const count = (seen.get(key) ?? 0) + 1;
+
+    seen.set(key, count);
+
+    return {
+      key: `${key}:${count}`,
+      count,
+      ambiguous: (looks.get(lookKey(landing)) ?? 0) > 1,
+    };
+  });
+};
+
 export const locationLinks = (
   region: Region,
   location: Location,
@@ -210,40 +259,70 @@ export const locationLinks = (
 
     if (single) return { label: `${kind} to ${floorName(target, floorId)}` };
 
+    return { label: `${kind} #${count} to ${floorName(target, floorId)}` };
+  };
+
+  const here = arrivals(region, location, floor);
+  const ambiguousAt = new Map<string, Set<string>>();
+
+  const arrivesAmbiguously = ({ target, floor: to }: Landing, via: string) => {
+    const destination = getLocation(region, target);
+
+    if (!destination) return false;
+
+    const destinationFloor =
+      destination.floors?.find(({ id }) => id === to) ??
+      destination.floors?.[0];
+    const cacheKey = `${target}:${destinationFloor?.id ?? ''}`;
+
+    if (!ambiguousAt.has(cacheKey))
+      ambiguousAt.set(
+        cacheKey,
+        new Set(
+          arrivals(region, destination, destinationFloor).flatMap(
+            ({ key, ambiguous }) => (ambiguous ? [key] : []),
+          ),
+        ),
+      );
+
+    return ambiguousAt.get(cacheKey)!.has(via);
+  };
+
+  const pairing = (landing: Landing, index: number) => {
+    const { key, count, ambiguous } = here[index];
+    const via = `${path}:${floor?.id ?? ''}:${count}`;
+
     return {
-      label: `${kind} #${count} to ${floorName(target, floorId)}`,
-      highlightKey: `floor-exit:${floorId}:${count}`,
-      via: floor && `${floor.id}:${count}`,
+      arrival: ambiguous ? arrivalKey(key) : undefined,
+      via: arrivesAmbiguously(landing, via) ? via : undefined,
     };
   };
 
-  const hotspotLink = (hotspot: LocationHotspot) => {
+  const hotspotLink = (hotspot: LocationHotspot, index: number) => {
     const target = getLocation(region, hotspot.target);
 
     if (!target) return undefined;
-    if (!hotspot.floor)
-      return {
-        href: href(hotspot.target),
-        label: placeName(hotspot.target, target.name),
-      };
-    if (hotspot.target !== path)
-      return {
-        href: `${href(hotspot.target)}?floor=${hotspot.floor}`,
-        label: placeName(hotspot.target, target.name),
-      };
 
-    const { via, ...exit } = floorExitLabel(hotspot, target);
+    const { arrival, via } = pairing(hotspot, index);
+    const base = {
+      href: withQuery(href(hotspot.target), { floor: hotspot.floor, via }),
+      ...(arrival && { highlightKey: [href(hotspot.target), arrival] }),
+    };
+
+    if (!hotspot.floor || hotspot.target !== path)
+      return { ...base, label: placeName(hotspot.target, target.name) };
 
     return {
-      href: `${href(hotspot.target)}?floor=${hotspot.floor}${via ? `&via=${via}` : ''}`,
-      ...exit,
+      ...base,
+      ...floorExitLabel(hotspot, target),
+      ...(arrival && { highlightKey: arrival }),
       replace: true,
       stairs: true,
     };
   };
 
-  const links: Array<LayeredMapLink> = hotspots.flatMap((hotspot) => {
-    const link = hotspotLink(hotspot);
+  const links: Array<LayeredMapLink> = hotspots.flatMap((hotspot, index) => {
+    const link = hotspotLink(hotspot, index);
     const layer = hotspotLayer(hotspot);
 
     return link
@@ -285,19 +364,23 @@ export const locationLinks = (
     },
   );
 
-  const markers: Array<LayeredMapLink> = location.markers.map(
-    ({ kind, name, target, ...area }) => {
-      const layer = markerLayer(kind);
+  const markerTargets = location.markers.filter(({ target }) => target);
+  const markers: Array<LayeredMapLink> = location.markers.map((marker) => {
+    const { kind, name, target, ...area } = marker;
+    const layer = markerLayer(kind);
+    const { arrival, via } = target
+      ? pairing({ target }, hotspots.length + markerTargets.indexOf(marker))
+      : {};
 
-      return {
-        ...area,
-        href: target && href(target),
-        label: name,
-        layer: layer.id,
-        className: layer.className,
-      };
-    },
-  );
+    return {
+      ...area,
+      href: target && withQuery(href(target), { via }),
+      ...(target && arrival && { highlightKey: [href(target), arrival] }),
+      label: name,
+      layer: layer.id,
+      className: layer.className,
+    };
+  });
 
   const buildingIcons: Array<LayeredMapLink> = [
     ...links.filter((link) => link.layer === 'buildings'),
@@ -616,8 +699,22 @@ export const locationLinks = (
     return entries;
   };
 
-  const listedHrefs = new Set(mapLinks.flatMap((link) => link.href ?? []));
+  const listedHrefs = new Set(
+    mapLinks.flatMap((link) => link.href?.split('?')[0] ?? []),
+  );
+  const reachedThroughChildren = new Set(
+    location.locations.flatMap((child) =>
+      [
+        ...child.hotspots,
+        ...(child.floors ?? []).flatMap(({ hotspots }) => hotspots),
+      ].map(({ target }) => target),
+    ),
+  );
   const unlistedChildren: Array<LayerEntry> = location.locations
+    .filter(
+      (child) =>
+        !reachedThroughChildren.has(child.dataPath ?? joinPath(path, child.id)),
+    )
     .map((child) => {
       const childHref = href(joinPath(path, child.id));
 
