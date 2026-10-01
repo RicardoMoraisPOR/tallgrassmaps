@@ -60,6 +60,8 @@ const NPC_MAPS = {
   CERULEAN_MART: { path: 'cerulean-city/cerulean-poke-mart' },
   CERULEAN_POKECENTER: { path: 'cerulean-city/cerulean-pokemon-center' },
   ROUTE_24: { path: 'route-24' },
+  ROUTE_25: { path: 'route-25' },
+  BILLS_HOUSE: { path: 'route-25/bills-house' },
 };
 
 const OBJECT_SPRITES = new Set([
@@ -796,6 +798,47 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
+  BILLSHOUSE_BILL_POKEMON: {
+    name: 'Bill',
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_BillsHouseBillImNotAPokemonText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_BillsHouseBillUseSeparationSystemText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: [
+          '_BillsHouseBillNoYouGottaHelpText',
+          '_BillsHouseBillUseSeparationSystemText',
+        ],
+      },
+    ],
+  },
+  BILLSHOUSE_BILL1: {
+    name: 'Bill',
+    cutscene: true,
+    dialog: [
+      {
+        trigger:
+          'After you run the Cell Separation System, he gives you the S.S. Ticket',
+        texts: ['_BillsHouseBillThankYouText', '_SSTicketReceivedText'],
+        gift: { name: 'S.S. Ticket' },
+      },
+      { trigger: 'If your bag is full', texts: ['_SSTicketNoRoomText'] },
+      {
+        trigger: 'After you get the S.S. Ticket',
+        texts: ['_BillsHouseBillWhyDontYouGoInsteadOfMeText'],
+      },
+      {
+        trigger: 'Later, he moves to his PC',
+        texts: ['_BillsHouseBillCheckOutMyRarePokemonText'],
+      },
+    ],
+  },
   OAKSLAB_OAK1: {
     dialog: [
       {
@@ -1082,7 +1125,7 @@ for (const game of games) {
         ...(floor && { floor }),
         x: Number(x),
         y: Number(y),
-        name: spriteNames[sprite] ?? displayName(textId),
+        name: scripted?.name ?? spriteNames[sprite] ?? displayName(textId),
         sprite: spritePath(game, sprite),
         facing: facings[direction] ?? 'down',
         dialog,

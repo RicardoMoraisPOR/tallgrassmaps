@@ -56,6 +56,8 @@ const SIGN_MAPS = {
   CERULEAN_MART: 'cerulean-city/cerulean-poke-mart',
   CERULEAN_POKECENTER: 'cerulean-city/cerulean-pokemon-center',
   ROUTE_24: 'route-24',
+  ROUTE_25: 'route-25',
+  BILLS_HOUSE: 'route-25/bills-house',
 };
 
 const OPENABLE_OBJECTS = [

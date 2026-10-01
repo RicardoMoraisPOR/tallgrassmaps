@@ -73,6 +73,62 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-25/bills-house",
+    "x": 6,
+    "y": 5,
+    "name": "Bill",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hiya! I'm a POKéMON... ...No I'm not!\n\nCall me BILL! I'm a true blue POKéMANIAC! Hey! What's with that skeptical look?\n\nI'm not joshing you, I screwed up an experiment and got combined with a POKéMON!\n\nSo, how about it? Help me out here!",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "When I'm in the TELEPORTER, go to my PC and run the Cell Separation System!",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "No!? Come on, you gotta help a guy in deep trouble!\n\nWhat do you say, chief? Please? OK? All right!\n\nWhen I'm in the TELEPORTER, go to my PC and run the Cell Separation System!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-25/bills-house",
+    "x": 4,
+    "y": 4,
+    "name": "Bill",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "BILL: Yeehah! Thanks, bud! I owe you one!\n\nSo, did you come to see my POKéMON collection? You didn't? That's a bummer.\n\nI've got to thank you... Oh here, maybe this'll do.",
+        "trigger": "After you run the Cell Separation System, he gives you the S.S. Ticket",
+        "gift": {
+          "name": "S.S. Ticket",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You've got too much stuff, bud!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "That cruise ship, S.S.ANNE, is in VERMILION CITY. Its passengers are all trainers!\n\nThey invited me to their party, but I can't stand fancy do's. Why don't you go instead of me?",
+        "trigger": "After you get the S.S. Ticket"
+      },
+      {
+        "text": "BILL: Look, bud, just check out some of my rare POKéMON on my PC!",
+        "trigger": "Later, he moves to his PC"
+      }
+    ],
+    "cutscene": true,
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pallet-town/blues-house",
     "x": 2,
     "y": 3,

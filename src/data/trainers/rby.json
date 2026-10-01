@@ -10631,6 +10631,20 @@
     "y": 2,
     "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Local trainers come here to practice!"
+      },
+      {
+        "label": "If you win",
+        "text": "You're decent."
+      },
+      {
+        "label": "After battle",
+        "text": "All POKéMON have weaknesses. It's best to raise different kinds."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10657,6 +10671,20 @@
     "y": 5,
     "facing": "up",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Dad took me to a great party on S.S.ANNE at VERMILION CITY!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm not mad!"
+      },
+      {
+        "label": "After battle",
+        "text": "On S.S.ANNE, I saw trainers from around the world."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10678,6 +10706,20 @@
     "y": 4,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm a cool guy. I've got a girl friend!"
+      },
+      {
+        "label": "If you win",
+        "text": "Aww, darn..."
+      },
+      {
+        "label": "After battle",
+        "text": "Oh well. My girl will cheer me up."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10704,6 +10746,20 @@
     "y": 8,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi! My boy friend is cool!"
+      },
+      {
+        "label": "If you win",
+        "text": "I was in bad condition!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish my guy was as good as you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10730,6 +10786,20 @@
     "y": 8,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi! My boy friend is cool!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm in a slump!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish my guy was as good as you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10756,6 +10826,20 @@
     "y": 3,
     "facing": "left",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I knew I had to fight you!"
+      },
+      {
+        "label": "If you win",
+        "text": "I knew I'd lose too!"
+      },
+      {
+        "label": "After battle",
+        "text": "If your POKéMON gets confused or falls asleep, switch it!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10782,6 +10866,20 @@
     "y": 4,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My friend has a cute POKéMON. I'm so jealous!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm not so jealous!"
+      },
+      {
+        "label": "After battle",
+        "text": "You came from MT. MOON? May I have a CLEFAIRY?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10813,6 +10911,20 @@
     "y": 4,
     "facing": "right",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I just got down from MT.MOON, but I'm ready!"
+      },
+      {
+        "label": "If you win",
+        "text": "You worked hard!"
+      },
+      {
+        "label": "After battle",
+        "text": "Drat! A ZUBAT bit me back in there."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10839,6 +10951,20 @@
     "y": 9,
     "facing": "up",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm off to see a POKéMON collector at the cape!"
+      },
+      {
+        "label": "If you win",
+        "text": "You got me."
+      },
+      {
+        "label": "After battle",
+        "text": "The collector has many rare kinds of POKéMON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10875,6 +11001,20 @@
     "y": 7,
     "facing": "right",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You're going to see BILL? First, let's fight!"
+      },
+      {
+        "label": "If you win",
+        "text": "You're something."
+      },
+      {
+        "label": "After battle",
+        "text": "The trail below is a shortcut to CERULEAN CITY."
+      }
+    ],
     "parties": [
       {
         "pokemon": [

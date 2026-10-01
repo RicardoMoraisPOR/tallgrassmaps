@@ -53,6 +53,7 @@ const maps = [
     ['BikeShop', 'bike-shop'],
     ['CeruleanBadgeHouse', 'cerulean-badge-house'],
     ['CeruleanTrashedHouse', 'cerulean-trashed-house'],
+    ['BillsHouse', 'bills-house'],
     ['RedsHouse1F', 'reds-house/1f'],
     ['RedsHouse2F', 'reds-house/2f'],
   ].map(([name, out, yellowName]) => ({

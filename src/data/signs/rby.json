@@ -198,6 +198,13 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-25",
+    "x": 43,
+    "y": 3,
+    "text": "SEA COTTAGE BILL lives here!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-3",
     "x": 59,
     "y": 9,

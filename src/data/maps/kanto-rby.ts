@@ -945,6 +945,16 @@ const services: Array<InsideEntry> = [
     marker: 'house',
   },
   {
+    id: 'bills-house',
+    name: "Bill's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'route-25',
+    entrances: [warp(45, 3)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
     id: 'reds-house',
     name: "Red's House",
     kind: 'building',

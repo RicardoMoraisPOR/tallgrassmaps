@@ -116,6 +116,7 @@ const TRAINER_DIALOG_MAPS = new Set([
   'CeruleanCity',
   'CeruleanGym',
   'Route24',
+  'Route25',
 ]);
 
 const OBJECT_DIALOG = {
