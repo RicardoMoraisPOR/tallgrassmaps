@@ -8,6 +8,7 @@ const OUTPUT = new URL(
   import.meta.url,
 );
 const WATER_TILES = new Set([WATER_TILE, 0x32, 0x48]);
+const GROUND = { water: 0, grass: 1, path: 2 };
 const OUTDOOR = /^(ROUTE_\d+|[A-Z_]+_(TOWN|CITY|ISLAND)|INDIGO_PLATEAU)$/;
 
 const ledgeTiles = new Set(
@@ -28,6 +29,7 @@ const gridFor = (constant) => {
     columns,
     rows,
     passable,
+    grassTile,
     tileAt: tileAtTile,
   } = mapTiles(constant);
 
@@ -52,7 +54,16 @@ const gridFor = (constant) => {
     ),
   ].map(([, x, y]) => [Number(x), Number(y)]);
 
-  grids[constant] = { columns, rows, walkable, crossable, seeds };
+  const ground = (x, y) => {
+    const tile = tileAt(x, y);
+
+    if (WATER_TILES.has(tile)) return GROUND.water;
+    if (tile === grassTile) return GROUND.grass;
+
+    return GROUND.path;
+  };
+
+  grids[constant] = { columns, rows, walkable, crossable, ground, seeds };
 
   return grids[constant];
 };
@@ -202,6 +213,38 @@ for (let pass = 0; pass < 10; pass++) {
   if (added === 0) break;
 }
 
+const runsOf = (steps) => {
+  const runs = [];
+
+  for (const step of steps) {
+    const last = runs.at(-1);
+
+    if (last && last.at(-1) === step - 1) last.push(step);
+    else runs.push([step]);
+  }
+
+  return runs;
+};
+
+const mainPath = (constant, { direction, target, offset }, steps) => {
+  const here = gridFor(constant);
+  const there = gridFor(target);
+  const ground = (step) =>
+    Math.min(
+      here.ground(...edgeSquare(here, direction, step)),
+      there.ground(
+        ...edgeSquare(there, opposite[direction], step - offset * 2),
+      ),
+    );
+  const best = Math.max(...steps.map(ground));
+  const middle = (steps[0] + steps.at(-1)) / 2;
+  const distance = (run) => Math.abs((run[0] + run.at(-1)) / 2 - middle);
+
+  return runsOf(steps.filter((step) => ground(step) === best)).sort(
+    (a, b) => b.length - a.length || distance(a) - distance(b),
+  )[0];
+};
+
 const connections = {};
 
 for (const [constant, links] of Object.entries(open)) {
@@ -209,25 +252,22 @@ for (const [constant, links] of Object.entries(open)) {
 
   connections[locationFor(constant)] = links.flatMap(
     ({ connection, steps }) => {
-      const runs = [];
+      if (steps.length === 0) return [];
 
-      for (const step of steps) {
-        const last = runs.at(-1);
+      const run = mainPath(constant, connection, steps);
 
-        if (last && last.end === step - 1) last.end = step;
-        else runs.push({ start: step, end: step });
-      }
-
-      return runs.map(({ start, end }) => ({
-        to: locationFor(connection.target),
-        direction: connection.direction,
-        area: toArea(
-          grid,
-          connection.direction,
-          start * STEP,
-          (end - start + 1) * STEP,
-        ),
-      }));
+      return [
+        {
+          to: locationFor(connection.target),
+          direction: connection.direction,
+          area: toArea(
+            grid,
+            connection.direction,
+            run[0] * STEP,
+            run.length * STEP,
+          ),
+        },
+      ];
     },
   );
 }

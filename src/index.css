@@ -349,7 +349,6 @@
   --map-link: oklch(0.65 0.2 145);
   --map-connection: var(--map-link);
   --map-entrance: oklch(0.75 0.16 65);
-  --map-house: oklch(0.68 0.14 300);
   --map-service: oklch(0.65 0.21 25);
   --map-item: oklch(0.75 0.13 200);
   --map-hidden-item: oklch(0.68 0.2 330);
@@ -380,10 +379,6 @@
 
 .map-link-entrance {
   --map-link: var(--map-entrance);
-}
-
-.map-link-house {
-  --map-link: var(--map-house);
 }
 
 .map-link-service {
@@ -518,8 +513,11 @@
 }
 
 .map-icon-anchor {
-  display: grid;
   place-items: center;
+}
+
+.leaflet-marker-icon.map-icon-anchor {
+  display: grid;
 }
 
 .map-icon-anchor-north {
@@ -596,7 +594,7 @@
   height: calc(var(--icon-size) * 0.5);
 }
 
-.map-icon-game:is(.map-link-entrance, .map-link-house, .map-link-service) svg {
+.map-icon-game:is(.map-link-entrance, .map-link-service) svg {
   height: calc(var(--icon-size) * 0.57);
 }
 

@@ -13,7 +13,7 @@ import {
   read,
   spritePath,
 } from '../rby/disassembly.mjs';
-import { farText } from '../rby/text.mjs';
+import { farText, trainerTexts } from '../rby/text.mjs';
 import { trainerMoves } from './rby-moves.mjs';
 
 const OUTPUT = new URL('../../src/data/trainers/rby.json', import.meta.url);
@@ -104,6 +104,31 @@ const rivalTeamSignature = {
 rivalTeamSignature.blue = rivalTeamSignature.red;
 
 const rb = (teams) => ({ red: teams, blue: teams });
+
+const TRAINER_DIALOG_MAPS = new Set(['ViridianGym']);
+
+const OBJECT_DIALOG = {
+  VIRIDIANGYM_GIOVANNI: [
+    { label: 'Before battle', texts: ['_ViridianGymGiovanniPreBattleText'] },
+    {
+      label: 'If you win, he gives you the Earth Badge and TM27',
+      texts: [
+        '_ViridianGymGiovanniReceivedEarthBadgeText',
+        '_ViridianGymGiovanniEarthBadgeInfoText',
+        '_ViridianGymGiovanniReceivedTM27Text',
+        '_ViridianGymGiovanniTM27ExplanationText',
+      ],
+    },
+    {
+      label: 'If your bag is full',
+      texts: ['_ViridianGymGiovanniTM27NoRoomText'],
+    },
+    {
+      label: 'After battle, he leaves the gym',
+      texts: ['_ViridianGymGiovanniPostBattleAdviceText'],
+    },
+  ],
+};
 
 const scripted = [
   {
@@ -326,30 +351,56 @@ for (const game of games) {
     });
   };
 
+  const battleDialog = (dialog = []) =>
+    dialog.flatMap(({ label, texts }) => {
+      const text = texts
+        .map((far) => farText(game, far))
+        .filter(Boolean)
+        .join('\n\n');
+
+      return text ? [{ label, text }] : [];
+    });
+
+  const objectDialog = (file, textId) => {
+    if (OBJECT_DIALOG[textId]) return battleDialog(OBJECT_DIALOG[textId]);
+    if (!TRAINER_DIALOG_MAPS.has(file)) return [];
+
+    const texts = trainerTexts(game, file, textId);
+
+    return [
+      { label: 'Before battle', text: texts?.battle },
+      { label: 'If you win', text: texts?.end },
+      { label: 'After battle', text: texts?.after },
+    ].filter(({ text }) => text);
+  };
+
   for (const fileName of readdirSync(join(game.dir, 'data/maps/objects'))) {
     const file = basename(fileName, '.asm');
     const objects = [
       ...read(game.dir, `data/maps/objects/${fileName}`).matchAll(
-        /^\s*object_event\s+(\d+),\s*(\d+),\s*SPRITE_(\w+),\s*\w+,\s*(\w+),\s*TEXT_\w+,\s*OPP_(\w+),\s*(\d+)$/gm,
+        /^\s*object_event\s+(\d+),\s*(\d+),\s*SPRITE_(\w+),\s*\w+,\s*(\w+),\s*TEXT_(\w+),\s*OPP_(\w+),\s*(\d+)$/gm,
       ),
     ];
 
-    objects.forEach(([, x, y, sprite, direction, trainer, index], slot) => {
-      if (trainer.startsWith('RIVAL')) return;
+    objects.forEach(
+      ([, x, y, sprite, direction, textId, trainer, index], slot) => {
+        if (trainer.startsWith('RIVAL')) return;
 
-      addBattle({
-        file,
-        slot,
-        trainer,
-        sprite,
-        position: {
-          x: Number(x),
-          y: Number(y),
-          facing: facings[direction] ?? 'down',
-        },
-        parties: [{ party: partyFor(file, trainer, Number(index)) }],
-      });
-    });
+        addBattle({
+          file,
+          slot,
+          trainer,
+          sprite,
+          position: {
+            x: Number(x),
+            y: Number(y),
+            facing: facings[direction] ?? 'down',
+          },
+          dialog: objectDialog(file, textId),
+          parties: [{ party: partyFor(file, trainer, Number(index)) }],
+        });
+      },
+    );
   }
 
   const found = [];
@@ -391,16 +442,6 @@ for (const game of games) {
       ? undefined
       : { x: Number(x), y: Number(y), facing: facings[direction] ?? 'down' };
   };
-
-  const battleDialog = (dialog = []) =>
-    dialog.flatMap(({ label, texts }) => {
-      const text = texts
-        .map((far) => farText(game, far))
-        .filter(Boolean)
-        .join('\n\n');
-
-      return text ? [{ label, text }] : [];
-    });
 
   for (const {
     script,

@@ -120,6 +120,11 @@ export const LocationPage = () => {
     floor,
     {
       items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
+      itemTooltip: (item) => (
+        <MapTextTooltip
+          text={item.hidden ? `${item.item} (hidden)` : item.item}
+        />
+      ),
       trainers: listedBattles,
       onSelectTrainer: selectTrainer,
       npcs: npcsFor(route.region.versionGroup)?.filter(onThisMap),

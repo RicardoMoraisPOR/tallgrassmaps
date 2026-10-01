@@ -5,10 +5,7 @@ import { useSettingsStore } from '@/stores/settings';
 
 export type MapLayerId =
   | 'connections'
-  | 'connection-arrows'
-  | 'entrance-icons'
-  | 'entrances'
-  | 'houses'
+  | 'buildings'
   | 'services'
   | 'items'
   | 'hidden-items'
@@ -34,29 +31,10 @@ export const mapLayers: Array<MapLayer> = [
     className: 'map-link-connection',
   },
   {
-    id: 'connection-arrows',
-    label: 'Connection arrows (preview)',
-    color: 'var(--map-connection)',
-    className: 'map-link-connection',
-  },
-  {
-    id: 'entrances',
-    label: 'Entrances',
+    id: 'buildings',
+    label: 'Buildings',
     color: 'var(--map-entrance)',
     className: 'map-link-entrance',
-  },
-  {
-    id: 'entrance-icons',
-    label: 'Entrance icons (preview)',
-    color: 'var(--map-entrance)',
-    className: 'map-link-entrance',
-  },
-  {
-    id: 'houses',
-    label: 'Houses',
-    color: 'var(--map-house)',
-    className: 'map-link-house',
-    hiddenByDefault: true,
   },
   {
     id: 'services',
@@ -112,11 +90,11 @@ export const mapLayers: Array<MapLayer> = [
 
 const hotspotLayers: Record<LocationHotspot['kind'], MapLayerId> = {
   exit: 'connections',
-  entrance: 'entrances',
+  entrance: 'buildings',
 };
 
 const markerLayers: Record<MarkerKind, MapLayerId> = {
-  house: 'houses',
+  house: 'buildings',
   mart: 'services',
   center: 'services',
 };
@@ -136,10 +114,6 @@ export const trainerLayer = () => layer('trainers');
 export const npcLayer = () => layer('npcs');
 
 export const signLayer = () => layer('signs');
-
-export const connectionArrowLayer = () => layer('connection-arrows');
-
-export const entranceIconLayer = () => layer('entrance-icons');
 
 export const wildLayer = () => layer('wild-pokemon');
 

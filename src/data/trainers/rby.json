@@ -12693,6 +12693,24 @@
     "y": 1,
     "facing": "down",
     "sprite": "giovanni",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Fwahahaha! This is my hideout!\n\nI planned to resurrect TEAM ROCKET here!\n\nBut, you have caught me again! So be it! This time, I'm not holding back!\n\nOnce more, you shall face GIOVANNI, the greatest trainer!"
+      },
+      {
+        "label": "If you win, he gives you the Earth Badge and TM27",
+        "text": "Ha! That was a truly intense fight! You have won! As proof, here is the EARTHBADGE!\n\nThe EARTHBADGE makes POKéMON of any level obey!\n\nIt is evidence of your mastery as a POKéMON trainer!\n\nWith it, you can enter the POKéMON LEAGUE!\n\nIt is my gift for your POKéMON LEAGUE challenge!\n\nRED received TM27!\n\nTM27 is FISSURE! It will take out POKéMON with just one hit!\n\nI made it when I ran the GYM here, too long ago..."
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You do not have space for this!"
+      },
+      {
+        "label": "After battle, he leaves the gym",
+        "text": "Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!\n\nI will dedicate my life to the study of POKéMON!\n\nLet us meet again some day! Farewell!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12734,6 +12752,24 @@
     "y": 1,
     "facing": "down",
     "sprite": "giovanni",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Fwahahaha! This is my hideout!\n\nI planned to resurrect TEAM ROCKET here!\n\nBut, you have caught me again! So be it! This time, I'm not holding back!\n\nOnce more, you shall face GIOVANNI, the greatest trainer!"
+      },
+      {
+        "label": "If you win, he gives you the Earth Badge and TM27",
+        "text": "Ha! That was a truly intense fight! You have won! As proof, here is the EARTHBADGE!\n\nThe EARTHBADGE makes POKéMON of any level obey!\n\nIt is evidence of your mastery as a POKéMON trainer!\n\nWith it, you can enter the POKéMON LEAGUE!\n\nIt is my gift for your POKéMON LEAGUE challenge!\n\nRED received TM27!\n\nTM27 is FISSURE! It will take out POKéMON with just one hit!\n\nI made it when I ran the GYM here, too long ago..."
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You do not have space for this!"
+      },
+      {
+        "label": "After battle, he leaves the gym",
+        "text": "Having lost, I cannot face my underlings! TEAM ROCKET is finished forever!\n\nI will dedicate my life to the study of POKéMON!\n\nLet us meet again someday! Farewell!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12775,6 +12811,20 @@
     "y": 7,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Heh! You must be running out of steam by now!"
+      },
+      {
+        "label": "If you win",
+        "text": "I ran out of gas!"
+      },
+      {
+        "label": "After battle",
+        "text": "You need power to keep up with our GYM LEADER!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12801,6 +12851,20 @@
     "y": 11,
     "facing": "up",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Rrrroar! I'm working myself into a rage!"
+      },
+      {
+        "label": "If you win",
+        "text": "Wargh!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm still not worthy!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12827,6 +12891,20 @@
     "y": 7,
     "facing": "down",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "POKéMON and I, we make wonderful music together!"
+      },
+      {
+        "label": "If you win",
+        "text": "You are in perfect harmony!"
+      },
+      {
+        "label": "After battle",
+        "text": "Do you know the identity of our GYM LEADER?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12848,6 +12926,20 @@
     "y": 7,
     "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Karate is the ultimate form of martial arts!"
+      },
+      {
+        "label": "If you win",
+        "text": "Atcho!"
+      },
+      {
+        "label": "After battle",
+        "text": "If my POKéMON were as good at Karate as I..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12869,6 +12961,20 @@
     "y": 5,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "The truly talented win with style!"
+      },
+      {
+        "label": "If you win",
+        "text": "I lost my grip!"
+      },
+      {
+        "label": "After battle",
+        "text": "The LEADER will scold me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12890,6 +12996,20 @@
     "y": 1,
     "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm the KARATE KING! Your fate rests with me!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ayah!"
+      },
+      {
+        "label": "After battle",
+        "text": "POKéMON LEAGUE? You? Don't get cocky!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12921,6 +13041,20 @@
     "y": 16,
     "facing": "right",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Your POKéMON will cower at the crack of my whip!"
+      },
+      {
+        "label": "If you win",
+        "text": "Yowch! Whiplash!"
+      },
+      {
+        "label": "After battle",
+        "text": "Wait! I was just careless!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12947,6 +13081,20 @@
     "y": 5,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "VIRIDIAN GYM was closed for a long time, but now our LEADER is back!"
+      },
+      {
+        "label": "If you win",
+        "text": "I was beaten?"
+      },
+      {
+        "label": "After battle",
+        "text": "You can go onto POKéMON LEAGUE only by defeating our GYM LEADER!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -12978,6 +13126,20 @@
     "y": 5,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "VIRIDIAN GYM was closed for a long time, but now our LEADER is back!"
+      },
+      {
+        "label": "If you win",
+        "text": "I was beaten?"
+      },
+      {
+        "label": "After battle",
+        "text": "You can go on to POKéMON LEAGUE only by defeating our GYM LEADER!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

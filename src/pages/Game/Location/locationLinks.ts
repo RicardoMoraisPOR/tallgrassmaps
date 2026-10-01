@@ -21,8 +21,6 @@ import { cn } from '@/lib/utils';
 import { staticHighlightKey, wildHighlightKey } from './encounters';
 import type { PlaceLink } from './MapInfoTab';
 import {
-  connectionArrowLayer,
-  entranceIconLayer,
   hotspotLayer,
   itemLayer,
   type MapLayerId,
@@ -34,20 +32,6 @@ import {
   wildLayer,
 } from './mapLayers';
 import type { ListedBattle } from './trainerList';
-
-const ICON_PREVIEW_PLACES = [
-  'pallet-town',
-  'pallet-town/oaks-lab',
-  'pallet-town/reds-house',
-  'pallet-town/blues-house',
-  'route-1',
-  'viridian-city',
-  'viridian-city/viridian-pokemon-center',
-  'viridian-city/viridian-poke-mart',
-  'viridian-city/viridian-gym',
-  'viridian-city/viridian-school-house',
-  'viridian-city/viridian-nickname-house',
-];
 
 const TILE_PIXELS = 16;
 const DEFAULT_SPRITE_OFFSET = [0, -4];
@@ -71,6 +55,7 @@ export type LayeredMapLink = MapLink & {
 
 type MarkerSources = {
   items?: Array<MapItem>;
+  itemTooltip?: (item: MapItem) => ReactNode;
   trainers?: Array<ListedBattle>;
   onSelectTrainer?: (key: string) => void;
   trainerTooltip?: (group: Array<ListedBattle>) => ReactNode;
@@ -113,6 +98,7 @@ export const locationLinks = (
   floor?: LocationFloor,
   {
     items = [],
+    itemTooltip,
     trainers = [],
     onSelectTrainer,
     trainerTooltip,
@@ -157,64 +143,33 @@ export const locationLinks = (
       : [];
   });
 
-  const arrowLayer = connectionArrowLayer();
-  const connectionArrows: Array<LayeredMapLink> = ICON_PREVIEW_PLACES.includes(
-    path,
-  )
-    ? links.flatMap((link): Array<LayeredMapLink> => {
-        if (link.layer !== 'connections') return [];
+  const connectionIcons: Array<LayeredMapLink> = links.flatMap(
+    (link): Array<LayeredMapLink> => {
+      if (link.layer !== 'connections') return [];
 
-        const icon = {
-          ...link,
-          width: 0,
-          height: 0,
-          layer: arrowLayer.id,
-          className: arrowLayer.className,
-        };
+      const icon = { ...link, width: 0, height: 0 };
 
-        if (!link.travel)
-          return [
-            {
-              ...icon,
-              x: link.x + link.width / 2,
-              y: link.y + link.height / 2,
-              icon: {
-                kind: link.stairs ? ('stairs' as const) : ('exit' as const),
-              },
-            },
-          ];
-
+      if (!link.travel)
         return [
           {
             ...icon,
-            ...edgeCenter(link, link.travel, location),
-            icon: { kind: 'arrow' as const, direction: link.travel },
-          },
-        ];
-      })
-    : [];
-
-  const entranceLayer = entranceIconLayer();
-  const entranceIcons: Array<LayeredMapLink> = ICON_PREVIEW_PLACES.includes(
-    path,
-  )
-    ? links.flatMap((link) => {
-        if (link.layer !== 'entrances') return [];
-
-        return [
-          {
-            ...link,
             x: link.x + link.width / 2,
             y: link.y + link.height / 2,
-            width: 0,
-            height: 0,
-            layer: entranceLayer.id,
-            className: entranceLayer.className,
-            icon: { kind: 'door' as const },
+            icon: {
+              kind: link.stairs ? ('stairs' as const) : ('exit' as const),
+            },
           },
         ];
-      })
-    : [];
+
+      return [
+        {
+          ...icon,
+          ...edgeCenter(link, link.travel, location),
+          icon: { kind: 'arrow' as const, direction: link.travel },
+        },
+      ];
+    },
+  );
 
   const markers: Array<LayeredMapLink> = location.markers.map(
     ({ kind, name, target, ...area }) => {
@@ -230,16 +185,17 @@ export const locationLinks = (
     },
   );
 
-  const markerLinks: Array<LayeredMapLink> = ICON_PREVIEW_PLACES.includes(path)
-    ? markers.map((marker) => ({
-        ...marker,
-        x: marker.x + marker.width / 2,
-        y: marker.y + marker.height / 2,
-        width: 0,
-        height: 0,
-        icon: { kind: 'door' as const },
-      }))
-    : markers;
+  const buildingIcons: Array<LayeredMapLink> = [
+    ...links.filter((link) => link.layer === 'buildings'),
+    ...markers,
+  ].map((link) => ({
+    ...link,
+    x: link.x + link.width / 2,
+    y: link.y + link.height / 2,
+    width: 0,
+    height: 0,
+    icon: { kind: 'door' as const },
+  }));
 
   const itemMarkers: Array<LayeredMapLink> = items.map((item) => {
     const layer = itemLayer(item.hidden);
@@ -248,6 +204,7 @@ export const locationLinks = (
       label: item.hidden ? `${item.item} (hidden)` : item.item,
       layer: layer.id,
       className: layer.className,
+      tooltip: itemTooltip?.(item),
     };
 
     if (item.sprite) {
@@ -478,10 +435,11 @@ export const locationLinks = (
   return {
     links: [
       ...wildMarkers,
-      ...links,
-      ...connectionArrows,
-      ...entranceIcons,
-      ...markerLinks,
+      ...links.filter(
+        (link) => link.layer !== 'connections' && link.layer !== 'buildings',
+      ),
+      ...connectionIcons,
+      ...buildingIcons,
       ...itemMarkers,
       ...staticMarkers,
       ...trainerMarkers,
@@ -489,6 +447,6 @@ export const locationLinks = (
       ...signMarkers,
     ],
     connections: placeLinks('connections'),
-    entrances: placeLinks('entrances', inside),
+    entrances: placeLinks('buildings', inside),
   };
 };

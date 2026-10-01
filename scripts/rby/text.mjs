@@ -67,6 +67,36 @@ export const mapText = (game, file, textId) => {
   return farText(game, fars[0]);
 };
 
+export const trainerTexts = (game, file, textId) => {
+  const path = `scripts/${file}.asm`;
+  const script = forGame(read(game.dir, path), game.define);
+  const label = script
+    .map((line) =>
+      line.match(new RegExp(`^dw_const (\\w+),\\s*TEXT_${textId}$`)),
+    )
+    .find(Boolean)?.[1];
+  const start = label ? labelLine(script, label) : -1;
+  const header = script
+    .slice(start + 1, start + 4)
+    .map((line) => line.match(/^ld hl, (\w+TrainerHeader\w*)$/)?.[1])
+    .find(Boolean);
+
+  if (start < 0 || !header) return undefined;
+
+  const [, battle, end, after] =
+    script[labelLine(script, header) + 1]?.match(
+      /^trainer \w+, \d+, (\w+), (\w+), (\w+)$/,
+    ) ?? [];
+
+  if (!battle) return undefined;
+
+  return {
+    battle: labelText(game, path, battle),
+    end: labelText(game, path, end),
+    after: labelText(game, path, after),
+  };
+};
+
 export const labelText = (game, path, label) => {
   const lines = forGame(read(game.dir, path), game.define);
   const start = labelLine(lines, label);
