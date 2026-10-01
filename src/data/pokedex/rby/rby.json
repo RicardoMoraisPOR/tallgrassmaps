@@ -7959,6 +7959,12 @@
         "method": "gift",
         "path": "saffron-city/silph-co",
         "levels": [15, 15],
+        "floors": [
+          {
+            "floor": "7f",
+            "levels": [15, 15]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       }
     ]
@@ -8248,6 +8254,12 @@
         "method": "static",
         "path": "route-20/seafoam-islands",
         "levels": [50, 50],
+        "floors": [
+          {
+            "floor": "b4f",
+            "levels": [50, 50]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       }
     ]
@@ -8274,6 +8286,12 @@
         "method": "static",
         "path": "route-23/victory-road",
         "levels": [50, 50],
+        "floors": [
+          {
+            "floor": "2f",
+            "levels": [50, 50]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       }
     ]
@@ -8396,6 +8414,12 @@
         "method": "static",
         "path": "cerulean-city/cerulean-cave",
         "levels": [70, 70],
+        "floors": [
+          {
+            "floor": "b1f",
+            "levels": [70, 70]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       }
     ]

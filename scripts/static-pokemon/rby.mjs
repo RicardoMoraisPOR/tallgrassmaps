@@ -3,6 +3,7 @@ import { basename, join } from 'node:path';
 
 import {
   constantFromFile,
+  facings,
   floorFor,
   forGame,
   games,
@@ -10,6 +11,7 @@ import {
   pokeredDir,
   read,
   siteLocation,
+  spritePath,
 } from '../rby/disassembly.mjs';
 
 const OUTPUT = new URL(
@@ -198,9 +200,16 @@ const place = (game, map, x, y, kind, pokemon, extra = {}) => {
   });
 };
 
+const objectSprite = (game, sprite, direction) => ({
+  sprite: spritePath(game, sprite),
+  facing: facings[direction] ?? 'down',
+});
+
 const objectAt = (game, map, text) => {
   const object = read(game.dir, `data/maps/objects/${map}.asm`).match(
-    new RegExp(`object_event\\s+(\\d+),\\s*(\\d+),.*, TEXT_${text}\\b`),
+    new RegExp(
+      `object_event\\s+(\\d+),\\s*(\\d+),\\s*SPRITE_(\\w+),\\s*\\w+,\\s*(\\w+),\\s*TEXT_${text}\\b`,
+    ),
   );
 
   if (!object) throw new Error(`${game.id}: no object TEXT_${text} in ${map}`);
@@ -218,13 +227,19 @@ for (const game of games) {
       game.define,
     ).join('\n');
 
-    for (const [, x, y, species, level] of text.matchAll(
-      /^object_event\s+(\d+),\s*(\d+),.*, TEXT_\w+, ([A-Z][A-Z_]+), (\d+)$/gm,
+    for (const [, x, y, sprite, direction, species, level] of text.matchAll(
+      /^object_event\s+(\d+),\s*(\d+),\s*SPRITE_(\w+),\s*\w+,\s*(\w+),\s*TEXT_\w+, ([A-Z][A-Z_]+), (\d+)$/gm,
     )) {
       if (dexNumbers.has(species))
-        place(game, map, x, y, 'static', [
-          { number: numberOf(species), level: Number(level) },
-        ]);
+        place(
+          game,
+          map,
+          x,
+          y,
+          'static',
+          [{ number: numberOf(species), level: Number(level) }],
+          objectSprite(game, sprite, direction),
+        );
     }
   }
 
@@ -236,7 +251,7 @@ for (const game of games) {
     if (!existsSync(objects))
       throw new Error(`${game.id}: missing objects for ${entry.map}`);
 
-    const [, x, y] = objectAt(game, entry.map, entry.text);
+    const [, x, y, sprite, direction] = objectAt(game, entry.map, entry.text);
     const level = scriptedLevel(game, entry);
 
     place(
@@ -246,6 +261,7 @@ for (const game of games) {
       y,
       entry.kind,
       entry.species.map((species) => ({ number: numberOf(species), level })),
+      entry.kind === 'static' ? objectSprite(game, sprite, direction) : {},
     );
   }
 }

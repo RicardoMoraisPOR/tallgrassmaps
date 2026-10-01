@@ -121,9 +121,15 @@ const floorStep = (
   to: string,
 ): FloorStep => {
   const floors = location.floors ?? [];
-  const index = (id?: string) => floors.findIndex((entry) => entry.id === id);
+  const level = (id?: string) => {
+    const [, basement, number] = id?.match(/^(b?)(\d+)f$/) ?? [];
 
-  return index(to) > index(from?.id) ? 'up' : 'down';
+    if (number) return basement ? -Number(number) : Number(number);
+
+    return floors.length + floors.findIndex((entry) => entry.id === id);
+  };
+
+  return level(to) > level(from?.id) ? 'up' : 'down';
 };
 
 const floorName = (location: Location, id: string) =>
@@ -484,7 +490,7 @@ export const locationLinks = (
         y: marker.y * tileSize - tileSize / 4,
         width: tileSize,
         height: tileSize,
-        sprite: { src: marker.sprite, facing: 'down' as const },
+        sprite: { src: marker.sprite, facing: marker.facing ?? 'down' },
       };
     }
 

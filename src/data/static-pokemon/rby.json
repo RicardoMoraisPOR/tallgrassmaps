@@ -11,6 +11,8 @@
         "level": 70
       }
     ],
+    "sprite": "monster",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -24,6 +26,8 @@
         "level": 40
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -37,6 +41,8 @@
         "level": 40
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -50,6 +56,8 @@
         "level": 40
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -63,6 +71,8 @@
         "level": 43
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -76,6 +86,8 @@
         "level": 40
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -89,6 +101,8 @@
         "level": 40
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -102,6 +116,8 @@
         "level": 43
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -115,6 +131,8 @@
         "level": 40
       }
     ],
+    "sprite": "poke_ball",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -128,6 +146,8 @@
         "level": 50
       }
     ],
+    "sprite": "bird",
+    "facing": "up",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -142,6 +162,8 @@
         "level": 50
       }
     ],
+    "sprite": "bird",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -156,6 +178,8 @@
         "level": 50
       }
     ],
+    "sprite": "bird",
+    "facing": "up",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -169,6 +193,8 @@
         "level": 30
       }
     ],
+    "sprite": "snorlax",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -182,6 +208,8 @@
         "level": 30
       }
     ],
+    "sprite": "snorlax",
+    "facing": "down",
     "games": ["red", "blue", "yellow"]
   },
   {

@@ -304,6 +304,7 @@ for (const game of games) {
       addEncounter(constant, {
         method: 'gift',
         path: locationFor(constantFromFile(file)),
+        map: constantFromFile(file),
         game: game.id,
         level: Number(level),
       });
@@ -319,6 +320,7 @@ for (const game of games) {
         addEncounter(constant, {
           method: 'static',
           path: locationFor(constantFromFile(file)),
+          map: constantFromFile(file),
           game: game.id,
           level: Number(level),
         });
