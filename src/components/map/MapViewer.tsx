@@ -16,7 +16,6 @@ import {
   type LeafletEventHandlerFnMap,
   type Map as LeafletMap,
   type Marker as LeafletMarker,
-  type PathOptions,
   type PointTuple,
   type SVGOverlay as LeafletSVGOverlay,
   Util,
@@ -200,18 +199,16 @@ export const MapViewer = ({
             <LinkShape
               key={linkKey(link)}
               link={link}
-              pathOptions={{
-                className: cn(
-                  'map-link',
-                  !link.href &&
-                    !link.onClick &&
-                    !link.popup &&
-                    !link.tooltipOnClick &&
-                    'map-link-static',
-                  link.sprite && 'map-link-sprite',
-                  link.className,
-                ),
-              }}
+              className={cn(
+                'map-link',
+                !link.href &&
+                  !link.onClick &&
+                  !link.popup &&
+                  !link.tooltipOnClick &&
+                  'map-link-static',
+                link.sprite && 'map-link-sprite',
+                link.className,
+              )}
               eventHandlers={{
                 add: ({ target }) => {
                   if (link.behind) target.bringToBack();
@@ -281,9 +278,7 @@ export const MapViewer = ({
                 key={`highlight-${link.x},${link.y}`}
                 link={link}
                 interactive={false}
-                pathOptions={{
-                  className: cn('map-link-highlight', link.className),
-                }}
+                className={cn('map-link-highlight', link.className)}
               />
             ))}
         {hoverCard &&
@@ -294,9 +289,7 @@ export const MapViewer = ({
               key={`pinned-${linkKey(hoverCard)}`}
               link={hoverCard}
               interactive={false}
-              pathOptions={{
-                className: cn('map-link-pinned', hoverCard.className),
-              }}
+              className={cn('map-link-pinned', hoverCard.className)}
             />
           )}
       </Pane>
@@ -333,7 +326,7 @@ const LinkShape = ({
   ...props
 }: {
   link: MapLink;
-  pathOptions: PathOptions;
+  className: string;
   eventHandlers?: LeafletEventHandlerFnMap;
   interactive?: boolean;
   children?: ReactNode;
