@@ -8,6 +8,7 @@ const OUTPUT = new URL(
   import.meta.url,
 );
 const WATER_TILES = new Set([WATER_TILE, 0x32, 0x48]);
+const CUT_TREE_TILES = { Overworld: 0x3d, Gym: 0x50 };
 const GROUND = { water: 0, grass: 1, path: 2 };
 const OUTDOOR = /^(ROUTE_\d+|[A-Z_]+_(TOWN|CITY|ISLAND)|INDIGO_PLATEAU)$/;
 
@@ -26,6 +27,7 @@ const gridFor = (constant) => {
 
   const {
     name,
+    tileset,
     columns,
     rows,
     passable,
@@ -42,7 +44,11 @@ const gridFor = (constant) => {
 
     const tile = tileAt(x, y);
 
-    return passable.has(tile) || WATER_TILES.has(tile);
+    return (
+      passable.has(tile) ||
+      WATER_TILES.has(tile) ||
+      tile === CUT_TREE_TILES[tileset]
+    );
   };
 
   const crossable = (x, y) =>

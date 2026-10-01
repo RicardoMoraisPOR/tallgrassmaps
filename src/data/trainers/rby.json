@@ -749,7 +749,29 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "cerulean-city",
+    "x": 20,
+    "y": 2,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Yo! RED!\n\nYou're still struggling along back here?\n\nI'm doing great! I caught a bunch of strong and smart POKéMON!\n\nHere, let me see what you caught, RED!"
+      },
+      {
+        "label": "If you win",
+        "text": "Hey! Take it easy! You won already!"
+      },
+      {
+        "label": "If you lose",
+        "text": "Heh! You're no match for my genius!"
+      },
+      {
+        "label": "After battle",
+        "text": "BLUE: Hey, guess what?\n\nI went to BILL's and got him to show me his rare POKéMON!\n\nThat added a lot of pages to my POKéDEX!\n\nAfter all, BILL's world famous as a POKéMANIAC!\n\nHe invented the POKéMON Storage System on PC!\n\nSince you're using his system, go thank him!\n\nWell, I better get rolling! Smell ya later!"
+      }
+    ],
     "choicePrompt": "Your starter",
     "parties": [
       {
@@ -837,7 +859,29 @@
     "name": "Rival",
     "trainerClass": "rival1",
     "path": "cerulean-city",
+    "x": 20,
+    "y": 2,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Yo! RED!\n\nYou're still struggling along back here?\n\nI'm doing great! I caught a bunch of strong and smart POKéMON!\n\nHere, let me see what you caught, RED!"
+      },
+      {
+        "label": "If you win",
+        "text": "Hey! Take it easy! You won already!"
+      },
+      {
+        "label": "If you lose",
+        "text": "Heh! You're no match for my genius!"
+      },
+      {
+        "label": "After battle",
+        "text": "BLUE: Hey, guess what?\n\nI went to BILL's and got him to show me his rare POKéMON!\n\nThat added a lot of pages to my POKéDEX!\n\nAfter all, BILL's world famous as a POKéMANIAC!\n\nHe invented the POKéMON Storage System on PC!\n\nSince you're using his system, go thank him!\n\nWell, I better get rolling! Smell ya later!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -874,6 +918,24 @@
     "y": 8,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey! Stay out! It's not your yard! Huh? Me?\n\nI'm an innocent bystander! Don't you believe me?"
+      },
+      {
+        "label": "If you win",
+        "text": "Stop! I give up! I'll leave quietly!"
+      },
+      {
+        "label": "After battle, he returns TM28",
+        "text": "OK! I'll return the TM I stole!\n\nRED recovered TM28!\n\nI better get moving! Bye!"
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Make room for this!\n\nI can't run until I give it to you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -895,9 +957,29 @@
   {
     "name": "Misty",
     "trainerClass": "misty",
-    "path": "cerulean-city",
-    "area": "Cerulean Gym",
+    "path": "cerulean-city/cerulean-gym",
+    "x": 4,
+    "y": 2,
+    "facing": "down",
     "sprite": "brunette_girl",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi, you're a new face!\n\nTrainers who want to turn pro have to have a policy about POKéMON!\n\nWhat is your approach when you catch POKéMON?\n\nMy policy is an all-out offensive with water-type POKéMON!"
+      },
+      {
+        "label": "If you win, she gives you the Cascade Badge and TM11",
+        "text": "Wow! You're too much!\n\nAll right!\n\nYou can have the CASCADEBADGE to show you beat me!\n\nThe CASCADEBADGE makes all POKéMON up to L30 obey!\n\nThat includes even outsiders!\n\nThere's more, you can now use CUT any time!\n\nYou can CUT down small bushes to open new paths!\n\nYou can also have my favorite TM!\n\nRED received TM11!\n\nTM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!"
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You better make room for this!"
+      },
+      {
+        "label": "After battle",
+        "text": "TM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -919,9 +1001,29 @@
   {
     "name": "Misty",
     "trainerClass": "misty",
-    "path": "cerulean-city",
-    "area": "Cerulean Gym",
+    "path": "cerulean-city/cerulean-gym",
+    "x": 4,
+    "y": 2,
+    "facing": "down",
     "sprite": "brunette_girl",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi, you're a new face!\n\nWhat's your policy on POKéMON? What is your approach?\n\nMy policy is an all-out offensive with water-type POKéMON!\n\nMISTY, the world-famous beauty, is your host!\n\nAre you ready, sweetie?"
+      },
+      {
+        "label": "If you win, she gives you the Cascade Badge and TM11",
+        "text": "I can't believe I lost!\n\nAll right!\n\nYou can have the CASCADEBADGE to show you beat me!\n\nThe CASCADEBADGE makes all POKéMON up to L30 obey!\n\nThat includes even outsiders!\n\nThere's more, you can now use CUT anytime!\n\nYou can CUT down small bushes to open new paths!\n\nYou can also have my favorite TM!\n\nRED received TM11!\n\nTM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!"
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You better make room for this!"
+      },
+      {
+        "label": "After battle",
+        "text": "TM11 teaches BUBBLEBEAM!\n\nUse it on an aquatic POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -943,9 +1045,25 @@
   {
     "name": "Jr. Trainer ♀",
     "trainerClass": "jr-trainer-f",
-    "path": "cerulean-city",
-    "area": "Cerulean Gym",
+    "path": "cerulean-city/cerulean-gym",
+    "x": 2,
+    "y": 3,
+    "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm more than good enough for you!\n\nMISTY can wait!"
+      },
+      {
+        "label": "If you win",
+        "text": "You overwhelmed me!"
+      },
+      {
+        "label": "After battle",
+        "text": "You have to face other trainers to find out how good you really are."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -962,9 +1080,25 @@
   {
     "name": "Swimmer",
     "trainerClass": "swimmer",
-    "path": "cerulean-city",
-    "area": "Cerulean Gym",
+    "path": "cerulean-city/cerulean-gym",
+    "x": 8,
+    "y": 7,
+    "facing": "left",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Splash!\n\nI'm first up! Let's do it!"
+      },
+      {
+        "label": "If you win",
+        "text": "That can't be!"
+      },
+      {
+        "label": "After battle",
+        "text": "MISTY is going to keep improving!\n\nShe won't lose to someone like you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

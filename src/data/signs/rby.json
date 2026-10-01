@@ -9,6 +9,55 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "cerulean-city",
+    "x": 23,
+    "y": 19,
+    "text": "CERULEAN CITY A Mysterious, Blue Aura Surrounds It",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 17,
+    "y": 29,
+    "text": "TRAINER TIPS\n\nPressing B Button during evolution cancels the whole process.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 26,
+    "y": 25,
+    "text": "All your item needs fulfilled! POKéMON MART",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 20,
+    "y": 17,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 11,
+    "y": 25,
+    "text": "Grass and caves handled easily! BIKE SHOP",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 27,
+    "y": 21,
+    "text": "CERULEAN CITY POKéMON GYM LEADER: MISTY\n\nThe Tomboyish Mermaid!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trashed-house",
+    "x": 3,
+    "y": 0,
+    "text": "TEAM ROCKET left a way out!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-4/mt-moon",
     "floor": "1f",
     "x": 15,

@@ -113,9 +113,44 @@ const TRAINER_DIALOG_MAPS = new Set([
   'Route4',
   'MtMoon1F',
   'MtMoonB2F',
+  'CeruleanCity',
+  'CeruleanGym',
 ]);
 
 const OBJECT_DIALOG = {
+  CERULEANCITY_ROCKET: [
+    { label: 'Before battle', texts: ['_CeruleanCityRocketText'] },
+    { label: 'If you win', texts: ['_CeruleanCityRocketIGiveUpText'] },
+    {
+      label: 'After battle, he returns TM28',
+      texts: [
+        '_CeruleanCityRocketIllReturnTheTMText',
+        '_CeruleanCityRocketReceivedTM28Text',
+        '_CeruleanCityRocketIBetterGetMovingText',
+      ],
+    },
+    {
+      label: 'If your bag is full',
+      texts: ['_CeruleanCityRocketTM28NoRoomText'],
+    },
+  ],
+  CERULEANGYM_MISTY: [
+    { label: 'Before battle', texts: ['_CeruleanGymMistyPreBattleText'] },
+    {
+      label: 'If you win, she gives you the Cascade Badge and TM11',
+      texts: [
+        '_CeruleanGymMistyReceivedCascadeBadgeText',
+        '_CeruleanGymMistyCascadeBadgeInfoText',
+        '_CeruleanGymMistyReceivedTM11Text',
+        '_CeruleanGymMistyTM11ExplanationText',
+      ],
+    },
+    {
+      label: 'If your bag is full',
+      texts: ['_CeruleanGymMistyTM11NoRoomText'],
+    },
+    { label: 'After battle', texts: ['_CeruleanGymMistyTM11ExplanationText'] },
+  ],
   MTMOONB2F_SUPER_NERD: [
     {
       label: 'Before battle',
@@ -201,6 +236,13 @@ const scripted = [
     script: 'CeruleanCity',
     trainer: 'RIVAL1',
     teams: { ...rb([7, 8, 9]), yellow: [3] },
+    object: 'CERULEANCITY_RIVAL',
+    dialog: [
+      { label: 'Before battle', texts: ['_CeruleanCityRivalPreBattleText'] },
+      { label: 'If you win', texts: ['_CeruleanCityRivalDefeatedText'] },
+      { label: 'If you lose', texts: ['_CeruleanCityRivalVictoryText'] },
+      { label: 'After battle', texts: ['_CeruleanCityRivalIWentToBillsText'] },
+    ],
   },
   {
     script: 'SSAnne2F',

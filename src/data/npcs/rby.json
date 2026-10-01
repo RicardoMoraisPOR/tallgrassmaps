@@ -1,5 +1,78 @@
 [
   {
+    "path": "cerulean-city/bike-shop",
+    "x": 6,
+    "y": 2,
+    "name": "Clerk",
+    "sprite": "bike_shop_clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi! Welcome to our BIKE SHOP.\n\nHave we got just the BIKE for you!\n\nIt's a cool BIKE! Do you want it?",
+        "trigger": "Without a Bike Voucher"
+      },
+      {
+        "text": "Sorry! You can't afford it!",
+        "trigger": "If you pick the Bicycle"
+      },
+      {
+        "text": "Come back again some time!",
+        "trigger": "If you cancel"
+      },
+      {
+        "text": "Oh, that's...\n\nA BIKE VOUCHER!\n\nOK! Here you go!\n\nRED exchanged the BIKE VOUCHER for a BICYCLE.",
+        "trigger": "With the Bike Voucher, he gives you the Bicycle",
+        "gift": {
+          "name": "Bicycle",
+          "sprite": "red_bike"
+        }
+      },
+      {
+        "text": "You better make room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "How do you like your new BICYCLE?\n\nYou can take it on CYCLING ROAD and in caves!",
+        "trigger": "After you get the Bicycle"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/bike-shop",
+    "x": 5,
+    "y": 6,
+    "name": "Middle Aged Woman",
+    "sprite": "middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "A plain city BIKE is good enough for me!\n\nYou can't put a shopping basket on an MTB!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/bike-shop",
+    "x": 1,
+    "y": 3,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "These BIKEs are cool, but they're way expensive!",
+        "trigger": "Before you get the Bicycle"
+      },
+      {
+        "text": "Wow. Your BIKE is really cool!",
+        "trigger": "After you get the Bicycle"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pallet-town/blues-house",
     "x": 2,
     "y": 3,
@@ -34,6 +107,413 @@
     ],
     "special": true,
     "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-badge-house",
+    "x": 5,
+    "y": 3,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "POKéMON BADGEs are owned only by skilled trainers.\n\nI see you have at least one.\n\nThose BADGEs have amazing secrets!\n\nNow then...\n\nWhich of the 8 BADGEs should I describe?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "The ATTACK of all POKéMON increases a little bit.\n\nIt also lets you use FLASH any time you desire.",
+        "trigger": "If you pick the Boulder Badge"
+      },
+      {
+        "text": "POKéMON up to L30 will obey you.\n\nAny higher, they become unruly!\n\nIt also lets you use CUT outside of battle.",
+        "trigger": "If you pick the Cascade Badge"
+      },
+      {
+        "text": "The SPEED of all POKéMON increases a little bit.\n\nIt also lets you use FLY outside of battle.",
+        "trigger": "If you pick the Thunder Badge"
+      },
+      {
+        "text": "POKéMON up to L50 will obey you.\n\nAny higher, they become unruly!\n\nIt also lets you use STRENGTH out-side of battle.",
+        "trigger": "If you pick the Rainbow Badge"
+      },
+      {
+        "text": "The DEFENSE of all POKéMON increases a little bit.\n\nIt also lets you use SURF outside of battle.",
+        "trigger": "If you pick the Soul Badge"
+      },
+      {
+        "text": "POKéMON up to L70 will obey you.\n\nAny higher, they become unruly!",
+        "trigger": "If you pick the Marsh Badge"
+      },
+      {
+        "text": "Your POKéMON's SPECIAL abilities increase a bit.",
+        "trigger": "If you pick the Volcano Badge"
+      },
+      {
+        "text": "All POKéMON will obey you!",
+        "trigger": "If you pick the Earth Badge"
+      },
+      {
+        "text": "Come visit me any time you wish.",
+        "trigger": "When you're done"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 31,
+    "y": 20,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You're a trainer too? Collecting, fighting, it's a tough life."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 15,
+    "y": 18,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "That bush in front of the shop is in the way.\n\nThere might be a way around."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 9,
+    "y": 21,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You're making an encyclopedia on POKéMON? That sounds amusing."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 29,
+    "y": 26,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "OK! SLOWBRO! Use SONICBOOM! Come on, SLOWBRO pay attention!",
+        "trigger": "Sometimes (30%)"
+      },
+      {
+        "text": "SLOWBRO punch! No! You blew it again!",
+        "trigger": "Sometimes (31%)"
+      },
+      {
+        "text": "SLOWBRO, WITHDRAW! No! That's wrong!\n\nIt's so hard to control POKéMON!\n\nYour POKéMON's obedience depends on your abilities as a trainer!",
+        "trigger": "Usually (39%)"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 28,
+    "y": 26,
+    "name": "Slowbro",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SLOWBRO took a snooze...",
+        "trigger": "Sometimes (30%)"
+      },
+      {
+        "text": "SLOWBRO is loafing around...",
+        "trigger": "Sometimes (23%)"
+      },
+      {
+        "text": "SLOWBRO turned away...",
+        "trigger": "Sometimes (23%)"
+      },
+      {
+        "text": "SLOWBRO ignored orders...",
+        "trigger": "Sometimes (23%)"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 9,
+    "y": 27,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I want a bright red BICYCLE!\n\nI'll keep it at home, so it won't get dirty!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 4,
+    "y": 12,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This is CERULEAN CAVE! Horribly strong POKéMON live in there!\n\nThe POKéMON LEAGUE champion is the only person who is allowed in!",
+        "trigger": "Blocks Cerulean Cave until you enter the Hall of Fame"
+      }
+    ],
+    "cutscene": true,
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 27,
+    "y": 12,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The people here were robbed.\n\nIt's obvious that TEAM ROCKET is behind this most heinous crime!\n\nEven our POLICE force has trouble with the ROCKETs!",
+        "trigger": "Guards the door until you visit Bill"
+      }
+    ],
+    "cutscene": true,
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-gym",
+    "x": 7,
+    "y": 10,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yo! Champ in making!\n\nHere's my advice!\n\nThe LEADER, MISTY, is a pro who uses water POKéMON!\n\nYou can drain all their water with plant POKéMON!\n\nOr, zap them with electricity!",
+        "trigger": "Before you beat Misty"
+      },
+      {
+        "text": "You beat MISTY! What'd I tell ya?\n\nYou and me kid, we make a pretty darn good team!",
+        "trigger": "After you beat Misty"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-poke-mart",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-poke-mart",
+    "x": 3,
+    "y": 4,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Use REPEL to keep bugs and weak POKéMON away.\n\nPut your strongest POKéMON at the top of the list for best results!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-poke-mart",
+    "x": 6,
+    "y": 2,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Have you seen any RARE CANDY?\n\nIt's supposed to make POKéMON go up one level!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 10,
+    "y": 5,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "That BILL!\n\nI heard that he'll do whatever it takes to get rare POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 4,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Have you heard about BILL?\n\nEveryone calls him a POKéMANIAC!\n\nI think people are just jealous of BILL, though.\n\nWho wouldn't want to boast about their POKéMON?"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trade-house",
+    "x": 5,
+    "y": 4,
+    "name": "Granny",
+    "sprite": "granny",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "My husband likes trading POKéMON.\n\nIf you are a collector, would you please trade with him?"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trade-house",
+    "x": 1,
+    "y": 2,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hello there! Do you want to trade\n\nyour POLIWHIRL for JYNX?",
+        "trigger": "Offers Jynx for your Poliwhirl",
+        "trade": {
+          "give": {
+            "number": 61,
+            "name": "Poliwhirl"
+          },
+          "receive": {
+            "number": 124,
+            "name": "Jynx"
+          }
+        }
+      },
+      {
+        "text": "Well, if you don't want to...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Hmmm? This isn't POLIWHIRL.\n\nThink of me when you get one.",
+        "trigger": "If you offer a Pokémon other than Poliwhirl"
+      },
+      {
+        "text": "Thanks!",
+        "trigger": "After the trade, you get Jynx nicknamed Lola"
+      },
+      {
+        "text": "The POLIWHIRL you traded to me\n\nwent and evolved!",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trashed-house",
+    "x": 2,
+    "y": 1,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Those miserable ROCKETs!\n\nLook what they did here!\n\nThey stole a TM for teaching POKéMON how to DIG holes!\n\nThat cost me a bundle, it did!",
+        "trigger": "Before you get TM28 back"
+      },
+      {
+        "text": "I figure what's lost is lost!\n\nI decided to teach DIGLETT how to DIG without a TM!",
+        "trigger": "After you get TM28 back"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trashed-house",
+    "x": 5,
+    "y": 6,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "TEAM ROCKET must be trying to DIG their way into no good!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "route-11/digletts-cave-route-11",
@@ -1491,6 +1971,60 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "cerulean-city/bike-shop",
+    "x": 6,
+    "y": 2,
+    "name": "Clerk",
+    "sprite": "yellow/bike_shop_clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi! Welcome to our BIKE SHOP.\n\nHave we got just the BIKE for you!\n\nIt's a cool BIKE! Do you want it?",
+        "trigger": "Without a Bike Voucher"
+      },
+      {
+        "text": "Sorry! You can't afford it!",
+        "trigger": "If you pick the Bicycle"
+      },
+      {
+        "text": "Come back again sometime!",
+        "trigger": "If you cancel"
+      },
+      {
+        "text": "Oh, that's...\n\nA BIKE VOUCHER!\n\nOK! Here you go!\n\nRED exchanged the BIKE VOUCHER for a BICYCLE.",
+        "trigger": "With the Bike Voucher, he gives you the Bicycle",
+        "gift": {
+          "name": "Bicycle",
+          "sprite": "red_bike"
+        }
+      },
+      {
+        "text": "You better make room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "How do you like your new BICYCLE?\n\nYou can take it on CYCLING ROAD and in caves!",
+        "trigger": "After you get the Bicycle"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/bike-shop",
+    "x": 5,
+    "y": 6,
+    "name": "Middle Aged Woman",
+    "sprite": "yellow/middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "A plain city BIKE is good enough for me!\n\nYou can't put a shopping basket on an MTB!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "pallet-town/blues-house",
     "x": 2,
     "y": 3,
@@ -1524,6 +2058,272 @@
       }
     ],
     "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-badge-house",
+    "x": 5,
+    "y": 3,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "POKéMON BADGEs are owned only by skilled trainers.\n\nI see you have at least one.\n\nThose BADGEs have amazing secrets!\n\nNow then...\n\nWhich of the 8 BADGEs should I describe?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "The ATTACK of all POKéMON increases a little bit.\n\nIt also lets you use FLASH any-time you desire.",
+        "trigger": "If you pick the Boulder Badge"
+      },
+      {
+        "text": "POKéMON up to L30 will obey you.\n\nAny higher, they become unruly!\n\nIt also lets you use CUT outside of battle.",
+        "trigger": "If you pick the Cascade Badge"
+      },
+      {
+        "text": "The SPEED of all POKéMON increases a little bit.\n\nIt also lets you use FLY outside of battle.",
+        "trigger": "If you pick the Thunder Badge"
+      },
+      {
+        "text": "POKéMON up to L50 will obey you.\n\nAny higher, they become unruly!\n\nIt also lets you use STRENGTH out-side of battle.",
+        "trigger": "If you pick the Rainbow Badge"
+      },
+      {
+        "text": "The DEFENSE of all POKéMON increases a little bit.\n\nIt also lets you use SURF outside of battle.",
+        "trigger": "If you pick the Soul Badge"
+      },
+      {
+        "text": "POKéMON up to L70 will obey you.\n\nAny higher, they become unruly!",
+        "trigger": "If you pick the Marsh Badge"
+      },
+      {
+        "text": "Your POKéMON's SPECIAL abilities increase a bit.",
+        "trigger": "If you pick the Volcano Badge"
+      },
+      {
+        "text": "All POKéMON will obey you!",
+        "trigger": "If you pick the Earth Badge"
+      },
+      {
+        "text": "Come visit me any-time you wish.",
+        "trigger": "When you're done"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 29,
+    "y": 26,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "OK! ELECTRODE! Use SONICBOOM! Please ELECTRODE, pay attention!",
+        "trigger": "Sometimes (30%)"
+      },
+      {
+        "text": "ELECTRODE, TACKLE! No! You blew it again!",
+        "trigger": "Sometimes (31%)"
+      },
+      {
+        "text": "ELECTRODE, SWIFT! No! That's wrong!\n\nTraining POKéMON is difficult!\n\nYour POKéMON's obedience depends on your abilities as a trainer!",
+        "trigger": "Usually (39%)"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 28,
+    "y": 26,
+    "name": "Electrode",
+    "sprite": "poke_ball",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "ELECTRODE took a snooze...",
+        "trigger": "Sometimes (30%)"
+      },
+      {
+        "text": "ELECTRODE is loafing around...",
+        "trigger": "Sometimes (23%)"
+      },
+      {
+        "text": "ELECTRODE turned away...",
+        "trigger": "Sometimes (23%)"
+      },
+      {
+        "text": "ELECTRODE ignored orders...",
+        "trigger": "Sometimes (23%)"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city",
+    "x": 27,
+    "y": 12,
+    "name": "Officer Jenny",
+    "sprite": "yellow/officer_jenny",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "These poor people here were robbed.\n\nWe're positive that TEAM ROCKET is behind this terrible deed.\n\nEven our POLICE FORCE has trouble with the ROCKETs!",
+        "trigger": "Guards the door until you visit Bill"
+      }
+    ],
+    "cutscene": true,
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-gym",
+    "x": 7,
+    "y": 10,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yo! Champ in making!\n\nHere's my advice!\n\nThe LEADER, MISTY, is a pro who uses water POKéMON!\n\nYou can drain all their water with plant POKéMON!\n\nOr, zap them with electricity!",
+        "trigger": "Before you beat Misty"
+      },
+      {
+        "text": "You beat MISTY! What'd I tell ya?\n\nYou and me, kid, we make a pretty darn good team!",
+        "trigger": "After you beat Misty"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trade-house",
+    "x": 3,
+    "y": 1,
+    "name": "Melanie",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I take care of injured POKéMON.\n\nI nursed this BULBASAUR back to health.\n\nIt needs a good trainer to take care of it now.",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "I know! Would you take care of this BULBASAUR?",
+        "trigger": "If Pikachu is friendly enough, she offers you Bulbasaur"
+      },
+      {
+        "text": "Please take care of BULBASAUR!",
+        "trigger": "If you say yes",
+        "pokemon": {
+          "number": 1,
+          "name": "Bulbasaur"
+        }
+      },
+      {
+        "text": "Oh... That's too bad...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Is BULBASAUR doing well?",
+        "trigger": "After you get Bulbasaur"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trade-house",
+    "x": 4,
+    "y": 1,
+    "name": "Bulbasaur",
+    "sprite": "yellow/bulbasaur",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "BULBASAUR: Bubba! Zoar!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trade-house",
+    "x": 1,
+    "y": 4,
+    "name": "Oddish",
+    "sprite": "yellow/oddish",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "ODDISH: Orddissh!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-trade-house",
+    "x": 5,
+    "y": 3,
+    "name": "Sandshrew",
+    "sprite": "yellow/sandshrew",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "SANDSHREW: Pikii!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 4,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Have you heard about BILL?\n\nEveryone calls him a POKéMANIAC!\n\nI think people are just jealous of BILL, though.\n\nWho wouldn't want to boast about their POKéMON?"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
     "games": ["yellow"]
   },
   {
@@ -2005,6 +2805,21 @@
     "dialog": [
       {
         "text": "Yawn!\n\nWhen JIGGLYPUFF sings, POKéMON get drowsy...\n\n...Me too... Snore..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cerulean-city/cerulean-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "BILL has lots of POKéMON!\n\nHe collects rare ones too!"
       }
     ],
     "games": ["red", "blue", "yellow"]

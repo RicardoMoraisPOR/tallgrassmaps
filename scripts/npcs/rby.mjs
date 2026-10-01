@@ -50,6 +50,15 @@ const NPC_MAPS = {
   MT_MOON_1_F: { path: 'route-4/mt-moon' },
   MT_MOON_B_1_F: { path: 'route-4/mt-moon' },
   MT_MOON_B_2_F: { path: 'route-4/mt-moon' },
+  CERULEAN_CITY: { path: 'cerulean-city' },
+  CERULEAN_GYM: { path: 'cerulean-city/cerulean-gym' },
+  CERULEAN_TRADE_HOUSE: { path: 'cerulean-city/cerulean-trade-house' },
+  CERULEAN_MELANIES_HOUSE: { path: 'cerulean-city/cerulean-trade-house' },
+  BIKE_SHOP: { path: 'cerulean-city/bike-shop' },
+  CERULEAN_BADGE_HOUSE: { path: 'cerulean-city/cerulean-badge-house' },
+  CERULEAN_TRASHED_HOUSE: { path: 'cerulean-city/cerulean-trashed-house' },
+  CERULEAN_MART: { path: 'cerulean-city/cerulean-poke-mart' },
+  CERULEAN_POKECENTER: { path: 'cerulean-city/cerulean-pokemon-center' },
 };
 
 const OBJECT_SPRITES = new Set([
@@ -539,6 +548,234 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
+  CERULEANCITY_GUARD2: {
+    cutscene: true,
+    dialog: [
+      {
+        trigger: 'Guards the door until you visit Bill',
+        texts: ['_CeruleanCityGuardText'],
+      },
+    ],
+  },
+  CERULEANCITY_SUPER_NERD3: {
+    cutscene: true,
+    dialog: [
+      {
+        trigger: 'Blocks Cerulean Cave until you enter the Hall of Fame',
+        texts: ['_CeruleanCitySuperNerd3Text'],
+      },
+    ],
+  },
+  CERULEANCITY_COOLTRAINER_F1: {
+    dialog: [
+      {
+        trigger: 'Sometimes (30%)',
+        texts: ['_CeruleanCityCooltrainerF1SlowbroUseSonicboomText'],
+      },
+      {
+        trigger: 'Sometimes (31%)',
+        texts: ['_CeruleanCityCooltrainerF1SlowbroPunchText'],
+      },
+      {
+        trigger: 'Usually (39%)',
+        texts: ['_CeruleanCityCooltrainerF1SlowbroWithdrawText'],
+      },
+      {
+        trigger: 'Sometimes (30%)',
+        texts: ['_CeruleanCityCooltrainerF1ElectrodeUseSonicboomText'],
+      },
+      {
+        trigger: 'Sometimes (31%)',
+        texts: ['_CeruleanCityCooltrainerF1ElectrodePunchText'],
+      },
+      {
+        trigger: 'Usually (39%)',
+        texts: ['_CeruleanCityCooltrainerF1ElectrodeWithdrawText'],
+      },
+    ],
+  },
+  CERULEANCITY_SLOWBRO: {
+    dialog: [
+      {
+        trigger: 'Sometimes (30%)',
+        texts: ['_CeruleanCitySlowbroTookASnoozeText'],
+      },
+      {
+        trigger: 'Sometimes (23%)',
+        texts: ['_CeruleanCitySlowbroIsLoafingAroundText'],
+      },
+      {
+        trigger: 'Sometimes (23%)',
+        texts: ['_CeruleanCitySlowbroTurnedAwayText'],
+      },
+      {
+        trigger: 'Sometimes (23%)',
+        texts: ['_CeruleanCitySlowbroIgnoredOrdersText'],
+      },
+    ],
+  },
+  CERULEANCITY_ELECTRODE: {
+    dialog: [
+      {
+        trigger: 'Sometimes (30%)',
+        texts: ['_CeruleanCityElectrodeTookASnoozeText'],
+      },
+      {
+        trigger: 'Sometimes (23%)',
+        texts: ['_CeruleanCityElectrodeIsLoafingAroundText'],
+      },
+      {
+        trigger: 'Sometimes (23%)',
+        texts: ['_CeruleanCityElectrodeTurnedAwayText'],
+      },
+      {
+        trigger: 'Sometimes (23%)',
+        texts: ['_CeruleanCityElectrodeIgnoredOrdersText'],
+      },
+    ],
+  },
+  CERULEANGYM_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Misty',
+        texts: ['_CeruleanGymGymGuideChampInMakingText'],
+      },
+      {
+        trigger: 'After you beat Misty',
+        texts: ['_CeruleanGymGymGuideBeatMistyText'],
+      },
+    ],
+  },
+  BIKESHOP_CLERK: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'Without a Bike Voucher',
+        texts: ['_BikeShopClerkWelcomeText', '_BikeShopClerkDoYouLikeItText'],
+      },
+      {
+        trigger: 'If you pick the Bicycle',
+        texts: ['_BikeShopCantAffordText'],
+      },
+      {
+        trigger: 'If you cancel',
+        texts: ['_BikeShopComeAgainText'],
+      },
+      {
+        trigger: 'With the Bike Voucher, he gives you the Bicycle',
+        texts: [
+          '_BikeShopClerkOhThatsAVoucherText',
+          '_BikeShopExchangedVoucherText',
+        ],
+        gift: { name: 'Bicycle', sprite: 'RED_BIKE' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_BikeShopBagFullText'],
+      },
+      {
+        trigger: 'After you get the Bicycle',
+        texts: ['_BikeShopClerkHowDoYouLikeYourBicycleText'],
+      },
+    ],
+  },
+  BIKESHOP_YOUNGSTER: {
+    dialog: [
+      {
+        trigger: 'Before you get the Bicycle',
+        texts: ['_BikeShopYoungsterTheseBikesAreExpensiveText'],
+      },
+      {
+        trigger: 'After you get the Bicycle',
+        texts: ['_BikeShopYoungsterCoolBikeText'],
+      },
+    ],
+  },
+  CERULEANBADGEHOUSE_MIDDLE_AGED_MAN: {
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: [
+          '_CeruleanBadgeHouseMiddleAgedManText',
+          '_CeruleanBadgeHouseMiddleAgedManWhichBadgeText',
+        ],
+      },
+      {
+        trigger: 'If you pick the Boulder Badge',
+        texts: ['_CeruleanBadgeHouseBoulderBadgeText'],
+      },
+      {
+        trigger: 'If you pick the Cascade Badge',
+        texts: ['_CeruleanBadgeHouseCascadeBadgeText'],
+      },
+      {
+        trigger: 'If you pick the Thunder Badge',
+        texts: ['_CeruleanBadgeHouseThunderBadgeText'],
+      },
+      {
+        trigger: 'If you pick the Rainbow Badge',
+        texts: ['_CeruleanBadgeHouseRainbowBadgeText'],
+      },
+      {
+        trigger: 'If you pick the Soul Badge',
+        texts: ['_CeruleanBadgeHouseSoulBadgeText'],
+      },
+      {
+        trigger: 'If you pick the Marsh Badge',
+        texts: ['_CeruleanBadgeHouseMarshBadgeText'],
+      },
+      {
+        trigger: 'If you pick the Volcano Badge',
+        texts: ['_CeruleanBadgeHouseVolcanoBadgeText'],
+      },
+      {
+        trigger: 'If you pick the Earth Badge',
+        texts: ['_CeruleanBadgeHouseEarthBadgeText'],
+      },
+      {
+        trigger: "When you're done",
+        texts: ['_CeruleanBadgeHouseMiddleAgedManVisitAnyTimeText'],
+      },
+    ],
+  },
+  CERULEANTRASHEDHOUSE_FISHING_GURU: {
+    dialog: [
+      {
+        trigger: 'Before you get TM28 back',
+        texts: ['_CeruleanTrashedHouseFishingGuruTheyStoleATMText'],
+      },
+      {
+        trigger: 'After you get TM28 back',
+        texts: ['_CeruleanTrashedHouseFishingGuruWhatsLostIsLostText'],
+      },
+    ],
+  },
+  CERULEANMELANIESHOUSE_MELANIE: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'When you talk to her',
+        texts: ['MelanieText1'],
+      },
+      {
+        trigger: 'If Pikachu is friendly enough, she offers you Bulbasaur',
+        texts: ['MelanieText2'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['MelanieText3'],
+        pokemon: 'BULBASAUR',
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['MelanieText5'],
+      },
+      {
+        trigger: 'After you get Bulbasaur',
+        texts: ['MelanieText4'],
+      },
+    ],
+  },
   OAKSLAB_OAK1: {
     dialog: [
       {
@@ -730,6 +967,8 @@ const scriptedDialog = (game, dialog, values = {}) =>
       : [];
   });
 
+const spriteNames = { OFFICER_JENNY: 'Officer Jenny' };
+
 const specialNames = {
   OAK: 'Prof. Oak',
   DAISY_SITTING: 'Daisy',
@@ -801,7 +1040,7 @@ for (const game of games) {
           ? entry
           : undefined;
 
-      if (OBJECT_SPRITES.has(sprite)) return;
+      if (OBJECT_SPRITES.has(sprite) && !scripted) return;
       if (hidden.has(toggles[index]) && !scripted) return;
 
       const trade = !scripted && npcTrade(game, file, textId);
@@ -823,7 +1062,7 @@ for (const game of games) {
         ...(floor && { floor }),
         x: Number(x),
         y: Number(y),
-        name: displayName(textId),
+        name: spriteNames[sprite] ?? displayName(textId),
         sprite: spritePath(game, sprite),
         facing: facings[direction] ?? 'down',
         dialog,

@@ -48,9 +48,18 @@ const maps = [
     ['PewterSpeechHouse', 'pewter-speech-house'],
     ['Museum1F', 'pewter-museum/1f'],
     ['Museum2F', 'pewter-museum/2f'],
+    ['CeruleanGym', 'cerulean-gym'],
+    ['CeruleanTradeHouse', 'cerulean-trade-house', 'CeruleanMelaniesHouse'],
+    ['BikeShop', 'bike-shop'],
+    ['CeruleanBadgeHouse', 'cerulean-badge-house'],
+    ['CeruleanTrashedHouse', 'cerulean-trashed-house'],
     ['RedsHouse1F', 'reds-house/1f'],
     ['RedsHouse2F', 'reds-house/2f'],
-  ].map(([name, out]) => ({ name, out: `${out}.png` })),
+  ].map(([name, out, yellowName]) => ({
+    name,
+    yellowName,
+    out: `${out}.png`,
+  })),
   ...['1F', '2F', '3F', '4F', '5F', 'Roof'].map((floor) => ({
     name: `CeladonMart${floor}`,
     out: `celadon-dept-store/${floor.toLowerCase()}.png`,
@@ -90,8 +99,10 @@ const render = (dir, name) => {
 
 const written = [];
 
-for (const { name, out } of maps) {
-  const [red, yellow] = games.map(({ dir }) => render(dir, name));
+for (const { name, yellowName = name, out } of maps) {
+  const [red, yellow] = games.map(({ dir }, index) =>
+    render(dir, index === 0 ? name : yellowName),
+  );
 
   mkdirSync(dirname(join(OUTPUT, out)), { recursive: true });
   writePng(join(OUTPUT, out), red.width, red.height, red.rgba);

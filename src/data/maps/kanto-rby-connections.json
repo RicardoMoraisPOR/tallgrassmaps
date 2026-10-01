@@ -51,6 +51,16 @@
         "width": 16,
         "height": 32
       }
+    },
+    {
+      "to": "route-9",
+      "direction": "east",
+      "area": {
+        "x": 624,
+        "y": 256,
+        "width": 16,
+        "height": 32
+      }
     }
   ],
   "cinnabar-island": [
@@ -704,6 +714,16 @@
     }
   ],
   "route-9": [
+    {
+      "to": "cerulean-city",
+      "direction": "west",
+      "area": {
+        "x": 0,
+        "y": 128,
+        "width": 16,
+        "height": 32
+      }
+    },
     {
       "to": "route-10",
       "direction": "east",

@@ -123,9 +123,9 @@ const insideLocations = {
 };
 
 const buildingLocations = {
-  CERULEAN_GYM: 'cerulean-city',
-  CERULEAN_TRADE_HOUSE: 'cerulean-city',
-  CERULEAN_MELANIES_HOUSE: 'cerulean-city',
+  CERULEAN_GYM: 'cerulean-city/cerulean-gym',
+  CERULEAN_TRADE_HOUSE: 'cerulean-city/cerulean-trade-house',
+  CERULEAN_MELANIES_HOUSE: 'cerulean-city/cerulean-trade-house',
   VERMILION_DOCK: 'vermilion-city',
   VERMILION_TRADE_HOUSE: 'vermilion-city',
   CELADON_MANSION_ROOF_HOUSE: 'celadon-city',

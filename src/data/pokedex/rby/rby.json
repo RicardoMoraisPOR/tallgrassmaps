@@ -6,7 +6,7 @@
     "encounters": [
       {
         "method": "gift",
-        "path": "cerulean-city",
+        "path": "cerulean-city/cerulean-trade-house",
         "levels": [10, 10],
         "games": ["yellow"]
       },
@@ -3183,6 +3183,13 @@
       },
       {
         "method": "super-rod",
+        "path": "cerulean-city/cerulean-gym",
+        "levels": [15, 15],
+        "chance": [33.3, 33.3],
+        "games": ["red", "blue"]
+      },
+      {
+        "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 15],
         "chance": [25, 25],
@@ -5889,6 +5896,13 @@
       },
       {
         "method": "super-rod",
+        "path": "cerulean-city/cerulean-gym",
+        "levels": [15, 15],
+        "chance": [33.3, 33.3],
+        "games": ["red", "blue"]
+      },
+      {
+        "method": "super-rod",
         "path": "fuchsia-city/safari-zone",
         "levels": [15, 15],
         "chance": [25, 25],
@@ -7237,6 +7251,13 @@
       },
       {
         "method": "super-rod",
+        "path": "cerulean-city/cerulean-gym",
+        "levels": [15, 15],
+        "chance": [33.3, 33.3],
+        "games": ["red", "blue"]
+      },
+      {
+        "method": "super-rod",
         "path": "route-20/seafoam-islands",
         "levels": [15, 15],
         "chance": [25, 25],
@@ -7677,7 +7698,7 @@
     "encounters": [
       {
         "method": "trade",
-        "path": "cerulean-city",
+        "path": "cerulean-city/cerulean-trade-house",
         "tradeFor": 61,
         "games": ["red", "blue"]
       }

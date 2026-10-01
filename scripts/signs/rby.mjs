@@ -46,6 +46,15 @@ const SIGN_MAPS = {
   MT_MOON_1_F: 'route-4/mt-moon',
   MT_MOON_B_1_F: 'route-4/mt-moon',
   MT_MOON_B_2_F: 'route-4/mt-moon',
+  CERULEAN_CITY: 'cerulean-city',
+  CERULEAN_GYM: 'cerulean-city/cerulean-gym',
+  CERULEAN_TRADE_HOUSE: 'cerulean-city/cerulean-trade-house',
+  CERULEAN_MELANIES_HOUSE: 'cerulean-city/cerulean-trade-house',
+  BIKE_SHOP: 'cerulean-city/bike-shop',
+  CERULEAN_BADGE_HOUSE: 'cerulean-city/cerulean-badge-house',
+  CERULEAN_TRASHED_HOUSE: 'cerulean-city/cerulean-trashed-house',
+  CERULEAN_MART: 'cerulean-city/cerulean-poke-mart',
+  CERULEAN_POKECENTER: 'cerulean-city/cerulean-pokemon-center',
 };
 
 const OPENABLE_OBJECTS = [
