@@ -3,136 +3,141 @@ import { type CSSProperties, useState } from 'react';
 import { Settings2 } from 'lucide-react';
 import { Link } from 'react-router';
 
-import type { Direction } from '@/data/maps';
+import { Button } from '@/components/ui/button';
 import { travelState } from '@/lib/motion';
+import { cn } from '@/lib/utils';
 
-import type { MapLayer, MapLayerId } from './mapLayers';
+import type { LayerEntry, LayerSection } from './locationLinks';
+import { EmptyTab } from './LocationPanel';
+import type { MapLayerId } from './mapLayers';
 import { MapSettingsDialog } from './MapSettingsDialog';
 
-export type PlaceLink = {
-  href: string;
-  name: string;
-  travel?: Direction;
-  replace?: boolean;
-};
-
-export type PlaceLinkGroup = {
-  label: string;
-  links: Array<PlaceLink>;
-};
-
 type MapInfoTabProps = {
-  groups: Array<PlaceLinkGroup>;
-  layers: Array<MapLayer>;
+  sections: Array<LayerSection>;
+  onHighlight: (key: string | undefined) => void;
+  onOpen: (key: string) => void;
   hiddenLayers: Set<MapLayerId>;
-  onToggleLayer: (layer: MapLayerId) => void;
-  onLayerSettingChange: (layer: MapLayerId) => void;
-  onHighlight: (href: string | undefined) => void;
+};
+
+const sectionTitles: Record<LayerSection['id'], string> = {
+  interactions: 'On this map',
+  exits: 'Navigation',
 };
 
 export const MapInfoTab = ({
-  groups,
-  layers,
-  hiddenLayers,
-  onToggleLayer,
-  onLayerSettingChange,
+  sections,
   onHighlight,
+  onOpen,
+  hiddenLayers,
 }: MapInfoTabProps) => {
-  const [settingsOpen, setSettingsOpen] = useState(false);
+  if (sections.length === 0)
+    return <EmptyTab>Nothing on this map yet.</EmptyTab>;
 
-  const filled = groups.filter((group) => group.links.length > 0);
-
-  return (
-    <>
-      {filled.map(({ label, links }) => (
-        <div key={label} className="flex flex-col gap-2">
-          <h3 className="text-[13px] text-muted-foreground">{label}</h3>
+  return sections.map(({ id, groups }, index) => (
+    <section
+      key={id}
+      aria-label={sectionTitles[id]}
+      className={cn('flex flex-col gap-4', index > 0 && 'border-t pt-4')}
+    >
+      <h2 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+        {sectionTitles[id]}
+      </h2>
+      {groups.map(({ layer, entries }) => (
+        <div key={layer.id} className="flex flex-col gap-2">
+          <h3 className="flex items-center gap-2 text-[13px] text-muted-foreground">
+            <span
+              aria-hidden
+              className="size-3 rounded-[3px] border-2 border-(--layer) bg-(--layer)/30"
+              style={{ '--layer': layer.color } as CSSProperties}
+            />
+            {layer.label}
+          </h3>
           <ul className="flex flex-wrap gap-1.5">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  to={link.href}
-                  state={travelState(link.travel)}
-                  replace={link.replace}
-                  preventScrollReset={link.replace}
-                  className="inline-flex h-7 items-center rounded-full border px-2.5 text-[13px] whitespace-nowrap transition-colors hover:bg-muted"
-
-                  onMouseEnter={() => onHighlight(link.href)}
-                  onMouseLeave={() => onHighlight(undefined)}
-                  onFocus={() => onHighlight(link.href)}
-                  onBlur={() => onHighlight(undefined)}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-      {filled.length === 0 && (
-        <p className="text-[13px] text-muted-foreground">
-          Nothing else to open here yet.
-        </p>
-      )}
-
-      {layers.length > 0 && (
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-between gap-3">
-            <h3 className="text-[13px] text-muted-foreground">On this map</h3>
-            <button
-              type="button"
-              aria-label="Map settings"
-              aria-haspopup="dialog"
-              onClick={() => setSettingsOpen(true)}
-              className="-m-1.5 inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors outline-none hover:bg-muted hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
-            >
-              <Settings2 aria-hidden className="size-4" />
-            </button>
-          </div>
-          <ul className="flex flex-wrap gap-1.5">
-            {layers.map((layer) => (
-              <li key={layer.id}>
-                <LayerToggle
-                  layer={layer}
-                  visible={!hiddenLayers.has(layer.id)}
-                  onToggle={() => onToggleLayer(layer.id)}
+            {entries.map((entry) => (
+              <li key={entry.key} className="max-w-full min-w-0">
+                <EntryChip
+                  entry={entry}
+                  onHighlight={onHighlight}
+                  onOpen={hiddenLayers.has(layer.id) ? undefined : onOpen}
                 />
               </li>
             ))}
           </ul>
         </div>
-      )}
-      <MapSettingsDialog
-        open={settingsOpen}
-        onOpenChange={setSettingsOpen}
-        onLayerChange={onLayerSettingChange}
-      />
-    </>
+      ))}
+    </section>
+  ));
+};
+
+const chipClassName =
+  'flex h-7 max-w-full items-center rounded-full border px-2.5 text-[13px] transition-colors';
+
+const EntryChip = ({
+  entry,
+  onHighlight,
+  onOpen,
+}: {
+  entry: LayerEntry;
+  onHighlight: (key: string | undefined) => void;
+  onOpen?: (key: string) => void;
+}) => {
+  const highlightHandlers = {
+    onMouseEnter: () => onHighlight(entry.key),
+    onMouseLeave: () => onHighlight(undefined),
+    onFocus: () => onHighlight(entry.key),
+    onBlur: () => onHighlight(undefined),
+  };
+  const name = <span className="truncate">{entry.name}</span>;
+
+  if (!entry.href && entry.opens && onOpen)
+    return (
+      <button
+        type="button"
+        title={entry.name}
+        onClick={() => onOpen(entry.key)}
+        className={`${chipClassName} cursor-pointer hover:bg-muted`}
+        {...highlightHandlers}
+      >
+        {name}
+      </button>
+    );
+
+  if (!entry.href)
+    return (
+      <span title={entry.name} className={chipClassName} {...highlightHandlers}>
+        {name}
+      </span>
+    );
+
+  return (
+    <Link
+      to={entry.href}
+      state={travelState(entry.travel)}
+      replace={entry.replace}
+      preventScrollReset={entry.replace}
+      className={`${chipClassName} hover:bg-muted`}
+      {...highlightHandlers}
+    >
+      {name}
+    </Link>
   );
 };
 
-const LayerToggle = ({
-  layer,
-  visible,
-  onToggle,
-}: {
-  layer: MapLayer;
-  visible: boolean;
-  onToggle: () => void;
-}) => {
+export const MapLayerSettingsButton = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <button
-      type="button"
-      aria-pressed={visible}
-      onClick={onToggle}
-      style={{ '--layer': layer.color } as CSSProperties}
-      className="group inline-flex h-7 items-center gap-2 rounded-full border px-2.5 text-[13px] whitespace-nowrap text-muted-foreground transition-colors hover:bg-muted aria-pressed:border-(--layer) aria-pressed:bg-(--layer)/15 aria-pressed:text-foreground"
-    >
-      <span
-        aria-hidden
-        className="size-3 rounded-[3px] border-2 border-muted-foreground/60 transition-colors group-aria-pressed:border-(--layer) group-aria-pressed:bg-(--layer)/30"
-      />
-      {layer.label}
-    </button>
+    <>
+      <Button
+        variant="outline"
+        className="w-full"
+        aria-haspopup="dialog"
+        onClick={() => setOpen(true)}
+      >
+        <Settings2 aria-hidden />
+        Map Layer Settings
+      </Button>
+      <MapSettingsDialog open={open} onOpenChange={setOpen} />
+    </>
   );
 };

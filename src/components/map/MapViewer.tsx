@@ -88,6 +88,7 @@ type MapViewerProps = {
   links?: Array<MapLink>;
   highlightable?: Array<MapLink>;
   highlighted?: string;
+  pinRequest?: { key: string };
   className?: string;
 };
 
@@ -96,6 +97,7 @@ export const MapViewer = ({
   links = [],
   highlightable = links,
   highlighted,
+  pinRequest,
   className,
 }: MapViewerProps) => {
   const navigate = useNavigate();
@@ -148,7 +150,8 @@ export const MapViewer = ({
               }
               revealed={
                 hoveredSprite === spriteKey(link) ||
-                pinnedCardKey === linkKey(link)
+                pinnedCardKey === linkKey(link) ||
+                isHighlighted(link)
               }
             />
           ),
@@ -290,6 +293,14 @@ export const MapViewer = ({
       {pinnedCardKey && (
         <UnpinOnDismiss onDismiss={() => setPinnedCardKey(undefined)} />
       )}
+      <PinOnRequest
+        request={pinRequest}
+        links={links}
+        onPin={(link) => {
+          setPinnedAnchor(undefined);
+          setPinnedCardKey(linkKey(link));
+        }}
+      />
       <PanPastEdgesForPopups bounds={bounds} />
       <ClosePopupOnOutsidePress />
       <FitToViewport map={map} />
@@ -576,6 +587,40 @@ const UnpinOnDismiss = ({ onDismiss }: { onDismiss: () => void }) => {
       document.removeEventListener('pointerdown', dismissOutside, true);
     };
   }, [leafletMap, onDismiss]);
+
+  return null;
+};
+
+const PinOnRequest = ({
+  request,
+  links,
+  onPin,
+}: {
+  request?: { key: string };
+  links: Array<MapLink>;
+  onPin: (link: MapLink) => void;
+}) => {
+  const leafletMap = useMap();
+  const handled = useRef(request);
+
+  useEffect(() => {
+    if (!request || handled.current === request) return;
+
+    handled.current = request;
+
+    const link = links.find(
+      (entry) =>
+        entry.tooltip && [entry.highlightKey].flat().includes(request.key),
+    );
+
+    if (!link) return;
+
+    leafletMap.panInside(
+      toLatLng(link.x + link.width / 2, link.y + link.height / 2),
+      { padding: [96, 96] },
+    );
+    onPin(link);
+  }, [leafletMap, request, links, onPin]);
 
   return null;
 };

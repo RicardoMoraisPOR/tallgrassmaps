@@ -32,6 +32,7 @@
         "trigger": "Once you come back later, she gets up and walks around"
       }
     ],
+    "special": true,
     "games": ["red", "blue"]
   },
   {
@@ -96,6 +97,7 @@
         "trigger": "Once you own at least two Pokémon, he rates your Pokédex"
       }
     ],
+    "special": true,
     "games": ["red", "blue"]
   },
   {
@@ -154,6 +156,7 @@
       }
     ],
     "cutscene": true,
+    "special": true,
     "games": ["red", "blue"]
   },
   {
@@ -229,6 +232,7 @@
         "trigger": "After you get the Potion"
       }
     ],
+    "special": true,
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -334,6 +338,7 @@
       }
     ],
     "cutscene": true,
+    "special": true,
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -361,6 +366,7 @@
         "trigger": "After you get TM42"
       }
     ],
+    "special": true,
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -430,6 +436,7 @@
         "trigger": "After you deliver the parcel, he runs the shop"
       }
     ],
+    "special": true,
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -629,6 +636,7 @@
         "trigger": "Once you come back later, she gets up and walks around"
       }
     ],
+    "special": true,
     "games": ["yellow"]
   },
   {
@@ -693,6 +701,7 @@
         "trigger": "Once you own at least two Pokémon, he rates your Pokédex"
       }
     ],
+    "special": true,
     "games": ["yellow"]
   },
   {
@@ -709,6 +718,7 @@
       }
     ],
     "cutscene": true,
+    "special": true,
     "games": ["yellow"]
   },
   {

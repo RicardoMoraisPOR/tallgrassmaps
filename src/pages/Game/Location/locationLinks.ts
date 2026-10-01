@@ -19,11 +19,12 @@ import { joinPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 
 import { staticHighlightKey, wildHighlightKey } from './encounters';
-import type { PlaceLink } from './MapInfoTab';
 import {
   hotspotLayer,
   itemLayer,
+  type MapLayer,
   type MapLayerId,
+  mapLayers,
   markerLayer,
   npcLayer,
   signLayer,
@@ -32,6 +33,43 @@ import {
   wildLayer,
 } from './mapLayers';
 import type { ListedBattle } from './trainerList';
+
+export const openableNames: Record<NonNullable<MapSign['opens']>, string> = {
+  pokedex: 'Pokédex',
+  'town-map': 'Town Map',
+};
+
+const PANEL_SECTIONS: Array<{
+  id: LayerSection['id'];
+  layers: Array<MapLayerId>;
+}> = [
+  {
+    id: 'interactions',
+    layers: ['items', 'hidden-items', 'static-pokemon', 'special-npcs', 'npcs'],
+  },
+  { id: 'exits', layers: ['connections', 'buildings', 'services'] },
+];
+
+const entryKey = (layer: MapLayerId, name: string) => `${layer}:${name}`;
+
+export type LayerEntry = {
+  key: string;
+  name: string;
+  href?: string;
+  travel?: Direction;
+  replace?: boolean;
+  opens?: boolean;
+};
+
+export type LayerGroup = {
+  layer: MapLayer;
+  entries: Array<LayerEntry>;
+};
+
+export type LayerSection = {
+  id: 'interactions' | 'exits';
+  groups: Array<LayerGroup>;
+};
 
 const TILE_PIXELS = 16;
 const DEFAULT_SPRITE_OFFSET = [0, -4];
@@ -200,10 +238,13 @@ export const locationLinks = (
   const itemMarkers: Array<LayeredMapLink> = items.map((item) => {
     const layer = itemLayer(item.hidden);
 
+    const label = item.hidden ? `${item.item} (hidden)` : item.item;
+
     const common = {
-      label: item.hidden ? `${item.item} (hidden)` : item.item,
+      label,
       layer: layer.id,
       className: layer.className,
+      highlightKey: entryKey(layer.id, label),
       tooltip: itemTooltip?.(item),
     };
 
@@ -285,8 +326,19 @@ export const locationLinks = (
     };
   });
 
+  const npcTotals = new Map<string, number>();
+  const npcSeen = new Map<string, number>();
+
+  for (const { name } of npcs)
+    npcTotals.set(name, (npcTotals.get(name) ?? 0) + 1);
+
   const npcMarkers: Array<LayeredMapLink> = npcs.map((npc) => {
-    const layer = npcLayer();
+    const layer = npcLayer(npc.special);
+    const count = (npcSeen.get(npc.name) ?? 0) + 1;
+    const label =
+      (npcTotals.get(npc.name) ?? 0) > 1 ? `${npc.name} #${count}` : npc.name;
+
+    npcSeen.set(npc.name, count);
     const [offsetX, offsetY] = npc.spriteOffset ?? DEFAULT_SPRITE_OFFSET;
 
     return {
@@ -294,9 +346,10 @@ export const locationLinks = (
       y: (npc.y + offsetY / TILE_PIXELS) * tileSize,
       width: tileSize,
       height: tileSize,
-      label: npc.name,
+      label,
       layer: layer.id,
       className: layer.className,
+      highlightKey: entryKey(layer.id, label),
       tooltip: npcTooltip?.(npc),
       tooltipOnClick: true,
       sprite: {
@@ -311,15 +364,17 @@ export const locationLinks = (
     if (sign.sprite) {
       const { opens } = sign;
       const layer = opens ? itemLayer(false) : signLayer();
+      const label = opens ? openableNames[opens] : sign.text;
 
       return {
         x: sign.x * tileSize,
         y: sign.y * tileSize - tileSize / 4,
         width: tileSize,
         height: tileSize,
-        label: sign.text,
+        label,
         layer: layer.id,
         className: layer.className,
+        highlightKey: entryKey(layer.id, label),
         tooltip: signTooltip?.(sign),
         tooltipOnClick: !opens,
         onClick: opens && onOpen && (() => onOpen(opens)),
@@ -337,6 +392,7 @@ export const locationLinks = (
       label: sign.text,
       layer: layer.id,
       className: layer.className,
+      highlightKey: entryKey(layer.id, sign.text),
       tooltip: signTooltip?.(sign),
       tooltipOnClick: true,
       icon: { kind: 'sign' as const },
@@ -346,13 +402,16 @@ export const locationLinks = (
   const staticMarkers: Array<LayeredMapLink> = staticPokemon.map((marker) => {
     const layer = staticLayer();
 
+    const label = marker.kind === 'gift' ? 'Gift Pokémon' : 'Static Pokémon';
+
     const common = {
-      label: marker.kind === 'gift' ? 'Gift Pokémon' : 'Static Pokémon',
+      label,
       layer: layer.id,
       className: layer.className,
-      highlightKey: marker.pokemon.map(({ number }) =>
-        staticHighlightKey(number),
-      ),
+      highlightKey: [
+        entryKey(layer.id, label),
+        ...marker.pokemon.map(({ number }) => staticHighlightKey(number)),
+      ],
       popup: staticPopup?.(marker),
     };
 
@@ -410,43 +469,66 @@ export const locationLinks = (
     },
   );
 
-  const placeLinks = (layer: MapLayerId, initial: Array<PlaceLink> = []) => {
-    const places = new Map(initial.map((link) => [link.href, link]));
+  const mapLinks = [
+    ...wildMarkers,
+    ...links.filter(
+      (link) => link.layer !== 'connections' && link.layer !== 'buildings',
+    ),
+    ...connectionIcons,
+    ...buildingIcons,
+    ...itemMarkers,
+    ...staticMarkers,
+    ...trainerMarkers,
+    ...npcMarkers,
+    ...signMarkers,
+  ];
 
-    for (const link of links) {
-      if (link.href && link.layer === layer && !places.has(link.href)) {
-        places.set(link.href, {
-          href: link.href,
-          name: link.label,
-          travel: link.travel,
-          replace: link.replace,
-        });
-      }
+  const entriesFor = (layer: MapLayerId) => {
+    const entries = new Map<string, LayerEntry>();
+
+    for (const link of mapLinks) {
+      const key = link.href ?? [link.highlightKey].flat()[0];
+
+      if (link.layer !== layer || !key || entries.has(key)) continue;
+
+      entries.set(key, {
+        key,
+        name: link.label,
+        href: link.href,
+        travel: link.travel,
+        replace: link.replace,
+        opens: Boolean(link.tooltip),
+      });
     }
 
-    return [...places.values()];
+    return entries;
   };
 
-  const inside = location.locations.map((child) => ({
-    href: href(joinPath(path, child.id)),
-    name: child.name,
-  }));
+  const listedHrefs = new Set(mapLinks.flatMap((link) => link.href ?? []));
+  const unlistedChildren: Array<LayerEntry> = location.locations
+    .map((child) => {
+      const childHref = href(joinPath(path, child.id));
 
-  return {
-    links: [
-      ...wildMarkers,
-      ...links.filter(
-        (link) => link.layer !== 'connections' && link.layer !== 'buildings',
-      ),
-      ...connectionIcons,
-      ...buildingIcons,
-      ...itemMarkers,
-      ...staticMarkers,
-      ...trainerMarkers,
-      ...npcMarkers,
-      ...signMarkers,
-    ],
-    connections: placeLinks('connections'),
-    entrances: placeLinks('buildings', inside),
+      return { key: childHref, name: child.name, href: childHref };
+    })
+    .filter((entry) => !listedHrefs.has(entry.href));
+
+  const groupFor = (id: MapLayerId): LayerGroup => {
+    const layer = mapLayers.find((entry) => entry.id === id)!;
+    const entries = entriesFor(id);
+
+    if (id === 'buildings')
+      for (const entry of unlistedChildren) entries.set(entry.key, entry);
+
+    return { layer, entries: [...entries.values()] };
   };
+
+  const layerSections: Array<LayerSection> = PANEL_SECTIONS.map(
+    ({ id, layers }) => ({
+      id,
+      groups: layers.map(groupFor).filter(({ entries }) => entries.length > 0),
+    }),
+  ).filter(({ groups }) => groups.length > 0);
+
+  return { links: mapLinks, layerSections };
 };

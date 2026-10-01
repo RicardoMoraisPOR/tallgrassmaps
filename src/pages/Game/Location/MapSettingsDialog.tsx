@@ -9,23 +9,16 @@ import {
 } from '@/components/ui/dialog';
 import { Switch } from '@/components/ui/switch';
 
-import {
-  type MapLayer,
-  type MapLayerId,
-  mapLayers,
-  useSavedMapLayers,
-} from './mapLayers';
+import { type MapLayer, mapLayers, useSavedMapLayers } from './mapLayers';
 
 type MapSettingsDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onLayerChange: (layer: MapLayerId) => void;
 };
 
 export const MapSettingsDialog = ({
   open,
   onOpenChange,
-  onLayerChange,
 }: MapSettingsDialogProps) => {
   const { isVisible, setVisible } = useSavedMapLayers();
 
@@ -44,10 +37,7 @@ export const MapSettingsDialog = ({
               key={layer.id}
               layer={layer}
               checked={isVisible(layer.id)}
-              onCheckedChange={(visible) => {
-                setVisible(layer.id, visible);
-                onLayerChange(layer.id);
-              }}
+              onCheckedChange={(visible) => setVisible(layer.id, visible)}
             />
           ))}
         </div>

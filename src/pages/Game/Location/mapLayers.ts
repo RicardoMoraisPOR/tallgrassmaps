@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import type { LocationHotspot, MarkerKind } from '@/data/maps';
 import { useSettingsStore } from '@/stores/settings';
 
@@ -13,6 +11,7 @@ export type MapLayerId =
   | 'static-pokemon'
   | 'wild-pokemon'
   | 'npcs'
+  | 'special-npcs'
   | 'signs';
 
 export type MapLayer = {
@@ -81,6 +80,12 @@ export const mapLayers: Array<MapLayer> = [
     className: 'map-link-npc',
   },
   {
+    id: 'special-npcs',
+    label: 'Special NPCs',
+    color: 'var(--map-special-npc)',
+    className: 'map-link-special-npc',
+  },
+  {
     id: 'signs',
     label: 'Signs',
     color: 'var(--map-sign)',
@@ -111,15 +116,14 @@ export const itemLayer = (hidden: boolean) =>
 
 export const trainerLayer = () => layer('trainers');
 
-export const npcLayer = () => layer('npcs');
+export const npcLayer = (special?: boolean) =>
+  layer(special ? 'special-npcs' : 'npcs');
 
 export const signLayer = () => layer('signs');
 
 export const wildLayer = () => layer('wild-pokemon');
 
 export const staticLayer = () => layer('static-pokemon');
-
-type LayerValues = Partial<Record<MapLayerId, boolean>>;
 
 export const useSavedMapLayers = () => {
   const saved = useSettingsStore((state) => state.mapLayers);
@@ -133,29 +137,10 @@ export const useSavedMapLayers = () => {
   return { isVisible, setVisible };
 };
 
-export const useMapLayers = (scope: string) => {
-  const saved = useSavedMapLayers();
-  const [local, setLocal] = useState<{ scope: string; values: LayerValues }>({
-    scope,
-    values: {},
-  });
+export const useMapLayers = () => {
+  const { isVisible } = useSavedMapLayers();
 
-  if (local.scope !== scope) setLocal({ scope, values: {} });
-
-  const values = local.scope === scope ? local.values : {};
-  const isVisible = (id: MapLayerId) => values[id] ?? saved.isVisible(id);
-  const hiddenLayers = new Set(
+  return new Set(
     mapLayers.filter(({ id }) => !isVisible(id)).map(({ id }) => id),
   );
-
-  const toggle = (id: MapLayerId) =>
-    setLocal({ scope, values: { ...values, [id]: !isVisible(id) } });
-
-  const reset = (id: MapLayerId) => {
-    const { [id]: _removed, ...rest } = values;
-
-    setLocal({ scope, values: rest });
-  };
-
-  return { hiddenLayers, toggle, reset };
 };

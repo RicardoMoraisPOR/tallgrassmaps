@@ -9,7 +9,6 @@ import type { WildArea } from '@/data/maps';
 import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
 import { signsFor } from '@/data/signs';
-import type { MapSign } from '@/data/signs/types';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
@@ -23,10 +22,10 @@ import { encounterGroups, wildAreaFor } from './encounters';
 import { EncountersTab, OpenPokedexButton } from './EncountersTab';
 import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
-import { locationLinks } from './locationLinks';
+import { locationLinks, openableNames } from './locationLinks';
 import { EmptyTab, LocationPanel, type PanelTab } from './LocationPanel';
-import { MapInfoTab } from './MapInfoTab';
-import { mapLayers, useMapLayers } from './mapLayers';
+import { MapInfoTab, MapLayerSettingsButton } from './MapInfoTab';
+import { useMapLayers } from './mapLayers';
 import { MapTextTooltip } from './MapTextTooltip';
 import { TownMapCard } from './TownMapCard';
 import { TownMapDialog } from './TownMapDialog';
@@ -38,11 +37,6 @@ import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 import { StaticPopup, WildPopup } from './WildPopup';
 
-const openableNames: Record<NonNullable<MapSign['opens']>, string> = {
-  pokedex: 'Pokédex',
-  'town-map': 'Town Map',
-};
-
 export const LocationPage = () => {
   const route = useGameRoute();
   const navigate = useNavigate();
@@ -53,7 +47,11 @@ export const LocationPage = () => {
   const { floor, selectFloor } = useFloor(location?.floors);
   const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
-  const layerState = useMapLayers(scope);
+  const hiddenLayers = useMapLayers();
+  const [pinRequest, setPinRequest] = useState<{
+    scope: string;
+    key: string;
+  }>();
   const [highlight, setHighlight] = useState<{ scope: string; key?: string }>({
     scope,
   });
@@ -111,7 +109,7 @@ export const LocationPage = () => {
     );
   };
 
-  const { links, connections, entrances } = locationLinks(
+  const { links, layerSections } = locationLinks(
     route.region,
     location,
     trailPath(trail),
@@ -169,19 +167,13 @@ export const LocationPage = () => {
     {
       id: 'info',
       label: 'Map info',
+      action: <MapLayerSettingsButton />,
       content: (
         <MapInfoTab
-          groups={[
-            { label: 'Connects to', links: connections },
-            { label: 'Entrances', links: entrances },
-          ]}
-          layers={mapLayers.filter((layer) =>
-            links.some((link) => link.layer === layer.id),
-          )}
-          hiddenLayers={layerState.hiddenLayers}
-          onToggleLayer={layerState.toggle}
-          onLayerSettingChange={layerState.reset}
+          sections={layerSections}
           onHighlight={highlightTo}
+          onOpen={(key) => setPinRequest({ scope, key })}
+          hiddenLayers={hiddenLayers}
         />
       ),
     },
@@ -252,12 +244,13 @@ export const LocationPage = () => {
             <div className="relative min-w-0">
               <MapViewer
                 map={mapImage}
-                links={links.filter(
-                  (link) => !layerState.hiddenLayers.has(link.layer),
-                )}
+                links={links.filter((link) => !hiddenLayers.has(link.layer))}
                 highlightable={links}
                 highlighted={
                   highlight.scope === scope ? highlight.key : undefined
+                }
+                pinRequest={
+                  pinRequest?.scope === scope ? pinRequest : undefined
                 }
                 className="h-[60svh] min-w-0 overflow-hidden rounded-[14px] border lg:h-[min(72svh,760px)]"
               />

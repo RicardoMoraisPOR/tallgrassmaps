@@ -438,6 +438,9 @@ for (const game of games) {
         facing: facings[direction] ?? 'down',
         dialog,
         ...(scripted?.cutscene && { cutscene: true }),
+        ...((scripted?.special ||
+          scripted?.cutscene ||
+          dialog.some(({ gift }) => gift)) && { special: true }),
       });
     });
   }

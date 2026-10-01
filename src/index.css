@@ -356,6 +356,7 @@
   --map-static-pokemon: oklch(0.72 0.14 170);
   --map-wild-pokemon: oklch(0.74 0.17 125);
   --map-npc: oklch(0.6 0.19 275);
+  --map-special-npc: oklch(0.78 0.13 295);
   --map-sign: oklch(0.7 0.03 250);
   --brand: #6cc46a;
 }
@@ -484,6 +485,10 @@
 
 .map-link-npc {
   --map-link: var(--map-npc);
+}
+
+.map-link-special-npc {
+  --map-link: var(--map-special-npc);
 }
 
 .map-link-sign {
