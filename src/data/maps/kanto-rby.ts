@@ -1648,6 +1648,17 @@ const services: Array<InsideEntry> = [
     marker: 'house',
   },
   {
+    id: 'summer-beach-house',
+    name: 'Summer Beach House',
+    kind: 'building',
+    size: [224, 128],
+    parent: 'route-19',
+    entrances: [warp(5, 9)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+    games: ['yellow'],
+  },
+  {
     id: 'reds-house',
     name: "Red's House",
     kind: 'building',
@@ -1765,7 +1776,7 @@ const toInsideLocation = ({
 const buildings = [...inside, ...services];
 
 const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
-  ...inside.flatMap(({ id, parent, entrances, otherEntrances }) => {
+  ...inside.flatMap(({ id, parent, entrances, otherEntrances, games }) => {
     const rects =
       mapId === parent ? entrances : (otherEntrances?.[mapId] ?? []);
 
@@ -1775,6 +1786,7 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
         : entry),
       kind: 'entrance' as const,
       target: `${parent}/${id}`,
+      ...(games && { games }),
     }));
   }),
   ...(connections[mapId] ?? []).map(({ to, direction, area }) => ({
@@ -1797,6 +1809,7 @@ const locations: Array<Location> = outdoor.map(
         kind: building.marker ?? 'house',
         name: building.name,
         target: `${id}/${building.id}`,
+        ...(building.games && { games: building.games }),
       })),
     ),
     variants,

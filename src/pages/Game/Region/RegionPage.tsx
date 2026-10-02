@@ -29,7 +29,7 @@ export const RegionPage = () => {
           <>
             <PokedexCard game={game} region={region} />
             <PlaceList
-              places={collectPlaces(region)}
+              places={collectPlaces(region, game.id)}
               href={href}
               className="lg:min-h-0 lg:flex-1"
             />

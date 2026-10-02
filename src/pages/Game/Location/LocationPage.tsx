@@ -5,7 +5,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
 import { itemsFor } from '@/data/items';
-import type { WildArea } from '@/data/maps';
+import { inGame, locationInGame, type WildArea } from '@/data/maps';
 import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
 import { signsFor } from '@/data/signs';
@@ -117,7 +117,10 @@ export const LocationPage = () => {
     marker.games.includes(route.game.id);
   const wildAreas =
     route.region.wildAreas?.filter(
-      (area) => area.path === dataPath && area.floor === floor?.id,
+      (area) =>
+        area.path === dataPath &&
+        area.floor === floor?.id &&
+        inGame(area, route.game.id),
     ) ?? [];
   const encounters = pokedex
     ? encounterGroups(pokedex, {
@@ -146,7 +149,7 @@ export const LocationPage = () => {
 
   const { links, layerSections } = locationLinks(
     route.region,
-    location,
+    locationInGame(location, route.game.id),
     trailPath(trail),
     route.href,
     route.game.tileSize,

@@ -1,5 +1,6 @@
 import {
   getLocation,
+  inGame,
   type Location,
   type LocationKind,
   type Region,
@@ -23,7 +24,7 @@ export const kindLabels: Record<LocationKind, string> = {
   building: 'Building',
 };
 
-export const collectPlaces = (region: Region): Array<Place> => {
+export const collectPlaces = (region: Region, gameId: string): Array<Place> => {
   const places = new Map<string, Location>();
 
   const add = (path: string, location: Location) => {
@@ -32,7 +33,7 @@ export const collectPlaces = (region: Region): Array<Place> => {
 
   const addInside = (locations: Array<Location>, parentPath: string) => {
     for (const location of locations) {
-      if (location.dataPath) continue;
+      if (location.dataPath || !inGame(location, gameId)) continue;
 
       const path = joinPath(parentPath, location.id);
 

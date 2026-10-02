@@ -3,19 +3,13 @@ import { writeFileSync } from 'node:fs';
 import {
   floorFor,
   forGame,
+  games,
   hasOwnMapImage,
   pokeredDir,
   read,
   siteLocation,
 } from './disassembly.mjs';
-import {
-  headers,
-  isIndoorMap,
-  mapTiles,
-  SHORE_TILES,
-  WATER_TILE,
-  waterTilesets,
-} from './tiles.mjs';
+import { gameTiles, SHORE_TILES, WATER_TILE } from './tiles.mjs';
 
 const OUTPUT = new URL(
   '../../src/data/maps/kanto-rby-wild.json',
@@ -25,12 +19,6 @@ const OUTPUT = new URL(
 const DECORATIVE_WATER_TILESETS = new Set(['Gym', 'Dojo', 'Facility']);
 
 const NO_SHORE_TILESETS = new Set(['ShipPort', 'Gym']);
-
-const superRodMaps = new Set(
-  [...read(pokeredDir, 'data/wild/super_rod.asm').matchAll(/dbw (\w+),/g)].map(
-    ([, constant]) => constant,
-  ),
-);
 
 const CUT_TREE_TILES = { Overworld: 0x3d, Gym: 0x50 };
 
@@ -105,133 +93,6 @@ const moves = (tiles, x, y) =>
     return jumps ? [[x + dx * 2, y + dy * 2]] : [];
   });
 
-const objectSteps = (constant) =>
-  [
-    ...read(
-      pokeredDir,
-      `data/maps/objects/${headers[constant].name}.asm`,
-    ).matchAll(/(?:warp|object)_event\s+(\d+),\s*(\d+)/g),
-  ].map(([, x, y]) => [Number(x), Number(y)]);
-
-const reachedSteps = (() => {
-  const connected = Object.keys(headers).filter(
-    (constant) => headers[constant].connections.length > 0,
-  );
-  const reached = new Map(connected.map((constant) => [constant, new Set()]));
-
-  const fill = (constant, seeds) => {
-    const tiles = mapTiles(constant);
-    const steps = reached.get(constant);
-    const queue = [...seeds];
-    let grew = false;
-
-    while (queue.length > 0) {
-      const [x, y] = queue.pop();
-      const key = y * tiles.columns + x;
-
-      if (steps.has(key) || !openTile(tiles, x, y)) continue;
-
-      steps.add(key);
-      grew = true;
-      queue.push(...moves(tiles, x, y));
-    }
-
-    return grew;
-  };
-
-  for (const constant of connected) fill(constant, objectSteps(constant));
-
-  for (let grew = true; grew;) {
-    grew = false;
-
-    for (const constant of connected) {
-      const tiles = mapTiles(constant);
-
-      for (const { direction, target, offset } of headers[constant]
-        .connections) {
-        if (!reached.has(target)) continue;
-
-        const other = mapTiles(target);
-        const vertical = direction === 'north' || direction === 'south';
-        const length = vertical ? tiles.columns : tiles.rows;
-        const seeds = Array.from({ length }, (_, step) => step).flatMap(
-          (step) => {
-            const [x, y] = edgeStep(tiles, direction, step);
-
-            return reached.get(constant).has(y * tiles.columns + x)
-              ? [edgeStep(other, opposite[direction], step - offset * 2)]
-              : [];
-          },
-        );
-
-        if (fill(target, seeds)) grew = true;
-      }
-    }
-  }
-
-  return reached;
-})();
-
-const reachableSteps = (constant, tiles) => {
-  const steps =
-    reachedSteps.get(constant) ??
-    (() => {
-      const own = new Set();
-      const queue = objectSteps(constant);
-
-      while (queue.length > 0) {
-        const [x, y] = queue.pop();
-        const key = y * tiles.columns + x;
-
-        if (own.has(key) || !openTile(tiles, x, y)) continue;
-
-        own.add(key);
-        queue.push(...moves(tiles, x, y));
-      }
-
-      return own;
-    })();
-
-  return (x, y) => steps.has(y * tiles.columns + x);
-};
-
-const wildLabels = (() => {
-  const constants = [
-    ...read(pokeredDir, 'constants/map_constants.asm').matchAll(
-      /^\s*map_const (\w+),/gm,
-    ),
-  ].map(([, constant]) => constant);
-  const labels = [
-    ...read(pokeredDir, 'data/wild/grass_water.asm').matchAll(
-      /^\s*dw (\w+)WildMons/gm,
-    ),
-  ].map(([, label]) => label);
-
-  if (labels.length !== constants.length)
-    throw new Error(
-      `${labels.length} wild pointers for ${constants.length} maps`,
-    );
-
-  return new Map(constants.map((constant, index) => [constant, labels[index]]));
-})();
-
-const grassRate = (constant) => {
-  const label = wildLabels.get(constant);
-
-  if (label === 'Nothing') return 0;
-
-  const lines = forGame(
-    read(pokeredDir, `data/wild/maps/${label}.asm`),
-    '_RED',
-  );
-
-  return Number(
-    lines
-      .find((line) => line.startsWith('def_grass_wildmons'))
-      ?.split(/\s+/)[1] ?? 0,
-  );
-};
-
 const outline = (columns, rows, included) => {
   const inside = (x, y) =>
     x >= 0 && y >= 0 && x < columns && y < rows && included(x, y);
@@ -286,76 +147,238 @@ const outline = (columns, rows, included) => {
   return rings;
 };
 
-const mappedConstants = Object.keys(headers).filter((constant) => {
-  const path = siteLocation(constant);
+const areasFor = ({ dir, define }) => {
+  const { headers, isIndoorMap, mapTiles, waterTilesets } = gameTiles(dir);
 
-  return path && hasOwnMapImage(pokeredDir, constant, path, floorFor(constant));
-});
+  const superRodMaps = new Set(
+    [...read(dir, 'data/wild/super_rod.asm').matchAll(/^\s*dbw? (\w+),/gm)].map(
+      ([, constant]) => constant,
+    ),
+  );
 
-const wildAreas = mappedConstants.flatMap((constant) => {
-  const tiles = mapTiles(constant);
-  const grass = grassRate(constant);
-  const place = { path: siteLocation(constant), floor: floorFor(constant) };
-  const standingOn = (x, y) => tiles.tileAt(x * 2 + 1, y * 2 + 1);
-  const facing = (x, y) => tiles.tileAt(x * 2, y * 2 + 1);
-  const fishable = new Set([
-    WATER_TILE,
-    ...(NO_SHORE_TILESETS.has(tiles.tileset) ? [] : SHORE_TILES),
-  ]);
-  const anywhere =
-    grass > 0 && isIndoorMap(constant) && tiles.tileset !== 'Forest';
-  const hasWater =
-    waterTilesets.has(tiles.tileset) &&
-    (!DECORATIVE_WATER_TILESETS.has(tiles.tileset) ||
-      superRodMaps.has(constant));
-  const anyWater = (x, y) => fishable.has(facing(x, y));
-  const reachable = hasWater && reachableSteps(constant, tiles);
-  const neighbours = (x, y) =>
+  const objectSteps = (constant) =>
     [
-      [1, 0],
-      [-1, 0],
-      [0, 1],
-      [0, -1],
-    ].map(([dx, dy]) => [x + dx, y + dy]);
-  const reachableWater = (x, y) =>
-    anyWater(x, y) &&
-    reachable(x, y) &&
-    neighbours(x, y).some(([nx, ny]) => anyWater(nx, ny));
-  const topHalfWater = (x, y) =>
-    NO_SHORE_TILESETS.has(tiles.tileset) &&
-    tiles.tileAt(x * 2, y * 2) === WATER_TILE &&
-    tiles.tileAt(x * 2 + 1, y * 2) === WATER_TILE;
-  const isWater = (x, y) =>
-    reachableWater(x, y) ||
-    (topHalfWater(x, y) &&
-      neighbours(x, y).some(([nx, ny]) => reachableWater(nx, ny)));
-  const water = hasWater && {
-    outline: outline(tiles.columns, tiles.rows, isWater),
-  };
-  const cutOutWater = water && water.outline.length > 0;
+      ...read(dir, `data/maps/objects/${headers[constant].name}.asm`).matchAll(
+        /(?:warp|object)_event\s+(\d+),\s*(\d+)/g,
+      ),
+    ].map(([, x, y]) => [Number(x), Number(y)]);
 
-  const starGrass = STAR_GRASS_TILES[tiles.tileset];
-  const grassLooking = (x, y) =>
-    standingOn(x, y) === tiles.grassTile || standingOn(x, y) === starGrass;
+  const reachedSteps = (() => {
+    const connected = Object.keys(headers).filter(
+      (constant) => headers[constant].connections.length > 0,
+    );
+    const reached = new Map(connected.map((constant) => [constant, new Set()]));
 
-  const walk = anywhere
-    ? {
-        whole: true,
-        ...(cutOutWater && {
-          outline: outline(tiles.columns, tiles.rows, (x, y) => !isWater(x, y)),
-        }),
+    const fill = (constant, seeds) => {
+      const tiles = mapTiles(constant);
+      const steps = reached.get(constant);
+      const queue = [...seeds];
+      let grew = false;
+
+      while (queue.length > 0) {
+        const [x, y] = queue.pop();
+        const key = y * tiles.columns + x;
+
+        if (steps.has(key) || !openTile(tiles, x, y)) continue;
+
+        steps.add(key);
+        grew = true;
+        queue.push(...moves(tiles, x, y));
       }
-    : grass > 0 &&
-      tiles.grassTile !== undefined && {
-        outline: outline(tiles.columns, tiles.rows, grassLooking),
-        ...(starGrass !== undefined && { note: STAR_GRASS_NOTE }),
-      };
 
-  return [
-    walk && { ...place, method: 'walk', ...walk },
-    water && { ...place, method: 'water', ...water },
-  ].filter((area) => area && (area.whole || area.outline.length > 0));
-});
+      return grew;
+    };
+
+    for (const constant of connected) fill(constant, objectSteps(constant));
+
+    for (let grew = true; grew;) {
+      grew = false;
+
+      for (const constant of connected) {
+        const tiles = mapTiles(constant);
+
+        for (const { direction, target, offset } of headers[constant]
+          .connections) {
+          if (!reached.has(target)) continue;
+
+          const other = mapTiles(target);
+          const vertical = direction === 'north' || direction === 'south';
+          const length = vertical ? tiles.columns : tiles.rows;
+          const seeds = Array.from({ length }, (_, step) => step).flatMap(
+            (step) => {
+              const [x, y] = edgeStep(tiles, direction, step);
+
+              return reached.get(constant).has(y * tiles.columns + x)
+                ? [edgeStep(other, opposite[direction], step - offset * 2)]
+                : [];
+            },
+          );
+
+          if (fill(target, seeds)) grew = true;
+        }
+      }
+    }
+
+    return reached;
+  })();
+
+  const reachableSteps = (constant, tiles) => {
+    const steps =
+      reachedSteps.get(constant) ??
+      (() => {
+        const own = new Set();
+        const queue = objectSteps(constant);
+
+        while (queue.length > 0) {
+          const [x, y] = queue.pop();
+          const key = y * tiles.columns + x;
+
+          if (own.has(key) || !openTile(tiles, x, y)) continue;
+
+          own.add(key);
+          queue.push(...moves(tiles, x, y));
+        }
+
+        return own;
+      })();
+
+    return (x, y) => steps.has(y * tiles.columns + x);
+  };
+
+  const wildLabels = (() => {
+    const constants = [
+      ...read(dir, 'constants/map_constants.asm').matchAll(
+        /^\s*map_const (\w+),/gm,
+      ),
+    ].map(([, constant]) => constant);
+    const labels = [
+      ...read(dir, 'data/wild/grass_water.asm').matchAll(
+        /^\s*dw (\w+)WildMons/gm,
+      ),
+    ].map(([, label]) => label);
+
+    if (labels.length !== constants.length)
+      throw new Error(
+        `${labels.length} wild pointers for ${constants.length} maps`,
+      );
+
+    return new Map(
+      constants.map((constant, index) => [constant, labels[index]]),
+    );
+  })();
+
+  const grassRate = (constant) => {
+    const label = wildLabels.get(constant);
+
+    if (label === 'Nothing') return 0;
+
+    const lines = forGame(read(dir, `data/wild/maps/${label}.asm`), define);
+
+    return Number(
+      lines
+        .find((line) => line.startsWith('def_grass_wildmons'))
+        ?.split(/\s+/)[1] ?? 0,
+    );
+  };
+
+  const mappedConstants = Object.keys(headers).filter((constant) => {
+    const path = siteLocation(constant);
+
+    return path && hasOwnMapImage(dir, constant, path, floorFor(constant));
+  });
+
+  const wildAreas = mappedConstants.flatMap((constant) => {
+    const tiles = mapTiles(constant);
+    const grass = grassRate(constant);
+    const place = { path: siteLocation(constant), floor: floorFor(constant) };
+    const standingOn = (x, y) => tiles.tileAt(x * 2 + 1, y * 2 + 1);
+    const facing = (x, y) => tiles.tileAt(x * 2, y * 2 + 1);
+    const fishable = new Set([
+      WATER_TILE,
+      ...(NO_SHORE_TILESETS.has(tiles.tileset) ? [] : SHORE_TILES),
+    ]);
+    const anywhere =
+      grass > 0 && isIndoorMap(constant) && tiles.tileset !== 'Forest';
+    const hasWater =
+      waterTilesets.has(tiles.tileset) &&
+      (!DECORATIVE_WATER_TILESETS.has(tiles.tileset) ||
+        superRodMaps.has(constant));
+    const anyWater = (x, y) => fishable.has(facing(x, y));
+    const reachable = hasWater && reachableSteps(constant, tiles);
+    const neighbours = (x, y) =>
+      [
+        [1, 0],
+        [-1, 0],
+        [0, 1],
+        [0, -1],
+      ].map(([dx, dy]) => [x + dx, y + dy]);
+    const reachableWater = (x, y) =>
+      anyWater(x, y) &&
+      reachable(x, y) &&
+      neighbours(x, y).some(([nx, ny]) => anyWater(nx, ny));
+    const topHalfWater = (x, y) =>
+      NO_SHORE_TILESETS.has(tiles.tileset) &&
+      tiles.tileAt(x * 2, y * 2) === WATER_TILE &&
+      tiles.tileAt(x * 2 + 1, y * 2) === WATER_TILE;
+    const isWater = (x, y) =>
+      reachableWater(x, y) ||
+      (topHalfWater(x, y) &&
+        neighbours(x, y).some(([nx, ny]) => reachableWater(nx, ny)));
+    const water = hasWater && {
+      outline: outline(tiles.columns, tiles.rows, isWater),
+    };
+    const cutOutWater = water && water.outline.length > 0;
+
+    const starGrass = STAR_GRASS_TILES[tiles.tileset];
+    const grassLooking = (x, y) =>
+      standingOn(x, y) === tiles.grassTile || standingOn(x, y) === starGrass;
+
+    const walk = anywhere
+      ? {
+          whole: true,
+          ...(cutOutWater && {
+            outline: outline(
+              tiles.columns,
+              tiles.rows,
+              (x, y) => !isWater(x, y),
+            ),
+          }),
+        }
+      : grass > 0 &&
+        tiles.grassTile !== undefined && {
+          outline: outline(tiles.columns, tiles.rows, grassLooking),
+          ...(starGrass !== undefined && { note: STAR_GRASS_NOTE }),
+        };
+
+    return [
+      walk && { ...place, method: 'walk', ...walk },
+      water && { ...place, method: 'water', ...water },
+    ].filter((area) => area && (area.whole || area.outline.length > 0));
+  });
+
+  return wildAreas;
+};
+
+const sources = [
+  { dir: pokeredDir, define: '_RED' },
+  ...games.filter(({ dir }) => dir !== pokeredDir),
+];
+const merged = new Map();
+
+for (const source of sources) {
+  const ids = games.filter(({ dir }) => dir === source.dir).map(({ id }) => id);
+
+  for (const area of areasFor(source)) {
+    const key = JSON.stringify(area);
+
+    merged.set(key, [...(merged.get(key) ?? []), ...ids]);
+  }
+}
+
+const wildAreas = [...merged].map(([key, ids]) => ({
+  ...JSON.parse(key),
+  ...(ids.length < games.length && { games: ids }),
+}));
 
 writeFileSync(OUTPUT, `${JSON.stringify(wildAreas, null, 2)}\n`);
 

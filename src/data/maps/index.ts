@@ -33,5 +33,18 @@ export const getLocationTrail = (
 export const getLocation = (region: Region, path: string) =>
   getLocationTrail(region, path)?.at(-1);
 
+export const inGame = ({ games }: { games?: Array<string> }, gameId: string) =>
+  !games || games.includes(gameId);
+
+export const locationInGame = (
+  location: Location,
+  gameId: string,
+): Location => ({
+  ...location,
+  hotspots: location.hotspots.filter((hotspot) => inGame(hotspot, gameId)),
+  markers: location.markers.filter((marker) => inGame(marker, gameId)),
+  locations: location.locations.filter((child) => inGame(child, gameId)),
+});
+
 export const getHotspot = (region: Region, target: string) =>
   region.hotspots.find((hotspot) => hotspot.target === target);

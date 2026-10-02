@@ -464,6 +464,13 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-19",
+    "x": 11,
+    "y": 9,
+    "text": "SEA ROUTE 19 FUCHSIA CITY - SEAFOAM ISLANDS",
+    "games": ["red", "blue"]
+  },
+  {
     "path": "route-2",
     "x": 5,
     "y": 65,
@@ -762,6 +769,13 @@
     "x": 15,
     "y": 23,
     "text": "Beware! ZUBAT is a bloodsucker!",
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-19",
+    "x": 11,
+    "y": 11,
+    "text": "SEA ROUTE 19 FUCHSIA CITY - SEAFOAM ISLANDS",
     "games": ["yellow"]
   },
   {

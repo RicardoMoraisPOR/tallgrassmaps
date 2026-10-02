@@ -10377,6 +10377,20 @@
     "y": 7,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Have to warm up before my swim!"
+      },
+      {
+        "label": "If you win",
+        "text": "All warmed up!"
+      },
+      {
+        "label": "After battle",
+        "text": "Thanks, kid! I'm ready for a swim!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10403,6 +10417,20 @@
     "y": 7,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Have to warm up before my swim!"
+      },
+      {
+        "label": "If you win",
+        "text": "All warmed up!"
+      },
+      {
+        "label": "After battle",
+        "text": "Thanks, kid! I'm ready for a swim!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10429,6 +10457,20 @@
     "y": 7,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Wait! You'll have a heart attack!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ooh! That's chilly!"
+      },
+      {
+        "label": "After battle",
+        "text": "Watch out for TENTACOOL!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10460,6 +10502,20 @@
     "y": 9,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Wait! You'll have a heart attack!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ooh! That's chilly!"
+      },
+      {
+        "label": "After battle",
+        "text": "Watch out for TENTACOOL!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10491,6 +10547,20 @@
     "y": 25,
     "facing": "left",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I love swimming! What about you?"
+      },
+      {
+        "label": "If you win",
+        "text": "Belly flop!"
+      },
+      {
+        "label": "After battle",
+        "text": "I can beat POKéMON at swimming!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10517,6 +10587,20 @@
     "y": 27,
     "facing": "right",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What's beyond the horizon?"
+      },
+      {
+        "label": "If you win",
+        "text": "Glub!"
+      },
+      {
+        "label": "After battle",
+        "text": "I see a couple of islands!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10553,6 +10637,20 @@
     "y": 31,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I tried diving for POKéMON, but it was a no go!"
+      },
+      {
+        "label": "If you win",
+        "text": "Help!"
+      },
+      {
+        "label": "After battle",
+        "text": "You have to fish for sea POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10584,6 +10682,20 @@
     "y": 11,
     "facing": "down",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I look at the sea to forget!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ooh! Traumatic!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm looking at the sea to forget!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10610,6 +10722,20 @@
     "y": 13,
     "facing": "down",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I look at the sea to forget!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ooh! Traumatic!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm looking at the sea to forget!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10636,6 +10762,20 @@
     "y": 43,
     "facing": "left",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Oh, I just love your ride! Can I have it if I win?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "It's still a long way to go to SEAFOAM ISLANDS."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10677,6 +10817,20 @@
     "y": 43,
     "facing": "right",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Swimming's great! Sunburns aren't!"
+      },
+      {
+        "label": "If you win",
+        "text": "Shocker!"
+      },
+      {
+        "label": "After battle",
+        "text": "My boy friend wanted to swim to SEAFOAM ISLANDS."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10703,6 +10857,20 @@
     "y": 42,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "These waters are treacherous!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ooh! Dangerous!"
+      },
+      {
+        "label": "After battle",
+        "text": "I got a cramp! Glub, glub..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10744,6 +10912,20 @@
     "y": 44,
     "facing": "down",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I swam here, but I'm tired."
+      },
+      {
+        "label": "If you win",
+        "text": "I'm exhausted..."
+      },
+      {
+        "label": "After battle",
+        "text": "LAPRAS is so big, it must keep you dry on water."
+      }
+    ],
     "parties": [
       {
         "pokemon": [

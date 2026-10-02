@@ -122,6 +122,8 @@ const SIGN_MAPS = {
   POKEMON_MANSION_2_F: 'cinnabar-island/pokemon-mansion',
   POKEMON_MANSION_3_F: 'cinnabar-island/pokemon-mansion',
   POKEMON_MANSION_B_1_F: 'cinnabar-island/pokemon-mansion',
+  ROUTE_19: 'route-19',
+  SUMMER_BEACH_HOUSE: 'route-19/summer-beach-house',
   ROUTE_20: 'route-20',
   SEAFOAM_ISLANDS_1_F: 'route-20/seafoam-islands',
   SEAFOAM_ISLANDS_B_1_F: 'route-20/seafoam-islands',

@@ -149,6 +149,7 @@ const buildingLocations = {
   MR_FUJIS_HOUSE: 'lavender-town/mr-fujis-house',
   LAVENDER_CUBONE_HOUSE: 'lavender-town/lavender-cubone-house',
   NAME_RATERS_HOUSE: 'lavender-town/name-raters-house',
+  SUMMER_BEACH_HOUSE: 'route-19/summer-beach-house',
   ROUTE_18_GATE_2F: 'route-18',
   FIGHTING_DOJO: 'saffron-city',
   OAKS_LAB: 'pallet-town',

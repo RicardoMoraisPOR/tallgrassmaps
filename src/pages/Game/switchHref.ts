@@ -1,11 +1,8 @@
 import type { Game } from '@/data/games';
-import { getLocationTrail, getRegion } from '@/data/maps';
+import { getLocationTrail, getRegion, inGame } from '@/data/maps';
 import { gameHref, joinPath, locationHref, pathSegments } from '@/lib/paths';
 
 const FLOOR_PARAM = 'floor';
-
-const inGame = ({ games }: { games?: Array<string> }, game: Game) =>
-  !games || games.includes(game.id);
 
 const keptSearch = (search: string, floorExists: boolean) => {
   const params = new URLSearchParams(search);
@@ -29,7 +26,8 @@ export const switchHref = (game: Game, path: string, search = '') => {
       joinPath(...segments.slice(0, length)),
     );
 
-    if (!trail || !trail.every((location) => inGame(location, game))) continue;
+    if (!trail || !trail.every((location) => inGame(location, game.id)))
+      continue;
 
     const href = locationHref(game.id, joinPath(...segments.slice(0, length)));
 
@@ -39,7 +37,7 @@ export const switchHref = (game: Game, path: string, search = '') => {
     const floorExists = trail
       .at(-1)
       ?.floors?.some(
-        (candidate) => candidate.id === floor && inGame(candidate, game),
+        (candidate) => candidate.id === floor && inGame(candidate, game.id),
       );
 
     return `${href}${keptSearch(search, Boolean(floorExists))}`;

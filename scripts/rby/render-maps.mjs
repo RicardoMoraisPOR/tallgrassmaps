@@ -112,6 +112,7 @@ const maps = [
     name: `CeladonMart${floor}`,
     out: `celadon-dept-store/${floor.toLowerCase()}.png`,
   })),
+  { name: 'SummerBeachHouse', out: 'summer-beach-house.png', yellowOnly: true },
 ];
 
 const games = [
@@ -166,9 +167,9 @@ const render = (dir, name) => {
 
 const written = [];
 
-for (const { name, yellowName = name, out } of maps) {
+for (const { name, yellowName = name, out, yellowOnly } of maps) {
   const [red, yellow] = games.map(({ dir }, index) =>
-    render(dir, index === 0 ? name : yellowName),
+    render(yellowOnly ? pokeyellowDir : dir, index === 0 ? name : yellowName),
   );
 
   blackOut(red, BLACKED_OUT[name]);

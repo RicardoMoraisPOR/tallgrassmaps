@@ -140,6 +140,8 @@ const NPC_MAPS = {
   POKEMON_MANSION_2_F: { path: 'cinnabar-island/pokemon-mansion' },
   POKEMON_MANSION_3_F: { path: 'cinnabar-island/pokemon-mansion' },
   POKEMON_MANSION_B_1_F: { path: 'cinnabar-island/pokemon-mansion' },
+  ROUTE_19: { path: 'route-19' },
+  SUMMER_BEACH_HOUSE: { path: 'route-19/summer-beach-house' },
   ROUTE_20: { path: 'route-20' },
   SEAFOAM_ISLANDS_1_F: { path: 'route-20/seafoam-islands' },
   SEAFOAM_ISLANDS_B_1_F: { path: 'route-20/seafoam-islands' },
@@ -1498,6 +1500,32 @@ const SCRIPTED_NPCS = {
         texts: ['_VermilionOldRodHouseFishingGuruHowAreTheFishBitingText'],
       },
     ],
+  },
+  SUMMERBEACHHOUSE_SURFINDUDE: {
+    name: "Surfin' Dude",
+    special: true,
+    dialog: [
+      {
+        trigger: 'Unless your Pikachu knows Surf',
+        texts: ['_SummerBeachHouseSurfinDudeText4'],
+      },
+      {
+        trigger:
+          'If your Pikachu knows Surf, he invites you to the surfing minigame',
+        texts: ['_SummerBeachHouseSurfinDudeText1'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_SummerBeachHouseSurfinDudeText2'],
+      },
+      {
+        trigger: 'Talking to him again',
+        texts: ['_SummerBeachHouseSurfinDudeText3'],
+      },
+    ],
+  },
+  SUMMERBEACHHOUSE_PIKACHU: {
+    dialog: [{ texts: ['_SummerBeachHousePikachuText'] }],
   },
   CINNABARGYM_GYM_GUIDE: {
     dialog: [

@@ -34,118 +34,126 @@ const labelledValues = (text, suffix, value) => {
   return table;
 };
 
-const blocksets = labelledValues(
-  read(pokeredDir, 'gfx/tilesets.asm'),
-  'Block',
-  (line) => line.match(/INCBIN "([^"]+\.bst)"/)?.[1],
-);
+export const gameTiles = (dir) => {
+  const blocksets = labelledValues(
+    read(dir, 'gfx/tilesets.asm'),
+    'Block',
+    (line) => line.match(/INCBIN "([^"]+\.bst)"/)?.[1],
+  );
 
-const collisions = labelledValues(
-  read(pokeredDir, 'data/tilesets/collision_tile_ids.asm'),
-  'Coll',
-  (line) => {
-    const tiles = line.match(/coll_tiles\s+(.*)$/)?.[1];
+  const collisions = labelledValues(
+    read(dir, 'data/tilesets/collision_tile_ids.asm'),
+    'Coll',
+    (line) => {
+      const tiles = line.match(/coll_tiles\s+(.*)$/)?.[1];
 
-    return tiles
-      ? new Set(
-          tiles.split(',').map((tile) => parseInt(tile.trim().slice(1), 16)),
-        )
-      : undefined;
-  },
-);
+      return tiles
+        ? new Set(
+            tiles.split(',').map((tile) => parseInt(tile.trim().slice(1), 16)),
+          )
+        : undefined;
+    },
+  );
 
-const grassTiles = Object.fromEntries(
-  [
-    ...read(pokeredDir, 'data/tilesets/tileset_headers.asm').matchAll(
-      /^\s*tileset (\w+),(?:\s*-?\$?\w+,){3}\s*(-1|\$\w+),/gm,
-    ),
-  ].map(([, name, tile]) => [
-    name,
-    tile === '-1' ? undefined : parseInt(tile.slice(1), 16),
-  ]),
-);
-
-export const waterTilesets = new Set(
-  [
-    ...read(pokeredDir, 'data/tilesets/water_tilesets.asm').matchAll(
-      /^\s*db ([A-Z_]+)$/gm,
-    ),
-  ].map(([, constant]) => camel(constant)),
-);
-
-const mapConstantsText = read(pokeredDir, 'constants/map_constants.asm');
-
-const mapOrder = [
-  ...mapConstantsText.matchAll(
-    /map_const (\w+),\s*(\d+),\s*(\d+)|FIRST_INDOOR_MAP/g,
-  ),
-];
-
-const firstIndoorIndex = mapOrder.findIndex(
-  ([match]) => match === 'FIRST_INDOOR_MAP',
-);
-
-const mapSizes = Object.fromEntries(
-  mapOrder
-    .filter(([, constant]) => constant)
-    .map(([, constant, width, height]) => [
-      constant,
-      { width: Number(width), height: Number(height) },
+  const grassTiles = Object.fromEntries(
+    [
+      ...read(dir, 'data/tilesets/tileset_headers.asm').matchAll(
+        /^\s*tileset (\w+),(?:\s*-?\$?\w+,){3}\s*(-1|\$\w+),/gm,
+      ),
+    ].map(([, name, tile]) => [
+      name,
+      tile === '-1' ? undefined : parseInt(tile.slice(1), 16),
     ]),
-);
+  );
 
-export const isIndoorMap = (constant) =>
-  mapOrder.findIndex(([, name]) => name === constant) > firstIndoorIndex;
+  const waterTilesets = new Set(
+    [
+      ...read(dir, 'data/tilesets/water_tilesets.asm').matchAll(
+        /^\s*db ([A-Z_]+)$/gm,
+      ),
+    ].map(([, constant]) => camel(constant)),
+  );
 
-const blockFiles = labelledValues(
-  read(pokeredDir, 'maps.asm'),
-  'Blocks',
-  (line) => line.match(/INCBIN "([^"]+)"/)?.[1],
-);
+  const mapConstantsText = read(dir, 'constants/map_constants.asm');
 
-export const headers = Object.fromEntries(
-  readdirSync(join(pokeredDir, 'data/maps/headers')).map((file) => {
-    const text = read(pokeredDir, `data/maps/headers/${file}`);
-    const [, name, constant, tileset] = text.match(
-      /map_header\s+(\w+),\s*(\w+),\s*(\w+)/,
-    );
-    const connections = [
-      ...text.matchAll(/connection (\w+),\s*\w+,\s*(\w+),\s*(-?\d+)/g),
-    ].map(([, direction, target, offset]) => ({
-      direction,
-      target,
-      offset: Number(offset),
-    }));
+  const mapOrder = [
+    ...mapConstantsText.matchAll(
+      /map_const (\w+),\s*(\d+),\s*(\d+)|FIRST_INDOOR_MAP/g,
+    ),
+  ];
 
-    return [constant, { name, tileset: camel(tileset), connections }];
-  }),
-);
+  const firstIndoorIndex = mapOrder.findIndex(
+    ([match]) => match === 'FIRST_INDOOR_MAP',
+  );
 
-const tileCache = {};
+  const mapSizes = Object.fromEntries(
+    mapOrder
+      .filter(([, constant]) => constant)
+      .map(([, constant, width, height]) => [
+        constant,
+        { width: Number(width), height: Number(height) },
+      ]),
+  );
 
-export const mapTiles = (constant) => {
-  if (tileCache[constant]) return tileCache[constant];
+  const isIndoorMap = (constant) =>
+    mapOrder.findIndex(([, name]) => name === constant) > firstIndoorIndex;
 
-  const { name, tileset } = headers[constant];
-  const { width, height } = mapSizes[constant];
-  const blockset = readFileSync(join(pokeredDir, blocksets[tileset]));
-  const blocks = readFileSync(join(pokeredDir, blockFiles[name]));
+  const blockFiles = labelledValues(
+    read(dir, 'maps.asm'),
+    'Blocks',
+    (line) => line.match(/INCBIN "([^"]+)"/)?.[1],
+  );
 
-  const tileAt = (tileX, tileY) => {
-    const block = blocks[Math.floor(tileY / 4) * width + Math.floor(tileX / 4)];
+  const headers = Object.fromEntries(
+    readdirSync(join(dir, 'data/maps/headers')).map((file) => {
+      const text = read(dir, `data/maps/headers/${file}`);
+      const [, name, constant, tileset] = text.match(
+        /map_header\s+(\w+),\s*(\w+),\s*(\w+)/,
+      );
+      const connections = [
+        ...text.matchAll(/connection (\w+),\s*\w+,\s*(\w+),\s*(-?\d+)/g),
+      ].map(([, direction, target, offset]) => ({
+        direction,
+        target,
+        offset: Number(offset),
+      }));
 
-    return blockset[block * 16 + (tileY % 4) * 4 + (tileX % 4)];
+      return [constant, { name, tileset: camel(tileset), connections }];
+    }),
+  );
+
+  const tileCache = {};
+
+  const mapTiles = (constant) => {
+    if (tileCache[constant]) return tileCache[constant];
+
+    const { name, tileset } = headers[constant];
+    const { width, height } = mapSizes[constant];
+    const blockset = readFileSync(join(dir, blocksets[tileset]));
+    const blocks = readFileSync(join(dir, blockFiles[name]));
+
+    const tileAt = (tileX, tileY) => {
+      const block =
+        blocks[Math.floor(tileY / 4) * width + Math.floor(tileX / 4)];
+
+      return blockset[block * 16 + (tileY % 4) * 4 + (tileX % 4)];
+    };
+
+    tileCache[constant] = {
+      name,
+      tileset,
+      columns: width * 2,
+      rows: height * 2,
+      passable: collisions[tileset],
+      grassTile: grassTiles[tileset],
+      tileAt,
+    };
+
+    return tileCache[constant];
   };
 
-  tileCache[constant] = {
-    name,
-    tileset,
-    columns: width * 2,
-    rows: height * 2,
-    passable: collisions[tileset],
-    grassTile: grassTiles[tileset],
-    tileAt,
-  };
-
-  return tileCache[constant];
+  return { waterTilesets, isIndoorMap, headers, mapTiles };
 };
+
+export const { waterTilesets, isIndoorMap, headers, mapTiles } =
+  gameTiles(pokeredDir);

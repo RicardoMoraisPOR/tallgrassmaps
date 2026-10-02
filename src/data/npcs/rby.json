@@ -6075,6 +6075,48 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-19/summer-beach-house",
+    "x": 2,
+    "y": 3,
+    "name": "Surfin' Dude",
+    "sprite": "fishing_guru",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Dogs and burgers on special today!",
+        "trigger": "Unless your Pikachu knows Surf"
+      },
+      {
+        "text": "Whoa!\n\nYour PIKACHU knows how to SURF! So, I'm not alone...\n\nGreat! You earned the right to SURF with the DUDE!\n\nGive it a go?",
+        "trigger": "If your Pikachu knows Surf, he invites you to the surfing minigame"
+      },
+      {
+        "text": "Come SURF anytime, my friend!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Wanna go SURF?",
+        "trigger": "Talking to him again"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-19/summer-beach-house",
+    "x": 5,
+    "y": 3,
+    "name": "Pikachu",
+    "sprite": "yellow/pikachu",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "PIKACHU: Pikaa"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "route-5/underground-path-route-5",
     "x": 2,
     "y": 3,

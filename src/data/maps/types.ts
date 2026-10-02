@@ -36,6 +36,7 @@ export type Direction = 'north' | 'south' | 'east' | 'west';
 
 export type Hotspot = Rect & {
   target: string;
+  games?: Array<string>;
   travel?: Direction;
   floor?: string;
   ladder?: boolean;
@@ -54,6 +55,7 @@ export type MapMarker = Rect & {
   kind: MarkerKind;
   name: string;
   target?: string;
+  games?: Array<string>;
 };
 
 export type LocationKind = 'town' | 'route' | 'dungeon' | 'building';
@@ -116,6 +118,7 @@ export type WildArea = {
   whole?: boolean;
   outline?: Array<Array<[number, number]>>;
   note?: string;
+  games?: Array<string>;
 };
 
 export type Region = MapImage & {
