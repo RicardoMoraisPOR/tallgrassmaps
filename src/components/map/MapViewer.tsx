@@ -56,6 +56,8 @@ const HOVER_CARD_EDGE = 8;
 const SPRITE_SIZE = 16;
 const SPRITE_FRAMES = 3;
 const SPRITE_LAYER_Z = 200;
+const MAP_IMAGE_PANE = 'map-image';
+const BEHIND_PANE = 'behind-links';
 
 const stackedShapes = new WeakSet<LeafletPath>();
 
@@ -186,7 +188,9 @@ export const MapViewer = ({
       className={cn('isolate', className)}
       style={{ background: 'var(--muted)' }}
     >
-      <ImageOverlay url={map.image} bounds={bounds} />
+      <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
+        <ImageOverlay url={map.image} bounds={bounds} />
+      </Pane>
       {links.map(
         (link) =>
           link.sprite && (
@@ -226,6 +230,7 @@ export const MapViewer = ({
             />
           ),
       )}
+      <Pane name={BEHIND_PANE} style={{ zIndex: 350 }} />
       <Pane name="links" style={{ zIndex: 450 }}>
         {links
           .filter((link) => !link.icon)
@@ -233,6 +238,7 @@ export const MapViewer = ({
             <LinkShape
               key={linkKey(link)}
               link={link}
+              pane={link.behind ? BEHIND_PANE : undefined}
               shapeRef={link.sprite ? spriteShapeRef(link) : undefined}
               className={cn(
                 'map-link',
@@ -312,6 +318,7 @@ export const MapViewer = ({
               <LinkShape
                 key={`highlight-${link.x},${link.y}`}
                 link={link}
+                pane={link.behind ? BEHIND_PANE : undefined}
                 interactive={false}
                 className={cn('map-link-highlight', link.className)}
               />
@@ -323,6 +330,7 @@ export const MapViewer = ({
             <LinkShape
               key={`pinned-${linkKey(hoverCard)}`}
               link={hoverCard}
+              pane={hoverCard.behind ? BEHIND_PANE : undefined}
               interactive={false}
               className={cn('map-link-pinned', hoverCard.className)}
             />
@@ -366,6 +374,7 @@ const LinkShape = ({
   eventHandlers?: LeafletEventHandlerFnMap;
   interactive?: boolean;
   shapeRef?: (shape: LeafletPath | null) => void;
+  pane?: string;
   children?: ReactNode;
 }) =>
   link.outline ? (

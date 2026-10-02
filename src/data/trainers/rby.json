@@ -10811,6 +10811,20 @@
     "y": 24,
     "facing": "left",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You want to know if the fish are biting?"
+      },
+      {
+        "label": "If you win",
+        "text": "Dang!"
+      },
+      {
+        "label": "After battle",
+        "text": "I can't catch anything good!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10847,6 +10861,20 @@
     "y": 25,
     "facing": "down",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I got a big haul! Wanna go for it?"
+      },
+      {
+        "label": "If you win",
+        "text": "Darn MAGIKARP!"
+      },
+      {
+        "label": "After battle",
+        "text": "I seem to only catch MAGIKARP!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10893,6 +10921,20 @@
     "y": 31,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "The sea cleanses my body and soul!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ayah!"
+      },
+      {
+        "label": "After battle",
+        "text": "I like the mountains too!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10919,6 +10961,20 @@
     "y": 30,
     "facing": "right",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What's wrong with me swimming?"
+      },
+      {
+        "label": "If you win",
+        "text": "Cheap shot!"
+      },
+      {
+        "label": "After battle",
+        "text": "I look like what? A studded inner tube? Get lost!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10950,6 +11006,20 @@
     "y": 63,
     "facing": "down",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I caught all my POKéMON at sea!"
+      },
+      {
+        "label": "If you win",
+        "text": "Diver!! Down!!"
+      },
+      {
+        "label": "After battle",
+        "text": "Where'd you catch your POKéMON?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10971,6 +11041,20 @@
     "y": 71,
     "facing": "right",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Right now, I'm in a triathlon meet!"
+      },
+      {
+        "label": "If you win",
+        "text": "Pant... pant...pant..."
+      },
+      {
+        "label": "After battle",
+        "text": "I'm beat! But, I still have the bike race and marathon left!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10997,6 +11081,20 @@
     "y": 71,
     "facing": "left",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ahh! Feel the sun and the wind!"
+      },
+      {
+        "label": "If you win",
+        "text": "Yow! I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm sunburnt to a crisp!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11028,6 +11126,20 @@
     "y": 56,
     "facing": "left",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey, don't scare away the fish!"
+      },
+      {
+        "label": "If you win",
+        "text": "Sorry! I didn't mean it!"
+      },
+      {
+        "label": "After battle",
+        "text": "I was just angry that I couldn't catch anything."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11054,6 +11166,20 @@
     "y": 57,
     "facing": "right",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Keep me company 'til I get a hit!"
+      },
+      {
+        "label": "If you win",
+        "text": "That burned some time."
+      },
+      {
+        "label": "After battle",
+        "text": "Oh wait! I got a bite! Yeah!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
