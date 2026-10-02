@@ -67,6 +67,8 @@ const SIGN_MAPS = {
   CERULEAN_TRASHED_HOUSE: 'cerulean-city/cerulean-trashed-house',
   CERULEAN_MART: 'cerulean-city/cerulean-poke-mart',
   CERULEAN_POKECENTER: 'cerulean-city/cerulean-pokemon-center',
+  ROUTE_22: 'route-22',
+  ROUTE_22_GATE: 'route-22/route-22-gate',
   ROUTE_24: 'route-24',
   ROUTE_25: 'route-25',
   BILLS_HOUSE: 'route-25/bills-house',

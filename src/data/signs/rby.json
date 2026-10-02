@@ -351,6 +351,13 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-22",
+    "x": 7,
+    "y": 11,
+    "text": "POKéMON LEAGUE Front Gate",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-25",
     "x": 43,
     "y": 3,

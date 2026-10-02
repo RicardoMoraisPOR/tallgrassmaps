@@ -84,6 +84,7 @@ const NPC_MAPS = {
   POKEMON_TOWER_5_F: { path: 'lavender-town/pokemon-tower' },
   POKEMON_TOWER_6_F: { path: 'lavender-town/pokemon-tower' },
   POKEMON_TOWER_7_F: { path: 'lavender-town/pokemon-tower' },
+  ROUTE_22_GATE: { path: 'route-22/route-22-gate' },
   ROUTE_24: { path: 'route-24' },
   ROUTE_25: { path: 'route-25' },
   BILLS_HOUSE: { path: 'route-25/bills-house' },
@@ -194,6 +195,21 @@ const SCRIPTED_NPCS = {
   ROUTE6GATE_GUARD: SAFFRON_GATE_GUARD,
   ROUTE7GATE_GUARD: SAFFRON_GATE_GUARD,
   ROUTE8GATE_GUARD: SAFFRON_GATE_GUARD,
+  ROUTE22GATE_GUARD: {
+    dialog: [
+      {
+        trigger: "If you don't have the Boulder Badge",
+        texts: [
+          '_Route22GateGuardNoBoulderbadgeText',
+          '_Route22GateGuardICantLetYouPassText',
+        ],
+      },
+      {
+        trigger: 'If you have the Boulder Badge',
+        texts: ['_Route22GateGuardGoRightAheadText'],
+      },
+    ],
+  },
   PALLETTOWN_OAK: {
     cutscene: true,
     dialog: [

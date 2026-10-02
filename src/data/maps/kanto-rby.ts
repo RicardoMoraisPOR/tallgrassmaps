@@ -988,6 +988,21 @@ const services: Array<InsideEntry> = [
     marker: 'house',
   },
   {
+    id: 'route-22-gate',
+    name: 'Route 22 Gate',
+    kind: 'building',
+    size: [160, 128],
+    parent: 'route-22',
+    otherParents: ['route-23'],
+    entrances: [warp(8, 5)],
+    otherEntrances: { 'route-23': [warp(7, 139)] },
+    exits: [
+      rect(64, 112, 32, 16),
+      { area: rect(64, 0, 32, 16), to: 'route-23' },
+    ],
+    marker: 'house',
+  },
+  {
     id: 'route-2-trade-house',
     name: 'Trade House',
     kind: 'building',
@@ -1483,16 +1498,17 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
 const locations: Array<Location> = outdoor.map(
   ({ id, name, kind, size, variants }) => ({
     ...toLocation(id, name, kind, size),
-    markers: services
-      .filter(({ parent }) => parent === id)
-      .flatMap((building) =>
-        building.entrances.map((entry) => ({
-          ...('area' in entry ? entry.area : entry),
-          kind: building.marker ?? 'house',
-          name: building.name,
-          target: `${building.parent}/${building.id}`,
-        })),
-      ),
+    markers: services.flatMap((building) =>
+      (building.parent === id
+        ? building.entrances
+        : (building.otherEntrances?.[id] ?? [])
+      ).map((entry) => ({
+        ...('area' in entry ? entry.area : entry),
+        kind: building.marker ?? 'house',
+        name: building.name,
+        target: `${id}/${building.id}`,
+      })),
+    ),
     variants,
     locations: buildings
       .filter(

@@ -2322,6 +2322,25 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-22/route-22-gate",
+    "x": 6,
+    "y": 2,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Only truly skilled trainers are allowed through.\n\nYou don't have the BOULDERBADGE yet!\n\nThe rules are rules. I can't let you pass.",
+        "trigger": "If you don't have the Boulder Badge"
+      },
+      {
+        "text": "Oh! That is the BOULDERBADGE! Go right ahead!",
+        "trigger": "If you have the Boulder Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-2/route-2-gate",
     "x": 1,
     "y": 4,

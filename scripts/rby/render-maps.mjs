@@ -37,6 +37,7 @@ const maps = [
     ['ViridianSchoolHouse', 'viridian-school-house'],
     ['ViridianNicknameHouse', 'viridian-nickname-house'],
     ['Route2Gate', 'route-2-gate'],
+    ['Route22Gate', 'route-22-gate'],
     ['Route2TradeHouse', 'route-2-trade-house'],
     ['ViridianForestNorthGate', 'viridian-forest-north-gate'],
     ['ViridianForestSouthGate', 'viridian-forest-south-gate'],
