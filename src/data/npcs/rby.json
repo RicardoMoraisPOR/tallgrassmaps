@@ -1094,6 +1094,393 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "fuchsia-city/fuchsia-bills-grandpas-house",
+    "x": 2,
+    "y": 3,
+    "name": "Middle Aged Woman",
+    "sprite": "middle_aged_woman",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "SAFARI ZONE's WARDEN is old, but still active!\n\nAll his teeth are false, though."
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-bills-grandpas-house",
+    "x": 7,
+    "y": 2,
+    "name": "Bills Grandpa",
+    "sprite": "gambler",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Hmm? You've met BILL?\n\nHe's my grandson!\n\nHe always liked collecting things even as a child!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-bills-grandpas-house",
+    "x": 5,
+    "y": 5,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "BILL files his own POKéMON data on his PC!\n\nDid he show you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 10,
+    "y": 12,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Did you try the SAFARI GAME? Some POKéMON can only be caught there."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 28,
+    "y": 17,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SAFARI ZONE has a zoo in front of the entrance.\n\nOut back is the SAFARI GAME for catching POKéMON."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 30,
+    "y": 14,
+    "name": "Erik",
+    "sprite": "fisher",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "ERIK: Where's SARA? I said I'd meet her here."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 24,
+    "y": 8,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "That item ball in there is really a POKéMON."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 31,
+    "y": 5,
+    "name": "Chansey",
+    "sprite": "fairy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 25,
+    "y": 6,
+    "name": "Voltorb",
+    "sprite": "poke_ball",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 12,
+    "y": 6,
+    "name": "Kangaskhan",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 30,
+    "y": 12,
+    "name": "Slowpoke",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 8,
+    "y": 17,
+    "name": "Lapras",
+    "sprite": "seel",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 6,
+    "y": 5,
+    "name": "Fossil",
+    "sprite": "fossil",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-good-rod-house",
+    "x": 5,
+    "y": 3,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I'm the FISHING GURU's older brother!\n\nI simply Looove fishing!\n\nDo you like to fish?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Grand! I like your style!\n\nTake this and fish, young one!\n\nRED received a GOOD ROD!",
+        "trigger": "If you say yes, he gives you the Good Rod",
+        "gift": {
+          "name": "Good Rod",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh... That's so disappointing...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Oh no!\n\nYou have no room for my gift!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Hello there, RED!\n\nHow are the fish biting?",
+        "trigger": "After you get the Good Rod"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 7,
+    "y": 15,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yo! Champ in making!\n\nFUCHSIA GYM is riddled with invisible walls!\n\nKOGA might appear close, but he's blocked off!\n\nYou have to find gaps in the walls to reach him!",
+        "trigger": "Before you beat Koga"
+      },
+      {
+        "text": "It's amazing how ninja can terrify even now!",
+        "trigger": "After you beat Koga"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-poke-mart",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-poke-mart",
+    "x": 4,
+    "y": 2,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Do you have a SAFARI ZONE flag?\n\nWhat about cards or calendars?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-poke-mart",
+    "x": 6,
+    "y": 5,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Did you try X SPEED? It speeds up a POKéMON in battle!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-meeting-room",
+    "x": 4,
+    "y": 1,
+    "name": "Safari Zone Worker",
+    "sprite": "safari_zone_worker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "We nicknamed the WARDEN SLOWPOKE.\n\nHe and SLOWPOKE both look vacant!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-meeting-room",
+    "x": 0,
+    "y": 2,
+    "name": "Safari Zone Worker",
+    "sprite": "safari_zone_worker",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "SLOWPOKE is very knowledgeable about POKéMON!\n\nHe even has some fossils of rare, extinct POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-meeting-room",
+    "x": 10,
+    "y": 1,
+    "name": "Safari Zone Worker",
+    "sprite": "safari_zone_worker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SLOWPOKE came in, but I couldn't understand him.\n\nI think he's got a speech problem!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 2,
+    "y": 3,
+    "name": "Rocker",
+    "sprite": "rocker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can't win with just one strong POKéMON.\n\nIt's tough, but you have to raise them evenly."
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 6,
+    "y": 5,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "There's a narrow trail west of VIRIDIAN CITY.\n\nIt goes to POKéMON LEAGUE HQ. The HQ governs all trainers."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "indigo-plateau/pokemon-league",
     "floor": "hall-of-fame",
     "x": 5,
@@ -2855,6 +3242,240 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-15/route-15-gate",
+    "floor": "1f",
+    "x": 4,
+    "y": 1,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Are you working on a POKéDEX?\n\nPROF.OAK's AIDE came by here."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-15/route-15-gate",
+    "floor": "2f",
+    "x": 4,
+    "y": 2,
+    "name": "Oak's Aide",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi! Remember me? I'm PROF.OAK's AIDE!\n\nIf you caught 50 kinds of POKéMON, I'm supposed to give you an EXP.ALL!\n\nSo, RED! Have you caught at least 50 kinds of POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Great! You have caught 50 kinds of POKéMON! Congratulations!\n\nHere you go!\n\nRED got the EXP.ALL!\n\nEXP.ALL gives EXP points to all the POKéMON with you, even if they don't fight.\n\nIt does, however, reduce the amount of EXP for each POKéMON.\n\nIf you don't need it, you should store it via PC.",
+        "trigger": "If you say yes with at least 50 kinds caught, he gives you the Exp. All",
+        "gift": {
+          "name": "Exp. All",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh! I see you don't have any room for the EXP.ALL.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Let's see... Uh-oh! You have caught only X kinds of POKéMON!\n\nYou need 50 kinds if you want the EXP.ALL.",
+        "trigger": "If you say yes with fewer than 50 kinds caught"
+      },
+      {
+        "text": "Oh. I see.\n\nWhen you get 50 kinds, come back for EXP.ALL.",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "EXP.ALL gives EXP points to all the POKéMON with you, even if they don't fight.\n\nIt does, however, reduce the amount of EXP for each POKéMON.\n\nIf you don't need it, you should store it via PC.",
+        "trigger": "After you get the Exp. All"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-fly-house",
+    "x": 2,
+    "y": 3,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Oh, you found my secret retreat!\n\nPlease don't tell anyone I'm here. I'll make it up to you with this!\n\nRED received HM02!",
+        "trigger": "When you talk to her, she gives you HM02",
+        "gift": {
+          "name": "HM02",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You don't have any room for this.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "HM02 is FLY. It will take you back to any town.\n\nPut it to good use!",
+        "trigger": "After you get HM02"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-fly-house",
+    "x": 6,
+    "y": 4,
+    "name": "Fearow",
+    "sprite": "bird",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "FEAROW: Kyueen!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-gate",
+    "floor": "1f",
+    "x": 4,
+    "y": 5,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "No pedestrians are allowed on CYCLING ROAD!",
+        "trigger": "Without a Bicycle"
+      },
+      {
+        "text": "Excuse me! Wait up please!",
+        "trigger": "If you try to go through without a Bicycle, he stops you"
+      },
+      {
+        "text": "CYCLING ROAD is a downhill course by the sea. It's a great ride.",
+        "trigger": "With a Bicycle"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-gate",
+    "floor": "1f",
+    "x": 4,
+    "y": 3,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "How'd you get in? Good effort!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-gate",
+    "floor": "2f",
+    "x": 4,
+    "y": 2,
+    "name": "Little Boy",
+    "sprite": "little_boy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm going for a ride with my girl friend!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-gate",
+    "floor": "2f",
+    "x": 2,
+    "y": 5,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "We're going riding together!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-18/route-18-gate",
+    "floor": "1f",
+    "x": 4,
+    "y": 1,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You need a BICYCLE for CYCLING ROAD!",
+        "trigger": "Without a Bicycle"
+      },
+      {
+        "text": "Excuse me!",
+        "trigger": "If you try to go through without a Bicycle, he stops you"
+      },
+      {
+        "text": "CYCLING ROAD is all uphill from here.",
+        "trigger": "With a Bicycle"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-18/route-18-gate",
+    "floor": "2f",
+    "x": 4,
+    "y": 2,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm looking for SLOWBRO! Wanna\n\ntrade one for LICKITUNG?",
+        "trigger": "Offers Lickitung for your Slowbro",
+        "trade": {
+          "give": {
+            "number": 80,
+            "name": "Slowbro"
+          },
+          "receive": {
+            "number": 108,
+            "name": "Lickitung"
+          }
+        }
+      },
+      {
+        "text": "Awww! Oh well...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "What? That's not SLOWBRO!\n\nIf you get one, come back here!",
+        "trigger": "If you offer a Pokémon other than Slowbro"
+      },
+      {
+        "text": "Hey thanks!",
+        "trigger": "After the trade, you get Lickitung nicknamed Marc"
+      },
+      {
+        "text": "Isn't my old LICKITUNG great?",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
     "path": "route-22/route-22-gate",
     "x": 6,
     "y": 2,
@@ -3712,6 +4333,271 @@
       }
     ],
     "games": ["red", "blue"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "center-rest-house",
+    "x": 3,
+    "y": 2,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SARA: Where did my boy friend, ERIK, go?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "center-rest-house",
+    "x": 1,
+    "y": 4,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm catching POKéMON to take home as gifts!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east-rest-house",
+    "x": 1,
+    "y": 3,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "How many did you catch? I'm bushed from the work!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east-rest-house",
+    "x": 4,
+    "y": 2,
+    "name": "Rocker",
+    "sprite": "rocker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I caught a CHANSEY!\n\nThat makes this all worthwhile!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east-rest-house",
+    "x": 5,
+    "y": 2,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Whew! I'm tired from all the fun!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone-gate",
+    "x": 6,
+    "y": 2,
+    "name": "Safari Zone Worker",
+    "sprite": "safari_zone_worker",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Welcome to the SAFARI ZONE!",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "For just ¥500, you can catch all the POKéMON you want in the park!\n\nWould you like to join the hunt?",
+        "trigger": "When you walk up to the counter"
+      },
+      {
+        "text": "That'll be ¥500 please!\n\nWe only use a special POKé BALL here.\n\nRED received 30 SAFARI BALLs!\n\nWe'll call you on the PA when you run out of time or SAFARI BALLs!",
+        "trigger": "If you pay ¥500, you get 30 Safari Balls"
+      },
+      {
+        "text": "OK! Please come again!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Oops! Not enough money!",
+        "trigger": "If you can't pay"
+      },
+      {
+        "text": "Leaving early?",
+        "trigger": "If you walk back out"
+      },
+      {
+        "text": "Please return any SAFARI BALLs you have left.",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Good Luck!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Did you get a good haul? Come again!",
+        "trigger": "When the game is over"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone-gate",
+    "x": 1,
+    "y": 4,
+    "name": "Safari Zone Worker",
+    "sprite": "safari_zone_worker",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi! Is it your first time here?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "SAFARI ZONE has 4 zones in it.\n\nEach zone has different kinds of POKéMON. Use SAFARI BALLs to catch them!\n\nWhen you run out of time or SAFARI BALLs, it's game over for you!\n\nBefore you go, open an unused POKéMON BOX so there's room for new POKéMON!",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Sorry, you're a regular here!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north-rest-house",
+    "x": 6,
+    "y": 3,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can keep any item you find on the ground here.\n\nBut, you'll run out of time if you try for all of them at once!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north-rest-house",
+    "x": 3,
+    "y": 4,
+    "name": "Safari Zone Worker",
+    "sprite": "safari_zone_worker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Go to the deepest part of the SAFARI ZONE. You will win a prize!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north-rest-house",
+    "x": 1,
+    "y": 5,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My EEVEE evolved into FLAREON!\n\nBut, a friend's EEVEE turned into a VAPOREON! I wonder why?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "secret-house",
+    "x": 3,
+    "y": 3,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Ah! Finally!\n\nYou're the first person to reach the SECRET HOUSE!\n\nI was getting worried that no one would win our campaign prize.\n\nCongratulations! You have won!",
+        "trigger": "When you talk to him, he gives you HM03",
+        "gift": {
+          "name": "HM03",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You don't have room for this fabulous prize!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "HM03 is SURF!\n\nPOKéMON will be able to ferry you across water!\n\nAnd, this HM isn't disposable! You can use it over and over!\n\nYou're super lucky for winning this fabulous prize!",
+        "trigger": "After you get HM03"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west-rest-house",
+    "x": 4,
+    "y": 4,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Tossing ROCKs at POKéMON might make them run, but they'll be easier to catch."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west-rest-house",
+    "x": 0,
+    "y": 2,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Using BAIT will make POKéMON easier to catch."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west-rest-house",
+    "x": 6,
+    "y": 2,
+    "name": "Silph Worker F",
+    "sprite": "silph_worker_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I hiked a lot, but I didn't see any POKéMON I wanted."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "route-5/underground-path-route-5",
@@ -4579,6 +5465,46 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "fuchsia-city/wardens-house",
+    "x": 2,
+    "y": 3,
+    "name": "Warden",
+    "sprite": "warden",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "WARDEN: Hif fuff hefifoo!\n\nHa lof ha feef ee hafahi ho. Heff hee fwee!",
+        "trigger": "Without the Gold Teeth"
+      },
+      {
+        "text": "Ah howhee ho hoo! Eef ee hafahi ho!",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Ha? He ohay heh ha hoo ee haheh!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "RED gave the GOLD TEETH to the WARDEN!\n\nWARDEN: Thanks, kid! No one could understand a word that I said.\n\nI couldn't work that way. Let me give you something for your trouble.",
+        "trigger": "If you have the Gold Teeth, he gives you HM04",
+        "gift": {
+          "name": "HM04",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Your pack is stuffed full!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "WARDEN: HM04 teaches STRENGTH!\n\nIt lets POKéMON move boulders when you're out-side of battle.\n\nOh yes, did you find SECRET HOUSE in SAFARI ZONE?\n\nIf you do, you win an HM!\n\nI hear it's the rare SURF HM.",
+        "trigger": "After you get HM04"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "cerulean-city/bike-shop",
     "x": 6,
     "y": 2,
@@ -5173,6 +6099,85 @@
       }
     ],
     "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-bills-grandpas-house",
+    "x": 2,
+    "y": 3,
+    "name": "Middle Aged Woman",
+    "sprite": "yellow/middle_aged_woman",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "SAFARI ZONE's WARDEN is old, but still active!\n\nAll his teeth are false, though."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 31,
+    "y": 5,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 4,
+    "y": 3,
+    "name": "Rocker",
+    "sprite": "rocker",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "You can't win with just one strong POKéMON.\n\nIt's tough, but you have to raise them evenly."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
     "games": ["yellow"]
   },
   {
@@ -5822,6 +6827,49 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-18/route-18-gate",
+    "floor": "2f",
+    "x": 4,
+    "y": 2,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm looking for TANGELA! Wanna\n\ntrade one for PARASECT?",
+        "trigger": "Offers Parasect for your Tangela",
+        "trade": {
+          "give": {
+            "number": 114,
+            "name": "Tangela"
+          },
+          "receive": {
+            "number": 47,
+            "name": "Parasect"
+          }
+        }
+      },
+      {
+        "text": "Awww! Oh well...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "What? That's not TANGELA!\n\nIf you get one, come back here!",
+        "trigger": "If you offer a Pokémon other than Tangela"
+      },
+      {
+        "text": "Hey thanks!",
+        "trigger": "After the trade, you get Parasect nicknamed Spike"
+      },
+      {
+        "text": "Isn't my old PARASECT great?",
+        "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
     "path": "route-24",
     "x": 6,
     "y": 5,
@@ -6072,6 +7120,54 @@
         "trigger": "Sometimes (25%)"
       }
     ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone-gate",
+    "x": 6,
+    "y": 2,
+    "name": "Safari Zone Worker",
+    "sprite": "safari_zone_worker",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Welcome to the SAFARI ZONE!",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "For just ¥500, you can catch all the POKéMON you want in the park!\n\nWould you like to join the hunt?",
+        "trigger": "When you walk up to the counter"
+      },
+      {
+        "text": "That'll be ¥500, please!\n\nWe only use a special POKé BALL here.\n\nRED received 30 SAFARI BALLs!\n\nWe'll call you on the PA when you run out of time or SAFARI BALLs!",
+        "trigger": "If you pay ¥500, you get 30 Safari Balls"
+      },
+      {
+        "text": "OK! Please come again!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Oops! Not enough money!",
+        "trigger": "If you can't pay"
+      },
+      {
+        "text": "Leaving early?",
+        "trigger": "If you walk back out"
+      },
+      {
+        "text": "Please return any SAFARI BALLs you have left.",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Good Luck!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Did you get a good haul? Come again!",
+        "trigger": "When the game is over"
+      }
+    ],
+    "special": true,
     "games": ["yellow"]
   },
   {
@@ -6471,6 +7567,21 @@
     "dialog": [
       {
         "text": "It is true that a higher level POKéMON will be more powerful...\n\nBut, all POKéMON will have weak points against specific types.\n\nSo, there is no universally strong POKéMON."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/fuchsia-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "If you're studying POKéMON, visit the SAFARI ZONE.\n\nIt has all sorts of rare POKéMON."
       }
     ],
     "games": ["red", "blue", "yellow"]

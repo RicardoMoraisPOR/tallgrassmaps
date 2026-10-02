@@ -47,6 +47,19 @@ const NPC_MAPS = {
   ROUTE_12_GATE_1_F: { path: 'route-12/route-12-gate' },
   ROUTE_12_GATE_2_F: { path: 'route-12/route-12-gate' },
   ROUTE_12_SUPER_ROD_HOUSE: { path: 'route-12/route-12-super-rod-house' },
+  ROUTE_13: { path: 'route-13' },
+  ROUTE_14: { path: 'route-14' },
+  ROUTE_15: { path: 'route-15' },
+  ROUTE_15_GATE_1_F: { path: 'route-15/route-15-gate' },
+  ROUTE_15_GATE_2_F: { path: 'route-15/route-15-gate' },
+  ROUTE_16: { path: 'route-16' },
+  ROUTE_16_GATE_1_F: { path: 'route-16/route-16-gate' },
+  ROUTE_16_GATE_2_F: { path: 'route-16/route-16-gate' },
+  ROUTE_16_FLY_HOUSE: { path: 'route-16/route-16-fly-house' },
+  ROUTE_17: { path: 'route-17' },
+  ROUTE_18: { path: 'route-18' },
+  ROUTE_18_GATE_1_F: { path: 'route-18/route-18-gate' },
+  ROUTE_18_GATE_2_F: { path: 'route-18/route-18-gate' },
   VIRIDIAN_FOREST: { path: 'route-2/viridian-forest' },
   PEWTER_CITY: { path: 'pewter-city' },
   PEWTER_GYM: { path: 'pewter-city/pewter-gym' },
@@ -148,6 +161,26 @@ const NPC_MAPS = {
   SEAFOAM_ISLANDS_B_2_F: { path: 'route-20/seafoam-islands' },
   SEAFOAM_ISLANDS_B_3_F: { path: 'route-20/seafoam-islands' },
   SEAFOAM_ISLANDS_B_4_F: { path: 'route-20/seafoam-islands' },
+  FUCHSIA_CITY: { path: 'fuchsia-city' },
+  FUCHSIA_GYM: { path: 'fuchsia-city/fuchsia-gym' },
+  FUCHSIA_MART: { path: 'fuchsia-city/fuchsia-poke-mart' },
+  FUCHSIA_POKECENTER: { path: 'fuchsia-city/fuchsia-pokemon-center' },
+  FUCHSIA_MEETING_ROOM: { path: 'fuchsia-city/fuchsia-meeting-room' },
+  FUCHSIA_GOOD_ROD_HOUSE: { path: 'fuchsia-city/fuchsia-good-rod-house' },
+  FUCHSIA_BILLS_GRANDPAS_HOUSE: {
+    path: 'fuchsia-city/fuchsia-bills-grandpas-house',
+  },
+  WARDENS_HOUSE: { path: 'fuchsia-city/wardens-house' },
+  SAFARI_ZONE_GATE: { path: 'fuchsia-city/safari-zone-gate' },
+  SAFARI_ZONE_CENTER: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_EAST: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_NORTH: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_WEST: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_CENTER_REST_HOUSE: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_EAST_REST_HOUSE: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_NORTH_REST_HOUSE: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_WEST_REST_HOUSE: { path: 'fuchsia-city/safari-zone' },
+  SAFARI_ZONE_SECRET_HOUSE: { path: 'fuchsia-city/safari-zone' },
   UNDERGROUND_PATH_NORTH_SOUTH: {
     path: 'route-5/underground-path-north-south',
   },
@@ -553,6 +586,98 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get the Itemfinder',
         texts: ['_Route11Gate2FOaksAideItemfinderDescriptionText'],
+      },
+    ],
+  },
+  ROUTE16GATE1F_GUARD: {
+    dialog: [
+      {
+        trigger: 'Without a Bicycle',
+        texts: ['_Route16Gate1FGuardNoPedestriansAllowedText'],
+      },
+      {
+        trigger: 'If you try to go through without a Bicycle, he stops you',
+        texts: ['_Route16Gate1FGuardWaitUpText'],
+      },
+      {
+        trigger: 'With a Bicycle',
+        texts: ['_Route16Gate1FGuardCyclingRoadExplanationText'],
+      },
+    ],
+  },
+  ROUTE16FLYHOUSE_BRUNETTE_GIRL: {
+    dialog: [
+      {
+        trigger: 'When you talk to her, she gives you HM02',
+        texts: [
+          '_Route16FlyHouseBrunetteGirlText',
+          '_Route16FlyHouseBrunetteGirlReceivedHM02Text',
+        ],
+        gift: { name: 'HM02' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_Route16FlyHouseBrunetteGirlHM02NoRoomText'],
+      },
+      {
+        trigger: 'After you get HM02',
+        texts: ['_Route16FlyHouseBrunetteGirlHM02ExplanationText'],
+      },
+    ],
+  },
+  ROUTE18GATE1F_GUARD: {
+    dialog: [
+      {
+        trigger: 'Without a Bicycle',
+        texts: ['_Route18Gate1FGuardYouNeedABicycleText'],
+      },
+      {
+        trigger: 'If you try to go through without a Bicycle, he stops you',
+        texts: ['_Route18Gate1FGuardExcuseMeText'],
+      },
+      {
+        trigger: 'With a Bicycle',
+        texts: ['_Route18Gate1FGuardCyclingRoadUphillText'],
+      },
+    ],
+  },
+  ROUTE15GATE2F_OAKS_AIDE: {
+    values: {
+      wOaksAideRewardItemName: 'EXP.ALL',
+      hOaksAideRequirement: '50',
+    },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_OaksAideHiText'],
+      },
+      {
+        trigger:
+          'If you say yes with at least 50 kinds caught, he gives you the Exp. All',
+        texts: [
+          '_OaksAideHereYouGoText',
+          '_OaksAideGotItemText',
+          '_Route15Gate2FOaksAideExpAllText',
+        ],
+        values: { hOaksAideNumMonsOwned: '50' },
+        gift: { name: 'Exp. All' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_OaksAideNoRoomText'],
+      },
+      {
+        trigger: 'If you say yes with fewer than 50 kinds caught',
+        texts: ['_OaksAideUhOhText'],
+        values: { hOaksAideNumMonsOwned: 'X' },
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_OaksAideComeBackText'],
+      },
+      {
+        trigger: 'After you get the Exp. All',
+        texts: ['_Route15Gate2FOaksAideExpAllText'],
       },
     ],
   },
@@ -1591,6 +1716,164 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
+  FUCHSIACITY_VOLTORB: {
+    name: 'Voltorb',
+    dialog: [{ texts: ['_FuchsiaCityPokemonText'] }],
+  },
+  FUCHSIAGYM_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Koga',
+        texts: ['_FuchsiaGymGymGuideChampInMakingText'],
+      },
+      {
+        trigger: 'After you beat Koga',
+        texts: ['_FuchsiaGymGymGuideBeatKogaText'],
+      },
+    ],
+  },
+  FUCHSIAGOODRODHOUSE_FISHING_GURU: {
+    special: true,
+    values: { wStringBuffer: 'GOOD ROD' },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_FuchsiaGoodRodHouseFishingGuruText'],
+      },
+      {
+        trigger: 'If you say yes, he gives you the Good Rod',
+        texts: ['_FuchsiaGoodRodHouseFishingGuruReceivedGoodRodText'],
+        gift: { name: 'Good Rod' },
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_FuchsiaGoodRodHouseFishingGuruThatsSoDisappointingText'],
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_FuchsiaGoodRodHouseFishingGuruNoRoomText'],
+      },
+      {
+        trigger: 'After you get the Good Rod',
+        texts: ['_FuchsiaGoodRodHouseFishingGuruHowAreTheFishText'],
+      },
+    ],
+  },
+  WARDENSHOUSE_WARDEN: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'Without the Gold Teeth',
+        texts: ['_WardensHouseWardenGibberish1Text'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_WardensHouseWardenGibberish2Text'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_WardensHouseWardenGibberish3Text'],
+      },
+      {
+        trigger: 'If you have the Gold Teeth, he gives you HM04',
+        texts: [
+          '_WardensHouseWardenGaveTheGoldTeethText',
+          '_WardensHouseWardenThanksText',
+          '_WardensHouseWardenReceivedHM04Text',
+        ],
+        gift: { name: 'HM04' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_WardensHouseWardenHM04NoRoomText'],
+      },
+      {
+        trigger: 'After you get HM04',
+        texts: ['_WardensHouseWardenHM04ExplanationText'],
+      },
+    ],
+  },
+  SAFARIZONEGATE_SAFARI_ZONE_WORKER1: {
+    special: true,
+    values: { wPriceTemp: '500' },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_SafariZoneGateSafariZoneWorker1Text'],
+      },
+      {
+        trigger: 'When you walk up to the counter',
+        texts: ['_SafariZoneGateSafariZoneWorker1WouldYouLikeToJoinText'],
+      },
+      {
+        trigger: 'If you pay ¥500, you get 30 Safari Balls',
+        texts: [
+          '_SafariZoneGateSafariZoneWorker1ThatllBe500PleaseText',
+          '_SafariZoneGateSafariZoneWorker1CallYouOnThePAText',
+        ],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_SafariZoneGateSafariZoneWorker1PleaseComeAgainText'],
+      },
+      {
+        trigger: "If you can't pay",
+        texts: ['_SafariZoneGateSafariZoneWorker1NotEnoughMoneyText'],
+      },
+      {
+        trigger: 'If you walk back out',
+        texts: ['_SafariZoneGateSafariZoneWorker1LeavingEarlyText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_SafariZoneGateSafariZoneWorker1ReturnSafariBallsText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_SafariZoneGateSafariZoneWorker1GoodLuckText'],
+      },
+      {
+        trigger: 'When the game is over',
+        texts: ['_SafariZoneGateSafariZoneWorker1GoodHaulComeAgainText'],
+      },
+    ],
+  },
+  SAFARIZONEGATE_SAFARI_ZONE_WORKER2: {
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_SafariZoneGateSafariZoneWorker2FirstTimeHereText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_SafariZoneGateSafariZoneWorker2SafariZoneExplanationText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_SafariZoneGateSafariZoneWorker2YoureARegularHereText'],
+      },
+    ],
+  },
+  SAFARIZONESECRETHOUSE_FISHING_GURU: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you HM03',
+        texts: [
+          '_SafariZoneSecretHouseFishingGuruYouHaveWonText',
+          '_SafariZoneSecretHouseFishingGuruReceivedHM03Text',
+        ],
+        gift: { name: 'HM03' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_SafariZoneSecretHouseFishingGuruHM03NoRoomText'],
+      },
+      {
+        trigger: 'After you get HM03',
+        texts: ['_SafariZoneSecretHouseFishingGuruHM03ExplanationText'],
+      },
+    ],
+  },
   VERMILIONGYM_GYM_GUIDE: {
     dialog: [
       {
@@ -1996,11 +2279,13 @@ const benchGuys = (game) => {
 
     if (!place || !text) return [];
 
+    const floor = place.floor ?? floorFor(map);
+
     return [
       {
         game: game.id,
         path: place.path,
-        ...(place.floor && { floor: place.floor }),
+        ...(floor && { floor }),
         x: Number(x),
         y: Number(y),
         name: 'Bench Guy',

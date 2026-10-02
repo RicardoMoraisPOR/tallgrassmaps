@@ -159,6 +159,7 @@ export const LocationPage = () => {
       itemTooltip: (item) => (
         <MapTextTooltip
           text={item.hidden ? `${item.item} (hidden)` : item.item}
+          presence={item.note}
         />
       ),
       trainers: listedBattles,

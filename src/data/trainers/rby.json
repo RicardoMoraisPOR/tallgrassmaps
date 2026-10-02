@@ -1796,9 +1796,33 @@
   {
     "name": "Koga",
     "trainerClass": "koga",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 4,
+    "y": 10,
+    "facing": "down",
     "sprite": "koga",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "KOGA: Fwahahaha!\n\nA mere child like you dares to challenge me?\n\nVery well, I shall show you true terror as a ninja master!\n\nYou shall feel the despair of poison and sleep techniques!"
+      },
+      {
+        "label": "If you win, he gives you the Soul Badge and TM06",
+        "text": "Humph! You have proven your worth!\n\nHere! Take the SOULBADGE!\n\nNow that you have the SOULBADGE, the DEFENSE of your POKéMON increases!\n\nIt also lets you SURF outside of battle!\n\nAh! Take this too!\n\nTM06 contains TOXIC!\n\nIt is a secret technique over 400 years old!",
+        "gift": {
+          "name": "TM06",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Make space for this, child!"
+      },
+      {
+        "label": "After battle",
+        "text": "When afflicted by TOXIC, POKéMON suffer more and more as battle progresses!\n\nIt will surely terrorize foes!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1830,9 +1854,33 @@
   {
     "name": "Koga",
     "trainerClass": "koga",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 4,
+    "y": 10,
+    "facing": "down",
     "sprite": "silph_worker_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "KOGA: Fwahahaha!\n\nA mere child like you dares to challenge me?\n\nVery well, I shall show you true terror as a ninja master!\n\nYou shall feel the despair of poison and sleep techniques!"
+      },
+      {
+        "label": "If you win, he gives you the Soul Badge and TM06",
+        "text": "Humph! You have proven your worth!\n\nHere! Take the SOULBADGE!\n\nNow that you have the SOULBADGE, the DEFENSE of your POKéMON increases!\n\nIt also lets you SURF outside of battle!\n\nAh! Take this too!\n\nTM06 contains TOXIC!\n\nIt is a secret technique over 400 years old!",
+        "gift": {
+          "name": "TM06",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Make space for this, child!"
+      },
+      {
+        "label": "After battle",
+        "text": "When afflicted by TOXIC, POKéMON suffer more and more as battle progresses!\n\nIt will surely terrorize foes!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1864,9 +1912,25 @@
   {
     "name": "Juggler",
     "trainerClass": "juggler",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 8,
+    "y": 13,
+    "facing": "down",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Strength isn't the key for POKéMON!\n\nIt's strategy!\n\nI'll show you how strategy can beat brute strength!"
+      },
+      {
+        "label": "If you win",
+        "text": "What? Extraordinary!"
+      },
+      {
+        "label": "After battle",
+        "text": "So, you mix brawn with brains? Good strategy!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1883,9 +1947,25 @@
   {
     "name": "Juggler",
     "trainerClass": "juggler",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 7,
+    "y": 8,
+    "facing": "right",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I wanted to become a ninja, so I joined this GYM!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm done for!"
+      },
+      {
+        "label": "After battle",
+        "text": "I will keep on training under KOGA, my ninja master!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1917,9 +1997,25 @@
   {
     "name": "Juggler",
     "trainerClass": "juggler",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 1,
+    "y": 12,
+    "facing": "down",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Let's see you beat my special techniques!"
+      },
+      {
+        "label": "If you win",
+        "text": "You had me fooled!"
+      },
+      {
+        "label": "After battle",
+        "text": "I like poison and sleep techniques, as they linger after battle!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1941,9 +2037,25 @@
   {
     "name": "Tamer",
     "trainerClass": "tamer",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 3,
+    "y": 5,
+    "facing": "up",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Stop right there!\n\nOur invisible walls have you frustrated?"
+      },
+      {
+        "label": "If you win",
+        "text": "Whoa! He's got it!"
+      },
+      {
+        "label": "After battle",
+        "text": "You impressed me! Here's a hint!\n\nLook very closely for gaps in the invisible walls!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1965,9 +2077,25 @@
   {
     "name": "Tamer",
     "trainerClass": "tamer",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 8,
+    "y": 2,
+    "facing": "down",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I also study the way of the ninja with master KOGA!\n\nNinja have a long history of using animals!"
+      },
+      {
+        "label": "If you win",
+        "text": "Awoo!"
+      },
+      {
+        "label": "After battle",
+        "text": "I still have much to learn!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1994,9 +2122,25 @@
   {
     "name": "Juggler",
     "trainerClass": "juggler",
-    "path": "fuchsia-city",
-    "area": "Fuchsia Gym",
+    "path": "fuchsia-city/fuchsia-gym",
+    "x": 2,
+    "y": 7,
+    "facing": "left",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Master KOGA comes from a long line of ninjas!\n\nWhat did you descend from?"
+      },
+      {
+        "label": "If you win",
+        "text": "Dropped my balls!"
+      },
+      {
+        "label": "After battle",
+        "text": "Where there is light, there is shadow!\n\nLight and shadow! Which do you choose?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8664,6 +8808,20 @@
     "y": 10,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My bird POKéMON want to scrap!"
+      },
+      {
+        "label": "If you win",
+        "text": "My bird combo lost?"
+      },
+      {
+        "label": "After battle",
+        "text": "My POKéMON look happy even though they lost."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8690,6 +8848,20 @@
     "y": 10,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm told I'm good for a kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ohh! I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "I want to become a good trainer. I'll train hard."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8731,6 +8903,20 @@
     "y": 10,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm told I'm good for a kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ohh! I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "I want to become a good trainer. I'll train hard."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8772,6 +8958,20 @@
     "y": 9,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Wow! Your BADGEs are too cool!"
+      },
+      {
+        "label": "If you win",
+        "text": "Not enough!"
+      },
+      {
+        "label": "After battle",
+        "text": "You got those BADGEs from GYM LEADERs. I know!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8798,6 +8998,20 @@
     "y": 10,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My cute POKéMON wish to make your acquaintance."
+      },
+      {
+        "label": "If you win",
+        "text": "Wow! You totally won!"
+      },
+      {
+        "label": "After battle",
+        "text": "You have to make POKéMON fight to toughen them up!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8834,6 +9048,20 @@
     "y": 5,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I found CARBOS in a cave once."
+      },
+      {
+        "label": "If you win",
+        "text": "Just messed up!"
+      },
+      {
+        "label": "After battle",
+        "text": "CARBOS boosted the SPEED of my POKéMON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8865,6 +9093,20 @@
     "y": 4,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "The wind's blowing my way!"
+      },
+      {
+        "label": "If you win",
+        "text": "The wind turned!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm beat. I guess I'll FLY home."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8906,6 +9148,20 @@
     "y": 6,
     "facing": "down",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Sure, I'll play with you!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! You little brute!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wonder which is stronger, male or female POKéMON?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8937,6 +9193,20 @@
     "y": 6,
     "facing": "down",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Sure, I'll play with you!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! You little brute!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wonder which is stronger, male or female POKéMON?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8968,6 +9238,20 @@
     "y": 6,
     "facing": "down",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Do you want to POKéMON with me?"
+      },
+      {
+        "label": "If you win",
+        "text": "It's over already?"
+      },
+      {
+        "label": "After battle",
+        "text": "I don't know anything about POKéMON. I just like cool ones!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -8994,6 +9278,20 @@
     "y": 7,
     "facing": "up",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What're you lookin' at?"
+      },
+      {
+        "label": "If you win",
+        "text": "Dang! Stripped gears!"
+      },
+      {
+        "label": "After battle",
+        "text": "Get lost!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9025,6 +9323,20 @@
     "y": 13,
     "facing": "up",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I always go with bird POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Out of power!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish I could fly like PIDGEY and PIDGEOTTO..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9061,6 +9373,20 @@
     "y": 4,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You need to use TMs to teach good moves to POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Not good enough!"
+      },
+      {
+        "label": "After battle",
+        "text": "You have some HMs right? POKéMON can't ever forget those moves."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9082,7 +9408,52 @@
         ]
       }
     ],
-    "games": ["red", "blue", "yellow"]
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Bird Keeper",
+    "trainerClass": "bird-keeper",
+    "path": "route-14",
+    "x": 4,
+    "y": 4,
+    "facing": "down",
+    "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You need to use TMs to teach good moves to POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Not good enough!"
+      },
+      {
+        "label": "After battle",
+        "text": "You have some HMs, right? POKéMON can't ever forget those moves."
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 16,
+            "level": 28,
+            "moves": ["Sand-Attack", "Quick Attack", "Whirlwind", "Wing Attack"]
+          },
+          {
+            "number": 84,
+            "level": 28,
+            "moves": ["Peck", "Growl", "Fury Attack"]
+          },
+          {
+            "number": 17,
+            "level": 28,
+            "moves": ["Gust", "Sand-Attack", "Quick Attack", "Whirlwind"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -9092,6 +9463,20 @@
     "y": 6,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My bird POKéMON should be ready for battle."
+      },
+      {
+        "label": "If you win",
+        "text": "Not ready yet!"
+      },
+      {
+        "label": "After battle",
+        "text": "They need to learn better moves."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9128,6 +9513,20 @@
     "y": 11,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "TMs are on sale in CELADON! But, only a few people have HMs!"
+      },
+      {
+        "label": "If you win",
+        "text": "Aww, bummer!"
+      },
+      {
+        "label": "After battle",
+        "text": "Teach POKéMON moves of the same element type for more power."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9154,6 +9553,20 @@
     "y": 15,
     "facing": "up",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Have you taught your bird POKéMON how to FLY?"
+      },
+      {
+        "label": "If you win",
+        "text": "Shot down in flames!"
+      },
+      {
+        "label": "After battle",
+        "text": "Bird POKéMON are my true love!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9185,6 +9598,20 @@
     "y": 31,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Have you heard of the legendary POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "Why? Why'd I lose?"
+      },
+      {
+        "label": "After battle",
+        "text": "The 3 legendary POKéMON are all birds of prey."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9206,6 +9633,20 @@
     "y": 49,
     "facing": "up",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm not into it, but OK! Let's go!"
+      },
+      {
+        "label": "If you win",
+        "text": "I knew it!"
+      },
+      {
+        "label": "After battle",
+        "text": "Winning, losing, it doesn't matter in the long run!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9232,6 +9673,20 @@
     "y": 39,
     "facing": "down",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "C'mon, c'mon. Let's go, let's go, let's go!"
+      },
+      {
+        "label": "If you win",
+        "text": "Arrg! Lost! Get lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "What, what, what? What do you want?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9268,6 +9723,20 @@
     "y": 30,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Perfect! I need to burn some time!"
+      },
+      {
+        "label": "If you win",
+        "text": "What? You!?"
+      },
+      {
+        "label": "After battle",
+        "text": "Raising POKéMON is a drag, man."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9299,6 +9768,20 @@
     "y": 30,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We ride out here because there's more room!"
+      },
+      {
+        "label": "If you win",
+        "text": "Wipe out!"
+      },
+      {
+        "label": "After battle",
+        "text": "It's cool you made your POKéMON so strong!\n\nMight is right! And you know it!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9325,6 +9808,20 @@
     "y": 31,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "POKéMON fight? Cool! Rumble!"
+      },
+      {
+        "label": "If you win",
+        "text": "Blown away!"
+      },
+      {
+        "label": "After battle",
+        "text": "You know who'd win, you and me one on one!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9351,6 +9848,20 @@
     "y": 11,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Let me try out the POKéMON I just got in a trade!"
+      },
+      {
+        "label": "If you win",
+        "text": "Not good enough!"
+      },
+      {
+        "label": "After battle",
+        "text": "You can't change the nickname of any POKéMON you get in a trade.\n\nOnly the Original Trainer can."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9382,6 +9893,20 @@
     "y": 10,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You look gentle, so I think I can beat you!"
+      },
+      {
+        "label": "If you win",
+        "text": "No, wrong!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm afraid of BIKERs, they look so ugly and mean!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9408,6 +9933,20 @@
     "y": 10,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You look gentle, so I think I can beat you!"
+      },
+      {
+        "label": "If you win",
+        "text": "No, wrong!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm afraid of BIKERs, they look so ugly and mean!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9434,6 +9973,20 @@
     "y": 13,
     "facing": "up",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "When I whistle, I can summon bird POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ow! That's tragic!"
+      },
+      {
+        "label": "After battle",
+        "text": "Maybe I'm not cut out for battles."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9470,6 +10023,20 @@
     "y": 13,
     "facing": "up",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hmm? My birds are shivering! You're good, aren't you?"
+      },
+      {
+        "label": "If you win",
+        "text": "Just as I thought!"
+      },
+      {
+        "label": "After battle",
+        "text": "Did you know moves like EARTHQUAKE don't have any effect on birds?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9501,6 +10068,20 @@
     "y": 11,
     "facing": "down",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Oh, you're a little cutie!"
+      },
+      {
+        "label": "If you win",
+        "text": "You looked so cute too!"
+      },
+      {
+        "label": "After battle",
+        "text": "I forgive you! I can take it!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9527,6 +10108,20 @@
     "y": 10,
     "facing": "right",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I raise POKéMON because I live alone!"
+      },
+      {
+        "label": "If you win",
+        "text": "I didn't ask for this!"
+      },
+      {
+        "label": "After battle",
+        "text": "I just like going home to be with my POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9553,6 +10148,20 @@
     "y": 10,
     "facing": "down",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey kid! C'mon! I just got these!"
+      },
+      {
+        "label": "If you win",
+        "text": "Why not?"
+      },
+      {
+        "label": "After battle",
+        "text": "You only live once, so I live as an outlaw! TEAM ROCKET RULES!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9594,6 +10203,20 @@
     "y": 10,
     "facing": "down",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Fork over all your cash when you lose to me, kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "That can't be true!"
+      },
+      {
+        "label": "After battle",
+        "text": "I was just joking about the money!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9625,6 +10248,20 @@
     "y": 5,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What's cool? Trading POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "I said trade!"
+      },
+      {
+        "label": "After battle",
+        "text": "I trade POKéMON with my friends!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9646,6 +10283,20 @@
     "y": 13,
     "facing": "up",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Want to play with my POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "I was too impatient!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'll go train with weaker people."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9677,6 +10328,20 @@
     "y": 13,
     "facing": "up",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Want to play with my POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "I was too impatient!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'll go train with weaker people."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9708,6 +10373,20 @@
     "y": 12,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What do you want?"
+      },
+      {
+        "label": "If you win",
+        "text": "Don't you dare laugh!"
+      },
+      {
+        "label": "After battle",
+        "text": "We like just hanging here, what's it to you?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9734,6 +10413,20 @@
     "y": 13,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Nice BIKE! Hand it over!"
+      },
+      {
+        "label": "If you win",
+        "text": "Knock out!"
+      },
+      {
+        "label": "After battle",
+        "text": "Forget it, who needs your BIKE!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9765,6 +10458,20 @@
     "y": 13,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Nice BIKE! Hand it over!"
+      },
+      {
+        "label": "If you win",
+        "text": "Knock-out!"
+      },
+      {
+        "label": "After battle",
+        "text": "Forget it, who needs your BIKE!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9796,6 +10503,20 @@
     "y": 12,
     "facing": "up",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Come out and play, little mouse!"
+      },
+      {
+        "label": "If you win",
+        "text": "You little rat!"
+      },
+      {
+        "label": "After battle",
+        "text": "I hate losing! Get away from me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9822,6 +10543,20 @@
     "y": 12,
     "facing": "up",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Come out and play, little mouse!"
+      },
+      {
+        "label": "If you win",
+        "text": "You little rat!"
+      },
+      {
+        "label": "After battle",
+        "text": "I hate losing! Get away from me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9848,6 +10583,20 @@
     "y": 11,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey, you just bumped me!"
+      },
+      {
+        "label": "If you win",
+        "text": "Kaboom!"
+      },
+      {
+        "label": "After battle",
+        "text": "You can also get to FUCHSIA from VERMILION using a coastal road."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9869,6 +10618,20 @@
     "y": 10,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm feeling hungry and mean!"
+      },
+      {
+        "label": "If you win",
+        "text": "Bad, bad, bad!"
+      },
+      {
+        "label": "After battle",
+        "text": "I like my POKéMON ferocious! They tear up enemies!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9890,6 +10653,20 @@
     "y": 12,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Sure, I'll go!"
+      },
+      {
+        "label": "If you win",
+        "text": "Don't make me mad!"
+      },
+      {
+        "label": "After battle",
+        "text": "I like harassing people with my vicious POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9926,6 +10703,20 @@
     "y": 19,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "There's no money in fighting kids!"
+      },
+      {
+        "label": "If you win",
+        "text": "Burned out!"
+      },
+      {
+        "label": "After battle",
+        "text": "Good stuff is lying around on CYCLING ROAD!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9952,6 +10743,20 @@
     "y": 19,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "There's no money in fighting kids!"
+      },
+      {
+        "label": "If you win",
+        "text": "Burned out!"
+      },
+      {
+        "label": "After battle",
+        "text": "Good stuff is lying around on CYCLING ROAD!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -9978,6 +10783,20 @@
     "y": 16,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What do you want, kiddo?"
+      },
+      {
+        "label": "If you win",
+        "text": "Whoo!"
+      },
+      {
+        "label": "After battle",
+        "text": "I could belly-bump you outta here!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10004,6 +10823,20 @@
     "y": 18,
     "facing": "up",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You heading to FUCHSIA?"
+      },
+      {
+        "label": "If you win",
+        "text": "Crash and burn!"
+      },
+      {
+        "label": "After battle",
+        "text": "I love racing downhill!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10035,6 +10868,20 @@
     "y": 32,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We're BIKERs! Highway stars!"
+      },
+      {
+        "label": "If you win",
+        "text": "Smoked!"
+      },
+      {
+        "label": "After battle",
+        "text": "Are you looking for adventure?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10056,6 +10903,20 @@
     "y": 34,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Let VOLTORB electrify you!"
+      },
+      {
+        "label": "If you win",
+        "text": "Grounded out!"
+      },
+      {
+        "label": "After battle",
+        "text": "I got my VOLTORB at the abandoned POWER PLANT."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10082,6 +10943,20 @@
     "y": 58,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My POKéMON won't evolve! Why?"
+      },
+      {
+        "label": "If you win",
+        "text": "Why, you!"
+      },
+      {
+        "label": "After battle",
+        "text": "Maybe some POKéMON need element STONEs to evolve."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10103,6 +10978,20 @@
     "y": 68,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I need a little exercise!"
+      },
+      {
+        "label": "If you win",
+        "text": "Whew! Good workout!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm sure I lost weight there!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10139,6 +11028,20 @@
     "y": 68,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I need a little exercise!"
+      },
+      {
+        "label": "If you win",
+        "text": "Whew! Good workout!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm sure I lost weight there!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10175,6 +11078,20 @@
     "y": 98,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Be a rebel!"
+      },
+      {
+        "label": "If you win",
+        "text": "Aaaargh!"
+      },
+      {
+        "label": "After battle",
+        "text": "Be ready to fight for your beliefs!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10201,6 +11118,20 @@
     "y": 98,
     "facing": "right",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Be a rebel!"
+      },
+      {
+        "label": "If you win",
+        "text": "Aaaargh!"
+      },
+      {
+        "label": "After battle",
+        "text": "Be ready to fight for your beliefs!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10227,6 +11158,20 @@
     "y": 98,
     "facing": "left",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Nice BIKE! How's it handle?"
+      },
+      {
+        "label": "If you win",
+        "text": "Shoot!"
+      },
+      {
+        "label": "After battle",
+        "text": "The slope makes it hard to steer!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10253,6 +11198,20 @@
     "y": 118,
     "facing": "down",
     "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Get lost kid! I'm bushed!"
+      },
+      {
+        "label": "If you win",
+        "text": "Are you satisfied?"
+      },
+      {
+        "label": "After battle",
+        "text": "I need to catch a few Zs!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10284,7 +11243,62 @@
         ]
       }
     ],
-    "games": ["red", "blue", "yellow"]
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Biker",
+    "trainerClass": "biker",
+    "path": "route-17",
+    "x": 10,
+    "y": 118,
+    "facing": "down",
+    "sprite": "biker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Get lost, kid! I'm bushed!"
+      },
+      {
+        "label": "If you win",
+        "text": "Are you satisfied?"
+      },
+      {
+        "label": "After battle",
+        "text": "I need to catch a few Zs!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 109,
+            "level": 25,
+            "moves": ["Tackle", "Smog"]
+          },
+          {
+            "number": 110,
+            "level": 25,
+            "moves": ["Tackle", "Smog", "Sludge"]
+          },
+          {
+            "number": 109,
+            "level": 25,
+            "moves": ["Tackle", "Smog"]
+          },
+          {
+            "number": 109,
+            "level": 25,
+            "moves": ["Tackle", "Smog"]
+          },
+          {
+            "number": 110,
+            "level": 25,
+            "moves": ["Tackle", "Smog", "Sludge"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
   },
   {
     "name": "Bird Keeper",
@@ -10294,6 +11308,20 @@
     "y": 11,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I always check every grassy area for new POKéMON."
+      },
+      {
+        "label": "If you win",
+        "text": "Tch!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish I had a BIKE!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10320,6 +11348,20 @@
     "y": 15,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Kurukkoo! How do you like my bird call?"
+      },
+      {
+        "label": "If you win",
+        "text": "I had to bug you!"
+      },
+      {
+        "label": "After battle",
+        "text": "I also collect sea POKéMON on weekends!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10341,6 +11383,20 @@
     "y": 13,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This is my turf! Get out of here!"
+      },
+      {
+        "label": "If you win",
+        "text": "Darn!"
+      },
+      {
+        "label": "After battle",
+        "text": "This is my fave POKéMON hunting area!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

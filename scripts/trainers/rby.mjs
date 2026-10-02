@@ -128,6 +128,12 @@ const TRAINER_DIALOG_MAPS = new Set([
   'RockTunnelB1F',
   'Route11',
   'Route12',
+  'Route13',
+  'Route14',
+  'Route15',
+  'Route16',
+  'Route17',
+  'Route18',
   'Route19',
   'Route20',
   'Route21',
@@ -141,6 +147,7 @@ const TRAINER_DIALOG_MAPS = new Set([
   'PokemonTower6F',
   'PokemonTower7F',
   'VermilionGym',
+  'FuchsiaGym',
   'SSAnne1FRooms',
   'SSAnne2FRooms',
   'SSAnneB1FRooms',
@@ -263,6 +270,24 @@ const OBJECT_DIALOG = {
     '_LancesRoomLanceEndBattleText',
     '_LancesRoomLanceAfterBattleText',
   ),
+  FUCHSIAGYM_KOGA: [
+    { label: 'Before battle', texts: ['_FuchsiaGymKogaBeforeBattleText'] },
+    {
+      label: 'If you win, he gives you the Soul Badge and TM06',
+      texts: [
+        '_FuchsiaGymKogaReceivedSoulBadgeText',
+        '_FuchsiaGymKogaSoulBadgeInfoText',
+        '_FuchsiaGymKogaReceivedTM06Text',
+        '_FuchsiaGymKogaTM06ExplanationText',
+      ],
+      gift: { name: 'TM06' },
+    },
+    { label: 'If your bag is full', texts: ['_FuchsiaGymKogaTM06NoRoomText'] },
+    {
+      label: 'After battle',
+      texts: ['_FuchsiaGymKogaPostBattleAdviceText'],
+    },
+  ],
   VERMILIONGYM_LT_SURGE: [
     { label: 'Before battle', texts: ['_VermilionGymLTSurgePreBattleText'] },
     {

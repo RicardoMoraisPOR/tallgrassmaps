@@ -7,6 +7,7 @@ import {
   forGame,
   games,
   hasOwnMapImage,
+  mapSteps,
   read,
   siteLocation,
 } from '../rby/disassembly.mjs';
@@ -65,14 +66,20 @@ for (const game of games) {
       return;
     }
 
+    const [columns, rows] = mapSteps(game.dir, map);
+    const outside = x >= columns || y >= rows;
+
     items.push({
       game: game.id,
       path,
       ...(floor && { floor }),
-      x: Number(x),
-      y: Number(y),
+      x: Math.min(Number(x), columns - 1),
+      y: Math.min(Number(y), rows - 1),
       item: itemName(item),
       hidden,
+      ...(outside && {
+        note: `In the game files but outside the map, so it can't be obtained.`,
+      }),
     });
   };
 

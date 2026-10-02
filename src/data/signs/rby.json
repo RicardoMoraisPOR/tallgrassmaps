@@ -149,6 +149,104 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "fuchsia-city",
+    "x": 15,
+    "y": 23,
+    "text": "FUCHSIA CITY Behold! It's Passion Pink!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 25,
+    "y": 15,
+    "text": "FUCHSIA CITY Behold! It's Passion Pink!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 17,
+    "y": 5,
+    "text": "SAFARI GAME POKéMON-U-CATCH!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 6,
+    "y": 13,
+    "text": "All your item needs fulfilled! POKéMON MART",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 20,
+    "y": 27,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 27,
+    "y": 29,
+    "text": "SAFARI ZONE WARDEN's HOME",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 21,
+    "y": 15,
+    "text": "POKéMON PARADISE SAFARI ZONE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 5,
+    "y": 29,
+    "text": "FUCHSIA CITY POKéMON GYM LEADER: KOGA\n\nThe Poisonous Ninja Master",
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 33,
+    "y": 7,
+    "text": "Name: CHANSEY\n\nCatching one is all up to chance.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 27,
+    "y": 7,
+    "text": "Name: VOLTORB\n\nThe very image of a POKé BALL.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 13,
+    "y": 7,
+    "text": "Name: KANGASKHAN\n\nA maternal POKéMON that raises its young in a pouch on its belly.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 31,
+    "y": 13,
+    "text": "Name: SLOWPOKE\n\nFriendly and very slow moving.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 13,
+    "y": 15,
+    "text": "Name: LAPRAS\n\nA.K.A. the king of the seas.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 7,
+    "y": 7,
+    "text": "...\n\nAfter you take the Dome Fossil:\n\nName: OMANYTE\n\nA POKéMON that was resurrected from a fossil.\n\nAfter you take the Helix Fossil:\n\nName: KABUTO\n\nA POKéMON that was resurrected from a fossil.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "lavender-town",
     "x": 11,
     "y": 9,
@@ -464,6 +562,151 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-13",
+    "x": 15,
+    "y": 13,
+    "text": "TRAINER TIPS\n\nLook to the left of that post!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-13",
+    "x": 33,
+    "y": 5,
+    "text": "TRAINER TIPS\n\nUse SELECT to switch items in the ITEM window!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-13",
+    "x": 31,
+    "y": 11,
+    "text": "ROUTE 13 North to SILENCE BRIDGE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-14",
+    "x": 17,
+    "y": 13,
+    "text": "ROUTE 14 West to FUCHSIA CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-15",
+    "x": 39,
+    "y": 9,
+    "text": "ROUTE 15 West to FUCHSIA CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-15/route-15-gate",
+    "floor": "2f",
+    "x": 6,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nIt looks like a small island!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16",
+    "x": 27,
+    "y": 11,
+    "text": "Enjoy the slope! CYCLING ROAD",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16",
+    "x": 5,
+    "y": 17,
+    "text": "ROUTE 16 CELADON CITY - FUCHSIA CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-gate",
+    "floor": "2f",
+    "x": 1,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nIt's CELADON DEPT. STORE!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-16/route-16-gate",
+    "floor": "2f",
+    "x": 6,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nThere's a long path over water!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 9,
+    "y": 51,
+    "text": "It's a notice!\n\nWatch out for discarded items!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 9,
+    "y": 63,
+    "text": "TRAINER TIPS\n\nAll POKéMON are unique.\n\nEven POKéMON of the same type and level grow at different rates.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 9,
+    "y": 75,
+    "text": "TRAINER TIPS\n\nPress the A or B Button to stay in place while on a slope.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 9,
+    "y": 87,
+    "text": "ROUTE 17 CELADON CITY - FUCHSIA CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 9,
+    "y": 111,
+    "text": "It's a notice!\n\nDon't throw the game, throw POKé BALLs instead!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-17",
+    "x": 9,
+    "y": 141,
+    "text": "CYCLING ROAD Slope ends here!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-18",
+    "x": 43,
+    "y": 7,
+    "text": "ROUTE 18 CELADON CITY - FUCHSIA CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-18",
+    "x": 33,
+    "y": 5,
+    "text": "CYCLING ROAD No pedestrians permitted!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-18/route-18-gate",
+    "floor": "2f",
+    "x": 1,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nPALLET TOWN is in the west!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-18/route-18-gate",
+    "floor": "2f",
+    "x": 6,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nThere are people swimming!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-19",
     "x": 11,
     "y": 9,
@@ -596,6 +839,118 @@
     "x": 1,
     "y": 2,
     "text": "How to Conquer Seasickness... The CAPTAIN's reading this!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "center",
+    "x": 18,
+    "y": 20,
+    "text": "REST HOUSE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "center",
+    "x": 14,
+    "y": 22,
+    "text": "TRAINER TIPS\n\nPress the START Button to check remaining time!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east",
+    "x": 26,
+    "y": 10,
+    "text": "REST HOUSE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east",
+    "x": 6,
+    "y": 4,
+    "text": "TRAINER TIPS\n\nThe remaining time declines only while you walk!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "east",
+    "x": 5,
+    "y": 23,
+    "text": "CENTER AREA NORTH: AREA 2",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north",
+    "x": 36,
+    "y": 4,
+    "text": "REST HOUSE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north",
+    "x": 4,
+    "y": 25,
+    "text": "TRAINER TIPS\n\nThe SECRET HOUSE is still ahead!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north",
+    "x": 13,
+    "y": 31,
+    "text": "AREA 2",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north",
+    "x": 19,
+    "y": 33,
+    "text": "TRAINER TIPS\n\nPOKéMON hide in tall grass!\n\nZigzag through grassy areas to flush them out.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "north",
+    "x": 26,
+    "y": 28,
+    "text": "TRAINER TIPS\n\nWin a free HM for finding the SECRET HOUSE!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 12,
+    "y": 12,
+    "text": "REST HOUSE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 17,
+    "y": 3,
+    "text": "REQUEST NOTICE\n\nPlease find the SAFARI WARDEN's lost GOLD TEETH. They're around here somewhere.\n\nReward offered! Contact: WARDEN",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 26,
+    "y": 4,
+    "text": "TRAINER TIPS\n\nZone Exploration Campaign!\n\nThe Search for the SECRET HOUSE!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/safari-zone",
+    "floor": "west",
+    "x": 24,
+    "y": 22,
+    "text": "AREA 3 EAST: CENTER AREA",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -764,6 +1119,27 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "fuchsia-city/wardens-house",
+    "x": 4,
+    "y": 3,
+    "text": "POKéMON photos and fossils.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city/wardens-house",
+    "x": 5,
+    "y": 3,
+    "text": "Old POKéMON merchandise.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "fuchsia-city",
+    "x": 5,
+    "y": 29,
+    "text": "FUCHSIA CITY POKéMON GYM LEADER: KOGA\n\nThe Poisonous Ninja Master!",
+    "games": ["yellow"]
+  },
+  {
     "path": "route-4/mt-moon",
     "floor": "1f",
     "x": 15,
@@ -865,6 +1241,14 @@
     "x": 18,
     "y": 25,
     "text": "A secret switch!\n\nPress it?",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-15/route-15-gate",
+    "floor": "2f",
+    "x": 1,
+    "y": 2,
+    "text": "Looked into the binoculars...\n\nA large, shining bird is flying toward the sea.",
     "games": ["red", "blue", "yellow"]
   },
   {

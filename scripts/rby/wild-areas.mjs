@@ -20,6 +20,8 @@ const DECORATIVE_WATER_TILESETS = new Set(['Gym', 'Dojo', 'Facility']);
 
 const NO_SHORE_TILESETS = new Set(['ShipPort', 'Gym']);
 
+const CYCLING_ROAD_MAPS = new Set(['ROUTE_16', 'ROUTE_17', 'ROUTE_18']);
+
 const CUT_TREE_TILES = { Overworld: 0x3d, Gym: 0x50 };
 
 const STAR_GRASS_TILES = { Forest: 0x34 };
@@ -46,7 +48,11 @@ const ledges = [
 
 const ledgeTiles = new Set(ledges.map(({ ledge }) => ledge));
 
-const openTile = (tiles, x, y) => {
+const waterTile = (tiles, tile) =>
+  tile === WATER_TILE ||
+  (!NO_SHORE_TILESETS.has(tiles.tileset) && SHORE_TILES.includes(tile));
+
+const openTile = (tiles, x, y, surf = true) => {
   if (x < 0 || y < 0 || x >= tiles.columns || y >= tiles.rows) return false;
 
   const tile = tiles.tileAt(x * 2, y * 2 + 1);
@@ -54,8 +60,7 @@ const openTile = (tiles, x, y) => {
   return (
     (tiles.passable.has(tile) && !ledgeTiles.has(tile)) ||
     tile === CUT_TREE_TILES[tiles.tileset] ||
-    tile === WATER_TILE ||
-    (!NO_SHORE_TILESETS.has(tiles.tileset) && SHORE_TILES.includes(tile))
+    (surf && waterTile(tiles, tile))
   );
 };
 
@@ -156,10 +161,10 @@ const areasFor = ({ dir, define }) => {
     ),
   );
 
-  const objectSteps = (constant) =>
+  const warpSteps = (constant) =>
     [
       ...read(dir, `data/maps/objects/${headers[constant].name}.asm`).matchAll(
-        /(?:warp|object)_event\s+(\d+),\s*(\d+)/g,
+        /warp_event\s+(\d+),\s*(\d+)/g,
       ),
     ].map(([, x, y]) => [Number(x), Number(y)]);
 
@@ -179,7 +184,11 @@ const areasFor = ({ dir, define }) => {
         const [x, y] = queue.pop();
         const key = y * tiles.columns + x;
 
-        if (steps.has(key) || !openTile(tiles, x, y)) continue;
+        if (
+          steps.has(key) ||
+          !openTile(tiles, x, y, !CYCLING_ROAD_MAPS.has(constant))
+        )
+          continue;
 
         steps.add(key);
         grew = true;
@@ -189,7 +198,7 @@ const areasFor = ({ dir, define }) => {
       return grew;
     };
 
-    for (const constant of connected) fill(constant, objectSteps(constant));
+    for (const constant of connected) fill(constant, warpSteps(constant));
 
     for (let grew = true; grew;) {
       grew = false;
@@ -227,13 +236,17 @@ const areasFor = ({ dir, define }) => {
       reachedSteps.get(constant) ??
       (() => {
         const own = new Set();
-        const queue = objectSteps(constant);
+        const queue = warpSteps(constant);
 
         while (queue.length > 0) {
           const [x, y] = queue.pop();
           const key = y * tiles.columns + x;
 
-          if (own.has(key) || !openTile(tiles, x, y)) continue;
+          if (
+            own.has(key) ||
+            !openTile(tiles, x, y, !CYCLING_ROAD_MAPS.has(constant))
+          )
+            continue;
 
           own.add(key);
           queue.push(...moves(tiles, x, y));
@@ -312,9 +325,44 @@ const areasFor = ({ dir, define }) => {
         [0, 1],
         [0, -1],
       ].map(([dx, dy]) => [x + dx, y + dy]);
+    const cyclingRoad = hasWater && CYCLING_ROAD_MAPS.has(constant);
+    const fishedFromLand =
+      cyclingRoad &&
+      (() => {
+        const fished = new Set();
+        const queue = [];
+
+        for (let y = 0; y < tiles.rows; y++)
+          for (let x = 0; x < tiles.columns; x++)
+            if (
+              anyWater(x, y) &&
+              neighbours(x, y).some(([nx, ny]) => reachable(nx, ny))
+            )
+              queue.push([x, y]);
+
+        while (queue.length > 0) {
+          const [x, y] = queue.pop();
+          const key = y * tiles.columns + x;
+
+          if (
+            fished.has(key) ||
+            x < 0 ||
+            y < 0 ||
+            x >= tiles.columns ||
+            y >= tiles.rows ||
+            !anyWater(x, y)
+          )
+            continue;
+
+          fished.add(key);
+          queue.push(...neighbours(x, y));
+        }
+
+        return (x, y) => fished.has(y * tiles.columns + x);
+      })();
     const reachableWater = (x, y) =>
       anyWater(x, y) &&
-      reachable(x, y) &&
+      (cyclingRoad ? fishedFromLand(x, y) : reachable(x, y)) &&
       neighbours(x, y).some(([nx, ny]) => anyWater(nx, ny));
     const topHalfWater = (x, y) =>
       NO_SHORE_TILESETS.has(tiles.tileset) &&

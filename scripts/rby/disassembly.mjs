@@ -101,6 +101,9 @@ const insideLocations = {
   MT_MOON_POKECENTER: 'route-4/mt-moon-pokemon-center',
   ROUTE_11_GATE: 'route-11/route-11-gate',
   ROUTE_12_GATE: 'route-12/route-12-gate',
+  ROUTE_15_GATE: 'route-15/route-15-gate',
+  ROUTE_16_GATE: 'route-16/route-16-gate',
+  ROUTE_18_GATE: 'route-18/route-18-gate',
   ROCK_TUNNEL_POKECENTER: 'route-10/rock-tunnel-pokemon-center',
   INDIGO_PLATEAU_LOBBY: 'indigo-plateau/indigo-plateau-lobby',
   CELADON_MART: 'celadon-city/celadon-dept-store',
@@ -150,12 +153,17 @@ const buildingLocations = {
   LAVENDER_CUBONE_HOUSE: 'lavender-town/lavender-cubone-house',
   NAME_RATERS_HOUSE: 'lavender-town/name-raters-house',
   SUMMER_BEACH_HOUSE: 'route-19/summer-beach-house',
-  ROUTE_18_GATE_2F: 'route-18',
+  ROUTE_16_FLY_HOUSE: 'route-16/route-16-fly-house',
   FIGHTING_DOJO: 'saffron-city',
   OAKS_LAB: 'pallet-town',
   VERMILION_GYM: 'vermilion-city/vermilion-gym',
   CELADON_GYM: 'celadon-city',
-  FUCHSIA_GYM: 'fuchsia-city',
+  FUCHSIA_GYM: 'fuchsia-city/fuchsia-gym',
+  FUCHSIA_MEETING_ROOM: 'fuchsia-city/fuchsia-meeting-room',
+  FUCHSIA_GOOD_ROD_HOUSE: 'fuchsia-city/fuchsia-good-rod-house',
+  FUCHSIA_BILLS_GRANDPAS_HOUSE: 'fuchsia-city/fuchsia-bills-grandpas-house',
+  WARDENS_HOUSE: 'fuchsia-city/wardens-house',
+  SAFARI_ZONE_GATE: 'fuchsia-city/safari-zone-gate',
   SAFFRON_GYM: 'saffron-city',
   CINNABAR_GYM: 'cinnabar-island/cinnabar-gym',
   LORELEIS_ROOM: 'indigo-plateau/pokemon-league',
@@ -221,6 +229,11 @@ const namedFloors = {
   CINNABAR_LAB_TRADE_ROOM: 'meeting-room',
   CINNABAR_LAB_METRONOME_ROOM: 'rd-room',
   CINNABAR_LAB_FOSSIL_ROOM: 'testing-room',
+  SAFARI_ZONE_CENTER_REST_HOUSE: 'center-rest-house',
+  SAFARI_ZONE_EAST_REST_HOUSE: 'east-rest-house',
+  SAFARI_ZONE_NORTH_REST_HOUSE: 'north-rest-house',
+  SAFARI_ZONE_WEST_REST_HOUSE: 'west-rest-house',
+  SAFARI_ZONE_SECRET_HOUSE: 'secret-house',
 };
 
 export const floorFor = (mapConstant) => {
@@ -291,6 +304,11 @@ const mapSizes = (dir) => {
 
   return mapSizeCache.get(dir);
 };
+
+export const mapSteps = (dir, map) =>
+  mapSizes(dir)
+    .get(mapKey(map))
+    .map((pixels) => pixels / 16);
 
 export const siteLocation = (map) => {
   try {

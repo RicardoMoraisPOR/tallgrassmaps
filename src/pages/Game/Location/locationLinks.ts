@@ -243,7 +243,12 @@ export const locationLinks = (
   const floorExitSeen = new Map<string, number>();
 
   for (const hotspot of hotspots)
-    if (hotspot.floor && hotspot.target === path && !hotspot.hole)
+    if (
+      hotspot.floor &&
+      hotspot.target === path &&
+      !hotspot.hole &&
+      !hotspot.travel
+    )
       floorExitTotals.set(
         hotspot.floor,
         (floorExitTotals.get(hotspot.floor) ?? 0) + 1,
@@ -253,6 +258,8 @@ export const locationLinks = (
     const floorId = hotspot.floor!;
 
     if (hotspot.hole) return { label: `Hole to ${floorName(target, floorId)}` };
+    if (hotspot.travel)
+      return { label: `${target.name} ${floorName(target, floorId)}` };
     const count = (floorExitSeen.get(floorId) ?? 0) + 1;
 
     floorExitSeen.set(floorId, count);
@@ -383,7 +390,7 @@ export const locationLinks = (
       return [
         {
           ...icon,
-          ...edgeCenter(link, link.travel, location),
+          ...edgeCenter(link, link.travel, floor ?? location),
           icon: { kind: 'arrow' as const, direction: link.travel },
         },
       ];

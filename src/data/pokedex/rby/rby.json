@@ -2871,8 +2871,13 @@
       },
       {
         "method": "trade",
-        "path": "route-18",
+        "path": "route-18/route-18-gate",
         "tradeFor": 114,
+        "floors": [
+          {
+            "floor": "2f"
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6596,8 +6601,13 @@
     "encounters": [
       {
         "method": "trade",
-        "path": "route-18",
+        "path": "route-18/route-18-gate",
         "tradeFor": 80,
+        "floors": [
+          {
+            "floor": "2f"
+          }
+        ],
         "games": ["red", "blue"]
       },
       {

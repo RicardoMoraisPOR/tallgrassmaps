@@ -33,6 +33,19 @@ const SIGN_MAPS = {
   DIGLETTS_CAVE_ROUTE_11: 'route-11/digletts-cave-route-11',
   ROUTE_11: 'route-11',
   ROUTE_11_GATE_2_F: 'route-11/route-11-gate',
+  ROUTE_13: 'route-13',
+  ROUTE_14: 'route-14',
+  ROUTE_15: 'route-15',
+  ROUTE_15_GATE_1_F: 'route-15/route-15-gate',
+  ROUTE_15_GATE_2_F: 'route-15/route-15-gate',
+  ROUTE_16: 'route-16',
+  ROUTE_16_GATE_1_F: 'route-16/route-16-gate',
+  ROUTE_16_GATE_2_F: 'route-16/route-16-gate',
+  ROUTE_16_FLY_HOUSE: 'route-16/route-16-fly-house',
+  ROUTE_17: 'route-17',
+  ROUTE_18: 'route-18',
+  ROUTE_18_GATE_1_F: 'route-18/route-18-gate',
+  ROUTE_18_GATE_2_F: 'route-18/route-18-gate',
   ROUTE_9: 'route-9',
   ROUTE_10: 'route-10',
   ROCK_TUNNEL_POKECENTER: 'route-10/rock-tunnel-pokemon-center',
@@ -130,12 +143,50 @@ const SIGN_MAPS = {
   SEAFOAM_ISLANDS_B_2_F: 'route-20/seafoam-islands',
   SEAFOAM_ISLANDS_B_3_F: 'route-20/seafoam-islands',
   SEAFOAM_ISLANDS_B_4_F: 'route-20/seafoam-islands',
+  FUCHSIA_CITY: 'fuchsia-city',
+  FUCHSIA_GYM: 'fuchsia-city/fuchsia-gym',
+  FUCHSIA_MART: 'fuchsia-city/fuchsia-poke-mart',
+  FUCHSIA_POKECENTER: 'fuchsia-city/fuchsia-pokemon-center',
+  FUCHSIA_MEETING_ROOM: 'fuchsia-city/fuchsia-meeting-room',
+  FUCHSIA_GOOD_ROD_HOUSE: 'fuchsia-city/fuchsia-good-rod-house',
+  FUCHSIA_BILLS_GRANDPAS_HOUSE: 'fuchsia-city/fuchsia-bills-grandpas-house',
+  WARDENS_HOUSE: 'fuchsia-city/wardens-house',
+  SAFARI_ZONE_GATE: 'fuchsia-city/safari-zone-gate',
+  SAFARI_ZONE_CENTER: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_EAST: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_NORTH: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_WEST: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_CENTER_REST_HOUSE: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_EAST_REST_HOUSE: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_NORTH_REST_HOUSE: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_WEST_REST_HOUSE: 'fuchsia-city/safari-zone',
+  SAFARI_ZONE_SECRET_HOUSE: 'fuchsia-city/safari-zone',
   UNDERGROUND_PATH_NORTH_SOUTH: 'route-5/underground-path-north-south',
 };
 
+const fossilSign = (game) =>
+  [
+    farText(game, '_FuchsiaCityFossilSignUndeterminedText'),
+    `After you take the Dome Fossil:\n\n${farText(game, '_FuchsiaCityFossilSignOmanyteText')}`,
+    `After you take the Helix Fossil:\n\n${farText(game, '_FuchsiaCityFossilSignKabutoText')}`,
+  ].join('\n\n');
+
 const SIGN_TEXTS = {
   ROUTE11GATE2F_LEFT_BINOCULARS: '_Route11Gate2FLeftBinocularsSnorlaxText',
+  ROUTE15GATE2F_BINOCULARS: '_Route15Gate2FBinocularsText',
+  ROUTE16GATE2F_LEFT_BINOCULARS: '_Route16Gate2FLeftBinocularsText',
+  ROUTE16GATE2F_RIGHT_BINOCULARS: '_Route16Gate2FRightBinocularsText',
+  ROUTE18GATE2F_LEFT_BINOCULARS: '_Route18Gate2FLeftBinocularsText',
+  ROUTE18GATE2F_RIGHT_BINOCULARS: '_Route18Gate2FRightBinocularsText',
+  WARDENSHOUSE_DISPLAY_LEFT: '_WardensHouseDisplayPhotosAndFossilsText',
+  WARDENSHOUSE_DISPLAY_RIGHT: '_WardensHouseDisplayMerchandiseText',
+  FUCHSIACITY_FOSSIL_SIGN: fossilSign,
 };
+
+const signText = (game, textId) =>
+  typeof SIGN_TEXTS[textId] === 'function'
+    ? SIGN_TEXTS[textId](game)
+    : farText(game, SIGN_TEXTS[textId]);
 
 const OPENABLE_OBJECTS = [
   [/_POKEDEX\d*$/, 'pokedex'],
@@ -169,7 +220,8 @@ const EXTRA_SIGNS = [
   },
 ];
 
-const SWITCH_TEXT = {
+const HIDDEN_EVENT_TEXT = {
+  Route15GateLeftBinoculars: '_Route15UpstairsBinocularsText',
   Mansion1Script_Switches: '_PokemonMansion1FSwitchText',
   Mansion2Script_Switches: '_PokemonMansion2FSwitchText',
   Mansion3Script_Switches: '_PokemonMansion2FSwitchText',
@@ -202,7 +254,7 @@ const hiddenSigns = (game) => {
     const text =
       action === 'PrintCinnabarQuiz'
         ? cinnabarQuiz(game, argument)
-        : SWITCH_TEXT[action] && farText(game, SWITCH_TEXT[action]);
+        : HIDDEN_EVENT_TEXT[action] && farText(game, HIDDEN_EVENT_TEXT[action]);
 
     if (!path || !text) continue;
 
@@ -245,7 +297,7 @@ for (const game of games) {
       /^bg_event\s+(\d+),\s*(\d+),\s*TEXT_(\w+)$/gm,
     )) {
       const message = SIGN_TEXTS[textId]
-        ? farText(game, SIGN_TEXTS[textId])
+        ? signText(game, textId)
         : mapText(game, file, textId);
 
       if (!message) continue;

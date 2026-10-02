@@ -318,6 +318,7 @@ const outdoor: Array<OutdoorEntry> = [
 
 type FloorExit = {
   area: Rect;
+  travel?: Direction;
   ladder?: boolean;
   hole?: boolean;
   current?: boolean;
@@ -936,13 +937,68 @@ const inside: Array<InsideEntry> = [
     kind: 'dungeon',
     size: [480, 416],
     parent: 'fuchsia-city',
-    entrances: [entrance(288, 48)],
+    entrances: [],
     floors: [
-      { name: 'Center', size: [480, 416] },
-      { name: 'East', size: [480, 416] },
-      { name: 'North', size: [640, 576] },
-      { name: 'West', size: [480, 416] },
+      {
+        name: 'Center',
+        exits: [
+          { to: 'fuchsia-city/safari-zone-gate', area: rect(224, 400, 32, 16) },
+          { floor: 'West', area: rect(0, 160, 16, 32), travel: 'west' },
+          { floor: 'North', area: rect(224, 0, 32, 16), travel: 'north' },
+          { floor: 'East', area: rect(464, 160, 16, 32), travel: 'east' },
+          { floor: 'Center Rest House', area: warp(17, 19), door: true },
+        ],
+      },
+      {
+        name: 'East',
+        exits: [
+          { floor: 'North', area: rect(0, 64, 16, 32), travel: 'west' },
+          { floor: 'Center', area: rect(0, 352, 16, 32), travel: 'west' },
+          { floor: 'East Rest House', area: warp(25, 9), door: true },
+        ],
+      },
+      {
+        name: 'North',
+        size: [640, 576],
+        exits: [
+          { floor: 'West', area: rect(32, 560, 32, 16), travel: 'south' },
+          { floor: 'West', area: rect(128, 560, 32, 16), travel: 'south' },
+          { floor: 'Center', area: rect(320, 560, 32, 16), travel: 'south' },
+          { floor: 'East', area: rect(624, 480, 16, 32), travel: 'east' },
+          { floor: 'North Rest House', area: warp(35, 3), door: true },
+        ],
+      },
+      {
+        name: 'West',
+        exits: [
+          { floor: 'North', area: rect(320, 0, 32, 16), travel: 'north' },
+          { floor: 'North', area: rect(416, 0, 32, 16), travel: 'north' },
+          { floor: 'Center', area: rect(464, 352, 16, 32), travel: 'east' },
+          { floor: 'Secret House', area: warp(3, 3), door: true },
+          { floor: 'West Rest House', area: warp(11, 11), door: true },
+        ],
+      },
+      ...[
+        ['Center Rest House', 'Center'],
+        ['East Rest House', 'East'],
+        ['North Rest House', 'North'],
+        ['West Rest House', 'West'],
+        ['Secret House', 'West'],
+      ].map(([name, area]) => ({
+        name,
+        size: [128, 128] as Size,
+        exits: [{ floor: area, area: rect(32, 112, 32, 16), door: true }],
+      })),
     ],
+  },
+  {
+    id: 'fuchsia-gym',
+    name: 'Fuchsia Gym',
+    kind: 'building',
+    size: [160, 288],
+    parent: 'fuchsia-city',
+    entrances: [warp(5, 27)],
+    exits: [rect(64, 272, 32, 16)],
   },
   {
     id: 'pokemon-mansion',
@@ -1396,6 +1452,90 @@ const services: Array<InsideEntry> = [
     ],
   },
   {
+    id: 'route-15-gate',
+    name: 'Route 15 Gate',
+    kind: 'building',
+    size: [128, 160],
+    parent: 'route-15',
+    entrances: [warp(7, 8), warp(14, 8)],
+    marker: 'house',
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'route-15', area: rect(0, 64, 16, 32) },
+          { to: 'route-15', area: rect(112, 64, 16, 32) },
+          { floor: '2F', area: warp(6, 8) },
+        ],
+      },
+      {
+        name: '2F',
+        size: [128, 128],
+        exits: [{ floor: '1F', area: warp(7, 7) }],
+      },
+    ],
+  },
+  {
+    id: 'route-16-gate',
+    name: 'Route 16 Gate',
+    kind: 'building',
+    size: [128, 224],
+    parent: 'route-16',
+    entrances: [warp(17, 10), warp(24, 10), warp(17, 4), warp(24, 4)],
+    marker: 'house',
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'route-16', area: rect(0, 128, 16, 32) },
+          { to: 'route-16', area: rect(112, 128, 16, 32) },
+          { to: 'route-16', area: rect(0, 32, 16, 32) },
+          { to: 'route-16', area: rect(112, 32, 16, 32) },
+          { floor: '2F', area: warp(6, 12) },
+        ],
+      },
+      {
+        name: '2F',
+        size: [128, 128],
+        exits: [{ floor: '1F', area: warp(7, 7) }],
+      },
+    ],
+  },
+  {
+    id: 'route-16-fly-house',
+    name: 'Fly House',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'route-16',
+    entrances: [warp(7, 5)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'route-18-gate',
+    name: 'Route 18 Gate',
+    kind: 'building',
+    size: [128, 160],
+    parent: 'route-18',
+    entrances: [warp(33, 8), warp(40, 8)],
+    marker: 'house',
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'route-18', area: rect(0, 64, 16, 32) },
+          { to: 'route-18', area: rect(112, 64, 16, 32) },
+          { floor: '2F', area: warp(6, 8) },
+        ],
+      },
+      {
+        name: '2F',
+        size: [128, 128],
+        exits: [{ floor: '1F', area: warp(7, 7) }],
+      },
+    ],
+  },
+  {
     id: 'route-12-super-rod-house',
     name: 'Super Rod House',
     kind: 'building',
@@ -1659,6 +1799,59 @@ const services: Array<InsideEntry> = [
     games: ['yellow'],
   },
   {
+    id: 'fuchsia-bills-grandpas-house',
+    name: "Bill's Grandpa's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'fuchsia-city',
+    entrances: [warp(11, 27)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'wardens-house',
+    name: "Warden's House",
+    kind: 'building',
+    size: [160, 128],
+    parent: 'fuchsia-city',
+    entrances: [warp(27, 27)],
+    exits: [rect(64, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'fuchsia-meeting-room',
+    name: 'Meeting Room',
+    kind: 'building',
+    size: [224, 128],
+    parent: 'fuchsia-city',
+    entrances: [warp(22, 13)],
+    exits: [rect(64, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'fuchsia-good-rod-house',
+    name: 'Good Rod House',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'fuchsia-city',
+    entrances: [warp(31, 27), warp(31, 24)],
+    exits: [rect(32, 112, 32, 16), warp(2, 0)],
+    marker: 'house',
+  },
+  {
+    id: 'safari-zone-gate',
+    name: 'Safari Zone Gate',
+    kind: 'building',
+    size: [128, 96],
+    parent: 'fuchsia-city',
+    entrances: [warp(18, 3)],
+    exits: [
+      rect(48, 80, 32, 16),
+      { area: rect(48, 0, 32, 16), to: 'fuchsia-city/safari-zone' },
+    ],
+    marker: 'house',
+  },
+  {
     id: 'reds-house',
     name: "Red's House",
     kind: 'building',
@@ -1751,8 +1944,9 @@ const toInsideLocation = ({
       name: floor.name,
       image: floorImage(id, floor.name),
       hotspots: mergeHoles(floor.exits ?? []).map(
-        ({ area, ladder, hole, current, door, ...exit }) => ({
+        ({ area, travel, ladder, hole, current, door, ...exit }) => ({
           ...area,
+          ...(travel && { travel }),
           ...(ladder && { ladder }),
           ...(hole && { hole }),
           ...(current && { current }),
