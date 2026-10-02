@@ -37,7 +37,7 @@ import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 import { StaticPopup, WildPopup } from './WildPopup';
 
-const ARRIVAL_HIGHLIGHT_MS = 2000;
+const ARRIVAL_HIGHLIGHT_MS = 1500;
 
 export const LocationPage = () => {
   const route = useGameRoute();

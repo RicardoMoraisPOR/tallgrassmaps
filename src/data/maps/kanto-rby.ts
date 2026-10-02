@@ -6,7 +6,6 @@ import type {
   Location,
   LocationHotspot,
   LocationKind,
-  MapMarker,
   MarkerKind,
   MapVariant,
   Rect,
@@ -57,7 +56,6 @@ type OutdoorEntry = {
   kind: 'town' | 'route';
   size: Size;
   cell: [x: number, y: number];
-  markers?: Array<MapMarker>;
   variants?: Array<MapVariant>;
 };
 
@@ -103,11 +101,6 @@ const outdoor: Array<OutdoorEntry> = [
     kind: 'town',
     size: [320, 288],
     cell: [14, 5],
-    markers: [
-      { kind: 'house', name: "Mr. Fuji's House", ...entrance(112, 144) },
-      { kind: 'house', name: 'Cubone House', ...entrance(48, 208) },
-      { kind: 'house', name: "Name Rater's House", ...entrance(112, 208) },
-    ],
   },
   {
     id: 'celadon-city',
@@ -1051,6 +1044,70 @@ const services: Array<InsideEntry> = [
     ],
   },
   {
+    id: 'route-12-gate',
+    name: 'Route 12 Gate',
+    kind: 'building',
+    size: [160, 128],
+    parent: 'route-12',
+    entrances: [warp(10, 15), warp(10, 21)],
+    marker: 'house',
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'route-12', area: rect(64, 0, 32, 16) },
+          { to: 'route-12', area: rect(64, 112, 32, 16) },
+          { floor: '2F', area: warp(8, 6) },
+        ],
+      },
+      {
+        name: '2F',
+        size: [128, 128],
+        exits: [{ floor: '1F', area: warp(7, 7) }],
+      },
+    ],
+  },
+  {
+    id: 'route-12-super-rod-house',
+    name: 'Super Rod House',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'route-12',
+    entrances: [warp(11, 77)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'mr-fujis-house',
+    name: "Mr. Fuji's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'lavender-town',
+    entrances: [warp(7, 9)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'lavender-cubone-house',
+    name: 'Cubone House',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'lavender-town',
+    entrances: [warp(3, 13)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'name-raters-house',
+    name: "Name Rater's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'lavender-town',
+    entrances: [warp(7, 13)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
     id: 'pewter-nidoran-house',
     name: 'Nidoran House',
     kind: 'building',
@@ -1348,21 +1405,18 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
 ];
 
 const locations: Array<Location> = outdoor.map(
-  ({ id, name, kind, size, markers = [], variants }) => ({
+  ({ id, name, kind, size, variants }) => ({
     ...toLocation(id, name, kind, size),
-    markers: [
-      ...markers,
-      ...services
-        .filter(({ parent }) => parent === id)
-        .flatMap((building) =>
-          building.entrances.map((entry) => ({
-            ...('area' in entry ? entry.area : entry),
-            kind: building.marker ?? 'house',
-            name: building.name,
-            target: `${building.parent}/${building.id}`,
-          })),
-        ),
-    ],
+    markers: services
+      .filter(({ parent }) => parent === id)
+      .flatMap((building) =>
+        building.entrances.map((entry) => ({
+          ...('area' in entry ? entry.area : entry),
+          kind: building.marker ?? 'house',
+          name: building.name,
+          target: `${building.parent}/${building.id}`,
+        })),
+      ),
     variants,
     locations: buildings
       .filter(

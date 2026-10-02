@@ -33,6 +33,10 @@ const SIGN_MAPS = {
   DIGLETTS_CAVE_ROUTE_11: 'route-11/digletts-cave-route-11',
   ROUTE_11: 'route-11',
   ROUTE_11_GATE_2_F: 'route-11/route-11-gate',
+  ROUTE_12: 'route-12',
+  LAVENDER_TOWN: 'lavender-town',
+  MR_FUJIS_HOUSE: 'lavender-town/mr-fujis-house',
+  ROUTE_12_GATE_2_F: 'route-12/route-12-gate',
   VIRIDIAN_FOREST: 'route-2/viridian-forest',
   PEWTER_CITY: 'pewter-city',
   PEWTER_GYM: 'pewter-city/pewter-gym',
@@ -100,7 +104,10 @@ const OPENABLE_OBJECTS = [
 
 const READABLE_SPRITES = new Set(['CLIPBOARD', 'PAPER']);
 
+const READABLE_OBJECTS = new Set(['MRFUJISHOUSE_POKEDEX']);
+
 const opensFor = (textId) =>
+  !READABLE_OBJECTS.has(textId) &&
   OPENABLE_OBJECTS.find(([pattern]) => pattern.test(textId))?.[1];
 
 const signs = [];
@@ -147,7 +154,10 @@ for (const game of games) {
     )) {
       const opens = opensFor(textId);
       const message =
-        (opens || READABLE_SPRITES.has(sprite)) && mapText(game, file, textId);
+        (opens ||
+          READABLE_SPRITES.has(sprite) ||
+          READABLE_OBJECTS.has(textId)) &&
+        mapText(game, file, textId);
 
       if (!message) continue;
 

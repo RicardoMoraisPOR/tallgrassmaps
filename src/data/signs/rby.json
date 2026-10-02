@@ -58,6 +58,56 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "lavender-town",
+    "x": 11,
+    "y": 9,
+    "text": "LAVENDER TOWN The Noble Purple Town",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 9,
+    "y": 3,
+    "text": "New SILPH SCOPE!\n\nMake the Invisible Plain to See!\n\nSILPH CO.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 16,
+    "y": 13,
+    "text": "All your item needs fulfilled! POKéMON MART",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 4,
+    "y": 5,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 5,
+    "y": 9,
+    "text": "LAVENDER VOLUNTEER POKéMON HOUSE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 17,
+    "y": 7,
+    "text": "May the Souls of POKéMON Rest Easy POKéMON TOWER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/mr-fujis-house",
+    "x": 3,
+    "y": 3,
+    "text": "POKéMON Monthly Grand Prize Drawing!\n\nThe application form is...\n\nGone! It's been clipped out!",
+    "sprite": "pokedex",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-4/mt-moon",
     "floor": "1f",
     "x": 15,
@@ -218,6 +268,36 @@
     "x": 6,
     "y": 2,
     "text": "Looked into the binoculars.\n\nThe only way to get from CERULEAN CITY to LAVENDER is by way of the ROCK TUNNEL.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12",
+    "x": 13,
+    "y": 13,
+    "text": "ROUTE 12 North to LAVENDER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12",
+    "x": 11,
+    "y": 63,
+    "text": "SPORT FISHING AREA",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12/route-12-gate",
+    "floor": "2f",
+    "x": 1,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nA man fishing!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12/route-12-gate",
+    "floor": "2f",
+    "x": 6,
+    "y": 2,
+    "text": "Looked into the binoculars.\n\nIt's POKéMON TOWER!",
     "games": ["red", "blue", "yellow"]
   },
   {

@@ -152,7 +152,8 @@ export const farText = (game, far, values = {}) => {
     if (ram) {
       if (values[ram] === undefined) return undefined;
 
-      paragraphs[paragraphs.length - 1] += values[ram];
+      if (paragraphs.length === 0) paragraphs.push(values[ram]);
+      else paragraphs[paragraphs.length - 1] += values[ram];
       inline = true;
       continue;
     }

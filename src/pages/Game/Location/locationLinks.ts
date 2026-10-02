@@ -152,9 +152,12 @@ const withQuery = (base: string, query: Record<string, string | undefined>) => {
   return params ? `${base}?${params}` : base;
 };
 
-type Landing = { target: string; floor?: string };
+type Landing = { target: string; floor?: string; travel?: Direction };
 
-const landings = (location: Location, floor?: LocationFloor) => [
+const landings = (
+  location: Location,
+  floor?: LocationFloor,
+): Array<Landing> => [
   ...(floor?.hotspots ?? location.hotspots),
   ...location.markers.flatMap(({ target }) => (target ? [{ target }] : [])),
 ];
@@ -166,16 +169,9 @@ export const arrivals = (
 ) => {
   const landingKey = ({ target, floor: to }: Landing) =>
     `${target}:${to ?? getLocation(region, target)?.floors?.[0]?.id ?? ''}`;
-  const lookKey = ({ target, floor: to }: Landing) =>
-    `${getLocation(region, target)?.name}:${to ?? ''}`;
-  const all = landings(location, floor);
-  const looks = new Map<string, number>();
   const seen = new Map<string, number>();
 
-  for (const landing of all)
-    looks.set(lookKey(landing), (looks.get(lookKey(landing)) ?? 0) + 1);
-
-  return all.map((landing) => {
+  return landings(location, floor).map((landing) => {
     const key = landingKey(landing);
     const count = (seen.get(key) ?? 0) + 1;
 
@@ -184,7 +180,7 @@ export const arrivals = (
     return {
       key: `${key}:${count}`,
       count,
-      ambiguous: (looks.get(lookKey(landing)) ?? 0) > 1,
+      marked: !landing.travel,
     };
   });
 };
@@ -263,9 +259,9 @@ export const locationLinks = (
   };
 
   const here = arrivals(region, location, floor);
-  const ambiguousAt = new Map<string, Set<string>>();
+  const markedAt = new Map<string, Set<string>>();
 
-  const arrivesAmbiguously = ({ target, floor: to }: Landing, via: string) => {
+  const arrivesMarked = ({ target, floor: to }: Landing, via: string) => {
     const destination = getLocation(region, target);
 
     if (!destination) return false;
@@ -275,26 +271,26 @@ export const locationLinks = (
       destination.floors?.[0];
     const cacheKey = `${target}:${destinationFloor?.id ?? ''}`;
 
-    if (!ambiguousAt.has(cacheKey))
-      ambiguousAt.set(
+    if (!markedAt.has(cacheKey))
+      markedAt.set(
         cacheKey,
         new Set(
           arrivals(region, destination, destinationFloor).flatMap(
-            ({ key, ambiguous }) => (ambiguous ? [key] : []),
+            ({ key, marked }) => (marked ? [key] : []),
           ),
         ),
       );
 
-    return ambiguousAt.get(cacheKey)!.has(via);
+    return markedAt.get(cacheKey)!.has(via);
   };
 
   const pairing = (landing: Landing, index: number) => {
-    const { key, count, ambiguous } = here[index];
+    const { key, count, marked } = here[index];
     const via = `${path}:${floor?.id ?? ''}:${count}`;
 
     return {
-      arrival: ambiguous ? arrivalKey(key) : undefined,
-      via: arrivesAmbiguously(landing, via) ? via : undefined,
+      arrival: marked ? arrivalKey(key) : undefined,
+      via: arrivesMarked(landing, via) ? via : undefined,
     };
   };
 

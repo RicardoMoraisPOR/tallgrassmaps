@@ -660,6 +660,297 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "lavender-town/lavender-cubone-house",
+    "x": 3,
+    "y": 5,
+    "name": "Cubone",
+    "sprite": "monster",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "CUBONE: Kyarugoo!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-cubone-house",
+    "x": 2,
+    "y": 4,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I hate those horrible ROCKETs!\n\nThat poor CUBONE's mother...\n\nIt was killed trying to escape from TEAM ROCKET!",
+        "trigger": "Before you rescue Mr. Fuji"
+      },
+      {
+        "text": "The GHOST of POKéMON TOWER is gone!\n\nSomeone must have soothed its restless soul!",
+        "trigger": "After you rescue Mr. Fuji"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-poke-mart",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-poke-mart",
+    "x": 3,
+    "y": 4,
+    "name": "Balding Guy",
+    "sprite": "balding_guy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm searching for items that raise the abilities of POKéMON during a single battle.\n\nX ATTACK, X DEFEND, X SPEED and X SPECIAL are what I'm after.\n\nDo you know where I can get them?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-poke-mart",
+    "x": 7,
+    "y": 2,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You know REVIVE? It revives any fainted POKéMON!",
+        "trigger": "Before you rescue Mr. Fuji"
+      },
+      {
+        "text": "I found a NUGGET in the mountains.\n\nI thought it was useless, but it sold for ¥5000!",
+        "trigger": "After you rescue Mr. Fuji"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 5,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "TEAM ROCKET will do anything for the sake of gold!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 2,
+    "y": 6,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I saw CUBONE's mother die trying to escape from TEAM ROCKET!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 15,
+    "y": 9,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Do you believe in GHOSTs?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "Really? So there are believers...",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "Hahaha, I guess not.\n\nThat white hand on your shoulder, it's not real.",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 9,
+    "y": 10,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This town is known as the grave site of POKéMON.\n\nMemorial services are held in POKéMON TOWER."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town",
+    "x": 8,
+    "y": 7,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "GHOSTs appeared in POKéMON TOWER.\n\nI think they're the spirits of POKéMON that the ROCKETs killed."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/mr-fujis-house",
+    "x": 3,
+    "y": 5,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "That's odd, MR.FUJI isn't here. Where'd he go?",
+        "trigger": "Before you rescue Mr. Fuji"
+      },
+      {
+        "text": "MR.FUJI had been praying alone for CUBONE's mother.",
+        "trigger": "After you rescue Mr. Fuji"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/mr-fujis-house",
+    "x": 6,
+    "y": 3,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This is really MR.FUJI's house.\n\nHe's really kind!\n\nHe looks after abandoned and orphaned POKéMON!",
+        "trigger": "Before you rescue Mr. Fuji"
+      },
+      {
+        "text": "It's so warm! POKéMON are so nice to hug!",
+        "trigger": "After you rescue Mr. Fuji"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/mr-fujis-house",
+    "x": 6,
+    "y": 4,
+    "name": "Psyduck",
+    "sprite": "monster",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "PSYDUCK: Gwappa!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/mr-fujis-house",
+    "x": 1,
+    "y": 3,
+    "name": "Nidorino",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "NIDORINO: Gaoo!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/mr-fujis-house",
+    "x": 3,
+    "y": 1,
+    "name": "Mr. Fuji",
+    "sprite": "mr_fuji",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "MR.FUJI: RED.\n\nYour POKéDEX quest may fail without love for your POKéMON.\n\nI think this may help your quest.\n\nRED received a POKé FLUTE!\n\nUpon hearing POKé FLUTE, sleeping POKéMON will spring awake.\n\nIt works on all sleeping POKéMON.",
+        "trigger": "After you rescue him from Pokémon Tower, he gives you the Poké Flute",
+        "gift": {
+          "name": "Poké Flute",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You must make room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "MR.FUJI: Has my FLUTE helped you?",
+        "trigger": "After you get the Poké Flute"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-4/mt-moon",
     "floor": "b2f",
     "x": 12,
@@ -997,6 +1288,42 @@
         "text": "Yeah, a PIKACHU soon, I promise!"
       }
     ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "lavender-town/name-raters-house",
+    "x": 5,
+    "y": 3,
+    "name": "Name Rater",
+    "sprite": "silph_president",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Hello, hello! I am the official NAME RATER!\n\nWant me to rate the nicknames of your POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Which POKéMON should I look at?",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "POKéMON, is it? That is a decent nickname!\n\nBut, would you like me to give it a nicer name?\n\nHow about it?",
+        "trigger": "If you pick a Pokémon you caught"
+      },
+      {
+        "text": "Fine! What should we name it?\n\nOK! This POKéMON has been renamed POKéMON!\n\nThat's a better name than before!",
+        "trigger": "If you say yes, he renames it"
+      },
+      {
+        "text": "POKéMON, is it? That is a truly impeccable name!\n\nTake good care of POKéMON!",
+        "trigger": "If you pick a Pokémon you got in a trade"
+      },
+      {
+        "text": "Fine! Come any time you like!",
+        "trigger": "If you say no"
+      }
+    ],
+    "special": true,
     "games": ["red", "blue"]
   },
   {
@@ -1565,6 +1892,129 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "1f",
+    "x": 15,
+    "y": 13,
+    "name": "Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "POKéMON TOWER was erected in the memory of POKéMON that had died."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "1f",
+    "x": 6,
+    "y": 8,
+    "name": "Middle Aged Woman",
+    "sprite": "middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Did you come to pay respects? Bless you!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "1f",
+    "x": 8,
+    "y": 12,
+    "name": "Balding Guy",
+    "sprite": "balding_guy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I came to pray for my CLEFAIRY.\n\nSniff! I can't stop crying..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "1f",
+    "x": 13,
+    "y": 7,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My GROWLITHE... Why did you die?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "1f",
+    "x": 17,
+    "y": 7,
+    "name": "Channeler",
+    "sprite": "channeler",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "I am a CHANNELER! There are spirits up to mischief!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "2f",
+    "x": 3,
+    "y": 7,
+    "name": "Channeler",
+    "sprite": "channeler",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Even we could not identify the wayward GHOSTs!\n\nA SILPH SCOPE might be able to unmask them."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "5f",
+    "x": 12,
+    "y": 8,
+    "name": "Channeler",
+    "sprite": "channeler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Come, child! I sealed this space with white magic!\n\nYou can rest here!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "7f",
+    "x": 10,
+    "y": 3,
+    "name": "Mr. Fuji",
+    "sprite": "mr_fuji",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "MR.FUJI: Heh? You came to save me?\n\nThank you. But, I came here of my own free will.\n\nI came to calm the soul of CUBONE's mother.\n\nI think MAROWAK's spirit has gone to the afterlife.\n\nI must thank you for your kind concern!\n\nFollow me to my home, POKéMON HOUSE at the foot of this tower.",
+        "trigger": "Held by Team Rocket until you beat them, then he takes you to his house"
+      }
+    ],
+    "cutscene": true,
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pallet-town/reds-house",
     "floor": "1f",
     "x": 5,
@@ -1720,6 +2170,86 @@
       {
         "text": "There are items on the ground that can't be seen.\n\nITEMFINDER will detect an item close to you.\n\nIt can't pinpoint it, so you have to look yourself!",
         "trigger": "After you get the Itemfinder"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12/route-12-gate",
+    "floor": "1f",
+    "x": 1,
+    "y": 3,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "There's a lookout spot upstairs."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-12/route-12-gate",
+    "floor": "2f",
+    "x": 3,
+    "y": 4,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My POKéMON's ashes are stored in POKéMON TOWER.\n\nYou can have this TM. I don't need it any more...\n\nRED received TM39!",
+        "trigger": "The first time you talk to her, she gives you TM39",
+        "gift": {
+          "name": "TM39",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You don't have room for this.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "TM39 is a move called SWIFT.\n\nIt's very accurate, so use it during battles you can't afford to lose.",
+        "trigger": "After you get TM39"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-12/route-12-super-rod-house",
+    "x": 2,
+    "y": 4,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "I'm the FISHING GURU's brother!\n\nI simply Looove fishing!\n\nDo you like to fish?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Grand! I like your style!\n\nTake this and fish, young one!\n\nRED received a SUPER ROD!\n\nFishing is a way of life!\n\nFrom the seas to rivers, go out and land the big one!",
+        "trigger": "If you say yes, he gives you the Super Rod",
+        "gift": {
+          "name": "Super Rod",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh... That's so disappointing...",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "Oh no!\n\nI had a gift for you, but you have no room for it!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "Hello there, RED!\n\nUse the SUPER ROD in any water! You can catch different kinds of POKéMON.\n\nTry fishing wherever you can!",
+        "trigger": "After you get the Super Rod"
       }
     ],
     "special": true,
@@ -3636,6 +4166,57 @@
     "games": ["yellow"]
   },
   {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 10,
+    "y": 5,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I saw CUBONE's mother die trying to escape from TEAM ROCKET!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "route-4/mt-moon-pokemon-center",
     "x": 3,
     "y": 1,
@@ -3723,6 +4304,42 @@
         "trigger": "When Pikachu is following you with high friendship"
       }
     ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "lavender-town/name-raters-house",
+    "x": 5,
+    "y": 3,
+    "name": "Name Rater",
+    "sprite": "silph_president",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Hello, hello! I am the official NAME RATER!\n\nWant me to rate the nicknames of your POKéMON?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Which POKéMON should I look at?",
+        "trigger": "If you say yes"
+      },
+      {
+        "text": "POKéMON, is it? That is a decent nickname!\n\nBut, would you like me to give it a nicer name?\n\nHow about it?",
+        "trigger": "If you pick a Pokémon you caught"
+      },
+      {
+        "text": "Fine! What should we name it?\n\nOK! This POKéMON has been renamed POKéMON!\n\nThat's a better name than before!",
+        "trigger": "If you say yes, he renames it"
+      },
+      {
+        "text": "POKéMON, is it? That is a truly impeccable name!\n\nTake good care of POKéMON!",
+        "trigger": "If you pick a Pokémon you got in a trade"
+      },
+      {
+        "text": "Fine! Come any-time you like!",
+        "trigger": "If you say no"
+      }
+    ],
+    "special": true,
     "games": ["yellow"]
   },
   {
@@ -3997,6 +4614,21 @@
     "games": ["yellow"]
   },
   {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "1f",
+    "x": 6,
+    "y": 8,
+    "name": "Middle Aged Woman",
+    "sprite": "yellow/middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Did you come to pay respects? Bless you!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "pallet-town/reds-house",
     "floor": "1f",
     "x": 5,
@@ -4054,6 +4686,35 @@
       {
         "text": "Isn't my old DUGTRIO great?",
         "trigger": "Talking again after the trade"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-12/route-12-gate",
+    "floor": "2f",
+    "x": 3,
+    "y": 4,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My POKéMON's ashes are stored in POKéMON TOWER.\n\nYou can have this TM. I don't need it anymore...\n\nRED received TM39!",
+        "trigger": "The first time you talk to her, she gives you TM39",
+        "gift": {
+          "name": "TM39",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You don't have room for this.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "TM39 is a move called SWIFT.\n\nIt's very accurate, so use it during battles you can't afford to lose.",
+        "trigger": "After you get TM39"
       }
     ],
     "special": true,
@@ -4588,6 +5249,21 @@
     "dialog": [
       {
         "text": "BILL has lots of POKéMON!\n\nHe collects rare ones too!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "lavender-town/lavender-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "CUBONEs wear skulls, right?\n\nPeople will pay a lot for one!"
       }
     ],
     "games": ["red", "blue", "yellow"]

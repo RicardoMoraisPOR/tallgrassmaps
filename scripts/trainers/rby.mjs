@@ -119,12 +119,24 @@ const TRAINER_DIALOG_MAPS = new Set([
   'Route25',
   'Route6',
   'Route11',
+  'Route12',
+  'PokemonTower3F',
+  'PokemonTower4F',
+  'PokemonTower5F',
+  'PokemonTower6F',
+  'PokemonTower7F',
   'VermilionGym',
   'SSAnne1FRooms',
   'SSAnne2FRooms',
   'SSAnneB1FRooms',
   'SSAnneBow',
   'SSAnne2F',
+]);
+
+const CUTSCENE_OBJECTS = new Set([
+  'POKEMONTOWER7F_ROCKET1',
+  'POKEMONTOWER7F_ROCKET2',
+  'POKEMONTOWER7F_ROCKET3',
 ]);
 
 const OBJECT_DIALOG = {
@@ -320,6 +332,19 @@ const scripted = [
     script: 'PokemonTower2F',
     trainer: 'RIVAL2',
     teams: { ...rb([4, 5, 6]), yellow: [2, 3, 4] },
+    object: 'POKEMONTOWER2F_RIVAL',
+    dialog: [
+      {
+        label: 'Before battle',
+        texts: ['_PokemonTower2FRivalWhatBringsYouHereText'],
+      },
+      { label: 'If you win', texts: ['_PokemonTower2FRivalDefeatedText'] },
+      { label: 'If you lose', texts: ['_PokemonTower2FRivalVictoryText'] },
+      {
+        label: 'After battle',
+        texts: ['_PokemonTower2FRivalHowsYourDexText'],
+      },
+    ],
   },
   {
     script: 'SilphCo7F',
@@ -358,7 +383,22 @@ const scripted = [
       ],
     ],
     ['RocketHideoutB4F', 0x2b],
-    ['PokemonTower7F', 0x2c],
+    [
+      'PokemonTower7F',
+      0x2c,
+      'POKEMONTOWER7F_JESSIE',
+      [
+        {
+          label: 'Before battle',
+          texts: [
+            '_PokemonTowerJessieJamesText1',
+            '_PokemonTowerJessieJamesText2',
+          ],
+        },
+        { label: 'If you win', texts: ['_PokemonTowerJessieJamesText3'] },
+        { label: 'After battle', texts: ['_PokemonTowerJessieJamesText4'] },
+      ],
+    ],
     ['SilphCo11F', 0x2d],
   ].map(([script, index, object, dialog]) => ({
     script,
@@ -570,6 +610,7 @@ for (const game of games) {
             facing: facings[direction] ?? 'down',
           },
           dialog: objectDialog(file, textId),
+          cutscene: CUTSCENE_OBJECTS.has(textId),
           parties: [{ party: partyFor(file, trainer, Number(index)) }],
         });
       },

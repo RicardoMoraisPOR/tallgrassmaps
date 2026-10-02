@@ -38,6 +38,10 @@ const NPC_MAPS = {
   ROUTE_11: { path: 'route-11' },
   ROUTE_11_GATE_1_F: { path: 'route-11/route-11-gate' },
   ROUTE_11_GATE_2_F: { path: 'route-11/route-11-gate' },
+  ROUTE_12: { path: 'route-12' },
+  ROUTE_12_GATE_1_F: { path: 'route-12/route-12-gate' },
+  ROUTE_12_GATE_2_F: { path: 'route-12/route-12-gate' },
+  ROUTE_12_SUPER_ROD_HOUSE: { path: 'route-12/route-12-super-rod-house' },
   VIRIDIAN_FOREST: { path: 'route-2/viridian-forest' },
   PEWTER_CITY: { path: 'pewter-city' },
   PEWTER_GYM: { path: 'pewter-city/pewter-gym' },
@@ -62,6 +66,19 @@ const NPC_MAPS = {
   CERULEAN_TRASHED_HOUSE: { path: 'cerulean-city/cerulean-trashed-house' },
   CERULEAN_MART: { path: 'cerulean-city/cerulean-poke-mart' },
   CERULEAN_POKECENTER: { path: 'cerulean-city/cerulean-pokemon-center' },
+  LAVENDER_TOWN: { path: 'lavender-town' },
+  MR_FUJIS_HOUSE: { path: 'lavender-town/mr-fujis-house' },
+  LAVENDER_CUBONE_HOUSE: { path: 'lavender-town/lavender-cubone-house' },
+  NAME_RATERS_HOUSE: { path: 'lavender-town/name-raters-house' },
+  LAVENDER_MART: { path: 'lavender-town/lavender-poke-mart' },
+  LAVENDER_POKECENTER: { path: 'lavender-town/lavender-pokemon-center' },
+  POKEMON_TOWER_1_F: { path: 'lavender-town/pokemon-tower' },
+  POKEMON_TOWER_2_F: { path: 'lavender-town/pokemon-tower' },
+  POKEMON_TOWER_3_F: { path: 'lavender-town/pokemon-tower' },
+  POKEMON_TOWER_4_F: { path: 'lavender-town/pokemon-tower' },
+  POKEMON_TOWER_5_F: { path: 'lavender-town/pokemon-tower' },
+  POKEMON_TOWER_6_F: { path: 'lavender-town/pokemon-tower' },
+  POKEMON_TOWER_7_F: { path: 'lavender-town/pokemon-tower' },
   ROUTE_24: { path: 'route-24' },
   ROUTE_25: { path: 'route-25' },
   BILLS_HOUSE: { path: 'route-25/bills-house' },
@@ -102,7 +119,10 @@ const OBJECT_SPRITES = new Set([
   'CLIPBOARD',
   'PAPER',
   'OLD_AMBER',
+  'SNORLAX',
 ]);
+
+const SCRIPTED_BATTLES = new Set(['POKEMONTOWER2F_RIVAL']);
 
 const SPRITE_DIALOG = {
   NURSE: [
@@ -426,6 +446,186 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get the Itemfinder',
         texts: ['_Route11Gate2FOaksAideItemfinderDescriptionText'],
+      },
+    ],
+  },
+  ROUTE12GATE2F_BRUNETTE_GIRL: {
+    dialog: [
+      {
+        trigger: 'The first time you talk to her, she gives you TM39',
+        texts: [
+          '_Route12Gate2FBrunetteGirlYouCanHaveThisText',
+          '_Route12Gate2FBrunetteGirlReceivedTM39Text',
+        ],
+        gift: { name: 'TM39' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_Route12Gate2FBrunetteGirlTM39NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM39',
+        texts: ['_Route12Gate2FBrunetteGirlTM39ExplanationText'],
+      },
+    ],
+  },
+  ROUTE12SUPERRODHOUSE_FISHING_GURU: {
+    special: true,
+    values: { wStringBuffer: 'SUPER ROD' },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_Route12SuperRodHouseFishingGuruDoYouLikeToFishText'],
+      },
+      {
+        trigger: 'If you say yes, he gives you the Super Rod',
+        texts: [
+          '_Route12SuperRodHouseFishingGuruReceivedSuperRodText',
+          '_Route12SuperRodHouseFishingGuruFishingWayOfLifeText',
+        ],
+        gift: { name: 'Super Rod' },
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_Route12SuperRodHouseFishingGuruThatsDisappointingText'],
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_Route12SuperRodHouseFishingGuruNoRoomText'],
+      },
+      {
+        trigger: 'After you get the Super Rod',
+        texts: ['_Route12SuperRodHouseFishingGuruTryFishingText'],
+      },
+    ],
+  },
+  POKEMONTOWER7F_MR_FUJI: {
+    cutscene: true,
+    dialog: [
+      {
+        trigger:
+          'Held by Team Rocket until you beat them, then he takes you to his house',
+        texts: ['_PokemonTower7FMrFujiRescueText'],
+      },
+    ],
+  },
+  LAVENDERTOWN_LITTLE_GIRL: {
+    dialog: [
+      {
+        trigger: 'When you talk to her',
+        texts: ['_LavenderTownLittleGirlDoYouBelieveInGhostsText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_LavenderTownLittleGirlSoThereAreBelieversText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_LavenderTownLittleGirlHaHaGuessNotText'],
+      },
+    ],
+  },
+  MRFUJISHOUSE_SUPER_NERD: {
+    dialog: [
+      {
+        trigger: 'Before you rescue Mr. Fuji',
+        texts: ['_MrFujisHouseSuperNerdMrFujiIsntHereText'],
+      },
+      {
+        trigger: 'After you rescue Mr. Fuji',
+        texts: ['_MrFujisHouseSuperNerdMrFujiHadBeenPrayingText'],
+      },
+    ],
+  },
+  MRFUJISHOUSE_LITTLE_GIRL: {
+    dialog: [
+      {
+        trigger: 'Before you rescue Mr. Fuji',
+        texts: ['_MrFujisHouseLittleGirlThisIsMrFujisHouseText'],
+      },
+      {
+        trigger: 'After you rescue Mr. Fuji',
+        texts: ['_MrFujisHouseLittleGirlPokemonAreNiceToHugText'],
+      },
+    ],
+  },
+  MRFUJISHOUSE_MR_FUJI: {
+    values: { wStringBuffer: 'POKé FLUTE' },
+    dialog: [
+      {
+        trigger:
+          'After you rescue him from Pokémon Tower, he gives you the Poké Flute',
+        texts: [
+          '_MrFujisHouseMrFujiIThinkThisMayHelpYourQuestText',
+          '_MrFujisHouseMrFujiReceivedPokeFluteText',
+          '_MrFujisHouseMrFujiPokeFluteExplanationText',
+        ],
+        gift: { name: 'Poké Flute' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_MrFujisHouseMrFujiPokeFluteNoRoomText'],
+      },
+      {
+        trigger: 'After you get the Poké Flute',
+        texts: ['_MrFujisHouseMrFujiHasMyFluteHelpedYouText'],
+      },
+    ],
+  },
+  LAVENDERCUBONEHOUSE_BRUNETTE_GIRL: {
+    dialog: [
+      {
+        trigger: 'Before you rescue Mr. Fuji',
+        texts: ['_LavenderCuboneHouseBrunetteGirlPoorCubonesMotherText'],
+      },
+      {
+        trigger: 'After you rescue Mr. Fuji',
+        texts: ['_LavenderCuboneHouseBrunetteGirlGhostIsGoneText'],
+      },
+    ],
+  },
+  LAVENDERMART_COOLTRAINER_M: {
+    dialog: [
+      {
+        trigger: 'Before you rescue Mr. Fuji',
+        texts: ['_LavenderMartCooltrainerMReviveText'],
+      },
+      {
+        trigger: 'After you rescue Mr. Fuji',
+        texts: ['_LavenderMartCooltrainerMNuggetText'],
+      },
+    ],
+  },
+  NAMERATERSHOUSE_NAME_RATER: {
+    special: true,
+    values: { wNameBuffer: 'POKéMON', wBuffer: 'POKéMON' },
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_NameRatersHouseNameRaterWantMeToRateText'],
+      },
+      {
+        trigger: 'If you say yes',
+        texts: ['_NameRatersHouseNameRaterWhichPokemonText'],
+      },
+      {
+        trigger: 'If you pick a Pokémon you caught',
+        texts: ['_NameRatersHouseNameRaterGiveItANiceNameText'],
+      },
+      {
+        trigger: 'If you say yes, he renames it',
+        texts: [
+          '_NameRatersHouseNameRaterWhatShouldWeNameItText',
+          '_NameRatersHouseNameRaterPokemonHasBeenRenamedText',
+        ],
+      },
+      {
+        trigger: 'If you pick a Pokémon you got in a trade',
+        texts: ['_NameRatersHouseNameRaterATrulyImpeccableNameText'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_NameRatersHouseNameRaterComeAnyTimeYouLikeText'],
       },
     ],
   },
@@ -1455,6 +1655,7 @@ const specialNames = {
   COOLTRAINER_F: 'Cooltrainer',
   OLD_MAN_SLEEPY: 'Old Man',
   OAKS_AIDE: "Oak's Aide",
+  MR_FUJI: 'Mr. Fuji',
 };
 
 const titleCase = (constant) =>
@@ -1519,6 +1720,7 @@ for (const game of games) {
           : undefined;
 
       if (OBJECT_SPRITES.has(sprite) && !scripted) return;
+      if (SCRIPTED_BATTLES.has(toggles[index])) return;
       if (hidden.has(toggles[index]) && !scripted) return;
 
       const trade = !scripted && npcTrade(game, file, textId);

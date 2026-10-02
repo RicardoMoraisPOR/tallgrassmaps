@@ -2321,7 +2321,28 @@
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
     "floor": "2f",
+    "x": 14,
+    "y": 5,
+    "facing": "down",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hey, RED! What brings you here? Your POKéMON don't look dead!\n\nI can at least make them faint! Let's go, pal!"
+      },
+      {
+        "label": "If you win",
+        "text": "What? You stinker!\n\nI took it easy on you too!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: Well, look at all your wimpy POKéMON!\n\nToughen them up a bit more!"
+      },
+      {
+        "label": "After battle",
+        "text": "How's your POKéDEX coming, pal? I just caught a CUBONE!\n\nI can't find the grown-up MAROWAK yet!\n\nI doubt there are any left! Well, I better get going! I've got a lot to accomplish, pal!\n\nSmell ya later!"
+      }
+    ],
     "choicePrompt": "Your starter",
     "parties": [
       {
@@ -2426,7 +2447,28 @@
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
     "floor": "2f",
+    "x": 14,
+    "y": 5,
+    "facing": "down",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hey, RED! What brings you here? Your POKéMON don't look dead!\n\nI can at least make them faint! Let's go, pal!"
+      },
+      {
+        "label": "If you win",
+        "text": "What? You stinker!\n\nI took it easy on you too!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: Well, look at all your wimpy POKéMON!\n\nToughen them up a bit more!"
+      },
+      {
+        "label": "After battle",
+        "text": "How's your POKéDEX coming, pal? I just caught a CUBONE!\n\nI can't find the grown-up MAROWAK yet!\n\nI doubt there are any left! Well, I better get going! I've got a lot to accomplish, pal!\n\nSmell ya later!"
+      }
+    ],
     "choicePrompt": "If Eevee becomes",
     "parties": [
       {
@@ -2535,6 +2577,20 @@
     "y": 3,
     "facing": "left",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Urrg...Awaa... Huhu...graa.."
+      },
+      {
+        "label": "If you win",
+        "text": "Hwa! I'm saved!"
+      },
+      {
+        "label": "After battle",
+        "text": "The GHOSTs can be identified by the SILPH SCOPE."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2558,6 +2614,20 @@
     "y": 8,
     "facing": "down",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Kekeke.... Kwaaah!"
+      },
+      {
+        "label": "If you win",
+        "text": "Hmm? What am I doing?"
+      },
+      {
+        "label": "After battle",
+        "text": "Sorry! I was possessed!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2581,6 +2651,20 @@
     "y": 13,
     "facing": "down",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Be gone! Evil spirit!"
+      },
+      {
+        "label": "If you win",
+        "text": "Whew! The spirit left!"
+      },
+      {
+        "label": "After battle",
+        "text": "My friends were possessed too!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2604,6 +2688,20 @@
     "y": 10,
     "facing": "right",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "GHOST! No! Kwaaah!"
+      },
+      {
+        "label": "If you win",
+        "text": "Where is the GHOST?"
+      },
+      {
+        "label": "After battle",
+        "text": "I must have been dreaming..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2627,6 +2725,20 @@
     "y": 7,
     "facing": "down",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Be cursed with me! Kwaaah!"
+      },
+      {
+        "label": "If you win",
+        "text": "What!"
+      },
+      {
+        "label": "After battle",
+        "text": "We can't crack the identity of the GHOSTs."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2655,6 +2767,20 @@
     "y": 12,
     "facing": "left",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Huhuhu... Beat me not!"
+      },
+      {
+        "label": "If you win",
+        "text": "Huh? Who? What?"
+      },
+      {
+        "label": "After battle",
+        "text": "May the departed souls of POKéMON rest in peace..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2678,6 +2804,20 @@
     "y": 7,
     "facing": "left",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Give...me... your...soul..."
+      },
+      {
+        "label": "If you win",
+        "text": "Gasp!"
+      },
+      {
+        "label": "After battle",
+        "text": "I was under possession!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2701,6 +2841,20 @@
     "y": 3,
     "facing": "left",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You...shall... join...us..."
+      },
+      {
+        "label": "If you win",
+        "text": "What a nightmare!"
+      },
+      {
+        "label": "After battle",
+        "text": "I was possessed!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2724,6 +2878,20 @@
     "y": 10,
     "facing": "right",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Zombies!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ha?"
+      },
+      {
+        "label": "After battle",
+        "text": "I regained my senses!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2747,6 +2915,20 @@
     "y": 16,
     "facing": "right",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Urgah... Urff...."
+      },
+      {
+        "label": "If you win",
+        "text": "Whoo!"
+      },
+      {
+        "label": "After battle",
+        "text": "I fell to evil spirits despite my training!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2770,6 +2952,20 @@
     "y": 10,
     "facing": "right",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Give...me... blood..."
+      },
+      {
+        "label": "If you win",
+        "text": "Groan!"
+      },
+      {
+        "label": "After battle",
+        "text": "I feel anemic and weak..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2803,6 +2999,20 @@
     "y": 5,
     "facing": "down",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Urff... Kwaah!"
+      },
+      {
+        "label": "If you win",
+        "text": "Some-thing fell out!"
+      },
+      {
+        "label": "After battle",
+        "text": "Hair didn't fall out! It was an evil spirit!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2826,6 +3036,20 @@
     "y": 5,
     "facing": "left",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ke..ke...ke... ke..ke...ke!!"
+      },
+      {
+        "label": "If you win",
+        "text": "Keee!"
+      },
+      {
+        "label": "After battle",
+        "text": "What's going on here?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2845,7 +3069,25 @@
     "path": "lavender-town/pokemon-tower",
     "area": "7F",
     "floor": "7f",
+    "x": 10,
+    "y": 8,
+    "facing": "down",
+    "cutscene": true,
     "sprite": "yellow/jessie",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Stop right there!\n\nGrampa here wanted to complain, so we're setting him straight.\n\nSo render yourself invisible, or prepare to fight!"
+      },
+      {
+        "label": "If you win",
+        "text": "You will regret this!"
+      },
+      {
+        "label": "After battle",
+        "text": "Looks like TEAM ROCKET's blasting off again!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2878,7 +3120,22 @@
     "x": 9,
     "y": 11,
     "facing": "right",
+    "cutscene": true,
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What do you want? Why are you here?"
+      },
+      {
+        "label": "If you win",
+        "text": "I give up!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm not going to forget this!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2911,7 +3168,22 @@
     "x": 12,
     "y": 9,
     "facing": "left",
+    "cutscene": true,
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This old guy came and complained about us harming useless POKéMON!\n\nWe're talking it over as adults!"
+      },
+      {
+        "label": "If you win",
+        "text": "Please! No more!"
+      },
+      {
+        "label": "After battle",
+        "text": "POKéMON are only good for making money!\n\nStay out of our business!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2939,7 +3211,22 @@
     "x": 9,
     "y": 7,
     "facing": "right",
+    "cutscene": true,
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You're not saving anyone, kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "Don't fight us ROCKETs!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're not getting away with this!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6853,6 +7140,20 @@
     "y": 31,
     "facing": "left",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Yeah! I got a bite, here!"
+      },
+      {
+        "label": "If you win",
+        "text": "Tch! Just a small fry!"
+      },
+      {
+        "label": "After battle",
+        "text": "Hang on! My line's snagged!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6884,6 +7185,20 @@
     "y": 39,
     "facing": "up",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Be patient! Fishing is a waiting game!"
+      },
+      {
+        "label": "If you win",
+        "text": "That one got away!"
+      },
+      {
+        "label": "After battle",
+        "text": "With a better ROD, I could catch better POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6910,6 +7225,20 @@
     "y": 92,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Have you found a MOON STONE?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oww!"
+      },
+      {
+        "label": "After battle",
+        "text": "I could have made my POKéMON evolve with MOON STONE!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6941,6 +7270,20 @@
     "y": 92,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Have you found a MOON STONE?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oww!"
+      },
+      {
+        "label": "After battle",
+        "text": "I could have made my POKéMON evolve with MOON STONE!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6977,6 +7320,20 @@
     "y": 76,
     "facing": "up",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Electricity is my specialty!"
+      },
+      {
+        "label": "If you win",
+        "text": "Unplugged!"
+      },
+      {
+        "label": "After battle",
+        "text": "Water conducts electricity, so you should zap sea POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -7003,6 +7360,20 @@
     "y": 40,
     "facing": "left",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "The FISHING FOOL vs. POKéMON KID!"
+      },
+      {
+        "label": "If you win",
+        "text": "Too much!"
+      },
+      {
+        "label": "After battle",
+        "text": "You beat me at POKéMON, but I'm good at fishing!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -7024,6 +7395,20 @@
     "y": 52,
     "facing": "right",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'd rather be working!"
+      },
+      {
+        "label": "If you win",
+        "text": "It's not easy..."
+      },
+      {
+        "label": "After battle",
+        "text": "It's all right. Losing doesn't bug me any more."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -7050,7 +7435,57 @@
         ]
       }
     ],
-    "games": ["red", "blue", "yellow"]
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Fisherman",
+    "trainerClass": "fisher",
+    "path": "route-12",
+    "x": 9,
+    "y": 52,
+    "facing": "right",
+    "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'd rather be working!"
+      },
+      {
+        "label": "If you win",
+        "text": "It's not easy..."
+      },
+      {
+        "label": "After battle",
+        "text": "It's all right. Losing doesn't bug me anymore."
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 60,
+            "level": 21,
+            "moves": ["Bubble", "Hypnosis", "Water Gun"]
+          },
+          {
+            "number": 90,
+            "level": 21,
+            "moves": ["Tackle", "Withdraw", "Supersonic"]
+          },
+          {
+            "number": 118,
+            "level": 21,
+            "moves": ["Peck", "Tail Whip", "Supersonic"]
+          },
+          {
+            "number": 116,
+            "level": 21,
+            "moves": ["Bubble", "SmokeScreen"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
   },
   {
     "name": "Fisherman",
@@ -7060,6 +7495,20 @@
     "y": 87,
     "facing": "down",
     "sprite": "fisher",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You never know what you could catch!"
+      },
+      {
+        "label": "If you win",
+        "text": "Lost it!"
+      },
+      {
+        "label": "After battle",
+        "text": "I catch MAGIKARP all the time, but they're so weak!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
