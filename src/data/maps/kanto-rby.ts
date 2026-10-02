@@ -876,11 +876,34 @@ const inside: Array<InsideEntry> = [
     size: [320, 288],
     parent: 'route-23',
     cell: [0, 4],
-    entrances: [entrance(64, 496)],
+    entrances: [entrance(64, 496), { area: warp(14, 31), floor: '2F' }],
     floors: [
-      { name: '1F', size: [320, 288] },
-      { name: '2F', size: [480, 288] },
-      { name: '3F', size: [480, 288] },
+      {
+        name: '1F',
+        size: [320, 288],
+        exits: [
+          { to: 'route-23', area: rect(128, 272, 32, 16) },
+          { floor: '2F', area: warp(1, 1), ladder: true },
+        ],
+      },
+      {
+        name: '2F',
+        size: [480, 288],
+        exits: [
+          { floor: '1F', area: warp(0, 8), ladder: true },
+          { to: 'route-23', area: rect(464, 112, 16, 32) },
+          ...[warp(23, 7), warp(27, 7), warp(25, 14), warp(1, 1)].map(
+            (area) => ({ floor: '3F', area, ladder: true }),
+          ),
+        ],
+      },
+      {
+        name: '3F',
+        size: [480, 288],
+        exits: [warp(23, 7), warp(26, 8), warp(27, 15), warp(2, 0)].map(
+          (area) => ({ floor: '2F', area, ladder: true }),
+        ),
+      },
     ],
   },
 ];

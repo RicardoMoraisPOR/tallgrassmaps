@@ -85,6 +85,10 @@ const NPC_MAPS = {
   POKEMON_TOWER_6_F: { path: 'lavender-town/pokemon-tower' },
   POKEMON_TOWER_7_F: { path: 'lavender-town/pokemon-tower' },
   ROUTE_22_GATE: { path: 'route-22/route-22-gate' },
+  ROUTE_23: { path: 'route-23' },
+  VICTORY_ROAD_1_F: { path: 'route-23/victory-road' },
+  VICTORY_ROAD_2_F: { path: 'route-23/victory-road' },
+  VICTORY_ROAD_3_F: { path: 'route-23/victory-road' },
   ROUTE_24: { path: 'route-24' },
   ROUTE_25: { path: 'route-25' },
   BILLS_HOUSE: { path: 'route-25/bills-house' },
@@ -133,6 +137,7 @@ const OBJECT_SPRITES = new Set([
   'PAPER',
   'OLD_AMBER',
   'SNORLAX',
+  'BOULDER',
 ]);
 
 const SCRIPTED_BATTLES = new Set(['POKEMONTOWER2F_RIVAL']);
@@ -190,11 +195,32 @@ const SAFFRON_GATE_GUARD = {
   ],
 };
 
+const route23Guard = (badge, name) => ({
+  values: { wNameBuffer: name },
+  dialog: [
+    {
+      trigger: `If you don't have the ${badge}`,
+      texts: ['_Route23YouDontHaveTheBadgeYetText'],
+    },
+    {
+      trigger: `If you have the ${badge}`,
+      texts: ['_Route23OhThatIsTheBadgeText', '_Route23GoRightAheadText'],
+    },
+  ],
+});
+
 const SCRIPTED_NPCS = {
   ROUTE5GATE_GUARD: SAFFRON_GATE_GUARD,
   ROUTE6GATE_GUARD: SAFFRON_GATE_GUARD,
   ROUTE7GATE_GUARD: SAFFRON_GATE_GUARD,
   ROUTE8GATE_GUARD: SAFFRON_GATE_GUARD,
+  ROUTE23_GUARD1: route23Guard('Earth Badge', 'EARTHBADGE'),
+  ROUTE23_GUARD2: route23Guard('Volcano Badge', 'VOLCANOBADGE'),
+  ROUTE23_SWIMMER1: route23Guard('Marsh Badge', 'MARSHBADGE'),
+  ROUTE23_SWIMMER2: route23Guard('Soul Badge', 'SOULBADGE'),
+  ROUTE23_GUARD3: route23Guard('Rainbow Badge', 'RAINBOWBADGE'),
+  ROUTE23_GUARD4: route23Guard('Thunder Badge', 'THUNDERBADGE'),
+  ROUTE23_GUARD5: route23Guard('Cascade Badge', 'CASCADEBADGE'),
   ROUTE22GATE_GUARD: {
     dialog: [
       {

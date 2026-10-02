@@ -2341,6 +2341,139 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-23",
+    "x": 4,
+    "y": 35,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can pass here only if you have the EARTHBADGE!\n\nYou don't have the EARTHBADGE yet!\n\nYou have to have it to get to POKéMON LEAGUE!",
+        "trigger": "If you don't have the Earth Badge"
+      },
+      {
+        "text": "You can pass here only if you have the EARTHBADGE!\n\nOh! That is the EARTHBADGE!\n\nOK then! Please, go right ahead!",
+        "trigger": "If you have the Earth Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 10,
+    "y": 56,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can pass here only if you have the VOLCANOBADGE!\n\nYou don't have the VOLCANOBADGE yet!\n\nYou have to have it to get to POKéMON LEAGUE!",
+        "trigger": "If you don't have the Volcano Badge"
+      },
+      {
+        "text": "You can pass here only if you have the VOLCANOBADGE!\n\nOh! That is the VOLCANOBADGE!\n\nOK then! Please, go right ahead!",
+        "trigger": "If you have the Volcano Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 8,
+    "y": 85,
+    "name": "Swimmer",
+    "sprite": "swimmer",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can pass here only if you have the MARSHBADGE!\n\nYou don't have the MARSHBADGE yet!\n\nYou have to have it to get to POKéMON LEAGUE!",
+        "trigger": "If you don't have the Marsh Badge"
+      },
+      {
+        "text": "You can pass here only if you have the MARSHBADGE!\n\nOh! That is the MARSHBADGE!\n\nOK then! Please, go right ahead!",
+        "trigger": "If you have the Marsh Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 11,
+    "y": 96,
+    "name": "Swimmer",
+    "sprite": "swimmer",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can pass here only if you have the SOULBADGE!\n\nYou don't have the SOULBADGE yet!\n\nYou have to have it to get to POKéMON LEAGUE!",
+        "trigger": "If you don't have the Soul Badge"
+      },
+      {
+        "text": "You can pass here only if you have the SOULBADGE!\n\nOh! That is the SOULBADGE!\n\nOK then! Please, go right ahead!",
+        "trigger": "If you have the Soul Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 12,
+    "y": 105,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can pass here only if you have the RAINBOWBADGE!\n\nYou don't have the RAINBOWBADGE yet!\n\nYou have to have it to get to POKéMON LEAGUE!",
+        "trigger": "If you don't have the Rainbow Badge"
+      },
+      {
+        "text": "You can pass here only if you have the RAINBOWBADGE!\n\nOh! That is the RAINBOWBADGE!\n\nOK then! Please, go right ahead!",
+        "trigger": "If you have the Rainbow Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 8,
+    "y": 119,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can pass here only if you have the THUNDERBADGE!\n\nYou don't have the THUNDERBADGE yet!\n\nYou have to have it to get to POKéMON LEAGUE!",
+        "trigger": "If you don't have the Thunder Badge"
+      },
+      {
+        "text": "You can pass here only if you have the THUNDERBADGE!\n\nOh! That is the THUNDERBADGE!\n\nOK then! Please, go right ahead!",
+        "trigger": "If you have the Thunder Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-23",
+    "x": 8,
+    "y": 136,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You can pass here only if you have the CASCADEBADGE!\n\nYou don't have the CASCADEBADGE yet!\n\nYou have to have it to get to POKéMON LEAGUE!",
+        "trigger": "If you don't have the Cascade Badge"
+      },
+      {
+        "text": "You can pass here only if you have the CASCADEBADGE!\n\nOh! That is the CASCADEBADGE!\n\nOK then! Please, go right ahead!",
+        "trigger": "If you have the Cascade Badge"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-2/route-2-gate",
     "x": 1,
     "y": 4,

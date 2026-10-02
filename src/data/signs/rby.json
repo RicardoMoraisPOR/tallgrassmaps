@@ -358,6 +358,13 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-23",
+    "x": 3,
+    "y": 33,
+    "text": "VICTORY ROAD GATE - POKéMON LEAGUE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-25",
     "x": 43,
     "y": 3,

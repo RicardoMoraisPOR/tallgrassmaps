@@ -11260,6 +11260,20 @@
     "y": 5,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I wonder if you are good enough for me!"
+      },
+      {
+        "label": "If you win",
+        "text": "I lost out!"
+      },
+      {
+        "label": "After battle",
+        "text": "I never wanted to lose to anybody!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11288,6 +11302,20 @@
     "y": 2,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I can see you're good! Let me see exactly how good!"
+      },
+      {
+        "label": "If you win",
+        "text": "I had a chance..."
+      },
+      {
+        "label": "After battle",
+        "text": "I concede, you're better than me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11326,6 +11354,20 @@
     "y": 9,
     "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "VICTORY ROAD is the final test for trainers!"
+      },
+      {
+        "label": "If you win",
+        "text": "Aiyah!"
+      },
+      {
+        "label": "After battle",
+        "text": "If you get stuck, try moving some boulders around!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11359,6 +11401,20 @@
     "y": 13,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ah, so you wish to challenge the ELITE FOUR?"
+      },
+      {
+        "label": "If you win",
+        "text": "You got me!"
+      },
+      {
+        "label": "After battle",
+        "text": "BLUE also came through here!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11397,6 +11453,20 @@
     "y": 8,
     "facing": "down",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Come on! I'll whip you!"
+      },
+      {
+        "label": "If you win",
+        "text": "I got whipped!"
+      },
+      {
+        "label": "After battle",
+        "text": "You earned the right to be on VICTORY ROAD!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11425,6 +11495,20 @@
     "y": 2,
     "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "If you can get through here, you can go meet the ELITE FOUR!"
+      },
+      {
+        "label": "If you win",
+        "text": "No! Unbelievable!"
+      },
+      {
+        "label": "After battle",
+        "text": "I can beat you when it comes to knowledge about POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11458,6 +11542,20 @@
     "y": 3,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Is VICTORY ROAD too tough?"
+      },
+      {
+        "label": "If you win",
+        "text": "Well done!"
+      },
+      {
+        "label": "After battle",
+        "text": "Many trainers give up the challenge here."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11481,6 +11579,20 @@
     "y": 5,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I heard rumors of a child prodigy!"
+      },
+      {
+        "label": "If you win",
+        "text": "The rumors were true!"
+      },
+      {
+        "label": "After battle",
+        "text": "You beat GIOVANNI of TEAM ROCKET?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11514,6 +11626,20 @@
     "y": 13,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'll show you just how good you are!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm furious!"
+      },
+      {
+        "label": "After battle",
+        "text": "You showed me just how good I was!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11547,6 +11673,20 @@
     "y": 14,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Only the chosen can pass here!"
+      },
+      {
+        "label": "If you win",
+        "text": "I don't believe it!"
+      },
+      {
+        "label": "After battle",
+        "text": "All trainers here are headed to the POKéMON LEAGUE! Be careful!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11580,6 +11720,20 @@
     "y": 3,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Trainers live to seek stronger opponents!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! So strong!"
+      },
+      {
+        "label": "After battle",
+        "text": "By fighting tough battles, you get stronger!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
