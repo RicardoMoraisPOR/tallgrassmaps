@@ -181,7 +181,39 @@ const presenceFor = (object) =>
     ? 'Leaves after you beat Giovanni in Silph Co.'
     : undefined);
 
+const eliteFourDialog = (before, end, after, leave) => [
+  { label: 'Before battle', texts: [before] },
+  { label: 'If you win', texts: [end] },
+  { label: 'After battle', texts: [after] },
+  ...(leave
+    ? [{ label: 'If you try to leave before the battle', texts: [leave] }]
+    : []),
+];
+
 const OBJECT_DIALOG = {
+  LORELEISROOM_LORELEI: eliteFourDialog(
+    '_LoreleisRoomLoreleiBeforeBattleText',
+    '_LoreleisRoomLoreleiEndBattleText',
+    '_LoreleisRoomLoreleiAfterBattleText',
+    '_LoreleisRoomLoreleiDontRunAwayText',
+  ),
+  BRUNOSROOM_BRUNO: eliteFourDialog(
+    '_BrunoBeforeBattleText',
+    '_BrunoEndBattleText',
+    '_BrunoAfterBattleText',
+    '_BrunosRoomBrunoDontRunAwayText',
+  ),
+  AGATHASROOM_AGATHA: eliteFourDialog(
+    '_AgathaBeforeBattleText',
+    '_AgathaEndBattleText',
+    '_AgathaAfterBattleText',
+    '_AgathasRoomAgathaDontRunAwayText',
+  ),
+  LANCESROOM_LANCE: eliteFourDialog(
+    '_LancesRoomLanceBeforeBattleText',
+    '_LancesRoomLanceEndBattleText',
+    '_LancesRoomLanceAfterBattleText',
+  ),
   VERMILIONGYM_LT_SURGE: [
     { label: 'Before battle', texts: ['_VermilionGymLTSurgePreBattleText'] },
     {
@@ -409,6 +441,16 @@ const scripted = [
     script: 'ChampionsRoom',
     trainer: 'RIVAL3',
     teams: { ...rb([1, 2, 3]), yellow: [1, 2, 3] },
+    object: 'CHAMPIONSROOM_RIVAL',
+    dialog: [
+      { label: 'Before battle', texts: ['_ChampionsRoomRivalIntroText'] },
+      { label: 'If you win', texts: ['_RivalDefeatedText'] },
+      { label: 'If you lose', texts: ['_RivalVictoryText'] },
+      {
+        label: 'After battle',
+        texts: ['_ChampionsRoomRivalAfterBattleText'],
+      },
+    ],
   },
   ...[
     [

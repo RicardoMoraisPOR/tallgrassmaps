@@ -1774,9 +1774,31 @@
   {
     "name": "Agatha",
     "trainerClass": "agatha",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Agatha's Room",
+    "floor": "agathas-room",
+    "x": 5,
+    "y": 2,
+    "facing": "down",
     "sprite": "agatha",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am AGATHA of the ELITE FOUR!\n\nOAK's taken a lot of interest in you, child!\n\nThat old duff was once tough and handsome! That was decades ago!\n\nNow he just wants to fiddle with his POKéDEX! He's wrong! POKéMON are for fighting!\n\nRED! I'll show you how a real trainer fights!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh ho! You're something special, child!"
+      },
+      {
+        "label": "After battle",
+        "text": "You win! I see what the old duff sees in you now!\n\nI have nothing else to say! Run along now, child!"
+      },
+      {
+        "label": "If you try to leave before the battle",
+        "text": "Someone's voice: Don't run away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1813,9 +1835,31 @@
   {
     "name": "Agatha",
     "trainerClass": "agatha",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Agatha's Room",
+    "floor": "agathas-room",
+    "x": 5,
+    "y": 2,
+    "facing": "down",
     "sprite": "agatha",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am AGATHA of the ELITE FOUR!\n\nOAK's taken a lot of interest in you, child!\n\nThat old duff was once tough and handsome! That was decades ago!\n\nNow he just wants to fiddle with his POKéDEX! He's wrong! POKéMON are for fighting!\n\nRED! I'll show you how a real trainer fights!"
+      },
+      {
+        "label": "If you win",
+        "text": "Woo-hoo! You're something special, child!"
+      },
+      {
+        "label": "After battle",
+        "text": "You win! I see what the old duff sees in you now!\n\nI have nothing else to say! Run along now, child!"
+      },
+      {
+        "label": "If you try to leave before the battle",
+        "text": "Someone's voice: Don't run away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1852,9 +1896,31 @@
   {
     "name": "Bruno",
     "trainerClass": "bruno",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Bruno's Room",
+    "floor": "brunos-room",
+    "x": 5,
+    "y": 2,
+    "facing": "down",
     "sprite": "bruno",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am BRUNO of the ELITE FOUR!\n\nThrough rigorous training, people and POKéMON can become stronger!\n\nI've weight trained with my POKéMON!\n\nRED!\n\nWe will grind you down with our superior power!\n\nHoo hah!"
+      },
+      {
+        "label": "If you win",
+        "text": "Why? How could I lose?"
+      },
+      {
+        "label": "After battle",
+        "text": "My job is done! Go face your next challenge!"
+      },
+      {
+        "label": "If you try to leave before the battle",
+        "text": "Someone's voice: Don't run away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1891,9 +1957,31 @@
   {
     "name": "Bruno",
     "trainerClass": "bruno",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Bruno's Room",
+    "floor": "brunos-room",
+    "x": 5,
+    "y": 2,
+    "facing": "down",
     "sprite": "bruno",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am BRUNO of the ELITE FOUR!\n\nThrough rigorous training, people and POKéMON can become stronger!\n\nI've weight trained with my POKéMON!\n\nRED!\n\nWe will grind you down with our superior power!\n\nHoo hah!"
+      },
+      {
+        "label": "If you win",
+        "text": "Why? How could I lose?"
+      },
+      {
+        "label": "After battle",
+        "text": "My job is done! Go face your next challenge!"
+      },
+      {
+        "label": "If you try to leave before the battle",
+        "text": "Someone's voice: Don't run away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1930,9 +2018,31 @@
   {
     "name": "Rival",
     "trainerClass": "rival3",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Champion's Room",
+    "floor": "champions-room",
+    "x": 4,
+    "y": 2,
+    "facing": "down",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hey!\n\nI was looking forward to seeing you, RED!\n\nMy rival should be strong to keep me sharp!\n\nWhile working on POKéDEX, I looked all over for powerful POKéMON!\n\nNot only that, I assembled teams that would beat any POKéMON type!\n\nAnd now!\n\nI'm the POKéMON LEAGUE champion!\n\nRED! Do you know what that means?\n\nI'll tell you!\n\nI am the most powerful trainer in the world!"
+      },
+      {
+        "label": "If you win",
+        "text": "NO! That can't be! You beat my best!\n\nAfter all that work to become LEAGUE champ?\n\nMy reign is over already? It's not fair!"
+      },
+      {
+        "label": "If you lose",
+        "text": "Hahaha! I won, I won!\n\nI'm too good for you, RED!\n\nYou did well to even reach me, BLUE, the POKéMON genius!\n\nNice try, loser! Hahaha!"
+      },
+      {
+        "label": "After battle",
+        "text": "Why? Why did I lose?\n\nI never made any mistakes raising my POKéMON...\n\nDarn it! You're the new POKéMON LEAGUE champion!\n\nAlthough I don't like to admit it."
+      }
+    ],
     "choicePrompt": "Your starter",
     "parties": [
       {
@@ -2049,9 +2159,31 @@
   {
     "name": "Rival",
     "trainerClass": "rival3",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Champion's Room",
+    "floor": "champions-room",
+    "x": 4,
+    "y": 2,
+    "facing": "down",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hey!\n\nI was looking forward to seeing you, RED!\n\nMy rival should be strong to keep me sharp!\n\nWhile working on POKéDEX, I looked all over for powerful POKéMON!\n\nNot only that, I assembled teams that would beat any POKéMON type!\n\nAnd now!\n\nI'm the POKéMON LEAGUE champion!\n\nRED! Do you know what that means?\n\nI'll tell you!\n\nI am the most powerful trainer in the world!"
+      },
+      {
+        "label": "If you win",
+        "text": "NO! That can't be! You beat my best!\n\nAfter all that work to become LEAGUE champ?\n\nMy reign is over already? It's not fair!"
+      },
+      {
+        "label": "If you lose",
+        "text": "Hahaha! I won, I won!\n\nI'm too good for you, RED!\n\nYou did well to even reach me, BLUE, the POKéMON genius!\n\nNice try, loser! Hahaha!"
+      },
+      {
+        "label": "After battle",
+        "text": "Why? Why did I lose?\n\nI never made any mistakes raising my POKéMON...\n\nDarn it! You're the new POKéMON LEAGUE champion!\n\nAlthough I don't like to admit it."
+      }
+    ],
     "choicePrompt": "If Eevee becomes",
     "parties": [
       {
@@ -2168,9 +2300,27 @@
   {
     "name": "Lance",
     "trainerClass": "lance",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Lance's Room",
+    "floor": "lances-room",
+    "x": 6,
+    "y": 1,
+    "facing": "down",
     "sprite": "lance",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ah! I heard about you RED!\n\nI lead the ELITE FOUR! You can call me LANCE the dragon trainer!\n\nYou know that dragons are mythical POKéMON!\n\nThey're hard to catch and raise, but their powers are superior!\n\nThey're virtually indestructible!\n\nWell, are you ready to lose?\n\nYour LEAGUE challenge ends with me, RED!"
+      },
+      {
+        "label": "If you win",
+        "text": "That's it!\n\nI hate to admit it, but you are a POKéMON master!"
+      },
+      {
+        "label": "After battle",
+        "text": "I still can't believe my dragons lost to you, RED!\n\nYou are now the POKéMON LEAGUE champion!\n\n...Or, you would have been, but you have one more challenge ahead.\n\nYou have to face another trainer! His name is...\n\nBLUE! He beat the ELITE FOUR before you!\n\nHe is the real POKéMON LEAGUE champion!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2207,9 +2357,27 @@
   {
     "name": "Lance",
     "trainerClass": "lance",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Lance's Room",
+    "floor": "lances-room",
+    "x": 6,
+    "y": 1,
+    "facing": "down",
     "sprite": "lance",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ah! I heard about you, RED!\n\nI lead the ELITE FOUR! You can call me LANCE the dragon trainer!\n\nYou know that dragons are mythical POKéMON!\n\nThey're hard to catch and raise, but their powers are superior!\n\nThey're virtually indestructible!\n\nWell, are you ready to lose?\n\nYour LEAGUE challenge ends with me, RED!"
+      },
+      {
+        "label": "If you win",
+        "text": "That's it!\n\nI hate to admit it, but you are a POKéMON master!"
+      },
+      {
+        "label": "After battle",
+        "text": "I still can't believe my dragons lost to you, RED!\n\nYou are now the POKéMON LEAGUE champion!\n\n...Or, you would have been, but you have one more challenge ahead.\n\nYou have to face another trainer! His name is...\n\nBLUE! He beat the ELITE FOUR before you!\n\nHe is the real POKéMON LEAGUE champion!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2246,9 +2414,31 @@
   {
     "name": "Lorelei",
     "trainerClass": "lorelei",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Lorelei's Room",
+    "floor": "loreleis-room",
+    "x": 5,
+    "y": 2,
+    "facing": "down",
     "sprite": "lorelei",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Welcome to POKéMON LEAGUE!\n\nI am LORELEI of the ELITE FOUR!\n\nNo one can best me when it comes to icy POKéMON!\n\nFreezing moves are powerful!\n\nYour POKéMON will be at my mercy when they are frozen solid!\n\nHahaha! Are you ready?"
+      },
+      {
+        "label": "If you win",
+        "text": "How dare you!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're better than I thought! Go on ahead!\n\nYou only got a taste of POKéMON LEAGUE power!"
+      },
+      {
+        "label": "If you try to leave before the battle",
+        "text": "Someone's voice: Don't run away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -2285,9 +2475,31 @@
   {
     "name": "Lorelei",
     "trainerClass": "lorelei",
-    "path": "indigo-plateau",
+    "path": "indigo-plateau/pokemon-league",
     "area": "Lorelei's Room",
+    "floor": "loreleis-room",
+    "x": 5,
+    "y": 2,
+    "facing": "down",
     "sprite": "lorelei",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Welcome to POKéMON LEAGUE!\n\nI am LORELEI of the ELITE FOUR!\n\nNo one can best me when it comes to icy POKéMON!\n\nFreezing moves are powerful!\n\nYour POKéMON will be at my mercy when they are frozen solid!\n\nHahaha! Are you ready?"
+      },
+      {
+        "label": "If you win",
+        "text": "How dare you!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're better than I thought! Go on ahead!\n\nYou only got a taste of POKéMON LEAGUE power!"
+      },
+      {
+        "label": "If you try to leave before the battle",
+        "text": "Someone's voice: Don't run away!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

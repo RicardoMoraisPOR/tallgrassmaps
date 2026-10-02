@@ -326,6 +326,7 @@ type FloorEntry = {
     )
   >;
   variants?: Array<MapVariant>;
+  games?: Array<string>;
 };
 
 type InsideEntry = {
@@ -342,6 +343,7 @@ type InsideEntry = {
   floors?: Array<FloorEntry>;
   variants?: Array<MapVariant>;
   marker?: MarkerKind;
+  games?: Array<string>;
 };
 
 const inside: Array<InsideEntry> = [
@@ -490,6 +492,63 @@ const inside: Array<InsideEntry> = [
     exits: [
       { area: warp(2, 5), to: 'route-7/underground-path-route-7' },
       { area: warp(47, 2), to: 'route-8/underground-path-route-8' },
+    ],
+  },
+  {
+    id: 'pokemon-league',
+    name: 'Pokémon League',
+    kind: 'building',
+    size: [160, 192],
+    parent: 'indigo-plateau',
+    entrances: [],
+    floors: [
+      {
+        name: "Lorelei's Room",
+        exits: [
+          {
+            to: 'indigo-plateau/indigo-plateau-lobby',
+            area: rect(64, 176, 32, 16),
+          },
+          { floor: "Bruno's Room", area: rect(64, 0, 32, 16), door: true },
+        ],
+      },
+      {
+        name: "Bruno's Room",
+        exits: [
+          { floor: "Lorelei's Room", area: rect(64, 176, 32, 16), door: true },
+          { floor: "Agatha's Room", area: rect(64, 0, 32, 16), door: true },
+        ],
+      },
+      {
+        name: "Agatha's Room",
+        exits: [
+          { floor: "Bruno's Room", area: rect(64, 176, 32, 16), door: true },
+          { floor: "Lance's Room", area: rect(64, 0, 32, 16), door: true },
+        ],
+      },
+      {
+        name: "Lance's Room",
+        size: [416, 416],
+        exits: [
+          { floor: "Agatha's Room", area: warp(24, 16) },
+          { floor: "Champion's Room", area: rect(80, 0, 32, 16), door: true },
+        ],
+      },
+      {
+        name: "Champion's Room",
+        size: [128, 128],
+        exits: [
+          { floor: "Lance's Room", area: rect(48, 112, 32, 16), door: true },
+          { floor: 'Hall of Fame', area: rect(48, 0, 32, 16), door: true },
+        ],
+      },
+      {
+        name: 'Hall of Fame',
+        size: [160, 128],
+        exits: [
+          { floor: "Champion's Room", area: rect(64, 112, 32, 16), door: true },
+        ],
+      },
     ],
   },
   {
@@ -967,6 +1026,10 @@ const services: Array<InsideEntry> = [
     size: [256, 192],
     parent: 'indigo-plateau',
     entrances: [rect(140, 76, 40, 24)],
+    exits: [
+      rect(112, 176, 32, 16),
+      { area: warp(8, 0), to: 'indigo-plateau/pokemon-league' },
+    ],
     marker: 'center',
     variants: [variant('yellow', 'indigo-plateau-lobby.png')],
   },
@@ -1457,10 +1520,12 @@ const toInsideLocation = ({
   exits = [],
   floors,
   variants,
+  games,
 }: InsideEntry): Location => {
   const location = {
     ...toLocation(id, name, kind, size),
     variants,
+    ...(games && { games }),
     hotspots: exits.map((exit) => ({
       ...('to' in exit ? exit.area : exit),
       kind: 'exit' as const,
@@ -1489,6 +1554,7 @@ const toInsideLocation = ({
       width: floor.size?.[0] ?? location.width,
       height: floor.size?.[1] ?? location.height,
       variants: floor.variants,
+      ...(floor.games && { games: floor.games }),
       pixelated: location.pixelated,
       source: location.source,
     })),

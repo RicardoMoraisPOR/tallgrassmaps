@@ -89,6 +89,9 @@ const NPC_MAPS = {
   VICTORY_ROAD_1_F: { path: 'route-23/victory-road' },
   VICTORY_ROAD_2_F: { path: 'route-23/victory-road' },
   VICTORY_ROAD_3_F: { path: 'route-23/victory-road' },
+  INDIGO_PLATEAU_LOBBY: { path: 'indigo-plateau/indigo-plateau-lobby' },
+  CHAMPIONS_ROOM: { path: 'indigo-plateau/pokemon-league' },
+  HALL_OF_FAME: { path: 'indigo-plateau/pokemon-league' },
   ROUTE_24: { path: 'route-24' },
   ROUTE_25: { path: 'route-25' },
   BILLS_HOUSE: { path: 'route-25/bills-house' },
@@ -140,7 +143,10 @@ const OBJECT_SPRITES = new Set([
   'BOULDER',
 ]);
 
-const SCRIPTED_BATTLES = new Set(['POKEMONTOWER2F_RIVAL']);
+const SCRIPTED_BATTLES = new Set([
+  'POKEMONTOWER2F_RIVAL',
+  'CHAMPIONSROOM_RIVAL',
+]);
 
 const SPRITE_DIALOG = {
   NURSE: [
@@ -221,6 +227,22 @@ const SCRIPTED_NPCS = {
   ROUTE23_GUARD3: route23Guard('Rainbow Badge', 'RAINBOWBADGE'),
   ROUTE23_GUARD4: route23Guard('Thunder Badge', 'THUNDERBADGE'),
   ROUTE23_GUARD5: route23Guard('Cascade Badge', 'CASCADEBADGE'),
+  CHAMPIONSROOM_OAK: {
+    presence: 'Only appears after you beat the Champion',
+    cutscene: true,
+    values: { wNameBuffer: 'your POKéMON' },
+    dialog: [
+      {
+        trigger:
+          'After you beat the Champion, he takes you to the Hall of Fame',
+        texts: [
+          '_ChampionsRoomOakCongratulatesPlayerText',
+          '_ChampionsRoomOakDisappointedWithRivalText',
+          '_ChampionsRoomOakComeWithMeText',
+        ],
+      },
+    ],
+  },
   ROUTE22GATE_GUARD: {
     dialog: [
       {

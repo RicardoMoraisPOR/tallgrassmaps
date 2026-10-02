@@ -60,6 +60,7 @@ export type LocationFloor = MapImage & {
   id: string;
   name: string;
   hotspots: Array<LocationHotspot>;
+  games?: Array<string>;
 };
 
 export type Location = MapImage & {
@@ -71,6 +72,7 @@ export type Location = MapImage & {
   markers: Array<MapMarker>;
   floors?: Array<LocationFloor>;
   dataPath?: string;
+  games?: Array<string>;
 };
 
 export type SpriteAnimation = {

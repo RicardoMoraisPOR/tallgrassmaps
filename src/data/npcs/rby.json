@@ -576,6 +576,25 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "indigo-plateau/pokemon-league",
+    "floor": "champions-room",
+    "x": 3,
+    "y": 7,
+    "name": "Prof. Oak",
+    "sprite": "oak",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "OAK: So, you won! Congratulations! You're the new POKéMON LEAGUE champion!\n\nYou've grown up so much since you first left with your POKéMON!\n\nRED, you have come of age!\n\nOAK: BLUE! I'm disappointed!\n\nI came when I heard you beat the ELITE FOUR!\n\nBut, when I got here, you had already lost!\n\nBLUE! Do you understand why you lost?\n\nYou have forgotten to treat your POKéMON with trust and love!\n\nWithout them, you will never become a champ again!\n\nOAK: RED!\n\nYou understand that your victory was not just your own doing!\n\nThe bond you share with your POKéMON is marvelous!\n\nRED! Come with me!",
+        "trigger": "After you beat the Champion, he takes you to the Hall of Fame"
+      }
+    ],
+    "cutscene": true,
+    "presence": "Only appears after you beat the Champion",
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-5/daycare",
     "x": 2,
     "y": 3,
@@ -659,6 +678,101 @@
     "dialog": [
       {
         "text": "I went to ROCK TUNNEL, but it's dark and scary.\n\nIf a POKéMON's FLASH could light it up..."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "indigo-plateau/pokemon-league",
+    "floor": "hall-of-fame",
+    "x": 5,
+    "y": 2,
+    "name": "Prof. Oak",
+    "sprite": "oak",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "OAK: Er-hem! Congratulations RED!\n\nThis floor is the POKéMON HALL OF FAME!\n\nPOKéMON LEAGUE champions are honored for their exploits here!\n\nTheir POKéMON are also recorded in the HALL OF FAME!\n\nRED! You have endeavored hard to become the new LEAGUE champion!\n\nCongratulations, RED, you and your POKéMON are HALL OF FAMERs!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "indigo-plateau/indigo-plateau-lobby",
+    "x": 7,
+    "y": 5,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "indigo-plateau/indigo-plateau-lobby",
+    "x": 4,
+    "y": 9,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Yo! Champ in making!\n\nAt POKéMON LEAGUE, you have to face the ELITE FOUR in succession.\n\nIf you lose, you have to start all over again! This is it! Go for it!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "indigo-plateau/indigo-plateau-lobby",
+    "x": 5,
+    "y": 1,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "From here on, you face the ELITE FOUR one by one!\n\nIf you win, a door opens to the next trainer! Good luck!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "indigo-plateau/indigo-plateau-lobby",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "indigo-plateau/indigo-plateau-lobby",
+    "x": 13,
+    "y": 6,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
       }
     ],
     "games": ["red", "blue", "yellow"]
@@ -4468,6 +4582,58 @@
       }
     ],
     "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "indigo-plateau/pokemon-league",
+    "floor": "hall-of-fame",
+    "x": 5,
+    "y": 2,
+    "name": "Prof. Oak",
+    "sprite": "oak",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "OAK: Er-hem! Congratulations, RED!\n\nThis floor is the POKéMON HALL OF FAME!\n\nPOKéMON LEAGUE champions are honored for their exploits here!\n\nTheir POKéMON are also recorded in the HALL OF FAME!\n\nRED! You have endeavored hard to become the new LEAGUE champion!\n\nCongratulations, RED, you and your POKéMON are HALL OF FAMERs!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "indigo-plateau/indigo-plateau-lobby",
+    "x": 7,
+    "y": 5,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "indigo-plateau/indigo-plateau-lobby",
+    "x": 8,
+    "y": 5,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
     "games": ["yellow"]
   },
   {

@@ -89,6 +89,12 @@ const maps = [
     ['SSAnneKitchen', 'ss-anne/kitchen'],
     ['SSAnneCaptainsRoom', 'ss-anne/captains-room'],
     ['UndergroundPathNorthSouth', 'underground-path-north-south'],
+    ['LoreleisRoom', 'pokemon-league/loreleis-room'],
+    ['BrunosRoom', 'pokemon-league/brunos-room'],
+    ['AgathasRoom', 'pokemon-league/agathas-room'],
+    ['LancesRoom', 'pokemon-league/lances-room'],
+    ['ChampionsRoom', 'pokemon-league/champions-room'],
+    ['HallOfFame', 'pokemon-league/hall-of-fame'],
     ['UndergroundPathWestEast', 'underground-path-west-east'],
     ['RedsHouse1F', 'reds-house/1f'],
     ['RedsHouse2F', 'reds-house/2f'],
@@ -107,6 +113,25 @@ const games = [
   { dir: pokeredDir, outDir: OUTPUT },
   { dir: pokeyellowDir, outDir: join(OUTPUT, 'variants/yellow') },
 ];
+
+const BLACKED_OUT = {
+  LancesRoom: [{ x: 288, y: 0, width: 128, height: 128 }],
+};
+
+const blackOut = ({ width, rgba }, areas = []) => {
+  for (const area of areas) {
+    for (let y = area.y; y < area.y + area.height; y++) {
+      for (let x = area.x; x < area.x + area.width; x++) {
+        const i = (y * width + x) * 4;
+
+        rgba[i] = 0;
+        rgba[i + 1] = 0;
+        rgba[i + 2] = 0;
+        rgba[i + 3] = 255;
+      }
+    }
+  }
+};
 
 const render = (dir, name) => {
   const { tilesWide, tilesHigh, pixelWidth, pixelHeight, tileAt, shadeAt } =
@@ -140,6 +165,9 @@ for (const { name, yellowName = name, out } of maps) {
   const [red, yellow] = games.map(({ dir }, index) =>
     render(dir, index === 0 ? name : yellowName),
   );
+
+  blackOut(red, BLACKED_OUT[name]);
+  blackOut(yellow, BLACKED_OUT[name]);
 
   mkdirSync(dirname(join(OUTPUT, out)), { recursive: true });
   writePng(join(OUTPUT, out), red.width, red.height, red.rgba);

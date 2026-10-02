@@ -1,5 +1,5 @@
 import { Check, ChevronDown } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import {
   DropdownMenu,
@@ -27,6 +27,7 @@ type MapSwitcherProps = {
 
 export const MapSwitcher = ({ game, path }: MapSwitcherProps) => {
   const navigate = useNavigate();
+  const { search } = useLocation();
 
   const current = getRegion(game.region)?.versionGroup;
 
@@ -35,7 +36,7 @@ export const MapSwitcher = ({ game, path }: MapSwitcherProps) => {
 
     if (!target || target.id === game.id) return;
 
-    navigate(switchHref(target, path));
+    navigate(switchHref(target, path, search));
   };
 
   return (

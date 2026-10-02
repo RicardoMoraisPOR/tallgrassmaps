@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import {
   DropdownMenu,
@@ -21,6 +21,7 @@ type GameSwitcherProps = {
 
 export const GameSwitcher = ({ game, path }: GameSwitcherProps) => {
   const navigate = useNavigate();
+  const { search } = useLocation();
 
   const siblings = gamesSharingMap(game);
 
@@ -29,7 +30,7 @@ export const GameSwitcher = ({ game, path }: GameSwitcherProps) => {
 
     if (!target || target.id === game.id) return;
 
-    navigate(switchHref(target, path));
+    navigate(switchHref(target, path, search));
   };
 
   if (siblings.length < 2) {

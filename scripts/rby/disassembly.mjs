@@ -155,11 +155,12 @@ const buildingLocations = {
   FUCHSIA_GYM: 'fuchsia-city',
   SAFFRON_GYM: 'saffron-city',
   CINNABAR_GYM: 'cinnabar-island',
-  LORELEIS_ROOM: 'indigo-plateau',
-  BRUNOS_ROOM: 'indigo-plateau',
-  AGATHAS_ROOM: 'indigo-plateau',
-  LANCES_ROOM: 'indigo-plateau',
-  CHAMPIONS_ROOM: 'indigo-plateau',
+  LORELEIS_ROOM: 'indigo-plateau/pokemon-league',
+  BRUNOS_ROOM: 'indigo-plateau/pokemon-league',
+  AGATHAS_ROOM: 'indigo-plateau/pokemon-league',
+  LANCES_ROOM: 'indigo-plateau/pokemon-league',
+  CHAMPIONS_ROOM: 'indigo-plateau/pokemon-league',
+  HALL_OF_FAME: 'indigo-plateau/pokemon-league',
 };
 
 const TOWNS = [
@@ -207,6 +208,12 @@ const namedFloors = {
   SS_ANNE_BOW: 'bow',
   SS_ANNE_KITCHEN: 'kitchen',
   SS_ANNE_CAPTAINS_ROOM: 'captains-room',
+  LORELEIS_ROOM: 'loreleis-room',
+  BRUNOS_ROOM: 'brunos-room',
+  AGATHAS_ROOM: 'agathas-room',
+  LANCES_ROOM: 'lances-room',
+  CHAMPIONS_ROOM: 'champions-room',
+  HALL_OF_FAME: 'hall-of-fame',
 };
 
 export const floorFor = (mapConstant) => {
