@@ -147,6 +147,12 @@ const TRAINER_DIALOG_MAPS = new Set([
   'PokemonTower6F',
   'PokemonTower7F',
   'VermilionGym',
+  'CeladonGym',
+  'GameCorner',
+  'RocketHideoutB1F',
+  'RocketHideoutB2F',
+  'RocketHideoutB3F',
+  'RocketHideoutB4F',
   'FuchsiaGym',
   'SSAnne1FRooms',
   'SSAnne2FRooms',
@@ -219,6 +225,15 @@ const cinnabarGymTrainer = (number) => [
   },
 ];
 
+const liftKeyRocket = (prefix) => [
+  { label: 'Before battle', texts: [`${prefix}BattleText`] },
+  { label: 'If you win', texts: [`${prefix}EndBattleText`] },
+  {
+    label: 'After battle, he drops the Lift Key',
+    texts: [`${prefix}AfterBattleText`],
+  },
+];
+
 const OBJECT_DIALOG = {
   ...Object.fromEntries(
     [1, 2, 3, 4, 5, 6, 7].map((number) => [
@@ -288,6 +303,47 @@ const OBJECT_DIALOG = {
       texts: ['_FuchsiaGymKogaPostBattleAdviceText'],
     },
   ],
+  CELADONGYM_ERIKA: [
+    { label: 'Before battle', texts: ['_CeladonGymErikaPreBattleText'] },
+    {
+      label: 'If you win, she gives you the Rainbow Badge and TM21',
+      texts: [
+        '_CeladonGymErikaReceivedRainbowBadgeText',
+        '_CeladonGymReceivedTM21Text',
+        '_TM21ExplanationText',
+      ],
+      gift: { name: 'TM21' },
+    },
+    { label: 'If your bag is full', texts: ['_CeladonGymTM21NoRoomText'] },
+    {
+      label: 'After battle',
+      texts: ['_CeladonGymErikaPostBattleAdviceText'],
+    },
+  ],
+  GAMECORNER_ROCKET: [
+    {
+      label: 'Before battle',
+      texts: ['_GameCornerRocketImGuardingThisPosterText'],
+    },
+    { label: 'If you win', texts: ['_GameCornerRocketBattleEndText'] },
+    { label: 'After battle', texts: ['_GameCornerRocketAfterBattleText'] },
+  ],
+  ROCKETHIDEOUTB4F_GIOVANNI: [
+    {
+      label: 'Before battle',
+      texts: ['_RocketHideoutB4FGiovanniImpressedYouGotHereText'],
+    },
+    {
+      label: 'If you win',
+      texts: ['_RocketHideoutB4FGiovanniWhatCannotBeText'],
+    },
+    {
+      label: 'After battle, he leaves the Silph Scope behind',
+      texts: ['_RocketHideoutB4FGiovanniHopeWeMeetAgainText'],
+    },
+  ],
+  ROCKETHIDEOUTB4F_ROCKET3: liftKeyRocket('_RocketHideoutB4FRocket3'),
+  ROCKETHIDEOUTB4F_ROCKET: liftKeyRocket('_RocketHideoutB4FRocket'),
   VERMILIONGYM_LT_SURGE: [
     { label: 'Before battle', texts: ['_VermilionGymLTSurgePreBattleText'] },
     {

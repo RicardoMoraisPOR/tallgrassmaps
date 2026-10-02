@@ -282,6 +282,16 @@ for (const game of games) {
   }
 
   const prizes = forGame(read(game.dir, 'data/events/prizes.asm'), game.define);
+  const prizeLevels = new Map(
+    forGame(
+      read(game.dir, 'data/events/prize_mon_levels.asm'),
+      game.define,
+    ).flatMap((line) => {
+      const [, constant, level] = line.match(/^db (\w+),\s*(\d+)$/) ?? [];
+
+      return constant ? [[constant, Number(level)]] : [];
+    }),
+  );
   let inMonMenu = false;
 
   for (const line of prizes) {
@@ -290,7 +300,8 @@ for (const game of games) {
     else if (inMonMenu && /^db [A-Z_]+$/.test(line)) {
       addEncounter(line.slice(3), {
         method: 'prize',
-        path: 'celadon-city/rocket-game-corner',
+        path: 'celadon-city/game-corner-prize-room',
+        level: prizeLevels.get(line.slice(3)),
         game: game.id,
       });
     }

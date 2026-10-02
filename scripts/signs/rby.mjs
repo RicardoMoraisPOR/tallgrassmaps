@@ -3,6 +3,7 @@ import { basename, join } from 'node:path';
 
 import {
   constantFromFile,
+  displayName,
   floorFor,
   forGame,
   games,
@@ -123,6 +124,31 @@ const SIGN_MAPS = {
   SS_ANNE_B_1_F_ROOMS: 'vermilion-city/ss-anne',
   SS_ANNE_KITCHEN: 'vermilion-city/ss-anne',
   SS_ANNE_CAPTAINS_ROOM: 'vermilion-city/ss-anne',
+  CELADON_CITY: 'celadon-city',
+  CELADON_POKECENTER: 'celadon-city/celadon-pokemon-center',
+  CELADON_GYM: 'celadon-city/celadon-gym',
+  CELADON_DINER: 'celadon-city/celadon-diner',
+  CELADON_HOTEL: 'celadon-city/celadon-hotel',
+  CELADON_CHIEF_HOUSE: 'celadon-city/celadon-chief-house',
+  GAME_CORNER_PRIZE_ROOM: 'celadon-city/game-corner-prize-room',
+  CELADON_MART_1_F: 'celadon-city/celadon-dept-store',
+  CELADON_MART_2_F: 'celadon-city/celadon-dept-store',
+  CELADON_MART_3_F: 'celadon-city/celadon-dept-store',
+  CELADON_MART_4_F: 'celadon-city/celadon-dept-store',
+  CELADON_MART_5_F: 'celadon-city/celadon-dept-store',
+  CELADON_MART_ROOF: 'celadon-city/celadon-dept-store',
+  CELADON_MART_ELEVATOR: 'celadon-city/celadon-dept-store',
+  CELADON_MANSION_1_F: 'celadon-city/celadon-mansion',
+  CELADON_MANSION_2_F: 'celadon-city/celadon-mansion',
+  CELADON_MANSION_3_F: 'celadon-city/celadon-mansion',
+  CELADON_MANSION_ROOF: 'celadon-city/celadon-mansion',
+  CELADON_MANSION_ROOF_HOUSE: 'celadon-city/celadon-mansion',
+  GAME_CORNER: 'celadon-city/rocket-game-corner',
+  ROCKET_HIDEOUT_B_1_F: 'celadon-city/rocket-game-corner',
+  ROCKET_HIDEOUT_B_2_F: 'celadon-city/rocket-game-corner',
+  ROCKET_HIDEOUT_B_3_F: 'celadon-city/rocket-game-corner',
+  ROCKET_HIDEOUT_B_4_F: 'celadon-city/rocket-game-corner',
+  ROCKET_HIDEOUT_ELEVATOR: 'celadon-city/rocket-game-corner',
   CINNABAR_ISLAND: 'cinnabar-island',
   CINNABAR_GYM: 'cinnabar-island/cinnabar-gym',
   CINNABAR_LAB: 'cinnabar-island/cinnabar-lab',
@@ -171,7 +197,129 @@ const fossilSign = (game) =>
     `After you take the Helix Fossil:\n\n${farText(game, '_FuchsiaCityFossilSignKabutoText')}`,
   ].join('\n\n');
 
+const constantName = (constant) => constant.replaceAll('_', ' ');
+
+const vendingMachine = (game) => {
+  const menu = [
+    ...read(game.dir, 'data/items/vending_prices.asm').matchAll(
+      /vend_item (\w+),\s*(\d+)/g,
+    ),
+  ].map(([, item, price]) => `${constantName(item)} ¥${price}`);
+
+  return `${farText(game, '_VendingMachineText1')}\n\n${menu.join('\n')}`;
+};
+
+const machineNumbers = (game) =>
+  new Map(
+    [
+      ...read(game.dir, 'constants/item_constants.asm').matchAll(
+        /^\s*add_tm (\w+)/gm,
+      ),
+    ].map(([, move], index) => [
+      `TM_${move}`,
+      `TM${String(index + 1).padStart(2, '0')}`,
+    ]),
+  );
+
+const prizeSections = (game) => {
+  const sections = new Map();
+  let current;
+
+  for (const line of forGame(
+    read(game.dir, 'data/events/prizes.asm'),
+    game.define,
+  )) {
+    current = line.match(/^(PrizeMenu\w+):$/)?.[1] ?? current;
+
+    const value = line.match(/^(?:db|bcd2) ([A-Z_]+|\d+)$/)?.[1];
+
+    if (current && value)
+      sections.set(current, [...(sections.get(current) ?? []), value]);
+  }
+
+  return sections;
+};
+
+const prizeLevels = (game) =>
+  new Map(
+    forGame(
+      read(game.dir, 'data/events/prize_mon_levels.asm'),
+      game.define,
+    ).flatMap((line) => {
+      const [, species, level] = line.match(/^db (\w+),\s*(\d+)$/) ?? [];
+
+      return species ? [[species, level]] : [];
+    }),
+  );
+
+const dexNumbers = (game) =>
+  new Map(
+    [
+      ...read(game.dir, 'constants/pokedex_constants.asm').matchAll(
+        /const DEX_(\w+)\s*; (\d+)/g,
+      ),
+    ].map(([, constant, number]) => [constant, Number(number)]),
+  );
+
+const titleCase = (constant) =>
+  constant
+    .split('_')
+    .map((word) => word.charAt(0) + word.slice(1).toLowerCase())
+    .join(' ');
+
+const prizeMenu = (game, menu) => {
+  const sections = prizeSections(game);
+  const levels = prizeLevels(game);
+  const machines = machineNumbers(game);
+  const costs = sections.get(`PrizeMenu${menu}Cost`);
+
+  return sections.get(`PrizeMenu${menu}Entries`).map((prize, index) => ({
+    prize,
+    machine: machines.get(prize),
+    level: levels.get(prize),
+    coins: Number(costs[index]),
+  }));
+};
+
+const prizeVendor = (menu) => (game) => {
+  const prizes = prizeMenu(game, menu).map(
+    ({ prize, machine, level, coins }) =>
+      `${machine ? `${machine} ${constantName(prize.slice(3))}` : `${constantName(prize)} L${level}`} ${coins} coins`,
+  );
+
+  return `${farText(game, '_WhichPrizeText')}\n\n${prizes.join('\n')}`;
+};
+
+const PRIZE_VENDORS = {
+  GAMECORNERPRIZEROOM_PRIZE_VENDOR_1: 'Mon1',
+  GAMECORNERPRIZEROOM_PRIZE_VENDOR_2: 'Mon2',
+  GAMECORNERPRIZEROOM_PRIZE_VENDOR_3: 'TMs',
+};
+
+const prizesFor = (game, menu) => {
+  const dex = dexNumbers(game);
+
+  return prizeMenu(game, menu).map(({ prize, machine, level, coins }) =>
+    machine
+      ? { item: `${machine} ${titleCase(prize.slice(3))}`, coins }
+      : {
+          pokemon: { number: dex.get(prize), name: displayName(prize) },
+          level: Number(level),
+          coins,
+        },
+  );
+};
+
 const SIGN_TEXTS = {
+  CELADONMARTROOF_VENDING_MACHINE1: vendingMachine,
+  CELADONMARTROOF_VENDING_MACHINE2: vendingMachine,
+  CELADONMARTROOF_VENDING_MACHINE3: vendingMachine,
+  ...Object.fromEntries(
+    Object.entries(PRIZE_VENDORS).map(([textId, menu]) => [
+      textId,
+      prizeVendor(menu),
+    ]),
+  ),
   ROUTE11GATE2F_LEFT_BINOCULARS: '_Route11Gate2FLeftBinocularsSnorlaxText',
   ROUTE15GATE2F_BINOCULARS: '_Route15Gate2FBinocularsText',
   ROUTE16GATE2F_LEFT_BINOCULARS: '_Route16Gate2FLeftBinocularsText',
@@ -309,6 +457,9 @@ for (const game of games) {
         x: Number(x),
         y: Number(y),
         text: message,
+        ...(PRIZE_VENDORS[textId] && {
+          prizes: prizesFor(game, PRIZE_VENDORS[textId]),
+        }),
       });
     }
 

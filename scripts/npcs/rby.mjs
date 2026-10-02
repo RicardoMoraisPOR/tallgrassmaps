@@ -141,6 +141,31 @@ const NPC_MAPS = {
   SS_ANNE_B_1_F_ROOMS: { path: 'vermilion-city/ss-anne' },
   SS_ANNE_KITCHEN: { path: 'vermilion-city/ss-anne' },
   SS_ANNE_CAPTAINS_ROOM: { path: 'vermilion-city/ss-anne' },
+  CELADON_CITY: { path: 'celadon-city' },
+  CELADON_POKECENTER: { path: 'celadon-city/celadon-pokemon-center' },
+  CELADON_GYM: { path: 'celadon-city/celadon-gym' },
+  CELADON_DINER: { path: 'celadon-city/celadon-diner' },
+  CELADON_HOTEL: { path: 'celadon-city/celadon-hotel' },
+  CELADON_CHIEF_HOUSE: { path: 'celadon-city/celadon-chief-house' },
+  GAME_CORNER_PRIZE_ROOM: { path: 'celadon-city/game-corner-prize-room' },
+  CELADON_MART_1_F: { path: 'celadon-city/celadon-dept-store' },
+  CELADON_MART_2_F: { path: 'celadon-city/celadon-dept-store' },
+  CELADON_MART_3_F: { path: 'celadon-city/celadon-dept-store' },
+  CELADON_MART_4_F: { path: 'celadon-city/celadon-dept-store' },
+  CELADON_MART_5_F: { path: 'celadon-city/celadon-dept-store' },
+  CELADON_MART_ROOF: { path: 'celadon-city/celadon-dept-store' },
+  CELADON_MART_ELEVATOR: { path: 'celadon-city/celadon-dept-store' },
+  CELADON_MANSION_1_F: { path: 'celadon-city/celadon-mansion' },
+  CELADON_MANSION_2_F: { path: 'celadon-city/celadon-mansion' },
+  CELADON_MANSION_3_F: { path: 'celadon-city/celadon-mansion' },
+  CELADON_MANSION_ROOF: { path: 'celadon-city/celadon-mansion' },
+  CELADON_MANSION_ROOF_HOUSE: { path: 'celadon-city/celadon-mansion' },
+  GAME_CORNER: { path: 'celadon-city/rocket-game-corner' },
+  ROCKET_HIDEOUT_B_1_F: { path: 'celadon-city/rocket-game-corner' },
+  ROCKET_HIDEOUT_B_2_F: { path: 'celadon-city/rocket-game-corner' },
+  ROCKET_HIDEOUT_B_3_F: { path: 'celadon-city/rocket-game-corner' },
+  ROCKET_HIDEOUT_B_4_F: { path: 'celadon-city/rocket-game-corner' },
+  ROCKET_HIDEOUT_ELEVATOR: { path: 'celadon-city/rocket-game-corner' },
   CINNABAR_ISLAND: { path: 'cinnabar-island' },
   CINNABAR_GYM: { path: 'cinnabar-island/cinnabar-gym' },
   CINNABAR_LAB: { path: 'cinnabar-island/cinnabar-lab' },
@@ -272,6 +297,76 @@ const FOSSILS = [
   ['Helix Fossil', 'HELIX FOSSIL', 'OMANYTE'],
   ['Dome Fossil', 'DOME FOSSIL', 'KABUTO'],
   ['Old Amber', 'OLD AMBER', 'AERODACTYL'],
+];
+
+const COIN_CASE_FORGOTTEN = '_GameCornerOopsForgotCoinCaseText';
+
+const gameCornerClerk = (prefix) => ({
+  dialog: [
+    {
+      trigger: 'When you talk to him',
+      texts: [`${prefix}DoYouNeedSomeGameCoinsText`],
+    },
+    {
+      trigger: 'If you say yes, you buy 50 coins for ¥1000',
+      texts: [`${prefix}ThanksHereAre50CoinsText`],
+    },
+    {
+      trigger: 'If you say no',
+      texts: [`${prefix}PleaseComePlaySometimeText`],
+    },
+    {
+      trigger: "If you can't afford them",
+      texts: [`${prefix}CantAffordTheCoinsText`],
+    },
+    {
+      trigger: 'If your Coin Case is full',
+      texts: [`${prefix}CoinCaseIsFullText`],
+    },
+    {
+      trigger: 'Without a Coin Case',
+      texts: [`${prefix}DontHaveCoinCaseText`],
+    },
+  ],
+});
+
+const coinGiver = (coins, ask, received, full, after) => ({
+  special: true,
+  dialog: [
+    {
+      trigger: `With a Coin Case, you get ${coins} coins`,
+      texts: [ask, received],
+    },
+    { trigger: 'Without a Coin Case', texts: [ask, COIN_CASE_FORGOTTEN] },
+    { trigger: 'If your Coin Case is full', texts: [ask, full] },
+    { trigger: 'After you get the coins', texts: [after] },
+  ],
+});
+
+const PIKACHU_HAPPINESS = [
+  ['under 51', '_CeladonMansion1Text7'],
+  ['51 to 100', '_CeladonMansion1Text8'],
+  ['101 to 130', '_CeladonMansion1Text9'],
+  ['131 to 160', '_CeladonMansion1Text10'],
+  ['161 to 200', '_CeladonMansion1Text11'],
+  ['201 or more', '_CeladonMansion1Text12'],
+];
+
+const pokedexComplete = (games, before, after) => ({
+  games,
+  dialog: [
+    { trigger: 'Before you complete the Pokédex', texts: [before] },
+    {
+      trigger: 'After you complete the Pokédex (Mew not needed)',
+      texts: [after],
+    },
+  ],
+});
+
+const DRINK_TMS = [
+  ['Fresh Water', 'FreshWater', 'TM13'],
+  ['Soda Pop', 'SodaPop', 'TM48'],
+  ['Lemonade', 'Lemonade', 'TM49'],
 ];
 
 const SCRIPTED_NPCS = {
@@ -1871,6 +1966,206 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get HM03',
         texts: ['_SafariZoneSecretHouseFishingGuruHM03ExplanationText'],
+      },
+    ],
+  },
+  CELADONCITY_GRAMPS3: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you TM41',
+        texts: [
+          '_CeladonCityGramps3Text',
+          '_CeladonCityGramps3ReceivedTM41Text',
+        ],
+        gift: { name: 'TM41' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_CeladonCityGramps3TM41NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM41',
+        texts: ['_CeladonCityGramps3TM41ExplanationText'],
+      },
+    ],
+  },
+  CELADONDINER_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you the Coin Case',
+        texts: [
+          '_CeladonDinerGymGuideImFlatOutBustedText',
+          '_CeladonDinerGymGuideReceivedCoinCaseText',
+        ],
+        gift: { name: 'Coin Case' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_CeladonDinerGymGuideCoinCaseNoRoomText'],
+      },
+      {
+        trigger: 'After you get the Coin Case',
+        texts: ['_CeladonDinerGymGuideWinItBackText'],
+      },
+    ],
+  },
+  CELADONMART3F_CLERK: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you TM18',
+        texts: [
+          '_CeladonMart3FClerkTM18PreReceiveText',
+          '_CeladonMart3FClerkReceivedTM18Text',
+        ],
+        gift: { name: 'TM18' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_CeladonMart3FClerkTM18NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM18',
+        texts: ['_CeladonMart3FClerkTM18ExplanationText'],
+      },
+    ],
+  },
+  CELADONMARTROOF_LITTLE_GIRL: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'Without a drink',
+        texts: ['_CeladonMartRoofLittleGirlImThirstyText'],
+      },
+      {
+        trigger: 'With a drink',
+        texts: [
+          '_CeladonMartRoofLittleGirlGiveHerADrinkText',
+          '_CeladonMartRoofLittleGirlGiveHerWhichDrinkText',
+        ],
+      },
+      ...DRINK_TMS.map(([drink, label, tm]) => ({
+        trigger: `If you give her ${drink}, she gives you ${tm}`,
+        texts: [
+          `_CeladonMartRoofLittleGirlYay${label}Text`,
+          `_CeladonMartRoofLittleGirlReceived${tm}Text`,
+          `_CeladonMartRoofLittleGirl${tm}ExplanationText`,
+        ],
+        values: { wStringBuffer: tm },
+        gift: { name: tm },
+      })),
+      {
+        trigger: 'If your bag is full',
+        texts: ['_CeladonMartRoofLittleGirlNoRoomText'],
+      },
+      {
+        trigger: "If you already got that drink's TM",
+        texts: ['_CeladonMartRoofLittleGirlImNotThirstyText'],
+      },
+    ],
+  },
+  CELADONMANSION1F_GRANNY: {
+    games: ['yellow'],
+    dialog: [
+      { trigger: 'When you talk to her', texts: ['_CeladonMansion1Text2'] },
+      ...PIKACHU_HAPPINESS.map(([happiness, text]) => ({
+        trigger: `If Pikachu is with you and its happiness is ${happiness}`,
+        texts: ['_CeladonMansion1Text6', text],
+      })),
+    ],
+  },
+  CELADONMANSION3F_GAME_DESIGNER: pokedexComplete(
+    undefined,
+    '_CeladonMansion3FGameDesignerText',
+    '_CeladonMansion3FGameDesignerCompletedDexText',
+  ),
+  CELADONMANSION3F_PROGRAMMER: pokedexComplete(
+    ['yellow'],
+    '_CeladonMansion3FProgrammerText',
+    '_CeladonMansion3FProgrammerText2',
+  ),
+  CELADONMANSION3F_WRITER: pokedexComplete(
+    ['yellow'],
+    '_CeladonMansion3FWriterText',
+    '_CeladonMansion3FWriterText2',
+  ),
+  CELADONMANSION3F_GRAPHIC_ARTIST: {
+    games: ['yellow'],
+    dialog: [
+      {
+        trigger: 'Before you complete the Pokédex',
+        texts: ['_CeladonMansion3FGraphicArtistText'],
+      },
+      {
+        trigger: 'After you complete the Pokédex (Mew not needed)',
+        texts: ['_CeladonMansion3FGraphicArtistText2'],
+      },
+      {
+        trigger: 'If you say yes, he prints your diploma',
+        texts: ['_CeladonMansion3FGraphicArtistText4'],
+      },
+      {
+        trigger: 'If you cancel the printing',
+        texts: ['_CeladonMansion3FGraphicArtistText5'],
+      },
+      {
+        trigger: 'If you say no',
+        texts: ['_CeladonMansion3FGraphicArtistText3'],
+      },
+    ],
+  },
+  GAMECORNER_CLERK1: gameCornerClerk('_GameCornerClerk1'),
+  GAMECORNER_CLERK: gameCornerClerk('_GameCornerClerk'),
+  GAMECORNER_FISHING_GURU: coinGiver(
+    10,
+    '_GameCornerFishingGuruWantToPlayText',
+    '_GameCornerFishingGuruReceived10CoinsText',
+    '_GameCornerFishingGuruDontNeedMyCoinsText',
+    '_GameCornerFishingGuruWinsComeAndGoText',
+  ),
+  GAMECORNER_FISHING_GURU1: coinGiver(
+    10,
+    '_GameCornerFishingGuru1WantToPlayText',
+    '_GameCornerFishingGuru1Received10CoinsText',
+    '_GameCornerFishingGuru1DontNeedMyCoinsText',
+    '_GameCornerFishingGuru1WinsComeAndGoText',
+  ),
+  GAMECORNER_CLERK2: coinGiver(
+    20,
+    '_GameCornerClerk2WantSomeCoinsText',
+    '_GameCornerClerk2Received20CoinsText',
+    '_GameCornerClerk2YouHaveLotsOfCoinsText',
+    '_GameCornerClerk2INeedMoreCoinsText',
+  ),
+  GAMECORNER_MIDDLE_AGED_MAN2: coinGiver(
+    20,
+    '_GameCornerMiddleAgedMan2WantSomeCoinsText',
+    '_GameCornerMiddleAgedMan2Received20CoinsText',
+    '_GameCornerMiddleAgedMan2YouHaveLotsOfCoinsText',
+    '_GameCornerMiddleAgedMan2INeedMoreCoinsText',
+  ),
+  GAMECORNER_GENTLEMAN: coinGiver(
+    20,
+    '_GameCornerGentlemanThrowingMeOffText',
+    '_GameCornerGentlemanReceived20CoinsText',
+    '_GameCornerGentlemanYouGotYourOwnCoinsText',
+    '_GameCornerGentlemanCloselyWatchTheReelsText',
+  ),
+  GAMECORNER_FISHING_GURU2: coinGiver(
+    20,
+    '_GameCornerFishingGuru2ThrowingMeOffText',
+    '_GameCornerFishingGuru2Received20CoinsText',
+    '_GameCornerFishingGuru2YouGotYourOwnCoinsText',
+    '_GameCornerFishingGuru2CloselyWatchTheReelsText',
+  ),
+  GAMECORNER_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Erika',
+        texts: ['_GameCornerGymGuideChampInMakingText'],
+      },
+      {
+        trigger: 'After you beat Erika',
+        texts: ['_GameCornerGymGuideTheyOfferRarePokemonText'],
       },
     ],
   },

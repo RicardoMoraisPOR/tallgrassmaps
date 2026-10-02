@@ -107,8 +107,13 @@ for (const game of games) {
       /^hidden_event\s+(\d+),\s*(\d+), HiddenItems, (\w+)$/,
     );
 
+    const coins = line.match(
+      /^hidden_event\s+(\d+),\s*(\d+), HiddenCoins, COIN \+ (\d+)$/,
+    );
+
     if (header) map = header[1];
     else if (hidden) addItem(map, hidden[1], hidden[2], hidden[3], true);
+    else if (coins) addItem(map, coins[1], coins[2], `${coins[3]}_COINS`, true);
   }
 }
 

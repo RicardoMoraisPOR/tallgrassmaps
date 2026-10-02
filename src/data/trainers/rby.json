@@ -2,9 +2,33 @@
   {
     "name": "Erika",
     "trainerClass": "erika",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 4,
+    "y": 3,
+    "facing": "down",
     "sprite": "silph_worker_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hello. Lovely weather isn't it? It's so pleasant.\n\n...Oh dear... I must have dozed off. Welcome.\n\nMy name is ERIKA. I am the LEADER of CELADON GYM.\n\nI teach the art of flower arranging. My POKéMON are of the grass-type.\n\nOh, I'm sorry, I had no idea that you wished to challenge me.\n\nVery well, but I shall not lose."
+      },
+      {
+        "label": "If you win, she gives you the Rainbow Badge and TM21",
+        "text": "Oh! I concede defeat.\n\nYou are remarkably strong.\n\nI must confer you the RAINBOWBADGE.\n\nTM21 contains MEGA DRAIN.\n\nHalf the damage it inflicts is drained to heal your POKéMON!",
+        "gift": {
+          "name": "TM21",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You should make room for this."
+      },
+      {
+        "label": "After battle",
+        "text": "You are cataloging POKéMON? I must say I'm impressed.\n\nI would never collect POKéMON if they were unattractive."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -36,9 +60,33 @@
   {
     "name": "Erika",
     "trainerClass": "erika",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 4,
+    "y": 3,
+    "facing": "down",
     "sprite": "silph_worker_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hello. Lovely weather isn't it? It's so pleasant.\n\n...Oh dear... I must have dozed off. Welcome.\n\nMy name is ERIKA. I am the LEADER of CELADON GYM.\n\nI teach the art of flower arranging. My POKéMON are of the grass-type.\n\nOh, I'm sorry, I had no idea that you wished to challenge me.\n\nVery well, but I shall not lose."
+      },
+      {
+        "label": "If you win, she gives you the Rainbow Badge and TM21",
+        "text": "Oh! I concede defeat.\n\nYou are remarkably strong.\n\nI must confer you the RAINBOWBADGE.\n\nTM21 contains MEGA DRAIN.\n\nHalf the damage it inflicts is drained to heal your POKéMON!",
+        "gift": {
+          "name": "TM21",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "You should make room for this."
+      },
+      {
+        "label": "After battle",
+        "text": "You are cataloging POKéMON? I must say I'm impressed.\n\nI would never collect POKéMON if they were unattractive."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -65,9 +113,25 @@
   {
     "name": "Lass",
     "trainerClass": "lass",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 2,
+    "y": 11,
+    "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey!\n\nYou are not allowed in here!"
+      },
+      {
+        "label": "If you win",
+        "text": "You're too rough!"
+      },
+      {
+        "label": "After battle",
+        "text": "Bleaah! I hope ERIKA wipes you out!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -89,9 +153,25 @@
   {
     "name": "Beauty",
     "trainerClass": "beauty",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 7,
+    "y": 10,
+    "facing": "left",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I was getting bored."
+      },
+      {
+        "label": "If you win",
+        "text": "My makeup!"
+      },
+      {
+        "label": "After battle",
+        "text": "Grass-type POKéMON are tough against the water-type!\n\nThey also have an edge on rock and ground POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -123,9 +203,25 @@
   {
     "name": "Jr. Trainer ♀",
     "trainerClass": "jr-trainer-f",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 9,
+    "y": 5,
+    "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Aren't you the peeping Tom?"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm in shock!"
+      },
+      {
+        "label": "After battle",
+        "text": "Oh, you weren't peeping? We get a lot of gawkers!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -147,9 +243,25 @@
   {
     "name": "Beauty",
     "trainerClass": "beauty",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 1,
+    "y": 5,
+    "facing": "down",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Look at my grass POKéMON!\n\nThey're so easy to raise!"
+      },
+      {
+        "label": "If you win",
+        "text": "No!"
+      },
+      {
+        "label": "After battle",
+        "text": "We only use grass-type POKéMON at our GYM!\n\nWe also use them for making flower arrangements!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -171,9 +283,25 @@
   {
     "name": "Lass",
     "trainerClass": "lass",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 6,
+    "y": 3,
+    "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Don't bring any bugs or fire POKéMON in here!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! You!"
+      },
+      {
+        "label": "After battle",
+        "text": "Our LEADER, ERIKA, might be quiet, but she's also very skilled!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -195,9 +323,25 @@
   {
     "name": "Beauty",
     "trainerClass": "beauty",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 3,
+    "y": 3,
+    "facing": "down",
     "sprite": "beauty",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Pleased to meet you. My hobby is POKéMON training."
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! Splendid!"
+      },
+      {
+        "label": "After battle",
+        "text": "I have a blind date coming up. I have to learn to be polite."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -214,9 +358,25 @@
   {
     "name": "Cooltrainer ♀",
     "trainerClass": "cooltrainer-f",
-    "path": "celadon-city",
-    "area": "Celadon Gym",
+    "path": "celadon-city/celadon-gym",
+    "x": 5,
+    "y": 3,
+    "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Welcome to CELADON GYM!\n\nYou better not underestimate girl power!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! Beaten!"
+      },
+      {
+        "label": "After battle",
+        "text": "I didn't bring my best POKéMON!\n\nWait 'til next time!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -251,6 +411,20 @@
     "facing": "up",
     "presence": "Leaves after the battle",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm guarding this poster! Go away, or else!"
+      },
+      {
+        "label": "If you win",
+        "text": "Dang!"
+      },
+      {
+        "label": "After battle",
+        "text": "Our hideout might be discovered! I better tell BOSS!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -279,6 +453,20 @@
     "y": 8,
     "facing": "left",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Who are you? How did you get here?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oww! Beaten!"
+      },
+      {
+        "label": "After battle",
+        "text": "Are you dissing TEAM ROCKET?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -307,6 +495,20 @@
     "y": 6,
     "facing": "right",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You broke into our operation?"
+      },
+      {
+        "label": "If you win",
+        "text": "Burnt!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're not going to get away with this, brat!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -335,6 +537,20 @@
     "y": 17,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Intruder alert!"
+      },
+      {
+        "label": "If you win",
+        "text": "I can't do it!"
+      },
+      {
+        "label": "After battle",
+        "text": "SILPH SCOPE? I don't know where it is!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -368,6 +584,20 @@
     "y": 25,
     "facing": "right",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Why did you come here?"
+      },
+      {
+        "label": "If you win",
+        "text": "This won't do!"
+      },
+      {
+        "label": "After battle",
+        "text": "OK, I'll talk! Take the elevator to see my BOSS!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -406,6 +636,20 @@
     "y": 18,
     "facing": "left",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Are you lost, you little rat?"
+      },
+      {
+        "label": "If you win",
+        "text": "Why...?"
+      },
+      {
+        "label": "After battle",
+        "text": "Uh-oh, that fight opened the door!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -434,6 +678,20 @@
     "y": 12,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BOSS said you can see GHOSTs with the SILPH SCOPE!"
+      },
+      {
+        "label": "If you win",
+        "text": "I surrender!"
+      },
+      {
+        "label": "After battle",
+        "text": "The TEAM ROCKET HQ has 4 basement floors. Can you reach the BOSS?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -477,6 +735,20 @@
     "y": 22,
     "facing": "right",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Stop meddling in TEAM ROCKET's affairs!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oof! Taken down!"
+      },
+      {
+        "label": "After battle",
+        "text": "SILPH SCOPE? The machine the BOSS stole. It's here somewhere."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -510,6 +782,20 @@
     "y": 12,
     "facing": "up",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We got word from upstairs that you were coming!"
+      },
+      {
+        "label": "If you win",
+        "text": "What? I lost? No!"
+      },
+      {
+        "label": "After battle",
+        "text": "Go ahead and go! But, you need the LIFT KEY to run the elevator!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -569,6 +855,20 @@
     "facing": "down",
     "presence": "Leaves after the battle",
     "sprite": "giovanni",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "So! I must say, I am impressed you got here!"
+      },
+      {
+        "label": "If you win",
+        "text": "WHAT! This cannot be!"
+      },
+      {
+        "label": "After battle, he leaves the Silph Scope behind",
+        "text": "I see that you raise POKéMON with utmost care.\n\nA child like you would never understand what I hope to achieve.\n\nI shall step aside this time!\n\nI hope we meet again..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -603,6 +903,20 @@
     "facing": "down",
     "presence": "Leaves after the battle",
     "sprite": "giovanni",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "So! I must say, I am impressed you got here!"
+      },
+      {
+        "label": "If you win",
+        "text": "WHAT! This cannot be!"
+      },
+      {
+        "label": "After battle, he leaves the Silph Scope behind",
+        "text": "I see that you raise POKéMON with utmost care.\n\nA child like you would never understand what I hope to achieve.\n\nI shall step aside this time!\n\nI hope we meet again..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -636,6 +950,20 @@
     "y": 12,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I know you! You ruined our plans at MT.MOON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Burned again!"
+      },
+      {
+        "label": "After battle",
+        "text": "Do you have something against TEAM ROCKET?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -669,6 +997,20 @@
     "y": 2,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "The elevator doesn't work? Who has the LIFT KEY?"
+      },
+      {
+        "label": "If you win",
+        "text": "No!"
+      },
+      {
+        "label": "After battle, he drops the Lift Key",
+        "text": "Oh no! I dropped the LIFT KEY!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -697,6 +1039,20 @@
     "y": 12,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "How can you not see the beauty of our evil?"
+      },
+      {
+        "label": "If you win",
+        "text": "Ayaya!"
+      },
+      {
+        "label": "After battle",
+        "text": "BOSS! I'm sorry I failed you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -730,6 +1086,20 @@
     "y": 2,
     "facing": "down",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "The elevator doesn't work? Who has the LIFT KEY?"
+      },
+      {
+        "label": "If you win",
+        "text": "No!"
+      },
+      {
+        "label": "After battle, he drops the Lift Key",
+        "text": "Oh no! I dropped the LIFT KEY!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

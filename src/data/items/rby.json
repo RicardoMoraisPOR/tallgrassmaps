@@ -1324,6 +1324,150 @@
     ]
   },
   {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 0,
+    "y": 8,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 1,
+    "y": 16,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 3,
+    "y": 11,
+    "item": "20 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 3,
+    "y": 14,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 4,
+    "y": 12,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 9,
+    "y": 12,
+    "item": "20 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 9,
+    "y": 15,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 16,
+    "y": 14,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 10,
+    "y": 16,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 11,
+    "y": 7,
+    "item": "40 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 15,
+    "y": 8,
+    "item": "100 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 12,
+    "y": 15,
+    "item": "10 Coins",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue"
+    ]
+  },
+  {
     "path": "route-2/viridian-forest",
     "x": 1,
     "y": 18,

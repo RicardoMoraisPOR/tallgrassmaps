@@ -9,6 +9,293 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "celadon-city",
+    "x": 27,
+    "y": 15,
+    "text": "TRAINER TIPS\n\nX ACCURACY boosts the accuracy of techniques!\n\nDIRE HIT jacks up the likelihood of critical hits!\n\nGet your items at CELADON DEPT. STORE!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 19,
+    "y": 15,
+    "text": "CELADON CITY The City of Rainbow Dreams",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 42,
+    "y": 9,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 13,
+    "y": 29,
+    "text": "CELADON CITY POKéMON GYM LEADER: ERIKA\n\nThe Nature Loving Princess!",
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 21,
+    "y": 9,
+    "text": "CELADON MANSION",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 12,
+    "y": 13,
+    "text": "Find what you need at CELADON DEPT. STORE!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 39,
+    "y": 21,
+    "text": "TRAINER TIPS\n\nGUARD SPEC. protects POKéMON against SPECIAL attacks such as fire and water!\n\nGet your items at CELADON DEPT. STORE!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 33,
+    "y": 21,
+    "text": "Coins exchanged for prizes! PRIZE EXCHANGE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 27,
+    "y": 21,
+    "text": "ROCKET GAME CORNER The playground for grown-ups!",
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "1f",
+    "x": 4,
+    "y": 9,
+    "text": "CELADON MANSION Manager's Suite",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "2f",
+    "x": 4,
+    "y": 9,
+    "text": "GAME FREAK Meeting Room",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 1,
+    "y": 3,
+    "text": "It's the game program! Messing with it could bug out the game!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 4,
+    "y": 3,
+    "text": "Someone's playing a game instead of working!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 1,
+    "y": 6,
+    "text": "It's the script! Better not look at the ending!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 4,
+    "y": 9,
+    "text": "GAME FREAK Development Room",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "roof",
+    "x": 3,
+    "y": 7,
+    "text": "I KNOW EVERYTHING!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "1f",
+    "x": 11,
+    "y": 4,
+    "text": "1F: SERVICE COUNTER\n\n2F: TRAINER'S MARKET\n\n3F: TV GAME SHOP\n\n4F: WISEMAN GIFTS\n\n5F: DRUG STORE\n\nROOFTOP SQUARE: VENDING MACHINES",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "1f",
+    "x": 14,
+    "y": 1,
+    "text": "1F: SERVICE COUNTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "2f",
+    "x": 14,
+    "y": 1,
+    "text": "Top Grade Items for Trainers!\n\n2F: TRAINER'S MARKET",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 2,
+    "y": 4,
+    "text": "It's an SNES!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 3,
+    "y": 4,
+    "text": "An RPG! There's no time for that!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 5,
+    "y": 4,
+    "text": "It's an SNES!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 6,
+    "y": 4,
+    "text": "A sports game! Dad'll like that!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 2,
+    "y": 6,
+    "text": "It's an SNES!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 3,
+    "y": 6,
+    "text": "A puzzle game! Looks addictive!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 5,
+    "y": 6,
+    "text": "It's an SNES!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 6,
+    "y": 6,
+    "text": "A fighting game! Looks tough!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 14,
+    "y": 1,
+    "text": "3F: TV GAME SHOP",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 4,
+    "y": 1,
+    "text": "Red and Blue! Both are POKéMON!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 6,
+    "y": 1,
+    "text": "Red and Blue! Both are POKéMON!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 10,
+    "y": 1,
+    "text": "Red and Blue! Both are POKéMON!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "4f",
+    "x": 14,
+    "y": 1,
+    "text": "Express yourself with gifts!\n\n4F: WISEMAN GIFTS\n\nEvolution Special! Element STONEs on sale now!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "5f",
+    "x": 14,
+    "y": 1,
+    "text": "5F: DRUG STORE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "roof",
+    "x": 10,
+    "y": 1,
+    "text": "A vending machine! Here's the menu!\n\nFRESH WATER ¥200\nSODA POP ¥300\nLEMONADE ¥350",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "roof",
+    "x": 11,
+    "y": 1,
+    "text": "A vending machine! Here's the menu!\n\nFRESH WATER ¥200\nSODA POP ¥300\nLEMONADE ¥350",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "roof",
+    "x": 12,
+    "y": 2,
+    "text": "A vending machine! Here's the menu!\n\nFRESH WATER ¥200\nSODA POP ¥300\nLEMONADE ¥350",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "roof",
+    "x": 13,
+    "y": 2,
+    "text": "ROOFTOP SQUARE: VENDING MACHINES",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "cerulean-city",
     "x": 23,
     "y": 19,
@@ -247,6 +534,101 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 9,
+    "y": 4,
+    "text": "Hey!\n\nA switch behind the poster!? Let's push it!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 2,
+    "y": 2,
+    "text": "Which prize do you want?\n\nABRA L9 180 coins\nCLEFAIRY L8 500 coins\nNIDORINA L17 1200 coins",
+    "prizes": [
+      {
+        "pokemon": {
+          "number": 63,
+          "name": "Abra"
+        },
+        "level": 9,
+        "coins": 180
+      },
+      {
+        "pokemon": {
+          "number": 35,
+          "name": "Clefairy"
+        },
+        "level": 8,
+        "coins": 500
+      },
+      {
+        "pokemon": {
+          "number": 30,
+          "name": "Nidorina"
+        },
+        "level": 17,
+        "coins": 1200
+      }
+    ],
+    "games": ["red"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 4,
+    "y": 2,
+    "text": "Which prize do you want?\n\nDRATINI L18 2800 coins\nSCYTHER L25 5500 coins\nPORYGON L26 9999 coins",
+    "prizes": [
+      {
+        "pokemon": {
+          "number": 147,
+          "name": "Dratini"
+        },
+        "level": 18,
+        "coins": 2800
+      },
+      {
+        "pokemon": {
+          "number": 123,
+          "name": "Scyther"
+        },
+        "level": 25,
+        "coins": 5500
+      },
+      {
+        "pokemon": {
+          "number": 137,
+          "name": "Porygon"
+        },
+        "level": 26,
+        "coins": 9999
+      }
+    ],
+    "games": ["red"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 6,
+    "y": 2,
+    "text": "Which prize do you want?\n\nTM23 DRAGON RAGE 3300 coins\nTM15 HYPER BEAM 5500 coins\nTM50 SUBSTITUTE 7700 coins",
+    "prizes": [
+      {
+        "item": "TM23 Dragon Rage",
+        "coins": 3300
+      },
+      {
+        "item": "TM15 Hyper Beam",
+        "coins": 5500
+      },
+      {
+        "item": "TM50 Substitute",
+        "coins": 7700
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "lavender-town",
     "x": 11,
     "y": 9,
@@ -471,6 +853,14 @@
     "x": 11,
     "y": 29,
     "text": "ROCK TUNNEL CERULEAN CITY - LAVENDER TOWN",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "elevator",
+    "x": 1,
+    "y": 1,
+    "text": "It appears to need a key.",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1133,10 +1523,156 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 2,
+    "y": 2,
+    "text": "Which prize do you want?\n\nABRA L6 120 coins\nCLEFAIRY L12 750 coins\nNIDORINO L17 1200 coins",
+    "prizes": [
+      {
+        "pokemon": {
+          "number": 63,
+          "name": "Abra"
+        },
+        "level": 6,
+        "coins": 120
+      },
+      {
+        "pokemon": {
+          "number": 35,
+          "name": "Clefairy"
+        },
+        "level": 12,
+        "coins": 750
+      },
+      {
+        "pokemon": {
+          "number": 33,
+          "name": "Nidorino"
+        },
+        "level": 17,
+        "coins": 1200
+      }
+    ],
+    "games": ["blue"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 4,
+    "y": 2,
+    "text": "Which prize do you want?\n\nPINSIR L20 2500 coins\nDRATINI L24 4600 coins\nPORYGON L18 6500 coins",
+    "prizes": [
+      {
+        "pokemon": {
+          "number": 127,
+          "name": "Pinsir"
+        },
+        "level": 20,
+        "coins": 2500
+      },
+      {
+        "pokemon": {
+          "number": 147,
+          "name": "Dratini"
+        },
+        "level": 24,
+        "coins": 4600
+      },
+      {
+        "pokemon": {
+          "number": 137,
+          "name": "Porygon"
+        },
+        "level": 18,
+        "coins": 6500
+      }
+    ],
+    "games": ["blue"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 13,
+    "y": 29,
+    "text": "CELADON CITY POKéMON GYM LEADER: ERIKA\n\nThe Nature-Loving Princess!",
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 27,
+    "y": 21,
+    "text": "ROCKET GAME CORNER The playground for grownups!",
+    "games": ["yellow"]
+  },
+  {
     "path": "fuchsia-city",
     "x": 5,
     "y": 29,
     "text": "FUCHSIA CITY POKéMON GYM LEADER: KOGA\n\nThe Poisonous Ninja Master!",
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 2,
+    "y": 2,
+    "text": "Which prize do you want?\n\nABRA L15 230 coins\nVULPIX L18 1000 coins\nWIGGLYTUFF L22 2680 coins",
+    "prizes": [
+      {
+        "pokemon": {
+          "number": 63,
+          "name": "Abra"
+        },
+        "level": 15,
+        "coins": 230
+      },
+      {
+        "pokemon": {
+          "number": 37,
+          "name": "Vulpix"
+        },
+        "level": 18,
+        "coins": 1000
+      },
+      {
+        "pokemon": {
+          "number": 40,
+          "name": "Wigglytuff"
+        },
+        "level": 22,
+        "coins": 2680
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 4,
+    "y": 2,
+    "text": "Which prize do you want?\n\nSCYTHER L30 6500 coins\nPINSIR L30 6500 coins\nPORYGON L26 9999 coins",
+    "prizes": [
+      {
+        "pokemon": {
+          "number": 123,
+          "name": "Scyther"
+        },
+        "level": 30,
+        "coins": 6500
+      },
+      {
+        "pokemon": {
+          "number": 127,
+          "name": "Pinsir"
+        },
+        "level": 30,
+        "coins": 6500
+      },
+      {
+        "pokemon": {
+          "number": 137,
+          "name": "Porygon"
+        },
+        "level": 26,
+        "coins": 9999
+      }
+    ],
     "games": ["yellow"]
   },
   {

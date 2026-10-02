@@ -19,6 +19,7 @@ import { joinPath, pathSegments } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 
 import {
+  prizeHighlightKey,
   staticHighlightKey,
   tradeHighlightKey,
   wildHighlightKey,
@@ -100,6 +101,7 @@ export type LayeredMapLink = MapLink & {
   current?: boolean;
   door?: boolean;
   step?: FloorStep;
+  unlisted?: boolean;
 };
 
 type MarkerSources = {
@@ -574,7 +576,47 @@ export const locationLinks = (
     };
   });
 
+  const prizeEntries: Array<LayerEntry> = signs.flatMap(({ prizes = [] }) =>
+    prizes.flatMap(({ item, coins }) =>
+      item
+        ? [
+            {
+              key: prizeHighlightKey(item),
+              name: `${item} (${coins} coins)`,
+              opens: true,
+            },
+          ]
+        : [],
+    ),
+  );
+
   const signMarkers: Array<LayeredMapLink> = signs.map((sign) => {
+    if (sign.prizes) {
+      const layer = sign.prizes.some(({ pokemon }) => pokemon)
+        ? staticLayer()
+        : itemLayer(false);
+
+      return {
+        x: sign.x * tileSize + tileSize / 2,
+        y: sign.y * tileSize + tileSize / 2,
+        width: 0,
+        height: 0,
+        label: 'Prize counter',
+        layer: layer.id,
+        className: layer.className,
+        highlightKey: [
+          `prize-counter:${sign.x},${sign.y}`,
+          ...sign.prizes.map(({ pokemon, item }) =>
+            prizeHighlightKey(pokemon?.number ?? item!),
+          ),
+        ],
+        tooltip: signTooltip?.(sign),
+        tooltipOnClick: true,
+        icon: { kind: 'sign' as const },
+        unlisted: true,
+      };
+    }
+
     if (sign.sprite) {
       const { opens } = sign;
       const layer = opens ? itemLayer(false) : signLayer();
@@ -720,7 +762,8 @@ export const locationLinks = (
     for (const link of mapLinks) {
       const key = [link.highlightKey].flat()[0] ?? link.href;
 
-      if (link.layer !== layer || !key || entries.has(key)) continue;
+      if (link.layer !== layer || link.unlisted || !key || entries.has(key))
+        continue;
 
       entries.set(key, {
         key,
@@ -765,7 +808,8 @@ export const locationLinks = (
     if (id === 'buildings')
       for (const entry of unlistedChildren) entries.set(entry.key, entry);
     if (id === 'items')
-      for (const entry of giftEntries) entries.set(entry.key, entry);
+      for (const entry of [...giftEntries, ...prizeEntries])
+        entries.set(entry.key, entry);
 
     return { layer, entries: [...entries.values()] };
   };

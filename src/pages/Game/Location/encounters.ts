@@ -17,6 +17,7 @@ const LISTED: Array<EncounterMethod> = [
   'fossil',
   'fossil-item',
   'trade',
+  'prize',
   'battle',
 ];
 
@@ -62,6 +63,8 @@ export const staticHighlightKey = (number: number) => `static:${number}`;
 
 export const tradeHighlightKey = (number: number) => `trade:${number}`;
 
+export const prizeHighlightKey = (prize: number | string) => `prize:${prize}`;
+
 export const encounterHighlightKey = ({
   entry,
   encounter,
@@ -69,6 +72,7 @@ export const encounterHighlightKey = ({
   if (['static', 'gift', 'fossil', 'battle'].includes(encounter.method))
     return staticHighlightKey(entry.number);
   if (encounter.method === 'trade') return tradeHighlightKey(entry.number);
+  if (encounter.method === 'prize') return prizeHighlightKey(entry.number);
 
   const area = areaMethods[encounter.method];
 

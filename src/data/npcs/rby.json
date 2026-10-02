@@ -167,6 +167,857 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "celadon-city/celadon-chief-house",
+    "x": 4,
+    "y": 2,
+    "name": "Chief",
+    "sprite": "gramps",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hehehe! The slots just reel in the dough, big time!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-chief-house",
+    "x": 1,
+    "y": 4,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHIEF!\n\nWe just shipped 2000 POKéMON as slot prizes!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-chief-house",
+    "x": 5,
+    "y": 6,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Don't touch the poster at the GAME CORNER!\n\nThere's no secret switch behind it!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 8,
+    "y": 17,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I got my KOFFING in CINNABAR!\n\nIt's nice, but it breathes poison when it's angry!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 11,
+    "y": 28,
+    "name": "Gramps",
+    "sprite": "gramps",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Heheh! This GYM is great! It's full of women!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 14,
+    "y": 19,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The GAME CORNER is bad for our city's image!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 25,
+    "y": 22,
+    "name": "Gramps",
+    "sprite": "gramps",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Moan! I blew it all at the slots!\n\nI knew I should have cashed in my coins for prizes!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 22,
+    "y": 16,
+    "name": "Gramps",
+    "sprite": "gramps",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hello, there!\n\nI've seen you, but I never had a chance to talk!\n\nHere's a gift for dropping by!",
+        "trigger": "When you talk to him, he gives you TM41",
+        "gift": {
+          "name": "TM41",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Oh, your pack is full of items!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "TM41 teaches SOFTBOILED!\n\nOnly one POKéMON can use it!\n\nThat POKéMON is CHANSEY!",
+        "trigger": "After you get TM41"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 32,
+    "y": 12,
+    "name": "Fisher",
+    "sprite": "fisher",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "This is my trusted pal, POLIWRATH!\n\nIt evolved from POLIWHIRL when I used WATER STONE!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 30,
+    "y": 12,
+    "name": "Poliwrath",
+    "sprite": "monster",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "POLIWRATH: Ribi ribit!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 32,
+    "y": 29,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "What are you staring at?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city",
+    "x": 42,
+    "y": 14,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Keep out of TEAM ROCKET's way!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-diner",
+    "x": 8,
+    "y": 5,
+    "name": "Cook",
+    "sprite": "cook",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi!\n\nWe're taking a break now."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-diner",
+    "x": 7,
+    "y": 2,
+    "name": "Middle Aged Woman",
+    "sprite": "middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My POKéMON are weak, so I often have to go to the DRUG STORE."
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-diner",
+    "x": 1,
+    "y": 4,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Psst! There's a basement under the GAME CORNER."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-diner",
+    "x": 5,
+    "y": 3,
+    "name": "Fisher",
+    "sprite": "fisher",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Munch...\n\nThe man at that table lost it all at the slots."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-diner",
+    "x": 0,
+    "y": 1,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Go ahead! Laugh!\n\nI'm flat out busted!\n\nNo more slots for me! I'm going straight!\n\nHere! I won't be needing this any-more!",
+        "trigger": "When you talk to him, he gives you the Coin Case",
+        "gift": {
+          "name": "Coin Case",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Make room for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "I always thought I was going to win it back...",
+        "trigger": "After you get the Coin Case"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-hotel",
+    "x": 3,
+    "y": 1,
+    "name": "Granny",
+    "sprite": "granny",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "POKéMON? No, this is a hotel for people.\n\nWe're full up."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-hotel",
+    "x": 2,
+    "y": 4,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm on vacation with my brother and boy friend.\n\nCELADON is such a pretty city!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-hotel",
+    "x": 8,
+    "y": 4,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Why did she bring her brother?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "1f",
+    "x": 0,
+    "y": 5,
+    "name": "Meowth",
+    "sprite": "monster",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "MEOWTH: Meow!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "1f",
+    "x": 1,
+    "y": 5,
+    "name": "Granny",
+    "sprite": "granny",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My dear POKéMON keep me company.\n\nMEOWTH even brings money home!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "1f",
+    "x": 1,
+    "y": 8,
+    "name": "Clefairy",
+    "sprite": "fairy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CLEFAIRY: Pi pippippi!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "1f",
+    "x": 4,
+    "y": 4,
+    "name": "Nidoranf",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "NIDORAN: Kya kyaoo!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 0,
+    "y": 4,
+    "name": "Programmer",
+    "sprite": "bike_shop_clerk",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Me? I'm the programmer!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 3,
+    "y": 4,
+    "name": "Graphic Artist",
+    "sprite": "clerk",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "I'm the graphic artist! I drew you!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 0,
+    "y": 7,
+    "name": "Writer",
+    "sprite": "super_nerd",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "I wrote the story! Isn't ERIKA cute?\n\nI like MISTY a lot too!\n\nOh, and SABRINA, I like her!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 2,
+    "y": 3,
+    "name": "Game Designer",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Is that right?\n\nI'm the game designer!\n\nFilling up your POKéDEX is tough, but don't quit!\n\nWhen you finish, come tell me!",
+        "trigger": "Before you complete the Pokédex"
+      },
+      {
+        "text": "Wow! Excellent! You completed your POKéDEX! Congratulations! ...",
+        "trigger": "After you complete the Pokédex (Mew not needed)"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "roof-house",
+    "x": 2,
+    "y": 2,
+    "name": "Roof House Hiker",
+    "sprite": "hiker",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I know everything about the world of POKéMON in your GAME BOY!\n\nGet together with your friends and trade POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "1f",
+    "x": 8,
+    "y": 3,
+    "name": "Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hello! Welcome to CELADON DEPT. STORE.\n\nThe board on the right describes the store layout."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "2f",
+    "x": 5,
+    "y": 3,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "2f",
+    "x": 6,
+    "y": 3,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "2f",
+    "x": 19,
+    "y": 5,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SUPER REPEL keeps weak POKéMON at bay...\n\nHmm, it's a more powerful REPEL!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "2f",
+    "x": 14,
+    "y": 4,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "For long outings, you should buy REVIVE."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 16,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Oh, hi! I finally finished POKéMON!\n\nNot done yet? This might be useful!",
+        "trigger": "When you talk to him, he gives you TM18",
+        "gift": {
+          "name": "TM18",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Your pack is full of items!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "TM18 is COUNTER! Not like the one I'm leaning on, mind you!",
+        "trigger": "After you get TM18"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 11,
+    "y": 6,
+    "name": "Gameboy Kid",
+    "sprite": "gameboy_kid",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Captured POKéMON are registered with an ID No. and OT, the name of the Original Trainer that caught it!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 7,
+    "y": 2,
+    "name": "Gameboy Kid",
+    "sprite": "gameboy_kid",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "All right!\n\nMy buddy's going to trade me his KANGASKHAN for my GRAVELER!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 8,
+    "y": 2,
+    "name": "Gameboy Kid",
+    "sprite": "gameboy_kid",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Come on GRAVELER!\n\nI love GRAVELER! I collect them!\n\nHuh?\n\nGRAVELER turned into a different POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "3f",
+    "x": 2,
+    "y": 5,
+    "name": "Little Boy",
+    "sprite": "little_boy",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "You can identify POKéMON you got in trades by their ID Numbers!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "4f",
+    "x": 5,
+    "y": 7,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "4f",
+    "x": 15,
+    "y": 5,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm getting a POKé DOLL for my girl friend!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "4f",
+    "x": 5,
+    "y": 2,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I heard something useful.\n\nYou can run from wild POKéMON by distracting them with a POKé DOLL!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "5f",
+    "x": 14,
+    "y": 5,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "POKéMON ability enhancers can be bought only here.\n\nUse CALCIUM to increase SPECIAL abilities.\n\nUse CARBOS to increase SPEED."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "5f",
+    "x": 2,
+    "y": 6,
+    "name": "Sailor",
+    "sprite": "sailor",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm here for POKéMON ability enhancers.\n\nPROTEIN increases ATTACK power.\n\nIRON increases DEFENSE!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "5f",
+    "x": 5,
+    "y": 3,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "5f",
+    "x": 6,
+    "y": 3,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "roof",
+    "x": 10,
+    "y": 4,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "My sister is a trainer, believe it or not.\n\nBut, she's so immature, she drives me nuts!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "roof",
+    "x": 5,
+    "y": 5,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm thirsty! I want something to drink!",
+        "trigger": "Without a drink"
+      },
+      {
+        "text": "I'm thirsty! I want something to drink!\n\nGive her a drink?\n\nGive her which drink?",
+        "trigger": "With a drink"
+      },
+      {
+        "text": "Yay!\n\nFRESH WATER!\n\nThank you!\n\nYou can have this from me!\n\nRED received TM13!\n\nTM13 contains ICE BEAM!\n\nIt can freeze the target sometimes!",
+        "trigger": "If you give her Fresh Water, she gives you TM13",
+        "gift": {
+          "name": "TM13",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Yay!\n\nSODA POP!\n\nThank you!\n\nYou can have this from me!\n\nRED received TM48!\n\nTM48 contains ROCK SLIDE!\n\nIt can spook the target sometimes!",
+        "trigger": "If you give her Soda Pop, she gives you TM48",
+        "gift": {
+          "name": "TM48",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Yay!\n\nLEMONADE!\n\nThank you!\n\nYou can have this from me!\n\nRED received TM49!\n\nTM49 contains TRI ATTACK!",
+        "trigger": "If you give her Lemonade, she gives you TM49",
+        "gift": {
+          "name": "TM49",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You don't have space for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "No thank you! I'm not thirsty after all!",
+        "trigger": "If you already got that drink's TM"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/celadon-pokemon-center",
+    "x": 7,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "POKé FLUTE awakens POKéMON with a sound that only they can hear!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-pokemon-center",
+    "x": 10,
+    "y": 5,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I rode uphill on CYCLING ROAD from FUCHSIA!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "cerulean-city/cerulean-badge-house",
     "x": 5,
     "y": 3,
@@ -1476,6 +2327,252 @@
       {
         "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
         "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 2,
+    "y": 6,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome!\n\nYou can exchange your coins for fabulous prizes next door."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 5,
+    "y": 6,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to ROCKET GAME CORNER!\n\nDo you need some game coins?\n\nIt's ¥1000 for 50 coins. Would you like some?",
+        "trigger": "When you talk to him"
+      },
+      {
+        "text": "Thanks! Here are your 50 coins!",
+        "trigger": "If you say yes, you buy 50 coins for ¥1000"
+      },
+      {
+        "text": "No? Please come play sometime!",
+        "trigger": "If you say no"
+      },
+      {
+        "text": "You can't afford the coins!",
+        "trigger": "If you can't afford them"
+      },
+      {
+        "text": "Oops! Your COIN CASE is full.",
+        "trigger": "If your Coin Case is full"
+      },
+      {
+        "text": "You don't have a COIN CASE!",
+        "trigger": "Without a Coin Case"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 2,
+    "y": 10,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Keep this quiet.\n\nIt's rumored that this place is run by TEAM ROCKET."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 2,
+    "y": 13,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "I think these machines have different odds."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 5,
+    "y": 11,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Kid, do you want to play?\n\nRED received 10 coins!",
+        "trigger": "With a Coin Case, you get 10 coins"
+      },
+      {
+        "text": "Kid, do you want to play?\n\nOops! Forgot the COIN CASE!",
+        "trigger": "Without a Coin Case"
+      },
+      {
+        "text": "Kid, do you want to play?\n\nYou don't need my coins!",
+        "trigger": "If your Coin Case is full"
+      },
+      {
+        "text": "Wins seem to come and go.",
+        "trigger": "After you get the coins"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 8,
+    "y": 11,
+    "name": "Middle Aged Woman",
+    "sprite": "middle_aged_woman",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm having a wonderful time!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 8,
+    "y": 14,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "Hey!\n\nYou have better things to do, champ in making!\n\nCELADON GYM's LEADER is ERIKA! She uses grass-type POKéMON!\n\nShe might appear docile, but don't be fooled!",
+        "trigger": "Before you beat Erika"
+      },
+      {
+        "text": "They offer rare POKéMON that can be exchanged for your coins.\n\nBut, I just can't seem to win!",
+        "trigger": "After you beat Erika"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 11,
+    "y": 15,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Games are scary! It's so easy to get hooked!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 14,
+    "y": 11,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "What's up? Want some coins?\n\nRED received 20 coins!",
+        "trigger": "With a Coin Case, you get 20 coins"
+      },
+      {
+        "text": "What's up? Want some coins?\n\nOops! Forgot the COIN CASE!",
+        "trigger": "Without a Coin Case"
+      },
+      {
+        "text": "What's up? Want some coins?\n\nYou have lots of coins!",
+        "trigger": "If your Coin Case is full"
+      },
+      {
+        "text": "Darn! I need more coins for the POKéMON I want!",
+        "trigger": "After you get the coins"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 17,
+    "y": 13,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hey, what? You're throwing me off! Here are some coins, shoo!\n\nRED received 20 coins!",
+        "trigger": "With a Coin Case, you get 20 coins"
+      },
+      {
+        "text": "Hey, what? You're throwing me off! Here are some coins, shoo!\n\nOops! Forgot the COIN CASE!",
+        "trigger": "Without a Coin Case"
+      },
+      {
+        "text": "Hey, what? You're throwing me off! Here are some coins, shoo!\n\nYou've got your own coins!",
+        "trigger": "If your Coin Case is full"
+      },
+      {
+        "text": "The trick is to watch the reels closely!",
+        "trigger": "After you get the coins"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 1,
+    "y": 4,
+    "name": "Balding Guy",
+    "sprite": "balding_guy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I sure do fancy that PORYGON!\n\nBut, it's hard to win at slots!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/game-corner-prize-room",
+    "x": 7,
+    "y": 3,
+    "name": "Old Man",
+    "sprite": "gambler",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I had a major haul today!"
       }
     ],
     "games": ["red", "blue", "yellow"]
@@ -5595,6 +6692,251 @@
     "games": ["yellow"]
   },
   {
+    "path": "celadon-city",
+    "x": 8,
+    "y": 17,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I got my KOFFING from my friend!\n\nWe get along now, because I was very nice to it!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-diner",
+    "x": 7,
+    "y": 2,
+    "name": "Middle Aged Woman",
+    "sprite": "yellow/middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My POKéMON are weak, so I often have to go to the DRUG STORE."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "1f",
+    "x": 1,
+    "y": 5,
+    "name": "Granny",
+    "sprite": "granny",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My dear POKéMON keep me company.\n\nMEOWTH even brings money home!",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "Oh, you have an adorable PIKACHU with you.\n\nIt seems like it hasn't been tamed at all.",
+        "trigger": "If Pikachu is with you and its happiness is under 51"
+      },
+      {
+        "text": "Oh, you have an adorable PIKACHU with you.\n\nWhy don't you take more care with PIKACHU?",
+        "trigger": "If Pikachu is with you and its happiness is 51 to 100"
+      },
+      {
+        "text": "Oh, you have an adorable PIKACHU with you.\n\nYou must be happy to have a POKéMON that cute.",
+        "trigger": "If Pikachu is with you and its happiness is 101 to 130"
+      },
+      {
+        "text": "Oh, you have an adorable PIKACHU with you.\n\nYour PIKACHU seems tamed.",
+        "trigger": "If Pikachu is with you and its happiness is 131 to 160"
+      },
+      {
+        "text": "Oh, you have an adorable PIKACHU with you.\n\nYour PIKACHU looks happy with you.",
+        "trigger": "If Pikachu is with you and its happiness is 161 to 200"
+      },
+      {
+        "text": "Oh, you have an adorable PIKACHU with you.\n\nYou look like a fantastic duo.\n\nYou're making me jealous!",
+        "trigger": "If Pikachu is with you and its happiness is 201 or more"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 0,
+    "y": 4,
+    "name": "Programmer",
+    "sprite": "yellow/bike_shop_clerk",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Me? I'm the programmer!",
+        "trigger": "Before you complete the Pokédex"
+      },
+      {
+        "text": "Me? I'm the programmer!\n\nWhat a surprise! I never expected anyone to fill a POKéDEX.",
+        "trigger": "After you complete the Pokédex (Mew not needed)"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 3,
+    "y": 4,
+    "name": "Graphic Artist",
+    "sprite": "clerk",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "I'm the graphic artist! I drew you!",
+        "trigger": "Before you complete the Pokédex"
+      },
+      {
+        "text": "I'm the graphic artist!\n\nWow, you finished your POKéDEX! Want me to PRINT out a DIPLOMA as proof?",
+        "trigger": "After you complete the Pokédex (Mew not needed)"
+      },
+      {
+        "text": "All done!",
+        "trigger": "If you say yes, he prints your diploma"
+      },
+      {
+        "text": "OK, let's not PRINT.",
+        "trigger": "If you cancel the printing"
+      },
+      {
+        "text": "Just tell me if you want to PRINT out a DIPLOMA.",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "3f",
+    "x": 0,
+    "y": 7,
+    "name": "Writer",
+    "sprite": "super_nerd",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "I wrote the story! Isn't ERIKA cute?\n\nI like MISTY a lot too!\n\nOh, and SABRINA, I like her!",
+        "trigger": "Before you complete the Pokédex"
+      },
+      {
+        "text": "I wrote the story!\n\nIt's great you caught all the POKéMON! Thanks!",
+        "trigger": "After you complete the Pokédex (Mew not needed)"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "4f",
+    "x": 15,
+    "y": 5,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm getting a gift for COPYCAT in CERULEAN CITY.\n\nIt's got to be a POKé DOLL. They are trendy!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
+    "floor": "roof",
+    "x": 5,
+    "y": 5,
+    "name": "Little Girl",
+    "sprite": "little_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm thirsty! I want something to drink!",
+        "trigger": "Without a drink"
+      },
+      {
+        "text": "I'm thirsty! I want something to drink!\n\nGive her a drink?\n\nGive her which drink?",
+        "trigger": "With a drink"
+      },
+      {
+        "text": "Yay!\n\nFRESH WATER!\n\nThank you!\n\nYou can have this from me!\n\nRED received TM13!\n\nTM13 contains ICE BEAM!\n\nIt can freeze the target sometimes!",
+        "trigger": "If you give her Fresh Water, she gives you TM13",
+        "gift": {
+          "name": "TM13",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Yay!\n\nSODA POP!\n\nThank you!\n\nYou can have this from me!\n\nRED received TM48!\n\nTM48 contains ROCK SLIDE!",
+        "trigger": "If you give her Soda Pop, she gives you TM48",
+        "gift": {
+          "name": "TM48",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Yay!\n\nLEMONADE!\n\nThank you!\n\nYou can have this from me!\n\nRED received TM49!\n\nTM49 contains TRI ATTACK!",
+        "trigger": "If you give her Lemonade, she gives you TM49",
+        "gift": {
+          "name": "TM49",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You don't have space for this!",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "No thank you! I'm not thirsty after all!",
+        "trigger": "If you already got that drink's TM"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "cerulean-city/cerulean-badge-house",
     "x": 5,
     "y": 3,
@@ -6178,6 +7520,79 @@
         "text": "CHANSEY: Chaaan sey!"
       }
     ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 8,
+    "y": 11,
+    "name": "Middle Aged Woman",
+    "sprite": "yellow/middle_aged_woman",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm having a wonderful time!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 14,
+    "y": 11,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "What's up? Want some coins?\n\nRED received 20 coins!",
+        "trigger": "With a Coin Case, you get 20 coins"
+      },
+      {
+        "text": "What's up? Want some coins?\n\nOops! Forgot the COIN CASE!",
+        "trigger": "Without a Coin Case"
+      },
+      {
+        "text": "What's up? Want some coins?\n\nYou have lots of coins!",
+        "trigger": "If your Coin Case is full"
+      },
+      {
+        "text": "Darn! I need more coins for the POKéMON I want!",
+        "trigger": "After you get the coins"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "celadon-city/rocket-game-corner",
+    "floor": "game-corner",
+    "x": 17,
+    "y": 13,
+    "name": "Fishing Guru",
+    "sprite": "fishing_guru",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hey, what? You're throwing me off! Here are some coins, shoo!\n\nRED received 20 coins!",
+        "trigger": "With a Coin Case, you get 20 coins"
+      },
+      {
+        "text": "Hey, what? You're throwing me off! Here are some coins, shoo!\n\nOops! Forgot the COIN CASE!",
+        "trigger": "Without a Coin Case"
+      },
+      {
+        "text": "Hey, what? You're throwing me off! Here are some coins, shoo!\n\nYou've got your own coins!",
+        "trigger": "If your Coin Case is full"
+      },
+      {
+        "text": "The trick is to watch the reels closely!",
+        "trigger": "After you get the coins"
+      }
+    ],
+    "special": true,
     "games": ["yellow"]
   },
   {
@@ -7567,6 +8982,36 @@
     "dialog": [
       {
         "text": "It is true that a higher level POKéMON will be more powerful...\n\nBut, all POKéMON will have weak points against specific types.\n\nSo, there is no universally strong POKéMON."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "If I had a BIKE, I would go to CYCLING ROAD!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-hotel",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "My sis brought me on this vacation!"
       }
     ],
     "games": ["red", "blue", "yellow"]

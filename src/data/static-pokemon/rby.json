@@ -213,6 +213,20 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "celadon-city/celadon-mansion",
+    "floor": "roof-house",
+    "x": 4,
+    "y": 3,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 133,
+        "level": 25
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "saffron-city/silph-co",
     "floor": "7f",
     "x": 1,
