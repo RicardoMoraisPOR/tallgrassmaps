@@ -5334,6 +5334,20 @@
     "y": 5,
     "facing": "right",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You look good at POKéMON, but how's your chem?"
+      },
+      {
+        "label": "If you win",
+        "text": "Ow! Meltdown!"
+      },
+      {
+        "label": "After battle",
+        "text": "I am better at school than this!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5370,6 +5384,20 @@
     "y": 9,
     "facing": "up",
     "sprite": "gambler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "All right! Let's roll the dice!"
+      },
+      {
+        "label": "If you win",
+        "text": "Drat! Came up short!"
+      },
+      {
+        "label": "After battle",
+        "text": "Lady Luck's not with me today!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5401,6 +5429,20 @@
     "y": 6,
     "facing": "up",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You need strategy to win at this!"
+      },
+      {
+        "label": "If you win",
+        "text": "It's not logical!"
+      },
+      {
+        "label": "After battle",
+        "text": "Go with GRIMER first...and... ...and...then..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5432,6 +5474,20 @@
     "y": 3,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I like NIDORAN, so I collect them!"
+      },
+      {
+        "label": "If you win",
+        "text": "Why? Why??"
+      },
+      {
+        "label": "After battle",
+        "text": "When POKéMON grow up they get ugly! They shouldn't evolve!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5458,6 +5514,20 @@
     "y": 3,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I like NIDORAN, so I collect them!"
+      },
+      {
+        "label": "If you win",
+        "text": "Why? Why??"
+      },
+      {
+        "label": "After battle",
+        "text": "When POKéMON grow up they get ugly! They shouldn't evolve!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5484,6 +5554,20 @@
     "y": 4,
     "facing": "right",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "School is fun, but so are POKéMON."
+      },
+      {
+        "label": "If you win",
+        "text": "I'll stay with school."
+      },
+      {
+        "label": "After battle",
+        "text": "We're stuck here because of the gates at SAFFRON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5505,6 +5589,20 @@
     "y": 5,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "MEOWTH is so cute, meow, meow, meow!"
+      },
+      {
+        "label": "If you win",
+        "text": "Meow!"
+      },
+      {
+        "label": "After battle",
+        "text": "I think PIDGEY and RATTATA are cute too!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5536,6 +5634,20 @@
     "y": 6,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We must look silly standing here like this!"
+      },
+      {
+        "label": "If you win",
+        "text": "Look what you did!"
+      },
+      {
+        "label": "After battle",
+        "text": "SAFFRON's gate keeper won't let us through. He's so mean!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5577,6 +5689,20 @@
     "y": 6,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We must look silly standing here like this!"
+      },
+      {
+        "label": "If you win",
+        "text": "Look what you did!"
+      },
+      {
+        "label": "After battle",
+        "text": "SAFFRON's gate-keeper won't let us through. He's so mean!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5618,6 +5744,20 @@
     "y": 13,
     "facing": "down",
     "sprite": "gambler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm a rambling, gambling dude!"
+      },
+      {
+        "label": "If you win",
+        "text": "Missed the big score!"
+      },
+      {
+        "label": "After battle",
+        "text": "Gambling and POKéMON are like eating peanuts! Just can't stop!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5644,6 +5784,20 @@
     "y": 12,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "What's a cute, round and fluffy POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "Stop!\n\nDon't be so mean to my CLEFAIRY!"
+      },
+      {
+        "label": "After battle",
+        "text": "I heard that CLEFAIRY evolves when it's exposed to a MOON STONE."
+      }
+    ],
     "parties": [
       {
         "pokemon": [

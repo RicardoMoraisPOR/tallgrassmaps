@@ -2442,6 +2442,30 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "route-8/route-8-gate",
+    "x": 2,
+    "y": 1,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
     "path": "vermilion-city/ss-anne",
     "floor": "1f",
     "x": 12,
@@ -2966,6 +2990,20 @@
     "dialog": [
       {
         "text": "People often lose things in that UNDERGROUND PATH."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-8/underground-path-route-8",
+    "x": 3,
+    "y": 4,
+    "name": "Girl",
+    "sprite": "girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The dept. store in CELADON has a great selection!"
       }
     ],
     "games": ["red", "blue", "yellow"]
@@ -4825,6 +4863,30 @@
     "name": "Guard",
     "sprite": "guard",
     "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh, wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug, glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-8/route-8-gate",
+    "x": 2,
+    "y": 1,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
     "dialog": [
       {
         "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh, wait there, the road's closed.",

@@ -118,6 +118,7 @@ const TRAINER_DIALOG_MAPS = new Set([
   'Route24',
   'Route25',
   'Route6',
+  'Route8',
   'Route11',
   'Route12',
   'PokemonTower3F',

@@ -89,6 +89,10 @@ const NPC_MAPS = {
   UNDERGROUND_PATH_ROUTE_6: { path: 'route-6/underground-path-route-6' },
   ROUTE_6: { path: 'route-6' },
   ROUTE_6_GATE: { path: 'route-6/route-6-gate' },
+  ROUTE_8: { path: 'route-8' },
+  ROUTE_8_GATE: { path: 'route-8/route-8-gate' },
+  UNDERGROUND_PATH_ROUTE_8: { path: 'route-8/underground-path-route-8' },
+  UNDERGROUND_PATH_WEST_EAST: { path: 'route-8/underground-path-west-east' },
   VERMILION_CITY: { path: 'vermilion-city' },
   VERMILION_GYM: { path: 'vermilion-city/vermilion-gym' },
   VERMILION_TRADE_HOUSE: { path: 'vermilion-city/vermilion-trade-house' },
@@ -180,6 +184,7 @@ const SAFFRON_GATE_GUARD = {
 const SCRIPTED_NPCS = {
   ROUTE5GATE_GUARD: SAFFRON_GATE_GUARD,
   ROUTE6GATE_GUARD: SAFFRON_GATE_GUARD,
+  ROUTE8GATE_GUARD: SAFFRON_GATE_GUARD,
   PALLETTOWN_OAK: {
     cutscene: true,
     dialog: [

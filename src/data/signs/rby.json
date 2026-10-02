@@ -364,6 +364,13 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-8",
+    "x": 17,
+    "y": 3,
+    "text": "UNDERGROUND PATH CELADON CITY - LAVENDER TOWN",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "vermilion-city/ss-anne",
     "floor": "captains-room",
     "x": 4,

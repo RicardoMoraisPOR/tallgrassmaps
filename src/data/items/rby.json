@@ -1858,6 +1858,30 @@
     ]
   },
   {
+    "path": "route-8/underground-path-west-east",
+    "x": 12,
+    "y": 2,
+    "item": "Nugget",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
+    "path": "route-8/underground-path-west-east",
+    "x": 21,
+    "y": 5,
+    "item": "Elixer",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
     "path": "celadon-city",
     "x": 48,
     "y": 15,

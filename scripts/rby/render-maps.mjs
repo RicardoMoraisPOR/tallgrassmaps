@@ -59,6 +59,8 @@ const maps = [
     ['Daycare', 'daycare'],
     ['UndergroundPathRoute6', 'underground-path-route-6'],
     ['Route6Gate', 'route-6-gate'],
+    ['Route8Gate', 'route-8-gate'],
+    ['UndergroundPathRoute8', 'underground-path-route-8'],
     ['VermilionGym', 'vermilion-gym'],
     ['VermilionTradeHouse', 'vermilion-trade-house'],
     ['PokemonFanClub', 'pokemon-fan-club'],
@@ -84,6 +86,7 @@ const maps = [
     ['SSAnneKitchen', 'ss-anne/kitchen'],
     ['SSAnneCaptainsRoom', 'ss-anne/captains-room'],
     ['UndergroundPathNorthSouth', 'underground-path-north-south'],
+    ['UndergroundPathWestEast', 'underground-path-west-east'],
     ['RedsHouse1F', 'reds-house/1f'],
     ['RedsHouse2F', 'reds-house/2f'],
   ].map(([name, out, yellowName]) => ({
