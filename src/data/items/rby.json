@@ -1732,6 +1732,19 @@
     ]
   },
   {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 1,
+    "y": 1,
+    "item": "Nugget",
+    "hidden": true,
+    "games": [
+      "red",
+      "blue",
+      "yellow"
+    ]
+  },
+  {
     "path": "cerulean-city/cerulean-cave",
     "floor": "1f",
     "x": 14,

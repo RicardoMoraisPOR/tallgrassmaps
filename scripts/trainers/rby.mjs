@@ -148,6 +148,18 @@ const TRAINER_DIALOG_MAPS = new Set([
   'PokemonTower7F',
   'VermilionGym',
   'CeladonGym',
+  'SaffronGym',
+  'FightingDojo',
+  'SilphCo2F',
+  'SilphCo3F',
+  'SilphCo4F',
+  'SilphCo5F',
+  'SilphCo6F',
+  'SilphCo7F',
+  'SilphCo8F',
+  'SilphCo9F',
+  'SilphCo10F',
+  'SilphCo11F',
   'GameCorner',
   'RocketHideoutB1F',
   'RocketHideoutB2F',
@@ -187,10 +199,14 @@ const PRESENCE = {
   POKEMONTOWER7F_JESSIE: LEAVES_AFTER_BATTLE,
   MTMOONB2F_JESSIE:
     'Only appears after you beat the Super Nerd guarding the fossils, leaves after the battle',
+  ROCKETHIDEOUTB4F_JESSIE:
+    'Only appears when you reach the elevator, leaves after the battle',
+  SILPHCO11F_JESSIE: LEAVES_AFTER_BATTLE,
   GAMECORNER_ROCKET: LEAVES_AFTER_BATTLE,
   ROCKETHIDEOUTB4F_GIOVANNI: LEAVES_AFTER_BATTLE,
   VIRIDIANGYM_GIOVANNI: LEAVES_AFTER_BATTLE,
   SILPHCO11F_GIOVANNI: LEAVES_AFTER_BATTLE,
+  SILPHCO7F_RIVAL: LEAVES_AFTER_BATTLE,
 };
 
 const SILPH_TRAINER = /^SILPHCO\d+F_/;
@@ -301,6 +317,47 @@ const OBJECT_DIALOG = {
     {
       label: 'After battle',
       texts: ['_FuchsiaGymKogaPostBattleAdviceText'],
+    },
+  ],
+  SAFFRONGYM_SABRINA: [
+    { label: 'Before battle', texts: ['_SaffronGymSabrinaText'] },
+    {
+      label: 'If you win, she gives you the Marsh Badge and TM46',
+      texts: [
+        '_SaffronGymSabrinaReceivedMarshBadgeText',
+        '_SaffronGymSabrinaMarshBadgeInfoText',
+        '_SaffronGymSabrinaReceivedTM46Text',
+        '_TM46ExplanationText',
+      ],
+      gift: { name: 'TM46' },
+    },
+    {
+      label: 'If your bag is full',
+      texts: ['_SaffronGymSabrinaTM46NoRoomText'],
+    },
+    {
+      label: 'After battle',
+      texts: ['_SaffronGymSabrinaPostBattleAdviceText'],
+    },
+  ],
+  FIGHTINGDOJO_KARATE_MASTER: [
+    { label: 'Before battle', texts: ['_FightingDojoKarateMasterText'] },
+    { label: 'If you win', texts: ['_FightingDojoKarateMasterDefeatedText'] },
+    {
+      label: 'After battle, he lets you take Hitmonlee or Hitmonchan',
+      texts: ['_FightingDojoKarateMasterIWillGiveYouAPokemonText'],
+    },
+    {
+      label: 'After you take one',
+      texts: ['_FightingDojoKarateMasterStayAndTrainWithUsText'],
+    },
+  ],
+  SILPHCO11F_GIOVANNI: [
+    { label: 'Before battle', texts: ['_SilphCo11FGiovanniText'] },
+    { label: 'If you win', texts: ['_SilphCo11FGiovanniILostAgainText'] },
+    {
+      label: 'After battle',
+      texts: ['_SilphCo11FGiovanniYouRuinedOurPlansText'],
     },
   ],
   CELADONGYM_ERIKA: [
@@ -554,6 +611,13 @@ const scripted = [
     script: 'SilphCo7F',
     trainer: 'RIVAL2',
     teams: { ...rb([7, 8, 9]), yellow: [5, 6, 7] },
+    object: 'SILPHCO7F_RIVAL',
+    dialog: [
+      { label: 'Before battle', texts: ['_SilphCo7FRivalWaitedHereText'] },
+      { label: 'If you win', texts: ['_SilphCo7FRivalDefeatedText'] },
+      { label: 'If you lose', texts: ['_SilphCo7FRivalVictoryText'] },
+      { label: 'After battle', texts: ['_SilphCo7FRivalGoodLuckToYouText'] },
+    ],
   },
   {
     script: 'Route22',
@@ -596,7 +660,22 @@ const scripted = [
         { label: 'After battle', texts: ['_MtMoonJessieJamesText4'] },
       ],
     ],
-    ['RocketHideoutB4F', 0x2b],
+    [
+      'RocketHideoutB4F',
+      0x2b,
+      'ROCKETHIDEOUTB4F_JESSIE',
+      [
+        {
+          label: 'Before battle',
+          texts: [
+            '_RocketHideoutJessieJamesText1',
+            '_RocketHideoutJessieJamesText2',
+          ],
+        },
+        { label: 'If you win', texts: ['_RocketHideoutJessieJamesText3'] },
+        { label: 'After battle', texts: ['_RocketHideoutJessieJamesText4'] },
+      ],
+    ],
     [
       'PokemonTower7F',
       0x2c,
@@ -613,7 +692,19 @@ const scripted = [
         { label: 'After battle', texts: ['_PokemonTowerJessieJamesText4'] },
       ],
     ],
-    ['SilphCo11F', 0x2d],
+    [
+      'SilphCo11F',
+      0x2d,
+      'SILPHCO11F_JESSIE',
+      [
+        {
+          label: 'Before battle',
+          texts: ['_SilphCoJessieJamesText1', '_SilphCoJessieJamesText2'],
+        },
+        { label: 'If you win', texts: ['_SilphCoJessieJamesText3'] },
+        { label: 'After battle', texts: ['_SilphCoJessieJamesText4'] },
+      ],
+    ],
   ].map(([script, index, object, dialog]) => ({
     script,
     trainer: 'ROCKET',
@@ -770,7 +861,13 @@ for (const game of games) {
   const battleDialog = (dialog = []) =>
     dialog.flatMap(({ label, texts, gift }) => {
       const text = texts
-        .map((far) => farText(game, far))
+        .map((far) =>
+          farText(
+            game,
+            far,
+            gift ? { wStringBuffer: gift.name.toUpperCase() } : {},
+          ),
+        )
         .filter(Boolean)
         .join('\n\n');
 

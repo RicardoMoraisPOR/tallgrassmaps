@@ -166,6 +166,27 @@ const NPC_MAPS = {
   ROCKET_HIDEOUT_B_3_F: { path: 'celadon-city/rocket-game-corner' },
   ROCKET_HIDEOUT_B_4_F: { path: 'celadon-city/rocket-game-corner' },
   ROCKET_HIDEOUT_ELEVATOR: { path: 'celadon-city/rocket-game-corner' },
+  SAFFRON_CITY: { path: 'saffron-city' },
+  SAFFRON_POKECENTER: { path: 'saffron-city/saffron-pokemon-center' },
+  SAFFRON_MART: { path: 'saffron-city/saffron-poke-mart' },
+  SAFFRON_GYM: { path: 'saffron-city/saffron-gym' },
+  FIGHTING_DOJO: { path: 'saffron-city/fighting-dojo' },
+  COPYCATS_HOUSE_1_F: { path: 'saffron-city/copycats-house' },
+  COPYCATS_HOUSE_2_F: { path: 'saffron-city/copycats-house' },
+  SAFFRON_PIDGEY_HOUSE: { path: 'saffron-city/saffron-pidgey-house' },
+  MR_PSYCHICS_HOUSE: { path: 'saffron-city/mr-psychics-house' },
+  SILPH_CO_1_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_2_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_3_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_4_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_5_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_6_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_7_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_8_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_9_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_10_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_11_F: { path: 'saffron-city/silph-co' },
+  SILPH_CO_ELEVATOR: { path: 'saffron-city/silph-co' },
   CINNABAR_ISLAND: { path: 'cinnabar-island' },
   CINNABAR_GYM: { path: 'cinnabar-island/cinnabar-gym' },
   CINNABAR_LAB: { path: 'cinnabar-island/cinnabar-lab' },
@@ -224,6 +245,9 @@ const OBJECT_SPRITES = new Set([
 const SCRIPTED_BATTLES = new Set([
   'POKEMONTOWER2F_RIVAL',
   'CHAMPIONSROOM_RIVAL',
+  'SILPHCO7F_RIVAL',
+  'SILPHCO11F_JAMES',
+  'SILPHCO11F_JESSIE',
 ]);
 
 const SPRITE_DIALOG = {
@@ -368,6 +392,50 @@ const DRINK_TMS = [
   ['Soda Pop', 'SodaPop', 'TM48'],
   ['Lemonade', 'Lemonade', 'TM49'],
 ];
+
+const silphWorker = (before, after) => ({
+  dialog: [
+    {
+      trigger: 'Before you beat Giovanni in Silph Co.',
+      texts: [`_SilphCo${before}Text`],
+    },
+    {
+      trigger: 'After you beat Giovanni in Silph Co.',
+      texts: [`_SilphCo${after}Text`],
+    },
+  ],
+});
+
+const LEAVES_AFTER_SILPH = 'Leaves after you beat Giovanni in Silph Co.';
+
+const APPEARS_AFTER_SILPH = 'Only appears after you beat Giovanni in Silph Co.';
+
+const NPC_PRESENCE = {
+  ...Object.fromEntries(
+    [1, 2, 3, 4, 5, 6, 7, 8].map((number) => [
+      `SAFFRONCITY_ROCKET${number}`,
+      LEAVES_AFTER_SILPH,
+    ]),
+  ),
+  SAFFRONCITY_ROCKET9:
+    'Only appears after you rescue Mr. Fuji in the Pokémon Tower, leaves after you beat Giovanni in Silph Co.',
+  ...Object.fromEntries(
+    [
+      'SCIENTIST',
+      'SILPH_WORKER_M',
+      'SILPH_WORKER_F',
+      'GENTLEMAN',
+      'PIDGEOT',
+      'ROCKER',
+    ].map((name) => [`SAFFRONCITY_${name}`, APPEARS_AFTER_SILPH]),
+  ),
+};
+
+const NPC_NAMES = {
+  COPYCATSHOUSE2F_MONSTER: 'Doll',
+  COPYCATSHOUSE2F_BIRD: 'Doll',
+  COPYCATSHOUSE2F_FAIRY: 'Doll',
+};
 
 const SCRIPTED_NPCS = {
   ROUTE5GATE_GUARD: SAFFRON_GATE_GUARD,
@@ -2169,6 +2237,175 @@ const SCRIPTED_NPCS = {
       },
     ],
   },
+  COPYCATSHOUSE2F_COPYCAT: {
+    dialog: [
+      {
+        trigger: 'Without a Poké Doll',
+        texts: ['_CopycatsHouse2FCopycatDoYouLikePokemonText'],
+      },
+      {
+        trigger: 'If you have a Poké Doll, she trades it for TM31',
+        texts: [
+          '_CopycatsHouse2FCopycatTM31PreReceiveText',
+          '_CopycatsHouse2FCopycatReceivedTM31Text',
+          '_CopycatsHouse2FCopycatTM31Explanation1Text',
+        ],
+        gift: { name: 'TM31' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_CopycatsHouse2FCopycatTM31NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM31',
+        texts: ['_CopycatsHouse2FCopycatTM31Explanation2Text'],
+      },
+    ],
+  },
+  MRPSYCHICSHOUSE_MR_PSYCHIC: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you TM29',
+        texts: [
+          '_MrPsychicsHouseMrPsychicYouWantedThisText',
+          '_MrPsychicsHouseMrPsychicReceivedTM29Text',
+        ],
+        gift: { name: 'TM29' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_MrPsychicsHouseMrPsychicTM29NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM29',
+        texts: ['_MrPsychicsHouseMrPsychicTM29ExplanationText'],
+      },
+    ],
+  },
+  SAFFRONGYM_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Sabrina',
+        texts: ['_SaffronGymGuideChampInMakingText'],
+      },
+      {
+        trigger: 'After you beat Sabrina',
+        texts: ['_SaffronGymGuideBeatSabrinaText'],
+      },
+    ],
+  },
+  SILPHCO2F_SILPH_WORKER_F: {
+    dialog: [
+      {
+        trigger: 'When you talk to her, she gives you TM36',
+        texts: [
+          'SilphCo2FSilphWorkerFPleaseTakeThisText',
+          '_SilphCo2FSilphWorkerFReceivedTM36Text',
+        ],
+        gift: { name: 'TM36' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_SilphCo2FSilphWorkerFTM36NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM36',
+        texts: ['_SilphCo2FSilphWorkerFTM36ExplanationText'],
+      },
+    ],
+  },
+  SILPHCO3F_SILPH_WORKER_M: silphWorker(
+    '3FSilphWorkerMWhatShouldIDo',
+    '3FSilphWorkerMYouSavedUs',
+  ),
+  SILPHCO4F_SILPH_WORKER_M: silphWorker(
+    '4FSilphWorkerMImHiding',
+    '4FSilphWorkerMTeamRocketIsGone',
+  ),
+  SILPHCO5F_SILPH_WORKER_M: silphWorker(
+    '5FSilphWorkerMThatsYouRight',
+    '5FSilphWorkerMYoureOurHero',
+  ),
+  SILPHCO6F_SILPH_WORKER_M1: silphWorker(
+    '6FSilphWorkerM1TookOverTheBuilding',
+    '6FSilphWorkerM1BackToWork',
+  ),
+  SILPHCO6F_SILPH_WORKER_M2: silphWorker(
+    '6FSilphWorkerMHelpMePlease',
+    '6FSilphWorkerMWeGotEngaged',
+  ),
+  SILPHCO6F_SILPH_WORKER_F1: silphWorker(
+    '6FSilphWorkerF1SuchACoward',
+    '6FSilphWorkerF1HaveToMarryHim',
+  ),
+  SILPHCO6F_SILPH_WORKER_F2: silphWorker(
+    '6FSilphWorkerF2TeamRocketConquerWorld',
+    '6FSilphWorkerF2TeamRocketRan',
+  ),
+  SILPHCO6F_SILPH_WORKER_M3: silphWorker(
+    '6FSilphWorkerM3TargetedSilph',
+    '6FSilphWorkerM3WorkForSilph',
+  ),
+  SILPHCO7F_SILPH_WORKER_M1: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you Lapras',
+        texts: [
+          '_SilphCo7FSilphWorkerM1HaveThisPokemonText',
+          '_SilphCo7FSilphWorkerM1LaprasDescriptionText',
+        ],
+        pokemon: 'LAPRAS',
+      },
+      {
+        trigger: 'After you get Lapras, before you beat Giovanni',
+        texts: ['_SilphCo7FSilphWorkerM1IsOurPresidentOkText'],
+      },
+      {
+        trigger: 'After you beat Giovanni in Silph Co.',
+        texts: ['_SilphCo7FSilphWorkerM1SavedText'],
+      },
+    ],
+  },
+  SILPHCO7F_SILPH_WORKER_M2: silphWorker(
+    '7FSilphWorkerM2AfterTheMasterBall',
+    '7FSilphWorkerM2CancelledMasterBall',
+  ),
+  SILPHCO7F_SILPH_WORKER_M3: silphWorker(
+    '7FSilphWorkerM3ItWouldBeBad',
+    '7FSilphWorkerM3YouChasedOffTeamRocket',
+  ),
+  SILPHCO7F_SILPH_WORKER_M4: silphWorker(
+    '7FSilphWorkerM4ItsReallyDangerousHere',
+    '7FSilphWorkerM4SafeAtLast',
+  ),
+  SILPHCO8F_SILPH_WORKER_M: silphWorker(
+    '8FSilphWorkerMSilphIsFinished',
+    '8FSilphWorkerMThanksForSavingUs',
+  ),
+  SILPHCO10F_SILPH_WORKER_F: silphWorker(
+    '10FSilphWorkerFImScared',
+    '10FSilphWorkerFQuietAboutMyCrying',
+  ),
+  SILPHCO11F_SILPH_PRESIDENT: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you the Master Ball',
+        texts: [
+          '_SilphCo11FSilphPresidentText',
+          '_SilphCo11FSilphPresidentReceivedMasterBallText',
+        ],
+        gift: { name: 'Master Ball' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_SilphCo11FSilphPresidentNoRoomText'],
+      },
+      {
+        trigger: 'After you get the Master Ball',
+        texts: ['_SilphCo11FSilphPresidentMasterBallDescriptionText'],
+      },
+    ],
+  },
   VERMILIONGYM_GYM_GUIDE: {
     dialog: [
       {
@@ -2406,7 +2643,13 @@ const giftFor = (game, { sprite = 'POKE_BALL', ...gift }) => ({
 const scriptedDialog = (game, dialog, values = {}) =>
   dialog.flatMap(({ trigger, texts, gift, pokemon, values: own }) => {
     const text = texts
-      .map((label) => farText(game, label, { ...values, ...own }))
+      .map((label) =>
+        farText(game, label, {
+          ...(gift && { wStringBuffer: gift.name.toUpperCase() }),
+          ...values,
+          ...own,
+        }),
+      )
       .filter(Boolean)
       .join('\n\n');
 
@@ -2503,7 +2746,9 @@ for (const game of games) {
 
       if (OBJECT_SPRITES.has(sprite) && !scripted) return;
       if (SCRIPTED_BATTLES.has(toggles[index])) return;
-      if (hidden.has(toggles[index]) && !scripted) return;
+      const presence = scripted?.presence ?? NPC_PRESENCE[toggles[index]];
+
+      if (hidden.has(toggles[index]) && !scripted && !presence) return;
 
       const trade = !scripted && npcTrade(game, file, textId);
       const text = !scripted && !trade && mapText(game, file, textId);
@@ -2524,12 +2769,16 @@ for (const game of games) {
         ...(floor && { floor }),
         x: Number(x),
         y: Number(y),
-        name: scripted?.name ?? spriteNames[sprite] ?? displayName(textId),
+        name:
+          scripted?.name ??
+          NPC_NAMES[toggles[index]] ??
+          spriteNames[sprite] ??
+          displayName(textId),
         sprite: spritePath(game, sprite),
         facing: facings[direction] ?? 'down',
         dialog,
         ...(scripted?.cutscene && { cutscene: true }),
-        ...(scripted?.presence && { presence: scripted.presence }),
+        ...(presence && { presence }),
         ...(scripted?.item && { item: true }),
         ...((trade ||
           scripted?.special ||
@@ -2539,6 +2788,19 @@ for (const game of games) {
     });
   }
 }
+
+const BENCH_GUY_DIALOG = {
+  SaffronCityPokecenterBenchGuyText: [
+    {
+      trigger: 'Before you beat Giovanni in Silph Co.',
+      texts: ['_SaffronCityPokecenterGuyText1'],
+    },
+    {
+      trigger: 'After you beat Giovanni in Silph Co.',
+      texts: ['_SaffronCityPokecenterGuyText2'],
+    },
+  ],
+};
 
 const benchGuys = (game) => {
   const texts = new Map(
@@ -2566,13 +2828,17 @@ const benchGuys = (game) => {
 
   return guys.flatMap(({ map, x, y }) => {
     const place = NPC_MAPS[map];
-    const text = labelText(
-      game,
-      'engine/events/hidden_events/bench_guys.asm',
-      texts.get(map),
-    );
+    const scripted = BENCH_GUY_DIALOG[texts.get(map)];
+    const text =
+      !scripted &&
+      labelText(
+        game,
+        'engine/events/hidden_events/bench_guys.asm',
+        texts.get(map),
+      );
+    const dialog = scripted ? scriptedDialog(game, scripted) : [{ text }];
 
-    if (!place || !text) return [];
+    if (!place || (!scripted && !text)) return [];
 
     const floor = place.floor ?? floorFor(map);
 
@@ -2587,7 +2853,7 @@ const benchGuys = (game) => {
         sprite: 'bench_guy',
         facing: 'down',
         spriteOffset: [6, 0],
-        dialog: [{ text }],
+        dialog,
       },
     ];
   });

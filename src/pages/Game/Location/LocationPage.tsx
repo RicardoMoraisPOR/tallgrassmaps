@@ -54,7 +54,7 @@ export const LocationPage = () => {
 
   const trail = route?.trail;
   const location = trail?.at(-1);
-  const { floor, arrivedAt, selectFloor } = useFloor(location?.floors);
+  const { floor, arrivedAt, from, selectFloor } = useFloor(location?.floors);
   const { key: visitKey } = useLocation();
   const [arrivalShown, setArrivalShown] = useState<string>();
   const { state: eventState, selectState: selectEventState } = useEventState();
@@ -155,6 +155,7 @@ export const LocationPage = () => {
     route.game.tileSize,
     floor,
     {
+      from,
       items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
       itemTooltip: (item) => (
         <MapTextTooltip

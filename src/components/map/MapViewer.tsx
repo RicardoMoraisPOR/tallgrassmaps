@@ -97,6 +97,7 @@ export type MapIconKind =
   | { kind: 'door' }
   | { kind: 'exit' }
   | { kind: 'stairs' | 'ladder' | 'hole' | 'current'; step?: 'up' | 'down' }
+  | { kind: 'teleport' }
   | { kind: 'sign' };
 
 type MapViewerProps = {
@@ -429,6 +430,11 @@ export const mapIconArt: Record<
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v18"/><path d="M16 3v18"/><path d="M8 7h8"/><path d="M8 12h8"/><path d="M8 17h8"/></svg>',
     game: '<svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M1 0h1v8h-1zM5 0h1v8h-1zM2 1h3v1h-3zM2 4h3v1h-3zM2 7h3v1h-3z"/></svg>',
+  },
+  teleport: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="18" rx="9" ry="3.5"/><path d="M7 14V7"/><path d="M12 14V3"/><path d="M17 14V7"/></svg>',
+    game: '<svg viewBox="0 0 8 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M1 1h1v3h-1zM3 0h2v4h-2zM6 1h1v3h-1zM1 5h6v1h-6zM0 6h8v1h-8z"/></svg>',
   },
   current: {
     'tall-grass':

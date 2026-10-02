@@ -316,8 +316,26 @@ const outdoor: Array<OutdoorEntry> = [
   },
 ];
 
+type Tile = [x: number, y: number];
+
+type Teleporter = { area: Rect; pad: Tile; lands: Tile };
+
+const teleporter = (x: number, y: number, lands: Tile): Teleporter => ({
+  area: warp(x, y),
+  pad: [x, y],
+  lands,
+});
+
+const padFields = ({ pad, lands }: Teleporter) => ({
+  pad: pad.join(),
+  lands: lands.join(),
+});
+
 type FloorExit = {
   area: Rect;
+  pad?: Tile;
+  lands?: Tile;
+  back?: boolean;
   travel?: Direction;
   ladder?: boolean;
   hole?: boolean;
@@ -385,7 +403,7 @@ type InsideEntry = {
   otherParents?: Array<string>;
   entrances: Array<Rect | { area: Rect; floor: string }>;
   otherEntrances?: Record<string, Array<Rect>>;
-  exits?: Array<Rect | { area: Rect; to: string }>;
+  exits?: Array<Rect | { area: Rect; to: string } | Teleporter>;
   cell?: [x: number, y: number];
   floors?: Array<FloorEntry>;
   variants?: Array<MapVariant>;
@@ -941,7 +959,9 @@ const inside: Array<InsideEntry> = [
       {
         name: 'Elevator',
         size: [96, 128],
-        exits: [{ floor: 'B1F', area: rect(32, 16, 32, 16), door: true }],
+        exits: [
+          { floor: 'B1F', area: rect(32, 16, 32, 16), door: true, back: true },
+        ],
       },
     ],
   },
@@ -1013,21 +1033,196 @@ const inside: Array<InsideEntry> = [
     parent: 'saffron-city',
     entrances: [entrance(288, 336)],
     floors: [
-      { name: '1F', size: [480, 288] },
-      { name: '2F', size: [480, 288] },
-      { name: '3F', size: [480, 288] },
-      { name: '4F', size: [480, 288] },
-      { name: '5F', size: [480, 288] },
-      { name: '6F', size: [416, 288] },
-      { name: '7F', size: [416, 288] },
-      { name: '8F', size: [416, 288] },
-      { name: '9F', size: [416, 288] },
-      { name: '10F', size: [256, 288] },
+      {
+        name: '1F',
+        size: [480, 288],
+        exits: [
+          { to: 'saffron-city', area: rect(160, 272, 32, 16) },
+          { floor: '2F', area: warp(26, 0) },
+          { floor: 'Elevator', area: warp(20, 0), door: true },
+        ],
+      },
+      {
+        name: '2F',
+        size: [480, 288],
+        exits: [
+          { floor: '1F', area: warp(24, 0) },
+          { floor: '3F', area: warp(26, 0) },
+          { floor: 'Elevator', area: warp(20, 0), door: true },
+          { floor: '3F', ...teleporter(3, 3, [27, 3]) },
+          { floor: '8F', ...teleporter(13, 3, [3, 15]) },
+          { floor: '8F', ...teleporter(27, 15, [11, 5]) },
+          { floor: '6F', ...teleporter(9, 15, [23, 3]) },
+        ],
+      },
+      {
+        name: '3F',
+        size: [480, 288],
+        exits: [
+          { floor: '2F', area: warp(26, 0) },
+          { floor: '4F', area: warp(24, 0) },
+          { floor: 'Elevator', area: warp(20, 0), door: true },
+          { floor: '3F', ...teleporter(23, 11, [27, 15]) },
+          { floor: '5F', ...teleporter(3, 3, [11, 5]) },
+          { floor: '5F', ...teleporter(3, 15, [3, 15]) },
+          { floor: '2F', ...teleporter(27, 3, [3, 3]) },
+          { floor: '9F', ...teleporter(3, 11, [9, 3]) },
+          { floor: '7F', ...teleporter(11, 11, [5, 3]) },
+          { floor: '3F', ...teleporter(27, 15, [23, 11]) },
+        ],
+      },
+      {
+        name: '4F',
+        size: [480, 288],
+        exits: [
+          { floor: '3F', area: warp(24, 0) },
+          { floor: '5F', area: warp(26, 0) },
+          { floor: 'Elevator', area: warp(20, 0), door: true },
+          { floor: '10F', ...teleporter(11, 7, [9, 11]) },
+          { floor: '6F', ...teleporter(17, 3, [3, 3]) },
+          { floor: '10F', ...teleporter(3, 15, [13, 15]) },
+          { floor: '10F', ...teleporter(17, 11, [13, 7]) },
+        ],
+      },
+      {
+        name: '5F',
+        size: [480, 288],
+        exits: [
+          { floor: '6F', area: warp(24, 0) },
+          { floor: '4F', area: warp(26, 0) },
+          { floor: 'Elevator', area: warp(20, 0), door: true },
+          { floor: '7F', ...teleporter(27, 3, [21, 15]) },
+          { floor: '9F', ...teleporter(9, 15, [17, 15]) },
+          { floor: '3F', ...teleporter(11, 5, [3, 3]) },
+          { floor: '3F', ...teleporter(3, 15, [3, 15]) },
+        ],
+      },
+      {
+        name: '6F',
+        size: [416, 288],
+        exits: [
+          { floor: '7F', area: warp(16, 0) },
+          { floor: '5F', area: warp(14, 0) },
+          { floor: 'Elevator', area: warp(18, 0), door: true },
+          { floor: '4F', ...teleporter(3, 3, [17, 3]) },
+          { floor: '2F', ...teleporter(23, 3, [9, 15]) },
+        ],
+      },
+      {
+        name: '7F',
+        size: [416, 288],
+        exits: [
+          { floor: '8F', area: warp(16, 0) },
+          { floor: '6F', area: warp(22, 0) },
+          { floor: 'Elevator', area: warp(18, 0), door: true },
+          { floor: '11F', ...teleporter(5, 7, [3, 2]) },
+          { floor: '3F', ...teleporter(5, 3, [11, 11]) },
+          { floor: '5F', ...teleporter(21, 15, [27, 3]) },
+        ],
+      },
+      {
+        name: '8F',
+        size: [416, 288],
+        exits: [
+          { floor: '9F', area: warp(16, 0) },
+          { floor: '7F', area: warp(14, 0) },
+          { floor: 'Elevator', area: warp(18, 0), door: true },
+          { floor: '8F', ...teleporter(3, 11, [11, 9]) },
+          { floor: '2F', ...teleporter(3, 15, [13, 3]) },
+          { floor: '2F', ...teleporter(11, 5, [27, 15]) },
+          { floor: '8F', ...teleporter(11, 9, [3, 11]) },
+        ],
+      },
+      {
+        name: '9F',
+        size: [416, 288],
+        exits: [
+          { floor: '10F', area: warp(14, 0) },
+          { floor: '8F', area: warp(16, 0) },
+          { floor: 'Elevator', area: warp(18, 0), door: true },
+          { floor: '3F', ...teleporter(9, 3, [3, 11]) },
+          { floor: '5F', ...teleporter(17, 15, [9, 15]) },
+        ],
+      },
+      {
+        name: '10F',
+        size: [256, 288],
+        exits: [
+          { floor: '9F', area: warp(8, 0) },
+          { floor: '11F', area: warp(10, 0) },
+          { floor: 'Elevator', area: warp(12, 0), door: true },
+          { floor: '4F', ...teleporter(9, 11, [11, 7]) },
+          { floor: '4F', ...teleporter(13, 15, [3, 15]) },
+          { floor: '4F', ...teleporter(13, 7, [17, 11]) },
+        ],
+      },
       {
         name: '11F',
         size: [288, 288],
+        exits: [
+          { floor: '10F', area: warp(9, 0) },
+          { floor: 'Elevator', area: warp(13, 0), door: true },
+          { floor: '7F', ...teleporter(3, 2, [5, 7]) },
+        ],
+      },
+      {
+        name: 'Elevator',
+        size: [64, 64],
+        exits: [
+          { floor: '1F', area: rect(16, 48, 32, 16), door: true, back: true },
+        ],
       },
     ],
+  },
+  {
+    id: 'saffron-gym',
+    name: 'Saffron Gym',
+    kind: 'building',
+    size: [320, 288],
+    parent: 'saffron-city',
+    entrances: [warp(34, 3)],
+    exits: [
+      rect(128, 272, 32, 16),
+      teleporter(1, 3, [15, 5]),
+      teleporter(5, 3, [11, 3]),
+      teleporter(1, 5, [11, 11]),
+      teleporter(5, 5, [1, 11]),
+      teleporter(1, 9, [19, 11]),
+      teleporter(5, 9, [9, 5]),
+      teleporter(1, 11, [5, 5]),
+      teleporter(5, 11, [5, 17]),
+      teleporter(1, 15, [19, 5]),
+      teleporter(5, 15, [15, 17]),
+      teleporter(1, 17, [11, 5]),
+      teleporter(5, 17, [5, 11]),
+      teleporter(9, 3, [15, 11]),
+      teleporter(11, 3, [5, 3]),
+      teleporter(9, 5, [5, 9]),
+      teleporter(11, 5, [1, 17]),
+      teleporter(11, 11, [1, 5]),
+      teleporter(11, 15, [19, 17]),
+      teleporter(15, 3, [15, 9]),
+      teleporter(19, 3, [15, 15]),
+      teleporter(15, 5, [1, 3]),
+      teleporter(19, 5, [1, 15]),
+      teleporter(15, 9, [15, 3]),
+      teleporter(19, 9, [19, 15]),
+      teleporter(15, 11, [9, 3]),
+      teleporter(19, 11, [1, 9]),
+      teleporter(15, 15, [19, 3]),
+      teleporter(19, 15, [19, 9]),
+      teleporter(15, 17, [5, 15]),
+      teleporter(19, 17, [11, 15]),
+    ],
+  },
+  {
+    id: 'fighting-dojo',
+    name: 'Fighting Dojo',
+    kind: 'building',
+    size: [160, 192],
+    parent: 'saffron-city',
+    entrances: [warp(26, 3)],
+    exits: [rect(64, 176, 32, 16)],
   },
   {
     id: 'safari-zone',
@@ -1438,7 +1633,9 @@ const services: Array<InsideEntry> = [
       {
         name: 'Elevator',
         size: [64, 64],
-        exits: [{ floor: '1F', area: rect(16, 48, 32, 16), door: true }],
+        exits: [
+          { floor: '1F', area: rect(16, 48, 32, 16), door: true, back: true },
+        ],
       },
     ],
   },
@@ -2039,6 +2236,45 @@ const services: Array<InsideEntry> = [
     marker: 'house',
   },
   {
+    id: 'copycats-house',
+    name: "Copycat's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'saffron-city',
+    entrances: [warp(7, 5)],
+    marker: 'house',
+    floors: [
+      {
+        name: '1F',
+        exits: [
+          { to: 'saffron-city', area: rect(32, 112, 32, 16) },
+          { floor: '2F', area: warp(7, 1) },
+        ],
+      },
+      { name: '2F', exits: [{ floor: '1F', area: warp(7, 1) }] },
+    ],
+  },
+  {
+    id: 'saffron-pidgey-house',
+    name: 'Pidgey House',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'saffron-city',
+    entrances: [warp(13, 11)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
+    id: 'mr-psychics-house',
+    name: "Mr. Psychic's House",
+    kind: 'building',
+    size: [128, 128],
+    parent: 'saffron-city',
+    entrances: [warp(29, 29)],
+    exits: [rect(32, 112, 32, 16)],
+    marker: 'house',
+  },
+  {
     id: 'reds-house',
     name: "Red's House",
     kind: 'building',
@@ -2115,9 +2351,11 @@ const toInsideLocation = ({
     variants,
     ...(games && { games }),
     hotspots: exits.map((exit) => ({
-      ...('to' in exit ? exit.area : exit),
+      ...('area' in exit ? exit.area : exit),
       kind: 'exit' as const,
-      target: 'to' in exit ? exit.to : parent,
+      target:
+        'to' in exit ? exit.to : 'pad' in exit ? `${parent}/${id}` : parent,
+      ...('pad' in exit && padFields(exit)),
     })),
   };
 
@@ -2131,8 +2369,21 @@ const toInsideLocation = ({
       name: floor.name,
       image: floorImage(id, floor.name),
       hotspots: mergeHoles(floor.exits ?? []).map(
-        ({ area, travel, ladder, hole, current, door, ...exit }) => ({
+        ({
+          area,
+          pad,
+          lands,
+          back,
+          travel,
+          ladder,
+          hole,
+          current,
+          door,
+          ...exit
+        }) => ({
           ...area,
+          ...(pad && lands && padFields({ area, pad, lands })),
+          ...(back && { back }),
           ...(travel && { travel }),
           ...(ladder && { ladder }),
           ...(hole && { hole }),

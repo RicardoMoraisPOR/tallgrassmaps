@@ -149,6 +149,27 @@ const SIGN_MAPS = {
   ROCKET_HIDEOUT_B_3_F: 'celadon-city/rocket-game-corner',
   ROCKET_HIDEOUT_B_4_F: 'celadon-city/rocket-game-corner',
   ROCKET_HIDEOUT_ELEVATOR: 'celadon-city/rocket-game-corner',
+  SAFFRON_CITY: 'saffron-city',
+  SAFFRON_POKECENTER: 'saffron-city/saffron-pokemon-center',
+  SAFFRON_MART: 'saffron-city/saffron-poke-mart',
+  SAFFRON_GYM: 'saffron-city/saffron-gym',
+  FIGHTING_DOJO: 'saffron-city/fighting-dojo',
+  COPYCATS_HOUSE_1_F: 'saffron-city/copycats-house',
+  COPYCATS_HOUSE_2_F: 'saffron-city/copycats-house',
+  SAFFRON_PIDGEY_HOUSE: 'saffron-city/saffron-pidgey-house',
+  MR_PSYCHICS_HOUSE: 'saffron-city/mr-psychics-house',
+  SILPH_CO_1_F: 'saffron-city/silph-co',
+  SILPH_CO_2_F: 'saffron-city/silph-co',
+  SILPH_CO_3_F: 'saffron-city/silph-co',
+  SILPH_CO_4_F: 'saffron-city/silph-co',
+  SILPH_CO_5_F: 'saffron-city/silph-co',
+  SILPH_CO_6_F: 'saffron-city/silph-co',
+  SILPH_CO_7_F: 'saffron-city/silph-co',
+  SILPH_CO_8_F: 'saffron-city/silph-co',
+  SILPH_CO_9_F: 'saffron-city/silph-co',
+  SILPH_CO_10_F: 'saffron-city/silph-co',
+  SILPH_CO_11_F: 'saffron-city/silph-co',
+  SILPH_CO_ELEVATOR: 'saffron-city/silph-co',
   CINNABAR_ISLAND: 'cinnabar-island',
   CINNABAR_GYM: 'cinnabar-island/cinnabar-gym',
   CINNABAR_LAB: 'cinnabar-island/cinnabar-lab',
@@ -310,7 +331,33 @@ const prizesFor = (game, menu) => {
   );
 };
 
+const elevatorFloors = (game, name) => {
+  const lines = forGame(read(game.dir, `scripts/${name}.asm`), game.define);
+  const start = lines.indexOf(`${name}Floors:`);
+  const floors = [];
+
+  for (const line of lines.slice(start + 1)) {
+    const floor = line.match(/^db FLOOR_(\w+)$/)?.[1];
+
+    if (floor) floors.push(floor);
+    else if (floors.length > 0) break;
+  }
+
+  return `${farText(game, '_WhichFloorText')}\n\n${floors.join('\n')}`;
+};
+
+const elevatorPanel = (name) => (game) => elevatorFloors(game, name);
+
+const rocketHideoutElevator = (game) =>
+  [
+    `Without the Lift Key:\n\n${farText(game, '_RocketHideoutElevatorAppearsToNeedKeyText')}`,
+    `With the Lift Key:\n\n${elevatorFloors(game, 'RocketHideoutElevator')}`,
+  ].join('\n\n');
+
 const SIGN_TEXTS = {
+  CELADONMARTELEVATOR: elevatorPanel('CeladonMartElevator'),
+  SILPHCOELEVATOR_ELEVATOR: elevatorPanel('SilphCoElevator'),
+  ROCKETHIDEOUTELEVATOR: rocketHideoutElevator,
   CELADONMARTROOF_VENDING_MACHINE1: vendingMachine,
   CELADONMARTROOF_VENDING_MACHINE2: vendingMachine,
   CELADONMARTROOF_VENDING_MACHINE3: vendingMachine,
@@ -326,6 +373,7 @@ const SIGN_TEXTS = {
   ROUTE16GATE2F_RIGHT_BINOCULARS: '_Route16Gate2FRightBinocularsText',
   ROUTE18GATE2F_LEFT_BINOCULARS: '_Route18Gate2FLeftBinocularsText',
   ROUTE18GATE2F_RIGHT_BINOCULARS: '_Route18Gate2FRightBinocularsText',
+  COPYCATSHOUSE2F_PC: '_CopycatsHouse2FPCMySecretsText',
   WARDENSHOUSE_DISPLAY_LEFT: '_WardensHouseDisplayPhotosAndFossilsText',
   WARDENSHOUSE_DISPLAY_RIGHT: '_WardensHouseDisplayMerchandiseText',
   FUCHSIACITY_FOSSIL_SIGN: fossilSign,

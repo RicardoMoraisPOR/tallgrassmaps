@@ -6599,7 +6599,7 @@
     "encounters": [
       {
         "method": "gift",
-        "path": "saffron-city",
+        "path": "saffron-city/fighting-dojo",
         "levels": [30, 30],
         "games": ["red", "blue", "yellow"]
       }
@@ -6612,7 +6612,7 @@
     "encounters": [
       {
         "method": "gift",
-        "path": "saffron-city",
+        "path": "saffron-city/fighting-dojo",
         "levels": [30, 30],
         "games": ["red", "blue", "yellow"]
       }

@@ -28,7 +28,7 @@ const groups: Array<{
     ],
   },
   {
-    title: 'Stairs, ladders, holes and currents',
+    title: 'Stairs, ladders, holes, currents and teleporters',
     icons: [
       {
         label: 'Stairs · up',
@@ -63,6 +63,11 @@ const groups: Array<{
       {
         label: 'Current · down',
         icon: { kind: 'current', step: 'down' },
+        className: 'map-link-connection',
+      },
+      {
+        label: 'Teleporter',
+        icon: { kind: 'teleport' },
         className: 'map-link-connection',
       },
     ],

@@ -14,7 +14,7 @@
       },
       {
         "label": "If you win, she gives you the Rainbow Badge and TM21",
-        "text": "Oh! I concede defeat.\n\nYou are remarkably strong.\n\nI must confer you the RAINBOWBADGE.\n\nTM21 contains MEGA DRAIN.\n\nHalf the damage it inflicts is drained to heal your POKéMON!",
+        "text": "Oh! I concede defeat.\n\nYou are remarkably strong.\n\nI must confer you the RAINBOWBADGE.\n\nRED received TM21!\n\nTM21 contains MEGA DRAIN.\n\nHalf the damage it inflicts is drained to heal your POKéMON!",
         "gift": {
           "name": "TM21",
           "sprite": "poke_ball"
@@ -72,7 +72,7 @@
       },
       {
         "label": "If you win, she gives you the Rainbow Badge and TM21",
-        "text": "Oh! I concede defeat.\n\nYou are remarkably strong.\n\nI must confer you the RAINBOWBADGE.\n\nTM21 contains MEGA DRAIN.\n\nHalf the damage it inflicts is drained to heal your POKéMON!",
+        "text": "Oh! I concede defeat.\n\nYou are remarkably strong.\n\nI must confer you the RAINBOWBADGE.\n\nRED received TM21!\n\nTM21 contains MEGA DRAIN.\n\nHalf the damage it inflicts is drained to heal your POKéMON!",
         "gift": {
           "name": "TM21",
           "sprite": "poke_ball"
@@ -820,7 +820,26 @@
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
     "floor": "b4f",
+    "x": 24,
+    "y": 10,
+    "facing": "down",
+    "cutscene": true,
+    "presence": "Only appears when you reach the elevator, leaves after the battle",
     "sprite": "yellow/jessie",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Not another step, brat!\n\nHow dare you humiliate us at MT.MOON!\n\nIt's payback time, you brat!"
+      },
+      {
+        "label": "If you win",
+        "text": "Such a dreadful twerp!"
+      },
+      {
+        "label": "After battle",
+        "text": "Looks like TEAM ROCKET's blasting off again!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1520,7 +1539,7 @@
       },
       {
         "label": "If you win, he gives you the Volcano Badge and TM38",
-        "text": "I have burnt out!\n\nYou have earned the VOLCANOBADGE!\n\nHah!\n\nThe VOLCANOBADGE heightens the SPECIAL abilities of your POKéMON!\n\nHere, you can have this too!\n\nTM38 contains FIRE BLAST!\n\nTeach it to fire-type POKéMON!\n\nCHARMELEON or PONYTA would be good bets!",
+        "text": "I have burnt out!\n\nYou have earned the VOLCANOBADGE!\n\nHah!\n\nThe VOLCANOBADGE heightens the SPECIAL abilities of your POKéMON!\n\nHere, you can have this too!\n\nRED received TM38!\n\nTM38 contains FIRE BLAST!\n\nTeach it to fire-type POKéMON!\n\nCHARMELEON or PONYTA would be good bets!",
         "gift": {
           "name": "TM38",
           "sprite": "poke_ball"
@@ -1578,7 +1597,7 @@
       },
       {
         "label": "If you win, he gives you the Volcano Badge and TM38",
-        "text": "I have burnt out!\n\nYou have earned the VOLCANOBADGE!\n\nHah!\n\nThe VOLCANOBADGE heightens the SPECIAL abilities of your POKéMON!\n\nHere, you can have this too!\n\nTM38 contains FIRE BLAST!\n\nTeach it to fire-type POKéMON!\n\nCHARMELEON or PONYTA would be good bets!",
+        "text": "I have burnt out!\n\nYou have earned the VOLCANOBADGE!\n\nHah!\n\nThe VOLCANOBADGE heightens the SPECIAL abilities of your POKéMON!\n\nHere, you can have this too!\n\nRED received TM38!\n\nTM38 contains FIRE BLAST!\n\nTeach it to fire-type POKéMON!\n\nCHARMELEON or PONYTA would be good bets!",
         "gift": {
           "name": "TM38",
           "sprite": "poke_ball"
@@ -2178,7 +2197,7 @@
       },
       {
         "label": "If you win, he gives you the Soul Badge and TM06",
-        "text": "Humph! You have proven your worth!\n\nHere! Take the SOULBADGE!\n\nNow that you have the SOULBADGE, the DEFENSE of your POKéMON increases!\n\nIt also lets you SURF outside of battle!\n\nAh! Take this too!\n\nTM06 contains TOXIC!\n\nIt is a secret technique over 400 years old!",
+        "text": "Humph! You have proven your worth!\n\nHere! Take the SOULBADGE!\n\nNow that you have the SOULBADGE, the DEFENSE of your POKéMON increases!\n\nIt also lets you SURF outside of battle!\n\nAh! Take this too!\n\nRED received TM06!\n\nTM06 contains TOXIC!\n\nIt is a secret technique over 400 years old!",
         "gift": {
           "name": "TM06",
           "sprite": "poke_ball"
@@ -2236,7 +2255,7 @@
       },
       {
         "label": "If you win, he gives you the Soul Badge and TM06",
-        "text": "Humph! You have proven your worth!\n\nHere! Take the SOULBADGE!\n\nNow that you have the SOULBADGE, the DEFENSE of your POKéMON increases!\n\nIt also lets you SURF outside of battle!\n\nAh! Take this too!\n\nTM06 contains TOXIC!\n\nIt is a secret technique over 400 years old!",
+        "text": "Humph! You have proven your worth!\n\nHere! Take the SOULBADGE!\n\nNow that you have the SOULBADGE, the DEFENSE of your POKéMON increases!\n\nIt also lets you SURF outside of battle!\n\nAh! Take this too!\n\nRED received TM06!\n\nTM06 contains TOXIC!\n\nIt is a secret technique over 400 years old!",
         "gift": {
           "name": "TM06",
           "sprite": "poke_ball"
@@ -14117,7 +14136,7 @@
     "dialog": [
       {
         "label": "After you beat the 5 bridge trainers, he gives you a Nugget",
-        "text": "Congratulations! You beat our 5 contest trainers!\n\nYou just earned a fabulous prize!",
+        "text": "Congratulations! You beat our 5 contest trainers!\n\nYou just earned a fabulous prize!\n\nRED received a NUGGET!",
         "gift": {
           "name": "Nugget",
           "sprite": "poke_ball"
@@ -14921,9 +14940,29 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 5,
+    "y": 3,
+    "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Grunt!\n\nI am the KARATE MASTER! I am the LEADER here!\n\nYou wish to challenge us? Expect no mercy!\n\nFwaaa!"
+      },
+      {
+        "label": "If you win",
+        "text": "Hwa! Arrgh! Beaten!"
+      },
+      {
+        "label": "After battle, he lets you take Hitmonlee or Hitmonchan",
+        "text": "Indeed, I have lost!\n\nBut, I beseech you, do not take our emblem as your trophy!\n\nIn return, I will give you a prized fighting POKéMON!\n\nChoose whichever one you like!"
+      },
+      {
+        "label": "After you take one",
+        "text": "Ho!\n\nStay and train at Karate with us!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -14945,9 +14984,25 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 3,
+    "y": 4,
+    "facing": "right",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hoargh! Take your shoes off!"
+      },
+      {
+        "label": "If you win",
+        "text": "I give up!"
+      },
+      {
+        "label": "After battle",
+        "text": "You wait 'til you see our Master!\n\nI'm a small fry compared to him!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -14974,9 +15029,25 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 3,
+    "y": 4,
+    "facing": "right",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hoargh! Take your shoes off!"
+      },
+      {
+        "label": "If you win",
+        "text": "I give up!"
+      },
+      {
+        "label": "After battle",
+        "text": "You wait 'til you see our Master!\n\nI'm a small fry compared to him!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15003,9 +15074,25 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 3,
+    "y": 6,
+    "facing": "right",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I hear you're good! Show me!"
+      },
+      {
+        "label": "If you win",
+        "text": "Judge! 1 point!"
+      },
+      {
+        "label": "After battle",
+        "text": "Our Master is a pro fighter!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15027,9 +15114,25 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 5,
+    "y": 5,
+    "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Nothing tough frightens me!\n\nI break boulders for training!"
+      },
+      {
+        "label": "If you win",
+        "text": "Yow! Stubbed fingers!"
+      },
+      {
+        "label": "After battle",
+        "text": "The only thing that frightens us is psychic power!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15046,9 +15149,25 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 5,
+    "y": 5,
+    "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Nothing tough frightens me!\n\nI break boulders for training!"
+      },
+      {
+        "label": "If you win",
+        "text": "Yow! Stubbed fingers!"
+      },
+      {
+        "label": "After battle",
+        "text": "The only thing that frightens us is psychic power!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15065,9 +15184,25 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 5,
+    "y": 7,
+    "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hoohah!\n\nYou're trespassing in our FIGHTING DOJO!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oof! I give up!"
+      },
+      {
+        "label": "After battle",
+        "text": "The prime fighters across the land train here."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15094,9 +15229,25 @@
   {
     "name": "Blackbelt",
     "trainerClass": "blackbelt",
-    "path": "saffron-city",
-    "area": "Fighting Dojo",
+    "path": "saffron-city/fighting-dojo",
+    "x": 5,
+    "y": 7,
+    "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hoohah!\n\nYou're trespassing in our FIGHTING DOJO!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oof! I give up!"
+      },
+      {
+        "label": "After battle",
+        "text": "The prime fighters across the land train here."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15123,9 +15274,33 @@
   {
     "name": "Sabrina",
     "trainerClass": "sabrina",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 9,
+    "y": 8,
+    "facing": "down",
     "sprite": "girl",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I had a vision of your arrival!\n\nI have had psychic powers since I was a child.\n\nI first learned to bend spoons with my mind.\n\nI dislike fight-ing, but if you wish, I will show you my powers!"
+      },
+      {
+        "label": "If you win, she gives you the Marsh Badge and TM46",
+        "text": "I'm shocked! But, a loss is a loss.\n\nI admit I didn't work hard enough to win!\n\nYou earned the MARSHBADGE!\n\nThe MARSHBADGE makes POKéMON up to L70 obey you!\n\nStronger POKéMON will become wild, ignoring your orders in battle!\n\nJust don't raise your POKéMON too much!\n\nWait, please take this TM with you!\n\nRED received TM46!\n\nTM46 is PSYWAVE! It uses powerful psychic waves to inflict damage!",
+        "gift": {
+          "name": "TM46",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Your pack is full of other items!"
+      },
+      {
+        "label": "After battle",
+        "text": "Everyone has psychic power! People just don't realize it!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15157,9 +15332,33 @@
   {
     "name": "Sabrina",
     "trainerClass": "sabrina",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 9,
+    "y": 8,
+    "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I had a vision of your arrival!\n\nI have had psychic powers since I was a child.\n\nI first learned to bend spoons with my mind.\n\nI dislike fight-ing, but if you wish, I will show you my powers!"
+      },
+      {
+        "label": "If you win, she gives you the Marsh Badge and TM46",
+        "text": "I'm shocked! But, a loss is a loss.\n\nI admit I didn't work hard enough to win!\n\nYou earned the MARSHBADGE!\n\nThe MARSHBADGE makes POKéMON up to L70 obey you!\n\nStronger POKéMON will become wild, ignoring your orders in battle!\n\nJust don't raise your POKéMON too much!\n\nWait, please take this TM with you!\n\nRED received TM46!\n\nTM46 is PSYWAVE! It uses powerful psychic waves to inflict damage!",
+        "gift": {
+          "name": "TM46",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Your pack is full of other items!"
+      },
+      {
+        "label": "After battle",
+        "text": "Everyone has psychic power! People just don't realize it!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15186,9 +15385,25 @@
   {
     "name": "Channeler",
     "trainerClass": "channeler",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 10,
+    "y": 1,
+    "facing": "down",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "SABRINA is younger than I, but I respect her!"
+      },
+      {
+        "label": "If you win",
+        "text": "Not good enough!"
+      },
+      {
+        "label": "After battle",
+        "text": "In a battle of equals, the one with the stronger will wins!\n\nIf you wish to beat SABRINA, focus on winning!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15210,9 +15425,25 @@
   {
     "name": "Psychic",
     "trainerClass": "psychic-tr",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 17,
+    "y": 1,
+    "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Does our unseen power scare you?"
+      },
+      {
+        "label": "If you win",
+        "text": "I never foresaw this!"
+      },
+      {
+        "label": "After battle",
+        "text": "Psychic POKéMON fear only ghosts and bugs!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15239,14 +15470,80 @@
         ]
       }
     ],
-    "games": ["red", "blue", "yellow"]
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Psychic",
+    "trainerClass": "psychic-tr",
+    "path": "saffron-city/saffron-gym",
+    "x": 17,
+    "y": 1,
+    "facing": "down",
+    "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Does our unseen power scare you?"
+      },
+      {
+        "label": "If you win",
+        "text": "I never foresaw this!"
+      },
+      {
+        "label": "After battle",
+        "text": "Psychic POKéMON fear only bugs!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 64,
+            "level": 31,
+            "moves": ["Confusion", "Disable", "Psybeam", "Recover"]
+          },
+          {
+            "number": 79,
+            "level": 31,
+            "moves": ["Confusion", "Disable", "Headbutt", "Growl"]
+          },
+          {
+            "number": 122,
+            "level": 31,
+            "moves": ["Confusion", "Barrier", "Light Screen", "DoubleSlap"]
+          },
+          {
+            "number": 64,
+            "level": 31,
+            "moves": ["Confusion", "Disable", "Psybeam", "Recover"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
   },
   {
     "name": "Channeler",
     "trainerClass": "channeler",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 3,
+    "y": 7,
+    "facing": "down",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "POKéMON take on the appearance of their trainers.\n\nYour POKéMON must be tough, then!"
+      },
+      {
+        "label": "If you win",
+        "text": "I knew it!"
+      },
+      {
+        "label": "After battle",
+        "text": "I must teach better techniques to my POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15263,9 +15560,25 @@
   {
     "name": "Psychic",
     "trainerClass": "psychic-tr",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 17,
+    "y": 7,
+    "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You know that power alone isn't enough!"
+      },
+      {
+        "label": "If you win",
+        "text": "I don't believe this!"
+      },
+      {
+        "label": "After battle",
+        "text": "SABRINA just wiped out the KARATE MASTER next door!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15287,9 +15600,25 @@
   {
     "name": "Channeler",
     "trainerClass": "channeler",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 3,
+    "y": 13,
+    "facing": "down",
     "sprite": "channeler",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You and I, our POKéMON shall fight!"
+      },
+      {
+        "label": "If you win",
+        "text": "I lost after all!"
+      },
+      {
+        "label": "After battle",
+        "text": "I knew that this was going to take place."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15316,9 +15645,25 @@
   {
     "name": "Psychic",
     "trainerClass": "psychic-tr",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 17,
+    "y": 13,
+    "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "SABRINA is young, but she's also our LEADER!\n\nYou won't reach her easily!"
+      },
+      {
+        "label": "If you win",
+        "text": "I lost my concentration!"
+      },
+      {
+        "label": "After battle",
+        "text": "There used to be 2 POKéMON GYMs in SAFFRON.\n\nThe FIGHTING DOJO next door lost its GYM status when we went and creamed them!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15345,9 +15690,25 @@
   {
     "name": "Psychic",
     "trainerClass": "psychic-tr",
-    "path": "saffron-city",
-    "area": "Saffron Gym",
+    "path": "saffron-city/saffron-gym",
+    "x": 3,
+    "y": 1,
+    "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "SAFFRON POKéMON GYM is famous for its psychics!\n\nYou want to see SABRINA! I can tell!"
+      },
+      {
+        "label": "If you win",
+        "text": "Arrrgh!"
+      },
+      {
+        "label": "After battle",
+        "text": "That's right! I used telepathy to read your mind!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15372,6 +15733,20 @@
     "facing": "down",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Help! I'm a SILPH employee."
+      },
+      {
+        "label": "If you win",
+        "text": "How did you know I was a ROCKET?"
+      },
+      {
+        "label": "After battle",
+        "text": "I work for both SILPH and TEAM ROCKET!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15411,6 +15786,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "It's off limits here! Go home!"
+      },
+      {
+        "label": "If you win",
+        "text": "You're good."
+      },
+      {
+        "label": "After battle",
+        "text": "Can you solve the maze in here?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15445,6 +15834,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "No kids are allowed in here!"
+      },
+      {
+        "label": "If you win",
+        "text": "Tough!"
+      },
+      {
+        "label": "After battle",
+        "text": "Diamond shaped tiles are teleport blocks!\n\nThey're hi-tech transporters!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15474,6 +15877,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "No kids are allowed in here!"
+      },
+      {
+        "label": "If you win",
+        "text": "Tough!"
+      },
+      {
+        "label": "After battle",
+        "text": "Diamond-shaped tiles are teleport blocks!\n\nThey're hi-tech transporters!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15503,6 +15920,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hey kid! What are you doing here?"
+      },
+      {
+        "label": "If you win",
+        "text": "I goofed!"
+      },
+      {
+        "label": "After battle",
+        "text": "SILPH CO. will be merged with TEAM ROCKET!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15547,6 +15978,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Quit messing with us, kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "I give up!"
+      },
+      {
+        "label": "After battle",
+        "text": "A hint? You can open doors with a CARD KEY!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15581,6 +16026,20 @@
     "facing": "down",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I support TEAM ROCKET more than I support SILPH!"
+      },
+      {
+        "label": "If you win",
+        "text": "You really got me!"
+      },
+      {
+        "label": "After battle",
+        "text": "Humph...\n\nTEAM ROCKET said that if I helped them, they'd let me study POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15610,6 +16069,20 @@
     "facing": "right",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "TEAM ROCKET has taken command of SILPH CO.!"
+      },
+      {
+        "label": "If you win",
+        "text": "Arrgh!"
+      },
+      {
+        "label": "After battle",
+        "text": "Fwahahaha! My BOSS has been after this place!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15639,6 +16112,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My POKéMON are my loyal soldiers!"
+      },
+      {
+        "label": "If you win",
+        "text": "Darn! You weak POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "The doors are electronically locked! A CARD KEY opens them!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15663,6 +16150,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Intruder spotted!"
+      },
+      {
+        "label": "If you win",
+        "text": "Who are you?"
+      },
+      {
+        "label": "After battle",
+        "text": "I better tell the BOSS on 11F!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15697,6 +16198,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Intruder spotted!"
+      },
+      {
+        "label": "If you win",
+        "text": "Who are you?"
+      },
+      {
+        "label": "After battle",
+        "text": "I better tell the BOSS on 11F!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15731,6 +16246,20 @@
     "facing": "right",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I heard a kid was wandering around."
+      },
+      {
+        "label": "If you win",
+        "text": "Boom!"
+      },
+      {
+        "label": "After battle",
+        "text": "It's not smart to pick a fight with TEAM ROCKET!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15755,6 +16284,20 @@
     "facing": "right",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "We study POKé BALL technology on this floor!"
+      },
+      {
+        "label": "If you win",
+        "text": "Dang! Blast it!"
+      },
+      {
+        "label": "After battle",
+        "text": "We worked on the ultimate POKé BALL which would catch anything!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15794,6 +16337,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Whaaat? There shouldn't be any children here?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh goodness!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're only on 5F. It's a long way to my BOSS!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15823,6 +16380,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Whaaat? There shouldn't be any children here!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh goodness!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're only on 5F. It's a long way to my BOSS!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15852,6 +16423,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Show TEAM ROCKET a little respect!"
+      },
+      {
+        "label": "If you win",
+        "text": "Cough... Cough..."
+      },
+      {
+        "label": "After battle",
+        "text": "Which reminds me.\n\nKOFFING evolves into WEEZING!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15876,6 +16461,20 @@
     "facing": "right",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am one of the 4 ROCKET BROTHERS!"
+      },
+      {
+        "label": "If you win",
+        "text": "Flame out!"
+      },
+      {
+        "label": "After battle",
+        "text": "No matter! My brothers will avenge me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15905,6 +16504,20 @@
     "facing": "down",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "That rotten PRESIDENT!\n\nHe shouldn't have sent me to the TIKSI BRANCH!"
+      },
+      {
+        "label": "If you win",
+        "text": "Shoot!"
+      },
+      {
+        "label": "After battle",
+        "text": "TIKSI BRANCH? It's in Russian no man's land!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15949,6 +16562,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You dare betray TEAM ROCKET?"
+      },
+      {
+        "label": "If you win",
+        "text": "You traitor!"
+      },
+      {
+        "label": "After battle",
+        "text": "If you stand for justice, you betray evil!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -15978,7 +16605,29 @@
     "path": "saffron-city/silph-co",
     "area": "7F",
     "floor": "7f",
+    "x": 3,
+    "y": 7,
+    "facing": "up",
+    "presence": "Leaves after the battle",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hahaha! I thought you'd turn up if I waited here!\n\nI guess TEAM ROCKET slowed you down! Not that I care!\n\nI saw you in SAFFRON, so I decided to see if you got better!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh ho! So, you are ready for BOSS ROCKET!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: How can I put this?\n\nYou're not good enough to play with us big boys!"
+      },
+      {
+        "label": "After battle",
+        "text": "Well, RED!\n\nI'm moving on up and ahead!\n\nBy checking my POKéDEX, I'm starting to see what's strong and how they evolve!\n\nI'm going to the POKéMON LEAGUE to boot out the ELITE FOUR!\n\nI'll become the world's most powerful trainer!\n\nRED, well good luck to you! Don't sweat it! Smell ya!"
+      }
+    ],
     "choicePrompt": "Your starter",
     "parties": [
       {
@@ -16083,7 +16732,29 @@
     "path": "saffron-city/silph-co",
     "area": "7F",
     "floor": "7f",
+    "x": 3,
+    "y": 7,
+    "facing": "up",
+    "presence": "Leaves after the battle",
     "sprite": "blue",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "BLUE: Hahaha! I thought you'd turn up if I waited here!\n\nI guess TEAM ROCKET slowed you down! Not that I care!\n\nI saw you in SAFFRON, so I decided to see if you got better!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh-oh! So, you are ready for BOSS ROCKET!"
+      },
+      {
+        "label": "If you lose",
+        "text": "BLUE: How can I put this?\n\nYou're not good enough to play with us big boys!"
+      },
+      {
+        "label": "After battle",
+        "text": "Well, RED!\n\nI'm moving on up and ahead!\n\nBy checking my POKéDEX, I'm starting to see what's strong and how they evolve!\n\nI'm going to the POKéMON LEAGUE to boot out the ELITE FOUR!\n\nI'll become the world's most powerful trainer!\n\nRED, well good luck to you! Don't sweat it! Smell ya!"
+      }
+    ],
     "choicePrompt": "If Eevee becomes",
     "parties": [
       {
@@ -16198,6 +16869,20 @@
     "facing": "down",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Oh ho! I smell a little rat!"
+      },
+      {
+        "label": "If you win",
+        "text": "Lights out!"
+      },
+      {
+        "label": "After battle",
+        "text": "You won't find my BOSS by just scurrying around!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16224,7 +16909,60 @@
         ]
       }
     ],
-    "games": ["red", "blue", "yellow"]
+    "games": ["red", "blue"]
+  },
+  {
+    "name": "Rocket",
+    "trainerClass": "rocket",
+    "path": "saffron-city/silph-co",
+    "area": "7F",
+    "floor": "7f",
+    "x": 13,
+    "y": 1,
+    "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Aha! I smell a little rat!"
+      },
+      {
+        "label": "If you win",
+        "text": "Lights out!"
+      },
+      {
+        "label": "After battle",
+        "text": "You won't find my BOSS by just scurrying around!"
+      }
+    ],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 20,
+            "level": 26,
+            "moves": ["Tackle", "Tail Whip", "Quick Attack", "Hyper Fang"]
+          },
+          {
+            "number": 24,
+            "level": 26,
+            "moves": ["Wrap", "Leer", "Poison Sting", "Bite"]
+          },
+          {
+            "number": 109,
+            "level": 26,
+            "moves": ["Tackle", "Smog"]
+          },
+          {
+            "number": 42,
+            "level": 26,
+            "moves": ["Screech", "Bite", "Supersonic", "Confuse Ray"]
+          }
+        ]
+      }
+    ],
+    "games": ["yellow"]
   },
   {
     "name": "Scientist",
@@ -16237,6 +16975,20 @@
     "facing": "down",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Heheh!\n\nYou mistook me for a SILPH worker?"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm done!"
+      },
+      {
+        "label": "After battle",
+        "text": "Despite your age, you are a skilled trainer!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16266,6 +17018,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am one of the 4 ROCKET BROTHERS!"
+      },
+      {
+        "label": "If you win",
+        "text": "Aack! Brothers, I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "Doesn't matter. My brothers will repay the favor!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16295,6 +17061,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am one of the 4 ROCKET BROTHERS!"
+      },
+      {
+        "label": "If you win",
+        "text": "Aack! Brothers, I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "Doesn't matter. My brothers will repay the favor!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16324,6 +17104,20 @@
     "facing": "right",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "A child intruder? That must be you!"
+      },
+      {
+        "label": "If you win",
+        "text": "Fine! I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "Go on home before my BOSS gets ticked off!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16353,6 +17147,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "That's as far as you'll go!"
+      },
+      {
+        "label": "If you win",
+        "text": "Not enough grit!"
+      },
+      {
+        "label": "After battle",
+        "text": "If you don't turn back, I'll call for backup!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16392,6 +17200,20 @@
     "facing": "down",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You're causing us problems!"
+      },
+      {
+        "label": "If you win",
+        "text": "Huh? I lost?"
+      },
+      {
+        "label": "After battle",
+        "text": "So, what do you think of SILPH BUILDING's maze?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16421,6 +17243,20 @@
     "facing": "right",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am one of the 4 ROCKET BROTHERS!"
+      },
+      {
+        "label": "If you win",
+        "text": "Whoo! Oh brothers!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'll leave you up to my brothers!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16455,6 +17291,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Your POKéMON seem to adore you, kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ghaaah!"
+      },
+      {
+        "label": "After battle",
+        "text": "If I had started as a trainer at your age..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16489,6 +17339,20 @@
     "facing": "down",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Your POKéMON have weak points! I can nail them!"
+      },
+      {
+        "label": "If you win",
+        "text": "You hammered me!"
+      },
+      {
+        "label": "After battle",
+        "text": "Exploiting weak spots does work! Think about element types!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16523,6 +17387,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I am one of the 4 ROCKET BROTHERS!"
+      },
+      {
+        "label": "If you win",
+        "text": "Warg! Brothers, I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "My brothers will avenge me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16557,6 +17435,20 @@
     "facing": "right",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Welcome to the 10F! So good of you to join me!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm stunned!"
+      },
+      {
+        "label": "After battle",
+        "text": "Nice try, but the boardroom is up one more floor!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16581,6 +17473,20 @@
     "facing": "left",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Enough of your silly games!"
+      },
+      {
+        "label": "If you win",
+        "text": "No continues left!"
+      },
+      {
+        "label": "After battle",
+        "text": "Are you satisfied with beating me? Then go on home!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16605,7 +17511,25 @@
     "path": "saffron-city/silph-co",
     "area": "11F",
     "floor": "11f",
+    "x": 3,
+    "y": 8,
+    "facing": "up",
+    "presence": "Leaves after the battle",
     "sprite": "yellow/jessie",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hold it right there, brat!\n\nOur BOSS is in a meeting!\n\nYou better not disturb him!"
+      },
+      {
+        "label": "If you win",
+        "text": "Like always..."
+      },
+      {
+        "label": "After battle",
+        "text": "TEAM ROCKET, blast off at the speed of light!\n\nAgain..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16640,6 +17564,20 @@
     "facing": "down",
     "presence": "Leaves after the battle",
     "sprite": "giovanni",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ah RED! So we meet again!\n\nThe PRESIDENT and I are discussing a vital business proposition.\n\nKeep your nose out of grown-up matters...\n\nOr, experience a world of pain!"
+      },
+      {
+        "label": "If you win",
+        "text": "Arrgh!! I lost again!?"
+      },
+      {
+        "label": "After battle",
+        "text": "Blast it all! You ruined our plans for SILPH!\n\nBut, TEAM ROCKET will never fall!\n\nRED! Never forget that all POKéMON exist for TEAM ROCKET!\n\nI must go, but I shall return!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16684,6 +17622,20 @@
     "facing": "down",
     "presence": "Leaves after the battle",
     "sprite": "giovanni",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ah, RED! So we meet again!\n\nThe PRESIDENT and I are discussing a vital business proposition.\n\nKeep your nose out of grown-up matters...\n\nor, experience a world of pain!"
+      },
+      {
+        "label": "If you win",
+        "text": "Arrgh!! I lost again!?"
+      },
+      {
+        "label": "After battle",
+        "text": "Blast it all! You ruined our plans for SILPH!\n\nBut, TEAM ROCKET will never fall!\n\nRED! Never forget that all POKéMON exist for TEAM ROCKET!\n\nI must go, but I shall return!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16728,6 +17680,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Stop right there! Don't you move!"
+      },
+      {
+        "label": "If you win",
+        "text": "Don't... Please!"
+      },
+      {
+        "label": "After battle",
+        "text": "So, you want to see my BOSS?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16762,6 +17728,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Halt! Do you have an appointment with my BOSS?"
+      },
+      {
+        "label": "If you win",
+        "text": "Gaah! Demolished!"
+      },
+      {
+        "label": "After battle",
+        "text": "Watch your step, my BOSS likes his POKéMON tough!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -16806,6 +17786,20 @@
     "facing": "up",
     "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Halt! Do you have an appointment with my BOSS?"
+      },
+      {
+        "label": "If you win",
+        "text": "Gaah! Demolished!"
+      },
+      {
+        "label": "After battle",
+        "text": "Watch your step, my BOSS likes his POKéMON tough!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -17897,7 +18891,7 @@
       },
       {
         "label": "If you win, he gives you the Thunder Badge and TM24",
-        "text": "Whoa!\n\nYou're the real deal, kid!\n\nFine then, take the THUNDERBADGE!\n\nThe THUNDERBADGE cranks up your POKéMON's SPEED!\n\nIt also lets your POKéMON FLY any time, kid!\n\nYou're special, kid! Take this!\n\nTM24 contains THUNDERBOLT!\n\nTeach it to an electric POKéMON!",
+        "text": "Whoa!\n\nYou're the real deal, kid!\n\nFine then, take the THUNDERBADGE!\n\nThe THUNDERBADGE cranks up your POKéMON's SPEED!\n\nIt also lets your POKéMON FLY any time, kid!\n\nYou're special, kid! Take this!\n\nRED received TM24!\n\nTM24 contains THUNDERBOLT!\n\nTeach it to an electric POKéMON!",
         "gift": {
           "name": "TM24",
           "sprite": "poke_ball"
@@ -17950,7 +18944,7 @@
       },
       {
         "label": "If you win, he gives you the Thunder Badge and TM24",
-        "text": "Whoa!\n\nYou're the real deal, kid!\n\nFine then, take the THUNDERBADGE!\n\nThe THUNDERBADGE cranks up your POKéMON's SPEED!\n\nIt also lets your POKéMON FLY any-time, kid!\n\nYou're special, kid! Take this!\n\nTM24 contains THUNDERBOLT!\n\nTeach it to an electric POKéMON!",
+        "text": "Whoa!\n\nYou're the real deal, kid!\n\nFine then, take the THUNDERBADGE!\n\nThe THUNDERBADGE cranks up your POKéMON's SPEED!\n\nIt also lets your POKéMON FLY any-time, kid!\n\nYou're special, kid! Take this!\n\nRED received TM24!\n\nTM24 contains THUNDERBOLT!\n\nTeach it to an electric POKéMON!",
         "gift": {
           "name": "TM24",
           "sprite": "poke_ball"

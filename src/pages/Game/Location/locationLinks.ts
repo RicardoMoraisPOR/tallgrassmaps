@@ -100,11 +100,13 @@ export type LayeredMapLink = MapLink & {
   hole?: boolean;
   current?: boolean;
   door?: boolean;
+  teleport?: boolean;
   step?: FloorStep;
   unlisted?: boolean;
 };
 
 type MarkerSources = {
+  from?: string;
   items?: Array<MapItem>;
   itemTooltip?: (item: MapItem) => ReactNode;
   trainers?: Array<ListedBattle>;
@@ -163,13 +165,28 @@ type Landing = {
   floor?: string;
   travel?: Direction;
   hole?: boolean;
+  pad?: string;
 };
+
+const padVia = (floor: string | undefined, tile: string) =>
+  `pad:${floor ?? ''}:${tile}`;
+
+const returning = (
+  hotspots: Array<LocationHotspot>,
+  from: string | undefined,
+) =>
+  from
+    ? hotspots.map((hotspot) =>
+        hotspot.back ? { ...hotspot, floor: from } : hotspot,
+      )
+    : hotspots;
 
 const landings = (
   location: Location,
   floor?: LocationFloor,
+  from?: string,
 ): Array<Landing> => [
-  ...(floor?.hotspots ?? location.hotspots),
+  ...returning(floor?.hotspots ?? location.hotspots, from),
   ...location.markers.flatMap(({ target }) => (target ? [{ target }] : [])),
 ];
 
@@ -177,13 +194,15 @@ export const arrivals = (
   region: Region,
   location: Location,
   floor?: LocationFloor,
+  from?: string,
 ) => {
   const landingKey = ({ target, floor: to }: Landing) =>
     `${target}:${to ?? getLocation(region, target)?.floors?.[0]?.id ?? ''}`;
   const seen = new Map<string, number>();
 
-  return landings(location, floor).map((landing) => {
-    if (landing.hole) return { key: '', count: 0, marked: false };
+  return landings(location, floor, from).map((landing) => {
+    if (landing.hole || landing.pad)
+      return { key: '', count: 0, marked: false };
 
     const key = landingKey(landing);
     const count = (seen.get(key) ?? 0) + 1;
@@ -206,6 +225,7 @@ export const locationLinks = (
   tileSize = 1,
   floor?: LocationFloor,
   {
+    from,
     items = [],
     itemTooltip,
     trainers = [],
@@ -222,7 +242,7 @@ export const locationLinks = (
     staticPopup,
   }: MarkerSources = {},
 ) => {
-  const hotspots = floor?.hotspots ?? location.hotspots;
+  const hotspots = returning(floor?.hotspots ?? location.hotspots, from);
   const targetNames = [
     ...new Set(hotspots.map(({ target }) => getLocation(region, target))),
   ].flatMap((target) => (target ? [target.name] : []));
@@ -249,7 +269,8 @@ export const locationLinks = (
       hotspot.floor &&
       hotspot.target === path &&
       !hotspot.hole &&
-      !hotspot.travel
+      !hotspot.travel &&
+      !hotspot.pad
     )
       floorExitTotals.set(
         hotspot.floor,
@@ -286,7 +307,15 @@ export const locationLinks = (
     return { label: `${kind} #${count} to ${floorName(target, floorId)}` };
   };
 
-  const here = arrivals(region, location, floor);
+  const here = arrivals(region, location, floor, from);
+
+  const returnsHere = (target: string, to: string | undefined) =>
+    target === path &&
+    location.floors
+      ?.find(({ id }) => id === to)
+      ?.hotspots.some(({ back }) => back)
+      ? floor?.id
+      : undefined;
   const markedAt = new Map<string, Set<string>>();
 
   const arrivesMarked = ({ target, floor: to }: Landing, via: string) => {
@@ -297,13 +326,14 @@ export const locationLinks = (
     const destinationFloor =
       destination.floors?.find(({ id }) => id === to) ??
       destination.floors?.[0];
-    const cacheKey = `${target}:${destinationFloor?.id ?? ''}`;
+    const returnTo = returnsHere(target, destinationFloor?.id);
+    const cacheKey = `${target}:${destinationFloor?.id ?? ''}:${returnTo ?? ''}`;
 
     if (!markedAt.has(cacheKey))
       markedAt.set(
         cacheKey,
         new Set(
-          arrivals(region, destination, destinationFloor).flatMap(
+          arrivals(region, destination, destinationFloor, returnTo).flatMap(
             ({ key, marked }) => (marked ? [key] : []),
           ),
         ),
@@ -315,7 +345,7 @@ export const locationLinks = (
   const pairing = (landing: Landing, index: number) => {
     const { key, count, marked } = here[index];
 
-    if (landing.hole) return {};
+    if (landing.hole || landing.pad) return {};
 
     const via = `${path}:${floor?.id ?? ''}:${count}`;
 
@@ -325,14 +355,49 @@ export const locationLinks = (
     };
   };
 
+  const padTotals = new Map<string, number>();
+  const padSeen = new Map<string, number>();
+
+  for (const { pad, floor: to = '' } of hotspots)
+    if (pad) padTotals.set(to, (padTotals.get(to) ?? 0) + 1);
+
+  const padLink = (hotspot: LocationHotspot, target: Location) => {
+    const to = hotspot.floor ?? '';
+    const count = (padSeen.get(to) ?? 0) + 1;
+    const number = (padTotals.get(to) ?? 0) > 1 ? ` #${count}` : '';
+    const elsewhere =
+      hotspot.floor && hotspot.floor !== floor?.id
+        ? ` to ${floorName(target, hotspot.floor)}`
+        : '';
+
+    padSeen.set(to, count);
+
+    return {
+      href: withQuery(href(hotspot.target), {
+        floor: hotspot.floor,
+        via: padVia(hotspot.floor, hotspot.lands!),
+      }),
+      highlightKey: arrivalKey(padVia(floor?.id, hotspot.pad!)),
+      label: `Teleporter${number}${elsewhere}`,
+      replace: true,
+      stairs: true,
+      teleport: true,
+    };
+  };
+
   const hotspotLink = (hotspot: LocationHotspot, index: number) => {
     const target = getLocation(region, hotspot.target);
 
     if (!target) return undefined;
+    if (hotspot.pad) return padLink(hotspot, target);
 
     const { arrival, via } = pairing(hotspot, index);
     const base = {
-      href: withQuery(href(hotspot.target), { floor: hotspot.floor, via }),
+      href: withQuery(href(hotspot.target), {
+        floor: hotspot.floor,
+        via,
+        from: returnsHere(hotspot.target, hotspot.floor),
+      }),
       ...(arrival && { highlightKey: [href(hotspot.target), arrival] }),
     };
 
@@ -372,20 +437,22 @@ export const locationLinks = (
             ...icon,
             x: link.x + link.width / 2,
             y: link.y + link.height / 2,
-            icon: link.door
-              ? { kind: 'door' as const }
-              : link.stairs
-                ? {
-                    kind: link.hole
-                      ? ('hole' as const)
-                      : link.ladder
-                        ? ('ladder' as const)
-                        : link.current
-                          ? ('current' as const)
-                          : ('stairs' as const),
-                    step: link.step,
-                  }
-                : { kind: 'exit' as const },
+            icon: link.teleport
+              ? { kind: 'teleport' as const }
+              : link.door
+                ? { kind: 'door' as const }
+                : link.stairs
+                  ? {
+                      kind: link.hole
+                        ? ('hole' as const)
+                        : link.ladder
+                          ? ('ladder' as const)
+                          : link.current
+                            ? ('current' as const)
+                            : ('stairs' as const),
+                      step: link.step,
+                    }
+                  : { kind: 'exit' as const },
           },
         ];
 

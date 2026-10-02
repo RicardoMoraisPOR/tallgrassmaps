@@ -74,9 +74,11 @@ const splitScriptText = (game, file, label) => {
 };
 
 export const mapText = (game, file, textId) => {
-  const { label, block } = mapTextBlock(game, file, textId) ?? {};
+  const { label, block: lines } = mapTextBlock(game, file, textId) ?? {};
 
-  if (!block) return undefined;
+  if (!lines) return undefined;
+
+  const block = lines.filter((line) => !line.startsWith('sound_'));
 
   const fars = block.flatMap(
     (line) => line.match(/^text_far (\w+)$/)?.slice(1) ?? [],

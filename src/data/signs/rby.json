@@ -265,6 +265,14 @@
   },
   {
     "path": "celadon-city/celadon-dept-store",
+    "floor": "elevator",
+    "x": 3,
+    "y": 0,
+    "text": "Which floor do you want?\n\n1F\n2F\n3F\n4F\n5F",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "celadon-city/celadon-dept-store",
     "floor": "roof",
     "x": 10,
     "y": 1,
@@ -433,6 +441,22 @@
     "x": 2,
     "y": 1,
     "text": "An amber pipe!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 3,
+    "y": 5,
+    "text": "A game with MARIO wearing a bucket on his head!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 0,
+    "y": 1,
+    "text": "...\n\nMy Secrets!\n\nSkill: Mimicry! Hobby: Collecting dolls! Favorite POKéMON: CLEFAIRY!",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -860,7 +884,7 @@
     "floor": "elevator",
     "x": 1,
     "y": 1,
-    "text": "It appears to need a key.",
+    "text": "Without the Lift Key:\n\nIt appears to need a key.\n\nWith the Lift Key:\n\nWhich floor do you want?\n\nB1F\nB2F\nB4F",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1344,6 +1368,84 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "saffron-city",
+    "x": 17,
+    "y": 5,
+    "text": "SAFFRON CITY Shining, Golden Land of Commerce",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 27,
+    "y": 5,
+    "text": "FIGHTING DOJO",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 35,
+    "y": 5,
+    "text": "SAFFRON CITY POKéMON GYM LEADER: SABRINA\n\nThe Master of Psychic POKéMON!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 26,
+    "y": 11,
+    "text": "All your item needs fulfilled! POKéMON MART",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 39,
+    "y": 19,
+    "text": "TRAINER TIPS\n\nFULL HEAL cures all ailments like sleep and burns.\n\nIt costs a bit more, but it's more convenient.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 5,
+    "y": 21,
+    "text": "TRAINER TIPS\n\nNew GREAT BALL offers improved capture rates.\n\nTry it on those hard-to-catch POKéMON.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 15,
+    "y": 21,
+    "text": "SILPH CO. OFFICE BUILDING",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 10,
+    "y": 29,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 27,
+    "y": 29,
+    "text": "MR.PSYCHIC's HOUSE",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 1,
+    "y": 19,
+    "text": "SILPH's latest product!\n\nRelease to be determined...",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pidgey-house",
+    "x": 3,
+    "y": 3,
+    "text": "I was given a PP UP as a gift.\n\nIt's used for increasing the PP of techniques!",
+    "sprite": "paper",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-20/seafoam-islands",
     "floor": "b4f",
     "x": 9,
@@ -1357,6 +1459,41 @@
     "x": 23,
     "y": 1,
     "text": "DANGER Fast current!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 22,
+    "y": 12,
+    "text": "It's a POKéMON REPORT!\n\nPOKéMON LAB created PORYGON, the first virtual reality POKéMON.",
+    "sprite": "clipboard",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 25,
+    "y": 10,
+    "text": "It's a POKéMON REPORT!\n\nOver 160 POKéMON techniques have been confirmed.",
+    "sprite": "clipboard",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 24,
+    "y": 6,
+    "text": "It's a POKéMON REPORT!\n\n4 POKéMON evolve only when traded by link-cable.",
+    "sprite": "clipboard",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "elevator",
+    "x": 3,
+    "y": 0,
+    "text": "Which floor do you want?\n\n1F\n2F\n3F\n4F\n5F\n6F\n7F\n8F\n9F\n10F\n11F",
     "games": ["red", "blue", "yellow"]
   },
   {

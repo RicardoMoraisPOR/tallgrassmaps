@@ -227,6 +227,32 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "saffron-city/fighting-dojo",
+    "x": 4,
+    "y": 1,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 106,
+        "level": 30
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/fighting-dojo",
+    "x": 5,
+    "y": 1,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 107,
+        "level": 30
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "saffron-city/silph-co",
     "floor": "7f",
     "x": 1,

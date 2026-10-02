@@ -361,7 +361,7 @@ const scripted = [
   {
     species: ['HITMONLEE', 'HITMONCHAN'],
     method: 'gift',
-    path: 'saffron-city',
+    path: 'saffron-city/fighting-dojo',
     games: ['red', 'blue', 'yellow'],
     level: 30,
     source: 'scripts/FightingDojo.asm',

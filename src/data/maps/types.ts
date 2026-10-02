@@ -43,6 +43,9 @@ export type Hotspot = Rect & {
   hole?: boolean;
   current?: boolean;
   door?: boolean;
+  pad?: string;
+  lands?: string;
+  back?: boolean;
 };
 
 export type LocationHotspot = Hotspot & {

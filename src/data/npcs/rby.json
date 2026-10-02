@@ -105,7 +105,7 @@
     "facing": "down",
     "dialog": [
       {
-        "text": "BILL: Yeehah! Thanks, bud! I owe you one!\n\nSo, did you come to see my POKéMON collection? You didn't? That's a bummer.\n\nI've got to thank you... Oh here, maybe this'll do.",
+        "text": "BILL: Yeehah! Thanks, bud! I owe you one!\n\nSo, did you come to see my POKéMON collection? You didn't? That's a bummer.\n\nI've got to thank you... Oh here, maybe this'll do.\n\nRED received an S.S. TICKET!",
         "trigger": "After you run the Cell Separation System, he gives you the S.S. Ticket",
         "gift": {
           "name": "S.S. Ticket",
@@ -273,7 +273,7 @@
     "facing": "down",
     "dialog": [
       {
-        "text": "Hello, there!\n\nI've seen you, but I never had a chance to talk!\n\nHere's a gift for dropping by!",
+        "text": "Hello, there!\n\nI've seen you, but I never had a chance to talk!\n\nHere's a gift for dropping by!\n\nRED received TM41!",
         "trigger": "When you talk to him, he gives you TM41",
         "gift": {
           "name": "TM41",
@@ -413,7 +413,7 @@
     "facing": "down",
     "dialog": [
       {
-        "text": "Go ahead! Laugh!\n\nI'm flat out busted!\n\nNo more slots for me! I'm going straight!\n\nHere! I won't be needing this any-more!",
+        "text": "Go ahead! Laugh!\n\nI'm flat out busted!\n\nNo more slots for me! I'm going straight!\n\nHere! I won't be needing this any-more!\n\nRED received a COIN CASE!",
         "trigger": "When you talk to him, he gives you the Coin Case",
         "gift": {
           "name": "Coin Case",
@@ -699,7 +699,7 @@
     "facing": "down",
     "dialog": [
       {
-        "text": "Oh, hi! I finally finished POKéMON!\n\nNot done yet? This might be useful!",
+        "text": "Oh, hi! I finally finished POKéMON!\n\nNot done yet? This might be useful!\n\nRED received TM18!",
         "trigger": "When you talk to him, he gives you TM18",
         "gift": {
           "name": "TM18",
@@ -1613,7 +1613,7 @@
     "facing": "down",
     "dialog": [
       {
-        "text": "Tch-tch-tch! I made a cool TM!\n\nIt can cause all kinds of fun!",
+        "text": "Tch-tch-tch! I made a cool TM!\n\nIt can cause all kinds of fun!\n\nRED received TM35!",
         "trigger": "When you talk to him, he gives you TM35",
         "gift": {
           "name": "TM35",
@@ -1852,6 +1852,144 @@
       {
         "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
         "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "1f",
+    "x": 2,
+    "y": 2,
+    "name": "Middle Aged Woman",
+    "sprite": "middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My daughter is so self-centered. She only has a few friends."
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "1f",
+    "x": 5,
+    "y": 4,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "My daughter likes to mimic people.\n\nHer mimicry has earned her the nickname COPYCAT around here!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "1f",
+    "x": 1,
+    "y": 4,
+    "name": "Chansey",
+    "sprite": "fairy",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaan! Sii!"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 4,
+    "y": 3,
+    "name": "Copycat",
+    "sprite": "brunette_girl",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "RED: Hi! Do you like POKéMON?\n\nRED: Uh no, I just asked you.\n\nRED: Huh? You're strange!\n\nCOPYCAT: Hmm? Quit mimicking?\n\nBut, that's my favorite hobby!",
+        "trigger": "Without a Poké Doll"
+      },
+      {
+        "text": "Oh wow! A POKé DOLL!\n\nFor me? Thank you!\n\nYou can have this, then!\n\nRED received TM31!\n\nTM31 contains my favorite, MIMIC!\n\nUse it on a good POKéMON!",
+        "trigger": "If you have a Poké Doll, she trades it for TM31",
+        "gift": {
+          "name": "TM31",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Don't you want this?",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "RED: Hi! Thanks for TM31!\n\nRED: Pardon?\n\nRED: Is it that fun to mimic my every move?\n\nCOPYCAT: You bet! It's a scream!",
+        "trigger": "After you get TM31"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 4,
+    "y": 6,
+    "name": "Doduo",
+    "sprite": "bird",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "DODUO: Giiih!\n\nMIRROR MIRROR ON THE WALL, WHO IS THE FAIREST ONE OF ALL?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 5,
+    "y": 1,
+    "name": "Doll",
+    "sprite": "monster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This is a rare POKéMON! Huh? It's only a doll!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 2,
+    "y": 0,
+    "name": "Doll",
+    "sprite": "bird",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This is a rare POKéMON! Huh? It's only a doll!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "2f",
+    "x": 1,
+    "y": 6,
+    "name": "Doll",
+    "sprite": "fairy",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "This is a rare POKéMON! Huh? It's only a doll!"
       }
     ],
     "games": ["red", "blue", "yellow"]
@@ -2965,6 +3103,34 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "saffron-city/mr-psychics-house",
+    "x": 5,
+    "y": 3,
+    "name": "Mr Psychic",
+    "sprite": "fishing_guru",
+    "facing": "left",
+    "dialog": [
+      {
+        "text": "...Wait! Don't say a word!\n\nYou wanted this!\n\nRED received TM29!",
+        "trigger": "When you talk to him, he gives you TM29",
+        "gift": {
+          "name": "TM29",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "Where do you plan to put this?",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "TM29 is PSYCHIC!\n\nIt can lower the target's SPECIAL abilities.",
+        "trigger": "After you get TM29"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-4/mt-moon",
     "floor": "b2f",
     "x": 12,
@@ -3870,7 +4036,7 @@
         "trigger": "When you talk to him"
       },
       {
-        "text": "Good! Then listen up!\n\nMy favorite RAPIDASH...\n\nIt...cute... lovely...smart... plus...amazing... you think so?... oh yes...it... stunning... kindly... love it!\n\nHug it...when... sleeping...warm and cuddly... spectacular... ravishing... ...Oops! Look at the time! I kept you too long!\n\nThanks for hearing me out! I want you to have this!\n\nExchange that for a BICYCLE!\n\nDon't worry, my FEAROW will FLY me anywhere!\n\nSo, I don't need a BICYCLE!\n\nI hope you like cycling!",
+        "text": "Good! Then listen up!\n\nMy favorite RAPIDASH...\n\nIt...cute... lovely...smart... plus...amazing... you think so?... oh yes...it... stunning... kindly... love it!\n\nHug it...when... sleeping...warm and cuddly... spectacular... ravishing... ...Oops! Look at the time! I kept you too long!\n\nThanks for hearing me out! I want you to have this!\n\nRED received a BIKE VOUCHER!\n\nExchange that for a BICYCLE!\n\nDon't worry, my FEAROW will FLY me anywhere!\n\nSo, I don't need a BICYCLE!\n\nI hope you like cycling!",
         "trigger": "If you say yes, he tells his story and gives you a Bike Voucher",
         "gift": {
           "name": "Bike Voucher",
@@ -5298,7 +5464,7 @@
     "facing": "up",
     "dialog": [
       {
-        "text": "CAPTAIN: Ooargh... I feel hideous... Urrp! Seasick...\n\nRED rubbed the CAPTAIN's back!\n\nRub-rub... Rub-rub...\n\nCAPTAIN: Whew! Thank you! I feel much better!\n\nYou want to see my CUT technique?\n\nI could show you if I wasn't ill...\n\nI know! You can have this!\n\nTeach it to your POKéMON and you can see it CUT any time!",
+        "text": "CAPTAIN: Ooargh... I feel hideous... Urrp! Seasick...\n\nRED rubbed the CAPTAIN's back!\n\nRub-rub... Rub-rub...\n\nCAPTAIN: Whew! Thank you! I feel much better!\n\nYou want to see my CUT technique?\n\nI could show you if I wasn't ill...\n\nI know! You can have this!\n\nTeach it to your POKéMON and you can see it CUT any time!\n\nRED got HM01!",
         "trigger": "You rub his back, and he gives you HM01",
         "gift": {
           "name": "HM01",
@@ -5632,7 +5798,7 @@
     "facing": "down",
     "dialog": [
       {
-        "text": "Ah! Finally!\n\nYou're the first person to reach the SECRET HOUSE!\n\nI was getting worried that no one would win our campaign prize.\n\nCongratulations! You have won!",
+        "text": "Ah! Finally!\n\nYou're the first person to reach the SECRET HOUSE!\n\nI was getting worried that no one would win our campaign prize.\n\nCongratulations! You have won!\n\nRED received HM03!",
         "trigger": "When you talk to him, he gives you HM03",
         "gift": {
           "name": "HM03",
@@ -5695,6 +5861,785 @@
       }
     ],
     "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 7,
+    "y": 6,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "What do you want? Get lost!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 20,
+    "y": 8,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "BOSS said he'll take this town!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 34,
+    "y": 4,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Get out of the way!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 13,
+    "y": 12,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SAFFRON belongs to TEAM ROCKET!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 11,
+    "y": 25,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Being evil makes me feel so alive!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 32,
+    "y": 13,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Ow! Watch where you're walking!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 18,
+    "y": 30,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "With SILPH under control, we can exploit POKéMON around the world!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 8,
+    "y": 14,
+    "name": "Scientist",
+    "sprite": "scientist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You beat TEAM ROCKET all alone? That's amazing!"
+      }
+    ],
+    "presence": "Only appears after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 23,
+    "y": 23,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yeah! TEAM ROCKET is gone! It's safe to go out again!"
+      }
+    ],
+    "presence": "Only appears after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 17,
+    "y": 30,
+    "name": "Silph Worker F",
+    "sprite": "silph_worker_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "People should be flocking back to SAFFRON now."
+      }
+    ],
+    "presence": "Only appears after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 30,
+    "y": 12,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I flew here on my PIDGEOT when I read about SILPH.\n\nIt's already over? I missed the media action."
+      }
+    ],
+    "presence": "Only appears after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 31,
+    "y": 12,
+    "name": "Pidgeot",
+    "sprite": "bird",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "PIDGEOT: Bi bibii!"
+      }
+    ],
+    "presence": "Only appears after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 18,
+    "y": 8,
+    "name": "Rocker",
+    "sprite": "rocker",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "I saw ROCKET BOSS escaping SILPH's building."
+      }
+    ],
+    "presence": "Only appears after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 18,
+    "y": 22,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I'm a security guard.\n\nSuspicious kids I don't allow in!"
+      }
+    ],
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city",
+    "x": 19,
+    "y": 22,
+    "name": "Rocket",
+    "sprite": "rocket",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "... Snore...\n\nHah! He's taking a snooze!"
+      }
+    ],
+    "presence": "Only appears after you rescue Mr. Fuji in the Pokémon Tower, leaves after you beat Giovanni in Silph Co.",
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "saffron-city/saffron-gym",
+    "x": 10,
+    "y": 15,
+    "name": "Gym Guide",
+    "sprite": "gym_guide",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Yo! Champ in making!\n\nSABRINA's POKéMON use psychic power instead of force!\n\nFighting POKéMON are weak against psychic POKéMON!\n\nThey get creamed before they can even aim a punch!",
+        "trigger": "Before you beat Sabrina"
+      },
+      {
+        "text": "Psychic power, huh?\n\nIf I had that, I'd make a bundle at the slots!",
+        "trigger": "After you beat Sabrina"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-poke-mart",
+    "x": 0,
+    "y": 5,
+    "name": "Clerk",
+    "sprite": "clerk",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Hi there! May I help you?"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-poke-mart",
+    "x": 4,
+    "y": 2,
+    "name": "Super Nerd",
+    "sprite": "super_nerd",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "MAX REPEL lasts longer than SUPER REPEL for keeping weaker POKéMON away!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-poke-mart",
+    "x": 6,
+    "y": 5,
+    "name": "Cooltrainer",
+    "sprite": "cooltrainer_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "REVIVE is costly, but it revives fainted POKéMON!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pidgey-house",
+    "x": 2,
+    "y": 3,
+    "name": "Brunette Girl",
+    "sprite": "brunette_girl",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "Thank you for writing. I hope to see you soon!\n\nHey! Don't look at my letter!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pidgey-house",
+    "x": 0,
+    "y": 4,
+    "name": "Pidgey",
+    "sprite": "bird",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "PIDGEY: Kurukkoo!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pidgey-house",
+    "x": 4,
+    "y": 1,
+    "name": "Youngster",
+    "sprite": "youngster",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The COPYCAT is cute! I'm getting her a POKé DOLL!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "saffron-city/saffron-pokemon-center",
+    "x": 5,
+    "y": 5,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "POKéMON growth rates differ from specie to specie."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pokemon-center",
+    "x": 8,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SILPH CO. is very famous. That's why it attracted TEAM ROCKET!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "10f",
+    "x": 9,
+    "y": 15,
+    "name": "Silph Worker F",
+    "sprite": "silph_worker_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Waaaaa! I'm scared!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "Please keep quiet about my crying!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "11f",
+    "x": 7,
+    "y": 5,
+    "name": "Silph President",
+    "sprite": "silph_president",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "PRESIDENT: Thank you for saving SILPH!\n\nI will never forget you saved us in our moment of peril!\n\nI have to thank you in some way!\n\nBecause I am rich, I can give you anything!\n\nHere, maybe this will do!\n\nRED got a MASTER BALL!",
+        "trigger": "When you talk to him, he gives you the Master Ball",
+        "gift": {
+          "name": "Master Ball",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You have no room for this.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "PRESIDENT: You can't buy that anywhere!\n\nIt's our secret prototype MASTER BALL!\n\nIt will catch any POKéMON without fail!\n\nYou should be quiet about using it, though.",
+        "trigger": "After you get the Master Ball"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "11f",
+    "x": 10,
+    "y": 5,
+    "name": "Beauty",
+    "sprite": "beauty",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "SECRETARY: Thank you for rescuing all of us!\n\nWe admire your courage."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "2f",
+    "x": 10,
+    "y": 1,
+    "name": "Silph Worker F",
+    "sprite": "silph_worker_f",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "Eeek! No! Stop! Help!\n\nOh, you're not with TEAM ROCKET. I thought... I'm sorry. Here, please take this!\n\nRED got TM36!",
+        "trigger": "When you talk to her, she gives you TM36",
+        "gift": {
+          "name": "TM36",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "text": "You don't have any room for this.",
+        "trigger": "If your bag is full"
+      },
+      {
+        "text": "TM36 is SELFDESTRUCT!\n\nIt's powerful, but the POKéMON that uses it faints! Be careful.",
+        "trigger": "After you get TM36"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "3f",
+    "x": 24,
+    "y": 8,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I work for SILPH. What should I do?",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "RED! You and your POKéMON saved us!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "4f",
+    "x": 6,
+    "y": 2,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Sssh! Can't you see I'm hiding?",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "Huh? TEAM ROCKET is gone?",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "5f",
+    "x": 13,
+    "y": 9,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "TEAM ROCKET is in an uproar over some intruder. That's you right?",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "TEAM ROCKET took off! You're our hero! Thank you!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "6f",
+    "x": 10,
+    "y": 6,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The ROCKETs came and took over the building!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "Well, better get back to work!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "6f",
+    "x": 20,
+    "y": 6,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Oh dear, oh dear. Help me please!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "We got engaged! Heheh!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "6f",
+    "x": 21,
+    "y": 6,
+    "name": "Silph Worker F",
+    "sprite": "silph_worker_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Look at him! He's such a coward!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "I feel so sorry for him, I have to marry him!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "6f",
+    "x": 11,
+    "y": 10,
+    "name": "Silph Worker F",
+    "sprite": "silph_worker_f",
+    "facing": "right",
+    "dialog": [
+      {
+        "text": "TEAM ROCKET is trying to conquer the world with POKéMON!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "TEAM ROCKET ran because of you!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "6f",
+    "x": 18,
+    "y": 13,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "They must have targeted SILPH for our POKéMON products.",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "Come work for SILPH when you get older!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "7f",
+    "x": 1,
+    "y": 5,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Oh! Hi! You're not a ROCKET! You came to save us? Why, thank you!\n\nI want you to have this POKéMON for saving us.\n\nIt's LAPRAS. It's very intelligent.\n\nWe kept it in our lab, but it will be much better off with you!\n\nI think you will be a good trainer for LAPRAS!\n\nIt's a good swimmer. It'll give you a lift!",
+        "trigger": "When you talk to him, he gives you Lapras",
+        "pokemon": {
+          "number": 131,
+          "name": "Lapras"
+        }
+      },
+      {
+        "text": "TEAM ROCKET's BOSS went to the boardroom! Is our PRESIDENT OK?",
+        "trigger": "After you get Lapras, before you beat Giovanni"
+      },
+      {
+        "text": "Saved at last! Thank you!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "7f",
+    "x": 13,
+    "y": 13,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "up",
+    "dialog": [
+      {
+        "text": "TEAM ROCKET was after the MASTER BALL which will catch any POKéMON!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "We canceled the MASTER BALL project because of TEAM ROCKET.",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "7f",
+    "x": 7,
+    "y": 10,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "It would be bad if TEAM ROCKET took over SILPH or our POKéMON!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "Wow! You chased off TEAM ROCKET all by yourself?",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "7f",
+    "x": 10,
+    "y": 8,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_f",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "You! It's really dangerous here! You came to save me? You can't!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "Safe at last! Oh thank you!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "8f",
+    "x": 4,
+    "y": 2,
+    "name": "Silph Worker M",
+    "sprite": "silph_worker_m",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I wonder if SILPH is finished...",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "Thanks for saving us!",
+        "trigger": "After you beat Giovanni in Silph Co."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "9f",
+    "x": 3,
+    "y": 14,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
   },
   {
     "path": "route-5/underground-path-route-5",
@@ -6582,7 +7527,7 @@
         "trigger": "If you say no"
       },
       {
-        "text": "RED gave the GOLD TEETH to the WARDEN!\n\nWARDEN: Thanks, kid! No one could understand a word that I said.\n\nI couldn't work that way. Let me give you something for your trouble.",
+        "text": "RED gave the GOLD TEETH to the WARDEN!\n\nWARDEN: Thanks, kid! No one could understand a word that I said.\n\nI couldn't work that way. Let me give you something for your trouble.\n\nRED received HM04!",
         "trigger": "If you have the Gold Teeth, he gives you HM04",
         "gift": {
           "name": "HM04",
@@ -7384,6 +8329,36 @@
     "games": ["yellow"]
   },
   {
+    "path": "saffron-city/copycats-house",
+    "floor": "1f",
+    "x": 2,
+    "y": 2,
+    "name": "Middle Aged Woman",
+    "sprite": "yellow/middle_aged_woman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "My daughter is so self-centered. She only has a few friends."
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "saffron-city/copycats-house",
+    "floor": "1f",
+    "x": 1,
+    "y": 4,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "route-5/daycare",
     "x": 2,
     "y": 3,
@@ -8060,7 +9035,7 @@
         "trigger": "When you talk to him"
       },
       {
-        "text": "Good! Then listen up!\n\nMy favorite RAPIDASH...\n\nIt...cute... lovely...smart... plus...amazing... you think so?... oh yes...it... stunning... kindly... love it!\n\nHug it...when... sleeping...warm and cuddly... spectacular... ravishing... ...Oops! Look at the time! I kept you too long!\n\nThanks for hearing me out! I want you to have this!\n\nExchange that for a BICYCLE!\n\nDon't worry, my FEAROW will FLY me anywhere!\n\nSo, I don't need a BICYCLE!\n\nI hope you like cycling!",
+        "text": "Good! Then listen up!\n\nMy favorite RAPIDASH...\n\nIt...cute... lovely...smart... plus...amazing... you think so?... oh yes...it... stunning... kindly... love it!\n\nHug it...when... sleeping...warm and cuddly... spectacular... ravishing... ...Oops! Look at the time! I kept you too long!\n\nThanks for hearing me out! I want you to have this!\n\nRED received a BIKE VOUCHER!\n\nExchange that for a BICYCLE!\n\nDon't worry, my FEAROW will FLY me anywhere!\n\nSo, I don't need a BICYCLE!\n\nI hope you like cycling!",
         "trigger": "If you say yes, he tells his story and gives you a Bike Voucher",
         "gift": {
           "name": "Bike Voucher",
@@ -8494,7 +9469,7 @@
     "facing": "up",
     "dialog": [
       {
-        "text": "CAPTAIN: Ooargh... I feel hideous... Urrp! Seasick...\n\nRED rubbed the CAPTAIN's back!\n\nRub-rub... Rub-rub...\n\nCAPTAIN: Whew! Thank you! I feel much better!\n\nYou want to see my CUT technique?\n\nI could show you if I wasn't ill...\n\nI know! You can have this!\n\nTeach it to your POKéMON and you can see it CUT anytime!",
+        "text": "CAPTAIN: Ooargh... I feel hideous... Urrp! Seasick...\n\nRED rubbed the CAPTAIN's back!\n\nRub-rub... Rub-rub...\n\nCAPTAIN: Whew! Thank you! I feel much better!\n\nYou want to see my CUT technique?\n\nI could show you if I wasn't ill...\n\nI know! You can have this!\n\nTeach it to your POKéMON and you can see it CUT anytime!\n\nRED got HM01!",
         "trigger": "You rub his back, and he gives you HM01",
         "gift": {
           "name": "HM01",
@@ -8583,6 +9558,67 @@
       }
     ],
     "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "saffron-city/silph-co",
+    "floor": "9f",
+    "x": 3,
+    "y": 14,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
     "games": ["yellow"]
   },
   {
@@ -9072,6 +10108,26 @@
     "dialog": [
       {
         "text": "I heard that GHOSTs haunt LAVENDER TOWN!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "saffron-city/saffron-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "It would be great if the ELITE FOUR came and stomped TEAM ROCKET!",
+        "trigger": "Before you beat Giovanni in Silph Co."
+      },
+      {
+        "text": "TEAM ROCKET took off! We can go out safely again! That's great!",
+        "trigger": "After you beat Giovanni in Silph Co."
       }
     ],
     "games": ["red", "blue", "yellow"]
