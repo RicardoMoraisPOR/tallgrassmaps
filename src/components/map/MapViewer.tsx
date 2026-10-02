@@ -1,5 +1,6 @@
 import {
   type ReactNode,
+  useCallback,
   useEffect,
   useLayoutEffect,
   useMemo,
@@ -95,7 +96,7 @@ export type MapIconKind =
   | { kind: 'arrow'; direction: Direction }
   | { kind: 'door' }
   | { kind: 'exit' }
-  | { kind: 'stairs' | 'ladder'; step?: 'up' | 'down' }
+  | { kind: 'stairs' | 'ladder' | 'hole'; step?: 'up' | 'down' }
   | { kind: 'sign' };
 
 type MapViewerProps = {
@@ -405,7 +406,10 @@ const edgeAnchors: Record<Direction, PointTuple> = {
   east: [MAP_ICON_SIZE, MAP_ICON_SIZE / 2],
 };
 
-export const mapIconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
+export const mapIconArt: Record<
+  MapIconKind['kind'],
+  Record<ThemeStyle, string>
+> = {
   arrow: {
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>',
@@ -425,6 +429,11 @@ export const mapIconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>>
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v18"/><path d="M16 3v18"/><path d="M8 7h8"/><path d="M8 12h8"/><path d="M8 17h8"/></svg>',
     game: '<svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M1 0h1v8h-1zM5 0h1v8h-1zM2 1h3v1h-3zM2 4h3v1h-3zM2 7h3v1h-3z"/></svg>',
+  },
+  hole: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6"/><ellipse cx="12" cy="13" rx="5.5" ry="2.5" fill="currentColor"/></svg>',
+    game: '<svg viewBox="0 0 8 6" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M2 0h4v1h-4zM1 1h1v1h-1zM6 1h1v1h-1zM0 2h1v2h-1zM7 2h1v2h-1zM2 2h4v2h-4zM1 4h1v1h-1zM6 4h1v1h-1zM2 5h4v1h-4z"/></svg>',
   },
   sign: {
     'tall-grass':
@@ -460,8 +469,7 @@ const MapIcon = ({
   const markerRef = useRef<LeafletMarker>(null);
 
   const direction = icon.kind === 'arrow' ? icon.direction : undefined;
-  const step =
-    icon.kind === 'stairs' || icon.kind === 'ladder' ? icon.step : undefined;
+  const step = 'step' in icon ? icon.step : undefined;
   const stepArrow = step
     ? `<span class="map-icon-step" data-step="${step}">${mapStepArt[style]}</span>`
     : '';
@@ -712,23 +720,24 @@ const PanBounds = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
   const [[bottom, left], [top, right]] = bounds;
   const popupOpen = useRef(false);
 
-  const update = (leafletMap: LeafletMap) => {
-    if (popupOpen.current) return leafletMap.setMaxBounds(undefined);
-    if (leafletMap.getZoom() <= leafletMap.getMinZoom())
-      return leafletMap.setMaxBounds(bounds);
+  const update = useCallback(
+    (leafletMap: LeafletMap) => {
+      if (popupOpen.current) return leafletMap.setMaxBounds(undefined);
 
-    const { x, y } = leafletMap.getSize();
-    const scale = 2 ** leafletMap.getZoom();
-    const padX = x / scale / 2;
-    const padY = y / scale / 2;
+      const { x, y } = leafletMap.getSize();
+      const scale = 2 ** leafletMap.getZoom();
+      const padX = x / scale / 2;
+      const padY = y / scale / 2;
 
-    leafletMap.setMaxBounds([
-      [bottom - padY, left - padX],
-      [top + padY, right + padX],
-    ]);
-  };
+      leafletMap.setMaxBounds([
+        [bottom - padY, left - padX],
+        [top + padY, right + padX],
+      ]);
+    },
+    [bottom, left, top, right],
+  );
 
-  useMapEvents({
+  const leafletMap = useMapEvents({
     zoomend: ({ target }) => update(target),
     resize: ({ target }) => update(target),
     popupopen: ({ target }) => {
@@ -740,6 +749,10 @@ const PanBounds = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
       update(target);
     },
   });
+
+  useEffect(() => {
+    update(leafletMap);
+  }, [leafletMap, update]);
 
   return null;
 };

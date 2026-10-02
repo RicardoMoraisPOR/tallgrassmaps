@@ -39,6 +39,7 @@ export type Hotspot = Rect & {
   travel?: Direction;
   floor?: string;
   ladder?: boolean;
+  hole?: boolean;
   door?: boolean;
 };
 

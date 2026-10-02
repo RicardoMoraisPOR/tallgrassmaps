@@ -316,17 +316,62 @@ const outdoor: Array<OutdoorEntry> = [
   },
 ];
 
+type FloorExit = {
+  area: Rect;
+  ladder?: boolean;
+  hole?: boolean;
+  door?: boolean;
+} & ({ to: string } | { floor: string });
+
 type FloorEntry = {
   name: string;
   size?: Size;
-  exits?: Array<
-    { area: Rect; ladder?: boolean; door?: boolean } & (
-      | { to: string }
-      | { floor: string }
-    )
-  >;
+  exits?: Array<FloorExit>;
   variants?: Array<MapVariant>;
   games?: Array<string>;
+};
+
+const exitTarget = (exit: FloorExit) => ('to' in exit ? exit.to : exit.floor);
+
+const overlaps = (a: Rect, b: Rect) =>
+  a.x < b.x + b.width &&
+  b.x < a.x + a.width &&
+  a.y < b.y + b.height &&
+  b.y < a.y + a.height;
+
+const bounds = (a: Rect, b: Rect): Rect => {
+  const x = Math.min(a.x, b.x);
+  const y = Math.min(a.y, b.y);
+
+  return rect(
+    x,
+    y,
+    Math.max(a.x + a.width, b.x + b.width) - x,
+    Math.max(a.y + a.height, b.y + b.height) - y,
+  );
+};
+
+const mergeHoles = (exits: Array<FloorExit>): Array<FloorExit> => {
+  const merged: Array<FloorExit> = [];
+
+  for (const exit of exits) {
+    let current = exit;
+    const touching = (other: FloorExit) =>
+      Boolean(current.hole && other.hole) &&
+      exitTarget(other) === exitTarget(current) &&
+      overlaps(other.area, current.area);
+
+    for (let index = merged.findIndex(touching); index >= 0;) {
+      const [other] = merged.splice(index, 1);
+
+      current = { ...other, area: bounds(other.area, current.area) };
+      index = merged.findIndex(touching);
+    }
+
+    merged.push(current);
+  }
+
+  return merged;
 };
 
 type InsideEntry = {
@@ -906,10 +951,81 @@ const inside: Array<InsideEntry> = [
     parent: 'cinnabar-island',
     entrances: [entrance(96, 48)],
     floors: [
-      { name: '1F', size: [480, 448] },
-      { name: '2F', size: [480, 448] },
-      { name: '3F', size: [480, 288] },
-      { name: 'B1F', size: [480, 448] },
+      {
+        name: '1F',
+        size: [480, 448],
+        exits: [
+          { to: 'cinnabar-island', area: rect(64, 432, 64, 16) },
+          { to: 'cinnabar-island', area: rect(416, 432, 32, 16) },
+          { floor: '2F', area: warp(5, 10) },
+          { floor: 'B1F', area: warp(21, 23) },
+        ],
+      },
+      {
+        name: '2F',
+        size: [480, 448],
+        exits: [
+          { floor: '1F', area: warp(5, 10) },
+          ...[warp(7, 10), warp(25, 14), warp(6, 1)].map((area) => ({
+            floor: '3F',
+            area,
+          })),
+        ],
+      },
+      {
+        name: '3F',
+        size: [480, 288],
+        exits: [
+          ...[warp(7, 10), warp(25, 14), warp(6, 1)].map((area) => ({
+            floor: '2F',
+            area,
+          })),
+          ...[warp(16, 14), warp(17, 14)].map((area) => ({
+            floor: '1F',
+            area,
+            hole: true,
+          })),
+          { floor: '2F', area: warp(19, 14), hole: true },
+        ],
+      },
+      {
+        name: 'B1F',
+        size: [480, 448],
+        exits: [{ floor: '1F', area: warp(23, 22) }],
+      },
+    ],
+  },
+  {
+    id: 'cinnabar-gym',
+    name: 'Cinnabar Gym',
+    kind: 'building',
+    size: [320, 288],
+    parent: 'cinnabar-island',
+    entrances: [warp(18, 3)],
+    exits: [rect(256, 272, 32, 16)],
+  },
+  {
+    id: 'cinnabar-lab',
+    name: 'Pokémon Lab',
+    kind: 'building',
+    size: [288, 128],
+    parent: 'cinnabar-island',
+    entrances: [warp(6, 9)],
+    floors: [
+      {
+        name: 'Lobby',
+        exits: [
+          { to: 'cinnabar-island', area: rect(32, 112, 32, 16) },
+          { floor: 'Meeting Room', area: warp(8, 4), door: true },
+          { floor: 'R&D Room', area: warp(12, 4), door: true },
+          { floor: 'Testing Room', area: warp(16, 4), door: true },
+        ],
+      },
+      ...['Meeting Room', 'R&D Room', 'Testing Room'].map((name) => ({
+        name,
+        size: [128, 128] as Size,
+        exits: [{ floor: 'Lobby', area: rect(32, 112, 32, 16), door: true }],
+      })),
     ],
   },
   {
@@ -1542,15 +1658,18 @@ const toInsideLocation = ({
       id: floorId(floor.name),
       name: floor.name,
       image: floorImage(id, floor.name),
-      hotspots: (floor.exits ?? []).map(({ area, ladder, door, ...exit }) => ({
-        ...area,
-        ...(ladder && { ladder }),
-        ...(door && { door }),
-        kind: 'exit' as const,
-        ...('to' in exit
-          ? { target: exit.to }
-          : { target: `${parent}/${id}`, floor: floorId(exit.floor) }),
-      })),
+      hotspots: mergeHoles(floor.exits ?? []).map(
+        ({ area, ladder, hole, door, ...exit }) => ({
+          ...area,
+          ...(ladder && { ladder }),
+          ...(hole && { hole }),
+          ...(door && { door }),
+          kind: 'exit' as const,
+          ...('to' in exit
+            ? { target: exit.to }
+            : { target: `${parent}/${id}`, floor: floorId(exit.floor) }),
+        }),
+      ),
       width: floor.size?.[0] ?? location.width,
       height: floor.size?.[1] ?? location.height,
       variants: floor.variants,

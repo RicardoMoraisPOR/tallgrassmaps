@@ -592,6 +592,10 @@
   display: grid;
 }
 
+.leaflet-marker-icon.map-icon-anchor:has(.map-icon:hover) {
+  z-index: 100000 !important;
+}
+
 .map-icon-game + .map-icon-step {
   --step-size: calc(var(--map-icon-size, 28px) * 0.5);
   --step-ink: #292929;

@@ -58,6 +58,97 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "cinnabar-island",
+    "x": 9,
+    "y": 5,
+    "text": "CINNABAR ISLAND The Fiery Town of Burning Desire",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island",
+    "x": 16,
+    "y": 11,
+    "text": "All your item needs fulfilled! POKéMON MART",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island",
+    "x": 12,
+    "y": 11,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island",
+    "x": 9,
+    "y": 11,
+    "text": "POKéMON LAB",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island",
+    "x": 13,
+    "y": 3,
+    "text": "CINNABAR ISLAND POKéMON GYM LEADER: BLAINE\n\nThe Hot-Headed Quiz Master!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "lobby",
+    "x": 3,
+    "y": 2,
+    "text": "A photo of the LAB's founder, DR.FUJI!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "lobby",
+    "x": 9,
+    "y": 4,
+    "text": "POKéMON LAB Meeting Room",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "lobby",
+    "x": 13,
+    "y": 4,
+    "text": "POKéMON LAB R-and-D Room",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "lobby",
+    "x": 17,
+    "y": 4,
+    "text": "POKéMON LAB Testing Room",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "rd-room",
+    "x": 0,
+    "y": 4,
+    "text": "There's an e-mail message!\n\n...\n\nThe 3 legendary bird POKéMON are ARTICUNO, ZAPDOS and MOLTRES.\n\nTheir whereabouts are unknown.\n\nWe plan to explore the cavern close to CERULEAN.\n\nFrom: POKéMON RESEARCH TEAM\n\n...",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "rd-room",
+    "x": 1,
+    "y": 4,
+    "text": "There's an e-mail message!\n\n...\n\nThe 3 legendary bird POKéMON are ARTICUNO, ZAPDOS and MOLTRES.\n\nTheir whereabouts are unknown.\n\nWe plan to explore the cavern close to CERULEAN.\n\nFrom: POKéMON RESEARCH TEAM\n\n...",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "rd-room",
+    "x": 2,
+    "y": 1,
+    "text": "An amber pipe!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "lavender-town",
     "x": 11,
     "y": 9,
@@ -239,6 +330,42 @@
     "y": 0,
     "text": "If someone brags, brag right back!",
     "games": ["red", "blue"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "2f",
+    "x": 18,
+    "y": 2,
+    "text": "Diary: July 5 Guyana, South America\n\nA new POKéMON was discovered deep in the jungle.",
+    "sprite": "pokedex",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "2f",
+    "x": 3,
+    "y": 22,
+    "text": "Diary: July 10 We christened the newly discovered POKéMON, MEW.",
+    "sprite": "pokedex",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "3f",
+    "x": 6,
+    "y": 12,
+    "text": "Diary: Feb. 6 MEW gave birth.\n\nWe named the newborn MEWTWO.",
+    "sprite": "pokedex",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 16,
+    "y": 20,
+    "text": "Diary; Sept. 1 MEWTWO is far too powerful.\n\nWe have failed to curb its vicious tendencies...",
+    "sprite": "pokedex",
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "route-10/rock-tunnel",
@@ -613,6 +740,88 @@
     "y": 1,
     "text": "TRAINER TIPS\n\nIf you want to avoid battles, stay away from grassy areas!",
     "games": ["yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 15,
+    "y": 7,
+    "text": "CATERPIE evolves into BUTTERFREE?\n\nCorrect answer: YES",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 10,
+    "y": 1,
+    "text": "There are 9 certified POKéMON LEAGUE BADGEs?\n\nCorrect answer: NO",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 9,
+    "y": 7,
+    "text": "POLIWAG evolves 3 times?\n\nCorrect answer: NO",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 9,
+    "y": 13,
+    "text": "Are thunder moves effective against ground element-type POKéMON?\n\nCorrect answer: NO",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 1,
+    "y": 13,
+    "text": "POKéMON of the same kind and level are not identical?\n\nCorrect answer: YES",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 1,
+    "y": 7,
+    "text": "TM28 contains TOMBSTONER?\n\nCorrect answer: NO",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "1f",
+    "x": 2,
+    "y": 5,
+    "text": "A secret switch!\n\nPress it?",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "2f",
+    "x": 2,
+    "y": 11,
+    "text": "A secret switch!\n\nPress it?",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "3f",
+    "x": 10,
+    "y": 5,
+    "text": "A secret switch!\n\nPress it?",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 20,
+    "y": 3,
+    "text": "A secret switch!\n\nPress it?",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "cinnabar-island/pokemon-mansion",
+    "floor": "b1f",
+    "x": 18,
+    "y": 25,
+    "text": "A secret switch!\n\nPress it?",
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "indigo-plateau/pokemon-league",

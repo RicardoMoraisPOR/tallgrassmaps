@@ -358,7 +358,8 @@ const scripted = [
   {
     species: ['OMANYTE', 'KABUTO', 'AERODACTYL'],
     method: 'fossil',
-    path: 'cinnabar-island',
+    path: 'cinnabar-island/cinnabar-lab',
+    map: 'CINNABAR_LAB_FOSSIL_ROOM',
     games: ['red', 'blue', 'yellow'],
     level: 30,
     source: 'scripts/CinnabarLabFossilRoom.asm',

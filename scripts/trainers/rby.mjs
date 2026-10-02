@@ -129,6 +129,10 @@ const TRAINER_DIALOG_MAPS = new Set([
   'Route11',
   'Route12',
   'Route21',
+  'PokemonMansion1F',
+  'PokemonMansion2F',
+  'PokemonMansion3F',
+  'PokemonMansionB1F',
   'PokemonTower3F',
   'PokemonTower4F',
   'PokemonTower5F',
@@ -191,7 +195,49 @@ const eliteFourDialog = (before, end, after, leave) => [
     : []),
 ];
 
+const cinnabarGymTrainer = (number) => [
+  {
+    label: 'Before battle',
+    texts: [`_CinnabarGymSuperNerd${number}BattleText`],
+  },
+  {
+    label: 'If you win',
+    texts: [`_CinnabarGymSuperNerd${number}EndBattleText`],
+  },
+  {
+    label: 'After battle',
+    texts: [`_CinnabarGymSuperNerd${number}AfterBattleText`],
+  },
+];
+
 const OBJECT_DIALOG = {
+  ...Object.fromEntries(
+    [1, 2, 3, 4, 5, 6, 7].map((number) => [
+      `CINNABARGYM_SUPER_NERD${number}`,
+      cinnabarGymTrainer(number),
+    ]),
+  ),
+  CINNABARGYM_BLAINE: [
+    { label: 'Before battle', texts: ['_CinnabarGymBlainePreBattleText'] },
+    {
+      label: 'If you win, he gives you the Volcano Badge and TM38',
+      texts: [
+        '_CinnabarGymBlaineReceivedVolcanoBadgeText',
+        '_CinnabarGymBlaineVolcanoBadgeInfoText',
+        '_CinnabarGymBlaineReceivedTM38Text',
+        '_CinnabarGymBlaineTM38ExplanationText',
+      ],
+      gift: { name: 'TM38' },
+    },
+    {
+      label: 'If your bag is full',
+      texts: ['_CinnabarGymBlaineTM38NoRoomText'],
+    },
+    {
+      label: 'After battle',
+      texts: ['_CinnabarGymBlainePostBattleAdviceText'],
+    },
+  ],
   LORELEISROOM_LORELEI: eliteFourDialog(
     '_LoreleisRoomLoreleiBeforeBattleText',
     '_LoreleisRoomLoreleiEndBattleText',

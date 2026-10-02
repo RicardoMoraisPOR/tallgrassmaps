@@ -14,6 +14,7 @@ const LISTED: Array<EncounterMethod> = [
   'super-rod',
   'static',
   'gift',
+  'fossil',
   'fossil-item',
   'trade',
   'battle',
@@ -65,7 +66,7 @@ export const encounterHighlightKey = ({
   entry,
   encounter,
 }: EncounterRowData) => {
-  if (['static', 'gift', 'battle'].includes(encounter.method))
+  if (['static', 'gift', 'fossil', 'battle'].includes(encounter.method))
     return staticHighlightKey(entry.number);
   if (encounter.method === 'trade') return tradeHighlightKey(entry.number);
 

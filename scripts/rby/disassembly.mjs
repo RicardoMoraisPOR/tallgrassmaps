@@ -73,7 +73,7 @@ export const forGame = (text, define) => {
     } else if (/^\s*ENDC\b/.test(line)) {
       stack.pop();
     } else if (stack.every(Boolean)) {
-      kept.push(line.replace(/;.*$/, '').trim());
+      kept.push(line.replace(/;(?=(?:[^"]*"[^"]*")*[^"]*$).*$/, '').trim());
     }
   }
 
@@ -131,8 +131,10 @@ const buildingLocations = {
   VERMILION_DOCK: 'vermilion-city/ss-anne',
   VERMILION_TRADE_HOUSE: 'vermilion-city/vermilion-trade-house',
   CELADON_MANSION_ROOF_HOUSE: 'celadon-city',
-  CINNABAR_LAB_FOSSIL_ROOM: 'cinnabar-island',
-  CINNABAR_LAB_TRADE_ROOM: 'cinnabar-island',
+  CINNABAR_LAB: 'cinnabar-island/cinnabar-lab',
+  CINNABAR_LAB_TRADE_ROOM: 'cinnabar-island/cinnabar-lab',
+  CINNABAR_LAB_METRONOME_ROOM: 'cinnabar-island/cinnabar-lab',
+  CINNABAR_LAB_FOSSIL_ROOM: 'cinnabar-island/cinnabar-lab',
   ROUTE_2_TRADE_HOUSE: 'route-2/route-2-trade-house',
   UNDERGROUND_PATH_ROUTE_5: 'route-5/underground-path-route-5',
   UNDERGROUND_PATH_ROUTE_6: 'route-6/underground-path-route-6',
@@ -154,7 +156,7 @@ const buildingLocations = {
   CELADON_GYM: 'celadon-city',
   FUCHSIA_GYM: 'fuchsia-city',
   SAFFRON_GYM: 'saffron-city',
-  CINNABAR_GYM: 'cinnabar-island',
+  CINNABAR_GYM: 'cinnabar-island/cinnabar-gym',
   LORELEIS_ROOM: 'indigo-plateau/pokemon-league',
   BRUNOS_ROOM: 'indigo-plateau/pokemon-league',
   AGATHAS_ROOM: 'indigo-plateau/pokemon-league',
@@ -214,6 +216,10 @@ const namedFloors = {
   LANCES_ROOM: 'lances-room',
   CHAMPIONS_ROOM: 'champions-room',
   HALL_OF_FAME: 'hall-of-fame',
+  CINNABAR_LAB: 'lobby',
+  CINNABAR_LAB_TRADE_ROOM: 'meeting-room',
+  CINNABAR_LAB_METRONOME_ROOM: 'rd-room',
+  CINNABAR_LAB_FOSSIL_ROOM: 'testing-room',
 };
 
 export const floorFor = (mapConstant) => {

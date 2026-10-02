@@ -227,6 +227,28 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "cinnabar-island/cinnabar-lab",
+    "floor": "testing-room",
+    "x": 5,
+    "y": 2,
+    "kind": "gift",
+    "pokemon": [
+      {
+        "number": 138,
+        "level": 30
+      },
+      {
+        "number": 140,
+        "level": 30
+      },
+      {
+        "number": 142,
+        "level": 30
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-24",
     "x": 6,
     "y": 5,

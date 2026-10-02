@@ -5064,8 +5064,13 @@
       },
       {
         "method": "trade",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "tradeFor": 77,
+        "floors": [
+          {
+            "floor": "testing-room"
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -5150,8 +5155,13 @@
       },
       {
         "method": "trade",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "tradeFor": 58,
+        "floors": [
+          {
+            "floor": "meeting-room"
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -5359,8 +5369,13 @@
       },
       {
         "method": "trade",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "tradeFor": 115,
+        "floors": [
+          {
+            "floor": "testing-room"
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6283,8 +6298,13 @@
       },
       {
         "method": "trade",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "tradeFor": 26,
+        "floors": [
+          {
+            "floor": "meeting-room"
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -6847,8 +6867,13 @@
       },
       {
         "method": "trade",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "tradeFor": 55,
+        "floors": [
+          {
+            "floor": "meeting-room"
+          }
+        ],
         "games": ["yellow"]
       }
     ]
@@ -6945,8 +6970,13 @@
       },
       {
         "method": "trade",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "tradeFor": 48,
+        "floors": [
+          {
+            "floor": "meeting-room"
+          }
+        ],
         "games": ["red", "blue"]
       },
       {
@@ -8212,8 +8242,14 @@
     "encounters": [
       {
         "method": "fossil",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "levels": [30, 30],
+        "floors": [
+          {
+            "floor": "testing-room",
+            "levels": [30, 30]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       },
       {
@@ -8249,8 +8285,14 @@
     "encounters": [
       {
         "method": "fossil",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "levels": [30, 30],
+        "floors": [
+          {
+            "floor": "testing-room",
+            "levels": [30, 30]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       },
       {
@@ -8286,8 +8328,14 @@
     "encounters": [
       {
         "method": "fossil",
-        "path": "cinnabar-island",
+        "path": "cinnabar-island/cinnabar-lab",
         "levels": [30, 30],
+        "floors": [
+          {
+            "floor": "testing-room",
+            "levels": [30, 30]
+          }
+        ],
         "games": ["red", "blue", "yellow"]
       },
       {

@@ -1138,9 +1138,33 @@
   {
     "name": "Blaine",
     "trainerClass": "blaine",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 3,
+    "y": 3,
+    "facing": "down",
     "sprite": "middle_aged_man",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hah!\n\nI am BLAINE! I am the LEADER of CINNABAR GYM!\n\nMy fiery POKéMON will incinerate all challengers!\n\nHah! You better have BURN HEAL!"
+      },
+      {
+        "label": "If you win, he gives you the Volcano Badge and TM38",
+        "text": "I have burnt out!\n\nYou have earned the VOLCANOBADGE!\n\nHah!\n\nThe VOLCANOBADGE heightens the SPECIAL abilities of your POKéMON!\n\nHere, you can have this too!\n\nTM38 contains FIRE BLAST!\n\nTeach it to fire-type POKéMON!\n\nCHARMELEON or PONYTA would be good bets!",
+        "gift": {
+          "name": "TM38",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Make room for my gift!"
+      },
+      {
+        "label": "After battle",
+        "text": "FIRE BLAST is the ultimate fire technique!\n\nDon't waste it on water POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1172,9 +1196,33 @@
   {
     "name": "Blaine",
     "trainerClass": "blaine",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 3,
+    "y": 3,
+    "facing": "down",
     "sprite": "silph_president",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hah!\n\nI am BLAINE! I am the LEADER of CINNABAR GYM!\n\nMy fiery POKéMON will incinerate all challengers!\n\nHah! You better have BURN HEAL!"
+      },
+      {
+        "label": "If you win, he gives you the Volcano Badge and TM38",
+        "text": "I have burnt out!\n\nYou have earned the VOLCANOBADGE!\n\nHah!\n\nThe VOLCANOBADGE heightens the SPECIAL abilities of your POKéMON!\n\nHere, you can have this too!\n\nTM38 contains FIRE BLAST!\n\nTeach it to fire-type POKéMON!\n\nCHARMELEON or PONYTA would be good bets!",
+        "gift": {
+          "name": "TM38",
+          "sprite": "poke_ball"
+        }
+      },
+      {
+        "label": "If your bag is full",
+        "text": "Make room for my gift!"
+      },
+      {
+        "label": "After battle",
+        "text": "FIRE BLAST is the ultimate fire technique!\n\nDon't waste it on water POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1206,9 +1254,25 @@
   {
     "name": "Super Nerd",
     "trainerClass": "super-nerd",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 17,
+    "y": 2,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Do you know how hot POKéMON fire breath can get?"
+      },
+      {
+        "label": "If you win",
+        "text": "Yow! Hot, hot, hot!"
+      },
+      {
+        "label": "After battle",
+        "text": "Fire, or to be more precise, combustion...\n\nBlah, blah, blah, blah..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1235,9 +1299,25 @@
   {
     "name": "Burglar",
     "trainerClass": "burglar",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 17,
+    "y": 8,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I was a thief, but I became straight as a trainer!"
+      },
+      {
+        "label": "If you win",
+        "text": "I surrender!"
+      },
+      {
+        "label": "After battle",
+        "text": "I can't help stealing other people's POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1264,9 +1344,25 @@
   {
     "name": "Super Nerd",
     "trainerClass": "super-nerd",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 11,
+    "y": 4,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You can't win! I have studied POKéMON totally!"
+      },
+      {
+        "label": "If you win",
+        "text": "Waah! My studies!"
+      },
+      {
+        "label": "After battle",
+        "text": "My theories are too complicated for you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1298,9 +1394,25 @@
   {
     "name": "Burglar",
     "trainerClass": "burglar",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 11,
+    "y": 8,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I just like using fire POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "Too hot to handle!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish there was a thief POKéMON! I'd use that!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1317,9 +1429,25 @@
   {
     "name": "Super Nerd",
     "trainerClass": "super-nerd",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 11,
+    "y": 14,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I know why BLAINE became a trainer!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ow!"
+      },
+      {
+        "label": "After battle",
+        "text": "BLAINE was lost in the mountains when a fiery bird POKéMON appeared.\n\nIts light enabled BLAINE to find his way down!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1336,9 +1464,25 @@
   {
     "name": "Burglar",
     "trainerClass": "burglar",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 3,
+    "y": 14,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I've been to many GYMs, but this is my favorite!"
+      },
+      {
+        "label": "If you win",
+        "text": "Yowza! Too hot!"
+      },
+      {
+        "label": "After battle",
+        "text": "Us fire POKéMON fans like PONYTA and NINETALES!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1360,9 +1504,25 @@
   {
     "name": "Super Nerd",
     "trainerClass": "super-nerd",
-    "path": "cinnabar-island",
-    "area": "Cinnabar Gym",
+    "path": "cinnabar-island/cinnabar-gym",
+    "x": 3,
+    "y": 8,
+    "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Fire is weak against H2O!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! Snuffed out!"
+      },
+      {
+        "label": "After battle",
+        "text": "Water beats fire! But, fire melts ice POKéMON!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1391,6 +1551,20 @@
     "y": 17,
     "facing": "left",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Who are you? There shouldn't be anyone here."
+      },
+      {
+        "label": "If you win",
+        "text": "Ouch!"
+      },
+      {
+        "label": "After battle",
+        "text": "A key? I don't know what you're talking about."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1419,6 +1593,20 @@
     "y": 17,
     "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I can't get out! This old place is one big puzzle!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh no! My bag of loot!"
+      },
+      {
+        "label": "After battle",
+        "text": "Switches open and close alternating sets of doors!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1447,6 +1635,20 @@
     "y": 11,
     "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This place is like, huge!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ayah!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wonder where my partner went."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1470,6 +1672,20 @@
     "y": 11,
     "facing": "left",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My mentor once lived here."
+      },
+      {
+        "label": "If you win",
+        "text": "Whew! Overwhelming!"
+      },
+      {
+        "label": "After battle",
+        "text": "So, you're stuck? Try jumping off over there!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1503,6 +1719,20 @@
     "y": 23,
     "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Uh-oh. Where am I now?"
+      },
+      {
+        "label": "If you win",
+        "text": "Awooh!"
+      },
+      {
+        "label": "After battle",
+        "text": "You can find stuff lying around."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -1531,6 +1761,20 @@
     "y": 11,
     "facing": "down",
     "sprite": "scientist",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This place is ideal for a lab."
+      },
+      {
+        "label": "If you win",
+        "text": "What was that for?"
+      },
+      {
+        "label": "After battle",
+        "text": "I like it here! It's conducive to my studies!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

@@ -28,7 +28,7 @@ const groups: Array<{
     ],
   },
   {
-    title: 'Stairs and ladders',
+    title: 'Stairs, ladders and holes',
     icons: [
       {
         label: 'Stairs · up',
@@ -48,6 +48,11 @@ const groups: Array<{
       {
         label: 'Ladder · down',
         icon: { kind: 'ladder', step: 'down' },
+        className: 'map-link-connection',
+      },
+      {
+        label: 'Hole · down',
+        icon: { kind: 'hole', step: 'down' },
         className: 'map-link-connection',
       },
     ],
@@ -85,15 +90,14 @@ const MapIcons = ({ style }: { style: 'game' | 'tall-grass' }) => {
                       __html: mapIconArt[icon.kind][style],
                     }}
                   />
-                  {(icon.kind === 'stairs' || icon.kind === 'ladder') &&
-                    icon.step && (
-                      <span
-                        className={`map-icon-step map-icon-step-preview${gameStyle ? ' map-icon-step-preview-game' : ''}`}
-                        data-step={icon.step}
-                        aria-hidden="true"
-                        dangerouslySetInnerHTML={{ __html: mapStepArt[style] }}
-                      />
-                    )}
+                  {'step' in icon && icon.step && (
+                    <span
+                      className={`map-icon-step map-icon-step-preview${gameStyle ? ' map-icon-step-preview-game' : ''}`}
+                      data-step={icon.step}
+                      aria-hidden="true"
+                      dangerouslySetInnerHTML={{ __html: mapStepArt[style] }}
+                    />
+                  )}
                 </div>
                 <span className="text-center text-xs text-muted-foreground">
                   {label}

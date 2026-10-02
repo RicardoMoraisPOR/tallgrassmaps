@@ -128,6 +128,18 @@ const NPC_MAPS = {
   SS_ANNE_B_1_F_ROOMS: { path: 'vermilion-city/ss-anne' },
   SS_ANNE_KITCHEN: { path: 'vermilion-city/ss-anne' },
   SS_ANNE_CAPTAINS_ROOM: { path: 'vermilion-city/ss-anne' },
+  CINNABAR_ISLAND: { path: 'cinnabar-island' },
+  CINNABAR_GYM: { path: 'cinnabar-island/cinnabar-gym' },
+  CINNABAR_LAB: { path: 'cinnabar-island/cinnabar-lab' },
+  CINNABAR_LAB_TRADE_ROOM: { path: 'cinnabar-island/cinnabar-lab' },
+  CINNABAR_LAB_METRONOME_ROOM: { path: 'cinnabar-island/cinnabar-lab' },
+  CINNABAR_LAB_FOSSIL_ROOM: { path: 'cinnabar-island/cinnabar-lab' },
+  CINNABAR_MART: { path: 'cinnabar-island/cinnabar-poke-mart' },
+  CINNABAR_POKECENTER: { path: 'cinnabar-island/cinnabar-pokemon-center' },
+  POKEMON_MANSION_1_F: { path: 'cinnabar-island/pokemon-mansion' },
+  POKEMON_MANSION_2_F: { path: 'cinnabar-island/pokemon-mansion' },
+  POKEMON_MANSION_3_F: { path: 'cinnabar-island/pokemon-mansion' },
+  POKEMON_MANSION_B_1_F: { path: 'cinnabar-island/pokemon-mansion' },
   UNDERGROUND_PATH_NORTH_SOUTH: {
     path: 'route-5/underground-path-north-south',
   },
@@ -214,6 +226,12 @@ const route23Guard = (badge, name) => ({
     },
   ],
 });
+
+const FOSSILS = [
+  ['Helix Fossil', 'HELIX FOSSIL', 'OMANYTE'],
+  ['Dome Fossil', 'DOME FOSSIL', 'KABUTO'],
+  ['Old Amber', 'OLD AMBER', 'AERODACTYL'],
+];
 
 const SCRIPTED_NPCS = {
   ROUTE5GATE_GUARD: SAFFRON_GATE_GUARD,
@@ -1472,6 +1490,70 @@ const SCRIPTED_NPCS = {
       {
         trigger: 'After you get the Old Rod',
         texts: ['_VermilionOldRodHouseFishingGuruHowAreTheFishBitingText'],
+      },
+    ],
+  },
+  CINNABARGYM_GYM_GUIDE: {
+    dialog: [
+      {
+        trigger: 'Before you beat Blaine',
+        texts: ['_CinnabarGymGymGuideChampInMakingText'],
+      },
+      {
+        trigger: 'After you beat Blaine',
+        texts: ['_CinnabarGymGymGuideBeatBlaineText'],
+      },
+    ],
+  },
+  CINNABARLABMETRONOMEROOM_SCIENTIST1: {
+    dialog: [
+      {
+        trigger: 'When you talk to him, he gives you TM35',
+        texts: [
+          '_CinnabarLabMetronomeRoomScientist1Text',
+          '_CinnabarLabMetronomeRoomScientist1ReceivedTM35Text',
+        ],
+        gift: { name: 'TM35' },
+      },
+      {
+        trigger: 'If your bag is full',
+        texts: ['_CinnabarLabMetronomeRoomScientist1TM35NoRoomText'],
+      },
+      {
+        trigger: 'After you get TM35',
+        texts: ['_CinnabarLabMetronomeRoomScientist1TM35ExplanationText'],
+      },
+    ],
+  },
+  CINNABARLABFOSSILROOM_SCIENTIST1: {
+    special: true,
+    dialog: [
+      {
+        trigger: 'When you talk to him',
+        texts: ['_CinnabarLabFossilRoomScientist1Text'],
+      },
+      {
+        trigger: 'Without a fossil',
+        texts: ['_CinnabarLabFossilRoomScientist1NoFossilsText'],
+      },
+      ...FOSSILS.map(([name, item, species]) => ({
+        trigger: `If you give him the ${name}, he revives it after you leave the lab`,
+        texts: [
+          '_CinnabarLabFossilRoomScientist1SeesFossilText',
+          '_CinnabarLabFossilRoomScientist1TakesFossilText',
+          '_CinnabarLabFossilRoomScientist1GoForAWalkText2',
+          '_CinnabarLabFossilRoomScientist1FossilIsBackToLifeText',
+        ],
+        values: { wNameBuffer: item, wStringBuffer: species },
+        pokemon: species,
+      })),
+      {
+        trigger: 'If you say no',
+        texts: ['_CinnabarLabFossilRoomScientist1ComeAgainText'],
+      },
+      {
+        trigger: 'If you come back before leaving the lab',
+        texts: ['_CinnabarLabFossilRoomScientist1GoForAWalkText'],
       },
     ],
   },

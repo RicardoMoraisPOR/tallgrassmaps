@@ -110,6 +110,18 @@ const SIGN_MAPS = {
   SS_ANNE_B_1_F_ROOMS: 'vermilion-city/ss-anne',
   SS_ANNE_KITCHEN: 'vermilion-city/ss-anne',
   SS_ANNE_CAPTAINS_ROOM: 'vermilion-city/ss-anne',
+  CINNABAR_ISLAND: 'cinnabar-island',
+  CINNABAR_GYM: 'cinnabar-island/cinnabar-gym',
+  CINNABAR_LAB: 'cinnabar-island/cinnabar-lab',
+  CINNABAR_LAB_TRADE_ROOM: 'cinnabar-island/cinnabar-lab',
+  CINNABAR_LAB_METRONOME_ROOM: 'cinnabar-island/cinnabar-lab',
+  CINNABAR_LAB_FOSSIL_ROOM: 'cinnabar-island/cinnabar-lab',
+  CINNABAR_MART: 'cinnabar-island/cinnabar-poke-mart',
+  CINNABAR_POKECENTER: 'cinnabar-island/cinnabar-pokemon-center',
+  POKEMON_MANSION_1_F: 'cinnabar-island/pokemon-mansion',
+  POKEMON_MANSION_2_F: 'cinnabar-island/pokemon-mansion',
+  POKEMON_MANSION_3_F: 'cinnabar-island/pokemon-mansion',
+  POKEMON_MANSION_B_1_F: 'cinnabar-island/pokemon-mansion',
   UNDERGROUND_PATH_NORTH_SOUTH: 'route-5/underground-path-north-south',
 };
 
@@ -124,7 +136,13 @@ const OPENABLE_OBJECTS = [
 
 const READABLE_SPRITES = new Set(['CLIPBOARD', 'PAPER']);
 
-const READABLE_OBJECTS = new Set(['MRFUJISHOUSE_POKEDEX']);
+const READABLE_OBJECTS = new Set([
+  'MRFUJISHOUSE_POKEDEX',
+  'POKEMONMANSION2F_DIARY1',
+  'POKEMONMANSION2F_DIARY2',
+  'POKEMONMANSION3F_DIARY',
+  'POKEMONMANSIONB1F_DIARY',
+]);
 
 const opensFor = (textId) =>
   !READABLE_OBJECTS.has(textId) &&
@@ -142,6 +160,58 @@ const EXTRA_SIGNS = [
     opens: 'hall-of-fame',
   },
 ];
+
+const SWITCH_TEXT = {
+  Mansion1Script_Switches: '_PokemonMansion1FSwitchText',
+  Mansion2Script_Switches: '_PokemonMansion2FSwitchText',
+  Mansion3Script_Switches: '_PokemonMansion2FSwitchText',
+  Mansion4Script_Switches: '_PokemonMansion2FSwitchText',
+};
+
+const cinnabarQuiz = (game, argument) => {
+  const [, answer, index] = argument.match(/\((\w+)\s*<<\s*4\)\s*\|\s*(\d+)/);
+  const question = farText(game, `_CinnabarQuizQuestionsText${index}`);
+
+  return `${question}\n\nCorrect answer: ${answer === 'FALSE' ? 'YES' : 'NO'}`;
+};
+
+const hiddenSigns = (game) => {
+  const found = [];
+  let map;
+
+  for (const line of forGame(
+    read(game.dir, 'data/events/hidden_events.asm'),
+    game.define,
+  )) {
+    map = line.match(/^hidden_events_for (\w+)$/)?.[1] ?? map;
+
+    const [, x, y, action, argument] =
+      line.match(/^hidden_event\s+(\d+),\s*(\d+),\s*(\w+),\s*(.+)$/) ?? [];
+    const constant = Object.keys(SIGN_MAPS).find(
+      (key) => key.replaceAll('_', '') === map?.replaceAll('_', ''),
+    );
+    const path = SIGN_MAPS[constant];
+    const text =
+      action === 'PrintCinnabarQuiz'
+        ? cinnabarQuiz(game, argument)
+        : SWITCH_TEXT[action] && farText(game, SWITCH_TEXT[action]);
+
+    if (!path || !text) continue;
+
+    const floor = floorFor(constant);
+
+    found.push({
+      game: game.id,
+      path,
+      ...(floor && { floor }),
+      x: Number(x),
+      y: Number(y),
+      text,
+    });
+  }
+
+  return found;
+};
 
 const signs = [];
 
@@ -209,6 +279,8 @@ for (const game of games) {
 }
 
 for (const game of games) {
+  signs.push(...hiddenSigns(game));
+
   for (const { map, ...sign } of EXTRA_SIGNS) {
     const floor = floorFor(map);
 

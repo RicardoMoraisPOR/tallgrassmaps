@@ -96,6 +96,7 @@ export type LayeredMapLink = MapLink & {
   layer: MapLayerId;
   stairs?: boolean;
   ladder?: boolean;
+  hole?: boolean;
   door?: boolean;
   step?: FloorStep;
 };
@@ -154,7 +155,12 @@ const withQuery = (base: string, query: Record<string, string | undefined>) => {
   return params ? `${base}?${params}` : base;
 };
 
-type Landing = { target: string; floor?: string; travel?: Direction };
+type Landing = {
+  target: string;
+  floor?: string;
+  travel?: Direction;
+  hole?: boolean;
+};
 
 const landings = (
   location: Location,
@@ -174,6 +180,8 @@ export const arrivals = (
   const seen = new Map<string, number>();
 
   return landings(location, floor).map((landing) => {
+    if (landing.hole) return { key: '', count: 0, marked: false };
+
     const key = landingKey(landing);
     const count = (seen.get(key) ?? 0) + 1;
 
@@ -234,7 +242,7 @@ export const locationLinks = (
   const floorExitSeen = new Map<string, number>();
 
   for (const hotspot of hotspots)
-    if (hotspot.floor && hotspot.target === path)
+    if (hotspot.floor && hotspot.target === path && !hotspot.hole)
       floorExitTotals.set(
         hotspot.floor,
         (floorExitTotals.get(hotspot.floor) ?? 0) + 1,
@@ -242,6 +250,8 @@ export const locationLinks = (
 
   const floorExitLabel = (hotspot: LocationHotspot, target: Location) => {
     const floorId = hotspot.floor!;
+
+    if (hotspot.hole) return { label: `Hole to ${floorName(target, floorId)}` };
     const count = (floorExitSeen.get(floorId) ?? 0) + 1;
 
     floorExitSeen.set(floorId, count);
@@ -288,6 +298,9 @@ export const locationLinks = (
 
   const pairing = (landing: Landing, index: number) => {
     const { key, count, marked } = here[index];
+
+    if (landing.hole) return {};
+
     const via = `${path}:${floor?.id ?? ''}:${count}`;
 
     return {
@@ -313,7 +326,9 @@ export const locationLinks = (
     return {
       ...base,
       ...floorExitLabel(hotspot, target),
-      step: floorStep(target, floor, hotspot.floor),
+      step: hotspot.hole
+        ? ('down' as const)
+        : floorStep(target, floor, hotspot.floor),
       ...(arrival && { highlightKey: arrival }),
       replace: true,
       stairs: true,
@@ -345,9 +360,11 @@ export const locationLinks = (
               ? { kind: 'door' as const }
               : link.stairs
                 ? {
-                    kind: link.ladder
-                      ? ('ladder' as const)
-                      : ('stairs' as const),
+                    kind: link.hole
+                      ? ('hole' as const)
+                      : link.ladder
+                        ? ('ladder' as const)
+                        : ('stairs' as const),
                     step: link.step,
                   }
                 : { kind: 'exit' as const },
