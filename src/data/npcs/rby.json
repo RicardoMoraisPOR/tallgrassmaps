@@ -2035,6 +2035,72 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "route-10/rock-tunnel-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-10/rock-tunnel-pokemon-center",
+    "x": 7,
+    "y": 3,
+    "name": "Gentleman",
+    "sprite": "gentleman",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "The element types of POKéMON make them stronger than some types and weaker than others!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/rock-tunnel-pokemon-center",
+    "x": 2,
+    "y": 5,
+    "name": "Fisher",
+    "sprite": "fisher",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I sold a useless NUGGET for ¥5000!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/rock-tunnel-pokemon-center",
+    "x": 11,
+    "y": 2,
+    "name": "Link Receptionist",
+    "sprite": "link_receptionist",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "This area is reserved for 2 friends who are linked by cable.\n\nPlease come again!",
+        "trigger": "Without a link cable connection"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-1",
     "x": 5,
     "y": 24,
@@ -2424,6 +2490,30 @@
     "name": "Guard",
     "sprite": "guard",
     "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["red", "blue"]
+  },
+  {
+    "path": "route-7/route-7-gate",
+    "x": 3,
+    "y": 1,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
     "dialog": [
       {
         "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh wait there, the road's closed.",
@@ -2990,6 +3080,20 @@
     "dialog": [
       {
         "text": "People often lose things in that UNDERGROUND PATH."
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-7/underground-path-route-7",
+    "x": 2,
+    "y": 4,
+    "name": "Middle Aged Man",
+    "sprite": "middle_aged_man",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "I heard a sleepy POKéMON appeared near CELADON CITY."
       }
     ],
     "games": ["red", "blue", "yellow"]
@@ -4687,6 +4791,43 @@
     "games": ["yellow"]
   },
   {
+    "path": "route-10/rock-tunnel-pokemon-center",
+    "x": 3,
+    "y": 1,
+    "name": "Nurse",
+    "sprite": "yellow/nurse",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "Welcome to our POKéMON CENTER!\n\nWe heal your POKéMON back to perfect health!\n\nShall we heal your POKéMON?",
+        "trigger": "When you talk to her"
+      },
+      {
+        "text": "OK. We'll need your POKéMON.\n\nThank you! Your POKéMON are fighting fit!\n\nWe hope to see you again!",
+        "trigger": "If you say yes, she heals your party"
+      },
+      {
+        "text": "We hope to see you again!",
+        "trigger": "If you say no"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-10/rock-tunnel-pokemon-center",
+    "x": 4,
+    "y": 1,
+    "name": "Chansey",
+    "sprite": "yellow/chansey",
+    "facing": "down",
+    "dialog": [
+      {
+        "text": "CHANSEY: Chaaan sey!"
+      }
+    ],
+    "games": ["yellow"]
+  },
+  {
     "path": "route-11/route-11-gate",
     "floor": "2f",
     "x": 4,
@@ -4863,6 +5004,30 @@
     "name": "Guard",
     "sprite": "guard",
     "facing": "left",
+    "dialog": [
+      {
+        "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh, wait there, the road's closed.",
+        "trigger": "Without a drink, he won't let you through"
+      },
+      {
+        "text": "Whoa, boy! I'm parched! ... Huh? I can have this drink? Gee, thanks!\n\n... Glug, glug... ... Gulp... If you want to go to SAFFRON CITY... ... You can go on through. I'll share this with the other guards!",
+        "trigger": "If you have a drink, you give him one"
+      },
+      {
+        "text": "Hi, thanks for the cool drinks!",
+        "trigger": "After you give him a drink"
+      }
+    ],
+    "special": true,
+    "games": ["yellow"]
+  },
+  {
+    "path": "route-7/route-7-gate",
+    "x": 3,
+    "y": 1,
+    "name": "Guard",
+    "sprite": "guard",
+    "facing": "down",
     "dialog": [
       {
         "text": "I'm on guard duty. Gee, I'm thirsty, though!\n\nOh, wait there, the road's closed.",
@@ -5356,6 +5521,21 @@
     "dialog": [
       {
         "text": "If you have too many POKéMON, you should store them via PC!"
+      }
+    ],
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10/rock-tunnel-pokemon-center",
+    "x": 0,
+    "y": 4,
+    "name": "Bench Guy",
+    "sprite": "bench_guy",
+    "facing": "down",
+    "spriteOffset": [6, 0],
+    "dialog": [
+      {
+        "text": "I heard that GHOSTs haunt LAVENDER TOWN!"
       }
     ],
     "games": ["red", "blue", "yellow"]

@@ -559,6 +559,78 @@
     filter 50ms;
 }
 
+.map-icon-step {
+  --step-size: calc(var(--map-icon-size, 28px) * 0.65);
+  --step-ink: var(--foreground);
+  --step-edge: var(--popover);
+
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 7px);
+  display: none;
+  margin-top: calc(var(--step-size) / -2);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px oklch(0 0 0 / 0.35));
+  animation: map-icon-step-up 1s infinite;
+}
+
+.map-icon:hover + .map-icon-step {
+  display: grid;
+}
+
+.map-icon-game + .map-icon-step {
+  --step-size: calc(var(--map-icon-size, 28px) * 0.5);
+  --step-ink: #292929;
+  --step-edge: #f6f4f7;
+
+  filter: none;
+}
+
+.map-icon-step svg {
+  width: var(--step-size);
+  height: var(--step-size);
+}
+
+.map-icon-step[data-step='down'] {
+  animation-name: map-icon-step-down;
+}
+
+.map-icon-step[data-step='down'] svg {
+  rotate: 180deg;
+}
+
+@keyframes map-icon-step-up {
+  0%,
+  100% {
+    translate: 0 2px;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  30% {
+    translate: 0 -3px;
+    animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+  }
+}
+
+@keyframes map-icon-step-down {
+  0%,
+  100% {
+    translate: 0 -2px;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  30% {
+    translate: 0 3px;
+    animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-icon-step {
+    animation: none;
+  }
+}
+
 .map-icon:hover,
 .map-icon-active {
   scale: 1.12;

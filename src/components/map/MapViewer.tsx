@@ -84,8 +84,7 @@ export type MapIconKind =
   | { kind: 'arrow'; direction: Direction }
   | { kind: 'door' }
   | { kind: 'exit' }
-  | { kind: 'stairs' }
-  | { kind: 'ladder' }
+  | { kind: 'stairs' | 'ladder'; step?: 'up' | 'down' }
   | { kind: 'sign' };
 
 type MapViewerProps = {
@@ -390,6 +389,12 @@ const iconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
   },
 };
 
+const stepArt: Record<ThemeStyle, string> = {
+  'tall-grass':
+    '<svg viewBox="-3 -3 30 30" aria-hidden="true"><path d="M12 1.5 23 13h-6.5v9.5h-9V13H1z" fill="var(--step-ink)" stroke="var(--step-edge)" stroke-width="4.5" stroke-linejoin="round" paint-order="stroke"/></svg>',
+  game: '<svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="var(--step-edge)" d="M3 0h3v1h-3zM2 1h5v1h-5zM1 2h7v1h-7zM0 3h9v3h-9zM2 6h5v3h-5z"/><path fill="var(--step-ink)" d="M4 1h1v1h-1zM3 2h3v1h-3zM2 3h5v1h-5zM1 4h7v1h-7zM3 5h3v3h-3z"/></svg>',
+};
+
 const MapIcon = ({
   link,
   icon,
@@ -406,6 +411,11 @@ const MapIcon = ({
   const markerRef = useRef<LeafletMarker>(null);
 
   const direction = icon.kind === 'arrow' ? icon.direction : undefined;
+  const step =
+    icon.kind === 'stairs' || icon.kind === 'ladder' ? icon.step : undefined;
+  const stepArrow = step
+    ? `<span class="map-icon-step" data-step="${step}">${stepArt[style]}</span>`
+    : '';
   const marker = useMemo(
     () =>
       divIcon({
@@ -413,13 +423,13 @@ const MapIcon = ({
           'map-icon-anchor',
           direction && `map-icon-anchor-${direction}`,
         ),
-        html: `<span class="${cn('map-icon', link.className, style === 'game' && 'map-icon-game')}"${direction ? ` data-direction="${direction}"` : ''}>${iconArt[icon.kind][style]}</span>`,
+        html: `<span class="${cn('map-icon', link.className, style === 'game' && 'map-icon-game')}"${direction ? ` data-direction="${direction}"` : ''}>${iconArt[icon.kind][style]}</span>${stepArrow}`,
         iconSize: [MAP_ICON_SIZE, MAP_ICON_SIZE],
         iconAnchor: direction
           ? edgeAnchors[direction]
           : [MAP_ICON_SIZE / 2, MAP_ICON_SIZE / 2],
       }),
-    [style, icon.kind, direction, link.className],
+    [style, icon.kind, direction, stepArrow, link.className],
   );
 
   useEffect(() => {

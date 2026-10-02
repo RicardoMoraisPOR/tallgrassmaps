@@ -137,6 +137,8 @@ const buildingLocations = {
   UNDERGROUND_PATH_ROUTE_5: 'route-5/underground-path-route-5',
   UNDERGROUND_PATH_ROUTE_6: 'route-6/underground-path-route-6',
   UNDERGROUND_PATH_NORTH_SOUTH: 'route-5/underground-path-north-south',
+  ROUTE_7_GATE: 'route-7/route-7-gate',
+  UNDERGROUND_PATH_ROUTE_7: 'route-7/underground-path-route-7',
   ROUTE_8_GATE: 'route-8/route-8-gate',
   UNDERGROUND_PATH_ROUTE_8: 'route-8/underground-path-route-8',
   UNDERGROUND_PATH_WEST_EAST: 'route-8/underground-path-west-east',

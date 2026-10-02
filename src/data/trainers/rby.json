@@ -6135,6 +6135,20 @@
     "y": 44,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Wow, are you a POKéMANIAC too? Want to see my collection?"
+      },
+      {
+        "label": "If you win",
+        "text": "Humph. I'm not angry!"
+      },
+      {
+        "label": "After battle",
+        "text": "I have more rare POKéMON at home!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6161,6 +6175,20 @@
     "y": 57,
     "facing": "up",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ha-hahah-ah-ha!"
+      },
+      {
+        "label": "If you win",
+        "text": "Ha-haha! Not laughing! Ha-hay fever! Haha-ha-choo!"
+      },
+      {
+        "label": "After battle",
+        "text": "Haha-ha-choo! Ha-choo! Snort! Snivel!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6187,6 +6215,20 @@
     "y": 64,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi kid, want to see my POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh no! My POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "I don't like you for beating me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6213,6 +6255,20 @@
     "y": 64,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hi, kid, want to see my POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh no! My POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "I don't like you for beating me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6239,6 +6295,20 @@
     "y": 25,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I've been to a POKéMON GYM a few times. But, I lost each time."
+      },
+      {
+        "label": "If you win",
+        "text": "Ohh! Blew it again!"
+      },
+      {
+        "label": "After battle",
+        "text": "I noticed some POKéMANIACs prowling around."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6265,6 +6335,20 @@
     "y": 25,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I've been to a POKéMON GYM a few times. But, I lost each time."
+      },
+      {
+        "label": "If you win",
+        "text": "Ohh! Blew it again!"
+      },
+      {
+        "label": "After battle",
+        "text": "I noticed some POKéMANIACs prowling around."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6291,6 +6375,20 @@
     "y": 61,
     "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Ah! This mountain air is delicious!"
+      },
+      {
+        "label": "If you win",
+        "text": "That cleared my head!"
+      },
+      {
+        "label": "After battle",
+        "text": "I feel bloated on mountain air!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6317,6 +6415,20 @@
     "y": 54,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm feeling a bit faint from this tough hike."
+      },
+      {
+        "label": "If you win",
+        "text": "I'm not up to it!"
+      },
+      {
+        "label": "After battle",
+        "text": "The POKéMON here are so chunky! There should be a pink one with a floral pattern!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6345,6 +6457,20 @@
     "y": 5,
     "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "This tunnel goes a long way, kid!"
+      },
+      {
+        "label": "If you win",
+        "text": "Doh! You win!"
+      },
+      {
+        "label": "After battle",
+        "text": "Watch for ONIX! It can put the squeeze on you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6383,6 +6509,20 @@
     "y": 16,
     "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hmm. Maybe I'm lost in here..."
+      },
+      {
+        "label": "If you win",
+        "text": "Ease up! What am I doing? Which way is out?"
+      },
+      {
+        "label": "After battle",
+        "text": "That sleeping POKéMON on ROUTE 12 forced me to take this detour."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6416,6 +6556,20 @@
     "y": 15,
     "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Outsiders like you need to show me some respect!"
+      },
+      {
+        "label": "If you win",
+        "text": "I give!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're talented enough to hike!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6444,6 +6598,20 @@
     "y": 8,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "POKéMON fight! Ready, go!"
+      },
+      {
+        "label": "If you win",
+        "text": "Game over!"
+      },
+      {
+        "label": "After battle",
+        "text": "Oh well, I'll get a ZUBAT as I go!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6472,6 +6640,20 @@
     "y": 8,
     "facing": "left",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "POKéMON fight! Ready, go!"
+      },
+      {
+        "label": "If you win",
+        "text": "Game over!"
+      },
+      {
+        "label": "After battle",
+        "text": "Oh well, I'll get a ZUBAT as I go!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6500,6 +6682,20 @@
     "y": 21,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Eek! Don't try anything funny in the dark!"
+      },
+      {
+        "label": "If you win",
+        "text": "It was too dark!"
+      },
+      {
+        "label": "After battle",
+        "text": "I saw a MACHOP in this tunnel!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6528,6 +6724,20 @@
     "y": 24,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I came this far for POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm out of POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "You looked cute and harmless!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6561,6 +6771,20 @@
     "y": 24,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You have POKéMON! Let's start!"
+      },
+      {
+        "label": "If you win",
+        "text": "You play hard!"
+      },
+      {
+        "label": "After battle",
+        "text": "Whew! I'm all sweaty now!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6599,6 +6823,20 @@
     "y": 13,
     "facing": "down",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hikers leave twigs as trail markers."
+      },
+      {
+        "label": "If you win",
+        "text": "Ohhh! I did my best!"
+      },
+      {
+        "label": "After battle",
+        "text": "I want to go home!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6632,6 +6870,20 @@
     "y": 10,
     "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hahaha! Can you beat my power?"
+      },
+      {
+        "label": "If you win",
+        "text": "Oops! Out-muscled!"
+      },
+      {
+        "label": "After battle",
+        "text": "I go for power because I hate thinking!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6665,6 +6917,20 @@
     "y": 5,
     "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You have a POKéDEX? I want one too!"
+      },
+      {
+        "label": "If you win",
+        "text": "Shoot! I'm so jealous!"
+      },
+      {
+        "label": "After battle",
+        "text": "When you finish your POKéDEX, can I have it?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6698,6 +6964,20 @@
     "y": 21,
     "facing": "right",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Do you know about costume players?"
+      },
+      {
+        "label": "If you win",
+        "text": "Well, that's that."
+      },
+      {
+        "label": "After battle",
+        "text": "Costume players dress up as POKéMON for fun."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6726,6 +7006,20 @@
     "y": 21,
     "facing": "right",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Do you know about costume players?"
+      },
+      {
+        "label": "If you win",
+        "text": "Well, that's that."
+      },
+      {
+        "label": "After battle",
+        "text": "Costume players dress up as POKéMON for fun."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6754,6 +7048,20 @@
     "y": 10,
     "facing": "down",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My POKéMON techniques will leave you crying!"
+      },
+      {
+        "label": "If you win",
+        "text": "I give! You're a better technician!"
+      },
+      {
+        "label": "After battle",
+        "text": "In mountains, you'll often find rock-type POKéMON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6777,6 +7085,20 @@
     "y": 28,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I don't often come here, but I will fight you."
+      },
+      {
+        "label": "If you win",
+        "text": "Oh! I lost!"
+      },
+      {
+        "label": "After battle",
+        "text": "I like tiny POKéMON, big ones are too scary!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6805,6 +7127,20 @@
     "y": 5,
     "facing": "right",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hit me with your best shot!"
+      },
+      {
+        "label": "If you win",
+        "text": "Fired away!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'll raise my POKéMON to beat yours, kid!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6833,6 +7169,20 @@
     "y": 30,
     "facing": "down",
     "sprite": "super_nerd",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I draw POKéMON when I'm home."
+      },
+      {
+        "label": "If you win",
+        "text": "Whew! I'm exhausted!"
+      },
+      {
+        "label": "After battle",
+        "text": "I'm an artist, not a fighter."
+      }
+    ],
     "parties": [
       {
         "pokemon": [

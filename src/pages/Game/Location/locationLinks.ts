@@ -96,6 +96,7 @@ export type LayeredMapLink = MapLink & {
   stairs?: boolean;
   ladder?: boolean;
   door?: boolean;
+  step?: FloorStep;
 };
 
 type MarkerSources = {
@@ -311,6 +312,7 @@ export const locationLinks = (
     return {
       ...base,
       ...floorExitLabel(hotspot, target),
+      step: floorStep(target, floor, hotspot.floor),
       ...(arrival && { highlightKey: arrival }),
       replace: true,
       stairs: true,
@@ -338,15 +340,16 @@ export const locationLinks = (
             ...icon,
             x: link.x + link.width / 2,
             y: link.y + link.height / 2,
-            icon: {
-              kind: link.ladder
-                ? ('ladder' as const)
-                : link.door
-                  ? ('door' as const)
-                  : link.stairs
-                    ? ('stairs' as const)
-                    : ('exit' as const),
-            },
+            icon: link.door
+              ? { kind: 'door' as const }
+              : link.stairs
+                ? {
+                    kind: link.ladder
+                      ? ('ladder' as const)
+                      : ('stairs' as const),
+                    step: link.step,
+                  }
+                : { kind: 'exit' as const },
           },
         ];
 

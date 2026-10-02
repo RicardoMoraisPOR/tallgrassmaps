@@ -485,8 +485,12 @@ const inside: Array<InsideEntry> = [
     kind: 'dungeon',
     size: [800, 128],
     parent: 'route-8',
+    otherParents: ['route-7'],
     entrances: [],
-    exits: [{ area: warp(47, 2), to: 'route-8/underground-path-route-8' }],
+    exits: [
+      { area: warp(2, 5), to: 'route-7/underground-path-route-7' },
+      { area: warp(47, 2), to: 'route-8/underground-path-route-8' },
+    ],
   },
   {
     id: 'cerulean-cave',
@@ -690,8 +694,24 @@ const inside: Array<InsideEntry> = [
     cell: [14, 3],
     entrances: [entrance(128, 272), entrance(128, 848)],
     floors: [
-      { name: '1F', size: [640, 576] },
-      { name: 'B1F', size: [640, 576] },
+      {
+        name: '1F',
+        size: [640, 576],
+        exits: [
+          { to: 'route-10', area: warp(15, 3), ladder: true },
+          { to: 'route-10', area: warp(15, 33), ladder: true },
+          ...[warp(37, 3), warp(5, 3), warp(17, 11), warp(37, 17)].map(
+            (area) => ({ floor: 'B1F', area, ladder: true }),
+          ),
+        ],
+      },
+      {
+        name: 'B1F',
+        size: [640, 576],
+        exits: [warp(33, 25), warp(27, 3), warp(23, 11), warp(3, 3)].map(
+          (area) => ({ floor: '1F', area, ladder: true }),
+        ),
+      },
     ],
   },
   {
@@ -701,6 +721,7 @@ const inside: Array<InsideEntry> = [
     size: [640, 576],
     parent: 'route-10',
     entrances: [entrance(96, 624)],
+    exits: [rect(64, 560, 32, 16), rect(0, 176, 16, 16)],
   },
   {
     id: 'pokemon-tower',
@@ -1229,6 +1250,29 @@ const services: Array<InsideEntry> = [
     exits: [
       rect(48, 112, 32, 16),
       { area: warp(4, 4), to: 'route-6/underground-path-north-south' },
+    ],
+    marker: 'house',
+  },
+  {
+    id: 'route-7-gate',
+    name: 'Route 7 Gate',
+    kind: 'building',
+    size: [96, 128],
+    parent: 'route-7',
+    entrances: [warp(18, 9), warp(11, 9)],
+    exits: [rect(80, 48, 16, 32), rect(0, 48, 16, 32)],
+    marker: 'house',
+  },
+  {
+    id: 'underground-path-route-7',
+    name: 'Underground Path Entrance',
+    kind: 'building',
+    size: [128, 128],
+    parent: 'route-7',
+    entrances: [warp(5, 13)],
+    exits: [
+      rect(48, 112, 32, 16),
+      { area: warp(4, 4), to: 'route-7/underground-path-west-east' },
     ],
     marker: 'house',
   },

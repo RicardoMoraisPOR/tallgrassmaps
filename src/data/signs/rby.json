@@ -241,10 +241,46 @@
     "games": ["red", "blue"]
   },
   {
+    "path": "route-10/rock-tunnel",
+    "floor": "1f",
+    "x": 11,
+    "y": 29,
+    "text": "ROCK TUNNEL CERULEAN CITY - LAVENDER TOWN",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-1",
     "x": 9,
     "y": 27,
     "text": "ROUTE 1 PALLET TOWN - VIRIDIAN CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10",
+    "x": 7,
+    "y": 19,
+    "text": "ROCK TUNNEL",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10",
+    "x": 12,
+    "y": 19,
+    "text": "Heal Your POKéMON! POKéMON CENTER",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10",
+    "x": 9,
+    "y": 55,
+    "text": "ROCK TUNNEL",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-10",
+    "x": 5,
+    "y": 41,
+    "text": "POWER PLANT",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -361,6 +397,13 @@
     "x": 19,
     "y": 15,
     "text": "UNDERGROUND PATH CERULEAN CITY - VERMILION CITY",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-7",
+    "x": 3,
+    "y": 13,
+    "text": "UNDERGROUND PATH CELADON CITY - LAVENDER TOWN",
     "games": ["red", "blue", "yellow"]
   },
   {

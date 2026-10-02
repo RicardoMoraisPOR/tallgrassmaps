@@ -59,6 +59,8 @@ const maps = [
     ['Daycare', 'daycare'],
     ['UndergroundPathRoute6', 'underground-path-route-6'],
     ['Route6Gate', 'route-6-gate'],
+    ['Route7Gate', 'route-7-gate'],
+    ['UndergroundPathRoute7', 'underground-path-route-7'],
     ['Route8Gate', 'route-8-gate'],
     ['UndergroundPathRoute8', 'underground-path-route-8'],
     ['VermilionGym', 'vermilion-gym'],
