@@ -6,7 +6,7 @@ import type {
   PokedexEntry,
 } from '@/data/pokedex/types';
 
-const CATCHABLE: Array<EncounterMethod> = [
+const LISTED: Array<EncounterMethod> = [
   'walk',
   'surf',
   'old-rod',
@@ -16,6 +16,7 @@ const CATCHABLE: Array<EncounterMethod> = [
   'gift',
   'fossil-item',
   'trade',
+  'battle',
 ];
 
 export type EncounterRowData = { entry: PokedexEntry; encounter: Encounter };
@@ -64,7 +65,7 @@ export const encounterHighlightKey = ({
   entry,
   encounter,
 }: EncounterRowData) => {
-  if (encounter.method === 'static' || encounter.method === 'gift')
+  if (['static', 'gift', 'battle'].includes(encounter.method))
     return staticHighlightKey(entry.number);
   if (encounter.method === 'trade') return tradeHighlightKey(entry.number);
 
@@ -77,7 +78,7 @@ export const encounterGroups = (
   pokedex: Array<PokedexEntry>,
   { game, path, floor, hasWater = false }: EncounterFilter,
 ): Array<EncounterGroup> => {
-  const groups = CATCHABLE.map((method) => ({
+  const groups = LISTED.map((method) => ({
     method,
     rows: pokedex
       .flatMap((entry) =>

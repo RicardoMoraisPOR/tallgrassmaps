@@ -16,6 +16,7 @@ const methodLabels: Record<EncounterMethod, string> = {
   static: 'One-time encounter',
   trade: 'In-game trade',
   prize: 'Game Corner prize',
+  battle: 'Battle only',
 };
 
 export const dexNumber = (number: number) =>

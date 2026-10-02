@@ -613,7 +613,11 @@ export const locationLinks = (
           y: marker.y * tileSize - tileSize / 4,
           width: tileSize,
           height: tileSize,
-          sprite: { src: marker.sprite, facing: marker.facing ?? 'down' },
+          sprite: {
+            src: marker.sprite,
+            facing: marker.facing ?? 'down',
+            faded: marker.kind === 'static',
+          },
         };
       }
 

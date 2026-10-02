@@ -253,6 +253,22 @@
     "games": ["yellow"]
   },
   {
+    "path": "lavender-town/pokemon-tower",
+    "floor": "6f",
+    "x": 10,
+    "y": 16,
+    "kind": "static",
+    "pokemon": [
+      {
+        "number": 105,
+        "level": 30
+      }
+    ],
+    "sprite": "ghost",
+    "note": "Ghost, can't be caught. Needs the Silph Scope",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "pallet-town/oaks-lab",
     "x": 6,
     "y": 3,

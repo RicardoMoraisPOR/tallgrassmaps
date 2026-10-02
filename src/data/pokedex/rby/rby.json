@@ -6528,6 +6528,18 @@
           }
         ],
         "games": ["yellow"]
+      },
+      {
+        "method": "battle",
+        "path": "lavender-town/pokemon-tower",
+        "levels": [30, 30],
+        "floors": [
+          {
+            "floor": "6f",
+            "levels": [30, 30]
+          }
+        ],
+        "games": ["red", "blue", "yellow"]
       }
     ]
   },

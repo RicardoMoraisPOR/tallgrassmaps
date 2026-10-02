@@ -134,6 +134,98 @@ for (const entry of CUTOUTS) {
   written.red++;
 }
 
+const PICTURE_SIZE = 48;
+const SHRINK = PICTURE_SIZE / STEP;
+const LIGHT = 2;
+const NEIGHBOURS = [
+  [1, 0],
+  [-1, 0],
+  [0, 1],
+  [0, -1],
+];
+
+const ghost = () => {
+  const source = readPng(join(pokeredDir, 'gfx/battle/ghost.png'));
+  const isLight = (x, y) => source.sample(x, y) >= LIGHT;
+  const background = new Set();
+  const queue = [];
+  const visit = (x, y) => {
+    const key = `${x},${y}`;
+
+    if (x < 0 || y < 0 || x >= PICTURE_SIZE || y >= PICTURE_SIZE) return;
+    if (!isLight(x, y) || background.has(key)) return;
+
+    background.add(key);
+    queue.push([x, y]);
+  };
+
+  for (let i = 0; i < PICTURE_SIZE; i++) {
+    visit(i, 0);
+    visit(i, PICTURE_SIZE - 1);
+    visit(0, i);
+    visit(PICTURE_SIZE - 1, i);
+  }
+
+  while (queue.length > 0) {
+    const [x, y] = queue.pop();
+
+    for (const [dx, dy] of NEIGHBOURS) visit(x + dx, y + dy);
+  }
+
+  const blockCount = SHRINK ** 2;
+  const cells = Array.from({ length: STEP }, (_, y) =>
+    Array.from({ length: STEP }, (_, x) => {
+      let outside = 0;
+      let light = 0;
+
+      for (let dy = 0; dy < SHRINK; dy++) {
+        for (let dx = 0; dx < SHRINK; dx++) {
+          const px = x * SHRINK + dx;
+          const py = y * SHRINK + dy;
+
+          if (background.has(`${px},${py}`)) outside++;
+          else if (isLight(px, py)) light++;
+        }
+      }
+
+      if (outside * 2 > blockCount) return 'outside';
+      if (light * 3 >= blockCount) return 'light';
+      if (outside + light < blockCount) return 'dark';
+
+      return 'outside';
+    }),
+  );
+  const touchesOutside = (x, y) =>
+    NEIGHBOURS.some(
+      ([dx, dy]) => (cells[y + dy]?.[x + dx] ?? 'outside') === 'outside',
+    );
+  const shades = { light: 248, dark: 0 };
+  const rgba = Buffer.alloc(STEP * STEP * FRAMES * 4);
+
+  for (let y = 0; y < STEP; y++) {
+    for (let x = 0; x < STEP; x++) {
+      const cell = cells[y][x];
+
+      if (cell === 'outside') continue;
+      if (cell === 'light' && touchesOutside(x, y)) continue;
+
+      for (let frame = 0; frame < FRAMES; frame++) {
+        const i = ((frame * STEP + y) * STEP + x) * 4;
+
+        rgba[i] = shades[cell];
+        rgba[i + 1] = shades[cell];
+        rgba[i + 2] = shades[cell];
+        rgba[i + 3] = 255;
+      }
+    }
+  }
+
+  return rgba;
+};
+
+writePng(join(OUTPUT, 'ghost.png'), STEP, STEP * FRAMES, ghost());
+written.red++;
+
 console.log(
   `Wrote ${written.red} Red/Blue and ${written.yellow} Yellow overworld sprites to ${OUTPUT}`,
 );

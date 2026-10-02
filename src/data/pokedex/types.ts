@@ -9,7 +9,8 @@ export type EncounterMethod =
   | 'fossil-item'
   | 'static'
   | 'trade'
-  | 'prize';
+  | 'prize'
+  | 'battle';
 
 export type EncounterFloor = {
   floor: string;

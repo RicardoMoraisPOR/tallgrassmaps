@@ -21,7 +21,6 @@ const OUTPUT = new URL(
 
 const NOT_CATCHABLE = [
   { map: 'ViridianCity' },
-  { map: 'PokemonTower6F' },
   { map: 'PalletTown', games: ['yellow'] },
 ];
 
@@ -100,6 +99,18 @@ const scripted = [
   },
 ];
 
+const triggered = [
+  {
+    map: 'PokemonTower6F',
+    coords: 'PokemonTower6FMarowakCoords',
+    species: ['RESTLESS_SOUL'],
+    sprite: 'GHOST',
+    note: "Ghost, can't be caught. Needs the Silph Scope",
+  },
+];
+
+const speciesAliases = { RESTLESS_SOUL: 'MAROWAK' };
+
 const STARTERS = {
   map: 'OaksLab',
   path: 'pallet-town/oaks-lab',
@@ -122,7 +133,7 @@ const dexNumbers = new Map(
 );
 
 const numberOf = (species) => {
-  const number = dexNumbers.get(species);
+  const number = dexNumbers.get(speciesAliases[species] ?? species);
 
   if (!number) throw new Error(`Unknown species ${species}`);
 
@@ -166,7 +177,7 @@ const checkScriptedList = (game) => {
       .map((file) => basename(file, '.asm').replace(/_\d+$/, '')),
   );
   const listed = new Set(
-    [...NOT_CATCHABLE, ...scripted]
+    [...NOT_CATCHABLE, ...scripted, ...triggered]
       .filter((entry) => !entry.games || entry.games.includes(game.id))
       .map((entry) => entry.map),
   );
@@ -262,6 +273,33 @@ for (const game of games) {
       entry.kind,
       entry.species.map((species) => ({ number: numberOf(species), level })),
       entry.kind === 'static' ? objectSprite(game, sprite, direction) : {},
+    );
+  }
+}
+
+const coordsAt = (game, { map, coords }) => {
+  const found = mapScripts(game, map).match(
+    new RegExp(`${coords}:\\n\\s*dbmapcoord\\s+(\\d+),\\s*(\\d+)`),
+  );
+
+  if (!found) throw new Error(`${game.id}: no ${coords} in ${map}`);
+
+  return found.slice(1);
+};
+
+for (const game of games) {
+  for (const entry of triggered) {
+    const [x, y] = coordsAt(game, entry);
+    const level = scriptedLevel(game, entry);
+
+    place(
+      game,
+      entry.map,
+      x,
+      y,
+      'static',
+      entry.species.map((species) => ({ number: numberOf(species), level })),
+      { sprite: spritePath(game, entry.sprite), note: entry.note },
     );
   }
 }

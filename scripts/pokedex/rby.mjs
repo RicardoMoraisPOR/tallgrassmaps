@@ -397,6 +397,15 @@ const scripted = [
     level: 30,
     source: 'scripts/Route16.asm',
   },
+  {
+    species: ['MAROWAK'],
+    method: 'battle',
+    path: 'lavender-town/pokemon-tower',
+    map: 'POKEMON_TOWER_6F',
+    games: ['red', 'blue', 'yellow'],
+    level: 30,
+    source: 'scripts/PokemonTower6F.asm',
+  },
 ];
 
 for (const {
@@ -423,7 +432,10 @@ const obtainable = Object.fromEntries(
     const owned = new Set(
       [...species]
         .filter(([, entry]) =>
-          entry.encounters.some((encounter) => encounter.game === id),
+          entry.encounters.some(
+            (encounter) =>
+              encounter.game === id && encounter.method !== 'battle',
+          ),
         )
         .map(([constant]) => constant),
     );
