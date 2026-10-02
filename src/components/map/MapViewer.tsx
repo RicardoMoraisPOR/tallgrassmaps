@@ -405,7 +405,7 @@ const edgeAnchors: Record<Direction, PointTuple> = {
   east: [MAP_ICON_SIZE, MAP_ICON_SIZE / 2],
 };
 
-const iconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
+export const mapIconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
   arrow: {
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>',
@@ -438,7 +438,7 @@ const iconArt: Record<MapIconKind['kind'], Record<ThemeStyle, string>> = {
   },
 };
 
-const stepArt: Record<ThemeStyle, string> = {
+export const mapStepArt: Record<ThemeStyle, string> = {
   'tall-grass':
     '<svg viewBox="-3 -3 30 30" aria-hidden="true"><path d="M12 1.5 23 13h-6.5v9.5h-9V13H1z" fill="var(--step-ink)" stroke="var(--step-edge)" stroke-width="4.5" stroke-linejoin="round" paint-order="stroke"/></svg>',
   game: '<svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="var(--step-edge)" d="M3 0h3v1h-3zM2 1h5v1h-5zM1 2h7v1h-7zM0 3h9v3h-9zM2 6h5v3h-5z"/><path fill="var(--step-ink)" d="M4 1h1v1h-1zM3 2h3v1h-3zM2 3h5v1h-5zM1 4h7v1h-7zM3 5h3v3h-3z"/></svg>',
@@ -463,7 +463,7 @@ const MapIcon = ({
   const step =
     icon.kind === 'stairs' || icon.kind === 'ladder' ? icon.step : undefined;
   const stepArrow = step
-    ? `<span class="map-icon-step" data-step="${step}">${stepArt[style]}</span>`
+    ? `<span class="map-icon-step" data-step="${step}">${mapStepArt[style]}</span>`
     : '';
   const marker = useMemo(
     () =>
@@ -472,7 +472,7 @@ const MapIcon = ({
           'map-icon-anchor',
           direction && `map-icon-anchor-${direction}`,
         ),
-        html: `<span class="${cn('map-icon', link.className, style === 'game' && 'map-icon-game')}"${direction ? ` data-direction="${direction}"` : ''}>${iconArt[icon.kind][style]}</span>${stepArrow}`,
+        html: `<span class="${cn('map-icon', link.className, style === 'game' && 'map-icon-game')}"${direction ? ` data-direction="${direction}"` : ''}>${mapIconArt[icon.kind][style]}</span>${stepArrow}`,
         iconSize: [MAP_ICON_SIZE, MAP_ICON_SIZE],
         iconAnchor: direction
           ? edgeAnchors[direction]

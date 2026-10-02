@@ -574,6 +574,20 @@
   animation: map-icon-step-up 1s infinite;
 }
 
+.map-icon-step-preview {
+  position: static;
+  display: grid;
+  margin: 0;
+  animation: none;
+}
+
+.map-icon-step-preview-game {
+  --step-ink: #292929;
+  --step-edge: #f6f4f7;
+
+  filter: none;
+}
+
 .map-icon:hover + .map-icon-step {
   display: grid;
 }
