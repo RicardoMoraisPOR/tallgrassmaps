@@ -97,6 +97,7 @@ export type LayeredMapLink = MapLink & {
   stairs?: boolean;
   ladder?: boolean;
   hole?: boolean;
+  current?: boolean;
   door?: boolean;
   step?: FloorStep;
 };
@@ -263,7 +264,13 @@ export const locationLinks = (
         label: floorLabel(target, floorStep(target, floor, floorId), floorId),
       };
 
-    const kind = hotspot.door ? 'Door' : hotspot.ladder ? 'Ladder' : 'Stairs';
+    const kind = hotspot.door
+      ? 'Door'
+      : hotspot.ladder
+        ? 'Ladder'
+        : hotspot.current
+          ? 'Current'
+          : 'Stairs';
 
     if (single) return { label: `${kind} to ${floorName(target, floorId)}` };
 
@@ -364,7 +371,9 @@ export const locationLinks = (
                       ? ('hole' as const)
                       : link.ladder
                         ? ('ladder' as const)
-                        : ('stairs' as const),
+                        : link.current
+                          ? ('current' as const)
+                          : ('stairs' as const),
                     step: link.step,
                   }
                 : { kind: 'exit' as const },

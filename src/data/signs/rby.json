@@ -478,6 +478,20 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-20",
+    "x": 51,
+    "y": 7,
+    "text": "SEAFOAM ISLANDS",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-20",
+    "x": 57,
+    "y": 11,
+    "text": "SEAFOAM ISLANDS",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "route-22",
     "x": 7,
     "y": 11,
@@ -575,6 +589,22 @@
     "x": 1,
     "y": 2,
     "text": "How to Conquer Seasickness... The CAPTAIN's reading this!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-20/seafoam-islands",
+    "floor": "b4f",
+    "x": 9,
+    "y": 15,
+    "text": "Boulders might change the flow of water!",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
+    "path": "route-20/seafoam-islands",
+    "floor": "b4f",
+    "x": 23,
+    "y": 1,
+    "text": "DANGER Fast current!",
     "games": ["red", "blue", "yellow"]
   },
   {

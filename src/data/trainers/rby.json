@@ -10775,6 +10775,20 @@
     "y": 8,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "The water is shallow here."
+      },
+      {
+        "label": "If you win",
+        "text": "Splash!"
+      },
+      {
+        "label": "After battle",
+        "text": "I wish I could ride my POKéMON."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10801,6 +10815,20 @@
     "y": 11,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "SEAFOAM is a quiet getaway!"
+      },
+      {
+        "label": "If you win",
+        "text": "Quit it!"
+      },
+      {
+        "label": "After battle",
+        "text": "There's a huge cavern underneath this island."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10832,6 +10860,20 @@
     "y": 10,
     "facing": "down",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I love floating with the fishes!"
+      },
+      {
+        "label": "If you win",
+        "text": "Yowch!"
+      },
+      {
+        "label": "After battle",
+        "text": "Want to float with me?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10853,6 +10895,20 @@
     "y": 14,
     "facing": "right",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Are you on vacation too?"
+      },
+      {
+        "label": "If you win",
+        "text": "No mercy at all!"
+      },
+      {
+        "label": "After battle",
+        "text": "SEAFOAM used to be one island!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10884,6 +10940,20 @@
     "y": 13,
     "facing": "down",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Check out my buff physique!"
+      },
+      {
+        "label": "If you win",
+        "text": "Wimpy!"
+      },
+      {
+        "label": "After battle",
+        "text": "I should've been buffing up my POKéMON, not me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10905,6 +10975,20 @@
     "y": 13,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Why are you riding a POKéMON? Can't you swim?"
+      },
+      {
+        "label": "If you win",
+        "text": "Ouch! Torpedoed!"
+      },
+      {
+        "label": "After battle",
+        "text": "Riding a POKéMON sure looks fun!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10941,6 +11025,20 @@
     "y": 9,
     "facing": "up",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I rode my bird POKéMON here!"
+      },
+      {
+        "label": "If you win",
+        "text": "Oh no!"
+      },
+      {
+        "label": "After battle",
+        "text": "My birds can't FLY me back!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -10972,6 +11070,20 @@
     "y": 7,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "My boy friend gave me big pearls!"
+      },
+      {
+        "label": "If you win",
+        "text": "Don't touch my pearls!"
+      },
+      {
+        "label": "After battle",
+        "text": "Will my pearls grow bigger inside CLOYSTER?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11003,6 +11115,20 @@
     "y": 12,
     "facing": "down",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I swam here from CINNABAR ISLAND!"
+      },
+      {
+        "label": "If you win",
+        "text": "I'm so disappointed!"
+      },
+      {
+        "label": "After battle",
+        "text": "POKéMON have taken over an abandoned mansion on CINNABAR!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -11029,6 +11155,20 @@
     "y": 8,
     "facing": "up",
     "sprite": "swimmer",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "CINNABAR, in the west, has a LAB for POKéMON."
+      },
+      {
+        "label": "If you win",
+        "text": "Wait!"
+      },
+      {
+        "label": "After battle",
+        "text": "CINNABAR is a volcanic island!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

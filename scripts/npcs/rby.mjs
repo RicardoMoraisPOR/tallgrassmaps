@@ -140,6 +140,12 @@ const NPC_MAPS = {
   POKEMON_MANSION_2_F: { path: 'cinnabar-island/pokemon-mansion' },
   POKEMON_MANSION_3_F: { path: 'cinnabar-island/pokemon-mansion' },
   POKEMON_MANSION_B_1_F: { path: 'cinnabar-island/pokemon-mansion' },
+  ROUTE_20: { path: 'route-20' },
+  SEAFOAM_ISLANDS_1_F: { path: 'route-20/seafoam-islands' },
+  SEAFOAM_ISLANDS_B_1_F: { path: 'route-20/seafoam-islands' },
+  SEAFOAM_ISLANDS_B_2_F: { path: 'route-20/seafoam-islands' },
+  SEAFOAM_ISLANDS_B_3_F: { path: 'route-20/seafoam-islands' },
+  SEAFOAM_ISLANDS_B_4_F: { path: 'route-20/seafoam-islands' },
   UNDERGROUND_PATH_NORTH_SOUTH: {
     path: 'route-5/underground-path-north-south',
   },

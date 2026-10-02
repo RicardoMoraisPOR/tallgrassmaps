@@ -96,7 +96,7 @@ export type MapIconKind =
   | { kind: 'arrow'; direction: Direction }
   | { kind: 'door' }
   | { kind: 'exit' }
-  | { kind: 'stairs' | 'ladder' | 'hole'; step?: 'up' | 'down' }
+  | { kind: 'stairs' | 'ladder' | 'hole' | 'current'; step?: 'up' | 'down' }
   | { kind: 'sign' };
 
 type MapViewerProps = {
@@ -429,6 +429,11 @@ export const mapIconArt: Record<
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v18"/><path d="M16 3v18"/><path d="M8 7h8"/><path d="M8 12h8"/><path d="M8 17h8"/></svg>',
     game: '<svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M1 0h1v8h-1zM5 0h1v8h-1zM2 1h3v1h-3zM2 4h3v1h-3zM2 7h3v1h-3z"/></svg>',
+  },
+  current: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>',
+    game: '<svg viewBox="0 0 8 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 1h1v1h-1zM1 0h2v1h-2zM3 1h2v1h-2zM5 0h2v1h-2zM7 1h1v1h-1zM0 5h1v1h-1zM1 4h2v1h-2zM3 5h2v1h-2zM5 4h2v1h-2zM7 5h1v1h-1z"/></svg>',
   },
   hole: {
     'tall-grass':

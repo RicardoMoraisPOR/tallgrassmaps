@@ -320,6 +320,7 @@ type FloorExit = {
   area: Rect;
   ladder?: boolean;
   hole?: boolean;
+  current?: boolean;
   door?: boolean;
 } & ({ to: string } | { floor: string });
 
@@ -1037,11 +1038,91 @@ const inside: Array<InsideEntry> = [
     cell: [5, 15],
     entrances: [entrance(768, 80), entrance(928, 144)],
     floors: [
-      { name: '1F', size: [480, 288] },
-      { name: 'B1F', size: [480, 288] },
-      { name: 'B2F', size: [480, 288] },
-      { name: 'B3F', size: [480, 288] },
-      { name: 'B4F', size: [480, 288] },
+      {
+        name: '1F',
+        exits: [
+          { to: 'route-20', area: rect(64, 272, 32, 16) },
+          { to: 'route-20', area: rect(416, 272, 32, 16) },
+          ...[warp(7, 5), warp(25, 3), warp(23, 15)].map((area) => ({
+            floor: 'B1F',
+            area,
+            ladder: true,
+          })),
+          ...[warp(17, 6), warp(24, 6)].map((area) => ({
+            floor: 'B1F',
+            area,
+            hole: true,
+          })),
+        ],
+      },
+      {
+        name: 'B1F',
+        exits: [
+          ...[warp(7, 5), warp(25, 3), warp(23, 15)].map((area) => ({
+            floor: '1F',
+            area,
+            ladder: true,
+          })),
+          ...[warp(4, 2), warp(13, 7), warp(19, 15), warp(25, 11)].map(
+            (area) => ({ floor: 'B2F', area, ladder: true }),
+          ),
+          ...[warp(18, 6), warp(23, 6)].map((area) => ({
+            floor: 'B2F',
+            area,
+            hole: true,
+          })),
+        ],
+      },
+      {
+        name: 'B2F',
+        exits: [
+          ...[warp(5, 3), warp(13, 7), warp(19, 15), warp(25, 11)].map(
+            (area) => ({ floor: 'B1F', area, ladder: true }),
+          ),
+          ...[warp(5, 13), warp(25, 3), warp(25, 14)].map((area) => ({
+            floor: 'B3F',
+            area,
+            ladder: true,
+          })),
+          ...[warp(19, 6), warp(22, 6)].map((area) => ({
+            floor: 'B3F',
+            area,
+            hole: true,
+          })),
+        ],
+      },
+      {
+        name: 'B3F',
+        exits: [
+          ...[warp(5, 12), warp(25, 3), warp(25, 14)].map((area) => ({
+            floor: 'B2F',
+            area,
+            ladder: true,
+          })),
+          ...[warp(8, 6), warp(25, 4)].map((area) => ({
+            floor: 'B4F',
+            area,
+            ladder: true,
+          })),
+          { floor: 'B4F', area: rect(320, 272, 32, 16), current: true },
+          ...[warp(3, 16), warp(6, 16)].map((area) => ({
+            floor: 'B4F',
+            area,
+            hole: true,
+          })),
+        ],
+      },
+      {
+        name: 'B4F',
+        exits: [
+          ...[warp(11, 7), warp(25, 4)].map((area) => ({
+            floor: 'B3F',
+            area,
+            ladder: true,
+          })),
+          { floor: 'B3F', area: rect(320, 272, 32, 16), current: true },
+        ],
+      },
     ],
   },
   {
@@ -1659,10 +1740,11 @@ const toInsideLocation = ({
       name: floor.name,
       image: floorImage(id, floor.name),
       hotspots: mergeHoles(floor.exits ?? []).map(
-        ({ area, ladder, hole, door, ...exit }) => ({
+        ({ area, ladder, hole, current, door, ...exit }) => ({
           ...area,
           ...(ladder && { ladder }),
           ...(hole && { hole }),
+          ...(current && { current }),
           ...(door && { door }),
           kind: 'exit' as const,
           ...('to' in exit

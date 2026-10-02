@@ -28,7 +28,7 @@ const groups: Array<{
     ],
   },
   {
-    title: 'Stairs, ladders and holes',
+    title: 'Stairs, ladders, holes and currents',
     icons: [
       {
         label: 'Stairs · up',
@@ -53,6 +53,16 @@ const groups: Array<{
       {
         label: 'Hole · down',
         icon: { kind: 'hole', step: 'down' },
+        className: 'map-link-connection',
+      },
+      {
+        label: 'Current · up',
+        icon: { kind: 'current', step: 'up' },
+        className: 'map-link-connection',
+      },
+      {
+        label: 'Current · down',
+        icon: { kind: 'current', step: 'down' },
         className: 'map-link-connection',
       },
     ],
