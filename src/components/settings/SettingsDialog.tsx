@@ -1,5 +1,6 @@
 import { type ReactNode, useId } from 'react';
 
+import { Collapse } from '@/components/Collapse';
 import {
   Dialog,
   DialogContent,
@@ -87,52 +88,53 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
-          {settings.themePreset === 'custom' && (
-            <div className="flex flex-col gap-4">
-              {themeAreas.map(({ area, label, description, styleLabels }) => (
-                <div
-                  key={area}
-                  className="flex items-center justify-between gap-4"
-                >
-                  <div className="flex min-w-0 flex-col gap-0.5">
-                    <span className="text-sm font-medium">{label}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {description}
-                    </span>
-                  </div>
-                  <ToggleGroup
-                    type="single"
-                    variant="outline"
-                    size="sm"
-                    aria-label={`${label} theme`}
-                    value={resolveTheme(area, settings)}
-                    onValueChange={(style) => {
-                      if (style) settings.setTheme(area, style as ThemeStyle);
-                    }}
-                    className="shrink-0"
-                  >
-                    {themeStyles.map(({ style, label: styleLabel }) => {
-                      const available = isThemeAvailable(area, style);
-
-                      return (
-                        <ToggleGroupItem
-                          key={style}
-                          value={style}
-                          disabled={!available}
-                          className={toggleItemClass}
-                        >
-                          {styleLabels?.[style] ?? styleLabel}
-                          {!available && (
-                            <span className="text-[10px] opacity-70">Soon</span>
-                          )}
-                        </ToggleGroupItem>
-                      );
-                    })}
-                  </ToggleGroup>
+          <Collapse
+            open={settings.themePreset === 'custom'}
+            className="flex flex-col gap-4 py-0.5"
+          >
+            {themeAreas.map(({ area, label, description, styleLabels }) => (
+              <div
+                key={area}
+                className="flex items-center justify-between gap-4"
+              >
+                <div className="flex min-w-0 flex-col gap-0.5">
+                  <span className="text-sm font-medium">{label}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {description}
+                  </span>
                 </div>
-              ))}
-            </div>
-          )}
+                <ToggleGroup
+                  type="single"
+                  variant="outline"
+                  size="sm"
+                  aria-label={`${label} theme`}
+                  value={resolveTheme(area, settings)}
+                  onValueChange={(style) => {
+                    if (style) settings.setTheme(area, style as ThemeStyle);
+                  }}
+                  className="shrink-0"
+                >
+                  {themeStyles.map(({ style, label: styleLabel }) => {
+                    const available = isThemeAvailable(area, style);
+
+                    return (
+                      <ToggleGroupItem
+                        key={style}
+                        value={style}
+                        disabled={!available}
+                        className={toggleItemClass}
+                      >
+                        {styleLabels?.[style] ?? styleLabel}
+                        {!available && (
+                          <span className="text-[10px] opacity-70">Soon</span>
+                        )}
+                      </ToggleGroupItem>
+                    );
+                  })}
+                </ToggleGroup>
+              </div>
+            ))}
+          </Collapse>
         </Section>
       </DialogContent>
     </Dialog>
