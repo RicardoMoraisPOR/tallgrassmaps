@@ -5824,6 +5824,20 @@
     "y": 10,
     "facing": "left",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "You have POKéMON with you! You're mine!"
+      },
+      {
+        "label": "If you win",
+        "text": "You deceived me!"
+      },
+      {
+        "label": "After battle",
+        "text": "You need light to get through that dark tunnel ahead."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5860,6 +5874,20 @@
     "y": 7,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Who's that walking with those good looking POKéMON?"
+      },
+      {
+        "label": "If you win",
+        "text": "Out like a light!"
+      },
+      {
+        "label": "After battle",
+        "text": "Keep walking!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5886,6 +5914,20 @@
     "y": 7,
     "facing": "left",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I aim to be the ultimate trainer!"
+      },
+      {
+        "label": "If you win",
+        "text": "My SANDSHREW lost?"
+      },
+      {
+        "label": "After battle",
+        "text": "I'll restart my 100-win streak with SANDSHREW."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5907,6 +5949,20 @@
     "y": 7,
     "facing": "right",
     "sprite": "cooltrainer_m",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I'm taking ROCK TUNNEL to go to LAVENDER..."
+      },
+      {
+        "label": "If you win",
+        "text": "Can't measure up!"
+      },
+      {
+        "label": "After battle",
+        "text": "Are you off to ROCK TUNNEL too?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5943,6 +5999,20 @@
     "y": 8,
     "facing": "right",
     "sprite": "cooltrainer_f",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Don't you dare condescend me!"
+      },
+      {
+        "label": "If you win",
+        "text": "No! You're too much!"
+      },
+      {
+        "label": "After battle",
+        "text": "You're obviously talented! Good luck to you!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5964,6 +6034,20 @@
     "y": 15,
     "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Bwahaha! Great! I was bored, eh!"
+      },
+      {
+        "label": "If you win",
+        "text": "Keep it coming, eh!\n\nOh wait. I'm out of POKéMON!"
+      },
+      {
+        "label": "After battle",
+        "text": "You sure had guts standing up to me there, eh?"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -5990,6 +6074,20 @@
     "y": 3,
     "facing": "left",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hahaha! Aren't you a little toughie!"
+      },
+      {
+        "label": "If you win",
+        "text": "What's that?"
+      },
+      {
+        "label": "After battle",
+        "text": "Hahaha! Kids should be tough!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6021,6 +6119,20 @@
     "y": 2,
     "facing": "down",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "I got up early every day to raise my POKéMON from cocoons!"
+      },
+      {
+        "label": "If you win",
+        "text": "WHAT?\n\nWhat a total waste of time!"
+      },
+      {
+        "label": "After battle",
+        "text": "I have to collect more than bugs to get stronger..."
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6047,6 +6159,20 @@
     "y": 15,
     "facing": "right",
     "sprite": "hiker",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Hahahaha! Come on, dude!"
+      },
+      {
+        "label": "If you win",
+        "text": "Hahahaha! You beat me fair!"
+      },
+      {
+        "label": "After battle",
+        "text": "Hahahaha! Us hearty guys always laugh!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6073,6 +6199,20 @@
     "y": 8,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Go, my super bug POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "My bugs..."
+      },
+      {
+        "label": "After battle",
+        "text": "If you don't like bug POKéMON, you bug me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [
@@ -6104,6 +6244,20 @@
     "y": 8,
     "facing": "right",
     "sprite": "youngster",
+    "dialog": [
+      {
+        "label": "Before battle",
+        "text": "Go, my super bug POKéMON!"
+      },
+      {
+        "label": "If you win",
+        "text": "My bugs..."
+      },
+      {
+        "label": "After battle",
+        "text": "If you don't like bug POKéMON, you bug me!"
+      }
+    ],
     "parties": [
       {
         "pokemon": [

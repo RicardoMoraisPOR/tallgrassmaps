@@ -119,6 +119,7 @@ const TRAINER_DIALOG_MAPS = new Set([
   'Route25',
   'Route6',
   'Route8',
+  'Route9',
   'Route10',
   'RockTunnel1F',
   'RockTunnelB1F',

@@ -33,6 +33,7 @@ const SIGN_MAPS = {
   DIGLETTS_CAVE_ROUTE_11: 'route-11/digletts-cave-route-11',
   ROUTE_11: 'route-11',
   ROUTE_11_GATE_2_F: 'route-11/route-11-gate',
+  ROUTE_9: 'route-9',
   ROUTE_10: 'route-10',
   ROCK_TUNNEL_POKECENTER: 'route-10/rock-tunnel-pokemon-center',
   ROCK_TUNNEL_1_F: 'route-10/rock-tunnel',

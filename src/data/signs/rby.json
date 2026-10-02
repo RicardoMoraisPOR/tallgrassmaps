@@ -414,6 +414,13 @@
     "games": ["red", "blue", "yellow"]
   },
   {
+    "path": "route-9",
+    "x": 25,
+    "y": 7,
+    "text": "ROUTE 9 CERULEAN CITY-ROCK TUNNEL",
+    "games": ["red", "blue", "yellow"]
+  },
+  {
     "path": "vermilion-city/ss-anne",
     "floor": "captains-room",
     "x": 4,
