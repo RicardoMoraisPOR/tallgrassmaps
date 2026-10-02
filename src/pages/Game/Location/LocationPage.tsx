@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate, useSearchParams } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
@@ -15,6 +15,14 @@ import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
+import {
+  decodeTeam,
+  emptyTeam,
+  encodeTeam,
+  SHARE_PARAM,
+  type Team,
+} from '../HallOfFame/hallOfFame';
+import { HallOfFameDialog } from '../HallOfFame/HallOfFameDialog';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { SidebarLayout } from '../SidebarLayout';
@@ -64,6 +72,10 @@ export const LocationPage = () => {
     scope,
   });
   const [townMapOpen, setTownMapOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [hallOfFameOpen, setHallOfFameOpen] = useState(() =>
+    searchParams.has(SHARE_PARAM),
+  );
 
   useEffect(() => {
     if (!arrivedAt) return;
@@ -163,10 +175,12 @@ export const LocationPage = () => {
           text={sign.opens ? openableNames[sign.opens] : sign.text}
         />
       ),
-      onOpen: (target) =>
-        target === 'pokedex'
-          ? navigate(pokedexLink.to, { state: pokedexLink.state })
-          : setTownMapOpen(true),
+      onOpen: (target) => {
+        if (target === 'pokedex')
+          navigate(pokedexLink.to, { state: pokedexLink.state });
+        else if (target === 'hall-of-fame') setHallOfFameOpen(true);
+        else setTownMapOpen(true);
+      },
       trainerTooltip: ([listed, ...others]) =>
         pokedex && (
           <TrainerTooltip
@@ -200,11 +214,17 @@ export const LocationPage = () => {
         <MapInfoTab
           sections={layerSections}
           onHighlight={highlightTo}
-          onOpen={(key) =>
-            listedBattles.some((listed) => listed.key === key)
-              ? selectTrainer(key)
-              : setPinRequest({ scope, key })
-          }
+          onOpen={(key) => {
+            const action = links.find(
+              (link) =>
+                link.onClick && [link.highlightKey].flat().includes(key),
+            )?.onClick;
+
+            if (listedBattles.some((listed) => listed.key === key))
+              selectTrainer(key);
+            else if (action) action();
+            else setPinRequest({ scope, key });
+          }}
           hiddenLayers={hiddenLayers}
         />
       ),
@@ -332,6 +352,30 @@ export const LocationPage = () => {
         href={route.href}
         onClose={() => setTownMapOpen(false)}
       />
+      {pokedex && (
+        <HallOfFameDialog
+          open={hallOfFameOpen}
+          game={route.game}
+          pokedex={pokedex}
+          team={
+            decodeTeam(searchParams.get(SHARE_PARAM), pokedex) ?? emptyTeam()
+          }
+          onTeamChange={(team: Team) =>
+            setSearchParams(
+              (current) => {
+                const next = new URLSearchParams(current);
+
+                if (team.some(Boolean)) next.set(SHARE_PARAM, encodeTeam(team));
+                else next.delete(SHARE_PARAM);
+
+                return next;
+              },
+              { replace: true, preventScrollReset: true },
+            )
+          }
+          onClose={() => setHallOfFameOpen(false)}
+        />
+      )}
       <Pokedex game={route.game} region={route.region} href={route.href} />
     </>
   );

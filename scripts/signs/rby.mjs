@@ -73,6 +73,7 @@ const SIGN_MAPS = {
   VICTORY_ROAD_1_F: 'route-23/victory-road',
   VICTORY_ROAD_2_F: 'route-23/victory-road',
   VICTORY_ROAD_3_F: 'route-23/victory-road',
+  HALL_OF_FAME: 'indigo-plateau/pokemon-league',
   ROUTE_24: 'route-24',
   ROUTE_25: 'route-25',
   BILLS_HOUSE: 'route-25/bills-house',
@@ -128,6 +129,19 @@ const READABLE_OBJECTS = new Set(['MRFUJISHOUSE_POKEDEX']);
 const opensFor = (textId) =>
   !READABLE_OBJECTS.has(textId) &&
   OPENABLE_OBJECTS.find(([pattern]) => pattern.test(textId))?.[1];
+
+const EXTRA_SIGNS = [
+  {
+    map: 'HALL_OF_FAME',
+    x: 4,
+    y: 1,
+    text: 'Hall of Fame',
+    sprite: 'hall_of_fame_computer',
+    spriteSize: [32, 23],
+    spriteOffset: [0, -1],
+    opens: 'hall-of-fame',
+  },
+];
 
 const signs = [];
 
@@ -191,6 +205,19 @@ for (const game of games) {
         ...(opens && { opens }),
       });
     }
+  }
+}
+
+for (const game of games) {
+  for (const { map, ...sign } of EXTRA_SIGNS) {
+    const floor = floorFor(map);
+
+    signs.push({
+      game: game.id,
+      path: SIGN_MAPS[map],
+      ...(floor && { floor }),
+      ...sign,
+    });
   }
 }
 

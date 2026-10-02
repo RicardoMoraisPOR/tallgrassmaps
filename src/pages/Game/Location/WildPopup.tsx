@@ -28,7 +28,7 @@ const gameLevelLabel = ({ levels }: Encounter) => {
 };
 
 export const WildPopup = ({ game, path, groups, note }: WildPopupProps) => {
-  const gameTheme = useThemeStyle('wildPokemon') === 'game';
+  const gameTheme = useThemeStyle('pokemonPopups') === 'game';
 
   const titleOf = (group: EncounterGroup) =>
     methodLabel({ method: group.method, path, games: [] });
@@ -129,7 +129,7 @@ const staticNote = ({ kind, note, pokemon }: StaticPokemon) => {
 };
 
 export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
-  const gameTheme = useThemeStyle('wildPokemon') === 'game';
+  const gameTheme = useThemeStyle('pokemonPopups') === 'game';
   const spriteFor = usePokemonSprite(game);
 
   const nameOf = (number: number) =>

@@ -9,14 +9,22 @@ import {
 } from '@/components/ui/dialog';
 import { Switch } from '@/components/ui/switch';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { type ThemeStyle, useSettingsStore } from '@/stores/settings';
+import {
+  type ThemePreset,
+  type ThemeStyle,
+  useSettingsStore,
+} from '@/stores/settings';
 
 import {
   isThemeAvailable,
   resolveTheme,
   themeAreas,
+  themePresets,
   themeStyles,
 } from './themes';
+
+const toggleItemClass =
+  'px-3 text-xs data-[state=on]:border-foreground data-[state=on]:bg-foreground data-[state=on]:text-background';
 
 type SettingsDialogProps = {
   open: boolean;
@@ -54,48 +62,77 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
 
         <Section title="Themes">
           <p className="text-xs text-pretty text-muted-foreground">
-            Choose Game to see each part the way it looks in the games. Game
-            themes keep the games' original colours, so they don't follow light
-            and dark mode.
+            Games Theme shows each part the way it looks in the games, keeping
+            their original colours, so it doesn't follow light and dark mode.
+            Custom lets you choose part by part.
           </p>
-          <div className="flex flex-col gap-3">
-            {themeAreas.map(({ area, label, styleLabels }) => (
-              <div
-                key={area}
-                className="flex items-center justify-between gap-4"
+          <ToggleGroup
+            type="single"
+            variant="outline"
+            size="sm"
+            aria-label="Theme"
+            value={settings.themePreset}
+            onValueChange={(preset) => {
+              if (preset) settings.setThemePreset(preset as ThemePreset);
+            }}
+            className="w-full"
+          >
+            {themePresets.map(({ preset, label }) => (
+              <ToggleGroupItem
+                key={preset}
+                value={preset}
+                className={`flex-1 ${toggleItemClass}`}
               >
-                <span className="text-sm">{label}</span>
-                <ToggleGroup
-                  type="single"
-                  variant="outline"
-                  size="sm"
-                  aria-label={`${label} theme`}
-                  value={resolveTheme(area, settings)}
-                  onValueChange={(style) => {
-                    if (style) settings.setTheme(area, style as ThemeStyle);
-                  }}
-                >
-                  {themeStyles.map(({ style, label: styleLabel }) => {
-                    const available = isThemeAvailable(area, style);
-
-                    return (
-                      <ToggleGroupItem
-                        key={style}
-                        value={style}
-                        disabled={!available}
-                        className="px-3 text-xs data-[state=on]:border-foreground data-[state=on]:bg-foreground data-[state=on]:text-background"
-                      >
-                        {styleLabels?.[style] ?? styleLabel}
-                        {!available && (
-                          <span className="text-[10px] opacity-70">Soon</span>
-                        )}
-                      </ToggleGroupItem>
-                    );
-                  })}
-                </ToggleGroup>
-              </div>
+                {label}
+              </ToggleGroupItem>
             ))}
-          </div>
+          </ToggleGroup>
+          {settings.themePreset === 'custom' && (
+            <div className="flex flex-col gap-4">
+              {themeAreas.map(({ area, label, description, styleLabels }) => (
+                <div
+                  key={area}
+                  className="flex items-center justify-between gap-4"
+                >
+                  <div className="flex min-w-0 flex-col gap-0.5">
+                    <span className="text-sm font-medium">{label}</span>
+                    <span className="text-xs text-muted-foreground">
+                      {description}
+                    </span>
+                  </div>
+                  <ToggleGroup
+                    type="single"
+                    variant="outline"
+                    size="sm"
+                    aria-label={`${label} theme`}
+                    value={resolveTheme(area, settings)}
+                    onValueChange={(style) => {
+                      if (style) settings.setTheme(area, style as ThemeStyle);
+                    }}
+                    className="shrink-0"
+                  >
+                    {themeStyles.map(({ style, label: styleLabel }) => {
+                      const available = isThemeAvailable(area, style);
+
+                      return (
+                        <ToggleGroupItem
+                          key={style}
+                          value={style}
+                          disabled={!available}
+                          className={toggleItemClass}
+                        >
+                          {styleLabels?.[style] ?? styleLabel}
+                          {!available && (
+                            <span className="text-[10px] opacity-70">Soon</span>
+                          )}
+                        </ToggleGroupItem>
+                      );
+                    })}
+                  </ToggleGroup>
+                </div>
+              ))}
+            </div>
+          )}
         </Section>
       </DialogContent>
     </Dialog>

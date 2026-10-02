@@ -613,5 +613,17 @@
     "y": 1,
     "text": "TRAINER TIPS\n\nIf you want to avoid battles, stay away from grassy areas!",
     "games": ["yellow"]
+  },
+  {
+    "path": "indigo-plateau/pokemon-league",
+    "floor": "hall-of-fame",
+    "x": 4,
+    "y": 1,
+    "text": "Hall of Fame",
+    "sprite": "hall_of_fame_computer",
+    "spriteSize": [32, 23],
+    "spriteOffset": [0, -1],
+    "opens": "hall-of-fame",
+    "games": ["red", "blue", "yellow"]
   }
 ]

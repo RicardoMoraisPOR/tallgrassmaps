@@ -99,11 +99,28 @@ const CUTOUTS = [
       [8, 9],
     ],
   },
+  {
+    file: 'hall_of_fame_computer.png',
+    map: 'HallOfFame',
+    origin: [64, 15],
+    width: 32,
+    height: 23,
+    rows: [
+      ...Array.from({ length: 20 }, () => [0, 31]),
+      ...Array.from({ length: 3 }, () => [1, 30]),
+    ],
+  },
 ];
 
-const cutout = ({ map, origin: [left, top], rows }) => {
+const cutout = ({
+  map,
+  origin: [left, top],
+  width = STEP,
+  height = STEP,
+  rows,
+}) => {
   const { tileAt, shadeAt } = mapTiles(pokeredDir, map);
-  const rgba = Buffer.alloc(STEP * STEP * FRAMES * 4);
+  const rgba = Buffer.alloc(width * height * FRAMES * 4);
 
   rows.forEach(([from, to], y) => {
     for (let x = from; x <= to; x++) {
@@ -116,7 +133,7 @@ const cutout = ({ map, origin: [left, top], rows }) => {
       );
 
       for (let frame = 0; frame < FRAMES; frame++) {
-        const i = ((frame * STEP + y) * STEP + x) * 4;
+        const i = ((frame * height + y) * width + x) * 4;
 
         rgba[i] = shade;
         rgba[i + 1] = shade;
@@ -130,7 +147,9 @@ const cutout = ({ map, origin: [left, top], rows }) => {
 };
 
 for (const entry of CUTOUTS) {
-  writePng(join(OUTPUT, entry.file), STEP, STEP * FRAMES, cutout(entry));
+  const { width = STEP, height = STEP } = entry;
+
+  writePng(join(OUTPUT, entry.file), width, height * FRAMES, cutout(entry));
   written.red++;
 }
 

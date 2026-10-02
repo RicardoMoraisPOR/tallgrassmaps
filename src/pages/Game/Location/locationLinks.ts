@@ -41,6 +41,7 @@ import type { ListedBattle } from './trainerList';
 export const openableNames: Record<NonNullable<MapSign['opens']>, string> = {
   pokedex: 'Pokédex',
   'town-map': 'Town Map',
+  'hall-of-fame': 'Hall of Fame',
 };
 
 const PANEL_SECTIONS: Array<{
@@ -546,11 +547,18 @@ export const locationLinks = (
       const layer = opens ? itemLayer(false) : signLayer();
       const label = opens ? openableNames[opens] : sign.text;
 
+      const [spriteWidth, spriteHeight] = sign.spriteSize ?? [
+        TILE_PIXELS,
+        TILE_PIXELS,
+      ];
+      const [offsetX, offsetY] = sign.spriteOffset ?? [0, -TILE_PIXELS / 4];
+      const scale = tileSize / TILE_PIXELS;
+
       return {
-        x: sign.x * tileSize,
-        y: sign.y * tileSize - tileSize / 4,
-        width: tileSize,
-        height: tileSize,
+        x: sign.x * tileSize + offsetX * scale,
+        y: sign.y * tileSize + offsetY * scale,
+        width: spriteWidth * scale,
+        height: spriteHeight * scale,
         label,
         layer: layer.id,
         className: layer.className,
@@ -558,7 +566,11 @@ export const locationLinks = (
         tooltip: signTooltip?.(sign),
         tooltipOnClick: !opens,
         onClick: opens && onOpen && (() => onOpen(opens)),
-        sprite: { src: sign.sprite, facing: 'down' as const },
+        sprite: {
+          src: sign.sprite,
+          facing: 'down' as const,
+          ...(sign.spriteSize && { size: sign.spriteSize }),
+        },
       };
     }
 

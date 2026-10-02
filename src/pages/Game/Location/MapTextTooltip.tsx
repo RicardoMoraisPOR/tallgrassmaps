@@ -188,7 +188,7 @@ export const MapTextTooltip = ({
   game,
   presence,
 }: MapTextTooltipProps) => {
-  const gameTheme = useThemeStyle('mapIcons') === 'game';
+  const gameTheme = useThemeStyle('dialogBoxes') === 'game';
   const [page, setPage] = useState(0);
   const [showingTriggers, setShowingTriggers] = useState(false);
 

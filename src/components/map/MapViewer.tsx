@@ -16,6 +16,7 @@ import {
   type LeafletEventHandlerFnMap,
   type Map as LeafletMap,
   type Marker as LeafletMarker,
+  type Path as LeafletPath,
   type PointTuple,
   type SVGOverlay as LeafletSVGOverlay,
   Util,
@@ -54,6 +55,9 @@ const HOVER_CARD_GAP = 10;
 const HOVER_CARD_EDGE = 8;
 const SPRITE_SIZE = 16;
 const SPRITE_FRAMES = 3;
+const SPRITE_LAYER_Z = 200;
+
+const stackedShapes = new WeakSet<LeafletPath>();
 
 const facingFrames: Record<SpriteFacing, number> = {
   down: 0,
@@ -76,7 +80,12 @@ export type MapLink = Rect & {
   tooltipAtClick?: boolean;
   behind?: boolean;
   outline?: Array<Array<[number, number]>>;
-  sprite?: { src: string; facing: SpriteFacing; faded?: boolean };
+  sprite?: {
+    src: string;
+    facing: SpriteFacing;
+    faded?: boolean;
+    size?: [width: number, height: number];
+  };
   icon?: MapIconKind;
 };
 
@@ -109,6 +118,9 @@ export const MapViewer = ({
   const navigate = useNavigate();
   const bounds = useMemo(() => imageBounds(map), [map]);
   const [hoveredSprite, setHoveredSprite] = useState<string>();
+  const spriteShapes = useRef(
+    new Map<string, { shape: LeafletPath; bottom: number }>(),
+  );
   const [hoverCardKey, setHoverCardKey] = useState<string>();
 
   const [pinnedCardKey, setPinnedCardKey] = useState<string>();
@@ -136,6 +148,29 @@ export const MapViewer = ({
   const isHighlighted = (link: MapLink) =>
     highlighted !== undefined &&
     [link.highlightKey ?? link.href].flat().includes(highlighted);
+
+  const stackSpriteShapes = () =>
+    [...spriteShapes.current.values()]
+      .toSorted((a, b) => a.bottom - b.bottom)
+      .forEach(({ shape }) => shape.bringToFront());
+
+  const spriteShapeRef = (link: MapLink) => (shape: LeafletPath | null) => {
+    if (!shape) {
+      spriteShapes.current.delete(linkKey(link));
+
+      return;
+    }
+
+    spriteShapes.current.set(linkKey(link), {
+      shape,
+      bottom: link.y + link.height,
+    });
+
+    if (!stackedShapes.has(shape)) {
+      stackedShapes.add(shape);
+      shape.on('add', stackSpriteShapes);
+    }
+  };
 
   return (
     <MapContainer
@@ -198,6 +233,7 @@ export const MapViewer = ({
             <LinkShape
               key={linkKey(link)}
               link={link}
+              shapeRef={link.sprite ? spriteShapeRef(link) : undefined}
               className={cn(
                 'map-link',
                 !link.href &&
@@ -322,16 +358,19 @@ export const MapViewer = ({
 
 const LinkShape = ({
   link,
+  shapeRef,
   ...props
 }: {
   link: MapLink;
   className: string;
   eventHandlers?: LeafletEventHandlerFnMap;
   interactive?: boolean;
+  shapeRef?: (shape: LeafletPath | null) => void;
   children?: ReactNode;
 }) =>
   link.outline ? (
     <Polygon
+      ref={shapeRef}
       positions={link.outline.map((ring) =>
         ring.map(([x, y]) => toLatLng(x, y)),
       )}
@@ -339,6 +378,7 @@ const LinkShape = ({
     />
   ) : (
     <Rectangle
+      ref={shapeRef}
       bounds={[
         toLatLng(link.x, link.y + link.height),
         toLatLng(link.x + link.width, link.y),
@@ -543,7 +583,7 @@ const HoverCard = ({
 
 const MapSprite = ({
   link,
-  sprite: { src, facing, faded },
+  sprite: { src, facing, faded, size = [SPRITE_SIZE, SPRITE_SIZE] },
   active,
   revealed,
 }: {
@@ -553,6 +593,7 @@ const MapSprite = ({
   revealed: boolean;
 }) => {
   const overlay = useRef<LeafletSVGOverlay>(null);
+  const [width, height] = size;
 
   useEffect(() => {
     overlay.current
@@ -566,6 +607,15 @@ const MapSprite = ({
       ?.classList.toggle('map-sprite-faded', Boolean(faded) && !revealed);
   }, [faded, revealed]);
 
+  useEffect(() => {
+    const element = overlay.current?.getElement();
+
+    if (element)
+      element.style.zIndex = String(
+        SPRITE_LAYER_Z + Math.round(link.y + link.height),
+      );
+  }, [link.y, link.height]);
+
   return (
     <SVGOverlay
       ref={overlay}
@@ -574,19 +624,17 @@ const MapSprite = ({
         toLatLng(link.x + link.width, link.y),
       ]}
       attributes={{
-        viewBox: `0 ${facingFrames[facing] * SPRITE_SIZE} ${SPRITE_SIZE} ${SPRITE_SIZE}`,
+        viewBox: `0 ${facingFrames[facing] * height} ${width} ${height}`,
         class: cn('map-sprite', link.className),
       }}
       interactive={false}
     >
       <image
         href={src}
-        width={SPRITE_SIZE}
-        height={SPRITE_SIZE * SPRITE_FRAMES}
+        width={width}
+        height={height * SPRITE_FRAMES}
         transform={
-          facing === 'right'
-            ? `translate(${SPRITE_SIZE} 0) scale(-1 1)`
-            : undefined
+          facing === 'right' ? `translate(${width} 0) scale(-1 1)` : undefined
         }
       />
     </SVGOverlay>

@@ -19,7 +19,6 @@ export type MapLayer = {
   label: string;
   color: string;
   className: string;
-  hiddenByDefault?: boolean;
 };
 
 export const mapLayers: Array<MapLayer> = [
@@ -52,7 +51,6 @@ export const mapLayers: Array<MapLayer> = [
     label: 'Hidden items',
     color: 'var(--map-hidden-item)',
     className: 'map-link-hidden-item',
-    hiddenByDefault: true,
   },
   {
     id: 'trainers',
@@ -71,7 +69,6 @@ export const mapLayers: Array<MapLayer> = [
     label: 'Wild Pokémon',
     color: 'var(--map-wild-pokemon)',
     className: 'map-link-wild-pokemon',
-    hiddenByDefault: true,
   },
   {
     id: 'npcs',
@@ -129,7 +126,7 @@ export const useSavedMapLayers = () => {
   const saved = useSettingsStore((state) => state.mapLayers);
   const setMapLayer = useSettingsStore((state) => state.setMapLayer);
 
-  const isVisible = (id: MapLayerId) => saved[id] ?? !layer(id).hiddenByDefault;
+  const isVisible = (id: MapLayerId) => saved[id] ?? true;
 
   const setVisible = (id: MapLayerId, visible: boolean) =>
     setMapLayer(id, visible);
