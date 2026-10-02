@@ -111,6 +111,7 @@ export type WildArea = {
   method: 'walk' | 'water';
   whole?: boolean;
   outline?: Array<Array<[number, number]>>;
+  note?: string;
 };
 
 export type Region = MapImage & {

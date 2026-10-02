@@ -249,6 +249,7 @@
     "x": 9,
     "y": 5,
     "facing": "up",
+    "presence": "Leaves after the battle",
     "sprite": "rocket",
     "parties": [
       {
@@ -566,6 +567,7 @@
     "x": 25,
     "y": 3,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "giovanni",
     "parties": [
       {
@@ -599,6 +601,7 @@
     "x": 25,
     "y": 3,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "giovanni",
     "parties": [
       {
@@ -753,6 +756,7 @@
     "y": 2,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears when you reach Nugget Bridge, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -863,6 +867,7 @@
     "y": 2,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears when you reach Nugget Bridge, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -917,6 +922,7 @@
     "x": 30,
     "y": 8,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "rocket",
     "dialog": [
       {
@@ -2324,6 +2330,7 @@
     "x": 14,
     "y": 5,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -2450,6 +2457,7 @@
     "x": 14,
     "y": 5,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -3073,6 +3081,7 @@
     "y": 8,
     "facing": "down",
     "cutscene": true,
+    "presence": "Leaves after the battle",
     "sprite": "yellow/jessie",
     "dialog": [
       {
@@ -3121,6 +3130,7 @@
     "y": 11,
     "facing": "right",
     "cutscene": true,
+    "presence": "Leaves after the battle",
     "sprite": "rocket",
     "dialog": [
       {
@@ -3169,6 +3179,7 @@
     "y": 9,
     "facing": "left",
     "cutscene": true,
+    "presence": "Leaves after the battle",
     "sprite": "rocket",
     "dialog": [
       {
@@ -3212,6 +3223,7 @@
     "y": 7,
     "facing": "right",
     "cutscene": true,
+    "presence": "Leaves after the battle",
     "sprite": "rocket",
     "dialog": [
       {
@@ -3262,6 +3274,7 @@
     "x": 4,
     "y": 3,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -3326,6 +3339,7 @@
     "x": 4,
     "y": 3,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -4588,6 +4602,7 @@
     "y": 3,
     "facing": "left",
     "cutscene": true,
+    "presence": "Only appears after you beat the Super Nerd guarding the fossils, leaves after the battle",
     "sprite": "yellow/jessie",
     "dialog": [
       {
@@ -10853,6 +10868,7 @@
     "y": 5,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears after you get the Pokédex, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -10933,6 +10949,7 @@
     "y": 5,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears after you beat Giovanni at the Viridian Gym, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -11073,6 +11090,7 @@
     "y": 5,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears after you get the Pokédex, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -11118,6 +11136,7 @@
     "y": 5,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears after you beat Giovanni at the Viridian Gym, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -13021,6 +13040,7 @@
     "x": 5,
     "y": 12,
     "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -13059,6 +13079,7 @@
     "x": 24,
     "y": 13,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -13092,6 +13113,7 @@
     "x": 16,
     "y": 11,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13120,6 +13142,7 @@
     "x": 16,
     "y": 11,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13148,6 +13171,7 @@
     "x": 24,
     "y": 7,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13191,6 +13215,7 @@
     "x": 20,
     "y": 7,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13224,6 +13249,7 @@
     "x": 7,
     "y": 9,
     "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -13252,6 +13278,7 @@
     "x": 9,
     "y": 14,
     "facing": "right",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13280,6 +13307,7 @@
     "x": 14,
     "y": 6,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -13303,6 +13331,7 @@
     "x": 26,
     "y": 10,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13336,6 +13365,7 @@
     "x": 26,
     "y": 10,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13369,6 +13399,7 @@
     "x": 8,
     "y": 16,
     "facing": "right",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13392,6 +13423,7 @@
     "x": 8,
     "y": 3,
     "facing": "right",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -13430,6 +13462,7 @@
     "x": 18,
     "y": 10,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocker",
     "parties": [
       {
@@ -13458,6 +13491,7 @@
     "x": 18,
     "y": 10,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocker",
     "parties": [
       {
@@ -13486,6 +13520,7 @@
     "x": 28,
     "y": 4,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13509,6 +13544,7 @@
     "x": 17,
     "y": 3,
     "facing": "right",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13537,6 +13573,7 @@
     "x": 7,
     "y": 8,
     "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -13580,6 +13617,7 @@
     "x": 14,
     "y": 15,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13828,6 +13866,7 @@
     "x": 13,
     "y": 1,
     "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13866,6 +13905,7 @@
     "x": 2,
     "y": 13,
     "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -13894,6 +13934,7 @@
     "x": 20,
     "y": 2,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13922,6 +13963,7 @@
     "x": 20,
     "y": 2,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13950,6 +13992,7 @@
     "x": 19,
     "y": 14,
     "facing": "right",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -13978,6 +14021,7 @@
     "x": 19,
     "y": 2,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14016,6 +14060,7 @@
     "x": 10,
     "y": 2,
     "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -14044,6 +14089,7 @@
     "x": 12,
     "y": 15,
     "facing": "right",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14077,6 +14123,7 @@
     "x": 2,
     "y": 4,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14110,6 +14157,7 @@
     "x": 21,
     "y": 13,
     "facing": "down",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -14143,6 +14191,7 @@
     "x": 13,
     "y": 16,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14176,6 +14225,7 @@
     "x": 1,
     "y": 9,
     "facing": "right",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14199,6 +14249,7 @@
     "x": 10,
     "y": 2,
     "facing": "left",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "scientist",
     "parties": [
       {
@@ -14257,6 +14308,7 @@
     "x": 6,
     "y": 9,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "giovanni",
     "parties": [
       {
@@ -14300,6 +14352,7 @@
     "x": 6,
     "y": 9,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "giovanni",
     "parties": [
       {
@@ -14343,6 +14396,7 @@
     "x": 3,
     "y": 16,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14376,6 +14430,7 @@
     "x": 15,
     "y": 9,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14419,6 +14474,7 @@
     "x": 15,
     "y": 9,
     "facing": "up",
+    "presence": "Leaves after you beat Giovanni in Silph Co.",
     "sprite": "rocket",
     "parties": [
       {
@@ -14747,6 +14803,7 @@
     "y": 4,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears when you head for the captain's cabin, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -14859,6 +14916,7 @@
     "y": 4,
     "facing": "down",
     "cutscene": true,
+    "presence": "Only appears when you head for the captain's cabin, leaves after the battle",
     "sprite": "blue",
     "dialog": [
       {
@@ -15837,6 +15895,7 @@
     "x": 2,
     "y": 1,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "giovanni",
     "dialog": [
       {
@@ -15900,6 +15959,7 @@
     "x": 2,
     "y": 1,
     "facing": "down",
+    "presence": "Leaves after the battle",
     "sprite": "giovanni",
     "dialog": [
       {

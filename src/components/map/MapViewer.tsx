@@ -704,6 +704,8 @@ const ClosePopupOnOutsidePress = () => {
   return null;
 };
 
+type ZoomLimiter = { _limitZoom: (zoom: number) => number };
+
 const FitToViewport = ({
   map,
   focus,
@@ -714,6 +716,20 @@ const FitToViewport = ({
   const leafletMap = useMap();
   const { width, height } = map;
   const [focusLat, focusLng] = focus ?? [];
+
+  useEffect(() => {
+    const limiter = leafletMap as unknown as ZoomLimiter;
+    const snapAndClamp = limiter._limitZoom;
+
+    limiter._limitZoom = (zoom) =>
+      zoom <= leafletMap.getMinZoom()
+        ? leafletMap.getMinZoom()
+        : snapAndClamp.call(leafletMap, zoom);
+
+    return () => {
+      limiter._limitZoom = snapAndClamp;
+    };
+  }, [leafletMap]);
 
   useEffect(() => {
     const fitZoom = () => {

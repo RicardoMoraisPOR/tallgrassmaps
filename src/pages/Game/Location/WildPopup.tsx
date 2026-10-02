@@ -16,6 +16,7 @@ type WildPopupProps = {
   game: Game;
   path: string;
   groups: Array<EncounterGroup>;
+  note?: string;
 };
 
 const gameLevelLabel = ({ levels }: Encounter) => {
@@ -26,14 +27,14 @@ const gameLevelLabel = ({ levels }: Encounter) => {
   return min === max ? `:L${min}` : `:L${min}-${max}`;
 };
 
-export const WildPopup = ({ game, path, groups }: WildPopupProps) => {
+export const WildPopup = ({ game, path, groups, note }: WildPopupProps) => {
   const gameTheme = useThemeStyle('wildPokemon') === 'game';
 
   const titleOf = (group: EncounterGroup) =>
     methodLabel({ method: group.method, path, games: [] });
 
   return gameTheme ? (
-    <GameWildPopup game={game} groups={groups} titleOf={titleOf} />
+    <GameWildPopup game={game} groups={groups} titleOf={titleOf} note={note} />
   ) : (
     <div className="w-68 rounded-xl bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
       <div className="flex max-h-56 flex-col gap-3 overflow-y-auto pr-2">
@@ -46,6 +47,9 @@ export const WildPopup = ({ game, path, groups }: WildPopupProps) => {
           </section>
         ))}
       </div>
+      {note && (
+        <p className="pt-2 pr-1.5 text-xs text-muted-foreground">{note}</p>
+      )}
     </div>
   );
 };
@@ -54,10 +58,12 @@ const GameWildPopup = ({
   game,
   groups,
   titleOf,
+  note,
 }: {
   game: Game;
   groups: Array<EncounterGroup>;
   titleOf: (group: EncounterGroup) => string;
+  note?: string;
 }) => {
   const spriteFor = usePokemonSprite(game);
 
@@ -104,6 +110,7 @@ const GameWildPopup = ({
           </section>
         ))}
       </div>
+      {note && <p className="pt-3 text-[8px] leading-[12px]">{note}</p>}
     </div>
   );
 };
@@ -116,7 +123,7 @@ type StaticPopupProps = {
 
 const staticNote = ({ kind, note, pokemon }: StaticPokemon) => {
   if (note) return note;
-  if (kind === 'static') return 'One-time encounter';
+  if (kind === 'static') return 'One-time encounter, gone after the battle';
 
   return pokemon.length > 1 ? 'Gift, choose one' : 'Gift';
 };

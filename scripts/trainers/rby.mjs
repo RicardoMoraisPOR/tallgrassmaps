@@ -147,6 +147,40 @@ const CUTSCENE_OBJECTS = new Set([
   'POKEMONTOWER7F_ROCKET3',
 ]);
 
+const LEAVES_AFTER_BATTLE = 'Leaves after the battle';
+
+const PRESENCE = {
+  OAKSLAB_RIVAL: LEAVES_AFTER_BATTLE,
+  ROUTE22_RIVAL1:
+    'Only appears after you get the Pokédex, leaves after the battle',
+  ROUTE22_RIVAL2:
+    'Only appears after you beat Giovanni at the Viridian Gym, leaves after the battle',
+  CERULEANCITY_RIVAL:
+    'Only appears when you reach Nugget Bridge, leaves after the battle',
+  CERULEANCITY_ROCKET: LEAVES_AFTER_BATTLE,
+  SSANNE2F_RIVAL:
+    "Only appears when you head for the captain's cabin, leaves after the battle",
+  POKEMONTOWER2F_RIVAL: LEAVES_AFTER_BATTLE,
+  POKEMONTOWER7F_ROCKET1: LEAVES_AFTER_BATTLE,
+  POKEMONTOWER7F_ROCKET2: LEAVES_AFTER_BATTLE,
+  POKEMONTOWER7F_ROCKET3: LEAVES_AFTER_BATTLE,
+  POKEMONTOWER7F_JESSIE: LEAVES_AFTER_BATTLE,
+  MTMOONB2F_JESSIE:
+    'Only appears after you beat the Super Nerd guarding the fossils, leaves after the battle',
+  GAMECORNER_ROCKET: LEAVES_AFTER_BATTLE,
+  ROCKETHIDEOUTB4F_GIOVANNI: LEAVES_AFTER_BATTLE,
+  VIRIDIANGYM_GIOVANNI: LEAVES_AFTER_BATTLE,
+  SILPHCO11F_GIOVANNI: LEAVES_AFTER_BATTLE,
+};
+
+const SILPH_TRAINER = /^SILPHCO\d+F_/;
+
+const presenceFor = (object) =>
+  PRESENCE[object] ??
+  (SILPH_TRAINER.test(object)
+    ? 'Leaves after you beat Giovanni in Silph Co.'
+    : undefined);
+
 const OBJECT_DIALOG = {
   VERMILIONGYM_LT_SURGE: [
     { label: 'Before battle', texts: ['_VermilionGymLTSurgePreBattleText'] },
@@ -528,6 +562,7 @@ for (const game of games) {
     dialog = [],
     choicePrompt,
     cutscene,
+    presence,
   }) => {
     const map = constantFromFile(file);
     const floor = floorFor(map);
@@ -544,6 +579,7 @@ for (const game of games) {
       ...(floor && { floor }),
       ...placed,
       ...(cutscene && placed.x !== undefined && { cutscene }),
+      ...(presence && { presence }),
       ...(sprite && { sprite: spritePath(game, sprite) }),
       ...(dialog.length > 0 && { dialog }),
       ...(choicePrompt && { choicePrompt }),
@@ -619,6 +655,7 @@ for (const game of games) {
           },
           dialog: objectDialog(file, textId),
           cutscene: CUTSCENE_OBJECTS.has(textId),
+          presence: presenceFor(textId),
           parties: [{ party: partyFor(file, trainer, Number(index)) }],
         });
       },
@@ -703,6 +740,7 @@ for (const game of games) {
       ...(object && {
         position: shifted(objectPosition(script, object), shift),
         cutscene: hiddenObjects.has(object),
+        presence: presenceFor(object),
       }),
       dialog: battleDialog(dialog),
       ...(variants && { choicePrompt: rivalChoices[game.id].prompt }),

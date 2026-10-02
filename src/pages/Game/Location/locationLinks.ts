@@ -111,7 +111,7 @@ type MarkerSources = {
   signTooltip?: (sign: MapSign) => ReactNode;
   onOpen?: (target: NonNullable<MapSign['opens']>) => void;
   wildAreas?: Array<WildArea>;
-  wildPopup?: (method: WildArea['method']) => ReactNode;
+  wildPopup?: (method: WildArea['method'], note?: string) => ReactNode;
   staticPokemon?: Array<StaticPokemon>;
   staticPopup?: (pokemon: StaticPokemon) => ReactNode;
 };
@@ -488,11 +488,7 @@ export const locationLinks = (
         y: y * tileSize - tileSize / 4,
         width: tileSize,
         height: tileSize,
-        sprite: {
-          src: battle.sprite,
-          facing: battle.facing ?? 'down',
-          faded: battle.cutscene,
-        },
+        sprite: { src: battle.sprite, facing: battle.facing ?? 'down' },
       };
     }
 
@@ -540,11 +536,7 @@ export const locationLinks = (
       ],
       tooltip: npcTooltip?.(npc),
       tooltipOnClick: true,
-      sprite: {
-        src: npc.sprite,
-        facing: npc.facing,
-        faded: npc.cutscene,
-      },
+      sprite: { src: npc.sprite, facing: npc.facing },
     };
   });
 
@@ -616,11 +608,7 @@ export const locationLinks = (
           y: marker.y * tileSize - tileSize / 4,
           width: tileSize,
           height: tileSize,
-          sprite: {
-            src: marker.sprite,
-            facing: marker.facing ?? 'down',
-            faded: marker.kind === 'static',
-          },
+          sprite: { src: marker.sprite, facing: marker.facing ?? 'down' },
         };
       }
 
@@ -635,7 +623,7 @@ export const locationLinks = (
 
   const image = floor ?? location;
   const wildMarkers: Array<LayeredMapLink> = wildAreas.map(
-    ({ method, whole, outline = [] }) => {
+    ({ method, whole, outline = [], note }) => {
       const layer = wildLayer();
       const scaled = outline.map((ring) =>
         ring.map(([x, y]): [number, number] => [x * tileSize, y * tileSize]),
@@ -659,7 +647,7 @@ export const locationLinks = (
         layer: layer.id,
         className: cn(layer.className, whole && 'map-link-wild-whole'),
         highlightKey: wildHighlightKey(method),
-        tooltip: wildPopup?.(method),
+        tooltip: wildPopup?.(method, note),
         tooltipOnClick: true,
         tooltipAtClick: true,
         behind: true,

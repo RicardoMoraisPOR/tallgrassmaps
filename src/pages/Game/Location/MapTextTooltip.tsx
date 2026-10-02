@@ -178,6 +178,7 @@ type MapTextTooltipProps = {
   text?: string;
   dialog?: Array<NpcDialog>;
   game?: Game;
+  presence?: string;
 };
 
 export const MapTextTooltip = ({
@@ -185,6 +186,7 @@ export const MapTextTooltip = ({
   text,
   dialog = [],
   game,
+  presence,
 }: MapTextTooltipProps) => {
   const gameTheme = useThemeStyle('mapIcons') === 'game';
   const [page, setPage] = useState(0);
@@ -245,7 +247,7 @@ export const MapTextTooltip = ({
         'whitespace-pre-line',
         gameTheme ? 'text-[8px] leading-[14px]' : 'text-xs',
         muted && 'text-muted-foreground',
-        paged && 'max-h-40 overflow-y-auto pr-1',
+        (paged || presence) && 'max-h-40 overflow-y-auto pr-1',
       )}
     >
       {shownText}
@@ -297,6 +299,19 @@ export const MapTextTooltip = ({
     </div>
   );
 
+  const presenceNote = presence && (
+    <p
+      className={cn(
+        'text-muted-foreground',
+        gameTheme
+          ? 'border-t-2 border-dashed border-(--gb-ink) pt-2 text-[8px] leading-[12px]'
+          : 'border-t border-border pt-1.5 text-xs italic',
+      )}
+    >
+      {presence}
+    </p>
+  );
+
   return (
     <div
       className={cn(
@@ -320,6 +335,7 @@ export const MapTextTooltip = ({
       {tradeSquare}
       {pokemonSquare}
       {pager && <div className={cn(!gameTheme && 'pt-1')}>{pager}</div>}
+      {presenceNote}
     </div>
   );
 };

@@ -72,6 +72,7 @@ export const TrainerDialog = ({
   const Pokemon = gameTheme ? GamePokemon : TallGrassPokemon;
   const area = listed?.battle.floor ? undefined : listed?.battle.area;
   const battleDialog = listed?.battle.dialog ?? [];
+  const presence = listed?.battle.presence;
   const gifts = battleDialog.flatMap(({ gift }) => gift ?? []);
   const encounters =
     listed?.battle.x === undefined
@@ -239,6 +240,18 @@ export const TrainerDialog = ({
                   />
                 ))}
               </section>
+            )}
+            {presence && (
+              <p
+                className={cn(
+                  'text-muted-foreground',
+                  gameTheme
+                    ? 'mx-2 border-t-2 border-dashed border-(--gb-ink) pt-3 text-[8px] leading-[12px]'
+                    : 'border-t border-border pt-3 text-sm italic',
+                )}
+              >
+                {presence}
+              </p>
             )}
           </div>
         )}

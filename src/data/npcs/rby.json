@@ -93,6 +93,7 @@
         "trigger": "If you say no"
       }
     ],
+    "presence": "Leaves after you agree to help him",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -125,6 +126,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Only appears after you run the Cell Separation System",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -335,6 +337,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Leaves after you enter the Hall of Fame",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -352,6 +355,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Leaves after you beat the Team Rocket thief",
     "special": true,
     "games": ["red", "blue"]
   },
@@ -947,6 +951,7 @@
         "trigger": "After you get the Poké Flute"
       }
     ],
+    "presence": "Only appears after you rescue him from Pokémon Tower",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -1388,6 +1393,7 @@
         "trigger": "Once you own at least two Pokémon, he rates your Pokédex"
       }
     ],
+    "presence": "Only appears after he brings you into the lab",
     "special": true,
     "games": ["red", "blue"]
   },
@@ -1447,6 +1453,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Only appears when you try to leave town without a Pokémon",
     "special": true,
     "games": ["red", "blue"]
   },
@@ -2011,6 +2018,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Leaves after you beat the Team Rocket members holding him",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -3694,6 +3702,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Leaves after you get the Pokédex",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -3746,6 +3755,7 @@
         "trigger": "If you say no, he shows you how to catch Pokémon"
       }
     ],
+    "presence": "Only appears after you get the Pokédex",
     "games": ["red", "blue"]
   },
   {
@@ -4248,6 +4258,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Leaves after you beat the Team Rocket thief",
     "special": true,
     "games": ["yellow"]
   },
@@ -4698,6 +4709,7 @@
         "trigger": "Once you own at least two Pokémon, he rates your Pokédex"
       }
     ],
+    "presence": "Only appears after he brings you into the lab",
     "special": true,
     "games": ["yellow"]
   },
@@ -4715,6 +4727,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Only appears when you try to leave town without a Pokémon",
     "special": true,
     "games": ["yellow"]
   },
@@ -5478,6 +5491,7 @@
         "trigger": "If you say no, he shows you how to catch Pokémon"
       }
     ],
+    "presence": "Only appears after you get the Pokédex",
     "games": ["yellow"]
   },
   {

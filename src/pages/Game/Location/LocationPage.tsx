@@ -115,14 +115,19 @@ export const LocationPage = () => {
         hasWater: wildAreas.some((area) => area.method === 'water'),
       })
     : [];
-  const wildPopup = (area: WildArea['method']) => {
+  const wildPopup = (area: WildArea['method'], note?: string) => {
     const groups = encounters.filter(
       ({ method }) => wildAreaFor(method) === area,
     );
 
     return (
       groups.length > 0 && (
-        <WildPopup game={route.game} path={dataPath} groups={groups} />
+        <WildPopup
+          game={route.game}
+          path={dataPath}
+          groups={groups}
+          note={note}
+        />
       )
     );
   };
@@ -145,7 +150,12 @@ export const LocationPage = () => {
       onSelectTrainer: selectTrainer,
       npcs: npcsFor(route.region.versionGroup)?.filter(onThisMap),
       npcTooltip: (npc) => (
-        <MapTextTooltip name={npc.name} dialog={npc.dialog} game={route.game} />
+        <MapTextTooltip
+          name={npc.name}
+          dialog={npc.dialog}
+          game={route.game}
+          presence={npc.presence}
+        />
       ),
       signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
       signTooltip: (sign) => (

@@ -237,6 +237,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   PALLETTOWN_OAK: {
+    presence: 'Only appears when you try to leave town without a Pokémon',
     cutscene: true,
     dialog: [
       {
@@ -349,6 +350,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   VIRIDIANCITY_OLD_MAN_SLEEPY: {
+    presence: 'Leaves after you get the Pokédex',
     cutscene: true,
     dialog: [
       {
@@ -375,6 +377,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   VIRIDIANCITY_OLD_MAN: {
+    presence: 'Only appears after you get the Pokédex',
     dialog: [
       {
         trigger: 'After you get the Pokédex, he asks if you are in a hurry',
@@ -556,6 +559,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   POKEMONTOWER7F_MR_FUJI: {
+    presence: 'Leaves after you beat the Team Rocket members holding him',
     cutscene: true,
     dialog: [
       {
@@ -606,6 +610,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   MRFUJISHOUSE_MR_FUJI: {
+    presence: 'Only appears after you rescue him from Pokémon Tower',
     values: { wStringBuffer: 'POKé FLUTE' },
     dialog: [
       {
@@ -903,6 +908,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   CERULEANCITY_GUARD2: {
+    presence: 'Leaves after you beat the Team Rocket thief',
     cutscene: true,
     dialog: [
       {
@@ -912,6 +918,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   CERULEANCITY_SUPER_NERD3: {
+    presence: 'Leaves after you enter the Hall of Fame',
     cutscene: true,
     dialog: [
       {
@@ -1150,6 +1157,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   BILLSHOUSE_BILL_POKEMON: {
+    presence: 'Leaves after you agree to help him',
     name: 'Bill',
     dialog: [
       {
@@ -1170,6 +1178,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   BILLSHOUSE_BILL1: {
+    presence: 'Only appears after you run the Cell Separation System',
     name: 'Bill',
     cutscene: true,
     dialog: [
@@ -1505,6 +1514,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   OAKSLAB_OAK1: {
+    presence: 'Only appears after he brings you into the lab',
     dialog: [
       {
         trigger: 'When you follow him into the lab',
@@ -1803,6 +1813,7 @@ for (const game of games) {
         facing: facings[direction] ?? 'down',
         dialog,
         ...(scripted?.cutscene && { cutscene: true }),
+        ...(scripted?.presence && { presence: scripted.presence }),
         ...(scripted?.item && { item: true }),
         ...((trade ||
           scripted?.special ||

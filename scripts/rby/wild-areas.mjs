@@ -34,6 +34,11 @@ const superRodMaps = new Set(
 
 const CUT_TREE_TILES = { Overworld: 0x3d, Gym: 0x50 };
 
+const STAR_GRASS_TILES = { Forest: 0x34 };
+
+const STAR_GRASS_NOTE =
+  "Grass with a star in its corner doesn't give encounters";
+
 const LEDGE_DIRECTIONS = {
   DOWN: [0, 1],
   UP: [0, -1],
@@ -329,6 +334,10 @@ const wildAreas = mappedConstants.flatMap((constant) => {
   };
   const cutOutWater = water && water.outline.length > 0;
 
+  const starGrass = STAR_GRASS_TILES[tiles.tileset];
+  const grassLooking = (x, y) =>
+    standingOn(x, y) === tiles.grassTile || standingOn(x, y) === starGrass;
+
   const walk = anywhere
     ? {
         whole: true,
@@ -338,11 +347,8 @@ const wildAreas = mappedConstants.flatMap((constant) => {
       }
     : grass > 0 &&
       tiles.grassTile !== undefined && {
-        outline: outline(
-          tiles.columns,
-          tiles.rows,
-          (x, y) => standingOn(x, y) === tiles.grassTile,
-        ),
+        outline: outline(tiles.columns, tiles.rows, grassLooking),
+        ...(starGrass !== undefined && { note: STAR_GRASS_NOTE }),
       };
 
   return [

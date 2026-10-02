@@ -31,6 +31,7 @@ export type TrainerBattle = {
   sprite?: string;
   facing?: SpriteFacing;
   cutscene?: boolean;
+  presence?: string;
   dialog?: Array<BattleDialog>;
   choicePrompt?: string;
   games: Array<string>;

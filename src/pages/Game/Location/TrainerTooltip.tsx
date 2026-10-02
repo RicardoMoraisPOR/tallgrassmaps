@@ -85,6 +85,11 @@ export const TrainerTooltip = ({
             </Fragment>
           ))}
         </div>
+        {battle.presence && (
+          <span className="text-[8px] leading-[12px] text-muted-foreground">
+            {battle.presence}
+          </span>
+        )}
       </div>
     );
   }
@@ -122,6 +127,9 @@ export const TrainerTooltip = ({
           </Fragment>
         ))}
       </div>
+      {battle.presence && (
+        <span className="text-xs text-muted-foreground">{battle.presence}</span>
+      )}
     </div>
   );
 };
