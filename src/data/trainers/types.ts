@@ -20,6 +20,13 @@ export type BattleDialog = {
 
 export type SpriteFacing = 'down' | 'up' | 'left' | 'right';
 
+export type TrainerPartner = {
+  x: number;
+  y: number;
+  sprite: string;
+  facing: SpriteFacing;
+};
+
 export type TrainerBattle = {
   name: string;
   trainerClass: string;
@@ -32,6 +39,7 @@ export type TrainerBattle = {
   facing?: SpriteFacing;
   cutscene?: boolean;
   presence?: string;
+  partner?: TrainerPartner;
   dialog?: Array<BattleDialog>;
   choicePrompt?: string;
   games: Array<string>;

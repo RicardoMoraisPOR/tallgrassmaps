@@ -711,7 +711,11 @@ const scripted = [
     name: 'Jessie & James',
     sprite: 'JESSIE',
     teams: { yellow: [index] },
-    ...(object && { object, dialog }),
+    ...(object && {
+      object,
+      dialog,
+      partner: { object: object.replace('JESSIE', 'JAMES'), sprite: 'JAMES' },
+    }),
   })),
 ];
 
@@ -826,6 +830,7 @@ for (const game of games) {
     choicePrompt,
     cutscene,
     presence,
+    partner,
   }) => {
     const map = constantFromFile(file);
     const floor = floorFor(map);
@@ -843,6 +848,7 @@ for (const game of games) {
       ...placed,
       ...(cutscene && placed.x !== undefined && { cutscene }),
       ...(presence && { presence }),
+      ...(partner && placed.x !== undefined && { partner }),
       ...(sprite && { sprite: spritePath(game, sprite) }),
       ...(dialog.length > 0 && { dialog }),
       ...(choicePrompt && { choicePrompt }),
@@ -988,6 +994,7 @@ for (const game of games) {
     teams,
     path,
     object,
+    partner,
     shift,
     dialog,
   } of scripted) {
@@ -1010,6 +1017,12 @@ for (const game of games) {
         position: shifted(objectPosition(script, object), shift),
         cutscene: hiddenObjects.has(object),
         presence: presenceFor(object),
+        ...(partner && {
+          partner: {
+            ...shifted(objectPosition(script, partner.object), shift),
+            sprite: spritePath(game, partner.sprite),
+          },
+        }),
       }),
       dialog: battleDialog(dialog),
       ...(variants && { choicePrompt: rivalChoices[game.id].prompt }),

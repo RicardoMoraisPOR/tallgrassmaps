@@ -825,6 +825,12 @@
     "facing": "down",
     "cutscene": true,
     "presence": "Only appears when you reach the elevator, leaves after the battle",
+    "partner": {
+      "x": 25,
+      "y": 10,
+      "facing": "down",
+      "sprite": "yellow/james"
+    },
     "sprite": "yellow/jessie",
     "dialog": [
       {
@@ -4071,6 +4077,12 @@
     "facing": "down",
     "cutscene": true,
     "presence": "Leaves after the battle",
+    "partner": {
+      "x": 11,
+      "y": 8,
+      "facing": "down",
+      "sprite": "yellow/james"
+    },
     "sprite": "yellow/jessie",
     "dialog": [
       {
@@ -5592,6 +5604,12 @@
     "facing": "left",
     "cutscene": true,
     "presence": "Only appears after you beat the Super Nerd guarding the fossils, leaves after the battle",
+    "partner": {
+      "x": 9,
+      "y": 4,
+      "facing": "left",
+      "sprite": "yellow/james"
+    },
     "sprite": "yellow/jessie",
     "dialog": [
       {
@@ -17515,6 +17533,12 @@
     "y": 8,
     "facing": "up",
     "presence": "Leaves after the battle",
+    "partner": {
+      "x": 2,
+      "y": 8,
+      "facing": "up",
+      "sprite": "yellow/james"
+    },
     "sprite": "yellow/jessie",
     "dialog": [
       {

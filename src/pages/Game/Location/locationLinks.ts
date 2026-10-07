@@ -564,7 +564,7 @@ export const locationLinks = (
 
   const trainerMarkers: Array<LayeredMapLink> = [
     ...trainersByTile.values(),
-  ].map((group) => {
+  ].flatMap((group) => {
     const [{ battle, key, label }] = group;
     const x = battle.x ?? 0;
     const y = battle.y ?? 0;
@@ -585,23 +585,42 @@ export const locationLinks = (
     };
 
     if (battle.sprite) {
-      return {
-        ...common,
-        x: x * tileSize,
-        y: y * tileSize - tileSize / 4,
-        width: tileSize,
-        height: tileSize,
-        sprite: { src: battle.sprite, facing: battle.facing ?? 'down' },
-      };
+      return [
+        {
+          ...common,
+          x: x * tileSize,
+          y: y * tileSize - tileSize / 4,
+          width: tileSize,
+          height: tileSize,
+          sprite: { src: battle.sprite, facing: battle.facing ?? 'down' },
+        },
+        ...(battle.partner
+          ? [
+              {
+                ...common,
+                x: battle.partner.x * tileSize,
+                y: battle.partner.y * tileSize - tileSize / 4,
+                width: tileSize,
+                height: tileSize,
+                sprite: {
+                  src: battle.partner.sprite,
+                  facing: battle.partner.facing,
+                },
+              },
+            ]
+          : []),
+      ];
     }
 
-    return {
-      ...common,
-      x: x * tileSize - tileSize / 4,
-      y: y * tileSize - tileSize / 4,
-      width: tileSize * 1.5,
-      height: tileSize * 1.5,
-    };
+    return [
+      {
+        ...common,
+        x: x * tileSize - tileSize / 4,
+        y: y * tileSize - tileSize / 4,
+        width: tileSize * 1.5,
+        height: tileSize * 1.5,
+      },
+    ];
   });
 
   const npcTotals = new Map<string, number>();
