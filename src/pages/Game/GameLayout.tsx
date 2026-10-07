@@ -2,8 +2,11 @@ import { Container } from '@/components/Container';
 import { PageTransition } from '@/components/PageTransition';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { pathSegments } from '@/lib/paths';
+import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
+import { useMapLayout } from '@/stores/settings';
 
+import { LayoutToggle } from './LayoutToggle';
 import { PageHeader } from './PageHeader';
 
 const pageKind = (pathname: string) => {
@@ -14,25 +17,35 @@ const pageKind = (pathname: string) => {
 
 export const GameLayout = () => {
   const route = useGameRoute();
+  const layout = useMapLayout(route?.region.versionGroup ?? '');
 
   if (!route) {
     return <NotFoundPage />;
   }
 
+  const immersive = layout === 'immersive';
+
   return (
-    <Container
-      as="section"
-      className="flex flex-1 flex-col gap-7 pt-6 pb-10 sm:pt-10 sm:pb-16"
-    >
-      <PageHeader
-        game={route.game}
-        region={route.region}
-        trail={route.trail ?? []}
-        href={route.href}
-      />
-      <div className="flex flex-1 flex-col overflow-clip">
-        <PageTransition mapMotion keyFor={pageKind} />
-      </div>
-    </Container>
+    <div className="relative flex flex-1 flex-col">
+      <LayoutToggle versionGroup={route.region.versionGroup} />
+      <Container
+        as="section"
+        className={cn(
+          'flex flex-1 flex-col',
+          immersive ? 'max-w-none px-0' : 'gap-7 pt-6 pb-10 sm:pt-10 sm:pb-16',
+        )}
+      >
+        <PageHeader
+          floating={immersive}
+          game={route.game}
+          region={route.region}
+          trail={route.trail ?? []}
+          href={route.href}
+        />
+        <div className="flex flex-1 flex-col overflow-clip">
+          <PageTransition mapMotion keyFor={pageKind} />
+        </div>
+      </Container>
+    </div>
   );
 };

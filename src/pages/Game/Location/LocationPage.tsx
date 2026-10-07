@@ -13,8 +13,11 @@ import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
+import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
+import { useMapLayout } from '@/stores/settings';
 
+import { GameAside } from '../GameAside';
 import {
   decodeTeam,
   emptyTeam,
@@ -23,9 +26,9 @@ import {
   type Team,
 } from '../HallOfFame/hallOfFame';
 import { HallOfFameDialog } from '../HallOfFame/HallOfFameDialog';
+import { mapFrameProps, useMapFrame } from '../mapFrame';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
-import { SidebarLayout } from '../SidebarLayout';
 import { encounterGroups, wildAreaFor } from './encounters';
 import { EncountersTab, OpenPokedexButton } from './EncountersTab';
 import { EventPicker } from './EventPicker';
@@ -51,6 +54,9 @@ export const LocationPage = () => {
   const route = useGameRoute();
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
+  const immersive =
+    useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
+  const mapFrame = useMapFrame(String(immersive));
 
   const trail = route?.trail;
   const location = trail?.at(-1);
@@ -281,60 +287,97 @@ export const LocationPage = () => {
     image: variant?.image ?? imageSource.image,
   };
 
+  const pickers = ((location.floors && floor) || event) && (
+    <>
+      {location.floors && floor && (
+        <FloorPicker
+          floors={location.floors}
+          selected={floor.id}
+          onSelect={selectFloor}
+        />
+      )}
+      {event && (
+        <EventPicker
+          event={event}
+          selected={eventState}
+          onSelect={selectEventState}
+        />
+      )}
+    </>
+  );
+  const cards = (
+    <>
+      <TownMapCard
+        region={route.region}
+        path={trailPath(trail)}
+        href={route.href}
+      />
+      <LocationPanel
+        tabs={panelTabs}
+        className={immersive ? 'min-h-48 flex-1' : 'lg:flex-1'}
+      />
+    </>
+  );
+  const viewer = (
+    <MapViewer
+      map={mapImage}
+      links={links.filter((link) => !hiddenLayers.has(link.layer))}
+      highlightable={links}
+      highlighted={
+        (highlight.scope === scope ? highlight.key : undefined) ?? arrival
+      }
+      focusKey={arrivedAt}
+      pinRequest={pinRequest?.scope === scope ? pinRequest : undefined}
+      zoomPosition={immersive ? 'bottomleft' : undefined}
+      className="size-full"
+    />
+  );
+
   return (
     <>
-      <SidebarLayout
-        fitAsideToMain
-        aside={
-          <>
-            <TownMapCard
-              region={route.region}
-              path={trailPath(trail)}
-              href={route.href}
-            />
-            <LocationPanel tabs={panelTabs} className="lg:flex-1" />
-          </>
-        }
+      <div
+        className={cn(
+          immersive
+            ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-hidden'
+            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
+        )}
       >
-        <div className="flex min-w-0 flex-col overflow-clip rounded-[14px]">
-          <PageTransition mapMotion>
-            <div className="relative min-w-0">
-              <MapViewer
-                map={mapImage}
-                links={links.filter((link) => !hiddenLayers.has(link.layer))}
-                highlightable={links}
-                highlighted={
-                  (highlight.scope === scope ? highlight.key : undefined) ??
-                  arrival
-                }
-                focusKey={arrivedAt}
-                pinRequest={
-                  pinRequest?.scope === scope ? pinRequest : undefined
-                }
-                className="h-[60svh] min-w-0 overflow-hidden rounded-[14px] border lg:h-[min(72svh,760px)]"
-              />
-              {((location.floors && floor) || event) && (
-                <div className="pointer-events-none absolute top-3 right-3 left-16 z-10 flex flex-col items-end gap-2">
-                  {location.floors && floor && (
-                    <FloorPicker
-                      floors={location.floors}
-                      selected={floor.id}
-                      onSelect={selectFloor}
-                    />
-                  )}
-                  {event && (
-                    <EventPicker
-                      event={event}
-                      selected={eventState}
-                      onSelect={selectEventState}
-                    />
-                  )}
-                </div>
-              )}
-            </div>
-          </PageTransition>
+        <div
+          className={cn(
+            immersive
+              ? 'absolute inset-0'
+              : 'relative h-[60svh] min-w-0 lg:h-[min(72svh,760px)]',
+          )}
+        >
+          <div
+            ref={mapFrame}
+            {...mapFrameProps}
+            className={cn(
+              'absolute inset-0 flex flex-col overflow-hidden',
+              !immersive && 'rounded-[14px] border',
+            )}
+          >
+            <PageTransition mapMotion>
+              <div className="relative flex min-h-0 flex-1 flex-col">
+                <div className="min-h-0 flex-1">{viewer}</div>
+                {pickers && (
+                  <div
+                    className={cn(
+                      'pointer-events-none absolute z-10 flex flex-col gap-2',
+                      immersive
+                        ? 'inset-x-14 bottom-4 items-center'
+                        : 'top-3 right-3 left-14 items-end',
+                    )}
+                  >
+                    {pickers}
+                  </div>
+                )}
+              </div>
+            </PageTransition>
+          </div>
         </div>
-      </SidebarLayout>
+        <GameAside immersive={immersive}>{cards}</GameAside>
+      </div>
       {pokedex && (
         <TrainerDialog
           listed={

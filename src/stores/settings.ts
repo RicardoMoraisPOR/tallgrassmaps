@@ -1,3 +1,5 @@
+import { useSyncExternalStore } from 'react';
+
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
@@ -15,6 +17,8 @@ export type ThemeStyle = 'game' | 'tall-grass';
 
 export type ThemePreset = ThemeStyle | 'custom';
 
+export type MapLayout = 'minimalist' | 'immersive';
+
 export type LocationTab = 'info' | 'pokemon' | 'trainers';
 
 type SettingsState = {
@@ -24,12 +28,14 @@ type SettingsState = {
   themes: Record<ThemeArea, ThemeStyle>;
   mapLayers: Partial<Record<string, boolean>>;
   locationTab: LocationTab;
+  layouts: Partial<Record<string, MapLayout>>;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
   setThemePreset: (preset: ThemePreset) => void;
   setTheme: (area: ThemeArea, style: ThemeStyle) => void;
   setMapLayer: (layer: string, visible: boolean) => void;
   setLocationTab: (tab: LocationTab) => void;
+  setLayout: (versionGroup: string, layout: MapLayout) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -50,6 +56,7 @@ export const useSettingsStore = create<SettingsState>()(
       },
       mapLayers: {},
       locationTab: 'info',
+      layouts: {},
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
       setThemePreset: (themePreset) => set({ themePreset }),
@@ -60,6 +67,10 @@ export const useSettingsStore = create<SettingsState>()(
           mapLayers: { ...state.mapLayers, [layer]: visible },
         })),
       setLocationTab: (locationTab) => set({ locationTab }),
+      setLayout: (versionGroup, layout) =>
+        set((state) => ({
+          layouts: { ...state.layouts, [versionGroup]: layout },
+        })),
     }),
     {
       name: 'tallgrass-settings',
@@ -108,6 +119,7 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
+        layouts,
       }) => ({
         animations,
         gamePointer,
@@ -115,7 +127,31 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
+        layouts,
       }),
     },
   ),
 );
+
+const MOBILE_QUERY = '(max-width: 639px)';
+
+const subscribeToViewport = (onChange: () => void) => {
+  const query = matchMedia(MOBILE_QUERY);
+
+  query.addEventListener('change', onChange);
+
+  return () => query.removeEventListener('change', onChange);
+};
+
+const isMobileViewport = () => matchMedia(MOBILE_QUERY).matches;
+
+export const useMapLayout = (versionGroup: string): MapLayout => {
+  const mobile = useSyncExternalStore(
+    subscribeToViewport,
+    isMobileViewport,
+    () => false,
+  );
+  const saved = useSettingsStore((state) => state.layouts[versionGroup]);
+
+  return saved ?? (mobile ? 'immersive' : 'minimalist');
+};

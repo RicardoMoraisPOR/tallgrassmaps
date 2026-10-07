@@ -47,6 +47,7 @@ import { cn } from '@/lib/utils';
 import type { ThemeStyle } from '@/stores/settings';
 
 import { imageBounds, toLatLng } from './coordinates';
+import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
 
 const MAX_ZOOM = 3;
 const FOCUS_DELAY = 250;
@@ -107,6 +108,7 @@ type MapViewerProps = {
   highlighted?: string;
   pinRequest?: { key: string };
   focusKey?: string;
+  zoomPosition?: ZoomPosition;
   className?: string;
 };
 
@@ -117,6 +119,7 @@ export const MapViewer = ({
   highlighted,
   pinRequest,
   focusKey,
+  zoomPosition,
   className,
 }: MapViewerProps) => {
   const navigate = useNavigate();
@@ -187,9 +190,11 @@ export const MapViewer = ({
       minZoom={-8}
       maxZoom={MAX_ZOOM}
       attributionControl={false}
+      zoomControl={false}
       className={cn('isolate', className)}
       style={{ background: 'var(--muted)' }}
     >
+      <MapZoomControls position={zoomPosition ?? 'topleft'} />
       <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
         <ImageOverlay url={map.image} bounds={bounds} />
       </Pane>
