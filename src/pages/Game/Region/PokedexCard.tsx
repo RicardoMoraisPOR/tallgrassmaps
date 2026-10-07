@@ -37,7 +37,7 @@ export const PokedexCard = ({ game, region }: PokedexCardProps) => {
         <Stat label="In the Pokédex" value={region.pokedexSize} />
         {game.obtainableWithoutTrading !== undefined && (
           <Stat
-            label={`In ${game.shortName} without trading`}
+            label={`In ${game.shortName} without ${game.obtainableExcluding ?? 'trading'}`}
             value={game.obtainableWithoutTrading}
           />
         )}

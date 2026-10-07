@@ -83,6 +83,7 @@ export type Game = {
   tileSize?: number;
   sprites?: { set: string; count: number };
   obtainableWithoutTrading?: number;
+  obtainableExcluding?: string;
   contentStatus?: Array<{
     section: GameContentSection;
     status: GameContentStatus;
@@ -139,6 +140,8 @@ export const games: Array<Game> = [
     generation: 9,
     region: 'lumiose-za',
     platform: 'Nintendo Switch',
+    obtainableWithoutTrading: 226,
+    obtainableExcluding: 'DLC or trading',
     contentStatus: [
       {
         section: 'town-map-sprites',
