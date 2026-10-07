@@ -13,11 +13,6 @@ export const themeAreas: Array<{
 }> = [
   { area: 'pokedex', label: 'Pokédex', description: 'The Pokédex drawer.' },
   {
-    area: 'townMap',
-    label: 'Town Map',
-    description: 'Region and places maps.',
-  },
-  {
     area: 'mapIcons',
     label: 'Map icons',
     description: 'Markers on the maps.',
@@ -36,11 +31,6 @@ export const themeAreas: Array<{
     area: 'pokemonPopups',
     label: 'Pokémon popups',
     description: 'Wild, static and gift Pokémon popups.',
-  },
-  {
-    area: 'hallOfFame',
-    label: 'Hall of Fame maker',
-    description: 'The Hall of Fame maker.',
   },
   {
     area: 'sprites',
@@ -63,12 +53,10 @@ export const themePresets: Array<{ preset: ThemePreset; label: string }> = [
 
 const available: Record<ThemeArea, Array<ThemeStyle>> = {
   pokedex: ['tall-grass', 'game'],
-  townMap: ['game', 'tall-grass'],
   mapIcons: ['game', 'tall-grass'],
   dialogBoxes: ['game', 'tall-grass'],
   trainers: ['game', 'tall-grass'],
   pokemonPopups: ['game', 'tall-grass'],
-  hallOfFame: ['game', 'tall-grass'],
   sprites: ['tall-grass', 'game'],
 };
 

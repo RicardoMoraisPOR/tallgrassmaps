@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { m } from 'motion/react';
 
 import { cn } from '@/lib/utils';
+import { useSettingsStore } from '@/stores/settings';
 
 const DESKTOP_QUERY = '(min-width: 1024px)';
 
@@ -16,11 +17,12 @@ export const GameAside = ({ immersive, children }: GameAsideProps) => {
   const [open, setOpen] = useState(
     () => window.matchMedia(DESKTOP_QUERY).matches,
   );
+  const animations = useSettingsStore((state) => state.animations);
   const Icon = open ? ChevronRight : ChevronLeft;
 
   return (
     <m.aside
-      layout="position"
+      layout={animations ? 'position' : false}
       aria-label="Cards"
       className={cn(
         immersive

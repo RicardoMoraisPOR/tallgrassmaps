@@ -42,7 +42,6 @@ import type { ListedBattle } from './trainerList';
 export const openableNames: Record<NonNullable<MapSign['opens']>, string> = {
   pokedex: 'Pokédex',
   'town-map': 'Town Map',
-  'hall-of-fame': 'Hall of Fame',
 };
 
 const PANEL_SECTIONS: Array<{

@@ -7,6 +7,7 @@ import type { Game } from '@/data/games';
 import type { Location, Region } from '@/data/maps';
 import { gameHref, trailPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
+import { useSettingsStore } from '@/stores/settings';
 
 import { GameSwitcher } from './GameSwitcher';
 import { MapSwitcher } from './MapSwitcher';
@@ -36,6 +37,7 @@ export const PageHeader = ({
   href,
   floating = false,
 }: PageHeaderProps) => {
+  const animations = useSettingsStore((state) => state.animations);
   const cover = getCover(game.id);
   const location = trail.at(-1);
   const title = location?.name ?? region.name;
@@ -53,7 +55,7 @@ export const PageHeader = ({
 
   return (
     <m.div
-      layout="position"
+      layout={animations ? 'position' : false}
       className={cn(
         'flex flex-col items-start gap-3',
         floating

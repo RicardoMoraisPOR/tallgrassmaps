@@ -99,17 +99,6 @@ const CUTOUTS = [
       [8, 9],
     ],
   },
-  {
-    file: 'hall_of_fame_computer.png',
-    map: 'HallOfFame',
-    origin: [64, 15],
-    width: 32,
-    height: 23,
-    rows: [
-      ...Array.from({ length: 20 }, () => [0, 31]),
-      ...Array.from({ length: 3 }, () => [1, 30]),
-    ],
-  },
 ];
 
 const cutout = ({

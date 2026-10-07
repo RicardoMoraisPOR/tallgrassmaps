@@ -1923,17 +1923,5 @@
     "y": 2,
     "text": "Looked into the binoculars...\n\nA large, shining bird is flying toward the sea.",
     "games": ["red", "blue", "yellow"]
-  },
-  {
-    "path": "indigo-plateau/pokemon-league",
-    "floor": "hall-of-fame",
-    "x": 4,
-    "y": 1,
-    "text": "Hall of Fame",
-    "sprite": "hall_of_fame_computer",
-    "spriteSize": [32, 23],
-    "spriteOffset": [0, -1],
-    "opens": "hall-of-fame",
-    "games": ["red", "blue", "yellow"]
   }
 ]

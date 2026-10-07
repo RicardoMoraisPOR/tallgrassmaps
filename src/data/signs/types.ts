@@ -14,7 +14,7 @@ export type MapSign = {
   sprite?: string;
   spriteSize?: [width: number, height: number];
   spriteOffset?: [x: number, y: number];
-  opens?: 'pokedex' | 'town-map' | 'hall-of-fame';
+  opens?: 'pokedex' | 'town-map';
   prizes?: Array<SignPrize>;
   games: Array<string>;
 };

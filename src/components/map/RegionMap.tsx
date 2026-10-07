@@ -2,7 +2,6 @@ import { type CSSProperties, type PointerEvent, useRef, useState } from 'react';
 
 import { Link } from 'react-router';
 
-import { useThemeStyle } from '@/components/settings/themes';
 import { getHotspot, getLocation, type Region } from '@/data/maps';
 import { pathSegments } from '@/lib/paths';
 import { cn } from '@/lib/utils';
@@ -18,7 +17,6 @@ type RegionMapProps = {
   focus?: string;
   miniMap?: boolean;
   tagLabel?: boolean;
-  gameStyle?: boolean;
   className?: string;
   style?: CSSProperties;
 };
@@ -29,7 +27,6 @@ export const RegionMap = ({
   focus,
   miniMap = false,
   tagLabel = false,
-  gameStyle = false,
   className,
   style,
 }: RegionMapProps) => {
@@ -37,13 +34,8 @@ export const RegionMap = ({
   const flyerRef = useRef<HTMLDivElement>(null);
 
   const gamePointer = useSettingsStore((state) => state.gamePointer);
-  const themeStyle = useThemeStyle('townMap');
-
-  const mapStyle = region.tallGrassMap && !gameStyle ? themeStyle : 'game';
-  const tallGrass = mapStyle === 'tall-grass';
   const { cursor, label } = region;
-  const pointer =
-    gamePointer && mapStyle === 'game' ? region.pointer : undefined;
+  const pointer = gamePointer ? region.pointer : undefined;
   const active = hovered ?? (miniMap ? undefined : focus);
   const activeName = active ? getLocation(region, active)?.name : undefined;
   const activeHotspot = hovered
@@ -70,53 +62,28 @@ export const RegionMap = ({
     <figure className={cn('flex flex-col gap-2', className)} style={style}>
       {!miniMap && !tagLabel && (
         <figcaption
-          className={cn(
-            'h-6 text-center font-medium',
-            tallGrass
-              ? 'order-last text-[13px] leading-6 font-semibold tracking-[0.28em] uppercase'
-              : label && 'sr-only',
-          )}
+          className={cn('h-6 text-center font-medium', label && 'sr-only')}
           aria-live="polite"
         >
-          {activeName ??
-            (!tallGrass && (
-              <span className="font-normal text-muted-foreground">
-                Pick a town or route
-              </span>
-            ))}
+          {activeName ?? (
+            <span className="font-normal text-muted-foreground">
+              Pick a town or route
+            </span>
+          )}
         </figcaption>
       )}
       <RegionImage
         region={region}
         alt={`${region.name} map`}
-        locationName={tallGrass ? undefined : activeName}
+        locationName={activeName}
         hotspot={activeHotspot}
-        mapStyle={mapStyle}
         className={cn('group/map', pointer && 'cursor-none')}
         onPointerMove={pointer && moveFlyer}
       >
-        {(miniMap || tagLabel) && tallGrass && activeName && (
-          <span
-            aria-live="polite"
-            className={cn(
-              'pointer-events-none absolute top-1.5 left-1.5 z-10 max-w-[55%] truncate rounded-sm border bg-background/90 px-1 py-0.5 leading-tight shadow-sm',
-              miniMap
-                ? 'text-[12px] font-medium'
-                : 'text-[28px] font-semibold tracking-[0.28em] uppercase',
-            )}
-          >
-            {activeName}
-          </span>
-        )}
         {miniMap && focusHotspot && (
           <span
             aria-hidden
-            className={cn(
-              'pointer-events-none absolute',
-              tallGrass
-                ? 'rounded-[22%] bg-(--tg-cursor)/35 ring-2 ring-(--tg-cursor)'
-                : 'rounded-[2px] bg-[oklch(0.62_0.24_25/0.6)] ring-2 ring-[oklch(0.45_0.2_25)]',
-            )}
+            className="pointer-events-none absolute rounded-[2px] bg-[oklch(0.62_0.24_25/0.6)] ring-2 ring-[oklch(0.45_0.2_25)]"
             style={{
               left: percent(focusHotspot.x, region.width),
               top: percent(focusHotspot.y, region.height),

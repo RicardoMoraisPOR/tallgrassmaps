@@ -41,7 +41,7 @@ export const TownMapDialog = ({
           if ((event.target as Element).closest('a')) onClose();
         }}
       >
-        <RegionMap region={region} locationHref={href} focus={path} gameStyle />
+        <RegionMap region={region} locationHref={href} focus={path} />
       </div>
     </DialogContent>
   </Dialog>

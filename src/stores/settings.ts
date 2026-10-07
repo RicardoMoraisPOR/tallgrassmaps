@@ -5,12 +5,10 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 
 export type ThemeArea =
   | 'pokedex'
-  | 'townMap'
   | 'mapIcons'
   | 'dialogBoxes'
   | 'trainers'
   | 'pokemonPopups'
-  | 'hallOfFame'
   | 'sprites';
 
 export type ThemeStyle = 'game' | 'tall-grass';
@@ -46,12 +44,10 @@ export const useSettingsStore = create<SettingsState>()(
       themePreset: 'game',
       themes: {
         pokedex: 'game',
-        townMap: 'game',
         mapIcons: 'game',
         dialogBoxes: 'game',
         trainers: 'game',
         pokemonPopups: 'game',
-        hallOfFame: 'tall-grass',
         sprites: 'tall-grass',
       },
       mapLayers: {},
@@ -107,7 +103,9 @@ export const useSettingsStore = create<SettingsState>()(
           themes: {
             ...current.themes,
             ...Object.fromEntries(
-              Object.entries(state?.themes ?? {}).filter(([, style]) => style),
+              Object.entries(state?.themes ?? {}).filter(
+                ([area, style]) => style && area in current.themes,
+              ),
             ),
           },
         };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useLocation, useNavigate, useSearchParams } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
@@ -18,14 +18,6 @@ import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 import { useMapLayout } from '@/stores/settings';
 
 import { GameAside } from '../GameAside';
-import {
-  decodeTeam,
-  emptyTeam,
-  encodeTeam,
-  SHARE_PARAM,
-  type Team,
-} from '../HallOfFame/hallOfFame';
-import { HallOfFameDialog } from '../HallOfFame/HallOfFameDialog';
 import { mapFrameProps, useMapFrame } from '../mapFrame';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
@@ -78,10 +70,6 @@ export const LocationPage = () => {
     scope,
   });
   const [townMapOpen, setTownMapOpen] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [hallOfFameOpen, setHallOfFameOpen] = useState(() =>
-    searchParams.has(SHARE_PARAM),
-  );
 
   useEffect(() => {
     if (!arrivedAt) return;
@@ -189,7 +177,6 @@ export const LocationPage = () => {
       onOpen: (target) => {
         if (target === 'pokedex')
           navigate(pokedexLink.to, { state: pokedexLink.state });
-        else if (target === 'hall-of-fame') setHallOfFameOpen(true);
         else setTownMapOpen(true);
       },
       trainerTooltip: ([listed, ...others]) =>
@@ -400,30 +387,6 @@ export const LocationPage = () => {
         href={route.href}
         onClose={() => setTownMapOpen(false)}
       />
-      {pokedex && (
-        <HallOfFameDialog
-          open={hallOfFameOpen}
-          game={route.game}
-          pokedex={pokedex}
-          team={
-            decodeTeam(searchParams.get(SHARE_PARAM), pokedex) ?? emptyTeam()
-          }
-          onTeamChange={(team: Team) =>
-            setSearchParams(
-              (current) => {
-                const next = new URLSearchParams(current);
-
-                if (team.some(Boolean)) next.set(SHARE_PARAM, encodeTeam(team));
-                else next.delete(SHARE_PARAM);
-
-                return next;
-              },
-              { replace: true, preventScrollReset: true },
-            )
-          }
-          onClose={() => setHallOfFameOpen(false)}
-        />
-      )}
       <Pokedex game={route.game} region={route.region} href={route.href} />
     </>
   );

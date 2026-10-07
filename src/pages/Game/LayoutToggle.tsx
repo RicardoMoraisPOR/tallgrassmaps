@@ -8,6 +8,7 @@ import { captureMapFrame } from './mapFrame';
 export const LayoutToggle = ({ versionGroup }: { versionGroup: string }) => {
   const layout = useMapLayout(versionGroup);
   const setLayout = useSettingsStore((state) => state.setLayout);
+  const animations = useSettingsStore((state) => state.animations);
   const immersive = layout === 'immersive';
   const label = immersive
     ? 'Switch to minimalist layout'
@@ -31,7 +32,7 @@ export const LayoutToggle = ({ versionGroup }: { versionGroup: string }) => {
           initial={{ opacity: 0, scale: 0.5, rotate: -90 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           exit={{ opacity: 0, scale: 0.5, rotate: 90 }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: animations ? 0.15 : 0 }}
           className="flex"
         >
           <Icon aria-hidden className="size-4" />

@@ -21,7 +21,6 @@ export const SettingsSync = ({
     useSettingsStore.setState({
       themes: {
         pokedex: style,
-        townMap: style,
         trainers: style,
         wildPokemon: style,
         mapIcons: style,

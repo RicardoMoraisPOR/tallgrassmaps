@@ -403,19 +403,6 @@ const opensFor = (textId) =>
   !READABLE_OBJECTS.has(textId) &&
   OPENABLE_OBJECTS.find(([pattern]) => pattern.test(textId))?.[1];
 
-const EXTRA_SIGNS = [
-  {
-    map: 'HALL_OF_FAME',
-    x: 4,
-    y: 1,
-    text: 'Hall of Fame',
-    sprite: 'hall_of_fame_computer',
-    spriteSize: [32, 23],
-    spriteOffset: [0, -1],
-    opens: 'hall-of-fame',
-  },
-];
-
 const HIDDEN_EVENT_TEXT = {
   Route15GateLeftBinoculars: '_Route15UpstairsBinocularsText',
   Mansion1Script_Switches: '_PokemonMansion1FSwitchText',
@@ -539,17 +526,6 @@ for (const game of games) {
 
 for (const game of games) {
   signs.push(...hiddenSigns(game));
-
-  for (const { map, ...sign } of EXTRA_SIGNS) {
-    const floor = floorFor(map);
-
-    signs.push({
-      game: game.id,
-      path: SIGN_MAPS[map],
-      ...(floor && { floor }),
-      ...sign,
-    });
-  }
 }
 
 const merged = new Map();
