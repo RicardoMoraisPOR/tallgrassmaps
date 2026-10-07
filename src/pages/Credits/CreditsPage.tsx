@@ -48,6 +48,11 @@ export const CreditsPage = () => {
                   via {credit.site} · {credit.works.length}{' '}
                   {credit.works.length === 1 ? 'item' : 'items'}
                 </span>
+                {credit.note && (
+                  <span className="text-[13px] text-pretty text-muted-foreground">
+                    {credit.note}
+                  </span>
+                )}
               </div>
               <details className="text-[13px]">
                 <summary className="cursor-pointer text-muted-foreground select-none hover:text-foreground">
@@ -66,7 +71,7 @@ export const CreditsPage = () => {
         </ul>
       </CreditSection>
 
-      <CreditSection id="sprites" title="Pokémon sprites">
+      <CreditSection id="sprites" title="Sprites">
         <CreditList credits={spriteCredits} />
       </CreditSection>
 

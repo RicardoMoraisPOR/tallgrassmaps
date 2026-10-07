@@ -1,4 +1,5 @@
 import connectionData from './kanto-rby-connections.json';
+import renderedFiles from './kanto-rby-rendered.json';
 import wildAreaData from './kanto-rby-wild.json';
 import tallGrassMap from './tall-grass/kanto-rby.svg?raw';
 import type {
@@ -7,6 +8,7 @@ import type {
   LocationHotspot,
   LocationKind,
   MarkerKind,
+  MapSource,
   MapVariant,
   Rect,
   Region,
@@ -15,11 +17,23 @@ import type {
 
 const IMAGE_DIR = '/maps/rby';
 
-const vgmaps = {
+const vgmaps: MapSource = {
   name: 'VGMaps',
   url: 'https://www.vgmaps.com/Atlas/GB-GBC/',
   credit: 'RyuMaster',
+  note: 'Towns, routes and dungeons, with the people and items taken out',
 };
+
+const pret: MapSource = {
+  name: 'pret/pokered and pret/pokeyellow',
+  url: 'https://github.com/pret/pokered',
+  credit: 'the pret team',
+  note: "Buildings and other interiors, drawn by us from the games' own map and tile data",
+};
+
+const rendered = new Set<string>(renderedFiles);
+
+const sourceFor = (file: string) => (rendered.has(file) ? pret : vgmaps);
 
 type Size = [width: number, height: number];
 
@@ -42,6 +56,7 @@ const warp = (x: number, y: number): Rect => entrance(x * 16, y * 16);
 const variant = (game: string, file: string): MapVariant => ({
   games: [game],
   image: `${IMAGE_DIR}/variants/${game}/${file}`,
+  source: sourceFor(`variants/${game}/${file}`),
 });
 
 type Connection = { to: string; direction: Direction; area: Rect };
@@ -2318,7 +2333,7 @@ const toLocation = (
   width,
   height,
   pixelated: true,
-  source: vgmaps,
+  source: sourceFor(`${id}.png`),
   locations: [],
   hotspots: [],
   markers: [],
@@ -2364,6 +2379,7 @@ const toInsideLocation = ({
   return {
     ...location,
     image: floorImage(id, floors[0].name),
+    source: sourceFor(floorFile(id, floors[0].name)),
     floors: floors.map((floor) => ({
       id: floorId(floor.name),
       name: floor.name,
@@ -2400,7 +2416,7 @@ const toInsideLocation = ({
       variants: floor.variants,
       ...(floor.games && { games: floor.games }),
       pixelated: location.pixelated,
-      source: location.source,
+      source: sourceFor(floorFile(id, floor.name)),
     })),
   };
 };

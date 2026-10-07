@@ -14,22 +14,34 @@ export type MapWork = { label: string; url: string };
 export type MapCredit = {
   credit: string;
   site: string;
+  note?: string;
   works: Array<MapWork>;
 };
 
-const collectLocations = (locations: Array<Location>): Array<Location> =>
+type Placed = { location: Location; parent?: Location };
+
+const collectLocations = (
+  locations: Array<Location>,
+  parent?: Location,
+): Array<Placed> =>
   locations.flatMap((location) => [
-    location,
-    ...collectLocations(location.locations),
+    { location, parent },
+    ...collectLocations(location.locations, location),
   ]);
 
 export const mapCredits = (): Array<MapCredit> => {
   const credits = new Map<string, MapCredit>();
-  const add = (source: MapSource, label: string) => {
+  const seen = new Set<string>();
+  const add = (source: MapSource, image: string, label: string) => {
+    if (seen.has(image)) return;
+
+    seen.add(image);
+
     const key = `${source.credit}|${source.name}`;
     const credit = credits.get(key) ?? {
       credit: source.credit,
       site: source.name,
+      note: source.note,
       works: [],
     };
 
@@ -38,17 +50,36 @@ export const mapCredits = (): Array<MapCredit> => {
   };
 
   for (const region of regions) {
-    add(region.source, `${region.name} Town Map (${region.versionGroup})`);
+    add(
+      region.source,
+      region.image,
+      `${region.name} Town Map (${region.versionGroup})`,
+    );
 
     if (region.pointer) {
       add(
         region.pointer.source,
+        region.pointer.hover.frames[0],
         `Town Map cursor sprites (${region.versionGroup})`,
       );
     }
 
-    for (const location of collectLocations(region.locations)) {
-      add(location.source, `${location.name} (${region.versionGroup})`);
+    for (const { location, parent } of collectLocations(region.locations)) {
+      const place = parent ? `${location.name}, ${parent.name}` : location.name;
+
+      for (const image of location.floors ?? [location]) {
+        const label = image === location ? place : `${place}, ${image.name}`;
+
+        add(image.source, image.image, `${label} (${region.versionGroup})`);
+
+        for (const variant of image.variants ?? []) {
+          add(
+            variant.source,
+            variant.image,
+            `${label}, Yellow (${region.versionGroup})`,
+          );
+        }
+      }
     }
   }
 
@@ -61,7 +92,7 @@ export const spriteCredits: Array<Credit> = [
     name: 'pret/pokered and pret/pokeyellow',
     by: pokemonSpriteSources.pret.credit,
     detail:
-      'Game sprites for Red, Blue and Yellow, in their Super Game Boy colours',
+      'Pokémon sprites for Red, Blue and Yellow in their Super Game Boy colours, and the people, trainers and items on the maps',
   },
   {
     ...pokemonSpriteSources.showdown,
@@ -94,13 +125,14 @@ export const dataCredits: Array<Credit> = [
     url: 'https://github.com/pret/pokered',
     by: 'the pret team',
     detail:
-      'Red and Blue disassembly: encounters, trades, Town Map positions and map connections',
+      'Red and Blue disassembly: encounters, trades, trainers and their teams, items, people and their dialogue, signs, warps, Town Map positions and map connections',
   },
   {
     name: 'pret/pokeyellow',
     url: 'https://github.com/pret/pokeyellow',
     by: 'the pret team',
-    detail: 'Yellow disassembly: encounters, trades and gifts',
+    detail:
+      'Yellow disassembly: the same data for Yellow, including its own encounters, trainers, gifts and maps',
   },
   {
     name: 'Bulbapedia',

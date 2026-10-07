@@ -2,11 +2,13 @@ export type MapSource = {
   name: string;
   url: string;
   credit: string;
+  note?: string;
 };
 
 export type MapVariant = {
   games: Array<string>;
   image: string;
+  source: MapSource;
 };
 
 export type MapEvent = {

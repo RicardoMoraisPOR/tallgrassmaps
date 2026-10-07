@@ -1,4 +1,4 @@
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -8,6 +8,11 @@ import { mapTiles, TILE } from './map-tiles.mjs';
 
 const OUTPUT = fileURLToPath(
   new URL('../../public/maps/rby/', import.meta.url),
+);
+
+const MANIFEST = new URL(
+  '../../src/data/maps/kanto-rby-rendered.json',
+  import.meta.url,
 );
 
 const maps = [
@@ -203,6 +208,7 @@ const render = (dir, name) => {
 };
 
 const written = [];
+const rendered = [];
 
 for (const { name, yellowName = name, out, yellowOnly } of maps) {
   const [red, yellow] = games.map(({ dir }, index) =>
@@ -214,6 +220,7 @@ for (const { name, yellowName = name, out, yellowOnly } of maps) {
 
   mkdirSync(dirname(join(OUTPUT, out)), { recursive: true });
   writePng(join(OUTPUT, out), red.width, red.height, red.rgba);
+  rendered.push(out);
 
   const variant = !red.rgba.equals(yellow.rgba);
 
@@ -222,11 +229,14 @@ for (const { name, yellowName = name, out, yellowOnly } of maps) {
 
     mkdirSync(dirname(target), { recursive: true });
     writePng(target, yellow.width, yellow.height, yellow.rgba);
+    rendered.push(`variants/yellow/${out}`);
   }
 
   written.push(
     `${out} ${red.width}x${red.height}${variant ? ' (+ Yellow)' : ''}`,
   );
 }
+
+writeFileSync(MANIFEST, `${JSON.stringify(rendered.toSorted(), null, 2)}\n`);
 
 console.log(written.join('\n'));
