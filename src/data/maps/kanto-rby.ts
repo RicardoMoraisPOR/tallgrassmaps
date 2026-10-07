@@ -28,7 +28,7 @@ const pret: MapSource = {
   name: 'pret/pokered and pret/pokeyellow',
   url: 'https://github.com/pret/pokered',
   credit: 'the pret team',
-  note: "Buildings and other interiors, drawn by us from the games' own map and tile data",
+  note: "Buildings and other interiors, drawn by us from the games' own map and tile data. Yellow versions only where they differ from Red and Blue.",
 };
 
 const rendered = new Set<string>(renderedFiles);
@@ -2494,6 +2494,7 @@ export const kantoRby: Region = {
     name: 'The Spriters Resource',
     url: 'https://www.spriters-resource.com/game_boy_gbc/pokemonredblue/asset/134264/',
     credit: 'FrenchOrange',
+    note: 'The Kanto Town Map art and the flying bird cursor sprites',
   },
   locations,
   tallGrassMap,

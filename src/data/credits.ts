@@ -15,6 +15,7 @@ export type MapCredit = {
   credit: string;
   site: string;
   note?: string;
+  url?: string;
   works: Array<MapWork>;
 };
 
@@ -83,7 +84,11 @@ export const mapCredits = (): Array<MapCredit> => {
     }
   }
 
-  return [...credits.values()];
+  return [...credits.values()].map((credit) => {
+    const urls = new Set(credit.works.map((work) => work.url));
+
+    return urls.size === 1 ? { ...credit, url: [...urls][0] } : credit;
+  });
 };
 
 export const spriteCredits: Array<Credit> = [
@@ -92,7 +97,7 @@ export const spriteCredits: Array<Credit> = [
     name: 'pret/pokered and pret/pokeyellow',
     by: pokemonSpriteSources.pret.credit,
     detail:
-      'Pokémon sprites for Red, Blue and Yellow in their Super Game Boy colours, and the people, trainers and items on the maps',
+      'Pokémon sprites for Red, Blue and Yellow in their Super Game Boy colours, and the people, trainers and items on the maps (Yellow only where they differ from Red and Blue)',
   },
   {
     ...pokemonSpriteSources.showdown,
@@ -132,7 +137,7 @@ export const dataCredits: Array<Credit> = [
     url: 'https://github.com/pret/pokeyellow',
     by: 'the pret team',
     detail:
-      'Yellow disassembly: the same data for Yellow, including its own encounters, trainers, gifts and maps',
+      'Yellow disassembly: only what differs from Red and Blue, such as encounters, trainers, gifts, maps and sprites',
   },
   {
     name: 'Bulbapedia',

@@ -1,8 +1,11 @@
-import type { ReactNode } from 'react';
+import { type ReactNode, useId, useState } from 'react';
 
+import { Collapse } from '@/components/Collapse';
 import { Container } from '@/components/Container';
+import { Button } from '@/components/ui/button';
 import {
   type Credit,
+  type MapCredit,
   coverCredits,
   dataCredits,
   fontCredits,
@@ -36,37 +39,12 @@ export const CreditsPage = () => {
       </header>
 
       <CreditSection id="maps" title="Maps and Town Map art">
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <ul className="grid items-start gap-3 sm:grid-cols-2">
           {mapCredits().map((credit) => (
-            <li
+            <MapCreditCard
               key={`${credit.credit}-${credit.site}`}
-              className="flex flex-col gap-2 rounded-[14px] border bg-card p-4"
-            >
-              <div className="flex flex-col gap-0.5">
-                <span className="font-semibold">{credit.credit}</span>
-                <span className="text-[13px] text-muted-foreground">
-                  via {credit.site} · {credit.works.length}{' '}
-                  {credit.works.length === 1 ? 'item' : 'items'}
-                </span>
-                {credit.note && (
-                  <span className="text-[13px] text-pretty text-muted-foreground">
-                    {credit.note}
-                  </span>
-                )}
-              </div>
-              <details className="text-[13px]">
-                <summary className="cursor-pointer text-muted-foreground select-none hover:text-foreground">
-                  Show what they made
-                </summary>
-                <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-muted-foreground">
-                  {credit.works.map((work) => (
-                    <li key={work.label}>
-                      <ExternalLink href={work.url}>{work.label}</ExternalLink>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            </li>
+              credit={credit}
+            />
           ))}
         </ul>
       </CreditSection>
@@ -119,6 +97,74 @@ export const CreditsPage = () => {
         everything related to it.
       </p>
     </Container>
+  );
+};
+
+const MANY_WORKS = 5;
+
+const MapCreditCard = ({ credit }: { credit: MapCredit }) => {
+  const [showAll, setShowAll] = useState(false);
+  const listId = useId();
+  const count = credit.works.length;
+  const many = count >= MANY_WORKS;
+
+  return (
+    <li className="flex flex-col gap-2 rounded-[14px] border bg-card p-4">
+      <div className="flex flex-col gap-0.5">
+        <span className="font-semibold">{credit.credit}</span>
+        <span className="text-[13px] text-muted-foreground">
+          via{' '}
+          {credit.url ? (
+            <ExternalLink href={credit.url}>{credit.site}</ExternalLink>
+          ) : (
+            credit.site
+          )}{' '}
+          · {count} {count === 1 ? 'item' : 'items'}
+        </span>
+      </div>
+      <details className="text-[13px]">
+        <summary className="cursor-pointer text-muted-foreground select-none hover:text-foreground">
+          Show what they made
+        </summary>
+        {credit.note && (
+          <p className="mt-2 text-pretty text-muted-foreground">
+            {credit.note}
+          </p>
+        )}
+        {many ? (
+          <>
+            <div className="mt-2 flex items-center justify-between gap-3">
+              <span className="font-medium">All {count} sprites</span>
+              <Button
+                type="button"
+                variant="outline"
+                size="xs"
+                aria-expanded={showAll}
+                aria-controls={listId}
+                onClick={() => setShowAll((current) => !current)}
+              >
+                {showAll ? 'Hide' : 'See all'}
+              </Button>
+            </div>
+            <Collapse open={showAll} id={listId} className="pt-2">
+              <ul className="flex flex-wrap gap-x-3 gap-y-1 text-muted-foreground">
+                {credit.works.map((work) => (
+                  <li key={work.label}>{work.label}</li>
+                ))}
+              </ul>
+            </Collapse>
+          </>
+        ) : (
+          <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-muted-foreground">
+            {credit.works.map((work) => (
+              <li key={work.label}>
+                <ExternalLink href={work.url}>{work.label}</ExternalLink>
+              </li>
+            ))}
+          </ul>
+        )}
+      </details>
+    </li>
   );
 };
 

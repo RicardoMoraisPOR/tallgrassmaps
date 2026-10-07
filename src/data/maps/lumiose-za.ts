@@ -13,6 +13,7 @@ export const lumioseZa: Region = {
     name: 'The Spriters Resource',
     url: 'https://www.spriters-resource.com/nintendo_switch/pokemonlegendsza/asset/497784/',
     credit: 'Random Talking Bush',
+    note: 'The Lumiose City Town Map art',
   },
   locations: [],
   hotspots: [],
