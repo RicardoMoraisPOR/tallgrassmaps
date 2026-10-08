@@ -35,6 +35,13 @@ export type Evolution = {
   item?: string;
 };
 
+export type MegaEvolution = {
+  stone: string;
+  form?: 'X' | 'Y' | 'Z';
+  new?: boolean;
+  dlc?: boolean;
+};
+
 export type PokedexEntry = {
   id: number;
   number: number;
@@ -42,6 +49,7 @@ export type PokedexEntry = {
   types: Array<string>;
   games: Array<string>;
   evolvesFrom?: Evolution;
+  megas?: Array<MegaEvolution>;
   encounters: Array<Encounter>;
 };
 

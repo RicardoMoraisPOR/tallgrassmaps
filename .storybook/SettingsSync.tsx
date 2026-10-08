@@ -14,16 +14,21 @@ export const SettingsSync = ({
   children,
 }: SettingsSyncProps) => {
   const synced = useSettingsStore(
-    ({ themes }) => themes.pokedex === style && themes.sprites === sprites,
+    ({ themePreset, themes }) =>
+      themePreset === 'custom' &&
+      themes.pokedex === style &&
+      themes.sprites === sprites,
   );
 
   useLayoutEffect(() => {
     useSettingsStore.setState({
+      themePreset: 'custom',
       themes: {
         pokedex: style,
-        trainers: style,
-        wildPokemon: style,
         mapIcons: style,
+        dialogBoxes: style,
+        trainers: style,
+        pokemonPopups: style,
         sprites,
       },
     });

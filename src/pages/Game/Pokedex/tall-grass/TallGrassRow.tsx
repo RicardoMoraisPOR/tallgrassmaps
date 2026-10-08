@@ -23,6 +23,7 @@ import {
   tradeOnlyNote,
 } from '../entryDetails';
 import { bulbapediaUrl } from '../format';
+import { MegaEvolutions } from '../MegaEvolutions';
 import { PokemonTypeTags } from '../PokemonTypeTags';
 import type { PokedexRowProps } from '../types';
 
@@ -106,6 +107,7 @@ export const TallGrassRow = ({
         id={panelId}
         className="flex flex-col gap-4 border-t p-3"
       >
+        <MegaEvolutions entry={entry} compact />
         {appearsIn.length === 0 ? (
           <p className="text-[13px] text-muted-foreground">
             Not obtainable in these games without trading or events.

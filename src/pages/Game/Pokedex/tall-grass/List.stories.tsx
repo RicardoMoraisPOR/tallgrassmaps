@@ -12,7 +12,7 @@ const ListStory = ({ empty = false }: { empty?: boolean }) => {
   const gameId = useStoryGameId();
   const { game, region, href } = pokedexStoryContext(gameId);
   const style = useThemeStyle('pokedex');
-  const { List, gameTheme } = pokedexStoryViewFor(region, style);
+  const { List, surfaceClassName } = pokedexStoryViewFor(region, style);
   const entries = empty
     ? []
     : (pokedexFor(region.versionGroup) ?? []).slice(0, 30);
@@ -21,7 +21,7 @@ const ListStory = ({ empty = false }: { empty?: boolean }) => {
 
   return (
     <div className="flex min-h-svh items-center justify-center bg-background p-8">
-      <PokedexStorySurface gameTheme={gameTheme}>
+      <PokedexStorySurface surfaceClassName={surfaceClassName}>
         <List
           game={game}
           region={region}

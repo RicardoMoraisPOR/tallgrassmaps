@@ -102,12 +102,17 @@ export const spriteCredits: Array<Credit> = [
   {
     ...pokemonSpriteSources.showdown,
     by: pokemonSpriteSources.showdown.credit,
-    detail: 'Pokémon sprites in the Pokédex',
+    detail: 'Pokémon and Mega Evolution sprites in the Pokédex',
   },
   {
     ...pokemonSpriteSources.smogon,
     by: pokemonSpriteSources.smogon.credit,
     detail: 'Sprites for the Pokémon added after Black and White',
+  },
+  {
+    ...pokemonSpriteSources.bulbagarden,
+    by: pokemonSpriteSources.bulbagarden.credit,
+    detail: 'Pokémon menu sprites and Mega Stone icons for Legends Z-A',
   },
 ];
 

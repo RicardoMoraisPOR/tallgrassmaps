@@ -1,19 +1,42 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { useThemeStyle } from '@/components/settings/themes';
 import { getSpecies } from '@/data/pokedex/master';
 
-import { allTypes, pokemonArgType } from './pokedexStoryData';
-import { PokemonTypeTags } from './PokemonTypeTags';
-import { withStyleSurface } from './withPokedexSurface';
+import { useStoryGameId } from '../../../../.storybook/StoryGame';
+import {
+  allTypes,
+  pokedexStoryContext,
+  pokemonArgType,
+} from './pokedexStoryData';
+import { PokedexStorySurface } from './PokedexStorySurface';
+import { pokedexStoryViewFor } from './pokedexStoryViews';
 
-const TypeTagsStory = ({ pokemon }: { pokemon: number }) => (
-  <PokemonTypeTags types={getSpecies(pokemon)?.types ?? []} />
-);
+type TypeTagsStoryProps = {
+  pokemon: number;
+  allTypes?: boolean;
+};
+
+const TypeTagsStory = ({
+  pokemon,
+  allTypes: showAll = false,
+}: TypeTagsStoryProps) => {
+  const gameId = useStoryGameId();
+  const { region } = pokedexStoryContext(gameId);
+  const style = useThemeStyle('pokedex');
+  const { TypeTags, surfaceClassName } = pokedexStoryViewFor(region, style);
+  const types = showAll ? allTypes : (getSpecies(pokemon)?.types ?? []);
+
+  return (
+    <PokedexStorySurface surfaceClassName={surfaceClassName}>
+      <TypeTags types={types} />
+    </PokedexStorySurface>
+  );
+};
 
 const meta = {
   title: 'Pokédex/Type tags',
   component: TypeTagsStory,
-  decorators: [withStyleSurface],
   argTypes: { pokemon: pokemonArgType },
   args: { pokemon: 25 },
 } satisfies Meta<typeof TypeTagsStory>;
@@ -29,5 +52,5 @@ export const DualType: Story = {
 };
 
 export const AllTypes: Story = {
-  render: () => <PokemonTypeTags types={allTypes} />,
+  args: { allTypes: true },
 };

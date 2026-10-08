@@ -3,7 +3,12 @@ import { useState } from 'react';
 import { type Game, gamesSharingMap } from '@/data/games';
 import type { PokedexEntry } from '@/data/pokedex/types';
 
-export type PokedexFilterId = 'exclusive' | 'trade' | 'obtainable';
+export type PokedexFilterId =
+  | 'exclusive'
+  | 'trade'
+  | 'trade-only'
+  | 'obtainable'
+  | 'mega';
 
 export type PokedexFilter = { id: PokedexFilterId; label: string };
 
@@ -13,6 +18,7 @@ export type PokedexSearchState = {
   filters: Array<PokedexFilter>;
   selected: Array<PokedexFilterId>;
   toggle: (id: PokedexFilterId) => void;
+  reset: () => void;
   visible: Array<PokedexEntry>;
   total: number;
 };
@@ -44,17 +50,31 @@ export const usePokedexSearch = (
         (encounter) =>
           encounter.method === 'trade' && encounter.games.includes(game.id),
       ),
+    'trade-only': (entry) => entry.evolvesFrom?.method === 'trade',
     obtainable: (entry) => entry.games.includes(game.id),
+    mega: (entry) => !!entry.megas?.length,
   };
 
-  const filters: Array<PokedexFilter> =
-    setGames.length > 1
+  const filters: Array<PokedexFilter> = [
+    ...(setGames.length > 1
       ? [
-          { id: 'exclusive', label: 'Version exclusive' },
-          { id: 'trade', label: 'In-game trade' },
-          { id: 'obtainable', label: `Obtainable in ${game.shortName}` },
+          { id: 'exclusive' as const, label: 'Version exclusive' },
+          {
+            id: 'obtainable' as const,
+            label: `Obtainable in ${game.shortName}`,
+          },
         ]
-      : [];
+      : []),
+    ...(entries.some((entry) => checks.trade(entry))
+      ? [{ id: 'trade' as const, label: 'In Game Trade' }]
+      : []),
+    ...(entries.some((entry) => checks['trade-only'](entry))
+      ? [{ id: 'trade-only' as const, label: 'Only by Trading' }]
+      : []),
+    ...(entries.some((entry) => entry.megas?.length)
+      ? [{ id: 'mega' as const, label: 'Mega Evolution' }]
+      : []),
+  ];
 
   const matches = (entry: PokedexEntry) =>
     (!search ||
@@ -69,12 +89,18 @@ export const usePokedexSearch = (
         : [...current, id],
     );
 
+  const reset = () => {
+    setQuery(initial.query ?? '');
+    setSelected(initial.selected ?? []);
+  };
+
   return {
     query,
     setQuery,
     filters,
     selected,
     toggle,
+    reset,
     visible: entries.filter(matches),
     total: entries.length,
   };

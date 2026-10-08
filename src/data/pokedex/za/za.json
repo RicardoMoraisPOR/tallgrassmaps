@@ -15,6 +15,12 @@
     "id": 3,
     "number": 154,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Meganiumite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -33,6 +39,12 @@
     "id": 6,
     "number": 500,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Emboarite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -51,6 +63,12 @@
     "id": 9,
     "number": 160,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Feraligite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -117,6 +135,11 @@
     "id": 20,
     "number": 15,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Beedrillite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -135,6 +158,11 @@
     "id": 23,
     "number": 18,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Pidgeotite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -153,6 +181,11 @@
     "id": 26,
     "number": 181,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Ampharosite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -195,6 +228,11 @@
     "id": 33,
     "number": 130,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Gyaradosite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -207,6 +245,12 @@
     "id": 35,
     "number": 689,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Barbaracite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -219,6 +263,12 @@
     "id": 37,
     "number": 121,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Starminite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -231,6 +281,12 @@
     "id": 39,
     "number": 670,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Floettite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -261,6 +317,13 @@
     "id": 44,
     "number": 678,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Meowsticite",
+        "dlc": true,
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -273,6 +336,12 @@
     "id": 46,
     "number": 668,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Pyroarite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -321,6 +390,20 @@
     "id": 54,
     "number": 26,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Raichunite X",
+        "form": "X",
+        "dlc": true,
+        "new": true
+      },
+      {
+        "stone": "Raichunite Y",
+        "form": "Y",
+        "dlc": true,
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -339,6 +422,12 @@
     "id": 57,
     "number": 36,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Clefablite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -381,6 +470,11 @@
     "id": 64,
     "number": 65,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Alakazite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -399,6 +493,11 @@
     "id": 67,
     "number": 94,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Gengarite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -417,6 +516,12 @@
     "id": 70,
     "number": 545,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Scolipite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -453,6 +558,12 @@
     "id": 76,
     "number": 71,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Victreebelite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -501,6 +612,11 @@
     "id": 84,
     "number": 308,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Medichamite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -513,6 +629,11 @@
     "id": 86,
     "number": 310,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Manectite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -531,12 +652,22 @@
     "id": 89,
     "number": 282,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Gardevoirite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 90,
     "number": 475,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Galladite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -549,6 +680,11 @@
     "id": 92,
     "number": 229,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Houndoominite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -561,12 +697,22 @@
     "id": 94,
     "number": 334,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Altarianite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 95,
     "number": 531,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Audinite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -579,6 +725,7 @@
     "id": 97,
     "number": 683,
     "games": ["legends-za"],
+    "evolvesFrom": { "number": 682, "method": "trade", "item": "Sachet" },
     "encounters": []
   },
   {
@@ -591,6 +738,11 @@
     "id": 99,
     "number": 685,
     "games": ["legends-za"],
+    "evolvesFrom": {
+      "number": 684,
+      "method": "trade",
+      "item": "Whipped Dream"
+    },
     "encounters": []
   },
   {
@@ -657,6 +809,11 @@
     "id": 110,
     "number": 428,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Lopunnite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -669,6 +826,11 @@
     "id": 112,
     "number": 354,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Banettite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -699,6 +861,11 @@
     "id": 117,
     "number": 323,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Cameruptite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -723,6 +890,12 @@
     "id": 121,
     "number": 530,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Excadrite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -777,6 +950,16 @@
     "id": 130,
     "number": 445,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Garchompite"
+      },
+      {
+        "stone": "Garchompite Z",
+        "form": "Z",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -789,18 +972,39 @@
     "id": 132,
     "number": 302,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Sablenite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 133,
     "number": 303,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Mawilite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 134,
     "number": 359,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Absolite"
+      },
+      {
+        "stone": "Absolite Z",
+        "form": "Z",
+        "dlc": true,
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -813,6 +1017,17 @@
     "id": 136,
     "number": 448,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Lucarionite"
+      },
+      {
+        "stone": "Lucarionite Z",
+        "form": "Z",
+        "dlc": true,
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -825,12 +1040,18 @@
     "id": 138,
     "number": 80,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Slowbronite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 139,
     "number": 199,
     "games": ["legends-za"],
+    "evolvesFrom": { "number": 79, "method": "trade", "item": "King's Rock" },
     "encounters": []
   },
   {
@@ -843,6 +1064,11 @@
     "id": 141,
     "number": 319,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Sharpedonite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -861,6 +1087,12 @@
     "id": 144,
     "number": 604,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Eelektrossite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -879,6 +1111,12 @@
     "id": 147,
     "number": 149,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Dragoninite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -897,6 +1135,11 @@
     "id": 150,
     "number": 3,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Venusaurite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -915,6 +1158,16 @@
     "id": 153,
     "number": 6,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Charizardite X",
+        "form": "X"
+      },
+      {
+        "stone": "Charizardite Y",
+        "form": "Y"
+      }
+    ],
     "encounters": []
   },
   {
@@ -933,6 +1186,11 @@
     "id": 156,
     "number": 9,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Blastoisinite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -957,6 +1215,12 @@
     "id": 160,
     "number": 687,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Malamarite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -969,6 +1233,12 @@
     "id": 162,
     "number": 691,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Dragalgite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1017,12 +1287,23 @@
     "id": 170,
     "number": 362,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Glalitite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 171,
     "number": 478,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Froslassite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1035,6 +1316,11 @@
     "id": 173,
     "number": 460,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Abomasite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -1059,18 +1345,34 @@
     "id": 177,
     "number": 212,
     "games": ["legends-za"],
+    "evolvesFrom": { "number": 123, "method": "trade", "item": "Metal Coat" },
+    "megas": [
+      {
+        "stone": "Scizorite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 178,
     "number": 127,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Pinsirite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 179,
     "number": 214,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Heracronite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -1083,6 +1385,12 @@
     "id": 181,
     "number": 701,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Hawluchanite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1107,6 +1415,12 @@
     "id": 185,
     "number": 560,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Scraftinite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1143,12 +1457,23 @@
     "id": 191,
     "number": 609,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Chandelurite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
     "id": 192,
     "number": 142,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Aerodactylite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -1185,6 +1510,11 @@
     "id": 198,
     "number": 208,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Steelixite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -1203,6 +1533,11 @@
     "id": 201,
     "number": 306,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Aggronite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -1245,6 +1580,11 @@
     "id": 208,
     "number": 248,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Tyranitarite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -1263,12 +1603,24 @@
     "id": 211,
     "number": 658,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Greninjite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
     "id": 212,
     "number": 870,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Falinksite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1287,12 +1639,24 @@
     "id": 215,
     "number": 652,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Chesnaughtite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
     "id": 216,
     "number": 227,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Skarmorite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1311,6 +1675,12 @@
     "id": 219,
     "number": 655,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Delphoxite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1329,18 +1699,34 @@
     "id": 222,
     "number": 373,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Salamencite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 223,
     "number": 115,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Kangaskhanite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 224,
     "number": 780,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Drampanite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
@@ -1359,6 +1745,11 @@
     "id": 227,
     "number": 376,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Metagrossite"
+      }
+    ],
     "encounters": []
   },
   {
@@ -1377,18 +1768,39 @@
     "id": 230,
     "number": 718,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Zygardite",
+        "new": true
+      }
+    ],
     "encounters": []
   },
   {
     "id": 231,
     "number": 719,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Diancite"
+      }
+    ],
     "encounters": []
   },
   {
     "id": 232,
     "number": 150,
     "games": ["legends-za"],
+    "megas": [
+      {
+        "stone": "Mewtwonite X",
+        "form": "X"
+      },
+      {
+        "stone": "Mewtwonite Y",
+        "form": "Y"
+      }
+    ],
     "encounters": []
   }
 ]

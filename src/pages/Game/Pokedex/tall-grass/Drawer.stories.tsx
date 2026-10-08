@@ -19,8 +19,12 @@ const DrawerStory = () => {
   return (
     <div className="flex min-h-svh items-center justify-center bg-background p-8">
       {!open && <Button onClick={() => setOpen(true)}>Open Pokédex</Button>}
-      <Drawer open={open} onClose={() => setOpen(false)} header={<></>}>
-        <></>
+      <Drawer
+        open={open}
+        onClose={() => setOpen(false)}
+        header={<Title game={game} region={region} />}
+      >
+        <p className="p-4">Pokédex content</p>
       </Drawer>
     </div>
   );

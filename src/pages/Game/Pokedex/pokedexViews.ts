@@ -23,9 +23,15 @@ const RbyPokedex = lazy(() =>
   })),
 );
 
+const ZaPokedex = lazy(() =>
+  import('./za/ZaPokedex').then((module) => ({
+    default: module.ZaPokedex,
+  })),
+);
+
 export const pokedexViews: Partial<Record<string, PokedexView>> = {
   RBY: { 'tall-grass': TallGrassPokedex, game: RbyPokedex },
-  ZA: { 'tall-grass': TallGrassPokedex },
+  ZA: { 'tall-grass': TallGrassPokedex, game: ZaPokedex },
 };
 
 export const hasPokedex = (region: Region) =>

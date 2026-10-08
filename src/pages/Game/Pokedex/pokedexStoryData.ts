@@ -4,7 +4,7 @@ import { getSpecies, species } from '@/data/pokedex/master';
 import type { PokedexData, PokedexEntry } from '@/data/pokedex/types';
 import { locationHref } from '@/lib/paths';
 
-import { hasPokedex, pokedexViews } from './pokedexViews';
+import { hasPokedex } from './pokedexViews';
 
 const gameIdsWith = (supports: (versionGroup: string) => boolean) =>
   games
@@ -21,18 +21,9 @@ const gameIdsWith = (supports: (versionGroup: string) => boolean) =>
 
 export const pokedexGameIds = gameIdsWith(() => true);
 
-export const rbyGameIds = gameIdsWith((versionGroup) =>
-  Boolean(pokedexViews[versionGroup]?.game),
-);
-
 export const gameIdArgType = {
   control: 'select',
   options: pokedexGameIds,
-} as const;
-
-export const rbyGameIdArgType = {
-  control: 'select',
-  options: rbyGameIds,
 } as const;
 
 export const pokemonArgType = {

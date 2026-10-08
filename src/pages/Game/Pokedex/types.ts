@@ -24,11 +24,15 @@ export type PokedexProps = PokedexContext & {
 export type PokedexRowProps = PokedexContext & {
   entry: PokedexEntry;
   focused?: boolean;
+  selected?: boolean;
+  onSelect?: () => void;
 };
 
 export type PokedexListProps = PokedexContext & {
   entries: Array<PokedexEntry>;
   focus?: number;
+  selectedNumber?: number;
+  onSelectNumber?: (number: number) => void;
 };
 
 export type PokedexDrawerProps = {

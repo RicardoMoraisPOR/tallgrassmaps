@@ -126,21 +126,20 @@ const MapIcons = ({ style }: { style: 'game' | 'tall-grass' }) => {
   );
 };
 
+const MapIconsStory = () => {
+  const [{ style }] = useGlobals();
+
+  return <MapIcons style={style === 'game' ? 'game' : 'tall-grass'} />;
+};
+
 const meta = {
   title: 'Map/Map Icons',
-  component: MapIcons,
+  component: MapIconsStory,
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof MapIcons>;
+} satisfies Meta<typeof MapIconsStory>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Preview: Story = {
-  render: () => {
-    const [{ style: storyStyle }] = useGlobals();
-    const style = storyStyle === 'game' ? 'game' : 'tall-grass';
-
-    return <MapIcons style={style} />;
-  },
-};
+export const Preview: Story = {};

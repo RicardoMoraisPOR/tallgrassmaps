@@ -81,7 +81,7 @@ export type Game = {
   region: string;
   platform: Platform;
   tileSize?: number;
-  sprites?: { set: string; count: number };
+  sprites?: { set: string; count: number; pixelated?: boolean };
   obtainableWithoutTrading?: number;
   obtainableExcluding?: string;
   contentStatus?: Array<{
@@ -140,6 +140,7 @@ export const games: Array<Game> = [
     generation: 9,
     region: 'lumiose-za',
     platform: 'Nintendo Switch',
+    sprites: { set: 'legends-za', count: 870, pixelated: false },
     obtainableWithoutTrading: 226,
     obtainableExcluding: 'DLC or trading',
     contentStatus: [

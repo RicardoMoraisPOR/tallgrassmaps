@@ -11,11 +11,11 @@ const TitleStory = () => {
   const gameId = useStoryGameId();
   const { game, region } = pokedexStoryContext(gameId);
   const style = useThemeStyle('pokedex');
-  const { Title, gameTheme } = pokedexStoryViewFor(region, style);
+  const { Title, surfaceClassName } = pokedexStoryViewFor(region, style);
 
   return (
     <div className="flex min-h-svh items-center justify-center bg-background p-8">
-      <PokedexStorySurface gameTheme={gameTheme}>
+      <PokedexStorySurface surfaceClassName={surfaceClassName}>
         <Title game={game} region={region} />
       </PokedexStorySurface>
     </div>

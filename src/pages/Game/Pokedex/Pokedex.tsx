@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 
 import { useThemeStyle } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
@@ -20,6 +20,13 @@ export const Pokedex = ({ game, region, href }: PokedexProps) => {
   const style = useThemeStyle('pokedex');
   const entries = pokedexFor(region.versionGroup) ?? [];
   const search = usePokedexSearch(entries, game);
+  const [wasOpen, setWasOpen] = useState(open);
+
+  if (open !== wasOpen) {
+    setWasOpen(open);
+
+    if (open) search.reset();
+  }
 
   const view = pokedexViews[region.versionGroup];
   const Content =

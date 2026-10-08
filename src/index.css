@@ -3,7 +3,7 @@
 @import 'shadcn/tailwind.css';
 @import '@fontsource-variable/geist';
 
-@custom-variant dark (&:is(.dark *):not(.pokedex-game, .pokedex-game *));
+@custom-variant dark (&:is(.dark *):not(.pokedex-game, .pokedex-game *, .pokedex-za, .pokedex-za *));
 @custom-variant pokedex-game (&:is(.pokedex-game, .pokedex-game *));
 
 @theme inline {
@@ -299,6 +299,59 @@
   height: 12px;
   border: 2px solid var(--gb-ink);
   background: var(--gb-screen);
+}
+
+.pokedex-za {
+  color-scheme: dark;
+  --za-sky: #1d8bd0;
+  --za-deep: #0a3566;
+  --za-panel: #164b87;
+  --za-tile: #3f6196;
+  --za-tile-hover: #4d72ab;
+  --za-green: #a6e22e;
+  --za-glow: #6fe3ff;
+  --background: var(--za-deep);
+  --foreground: #ffffff;
+  --card: var(--za-panel);
+  --card-foreground: #ffffff;
+  --popover: var(--za-deep);
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: var(--za-deep);
+  --secondary: var(--za-tile);
+  --secondary-foreground: #ffffff;
+  --muted: var(--za-tile);
+  --muted-foreground: #b5cbe8;
+  --accent: var(--za-tile-hover);
+  --accent-foreground: #ffffff;
+  --border: rgb(255 255 255 / 0.18);
+  --input: rgb(255 255 255 / 0.25);
+  --ring: var(--za-green);
+  font-family: 'Barlow', sans-serif;
+  color: #ffffff;
+}
+
+.za-screen {
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 22% 55%,
+      rgb(111 227 255 / 0.35),
+      transparent 70%
+    ),
+    linear-gradient(180deg, var(--za-sky) 0%, #125aa0 45%, var(--za-deep) 100%);
+}
+
+.za-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.06) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+.za-heading {
+  font-family: 'Michroma', sans-serif;
+  letter-spacing: 0.04em;
 }
 
 @layer components {

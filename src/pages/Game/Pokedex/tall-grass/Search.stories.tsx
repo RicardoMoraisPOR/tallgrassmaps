@@ -22,13 +22,13 @@ const SearchContent = ({
 }: Required<SearchStoryProps>) => {
   const { game, region } = pokedexStoryContext(gameId);
   const style = useThemeStyle('pokedex');
-  const { Search, gameTheme } = pokedexStoryViewFor(region, style);
+  const { Search, surfaceClassName } = pokedexStoryViewFor(region, style);
   const entries = pokedexFor(region.versionGroup) ?? [];
   const search = usePokedexSearch(entries, game, { query, selected });
 
   return (
     <div className="flex min-h-svh items-center justify-center bg-background p-8">
-      <PokedexStorySurface gameTheme={gameTheme}>
+      <PokedexStorySurface surfaceClassName={surfaceClassName}>
         <Search search={search} />
       </PokedexStorySurface>
     </div>
@@ -57,7 +57,7 @@ const meta = {
     gameId: { control: false },
     selected: {
       control: 'check',
-      options: ['exclusive', 'trade', 'obtainable'],
+      options: ['exclusive', 'trade', 'trade-only', 'obtainable', 'mega'],
     },
   },
   args: { query: '', selected: [] },
@@ -76,6 +76,10 @@ export const WithoutFilters: Story = {
 
 export const WithFiltersSelected: Story = {
   args: { selected: ['exclusive'] },
+};
+
+export const MegaEvolution: Story = {
+  args: { gameId: 'legends-za', selected: ['mega'] },
 };
 
 export const WithQuery: Story = {

@@ -29,7 +29,10 @@ const RowStory = ({
   const [expanded, setExpanded] = useState(initialExpanded);
   const { game, region, href } = pokedexStoryContext(gameId);
   const style = useThemeStyle('pokedex');
-  const { Row, gameTheme } = pokedexStoryViewFor(region, style);
+  const { Row, surfaceClassName, rowListClassName } = pokedexStoryViewFor(
+    region,
+    style,
+  );
   const entries = pokedexFor(region.versionGroup) ?? [];
   const selectedOverrides = versionExclusive
     ? {
@@ -58,7 +61,7 @@ const RowStory = ({
       <div
         className={cn(
           'w-md max-w-[calc(100vw-2rem)] rounded-xl border bg-popover p-4 text-sm text-popover-foreground',
-          gameTheme && 'pokedex-game rounded-none',
+          surfaceClassName,
         )}
         onClickCapture={(event) => {
           const target = event.target;
@@ -68,7 +71,7 @@ const RowStory = ({
         }}
       >
         {entry && (
-          <ul className="flex flex-col">
+          <ul className={rowListClassName}>
             <Row
               game={game}
               region={region}
@@ -77,6 +80,7 @@ const RowStory = ({
               entry={entry}
               key={`${gameId}-${pokemon}-${expanded}`}
               focused={expanded}
+              selected={expanded}
             />
           </ul>
         )}
@@ -106,7 +110,6 @@ export const Expanded: Story = {
   args: {
     expanded: true,
     overrides: {
-      games: ['red', 'blue', 'yellow'],
       encounters: [
         {
           method: 'walk',
