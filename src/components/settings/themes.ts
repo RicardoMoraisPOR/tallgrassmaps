@@ -1,3 +1,7 @@
+import { useParams } from 'react-router';
+
+import { getGame } from '@/data/games';
+import { getRegion } from '@/data/maps';
 import {
   type ThemeArea,
   type ThemePreset,
@@ -63,17 +67,43 @@ const available: Record<ThemeArea, Array<ThemeStyle>> = {
 export const isThemeAvailable = (area: ThemeArea, style: ThemeStyle) =>
   available[area].includes(style);
 
+const gameThemes: Partial<Record<string, ReadonlyArray<ThemeArea>>> = {
+  RBY: [
+    'pokedex',
+    'mapIcons',
+    'dialogBoxes',
+    'trainers',
+    'pokemonPopups',
+    'sprites',
+  ],
+  ZA: ['pokedex', 'mapIcons', 'sprites'],
+};
+
+const hasGameTheme = (area: ThemeArea, versionGroup: string | undefined) =>
+  area === 'sprites' ||
+  versionGroup === undefined ||
+  !!gameThemes[versionGroup]?.includes(area);
+
 export const resolveTheme = (
   area: ThemeArea,
   {
     themePreset,
     themes,
   }: { themePreset: ThemePreset; themes: Record<ThemeArea, ThemeStyle> },
+  versionGroup?: string,
 ): ThemeStyle => {
   const wanted = themePreset === 'custom' ? themes[area] : themePreset;
+  const style = isThemeAvailable(area, wanted) ? wanted : available[area][0];
 
-  return isThemeAvailable(area, wanted) ? wanted : available[area][0];
+  return style === 'game' && !hasGameTheme(area, versionGroup)
+    ? 'tall-grass'
+    : style;
 };
 
-export const useThemeStyle = (area: ThemeArea) =>
-  useSettingsStore((state) => resolveTheme(area, state));
+export const useThemeStyle = (area: ThemeArea) => {
+  const { gameId } = useParams();
+  const game = getGame(gameId);
+  const versionGroup = game && getRegion(game.region)?.versionGroup;
+
+  return useSettingsStore((state) => resolveTheme(area, state, versionGroup));
+};

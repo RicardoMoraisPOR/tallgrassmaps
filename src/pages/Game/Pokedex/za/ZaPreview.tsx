@@ -59,13 +59,46 @@ export const ZaPreview = ({
     transition: transition(delay),
   });
 
+  const stones = (className: string) =>
+    megas.length > 0 && (
+      <div role="radiogroup" aria-label="Form" className={className}>
+        {megas.map(({ stone }, index) => {
+          const active = activeMega === index;
+
+          return (
+            <button
+              key={stone}
+              type="button"
+              role="radio"
+              aria-checked={active}
+              aria-label={stone}
+              title={stone}
+              onClick={() => setActiveMega(active ? undefined : index)}
+              className={cn(
+                'flex size-9 items-center justify-center rounded-lg border border-white/25 bg-(--za-tile) shadow-md shadow-black/25 outline-none transition-colors hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green) lg:size-14',
+                active && 'border-white bg-white hover:bg-white',
+              )}
+            >
+              <img
+                src={megaStoneSprite(stone)}
+                alt=""
+                width={40}
+                height={40}
+                className="size-6 object-contain lg:size-10"
+              />
+            </button>
+          );
+        })}
+      </div>
+    );
+
   return (
     <section
       aria-label={`${entry.name} entry`}
       className="flex max-h-[60svh] flex-none flex-col gap-3 px-4 pb-3 lg:max-h-none lg:min-h-0 lg:w-[42%] lg:gap-4 lg:px-8 lg:pb-6"
     >
-      <div className="flex flex-none items-center gap-4 lg:flex-col lg:gap-5">
-        <div className="relative size-24 flex-none lg:size-56">
+      <div className="flex flex-none items-start gap-4 lg:flex-col lg:items-center lg:gap-5">
+        <div className="relative size-29 flex-none lg:size-56">
           <m.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -121,40 +154,8 @@ export const ZaPreview = ({
               );
             })}
           </m.div>
-          {megas.length > 0 && (
-            <div
-              role="radiogroup"
-              aria-label="Form"
-              className="absolute top-2 right-2 z-10 flex flex-col gap-1.5 lg:top-0 lg:-right-16 lg:gap-2"
-            >
-              {megas.map(({ stone }, index) => {
-                const active = activeMega === index;
-
-                return (
-                  <button
-                    key={stone}
-                    type="button"
-                    role="radio"
-                    aria-checked={active}
-                    aria-label={stone}
-                    title={stone}
-                    onClick={() => setActiveMega(active ? undefined : index)}
-                    className={cn(
-                      'flex size-9 items-center justify-center rounded-lg border border-white/25 bg-(--za-tile) shadow-md shadow-black/25 outline-none transition-colors hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green) lg:size-14',
-                      active && 'border-white bg-white hover:bg-white',
-                    )}
-                  >
-                    <img
-                      src={megaStoneSprite(stone)}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className="size-6 object-contain lg:size-10"
-                    />
-                  </button>
-                );
-              })}
-            </div>
+          {stones(
+            'absolute top-0 -right-16 z-10 hidden flex-col gap-2 lg:flex',
           )}
         </div>
         <div className="flex min-w-0 flex-1 flex-col gap-2 lg:flex-none lg:items-center">
@@ -166,35 +167,40 @@ export const ZaPreview = ({
             <span aria-hidden className="h-5 w-px bg-white/40" />
             {String(entry.id).padStart(3, '0')}
           </m.span>
-          <m.h3
-            {...slideIn(0.18)}
-            className="truncate text-2xl font-bold lg:text-3xl"
-          >
-            {entry.name}
-          </m.h3>
-          <m.div {...slideIn(0.24)}>
-            <ZaTypeTags types={entry.types} />
-          </m.div>
+          <div className="flex min-w-0 items-center gap-2 lg:contents">
+            <m.h3
+              {...slideIn(0.18)}
+              className="min-w-0 truncate text-xl font-bold lg:text-3xl"
+            >
+              {entry.name}
+            </m.h3>
+            <m.div {...slideIn(0.24)} className="flex-none">
+              <ZaTypeTags
+                types={
+                  (activeMega !== undefined && megas[activeMega]?.types) ||
+                  entry.types
+                }
+              />
+            </m.div>
+          </div>
+          {stones('flex flex-none gap-2 lg:hidden')}
+          {megas.length === 0 && (
+            <div aria-hidden className="h-9 flex-none lg:hidden" />
+          )}
         </div>
-        <button
-          type="button"
-          aria-expanded={detailsOpen}
-          onClick={onToggleDetails}
-          className="group inline-flex flex-none items-center gap-2 rounded-md px-1 text-base font-bold outline-none focus-visible:ring-2 focus-visible:ring-(--za-green) lg:hidden"
-        >
-          <span
-            aria-hidden
-            className="inline-flex size-6 items-center justify-center rounded-full bg-white text-sm text-(--za-deep)"
-          >
-            A
-          </span>
-          Check Entry
-          <ChevronDown
-            aria-hidden
-            className="size-4 transition-transform group-aria-expanded:rotate-180"
-          />
-        </button>
       </div>
+      <button
+        type="button"
+        aria-expanded={detailsOpen}
+        onClick={onToggleDetails}
+        className="group inline-flex flex-none items-center gap-2 self-center rounded-md text-base font-bold outline-none focus-visible:ring-2 focus-visible:ring-(--za-green) lg:hidden"
+      >
+        Check Entry
+        <ChevronDown
+          aria-hidden
+          className="size-4 transition-transform group-aria-expanded:rotate-180"
+        />
+      </button>
       <m.div
         initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
         animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
@@ -205,7 +211,7 @@ export const ZaPreview = ({
           detailsOpen ? 'flex' : 'hidden',
         )}
       >
-        <MegaEvolutions entry={entry} />
+        <MegaEvolutions entry={entry} TypeTags={ZaTypeTags} />
         <ZaDetails {...context} />
       </m.div>
     </section>

@@ -105,7 +105,7 @@ export const TallGrassRow = ({
         id={panelId}
         className="flex flex-col gap-4 border-t p-3"
       >
-        <MegaEvolutions entry={entry} compact />
+        <MegaEvolutions entry={entry} compact TypeTags={PokemonTypeTags} />
         {appearsIn.length === 0 ? (
           <p className="text-[13px] text-muted-foreground">
             Not obtainable in these games without trading or events.

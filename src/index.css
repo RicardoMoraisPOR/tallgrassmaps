@@ -825,3 +825,20 @@
 path.leaflet-interactive:focus {
   outline: none;
 }
+
+.map-icon.map-icon-za {
+  --icon-size: 26px;
+
+  border-radius: 9999px;
+  background: #1d2748;
+  color: #fff;
+  box-shadow:
+    0 0 0 2px #eef4ff,
+    0 4px 10px -3px oklch(0 0 0 / 0.5);
+  cursor: default;
+}
+
+.map-icon-za svg {
+  width: calc(var(--icon-size) * 0.58);
+  height: calc(var(--icon-size) * 0.58);
+}

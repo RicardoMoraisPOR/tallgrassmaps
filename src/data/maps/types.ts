@@ -106,6 +106,7 @@ export type Location = MapImage & {
   hotspots: Array<LocationHotspot>;
   markers: Array<MapMarker>;
   floors?: Array<LocationFloor>;
+  doors?: Array<[number, number]>;
   dataPath?: string;
   games?: Array<string>;
 };

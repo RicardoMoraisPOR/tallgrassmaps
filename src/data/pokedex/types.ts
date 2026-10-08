@@ -47,6 +47,7 @@ export type MegaEvolution = {
   form?: 'X' | 'Y' | 'Z';
   new?: boolean;
   dlc?: boolean;
+  types?: Array<string>;
 };
 
 export type PokedexEntry = {

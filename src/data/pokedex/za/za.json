@@ -18,7 +18,8 @@
     "megas": [
       {
         "stone": "Meganiumite",
-        "new": true
+        "new": true,
+        "types": ["grass", "fairy"]
       }
     ],
     "encounters": []
@@ -42,7 +43,8 @@
     "megas": [
       {
         "stone": "Emboarite",
-        "new": true
+        "new": true,
+        "types": ["fire", "fighting"]
       }
     ],
     "encounters": []
@@ -66,7 +68,8 @@
     "megas": [
       {
         "stone": "Feraligite",
-        "new": true
+        "new": true,
+        "types": ["water", "dragon"]
       }
     ],
     "encounters": []
@@ -230,7 +233,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Beedrillite"
+        "stone": "Beedrillite",
+        "types": ["bug", "poison"]
       }
     ],
     "encounters": []
@@ -298,7 +302,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Pidgeotite"
+        "stone": "Pidgeotite",
+        "types": ["normal", "flying"]
       }
     ],
     "encounters": []
@@ -345,7 +350,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Ampharosite"
+        "stone": "Ampharosite",
+        "types": ["electric", "dragon"]
       }
     ],
     "encounters": []
@@ -460,7 +466,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Gyaradosite"
+        "stone": "Gyaradosite",
+        "types": ["water", "dark"]
       }
     ],
     "encounters": []
@@ -511,7 +518,8 @@
     "megas": [
       {
         "stone": "Barbaracite",
-        "new": true
+        "new": true,
+        "types": ["rock", "fighting"]
       }
     ],
     "encounters": []
@@ -551,7 +559,8 @@
     "megas": [
       {
         "stone": "Starminite",
-        "new": true
+        "new": true,
+        "types": ["water", "psychic"]
       }
     ],
     "encounters": []
@@ -581,7 +590,8 @@
     "megas": [
       {
         "stone": "Floettite",
-        "new": true
+        "new": true,
+        "types": ["fairy"]
       }
     ],
     "encounters": []
@@ -642,7 +652,8 @@
       {
         "stone": "Meowsticite",
         "dlc": true,
-        "new": true
+        "new": true,
+        "types": ["psychic"]
       }
     ],
     "encounters": []
@@ -682,7 +693,8 @@
     "megas": [
       {
         "stone": "Pyroarite",
-        "new": true
+        "new": true,
+        "types": ["fire", "normal"]
       }
     ],
     "encounters": []
@@ -784,13 +796,15 @@
         "stone": "Raichunite X",
         "form": "X",
         "dlc": true,
-        "new": true
+        "new": true,
+        "types": ["electric"]
       },
       {
         "stone": "Raichunite Y",
         "form": "Y",
         "dlc": true,
-        "new": true
+        "new": true,
+        "types": ["electric"]
       }
     ],
     "encounters": []
@@ -814,7 +828,8 @@
     "megas": [
       {
         "stone": "Clefablite",
-        "new": true
+        "new": true,
+        "types": ["fairy", "flying"]
       }
     ],
     "encounters": []
@@ -907,7 +922,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Alakazite"
+        "stone": "Alakazite",
+        "types": ["psychic"]
       }
     ],
     "encounters": []
@@ -942,7 +958,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Gengarite"
+        "stone": "Gengarite",
+        "types": ["ghost", "poison"]
       }
     ],
     "encounters": []
@@ -989,7 +1006,8 @@
     "megas": [
       {
         "stone": "Scolipite",
-        "new": true
+        "new": true,
+        "types": ["bug", "poison"]
       }
     ],
     "encounters": []
@@ -1065,7 +1083,8 @@
     "megas": [
       {
         "stone": "Victreebelite",
-        "new": true
+        "new": true,
+        "types": ["grass", "poison"]
       }
     ],
     "encounters": []
@@ -1130,7 +1149,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Medichamite"
+        "stone": "Medichamite",
+        "types": ["fighting", "psychic"]
       }
     ],
     "encounters": []
@@ -1159,7 +1179,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Manectite"
+        "stone": "Manectite",
+        "types": ["electric"]
       }
     ],
     "encounters": []
@@ -1182,7 +1203,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Gardevoirite"
+        "stone": "Gardevoirite",
+        "types": ["psychic", "fairy"]
       }
     ],
     "encounters": []
@@ -1193,7 +1215,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Galladite"
+        "stone": "Galladite",
+        "types": ["psychic", "fighting"]
       }
     ],
     "encounters": []
@@ -1222,7 +1245,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Houndoominite"
+        "stone": "Houndoominite",
+        "types": ["dark", "fire"]
       }
     ],
     "encounters": [
@@ -1262,7 +1286,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Altarianite"
+        "stone": "Altarianite",
+        "types": ["dragon", "fairy"]
       }
     ],
     "encounters": []
@@ -1273,7 +1298,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Audinite"
+        "stone": "Audinite",
+        "types": ["normal", "fairy"]
       }
     ],
     "encounters": []
@@ -1390,7 +1416,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Lopunnite"
+        "stone": "Lopunnite",
+        "types": ["normal", "fighting"]
       }
     ],
     "encounters": []
@@ -1407,7 +1434,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Banettite"
+        "stone": "Banettite",
+        "types": ["ghost"]
       }
     ],
     "encounters": []
@@ -1442,7 +1470,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Cameruptite"
+        "stone": "Cameruptite",
+        "types": ["fire", "ground"]
       }
     ],
     "encounters": []
@@ -1472,7 +1501,8 @@
     "megas": [
       {
         "stone": "Excadrite",
-        "new": true
+        "new": true,
+        "types": ["ground", "steel"]
       }
     ],
     "encounters": []
@@ -1531,12 +1561,14 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Garchompite"
+        "stone": "Garchompite",
+        "types": ["dragon", "ground"]
       },
       {
         "stone": "Garchompite Z",
         "form": "Z",
-        "new": true
+        "new": true,
+        "types": ["dragon"]
       }
     ],
     "encounters": []
@@ -1553,7 +1585,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Sablenite"
+        "stone": "Sablenite",
+        "types": ["dark", "ghost"]
       }
     ],
     "encounters": []
@@ -1564,7 +1597,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Mawilite"
+        "stone": "Mawilite",
+        "types": ["steel", "fairy"]
       }
     ],
     "encounters": []
@@ -1575,13 +1609,15 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Absolite"
+        "stone": "Absolite",
+        "types": ["dark"]
       },
       {
         "stone": "Absolite Z",
         "form": "Z",
         "dlc": true,
-        "new": true
+        "new": true,
+        "types": ["dark", "ghost"]
       }
     ],
     "encounters": []
@@ -1598,13 +1634,15 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Lucarionite"
+        "stone": "Lucarionite",
+        "types": ["fighting", "steel"]
       },
       {
         "stone": "Lucarionite Z",
         "form": "Z",
         "dlc": true,
-        "new": true
+        "new": true,
+        "types": ["fighting", "steel"]
       }
     ],
     "encounters": []
@@ -1621,7 +1659,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Slowbronite"
+        "stone": "Slowbronite",
+        "types": ["water", "psychic"]
       }
     ],
     "encounters": []
@@ -1649,7 +1688,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Sharpedonite"
+        "stone": "Sharpedonite",
+        "types": ["water", "dark"]
       }
     ],
     "encounters": []
@@ -1673,7 +1713,8 @@
     "megas": [
       {
         "stone": "Eelektrossite",
-        "new": true
+        "new": true,
+        "types": ["electric"]
       }
     ],
     "encounters": []
@@ -1697,7 +1738,8 @@
     "megas": [
       {
         "stone": "Dragoninite",
-        "new": true
+        "new": true,
+        "types": ["dragon", "flying"]
       }
     ],
     "encounters": []
@@ -1720,7 +1762,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Venusaurite"
+        "stone": "Venusaurite",
+        "types": ["grass", "poison"]
       }
     ],
     "encounters": []
@@ -1744,11 +1787,13 @@
     "megas": [
       {
         "stone": "Charizardite X",
-        "form": "X"
+        "form": "X",
+        "types": ["fire", "dragon"]
       },
       {
         "stone": "Charizardite Y",
-        "form": "Y"
+        "form": "Y",
+        "types": ["fire", "flying"]
       }
     ],
     "encounters": []
@@ -1771,7 +1816,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Blastoisinite"
+        "stone": "Blastoisinite",
+        "types": ["water"]
       }
     ],
     "encounters": []
@@ -1801,7 +1847,8 @@
     "megas": [
       {
         "stone": "Malamarite",
-        "new": true
+        "new": true,
+        "types": ["dark", "psychic"]
       }
     ],
     "encounters": []
@@ -1819,7 +1866,8 @@
     "megas": [
       {
         "stone": "Dragalgite",
-        "new": true
+        "new": true,
+        "types": ["poison", "dragon"]
       }
     ],
     "encounters": []
@@ -1872,7 +1920,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Glalitite"
+        "stone": "Glalitite",
+        "types": ["ice"]
       }
     ],
     "encounters": []
@@ -1884,7 +1933,8 @@
     "megas": [
       {
         "stone": "Froslassite",
-        "new": true
+        "new": true,
+        "types": ["ice", "ghost"]
       }
     ],
     "encounters": []
@@ -1901,7 +1951,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Abomasite"
+        "stone": "Abomasite",
+        "types": ["grass", "ice"]
       }
     ],
     "encounters": []
@@ -1935,7 +1986,8 @@
     },
     "megas": [
       {
-        "stone": "Scizorite"
+        "stone": "Scizorite",
+        "types": ["bug", "steel"]
       }
     ],
     "encounters": []
@@ -1946,7 +1998,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Pinsirite"
+        "stone": "Pinsirite",
+        "types": ["bug", "flying"]
       }
     ],
     "encounters": []
@@ -1957,7 +2010,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Heracronite"
+        "stone": "Heracronite",
+        "types": ["bug", "fighting"]
       }
     ],
     "encounters": []
@@ -1975,7 +2029,8 @@
     "megas": [
       {
         "stone": "Hawluchanite",
-        "new": true
+        "new": true,
+        "types": ["fighting", "flying"]
       }
     ],
     "encounters": []
@@ -2005,7 +2060,8 @@
     "megas": [
       {
         "stone": "Scraftinite",
-        "new": true
+        "new": true,
+        "types": ["dark", "fighting"]
       }
     ],
     "encounters": []
@@ -2047,7 +2103,8 @@
     "megas": [
       {
         "stone": "Chandelurite",
-        "new": true
+        "new": true,
+        "types": ["ghost", "fire"]
       }
     ],
     "encounters": []
@@ -2058,7 +2115,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Aerodactylite"
+        "stone": "Aerodactylite",
+        "types": ["rock", "flying"]
       }
     ],
     "encounters": []
@@ -2099,7 +2157,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Steelixite"
+        "stone": "Steelixite",
+        "types": ["steel", "ground"]
       }
     ],
     "encounters": []
@@ -2122,7 +2181,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Aggronite"
+        "stone": "Aggronite",
+        "types": ["steel"]
       }
     ],
     "encounters": []
@@ -2169,7 +2229,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Tyranitarite"
+        "stone": "Tyranitarite",
+        "types": ["rock", "dark"]
       }
     ],
     "encounters": []
@@ -2193,7 +2254,8 @@
     "megas": [
       {
         "stone": "Greninjite",
-        "new": true
+        "new": true,
+        "types": ["water", "dark"]
       }
     ],
     "encounters": []
@@ -2205,7 +2267,8 @@
     "megas": [
       {
         "stone": "Falinksite",
-        "new": true
+        "new": true,
+        "types": ["fighting"]
       }
     ],
     "encounters": []
@@ -2229,7 +2292,8 @@
     "megas": [
       {
         "stone": "Chesnaughtite",
-        "new": true
+        "new": true,
+        "types": ["grass", "fighting"]
       }
     ],
     "encounters": []
@@ -2241,7 +2305,8 @@
     "megas": [
       {
         "stone": "Skarmorite",
-        "new": true
+        "new": true,
+        "types": ["steel", "flying"]
       }
     ],
     "encounters": []
@@ -2265,7 +2330,8 @@
     "megas": [
       {
         "stone": "Delphoxite",
-        "new": true
+        "new": true,
+        "types": ["fire", "psychic"]
       }
     ],
     "encounters": []
@@ -2288,7 +2354,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Salamencite"
+        "stone": "Salamencite",
+        "types": ["dragon", "flying"]
       }
     ],
     "encounters": []
@@ -2299,7 +2366,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Kangaskhanite"
+        "stone": "Kangaskhanite",
+        "types": ["normal"]
       }
     ],
     "encounters": []
@@ -2311,7 +2379,8 @@
     "megas": [
       {
         "stone": "Drampanite",
-        "new": true
+        "new": true,
+        "types": ["normal", "dragon"]
       }
     ],
     "encounters": []
@@ -2334,7 +2403,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Metagrossite"
+        "stone": "Metagrossite",
+        "types": ["steel", "psychic"]
       }
     ],
     "encounters": []
@@ -2358,7 +2428,8 @@
     "megas": [
       {
         "stone": "Zygardite",
-        "new": true
+        "new": true,
+        "types": ["dragon", "ground"]
       }
     ],
     "encounters": []
@@ -2369,7 +2440,8 @@
     "games": ["legends-za"],
     "megas": [
       {
-        "stone": "Diancite"
+        "stone": "Diancite",
+        "types": ["rock", "fairy"]
       }
     ],
     "encounters": []
@@ -2381,11 +2453,13 @@
     "megas": [
       {
         "stone": "Mewtwonite X",
-        "form": "X"
+        "form": "X",
+        "types": ["psychic", "fighting"]
       },
       {
         "stone": "Mewtwonite Y",
-        "form": "Y"
+        "form": "Y",
+        "types": ["psychic"]
       }
     ],
     "encounters": []

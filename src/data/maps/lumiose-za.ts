@@ -241,6 +241,15 @@ const wildZoneOutlines: Array<Array<Point>> = [
 const MAP_IMAGE = '/maps/za/town-map.webp';
 const MAP_SIZE = 4096;
 
+const wildZoneDoors: Partial<Record<number, Array<Point>>> = {
+  6: [
+    [3883, 2379],
+    [3689, 2461],
+    [3668, 2430],
+    [3911, 1903],
+  ],
+};
+
 const wildZoneId = (number: number) => `wild-zone-${number}`;
 
 const wildZoneLocation = (number: number): Location => ({
@@ -252,6 +261,7 @@ const wildZoneLocation = (number: number): Location => ({
   height: MAP_SIZE,
   pixelated: false,
   source: spritersResource,
+  doors: wildZoneDoors[number],
   locations: [],
   hotspots: [],
   markers: [],

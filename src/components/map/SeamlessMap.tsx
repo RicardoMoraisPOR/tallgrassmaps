@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import '@fontsource/barlow/700.css';
 import {
   CRS,
+  divIcon,
   latLngBounds,
   type LatLngBounds,
   type Map as LeafletMap,
@@ -13,19 +14,23 @@ import 'leaflet/dist/leaflet.css';
 import {
   ImageOverlay,
   MapContainer,
+  Marker,
   Polygon,
   Tooltip,
   useMap,
 } from 'react-leaflet';
 
+import { useThemeStyle } from '@/components/settings/themes';
 import { getLocation, type Hotspot, type Region } from '@/data/maps';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import { hotspotBorder, imageBounds, toLatLng } from './coordinates';
+import { mapIconArt } from './MapViewer';
 import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
 
 const MIN_ZOOM = -8;
+const DOOR_SIZE = 26;
 const ZOOM_TOLERANCE = 0.05;
 const INTERACTION_MS = 1500;
 const NO_BOUNDS = latLngBounds([]);
@@ -297,6 +302,35 @@ const ZoneCamera = ({ zone, full, rightInset, onLeave }: ZoneCameraProps) => {
   return null;
 };
 
+const zaDoorArt =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v16"/><path d="M3 21h18"/><circle cx="14.5" cy="12.5" r="0.9" fill="currentColor"/></svg>';
+
+const DoorMarker = ({ x, y }: { x: number; y: number }) => {
+  const style = useThemeStyle('mapIcons');
+  const icon = useMemo(
+    () =>
+      divIcon({
+        className: 'map-icon-anchor',
+        html:
+          style === 'game'
+            ? `<span class="map-icon map-icon-za">${zaDoorArt}</span>`
+            : `<span class="map-icon map-link-entrance">${mapIconArt.door['tall-grass']}</span>`,
+        iconSize: [DOOR_SIZE, DOOR_SIZE],
+        iconAnchor: [DOOR_SIZE / 2, DOOR_SIZE / 2],
+      }),
+    [style],
+  );
+
+  return (
+    <Marker
+      position={toLatLng(x, y)}
+      icon={icon}
+      interactive={false}
+      keyboard={false}
+    />
+  );
+};
+
 type SeamlessMapProps = {
   region: Region;
   selected?: string;
@@ -368,6 +402,9 @@ export const SeamlessMap = ({
         rightInset={rightInset}
         onLeave={onLeave}
       />
+      {(getLocation(region, selected ?? '')?.doors ?? []).map(([x, y]) => (
+        <DoorMarker key={`${selected}-${x}-${y}`} x={x} y={y} />
+      ))}
       {zones.map((zone) => {
         const color = zone.hotspot.color ?? DEFAULT_COLOR;
         const isSelected = zone.target === selected;
