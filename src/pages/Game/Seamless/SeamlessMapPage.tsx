@@ -1,3 +1,5 @@
+import { useSyncExternalStore } from 'react';
+
 import { AnimatePresence, m } from 'motion/react';
 import { useNavigate } from 'react-router';
 
@@ -18,6 +20,20 @@ import { PokedexCard } from '../Region/PokedexCard';
 import { ZonePanel } from './ZonePanel';
 
 const ASIDE_INSET = 392;
+const DESKTOP_QUERY = '(min-width: 1024px)';
+
+const useDesktop = () =>
+  useSyncExternalStore(
+    (notify) => {
+      const query = matchMedia(DESKTOP_QUERY);
+
+      query.addEventListener('change', notify);
+
+      return () => query.removeEventListener('change', notify);
+    },
+    () => matchMedia(DESKTOP_QUERY).matches,
+    () => true,
+  );
 const OFFSCREEN = { x: '115%', opacity: 0 };
 const ENTER = { duration: 0.35, ease: easeOutSoft };
 const EXIT = { duration: 0.25, ease: easeOutSoft };
@@ -28,6 +44,7 @@ export const SeamlessMapPage = () => {
   const immersive =
     useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
   const mapFrame = useMapFrame(String(immersive));
+  const desktop = useDesktop();
 
   if (!route?.trail) return <NotFoundPage />;
 
@@ -63,7 +80,7 @@ export const SeamlessMapPage = () => {
               selected={zone?.id}
               onSelect={(target) => navigate(href(target))}
               onLeave={() => navigate(href(''))}
-              rightInset={immersive ? ASIDE_INSET : 0}
+              rightInset={immersive && desktop ? ASIDE_INSET : 0}
               zoomPosition={immersive ? 'bottomleft' : undefined}
               className="size-full"
             />

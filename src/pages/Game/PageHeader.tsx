@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPinned } from 'lucide-react';
 import { m } from 'motion/react';
 import { Link } from 'react-router';
 
@@ -52,6 +52,9 @@ export const PageHeader = ({
       ]
     : [];
   const back = parents.at(-1);
+  const seamless = region.navigation === 'seamless';
+  const backLabel = seamless ? `Show ${region.name}` : back?.name;
+  const BackIcon = seamless ? MapPinned : ChevronLeft;
 
   return (
     <m.div
@@ -128,14 +131,14 @@ export const PageHeader = ({
       {back && (
         <Link
           to={back.href}
-          aria-label={`Back to ${back.name}`}
+          aria-label={seamless ? backLabel : `Back to ${back.name}`}
           className={cn(
             'flex min-h-9 w-fit max-w-full items-center gap-1 rounded-[10px] border bg-card py-1 pr-3 pl-2 text-[13px] font-medium outline-offset-2 hover:bg-muted sm:hidden',
             !floating && 'self-center',
           )}
         >
-          <ChevronLeft aria-hidden className="size-4 flex-none" />
-          <span className="truncate">{back.name}</span>
+          <BackIcon aria-hidden className="size-4 flex-none" />
+          <span className="truncate">{backLabel}</span>
         </Link>
       )}
     </m.div>

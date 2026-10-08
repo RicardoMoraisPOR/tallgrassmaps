@@ -84,11 +84,14 @@ const frameFor = (
   full: LatLngBounds,
   inset: number,
 ) => {
-  const zoom = map.getBoundsZoom(bounds, false, point(inset, 0));
-  const scale = map.getZoomScale(zoom, 0);
   const size = map.getSize();
-  const center = map.project(bounds.getCenter(), zoom).add(point(inset / 2, 0));
-  const imageWidth = full.getEast() * scale + inset;
+  const usable = Math.min(inset, size.x / 2);
+  const zoom = map.getBoundsZoom(bounds, false, point(usable, 0));
+  const scale = map.getZoomScale(zoom, 0);
+  const center = map
+    .project(bounds.getCenter(), zoom)
+    .add(point(usable / 2, 0));
+  const imageWidth = full.getEast() * scale + usable;
   const imageHeight = -full.getSouth() * scale;
   const keepInside = (value: number, half: number, total: number) =>
     total <= half * 2

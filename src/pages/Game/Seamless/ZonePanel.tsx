@@ -94,7 +94,7 @@ export const ZonePanel = ({
 
   return (
     <>
-      <div className="rounded-[14px] border bg-card p-3">
+      <div className="rounded-[14px] border bg-card p-3 max-sm:hidden">
         <Button variant="outline" className="h-10 w-full" asChild>
           <Link to={href('')}>
             <MapPinned aria-hidden />
