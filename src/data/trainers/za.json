@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Ticien",
+    "trainerClass": "Owner",
+    "path": "wild-zone-6",
+    "games": ["legends-za"],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 333,
+            "level": 22,
+            "moves": ["Dragon Breath", "Mist", "Disarming Voice", "Peck"]
+          },
+          {
+            "number": 307,
+            "level": 22,
+            "moves": ["Psybeam", "Bullet Punch", "Rock Smash", "Endure"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Faye",
+    "trainerClass": "Furisode Girl",
+    "path": "wild-zone-6",
+    "games": ["legends-za"],
+    "parties": [
+      {
+        "pokemon": [
+          {
+            "number": 173,
+            "level": 36,
+            "moves": ["Charm", "Draining Kiss", "Disarming Voice", "Fairy Wind"]
+          },
+          {
+            "number": 684,
+            "level": 36,
+            "moves": ["Play Rough", "Fairy Wind", "Draining Kiss", "Charm"]
+          },
+          {
+            "number": 682,
+            "level": 36,
+            "moves": ["Draining Kiss", "Charm", "Moonblast", "Disarming Voice"]
+          }
+        ]
+      }
+    ]
+  }
+]

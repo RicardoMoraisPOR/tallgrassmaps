@@ -1,12 +1,11 @@
+import type { PlaceIconShape } from '@/data/maps';
 import { cn } from '@/lib/utils';
 
-import type { PlaceGroup } from '../places';
-
 export const PlaceIcon = ({
-  group,
+  shape,
   className,
 }: {
-  group: PlaceGroup;
+  shape: PlaceIconShape;
   className?: string;
 }) => {
   return (
@@ -14,13 +13,14 @@ export const PlaceIcon = ({
       aria-hidden
       className={cn('inline-flex w-3 flex-none justify-center', className)}
     >
-      {group === 'route' ? (
+      {shape === 'line' ? (
         <span className="h-0.5 w-3 bg-current" />
       ) : (
         <span
           className={cn(
-            'size-2.5 border-2 border-current',
-            group === 'landmark' && 'rounded-full',
+            'border-2 border-current',
+            shape === 'diamond' ? 'size-2 rotate-45' : 'size-2.5',
+            shape === 'circle' && 'rounded-full',
           )}
         />
       )}

@@ -43,7 +43,14 @@ export const GameLayout = () => {
           href={route.href}
         />
         <div className="flex flex-1 flex-col overflow-clip">
-          <PageTransition mapMotion keyFor={pageKind} />
+          <PageTransition
+            mapMotion
+            keyFor={
+              route.region.navigation === 'seamless'
+                ? (pathname) => `/${pathSegments(pathname)[0]}`
+                : pageKind
+            }
+          />
         </div>
       </Container>
     </div>

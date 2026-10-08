@@ -37,6 +37,9 @@ export type Rect = {
 export type Direction = 'north' | 'south' | 'east' | 'west';
 
 export type Hotspot = Rect & {
+  shape?: Array<[number, number]>;
+  display?: 'hover' | 'always';
+  color?: string;
   target: string;
   games?: Array<string>;
   travel?: Direction;
@@ -63,7 +66,30 @@ export type MapMarker = Rect & {
   games?: Array<string>;
 };
 
-export type LocationKind = 'town' | 'route' | 'dungeon' | 'building';
+export type LocationKind =
+  | 'town'
+  | 'route'
+  | 'dungeon'
+  | 'building'
+  | 'landmark'
+  | 'wild-zone'
+  | 'sector';
+
+export type PlaceIconShape = 'square' | 'circle' | 'diamond' | 'line';
+
+export type PlaceGroup = {
+  id: string;
+  label: string;
+  singular: string;
+  icon: PlaceIconShape;
+  kinds: Array<LocationKind>;
+};
+
+export type PlaceGroups = {
+  groups: Array<PlaceGroup>;
+  legend?: Array<string>;
+  search: string;
+};
 
 export type LocationFloor = MapImage & {
   id: string;
@@ -136,6 +162,8 @@ export type Region = MapImage & {
   cursor?: RegionCursor;
   pointer?: RegionPointer;
   label?: RegionLabel;
+  navigation?: 'nested' | 'seamless';
+  placeGroups?: PlaceGroups;
   tallGrassMap?: string;
   wildAreas?: Array<WildArea>;
 };

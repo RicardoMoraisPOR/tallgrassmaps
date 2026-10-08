@@ -3,7 +3,7 @@ import { getLocation, type Region } from '@/data/maps';
 import type { Encounter, PokedexEntry } from '@/data/pokedex/types';
 import { formatList } from '@/lib/utils';
 
-import { evolutionLabel, levelLabel, methodLabel } from './format';
+import { alphaLabel, evolutionLabel, levelLabel, methodLabel } from './format';
 
 export const isObtainable = (entry: PokedexEntry, game: Game) =>
   entry.games.includes(game.id);
@@ -42,6 +42,21 @@ export const encounterSummary = (
   ]
     .filter(Boolean)
     .join(' · ');
+
+export type EncounterLines = { lines: Array<string>; note?: string };
+
+export const encounterLines = (
+  encounter: Encounter,
+  nameOf: (number: number) => string,
+): EncounterLines => ({
+  lines: [
+    ...(encounter.levels || !encounter.alpha
+      ? [encounterSummary(encounter, nameOf)]
+      : []),
+    ...(encounter.alpha ? [alphaLabel(encounter, true) ?? ''] : []),
+  ],
+  note: encounter.note,
+});
 
 export const evolutionSummary = (
   entry: PokedexEntry,

@@ -155,7 +155,22 @@ export const dataCredits: Array<Credit> = [
     name: 'Serebii.net',
     url: 'https://www.serebii.net/',
     by: 'Joe Merrick and the Serebii team',
-    detail: 'Unobtainable Pokémon in Yellow',
+    detail:
+      'Unobtainable Pokémon in Yellow, and the wild zone levels, Alpha chances and trainers in Legends Z-A',
+  },
+  {
+    name: 'Eurogamer',
+    url: 'https://www.eurogamer.net/all-wild-zone-pokemon-legends-z-a',
+    by: 'the Eurogamer team',
+    detail:
+      'Where and when each Pokémon appears in the Legends Z-A wild zones, and the in-game map used to trace the zone outlines',
+  },
+  {
+    name: 'Nintendo Life',
+    url: 'https://www.nintendolife.com/guides/pokemon-legends-z-a-wild-zone-1-guide-all-pokemon-and-alphas',
+    by: 'the Nintendo Life team',
+    detail:
+      'Wild zone guides used to cross-check the Legends Z-A Pokémon and guaranteed Alphas',
   },
   {
     name: 'Pokémon Database',

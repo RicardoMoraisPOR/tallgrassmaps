@@ -1,18 +1,16 @@
 import { ExternalLink } from 'lucide-react';
-import { Link } from 'react-router';
 
 import { PlacesMap } from '@/components/map/PlacesMap';
 import { gamesSharingMap } from '@/data/games';
 
 import { ColorDot } from '../../ColorDot';
+import { EncounterPlaces } from '../EncounterPlaces';
 import {
   encounterPaths,
   encountersIn,
-  encounterSummary,
   evolutionSummary,
   gamesWithEntry,
   isObtainable,
-  placeName,
   placesMapLabel,
   tradeOnlyNote,
 } from '../entryDetails';
@@ -66,29 +64,19 @@ export const ZaDetails = ({
               region={region}
               paths={paths}
               label={placesMapLabel(entry, game, region, paths)}
+              className="mx-auto w-full max-w-56"
             />
           )}
           <ul className="flex flex-col divide-y divide-white/15 rounded-lg border border-white/20">
-            {encounters.map((encounter) => (
-              <li
-                key={`${encounter.method}-${encounter.path}-${encounter.tradeFor}`}
-                className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 px-3 py-2"
-              >
-                {encounter.path ? (
-                  <Link
-                    to={href(encounter.path)}
-                    className="font-bold underline-offset-3 hover:underline"
-                  >
-                    {placeName(region, encounter.path)}
-                  </Link>
-                ) : (
-                  <span className="font-bold">Any water</span>
-                )}
-                <span className="text-white/70">
-                  {encounterSummary(encounter, nameOf)}
-                </span>
-              </li>
-            ))}
+            <EncounterPlaces
+              encounters={encounters}
+              region={region}
+              href={href}
+              nameOf={nameOf}
+              placeClassName="font-bold"
+              lineClassName="text-white/70"
+              noteClassName="text-sm text-white/55"
+            />
             {evolution && (
               <li className="px-3 py-2 text-white/70">{evolution}</li>
             )}

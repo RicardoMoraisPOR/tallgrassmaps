@@ -33,6 +33,22 @@ export const levelLabel = (encounter: Encounter) => {
   return min === max ? `Lv. ${min}` : `Lv. ${min}–${max}`;
 };
 
+export const alphaLabel = (encounter: Encounter, withMethod = false) => {
+  const { alpha } = encounter;
+
+  if (!alpha) return undefined;
+
+  const levels =
+    alpha.levels && levelLabel({ levels: alpha.levels } as Encounter);
+
+  return [
+    `${withMethod ? `${methodLabel(encounter)} ` : ''}Alpha (${alpha.chance >= 100 ? 'guaranteed' : `${alpha.chance}%`})`,
+    levels,
+  ]
+    .filter(Boolean)
+    .join(' · ');
+};
+
 export const chanceLabel = (encounter: Encounter) => {
   if (!encounter.chance) return undefined;
 

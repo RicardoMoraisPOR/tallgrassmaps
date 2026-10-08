@@ -3,27 +3,31 @@ import { useState } from 'react';
 import { Search } from 'lucide-react';
 import { Link } from 'react-router';
 
+import type { PlaceGroups } from '@/data/maps';
 import { cn } from '@/lib/utils';
 
-import { type Place, type PlaceGroup, placeGroup } from '../places';
+import { groupOf, type Place } from '../places';
 import { PlaceIcon } from './PlaceIcon';
 
-type Tab = 'all' | PlaceGroup;
-
-const tabs: Array<{ id: Tab; label: string }> = [
-  { id: 'all', label: 'All' },
-  { id: 'town', label: 'Towns' },
-  { id: 'route', label: 'Routes' },
-  { id: 'landmark', label: 'Landmarks' },
-];
+type Tab = string;
 
 type PlaceListProps = {
   places: Array<Place>;
+  placeGroups: PlaceGroups;
   href: (path: string) => string;
   className?: string;
 };
 
-export const PlaceList = ({ places, href, className }: PlaceListProps) => {
+export const PlaceList = ({
+  places,
+  placeGroups,
+  href,
+  className,
+}: PlaceListProps) => {
+  const tabs = [
+    { id: 'all', label: 'All' },
+    ...placeGroups.groups.map(({ id, label }) => ({ id, label })),
+  ];
   const [query, setQuery] = useState('');
   const [tab, setTab] = useState<Tab>('all');
 
@@ -35,7 +39,7 @@ export const PlaceList = ({ places, href, className }: PlaceListProps) => {
       child.name.toLowerCase().includes(search),
     );
   const inTab = (place: Place, id: Tab) =>
-    id === 'all' || placeGroup(place.location.kind) === id;
+    id === 'all' || groupOf(placeGroups, place.location.kind).id === id;
   const rows = places.filter((place) => inTab(place, tab) && matches(place));
 
   return (
@@ -54,7 +58,7 @@ export const PlaceList = ({ places, href, className }: PlaceListProps) => {
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search towns, routes, caves…"
+            placeholder={placeGroups.search}
             className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
         </label>
@@ -93,7 +97,7 @@ export const PlaceList = ({ places, href, className }: PlaceListProps) => {
               className="flex min-h-11 w-full items-center gap-3 rounded-lg px-2.5 text-left text-sm transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
             >
               <PlaceIcon
-                group={placeGroup(location.kind)}
+                shape={groupOf(placeGroups, location.kind).icon}
                 className="text-muted-foreground"
               />
               <span className="min-w-0 flex-1 truncate">{location.name}</span>

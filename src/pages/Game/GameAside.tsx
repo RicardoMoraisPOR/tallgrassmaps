@@ -47,8 +47,8 @@ export const GameAside = ({ immersive, children }: GameAsideProps) => {
         className={cn(
           'flex min-h-0 flex-col gap-3',
           immersive
-            ? 'pointer-events-auto max-h-full overflow-y-auto overscroll-contain'
-            : 'lg:absolute lg:inset-0 lg:overflow-y-auto',
+            ? 'pointer-events-auto max-h-full overflow-x-hidden overflow-y-auto overscroll-contain'
+            : 'lg:absolute lg:inset-0 lg:overflow-x-hidden lg:overflow-y-auto',
         )}
       >
         {children}

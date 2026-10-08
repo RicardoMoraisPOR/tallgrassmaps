@@ -8,7 +8,8 @@ import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import { AnimatedSprite } from './AnimatedSprite';
-import { percent } from './coordinates';
+import { hotspotHighlight, percent } from './coordinates';
+import { HotspotOutline } from './HotspotOutline';
 import { RegionImage } from './RegionImage';
 
 type RegionMapProps = {
@@ -80,34 +81,59 @@ export const RegionMap = ({
         className={cn('group/map', pointer && 'cursor-none')}
         onPointerMove={pointer && moveFlyer}
       >
-        {miniMap && focusHotspot && (
-          <span
-            aria-hidden
-            className="pointer-events-none absolute rounded-[2px] bg-[oklch(0.62_0.24_25/0.6)] ring-2 ring-[oklch(0.45_0.2_25)]"
-            style={{
-              left: percent(focusHotspot.x, region.width),
-              top: percent(focusHotspot.y, region.height),
-              width: percent(focusHotspot.width, region.width),
-              height: percent(focusHotspot.height, region.height),
-            }}
-          />
-        )}
+        {miniMap &&
+          focusHotspot &&
+          (focusHotspot.shape ? (
+            <HotspotOutline
+              hotspot={{
+                ...focusHotspot,
+                color: undefined,
+                shape: focusHotspot.shape,
+              }}
+              region={region}
+              className="pointer-events-none"
+              shapeClassName="fill-(--hotspot-highlight) stroke-(--hotspot-border)"
+            />
+          ) : (
+            <span
+              aria-hidden
+              className="pointer-events-none absolute rounded-[2px] ring-2 ring-[oklch(0.45_0.2_25)]"
+              style={{
+                backgroundColor: hotspotHighlight({
+                  ...focusHotspot,
+                  color: undefined,
+                }),
+                left: percent(focusHotspot.x, region.width),
+                top: percent(focusHotspot.y, region.height),
+                width: percent(focusHotspot.width, region.width),
+                height: percent(focusHotspot.height, region.height),
+              }}
+            />
+          ))}
         {region.hotspots.map((hotspot) => {
           const location = getLocation(region, hotspot.target);
 
           if (!location) return null;
+
+          const { shape } = hotspot;
+          const current = miniMap && hotspot === focusHotspot;
 
           return (
             <Link
               key={hotspot.target}
               to={locationHref(hotspot.target)}
               aria-label={location.name}
+              aria-current={current ? 'page' : undefined}
+              tabIndex={current ? -1 : undefined}
               className={cn(
                 'absolute',
+                current && 'pointer-events-none',
                 pointer && 'cursor-none',
-                cursor
-                  ? 'outline-none'
-                  : 'outline-offset-2 hover:outline-2 hover:outline-foreground focus-visible:outline-2 focus-visible:outline-foreground',
+                shape && 'group/zone pointer-events-none outline-none',
+                !shape &&
+                  (cursor
+                    ? 'outline-none'
+                    : 'outline-offset-2 hover:outline-2 hover:outline-foreground focus-visible:outline-2 focus-visible:outline-foreground'),
               )}
               style={{
                 left: percent(hotspot.x, region.width),
@@ -119,7 +145,22 @@ export const RegionMap = ({
               onMouseLeave={() => setHovered(undefined)}
               onFocus={() => setHovered(hotspot.target)}
               onBlur={() => setHovered(undefined)}
-            />
+            >
+              {shape && (
+                <HotspotOutline
+                  inline
+                  hotspot={{ ...hotspot, shape }}
+                  region={region}
+                  shapeClassName={cn(
+                    !current && 'pointer-events-auto',
+                    'transition-colors group-hover/zone:fill-(--hotspot-active) group-hover/zone:stroke-(--hotspot-border) group-focus-visible/zone:fill-(--hotspot-active) group-focus-visible/zone:stroke-(--hotspot-border)',
+                    hotspot.display === 'always' && !miniMap
+                      ? 'fill-(--hotspot-idle) stroke-(--hotspot-border)'
+                      : 'fill-transparent stroke-transparent',
+                  )}
+                />
+              )}
+            </Link>
           );
         })}
         {pointer && (

@@ -3,6 +3,8 @@ import {
   inGame,
   type Location,
   type LocationKind,
+  type PlaceGroup,
+  type PlaceGroups,
   type Region,
 } from '@/data/maps';
 import { joinPath } from '@/lib/paths';
@@ -12,16 +14,51 @@ export type Place = {
   location: Location;
 };
 
-export type PlaceGroup = 'town' | 'route' | 'landmark';
+export const defaultPlaceGroups: PlaceGroups = {
+  groups: [
+    {
+      id: 'town',
+      label: 'Towns',
+      singular: 'Town',
+      icon: 'square',
+      kinds: ['town'],
+    },
+    {
+      id: 'route',
+      label: 'Routes',
+      singular: 'Route',
+      icon: 'line',
+      kinds: ['route'],
+    },
+    {
+      id: 'landmark',
+      label: 'Landmarks',
+      singular: 'Landmark',
+      icon: 'circle',
+      kinds: ['dungeon', 'building', 'landmark'],
+    },
+  ],
+  legend: ['town', 'landmark', 'route'],
+  search: 'Search towns, routes, caves…',
+};
 
-export const placeGroup = (kind: LocationKind): PlaceGroup =>
-  kind === 'town' || kind === 'route' ? kind : 'landmark';
+export const placeGroupsFor = (region: Region) =>
+  region.placeGroups ?? defaultPlaceGroups;
+
+export const groupOf = (
+  { groups }: PlaceGroups,
+  kind: LocationKind,
+): PlaceGroup =>
+  groups.find((group) => group.kinds.includes(kind)) ?? groups[0];
 
 export const kindLabels: Record<LocationKind, string> = {
   town: 'Town',
   route: 'Route',
   dungeon: 'Cave & dungeon',
   building: 'Building',
+  landmark: 'Landmark',
+  'wild-zone': 'Wild Zone',
+  sector: 'Sector Zone',
 };
 
 export const collectPlaces = (region: Region, gameId: string): Array<Place> => {

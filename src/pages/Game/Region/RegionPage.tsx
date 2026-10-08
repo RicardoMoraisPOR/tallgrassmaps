@@ -7,7 +7,7 @@ import { useMapLayout } from '@/stores/settings';
 
 import { GameAside } from '../GameAside';
 import { mapFrameProps, useMapFrame } from '../mapFrame';
-import { collectPlaces } from '../places';
+import { collectPlaces, placeGroupsFor } from '../places';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { MapLegend } from './MapLegend';
 import { PlaceList } from './PlaceList';
@@ -73,10 +73,11 @@ export const RegionPage = () => {
           <PokedexCard game={game} region={region} />
           <PlaceList
             places={collectPlaces(region, game.id)}
+            placeGroups={placeGroupsFor(region)}
             href={href}
             className={immersive ? 'min-h-48 flex-1' : 'lg:min-h-0 lg:flex-1'}
           />
-          <MapLegend />
+          <MapLegend placeGroups={placeGroupsFor(region)} />
         </GameAside>
       </div>
       <Pokedex game={game} region={region} href={href} />

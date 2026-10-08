@@ -3,10 +3,16 @@ import { Link } from 'react-router';
 
 import { Button } from '@/components/ui/button';
 import type { Game } from '@/data/games';
+import type { Encounter } from '@/data/pokedex/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
-import { chanceLabel, levelLabel, methodLabel } from '../Pokedex/format';
+import {
+  alphaLabel,
+  chanceLabel,
+  levelLabel,
+  methodLabel,
+} from '../Pokedex/format';
 import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import {
@@ -60,6 +66,7 @@ type EncounterListProps = {
 
 type EncounterRowProps = Omit<EncounterListProps, 'game' | 'rows'> & {
   row: EncounterRowData;
+  encounters: Array<Encounter>;
   sprite: PokemonSprite;
 };
 
@@ -90,10 +97,11 @@ export const EncounterList = ({
         options.compact && 'divide-y divide-border/60',
       )}
     >
-      {rows.map((row) => (
+      {groupBySpecies(rows).map(({ row, encounters }) => (
         <EncounterRow
           key={row.entry.number}
           row={row}
+          encounters={encounters}
           sprite={spriteFor(row.entry.number)}
           {...options}
         />
@@ -102,8 +110,42 @@ export const EncounterList = ({
   );
 };
 
+const groupBySpecies = (rows: Array<EncounterRowData>) =>
+  rows.reduce<Array<{ row: EncounterRowData; encounters: Array<Encounter> }>>(
+    (groups, row) => {
+      const group = groups.find(
+        ({ row: first }) => first.entry.number === row.entry.number,
+      );
+
+      if (group) group.encounters.push(row.encounter);
+      else groups.push({ row, encounters: [row.encounter] });
+
+      return groups;
+    },
+    [],
+  );
+
+const detailLines = (encounters: Array<Encounter>) => {
+  const notes = new Set<string>();
+  const single = encounters.length === 1;
+
+  return encounters.flatMap((encounter) => {
+    const note =
+      encounter.note && !notes.has(encounter.note) ? encounter.note : undefined;
+
+    if (note) notes.add(note);
+
+    return [
+      ...(!single && encounter.levels ? [levelLabel(encounter)] : []),
+      alphaLabel(encounter),
+      note,
+    ].filter((line): line is string => Boolean(line));
+  });
+};
+
 const EncounterRow = ({
   row,
+  encounters,
   sprite,
   compact = false,
   linked = false,
@@ -113,6 +155,7 @@ const EncounterRow = ({
   const { entry, encounter } = row;
   const highlightKey = highlightKeyFor?.(row);
   const chance = chanceLabel(encounter);
+  const details = detailLines(encounters);
 
   const nameClassName = cn(
     'truncate font-medium',
@@ -163,11 +206,14 @@ const EncounterRow = ({
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <div className="flex min-w-0 items-center gap-2">
           {pokemonName}
-          <span className="shrink-0 text-xs text-muted-foreground">
-            {levelLabel(encounter)}
-          </span>
+          {encounters.length === 1 && (
+            <span className="shrink-0 text-xs text-muted-foreground">
+              {levelLabel(encounter)}
+            </span>
+          )}
         </div>
         <PokemonTypeTags types={entry.types} />
+        {details && <p className="text-xs text-muted-foreground">{details}</p>}
       </div>
       {chance && (
         <span

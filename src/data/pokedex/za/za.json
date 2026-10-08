@@ -75,7 +75,29 @@
     "id": 10,
     "number": 661,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "levels": [3, 4],
+        "note": "Ground level",
+        "alpha": {
+          "chance": 5,
+          "levels": [15, 16]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "note": "Stone building roof",
+        "alpha": {
+          "chance": 100,
+          "levels": [30, 31]
+        }
+      }
+    ]
   },
   {
     "id": 11,
@@ -93,7 +115,30 @@
     "id": 13,
     "number": 659,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "levels": [3, 4],
+        "note": "Ground level",
+        "alpha": {
+          "chance": 5,
+          "levels": [15, 16]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [11, 13],
+        "note": "South-western garden",
+        "alpha": {
+          "chance": 5,
+          "levels": [23, 25]
+        }
+      }
+    ]
   },
   {
     "id": 14,
@@ -105,13 +150,37 @@
     "id": 15,
     "number": 664,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "levels": [3, 4],
+        "note": "Ground level",
+        "alpha": {
+          "chance": 5,
+          "levels": [15, 16]
+        }
+      }
+    ]
   },
   {
     "id": 16,
     "number": 665,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-4",
+        "games": ["legends-za"],
+        "levels": [9, 10],
+        "note": "North-western corner, day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [21, 22]
+        }
+      }
+    ]
   },
   {
     "id": 17,
@@ -123,13 +192,37 @@
     "id": 18,
     "number": 13,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "levels": [3, 4],
+        "note": "Ground level and rooftops",
+        "alpha": {
+          "chance": 5,
+          "levels": [15, 16]
+        }
+      }
+    ]
   },
   {
     "id": 19,
     "number": 14,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "levels": [7, 8],
+        "note": "Trees",
+        "alpha": {
+          "chance": 5,
+          "levels": [19, 20]
+        }
+      }
+    ]
   },
   {
     "id": 20,
@@ -146,13 +239,58 @@
     "id": 21,
     "number": 16,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "levels": [3, 5],
+        "note": "Rooftops",
+        "alpha": {
+          "chance": 5,
+          "levels": [15, 17]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "note": "Right rooftop, needs Rock Smash",
+        "alpha": {
+          "chance": 100,
+          "levels": [24, 26]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [11, 13],
+        "note": "Rooftops and middle road",
+        "alpha": {
+          "chance": 5,
+          "levels": [23, 25]
+        }
+      }
+    ]
   },
   {
     "id": 22,
     "number": 17,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [18, 20],
+        "note": "Rooftops",
+        "alpha": {
+          "chance": 5,
+          "levels": [30, 32]
+        }
+      }
+    ]
   },
   {
     "id": 23,
@@ -169,13 +307,37 @@
     "id": 24,
     "number": 179,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "levels": [3, 5],
+        "note": "Ground level",
+        "alpha": {
+          "chance": 5,
+          "levels": [15, 16]
+        }
+      }
+    ]
   },
   {
     "id": 25,
     "number": 180,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "levels": [19, 20],
+        "note": "Rooftops",
+        "alpha": {
+          "chance": 5,
+          "levels": [31, 32]
+        }
+      }
+    ]
   },
   {
     "id": 26,
@@ -192,7 +354,30 @@
     "id": 27,
     "number": 504,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "levels": [5, 7],
+        "note": "Ground",
+        "alpha": {
+          "chance": 5,
+          "levels": [17, 19]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-4",
+        "games": ["legends-za"],
+        "levels": [8, 9],
+        "note": "North-western and north-eastern corners",
+        "alpha": {
+          "chance": 5,
+          "levels": [20, 21]
+        }
+      }
+    ]
   },
   {
     "id": 28,
@@ -204,7 +389,19 @@
     "id": 29,
     "number": 406,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "levels": [5, 6],
+        "note": "Ground",
+        "alpha": {
+          "chance": 5,
+          "levels": [17, 18]
+        }
+      }
+    ]
   },
   {
     "id": 30,
@@ -222,7 +419,40 @@
     "id": 32,
     "number": 129,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "levels": [5, 7],
+        "note": "Water, jumps on the bridge",
+        "alpha": {
+          "chance": 5,
+          "levels": [17, 19]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "note": "South-eastern bank of the plaza, day only",
+        "alpha": {
+          "chance": 100,
+          "levels": [30, 32]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "levels": [17, 20],
+        "note": "Water",
+        "alpha": {
+          "chance": 5,
+          "levels": [29, 32]
+        }
+      }
+    ]
   },
   {
     "id": 33,
@@ -239,7 +469,40 @@
     "id": 34,
     "number": 688,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "levels": [5, 8],
+        "note": "Ground",
+        "alpha": {
+          "chance": 5,
+          "levels": [17, 20]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "levels": [19, 20],
+        "note": "Area beneath the bridge",
+        "alpha": {
+          "chance": 5,
+          "levels": [31, 32]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "note": "Beneath the bridge, northern area",
+        "alpha": {
+          "chance": 100,
+          "levels": [32, 34]
+        }
+      }
+    ]
   },
   {
     "id": 35,
@@ -257,7 +520,29 @@
     "id": 36,
     "number": 120,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "levels": [5, 7],
+        "note": "South-eastern island, night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [17, 19]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-2",
+        "games": ["legends-za"],
+        "note": "South-eastern bank of the plaza, night only",
+        "alpha": {
+          "chance": 100,
+          "levels": [30, 32]
+        }
+      }
+    ]
   },
   {
     "id": 37,
@@ -275,7 +560,19 @@
     "id": 38,
     "number": 669,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "levels": [5, 7],
+        "note": "Middle area",
+        "alpha": {
+          "chance": 5,
+          "levels": [17, 19]
+        }
+      }
+    ]
   },
   {
     "id": 39,
@@ -299,7 +596,19 @@
     "id": 41,
     "number": 672,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "levels": [6, 8],
+        "note": "South-western garden",
+        "alpha": {
+          "chance": 5,
+          "levels": [18, 20]
+        }
+      }
+    ]
   },
   {
     "id": 42,
@@ -311,7 +620,19 @@
     "id": 43,
     "number": 677,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "levels": [7, 8],
+        "note": "North-eastern garden",
+        "alpha": {
+          "chance": 5,
+          "levels": [19, 20]
+        }
+      }
+    ]
   },
   {
     "id": 44,
@@ -330,7 +651,29 @@
     "id": 45,
     "number": 667,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "levels": [6, 8],
+        "note": "North-western garden",
+        "alpha": {
+          "chance": 5,
+          "levels": [18, 20]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "note": "Sleeping in the building on the west side",
+        "alpha": {
+          "chance": 100,
+          "levels": [23, 24]
+        }
+      }
+    ]
   },
   {
     "id": 46,
@@ -348,7 +691,19 @@
     "id": 47,
     "number": 674,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "levels": [7, 8],
+        "note": "North-western garden",
+        "alpha": {
+          "chance": 5,
+          "levels": [19, 20]
+        }
+      }
+    ]
   },
   {
     "id": 48,
@@ -378,13 +733,47 @@
     "id": 52,
     "number": 172,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-1",
+        "games": ["legends-za"],
+        "levels": [4, 5],
+        "note": "Ground level and beyond the lake",
+        "alpha": {
+          "chance": 5,
+          "levels": [16, 17]
+        }
+      }
+    ]
   },
   {
     "id": 53,
     "number": 25,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "levels": [6, 8],
+        "note": "South-eastern garden",
+        "alpha": {
+          "chance": 5,
+          "levels": [18, 20]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "note": "Café Bataille roof, night only",
+        "alpha": {
+          "chance": 100,
+          "levels": [40, 42]
+        }
+      }
+    ]
   },
   {
     "id": 54,
@@ -434,7 +823,29 @@
     "id": 58,
     "number": 167,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-4",
+        "games": ["legends-za"],
+        "levels": [7, 8],
+        "note": "Southern side",
+        "alpha": {
+          "chance": 5,
+          "levels": [19, 20]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-4",
+        "games": ["legends-za"],
+        "note": "Large crypt on the south side",
+        "alpha": {
+          "chance": 100,
+          "levels": [20, 21]
+        }
+      }
+    ]
   },
   {
     "id": 59,
@@ -446,7 +857,19 @@
     "id": 60,
     "number": 23,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-4",
+        "games": ["legends-za"],
+        "levels": [8, 10],
+        "note": "North-western corner, day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [20, 22]
+        }
+      }
+    ]
   },
   {
     "id": 61,
@@ -458,7 +881,19 @@
     "id": 62,
     "number": 63,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [12, 14],
+        "note": "Rooftops",
+        "alpha": {
+          "chance": 5,
+          "levels": [24, 26]
+        }
+      }
+    ]
   },
   {
     "id": 63,
@@ -481,7 +916,19 @@
     "id": 65,
     "number": 92,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-4",
+        "games": ["legends-za"],
+        "levels": [9, 10],
+        "note": "Throughout the zone",
+        "alpha": {
+          "chance": 5,
+          "levels": [21, 22]
+        }
+      }
+    ]
   },
   {
     "id": 66,
@@ -504,13 +951,36 @@
     "id": 68,
     "number": 543,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [14, 15],
+        "note": "South-western and south-eastern gardens",
+        "alpha": {
+          "chance": 5,
+          "levels": [26, 27]
+        }
+      }
+    ]
   },
   {
     "id": 69,
     "number": 544,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "note": "Near the south-eastern entrance",
+        "alpha": {
+          "chance": 100,
+          "levels": [27, 28]
+        }
+      }
+    ]
   },
   {
     "id": 70,
@@ -528,7 +998,19 @@
     "id": 71,
     "number": 679,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-4",
+        "games": ["legends-za"],
+        "levels": [10, 11],
+        "note": "South-western corner, night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [22, 23]
+        }
+      }
+    ]
   },
   {
     "id": 72,
@@ -546,7 +1028,29 @@
     "id": 74,
     "number": 69,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [11, 13],
+        "note": "Middle road and north-western corner",
+        "alpha": {
+          "chance": 5,
+          "levels": [23, 25]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "note": "Bleu Street",
+        "alpha": {
+          "chance": 100,
+          "levels": [24, 25]
+        }
+      }
+    ]
   },
   {
     "id": 75,
@@ -606,7 +1110,19 @@
     "id": 83,
     "number": 307,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "levels": [19, 20],
+        "note": "Battle court, day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [31, 32]
+        }
+      }
+    ]
   },
   {
     "id": 84,
@@ -623,7 +1139,19 @@
     "id": 85,
     "number": 309,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [16, 19],
+        "note": "Rooftops",
+        "alpha": {
+          "chance": 5,
+          "levels": [28, 31]
+        }
+      }
+    ]
   },
   {
     "id": 86,
@@ -674,7 +1202,19 @@
     "id": 91,
     "number": 228,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "levels": [17, 18],
+        "note": "Road",
+        "alpha": {
+          "chance": 5,
+          "levels": [29, 30]
+        }
+      }
+    ]
   },
   {
     "id": 92,
@@ -685,13 +1225,36 @@
         "stone": "Houndoominite"
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "note": "Sleeping by the market stalls",
+        "alpha": {
+          "chance": 100,
+          "levels": [32, 33]
+        }
+      }
+    ]
   },
   {
     "id": 93,
     "number": 333,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "levels": [17, 19],
+        "note": "Rooftops",
+        "alpha": {
+          "chance": 5,
+          "levels": [29, 31]
+        }
+      }
+    ]
   },
   {
     "id": 94,
@@ -725,7 +1288,11 @@
     "id": 97,
     "number": 683,
     "games": ["legends-za"],
-    "evolvesFrom": { "number": 682, "method": "trade", "item": "Sachet" },
+    "evolvesFrom": {
+      "number": 682,
+      "method": "trade",
+      "item": "Sachet"
+    },
     "encounters": []
   },
   {
@@ -803,7 +1370,19 @@
     "id": 109,
     "number": 427,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-6",
+        "games": ["legends-za"],
+        "levels": [17, 18],
+        "note": "Road area near the south-eastern gate",
+        "alpha": {
+          "chance": 5,
+          "levels": [29, 30]
+        }
+      }
+    ]
   },
   {
     "id": 110,
@@ -1051,7 +1630,11 @@
     "id": 139,
     "number": 199,
     "games": ["legends-za"],
-    "evolvesFrom": { "number": 79, "method": "trade", "item": "King's Rock" },
+    "evolvesFrom": {
+      "number": 79,
+      "method": "trade",
+      "item": "King's Rock"
+    },
     "encounters": []
   },
   {
@@ -1345,7 +1928,11 @@
     "id": 177,
     "number": 212,
     "games": ["legends-za"],
-    "evolvesFrom": { "number": 123, "method": "trade", "item": "Metal Coat" },
+    "evolvesFrom": {
+      "number": 123,
+      "method": "trade",
+      "item": "Metal Coat"
+    },
     "megas": [
       {
         "stone": "Scizorite"

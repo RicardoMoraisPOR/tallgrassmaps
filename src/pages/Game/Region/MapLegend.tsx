@@ -1,26 +1,24 @@
+import type { PlaceGroups } from '@/data/maps';
+
 import { PlaceIcon } from './PlaceIcon';
 
-export const MapLegend = () => {
+export const MapLegend = ({ placeGroups }: { placeGroups: PlaceGroups }) => {
+  const { groups, legend = groups.map(({ id }) => id) } = placeGroups;
+
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
-      <LegendItem group="town">Town</LegendItem>
-      <LegendItem group="landmark">Landmark</LegendItem>
-      <LegendItem group="route">Route</LegendItem>
-    </div>
-  );
-};
+      {legend.flatMap((id) => {
+        const group = groups.find((entry) => entry.id === id);
 
-const LegendItem = ({
-  group,
-  children,
-}: {
-  group: 'town' | 'landmark' | 'route';
-  children: string;
-}) => {
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      <PlaceIcon group={group} />
-      {children}
-    </span>
+        return group
+          ? [
+              <span key={id} className="inline-flex items-center gap-1.5">
+                <PlaceIcon shape={group.icon} />
+                {group.singular}
+              </span>,
+            ]
+          : [];
+      })}
+    </div>
   );
 };

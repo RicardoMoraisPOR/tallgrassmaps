@@ -18,6 +18,11 @@ export type EncounterFloor = {
   chance?: [number, number];
 };
 
+export type EncounterAlpha = {
+  chance: number;
+  levels?: [number, number];
+};
+
 export type Encounter = {
   method: EncounterMethod;
   path: string | null;
@@ -25,6 +30,8 @@ export type Encounter = {
   levels?: [number, number];
   chance?: [number, number];
   tradeFor?: number;
+  alpha?: EncounterAlpha;
+  note?: string;
   floors?: Array<EncounterFloor>;
 };
 

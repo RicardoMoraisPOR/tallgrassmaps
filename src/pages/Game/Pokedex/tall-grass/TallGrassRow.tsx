@@ -1,7 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 
 import { ChevronDown, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router';
 
 import { Collapse } from '@/components/Collapse';
 import { PlacesMap } from '@/components/map/PlacesMap';
@@ -11,14 +10,13 @@ import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
 import { ColorDot } from '../../ColorDot';
+import { EncounterPlaces } from '../EncounterPlaces';
 import {
   encounterPaths,
   encountersIn,
-  encounterSummary,
   evolutionSummary,
   gamesWithEntry,
   isObtainable,
-  placeName,
   placesMapLabel,
   tradeOnlyNote,
 } from '../entryDetails';
@@ -144,26 +142,15 @@ export const TallGrassRow = ({
               />
             )}
             <ul className="flex flex-col divide-y rounded-lg border text-[13px]">
-              {encounters.map((encounter) => (
-                <li
-                  key={`${encounter.method}-${encounter.path}-${encounter.tradeFor}`}
-                  className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 px-3 py-2"
-                >
-                  {encounter.path ? (
-                    <Link
-                      to={href(encounter.path)}
-                      className="font-medium underline-offset-3 hover:underline"
-                    >
-                      {placeName(region, encounter.path)}
-                    </Link>
-                  ) : (
-                    <span className="font-medium">Any water</span>
-                  )}
-                  <span className="text-muted-foreground">
-                    {encounterSummary(encounter, nameOf)}
-                  </span>
-                </li>
-              ))}
+              <EncounterPlaces
+                encounters={encounters}
+                region={region}
+                href={href}
+                nameOf={nameOf}
+                placeClassName="font-medium"
+                lineClassName="text-muted-foreground"
+                noteClassName="text-xs"
+              />
               {evolution && (
                 <li className="px-3 py-2 text-muted-foreground">{evolution}</li>
               )}

@@ -795,3 +795,33 @@
   animation: none;
   mix-blend-mode: normal;
 }
+
+.zone-tooltip {
+  display: flex;
+  align-items: baseline;
+  padding: 0.45em 1em;
+  border: 0;
+  border-radius: 2px 0.9em 2px 0.9em;
+  background: #fbfbfb;
+  color: #37354a;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.25);
+}
+
+.zone-tooltip::before {
+  display: none;
+}
+
+.zone-tooltip-number {
+  margin-left: 0.35em;
+  font-size: 1.5em;
+}
+
+path.leaflet-interactive:focus {
+  outline: none;
+}
