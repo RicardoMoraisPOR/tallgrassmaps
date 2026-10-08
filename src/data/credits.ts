@@ -148,7 +148,8 @@ export const dataCredits: Array<Credit> = [
     name: 'Bulbapedia',
     url: 'https://bulbapedia.bulbagarden.net/',
     by: 'the Bulbagarden community',
-    detail: 'Pokémon availability, and the Pokédex links',
+    detail:
+      'Pokémon availability in Red, Blue, Yellow and Legends Z-A, Mega Evolutions and Mega Stones, and the Pokédex links',
   },
   {
     name: 'Serebii.net',
@@ -175,6 +176,18 @@ export const fontCredits: Array<Credit> = [
     name: 'Press Start 2P',
     url: 'https://fonts.google.com/specimen/Press+Start+2P',
     by: 'CodeMan38',
+    detail: 'SIL Open Font License 1.1',
+  },
+  {
+    name: 'Barlow',
+    url: 'https://fonts.google.com/specimen/Barlow',
+    by: 'Jeremy Tribby',
+    detail: 'SIL Open Font License 1.1',
+  },
+  {
+    name: 'Michroma',
+    url: 'https://fonts.google.com/specimen/Michroma',
+    by: 'Vernon Adams',
     detail: 'SIL Open Font License 1.1',
   },
   {
