@@ -65,7 +65,6 @@ export const SeamlessMapPage = () => {
               region={region}
               selected={zone?.id}
               onSelect={(target) => navigate(href(target))}
-              onLeave={() => navigate(href(''))}
               rightInset={immersive && desktop ? ASIDE_INSET : 0}
               zoomPosition={immersive ? 'bottomleft' : undefined}
               className="size-full"

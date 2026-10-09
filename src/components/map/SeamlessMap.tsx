@@ -31,7 +31,6 @@ import { mapIconArt } from './viewer/iconArt';
 
 const MIN_ZOOM = -8;
 const DOOR_SIZE = 26;
-const ZOOM_TOLERANCE = 0.05;
 const INTERACTION_MS = 1500;
 const NO_BOUNDS = latLngBounds([]);
 const MAX_ZOOM = 3;
@@ -114,25 +113,17 @@ type ZoneCameraProps = {
   zone: Zone | undefined;
   full: LatLngBounds;
   rightInset: number;
-  onLeave: () => void;
 };
 
-const ZoneCamera = ({ zone, full, rightInset, onLeave }: ZoneCameraProps) => {
+const ZoneCamera = ({ zone, full, rightInset }: ZoneCameraProps) => {
   const map = useMap();
   const animations = useSettingsStore((state) => state.animations);
   const arrived = useRef(false);
   const previous = useRef<Zone | null>(null);
   const flying = useRef(false);
   const silent = useRef(false);
-  const quiet = useRef(false);
   const moved = useRef(false);
   const interacting = useRef(false);
-  const landing = useRef({ center: map.getCenter(), zoom: map.getZoom() });
-  const leave = useRef(onLeave);
-
-  useEffect(() => {
-    leave.current = onLeave;
-  }, [onLeave]);
 
   const silently = useCallback((action: () => void) => {
     silent.current = true;
@@ -145,13 +136,6 @@ const ZoneCamera = ({ zone, full, rightInset, onLeave }: ZoneCameraProps) => {
   }, []);
 
   useEffect(() => {
-    if (quiet.current) {
-      quiet.current = false;
-      previous.current = zone ?? null;
-
-      return;
-    }
-
     const animate =
       arrived.current && animations && previous.current !== (zone ?? null);
 
@@ -175,7 +159,6 @@ const ZoneCamera = ({ zone, full, rightInset, onLeave }: ZoneCameraProps) => {
     const settle = () => {
       flying.current = false;
       moved.current = false;
-      landing.current = { center: map.getCenter(), zoom: map.getZoom() };
       silently(() => map.setMaxBounds(withInset(map, full, rightInset)));
     };
 
@@ -243,33 +226,6 @@ const ZoneCamera = ({ zone, full, rightInset, onLeave }: ZoneCameraProps) => {
   }, [full, map, rightInset, silently]);
 
   useEffect(() => {
-    if (!zone) return;
-
-    const { focus } = zone;
-    const reach = (focus.getEast() - focus.getWest()) / 2;
-    const watch = () => {
-      if (flying.current || silent.current || !interacting.current) return;
-
-      const { center, zoom } = landing.current;
-      const here = map.getCenter();
-      const away =
-        Math.abs(here.lng - center.lng) > reach ||
-        Math.abs(here.lat - center.lat) > reach;
-
-      if (away && map.getZoom() >= zoom - ZOOM_TOLERANCE) {
-        quiet.current = true;
-        leave.current();
-      }
-    };
-
-    map.on('moveend', watch);
-
-    return () => {
-      map.off('moveend', watch);
-    };
-  }, [zone, map]);
-
-  useEffect(() => {
     let initial = true;
     const observer = new ResizeObserver(() => {
       if (initial) {
@@ -290,7 +246,6 @@ const ZoneCamera = ({ zone, full, rightInset, onLeave }: ZoneCameraProps) => {
           const frame = frameFor(map, zone?.focus ?? full, full, rightInset);
 
           map.setView(frame.center, frame.zoom, { animate: false });
-          landing.current = { center: map.getCenter(), zoom: map.getZoom() };
         }
 
         map.setMaxBounds(withInset(map, full, rightInset));
@@ -338,7 +293,6 @@ type SeamlessMapProps = {
   region: Region;
   selected?: string;
   onSelect: (target: string) => void;
-  onLeave: () => void;
   rightInset?: number;
   zoomPosition?: ZoomPosition;
   className?: string;
@@ -348,7 +302,6 @@ export const SeamlessMap = ({
   region,
   selected,
   onSelect,
-  onLeave,
   rightInset = 0,
   zoomPosition,
   className,
@@ -399,12 +352,7 @@ export const SeamlessMap = ({
     >
       <MapZoomControls position={zoomPosition ?? 'topleft'} />
       <ImageOverlay url={region.image} bounds={full} />
-      <ZoneCamera
-        zone={current}
-        full={full}
-        rightInset={rightInset}
-        onLeave={onLeave}
-      />
+      <ZoneCamera zone={current} full={full} rightInset={rightInset} />
       {(getLocation(region, selected ?? '')?.doors ?? []).map(([x, y]) => (
         <DoorMarker key={`${selected}-${x}-${y}`} x={x} y={y} />
       ))}
