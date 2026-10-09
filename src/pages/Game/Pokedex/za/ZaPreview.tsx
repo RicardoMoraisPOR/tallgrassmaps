@@ -75,7 +75,7 @@ export const ZaPreview = ({
               title={stone}
               onClick={() => setActiveMega(active ? undefined : index)}
               className={cn(
-                'flex size-9 items-center justify-center rounded-lg border border-white/25 bg-(--za-tile) shadow-md shadow-black/25 outline-none transition-colors hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green) lg:size-14',
+                'flex size-7 items-center justify-center rounded-lg border border-white/25 bg-(--za-tile) shadow-md shadow-black/25 outline-none transition-colors hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green) lg:size-14',
                 active && 'border-white bg-white hover:bg-white',
               )}
             >
@@ -84,7 +84,7 @@ export const ZaPreview = ({
                 alt=""
                 width={40}
                 height={40}
-                className="size-6 object-contain lg:size-10"
+                className="size-5 object-contain lg:size-10"
               />
             </button>
           );
@@ -95,10 +95,10 @@ export const ZaPreview = ({
   return (
     <section
       aria-label={`${entry.name} entry`}
-      className="flex max-h-[60svh] flex-none flex-col gap-3 px-4 pb-3 lg:max-h-none lg:min-h-0 lg:w-[42%] lg:gap-4 lg:px-8 lg:pb-6"
+      className="flex max-h-[42svh] flex-none flex-col gap-2 px-4 pb-2 lg:max-h-none lg:min-h-0 lg:w-[42%] lg:gap-4 lg:px-8 lg:pb-6"
     >
-      <div className="flex flex-none items-start gap-4 lg:flex-col lg:items-center lg:gap-5">
-        <div className="relative size-29 flex-none lg:size-56">
+      <div className="flex flex-none items-start gap-3 lg:flex-col lg:items-center lg:gap-5">
+        <div className="relative size-20 flex-none lg:size-56">
           <m.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -158,19 +158,19 @@ export const ZaPreview = ({
             'absolute top-0 -right-16 z-10 hidden flex-col gap-2 lg:flex',
           )}
         </div>
-        <div className="flex min-w-0 flex-1 flex-col gap-2 lg:flex-none lg:items-center">
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5 lg:flex-none lg:items-center lg:gap-2">
           <m.span
             {...slideIn(0.12)}
-            className="inline-flex items-center gap-3 self-start rounded-md bg-(--za-deep)/80 py-1 pr-4 pl-3 text-lg font-bold tabular-nums lg:self-center"
+            className="inline-flex items-center gap-2 self-start rounded-md bg-(--za-deep)/80 py-0.5 pr-3 pl-2 text-base font-bold tabular-nums lg:gap-3 lg:self-center lg:py-1 lg:pr-4 lg:pl-3 lg:text-lg"
           >
-            <ZaBall className="size-5" />
-            <span aria-hidden className="h-5 w-px bg-white/40" />
+            <ZaBall className="size-4 lg:size-5" />
+            <span aria-hidden className="h-4 w-px bg-white/40 lg:h-5" />
             {String(entry.id).padStart(3, '0')}
           </m.span>
           <div className="flex min-w-0 items-center gap-2 lg:contents">
             <m.h3
               {...slideIn(0.18)}
-              className="min-w-0 truncate text-xl font-bold lg:text-3xl"
+              className="min-w-0 truncate text-lg font-bold lg:text-3xl"
             >
               {entry.name}
             </m.h3>
@@ -185,7 +185,7 @@ export const ZaPreview = ({
           </div>
           {stones('flex flex-none gap-2 lg:hidden')}
           {megas.length === 0 && (
-            <div aria-hidden className="h-9 flex-none lg:hidden" />
+            <div aria-hidden className="h-7 flex-none lg:hidden" />
           )}
         </div>
       </div>
@@ -193,7 +193,7 @@ export const ZaPreview = ({
         type="button"
         aria-expanded={detailsOpen}
         onClick={onToggleDetails}
-        className="group inline-flex flex-none items-center gap-2 self-center rounded-md text-base font-bold outline-none focus-visible:ring-2 focus-visible:ring-(--za-green) lg:hidden"
+        className="group inline-flex flex-none items-center gap-2 self-center rounded-md text-sm font-bold outline-none focus-visible:ring-2 focus-visible:ring-(--za-green) lg:hidden"
       >
         Check Entry
         <ChevronDown
@@ -207,7 +207,7 @@ export const ZaPreview = ({
         transition={transition(0.28, 0.5)}
         data-vaul-no-drag
         className={cn(
-          'min-h-0 flex-1 flex-col gap-4 overflow-y-auto rounded-xl border border-white/20 bg-black/25 p-4 lg:flex',
+          'min-h-0 flex-1 flex-col gap-3 overflow-y-auto rounded-xl border border-white/20 bg-black/25 p-3 lg:flex lg:gap-4 lg:p-4',
           detailsOpen ? 'flex' : 'hidden',
         )}
       >

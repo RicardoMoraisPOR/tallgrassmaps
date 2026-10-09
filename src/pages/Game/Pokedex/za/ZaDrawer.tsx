@@ -10,6 +10,8 @@ import {
   DrawerContent,
   DrawerHeader,
 } from '@/components/ui/drawer';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { DESKTOP_QUERY } from '@/lib/breakpoints';
 
 import type { PokedexDrawerProps } from '../types';
 
@@ -18,32 +20,36 @@ export const ZaDrawer = ({
   onClose,
   header,
   children,
-}: PokedexDrawerProps) => (
-  <Drawer
-    open={open}
-    onOpenChange={(next) => !next && onClose()}
-    direction="bottom"
-    handleOnly
-  >
-    <DrawerContent className="pokedex-za za-screen select-text! data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:h-svh data-[vaul-drawer-direction=bottom]:max-h-svh data-[vaul-drawer-direction=bottom]:rounded-none data-[vaul-drawer-direction=bottom]:border-0">
-      <div
-        aria-hidden
-        className="za-scanlines pointer-events-none absolute inset-0"
-      />
-      <DrawerHeader className="relative flex-row items-center justify-between px-5 py-4 sm:px-8">
-        {header}
-        <DrawerClose asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Close Pokédex"
-            className="hover:bg-white/15"
-          >
-            <X aria-hidden />
-          </Button>
-        </DrawerClose>
-      </DrawerHeader>
-      <div className="relative flex min-h-0 flex-1 flex-col">{children}</div>
-    </DrawerContent>
-  </Drawer>
-);
+}: PokedexDrawerProps) => {
+  const wide = useMediaQuery(DESKTOP_QUERY);
+
+  return (
+    <Drawer
+      open={open}
+      onOpenChange={(next) => !next && onClose()}
+      direction="bottom"
+      handleOnly={wide}
+    >
+      <DrawerContent className="pokedex-za za-screen select-text! data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:h-svh data-[vaul-drawer-direction=bottom]:max-h-svh data-[vaul-drawer-direction=bottom]:rounded-none data-[vaul-drawer-direction=bottom]:border-0">
+        <div
+          aria-hidden
+          className="za-scanlines pointer-events-none absolute inset-0"
+        />
+        <DrawerHeader className="relative flex-row items-center justify-between px-5 py-4 sm:px-8">
+          {header}
+          <DrawerClose asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Close Pokédex"
+              className="hover:bg-white/15"
+            >
+              <X aria-hidden />
+            </Button>
+          </DrawerClose>
+        </DrawerHeader>
+        <div className="relative flex min-h-0 flex-1 flex-col">{children}</div>
+      </DrawerContent>
+    </Drawer>
+  );
+};
