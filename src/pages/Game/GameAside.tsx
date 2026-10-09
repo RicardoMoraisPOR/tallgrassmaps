@@ -10,8 +10,14 @@ import {
 
 import type { LucideIcon } from 'lucide-react';
 import { AnimatePresence, m } from 'motion/react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { DESKTOP_QUERY, TABLET_QUERY } from '@/lib/breakpoints';
 import { easeOutSoft } from '@/lib/motion';
@@ -30,13 +36,17 @@ type CardInfo = {
 
 type AsideState = {
   immersive: boolean;
+  modal: boolean;
   isOpen: (id: string) => boolean;
+  close: (id: string) => void;
   register: (card: CardInfo) => () => void;
 };
 
 const AsideContext = createContext<AsideState>({
   immersive: false,
+  modal: false,
   isOpen: () => true,
+  close: () => {},
   register: () => () => {},
 });
 
@@ -63,6 +73,8 @@ export const GameAside = ({
   const tablet = useMediaQuery(TABLET_QUERY);
   const [desktop] = useState(() => window.matchMedia(DESKTOP_QUERY).matches);
   const [wasImmersive, setWasImmersive] = useState(immersive);
+  const { pathname } = useLocation();
+  const [wasPathname, setWasPathname] = useState(pathname);
 
   if (immersive !== wasImmersive) {
     setWasImmersive(immersive);
@@ -70,9 +82,19 @@ export const GameAside = ({
     if (immersive && !tablet) setOverrides({});
   }
 
+  if (pathname !== wasPathname) {
+    setWasPathname(pathname);
+
+    if (immersive && !tablet) setOverrides({});
+  }
+
   const isOpen = useCallback(
     (id: string) => overrides[id] ?? desktop,
     [overrides, desktop],
+  );
+  const close = useCallback(
+    (id: string) => setOverrides((current) => ({ ...current, [id]: false })),
+    [],
   );
   const register = useCallback((card: CardInfo) => {
     setCards((current) =>
@@ -83,8 +105,8 @@ export const GameAside = ({
       setCards((current) => current.filter(({ id }) => id !== card.id));
   }, []);
   const state = useMemo(
-    () => ({ immersive, isOpen, register }),
-    [immersive, isOpen, register],
+    () => ({ immersive, modal: immersive && !tablet, isOpen, close, register }),
+    [immersive, tablet, isOpen, close, register],
   );
 
   return (
@@ -189,7 +211,8 @@ export const AsideCard = ({
   className,
   children,
 }: AsideCardProps) => {
-  const { immersive, isOpen, register } = useContext(AsideContext);
+  const { immersive, modal, isOpen, close, register } =
+    useContext(AsideContext);
   const animations = useSettingsStore((state) => state.animations);
   const open = isOpen(label);
 
@@ -214,6 +237,27 @@ export const AsideCard = ({
   }
 
   if (to) return null;
+
+  if (modal)
+    return (
+      <Dialog open={open} onOpenChange={(next) => !next && close(label)}>
+        <DialogContent
+          showCloseButton={false}
+          className="top-[10svh] translate-y-0 gap-0 border-0 bg-transparent p-0 shadow-none ring-0"
+        >
+          <DialogTitle className="sr-only">{label}</DialogTitle>
+          <DialogDescription className="sr-only">{label}</DialogDescription>
+          <div
+            className={cn(
+              'flex max-h-[80svh] min-h-0 flex-col overflow-y-auto overscroll-contain',
+              className,
+            )}
+          >
+            {children}
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
 
   return (
     <m.div
