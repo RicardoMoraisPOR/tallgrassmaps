@@ -9,6 +9,8 @@ import {
   Eraser,
   Flag,
   Hexagon,
+  MousePointerClick,
+  Plus,
   Undo2,
 } from 'lucide-react';
 import {
@@ -40,6 +42,10 @@ const START_CENTER: Point = [2450, 3820];
 const START_ZOOM = 0;
 const MAX_ZOOM = 4;
 const SHAPE_COLOR = '#07b85e';
+const ANCHOR_TOLERANCE_PX = 14;
+const toolbarButton =
+  'pointer-events-auto bg-background hover:bg-muted dark:bg-background dark:hover:bg-muted';
+const activeToolbarButton = 'pointer-events-auto hover:bg-primary';
 const CIRCLE_STEPS = 48;
 
 const pointIcon = divIcon({
@@ -65,10 +71,46 @@ const circleOutline = (center: Point, radius: number): Array<Point> =>
 const formatPoints = (points: Array<Point>) =>
   `[\n${points.map(([x, y]) => `  [${x}, ${y}],`).join('\n')}\n]`;
 
-const ClickToAdd = ({ onAdd }: { onAdd: (point: Point) => void }) => {
-  useMapEvents({
+const nearestEdge = (points: Array<Point>, [px, py]: Point) => {
+  const edges = points.length >= 3 ? points.length : points.length - 1;
+  let best: { index: number; point: Point; distance: number } | undefined;
+
+  for (let i = 0; i < edges; i++) {
+    const [ax, ay] = points[i];
+    const [bx, by] = points[(i + 1) % points.length];
+    const dx = bx - ax;
+    const dy = by - ay;
+    const lengthSquared = dx * dx + dy * dy;
+    const t =
+      lengthSquared === 0
+        ? 0
+        : Math.max(
+            0,
+            Math.min(1, ((px - ax) * dx + (py - ay) * dy) / lengthSquared),
+          );
+    const x = ax + t * dx;
+    const y = ay + t * dy;
+    const distance = Math.hypot(px - x, py - y);
+
+    if (!best || distance < best.distance) {
+      best = { index: i + 1, point: [Math.round(x), Math.round(y)], distance };
+    }
+  }
+
+  return best;
+};
+
+const ClickToAdd = ({
+  onAdd,
+}: {
+  onAdd: (point: Point, unitsPerPixel: number) => void;
+}) => {
+  const map = useMapEvents({
     click: ({ latlng }) =>
-      onAdd([Math.round(latlng.lng), Math.round(-latlng.lat)]),
+      onAdd(
+        [Math.round(latlng.lng), Math.round(-latlng.lat)],
+        1 / 2 ** map.getZoom(),
+      ),
   });
 
   return null;
@@ -78,6 +120,8 @@ export const MapMakerPage = () => {
   const region = getRegion(REGION_ID);
   const [mode, setMode] = useState<Mode>('polygon');
   const [points, setPoints] = useState<Array<Point>>([]);
+  const [anchorMode, setAnchorMode] = useState(false);
+  const [selecting, setSelecting] = useState(false);
   const [showReference, setShowReference] = useState(true);
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -95,18 +139,44 @@ export const MapMakerPage = () => {
       : undefined;
   const shape = circle ? circleOutline(circle.center, circle.radius) : points;
   const positions = shape.map(([x, y]) => toLatLng(x, y));
+  const anchoring = anchorMode && mode === 'polygon' && points.length >= 2;
   const complete = circle ? true : mode === 'polygon' && points.length >= 3;
   const data = circle
     ? `{\n  "center": [${circle.center.join(', ')}],\n  "radius": ${circle.radius},\n  "outline": ${formatPoints(shape).replaceAll('\n', '\n  ')}\n}`
     : formatPoints(points);
 
-  const addPoint = (point: Point) =>
+  const addPoint = (point: Point, unitsPerPixel: number) => {
+    if (selecting) return;
+
+    if (anchoring) {
+      const edge = nearestEdge(points, point);
+
+      if (edge && edge.distance <= ANCHOR_TOLERANCE_PX * unitsPerPixel) {
+        setPoints((current) => [
+          ...current.slice(0, edge.index),
+          edge.point,
+          ...current.slice(edge.index),
+        ]);
+      }
+
+      return;
+    }
+
     setPoints((current) =>
       mode === 'circle' && current.length >= 2 ? [point] : [...current, point],
     );
+  };
+
+  const copyShape = (outline: Array<Point>) => {
+    setSelecting(false);
+    setMode('polygon');
+    setPoints(outline.map(([x, y]) => [x, y]));
+  };
 
   const switchMode = (next: Mode) => {
     setMode(next);
+    setAnchorMode(false);
+    setSelecting(false);
     setPoints([]);
   };
 
@@ -143,14 +213,15 @@ export const MapMakerPage = () => {
         {showReference &&
           references.map(({ target, outline }) => (
             <Polygon
-              key={target}
+              key={`${target}-${selecting}`}
               positions={outline.map(([x, y]) => toLatLng(x, y))}
-              interactive={false}
+              interactive={selecting}
+              eventHandlers={{ click: () => copyShape(outline) }}
               pathOptions={{
                 color: '#e11d48',
                 weight: 2,
                 dashArray: '6 6',
-                fill: false,
+                fillOpacity: 0,
               }}
             />
           ))}
@@ -192,30 +263,58 @@ export const MapMakerPage = () => {
       </MapContainer>
       <div className="pointer-events-none absolute top-3 right-3 left-16 z-[1000] flex flex-wrap items-center justify-end gap-2">
         <p className="pointer-events-auto mr-auto rounded-lg bg-background/90 px-3 py-1.5 text-sm shadow ring-1 ring-foreground/10">
-          {mode === 'circle'
-            ? 'Click the center, then click the edge. Drag either point to adjust.'
-            : 'Click to add a point, drag a point to move it, right-click a point to remove it.'}{' '}
+          {selecting
+            ? 'Click an existing shape to copy it.'
+            : mode === 'circle'
+              ? 'Click the center, then click the edge. Drag either point to adjust.'
+              : anchoring
+                ? 'Click on the shape edge to insert a point there.'
+                : 'Click to add a point, drag a point to move it, right-click a point to remove it.'}{' '}
           <span className="font-semibold tabular-nums">{points.length}</span>{' '}
           points
         </p>
         <Button
           variant="outline"
-          className="pointer-events-auto bg-background dark:bg-background"
+          className={toolbarButton}
           onClick={() => switchMode(mode === 'circle' ? 'polygon' : 'circle')}
         >
           {mode === 'circle' ? <Hexagon /> : <Circle />}
           {mode === 'circle' ? 'Polygon mode' : 'Circle mode'}
         </Button>
         <Button
+          variant={anchoring ? 'default' : 'outline'}
+          className={anchoring ? activeToolbarButton : toolbarButton}
+          disabled={mode === 'circle' || points.length < 2}
+          aria-pressed={anchoring}
+          onClick={() => {
+            setSelecting(false);
+            setAnchorMode((current) => !current);
+          }}
+        >
+          <Plus /> Add anchor point
+        </Button>
+        <Button
+          variant={selecting ? 'default' : 'outline'}
+          className={selecting ? activeToolbarButton : toolbarButton}
+          aria-pressed={selecting}
+          onClick={() => {
+            setAnchorMode(false);
+            setShowReference(true);
+            setSelecting((current) => !current);
+          }}
+        >
+          <MousePointerClick /> Select existing shape
+        </Button>
+        <Button
           variant="outline"
-          className="pointer-events-auto bg-background dark:bg-background"
+          className={toolbarButton}
           onClick={() => setShowReference((current) => !current)}
         >
           {showReference ? 'Hide' : 'Show'} existing shapes
         </Button>
         <Button
           variant="outline"
-          className="pointer-events-auto bg-background dark:bg-background"
+          className={toolbarButton}
           disabled={points.length === 0}
           onClick={() => setPoints((current) => current.slice(0, -1))}
         >
@@ -223,14 +322,14 @@ export const MapMakerPage = () => {
         </Button>
         <Button
           variant="outline"
-          className="pointer-events-auto bg-background dark:bg-background"
+          className={toolbarButton}
           disabled={points.length === 0}
           onClick={() => setPoints([])}
         >
           <Eraser /> Clear
         </Button>
         <Button
-          className="pointer-events-auto"
+          className={activeToolbarButton}
           disabled={!complete}
           onClick={() => setOpen(true)}
         >
