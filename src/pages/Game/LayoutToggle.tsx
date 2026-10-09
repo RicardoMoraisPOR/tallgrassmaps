@@ -25,7 +25,7 @@ export const LayoutToggle = ({ versionGroup }: { versionGroup: string }) => {
         captureMapFrame();
         setLayout(versionGroup, immersive ? 'minimalist' : 'immersive');
       }}
-      className="absolute top-4 right-4 z-30 flex size-9 items-center justify-center rounded-[14px] border bg-card text-muted-foreground outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+      className="absolute top-4 right-4 z-30 flex size-12 items-center justify-center rounded-[14px] border bg-card text-muted-foreground outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 md:size-9"
     >
       <AnimatePresence mode="wait" initial={false}>
         <m.span
@@ -36,7 +36,7 @@ export const LayoutToggle = ({ versionGroup }: { versionGroup: string }) => {
           transition={{ duration: animations ? 0.15 : 0 }}
           className="flex"
         >
-          <Icon aria-hidden className="size-4" />
+          <Icon aria-hidden className="size-5 md:size-4" />
         </m.span>
       </AnimatePresence>
     </button>

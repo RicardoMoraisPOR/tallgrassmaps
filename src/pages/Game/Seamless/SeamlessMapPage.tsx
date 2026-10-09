@@ -1,3 +1,4 @@
+import { BookOpen, MapPin } from 'lucide-react';
 import { AnimatePresence, m } from 'motion/react';
 import { useNavigate } from 'react-router';
 
@@ -10,11 +11,10 @@ import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-import { GameAside } from '../GameAside';
+import { AsideCard, GameAside } from '../GameAside';
 import { useMapFrame } from '../mapFrame';
 import { collectPlaces, placeGroupsFor } from '../places';
 import { Pokedex } from '../Pokedex/Pokedex';
-import { MapLegend } from '../Region/MapLegend';
 import { PlaceList } from '../Region/PlaceList';
 import { PokedexCard } from '../Region/PokedexCard';
 import { ZonePanel } from './ZonePanel';
@@ -87,20 +87,20 @@ export const SeamlessMapPage = () => {
                   region={region}
                   zone={zone}
                   href={href}
-                  immersive={immersive}
                 />
               ) : (
                 <>
-                  <PokedexCard game={game} region={region} />
-                  <PlaceList
-                    places={collectPlaces(region, game.id)}
-                    placeGroups={placeGroupsFor(region)}
-                    href={href}
-                    className={
-                      immersive ? 'min-h-48 flex-1' : 'lg:min-h-0 lg:flex-1'
-                    }
-                  />
-                  <MapLegend placeGroups={placeGroupsFor(region)} />
+                  <AsideCard icon={BookOpen} label="Pokédex">
+                    <PokedexCard game={game} region={region} />
+                  </AsideCard>
+                  <AsideCard icon={MapPin} label="Places" grow>
+                    <PlaceList
+                      places={collectPlaces(region, game.id)}
+                      placeGroups={placeGroupsFor(region)}
+                      href={href}
+                      className="min-h-0 flex-1"
+                    />
+                  </AsideCard>
                 </>
               )}
             </m.div>

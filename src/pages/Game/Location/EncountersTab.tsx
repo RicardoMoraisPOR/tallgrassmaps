@@ -94,18 +94,22 @@ export const EncounterList = ({
     <ul
       className={cn(
         'flex flex-col',
-        options.compact && 'divide-y divide-border/60',
+        options.compact ? 'divide-y divide-border/60' : 'gap-2',
       )}
     >
-      {groupBySpecies(rows).map(({ row, encounters }) => (
-        <EncounterRow
-          key={row.entry.number}
-          row={row}
-          encounters={encounters}
-          sprite={spriteFor(row.entry.number)}
-          {...options}
-        />
-      ))}
+      {groupBySpecies(rows).map(({ row, encounters }) => {
+        const Row = options.compact ? EncounterRow : EncounterCard;
+
+        return (
+          <Row
+            key={row.entry.number}
+            row={row}
+            encounters={encounters}
+            sprite={spriteFor(row.entry.number)}
+            {...options}
+          />
+        );
+      })}
     </ul>
   );
 };
@@ -125,72 +129,98 @@ const groupBySpecies = (rows: Array<EncounterRowData>) =>
     [],
   );
 
+const levelRange = (encounters: Array<Encounter>) => {
+  const own = encounters.flatMap(({ levels }) => (levels ? [levels] : []));
+  const ranges =
+    own.length > 0
+      ? own
+      : encounters.flatMap(({ alpha }) =>
+          alpha?.levels ? [alpha.levels] : [],
+        );
+
+  if (ranges.length === 0) return undefined;
+
+  return levelLabel({
+    levels: [
+      Math.min(...ranges.map(([min]) => min)),
+      Math.max(...ranges.map(([, max]) => max)),
+    ],
+  } as Encounter);
+};
+
+const sharedChance = (encounters: Array<Encounter>) => {
+  const labels = encounters.map(chanceLabel);
+
+  return labels.every((label) => label === labels[0]) ? labels[0] : undefined;
+};
+
 const detailLines = (encounters: Array<Encounter>) => {
+  const [first] = encounters;
+
+  if (encounters.length === 1) {
+    return [alphaLabel(first), first.note].filter((line): line is string =>
+      Boolean(line),
+    );
+  }
+
+  const headline = levelRange(encounters);
+  const shared = sharedChance(encounters);
   const notes = new Set<string>();
-  const single = encounters.length === 1;
 
   return encounters.flatMap((encounter) => {
     const note =
       encounter.note && !notes.has(encounter.note) ? encounter.note : undefined;
+    const levels = levelLabel(encounter);
+    const chance = chanceLabel(encounter);
 
     if (note) notes.add(note);
 
-    return [
-      ...(!single && encounter.levels ? [levelLabel(encounter)] : []),
+    const line = [
+      levels !== headline ? levels : undefined,
       alphaLabel(encounter),
+      !shared && chance ? `${chance} chance` : undefined,
       note,
-    ].filter((line): line is string => Boolean(line));
+    ]
+      .filter(Boolean)
+      .join(' · ');
+
+    return line ? [line] : [];
   });
 };
+
+const highlightHandlersFor = (
+  highlightKey: string | undefined,
+  onHighlight: EncounterListProps['onHighlight'],
+) =>
+  highlightKey && onHighlight
+    ? {
+        onMouseEnter: () => onHighlight(highlightKey),
+        onMouseLeave: () => onHighlight(undefined),
+        onFocus: () => onHighlight(highlightKey),
+        onBlur: () => onHighlight(undefined),
+      }
+    : {};
 
 const EncounterRow = ({
   row,
   encounters,
   sprite,
-  compact = false,
   linked = false,
   highlightKeyFor,
   onHighlight,
 }: EncounterRowProps) => {
-  const { entry, encounter } = row;
-  const highlightKey = highlightKeyFor?.(row);
-  const chance = chanceLabel(encounter);
+  const { entry } = row;
+  const chance = sharedChance(encounters);
   const details = detailLines(encounters);
-
-  const nameClassName = cn(
-    'truncate font-medium',
-    compact ? 'text-[13px]' : 'text-sm',
+  const levels = levelRange(encounters);
+  const highlightHandlers = highlightHandlersFor(
+    highlightKeyFor?.(row),
+    onHighlight,
   );
-  const highlightHandlers =
-    highlightKey && onHighlight
-      ? {
-          onMouseEnter: () => onHighlight(highlightKey),
-          onMouseLeave: () => onHighlight(undefined),
-          onFocus: () => onHighlight(highlightKey),
-          onBlur: () => onHighlight(undefined),
-        }
-      : {};
-  const pokemonName = linked ? (
-    <PokedexEntryLink
-      number={entry.number}
-      className={nameClassName}
-      {...highlightHandlers}
-    >
-      {entry.name}
-    </PokedexEntryLink>
-  ) : (
-    <span className={nameClassName} {...highlightHandlers}>
-      {entry.name}
-    </span>
-  );
+  const nameClassName = 'truncate text-[13px] font-medium';
 
   return (
-    <li
-      className={cn(
-        'flex items-center',
-        compact ? 'gap-2 pt-1 pb-2' : 'gap-3 py-1.5',
-      )}
-    >
+    <li className="flex items-center gap-2 pt-1 pb-2">
       <img
         src={sprite.src}
         alt=""
@@ -198,34 +228,120 @@ const EncounterRow = ({
         height={96}
         loading="lazy"
         className={cn(
-          'flex-none object-contain',
-          compact ? 'size-9' : 'size-10',
+          'size-9 flex-none object-contain',
           sprite.pixelated && 'pixelated',
         )}
       />
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <div className="flex min-w-0 items-center gap-2">
-          {pokemonName}
-          {encounters.length === 1 && (
+          {linked ? (
+            <PokedexEntryLink
+              number={entry.number}
+              className={nameClassName}
+              {...highlightHandlers}
+            >
+              {entry.name}
+            </PokedexEntryLink>
+          ) : (
+            <span className={nameClassName} {...highlightHandlers}>
+              {entry.name}
+            </span>
+          )}
+          {levels && (
             <span className="shrink-0 text-xs text-muted-foreground">
-              {levelLabel(encounter)}
+              {levels}
             </span>
           )}
         </div>
         <PokemonTypeTags types={entry.types} />
-        {details && <p className="text-xs text-muted-foreground">{details}</p>}
+        {details.length > 0 && (
+          <p className="text-xs text-muted-foreground">{details.join(' · ')}</p>
+        )}
       </div>
       {chance && (
         <span
           title="Chance to appear here"
-          className={cn(
-            'font-medium tabular-nums',
-            compact ? 'text-[13px]' : 'text-sm',
-          )}
+          className="text-[13px] font-medium tabular-nums"
         >
           {chance}
           <span className="sr-only"> chance to appear</span>
         </span>
+      )}
+    </li>
+  );
+};
+
+const EncounterCard = ({
+  row,
+  encounters,
+  sprite,
+  linked = false,
+  highlightKeyFor,
+  onHighlight,
+}: EncounterRowProps) => {
+  const { entry } = row;
+  const chance = sharedChance(encounters);
+  const details = detailLines(encounters);
+  const levels = levelRange(encounters);
+
+  return (
+    <li
+      {...highlightHandlersFor(highlightKeyFor?.(row), onHighlight)}
+      className="flex flex-col gap-2.5 rounded-xl border bg-muted/30 p-2.5 transition-colors hover:bg-muted/60"
+    >
+      <div className="flex items-start gap-3">
+        <img
+          src={sprite.src}
+          alt=""
+          width={96}
+          height={96}
+          loading="lazy"
+          className={cn(
+            'size-14 flex-none rounded-lg bg-muted object-contain p-1',
+            sprite.pixelated && 'pixelated',
+          )}
+        />
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+          <div className="flex min-w-0 items-center gap-2">
+            {linked ? (
+              <PokedexEntryLink
+                number={entry.number}
+                className="truncate text-sm font-medium"
+              >
+                {entry.name}
+              </PokedexEntryLink>
+            ) : (
+              <span className="truncate text-sm font-medium">{entry.name}</span>
+            )}
+            {levels && (
+              <span className="shrink-0 text-xs text-muted-foreground">
+                {levels}
+              </span>
+            )}
+          </div>
+          <PokemonTypeTags types={entry.types} />
+        </div>
+        {chance && (
+          <span
+            title="Chance to appear here"
+            className="shrink-0 text-xs font-medium text-muted-foreground tabular-nums"
+          >
+            {chance}
+            <span className="sr-only"> chance to appear</span>
+          </span>
+        )}
+      </div>
+      {details.length === 1 && (
+        <p className="border-t pt-2 text-xs text-muted-foreground">
+          {details[0]}
+        </p>
+      )}
+      {details.length > 1 && (
+        <ul className="flex list-disc flex-col gap-0.5 border-t pt-2 pl-4 text-xs text-muted-foreground marker:text-muted-foreground/60">
+          {details.map((line, index) => (
+            <li key={`${index}-${line}`}>{line}</li>
+          ))}
+        </ul>
       )}
     </li>
   );

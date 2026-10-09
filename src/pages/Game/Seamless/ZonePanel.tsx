@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { MapPinned } from 'lucide-react';
+import { MapPinned, Info } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { Button } from '@/components/ui/button';
@@ -8,8 +8,8 @@ import type { Game } from '@/data/games';
 import type { Location, Region } from '@/data/maps';
 import { pokedexFor } from '@/data/pokedex';
 import { trainersFor } from '@/data/trainers';
-import { cn } from '@/lib/utils';
 
+import { AsideCard } from '../GameAside';
 import { encounterGroups } from '../Location/encounters';
 import { EncountersTab, OpenPokedexButton } from '../Location/EncountersTab';
 import {
@@ -26,16 +26,9 @@ type ZonePanelProps = {
   region: Region;
   zone: Location;
   href: (path: string) => string;
-  immersive: boolean;
 };
 
-export const ZonePanel = ({
-  game,
-  region,
-  zone,
-  href,
-  immersive,
-}: ZonePanelProps) => {
+export const ZonePanel = ({ game, region, zone, href }: ZonePanelProps) => {
   const [selected, setSelected] = useState<{ zone: string; key?: string }>({
     zone: zone.id,
   });
@@ -94,18 +87,19 @@ export const ZonePanel = ({
 
   return (
     <>
-      <div className="rounded-[14px] border bg-card p-3 max-sm:hidden">
-        <Button variant="outline" className="h-10 w-full" asChild>
-          <Link to={href('')}>
-            <MapPinned aria-hidden />
-            Show {region.name}
-          </Link>
-        </Button>
-      </div>
-      <LocationPanel
-        tabs={tabs}
-        className={cn(immersive ? 'min-h-48 flex-1' : 'lg:flex-1')}
-      />
+      <AsideCard icon={MapPinned} label={region.name}>
+        <div className="rounded-[14px] border bg-card p-3 max-sm:hidden">
+          <Button variant="outline" className="h-10 w-full" asChild>
+            <Link to={href('')}>
+              <MapPinned aria-hidden />
+              Show {region.name}
+            </Link>
+          </Button>
+        </div>
+      </AsideCard>
+      <AsideCard icon={Info} label="Zone info" grow>
+        <LocationPanel tabs={tabs} className="min-h-0 flex-1" />
+      </AsideCard>
       {pokedex && (
         <TrainerDialog
           listed={

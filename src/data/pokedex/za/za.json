@@ -3,7 +3,18 @@
     "id": 1,
     "number": 152,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 67]
+        }
+      }
+    ]
   },
   {
     "id": 2,
@@ -28,7 +39,18 @@
     "id": 4,
     "number": 498,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 67]
+        }
+      }
+    ]
   },
   {
     "id": 5,
@@ -53,7 +75,18 @@
     "id": 7,
     "number": 158,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 67]
+        }
+      }
+    ]
   },
   {
     "id": 8,
@@ -99,6 +132,16 @@
           "chance": 100,
           "levels": [30, 31]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [11, 13],
+        "alpha": {
+          "chance": 5,
+          "levels": [23, 25]
+        }
       }
     ]
   },
@@ -106,13 +149,65 @@
     "id": 11,
     "number": 662,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [18, 20],
+        "alpha": {
+          "chance": 5,
+          "levels": [30, 32]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [32, 33]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "levels": [27, 30],
+        "alpha": {
+          "chance": 5,
+          "levels": [39, 42]
+        }
+      }
+    ]
   },
   {
     "id": 12,
     "number": 663,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "levels": [45, 46],
+        "alpha": {
+          "chance": 5,
+          "levels": [57, 58]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 13,
@@ -147,7 +242,29 @@
     "id": 14,
     "number": 660,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "levels": [44, 46],
+        "alpha": {
+          "chance": 5,
+          "levels": [56, 58]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 15,
@@ -189,7 +306,30 @@
     "id": 17,
     "number": 666,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "levels": [36, 37],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [48, 49]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 18,
@@ -224,6 +364,16 @@
           "chance": 5,
           "levels": [19, 20]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [19, 20],
+        "alpha": {
+          "chance": 5,
+          "levels": [31, 32]
+        }
       }
     ]
   },
@@ -237,7 +387,29 @@
         "types": ["bug", "poison"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "levels": [41, 42],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [53, 54]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "note": "Day only",
+        "alpha": {
+          "chance": 100,
+          "levels": [51, 52]
+        }
+      }
+    ]
   },
   {
     "id": 21,
@@ -341,6 +513,16 @@
           "chance": 5,
           "levels": [31, 32]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "levels": [40, 41],
+        "alpha": {
+          "chance": 5,
+          "levels": [52, 53]
+        }
       }
     ]
   },
@@ -354,7 +536,17 @@
         "types": ["electric", "dragon"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [52, 53]
+        }
+      }
+    ]
   },
   {
     "id": 27,
@@ -382,6 +574,16 @@
           "chance": 5,
           "levels": [20, 21]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [11, 13],
+        "alpha": {
+          "chance": 5,
+          "levels": [23, 25]
+        }
       }
     ]
   },
@@ -389,7 +591,27 @@
     "id": 28,
     "number": 505,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [30, 32],
+        "alpha": {
+          "chance": 5,
+          "levels": [42, 44]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [41, 43]
+        }
+      }
+    ]
   },
   {
     "id": 29,
@@ -413,13 +635,46 @@
     "id": 30,
     "number": 315,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [20, 22],
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 34]
+        }
+      }
+    ]
   },
   {
     "id": 31,
     "number": 407,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [53, 54],
+        "alpha": {
+          "chance": 5,
+          "levels": [65, 66]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 32,
@@ -470,7 +725,29 @@
         "types": ["water", "dark"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "levels": [31, 32],
+        "alpha": {
+          "chance": 5,
+          "levels": [43, 44]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 34,
@@ -508,6 +785,16 @@
           "chance": 100,
           "levels": [32, 34]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "levels": [13, 14],
+        "alpha": {
+          "chance": 5,
+          "levels": [25, 26]
+        }
       }
     ]
   },
@@ -522,7 +809,30 @@
         "types": ["rock", "fighting"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "levels": [41, 43],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [53, 55]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 36,
@@ -549,6 +859,16 @@
           "chance": 100,
           "levels": [30, 32]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [31, 33],
+        "alpha": {
+          "chance": 5,
+          "levels": [43, 45]
+        }
       }
     ]
   },
@@ -563,7 +883,30 @@
         "types": ["water", "psychic"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "levels": [41, 43],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [53, 55]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 38,
@@ -594,13 +937,47 @@
         "types": ["fairy"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [20, 22],
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 34]
+        }
+      }
+    ]
   },
   {
     "id": 40,
     "number": 671,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "levels": [42, 43],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [54, 55]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 41,
@@ -624,7 +1001,29 @@
     "id": 42,
     "number": 673,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [32, 34],
+        "alpha": {
+          "chance": 5,
+          "levels": [44, 46]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 43,
@@ -641,6 +1040,16 @@
           "chance": 5,
           "levels": [19, 20]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "levels": [27, 29],
+        "alpha": {
+          "chance": 5,
+          "levels": [39, 41]
+        }
       }
     ]
   },
@@ -656,7 +1065,28 @@
         "types": ["psychic"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "note": "Night only",
+        "alpha": {
+          "chance": 100,
+          "levels": [41, 42]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "note": "Day only",
+        "alpha": {
+          "chance": 100,
+          "levels": [41, 42]
+        }
+      }
+    ]
   },
   {
     "id": 45,
@@ -697,7 +1127,27 @@
         "types": ["fire", "normal"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "levels": [44, 47],
+        "alpha": {
+          "chance": 5,
+          "levels": [56, 59]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [56, 57]
+        }
+      }
+    ]
   },
   {
     "id": 47,
@@ -721,7 +1171,29 @@
     "id": 48,
     "number": 675,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "note": "Only during Main Mission 40",
+        "alpha": {
+          "chance": 100,
+          "levels": [70, 70]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 49,
@@ -733,13 +1205,47 @@
     "id": 50,
     "number": 569,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [53, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [65, 67]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 51,
     "number": 702,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 52,
@@ -807,19 +1313,65 @@
         "types": ["electric"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 55,
     "number": 173,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "levels": [49, 50],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [61, 62]
+        }
+      }
+    ]
   },
   {
     "id": 56,
     "number": 35,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "levels": [48, 50],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [60, 62]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "note": "Night only",
+        "alpha": {
+          "chance": 100,
+          "levels": [58, 60]
+        }
+      }
+    ]
   },
   {
     "id": 57,
@@ -832,7 +1384,19 @@
         "types": ["fairy", "flying"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 58,
@@ -866,7 +1430,19 @@
     "id": 59,
     "number": 168,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 60,
@@ -890,7 +1466,27 @@
     "id": 61,
     "number": 24,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [31, 33],
+        "alpha": {
+          "chance": 5,
+          "levels": [43, 45]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [50, 52]
+        }
+      }
+    ]
   },
   {
     "id": 62,
@@ -914,7 +1510,18 @@
     "id": 63,
     "number": 64,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "levels": [28, 30],
+        "alpha": {
+          "chance": 5,
+          "levels": [40, 42]
+        }
+      }
+    ]
   },
   {
     "id": 64,
@@ -926,7 +1533,19 @@
         "types": ["psychic"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 65,
@@ -943,6 +1562,17 @@
           "chance": 5,
           "levels": [21, 22]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [19, 21],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [31, 33]
+        }
       }
     ]
   },
@@ -950,7 +1580,19 @@
     "id": 66,
     "number": 93,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "levels": [40, 41],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [52, 53]
+        }
+      }
+    ]
   },
   {
     "id": 67,
@@ -962,7 +1604,19 @@
         "types": ["ghost", "poison"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 68,
@@ -996,6 +1650,17 @@
           "chance": 100,
           "levels": [27, 28]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "levels": [40, 41],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [52, 53]
+        }
       }
     ]
   },
@@ -1010,7 +1675,30 @@
         "types": ["bug", "poison"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "levels": [42, 43],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [54, 55]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 71,
@@ -1040,7 +1728,19 @@
     "id": 73,
     "number": 681,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 74,
@@ -1067,6 +1767,16 @@
           "chance": 100,
           "levels": [24, 25]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [29, 31],
+        "alpha": {
+          "chance": 5,
+          "levels": [41, 43]
+        }
       }
     ]
   },
@@ -1074,7 +1784,29 @@
     "id": 75,
     "number": 70,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "levels": [36, 37],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [48, 49]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "note": "Day only",
+        "alpha": {
+          "chance": 100,
+          "levels": [46, 47]
+        }
+      }
+    ]
   },
   {
     "id": 76,
@@ -1087,7 +1819,19 @@
         "types": ["grass", "poison"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 77,
@@ -1099,7 +1843,19 @@
     "id": 78,
     "number": 512,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 79,
@@ -1111,7 +1867,19 @@
     "id": 80,
     "number": 514,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 81,
@@ -1123,7 +1891,19 @@
     "id": 82,
     "number": 516,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 83,
@@ -1153,7 +1933,30 @@
         "types": ["fighting", "psychic"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "levels": [40, 42],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [52, 54]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 85,
@@ -1183,7 +1986,17 @@
         "types": ["electric"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [40, 41]
+        }
+      }
+    ]
   },
   {
     "id": 87,
@@ -1207,7 +2020,29 @@
         "types": ["psychic", "fairy"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [53, 54],
+        "alpha": {
+          "chance": 5,
+          "levels": [65, 66]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 90,
@@ -1219,7 +2054,29 @@
         "types": ["psychic", "fighting"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-5",
+        "games": ["legends-za"],
+        "note": "Only during Main Mission 40",
+        "alpha": {
+          "chance": 100,
+          "levels": [70, 70]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 91,
@@ -1277,6 +2134,17 @@
           "chance": 5,
           "levels": [29, 31]
         }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "levels": [44, 45],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [56, 57]
+        }
       }
     ]
   },
@@ -1290,7 +2158,30 @@
         "types": ["dragon", "fairy"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "levels": [46, 47],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [58, 59]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 95,
@@ -1302,7 +2193,28 @@
         "types": ["normal", "fairy"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [20, 22],
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 34]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "levels": [50, 51],
+        "alpha": {
+          "chance": 5,
+          "levels": [62, 63]
+        }
+      }
+    ]
   },
   {
     "id": 96,
@@ -1342,25 +2254,72 @@
     "id": 100,
     "number": 133,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "levels": [48, 49],
+        "alpha": {
+          "chance": 5,
+          "levels": [60, 61]
+        }
+      }
+    ]
   },
   {
     "id": 101,
     "number": 134,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 102,
     "number": 135,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 103,
     "number": 136,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 104,
@@ -1378,19 +2337,55 @@
     "id": 106,
     "number": 470,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 107,
     "number": 471,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 108,
     "number": 700,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 109,
@@ -1420,13 +2415,46 @@
         "types": ["normal", "fighting"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [55, 56]
+        }
+      }
+    ]
   },
   {
     "id": 111,
     "number": 353,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [20, 22],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 34]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "levels": [40, 41],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [52, 53]
+        }
+      }
+    ]
   },
   {
     "id": 112,
@@ -1438,13 +2466,45 @@
         "types": ["ghost"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "note": "Night only",
+        "alpha": {
+          "chance": 100,
+          "levels": [52, 53]
+        }
+      }
+    ]
   },
   {
     "id": 113,
     "number": 582,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [19, 21],
+        "alpha": {
+          "chance": 5,
+          "levels": [31, 33]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [35, 35],
+        "alpha": {
+          "chance": 5,
+          "levels": [47, 47]
+        }
+      }
+    ]
   },
   {
     "id": 114,
@@ -1456,13 +2516,36 @@
     "id": 115,
     "number": 584,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 116,
     "number": 322,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "levels": [23, 24],
+        "alpha": {
+          "chance": 5,
+          "levels": [35, 36]
+        }
+      }
+    ]
   },
   {
     "id": 117,
@@ -1474,25 +2557,90 @@
         "types": ["fire", "ground"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [39, 40]
+        }
+      }
+    ]
   },
   {
     "id": 118,
     "number": 449,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-7",
+        "games": ["legends-za"],
+        "levels": [20, 22],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 34]
+        }
+      }
+    ]
   },
   {
     "id": 119,
     "number": 450,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 67]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 120,
     "number": 529,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "levels": [23, 25],
+        "alpha": {
+          "chance": 5,
+          "levels": [35, 37]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "levels": [28, 37],
+        "alpha": {
+          "chance": 5,
+          "levels": [40, 49]
+        }
+      }
+    ]
   },
   {
     "id": 121,
@@ -1505,49 +2653,167 @@
         "types": ["ground", "steel"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "levels": [38, 39],
+        "alpha": {
+          "chance": 5,
+          "levels": [50, 51]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [48, 49]
+        }
+      }
+    ]
   },
   {
     "id": 122,
     "number": 551,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "levels": [23, 24],
+        "alpha": {
+          "chance": 5,
+          "levels": [35, 36]
+        }
+      }
+    ]
   },
   {
     "id": 123,
     "number": 552,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "levels": [29, 30],
+        "alpha": {
+          "chance": 5,
+          "levels": [41, 42]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [37, 38]
+        }
+      }
+    ]
   },
   {
     "id": 124,
     "number": 553,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 125,
     "number": 66,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "levels": [24, 26],
+        "alpha": {
+          "chance": 5,
+          "levels": [36, 38]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [32, 33],
+        "alpha": {
+          "chance": 5,
+          "levels": [44, 45]
+        }
+      }
+    ]
   },
   {
     "id": 126,
     "number": 67,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [34, 35],
+        "alpha": {
+          "chance": 5,
+          "levels": [46, 47]
+        }
+      }
+    ]
   },
   {
     "id": 127,
     "number": 68,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 128,
     "number": 443,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-8",
+        "games": ["legends-za"],
+        "levels": [24, 25],
+        "alpha": {
+          "chance": 5,
+          "levels": [36, 37]
+        }
+      }
+    ]
   },
   {
     "id": 129,
@@ -1571,13 +2837,47 @@
         "types": ["dragon"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 131,
     "number": 703,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "levels": [28, 30],
+        "alpha": {
+          "chance": 5,
+          "levels": [40, 42]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 132,
@@ -1589,7 +2889,29 @@
         "types": ["dark", "ghost"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "levels": [28, 30],
+        "alpha": {
+          "chance": 5,
+          "levels": [40, 42]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 133,
@@ -1601,7 +2923,27 @@
         "types": ["steel", "fairy"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-9",
+        "games": ["legends-za"],
+        "levels": [27, 29],
+        "alpha": {
+          "chance": 5,
+          "levels": [39, 41]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [56, 57]
+        }
+      }
+    ]
   },
   {
     "id": 134,
@@ -1620,7 +2962,19 @@
         "types": ["dark", "ghost"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 135,
@@ -1645,13 +2999,56 @@
         "types": ["fighting", "steel"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 67]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 137,
     "number": 79,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [30, 32],
+        "alpha": {
+          "chance": 5,
+          "levels": [42, 44]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "levels": [30, 31],
+        "alpha": {
+          "chance": 5,
+          "levels": [42, 43]
+        }
+      }
+    ]
   },
   {
     "id": 138,
@@ -1663,7 +3060,17 @@
         "types": ["water", "psychic"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [42, 44]
+        }
+      }
+    ]
   },
   {
     "id": 139,
@@ -1680,7 +3087,18 @@
     "id": 140,
     "number": 318,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [30, 31],
+        "alpha": {
+          "chance": 5,
+          "levels": [42, 43]
+        }
+      }
+    ]
   },
   {
     "id": 141,
@@ -1692,13 +3110,44 @@
         "types": ["water", "dark"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [30, 32],
+        "alpha": {
+          "chance": 5,
+          "levels": [42, 44]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [41, 43]
+        }
+      }
+    ]
   },
   {
     "id": 142,
     "number": 602,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-10",
+        "games": ["legends-za"],
+        "levels": [31, 32],
+        "alpha": {
+          "chance": 5,
+          "levels": [43, 44]
+        }
+      }
+    ]
   },
   {
     "id": 143,
@@ -1717,7 +3166,19 @@
         "types": ["electric"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 145,
@@ -1742,13 +3203,36 @@
         "types": ["dragon", "flying"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 148,
     "number": 1,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [53, 54],
+        "alpha": {
+          "chance": 5,
+          "levels": [65, 66]
+        }
+      }
+    ]
   },
   {
     "id": 149,
@@ -1772,7 +3256,18 @@
     "id": 151,
     "number": 4,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [53, 54],
+        "alpha": {
+          "chance": 5,
+          "levels": [65, 66]
+        }
+      }
+    ]
   },
   {
     "id": 152,
@@ -1802,7 +3297,18 @@
     "id": 154,
     "number": 7,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [53, 54],
+        "alpha": {
+          "chance": 5,
+          "levels": [65, 66]
+        }
+      }
+    ]
   },
   {
     "id": 155,
@@ -1826,19 +3332,93 @@
     "id": 157,
     "number": 618,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "levels": [31, 32],
+        "alpha": {
+          "chance": 5,
+          "levels": [43, 44]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 158,
     "number": 676,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "levels": [30, 32],
+        "alpha": {
+          "chance": 5,
+          "levels": [42, 44]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "levels": [48, 51],
+        "alpha": {
+          "chance": 5,
+          "levels": [60, 63]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [58, 61]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 159,
     "number": 686,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "levels": [31, 33],
+        "alpha": {
+          "chance": 5,
+          "levels": [43, 45]
+        }
+      }
+    ]
   },
   {
     "id": 160,
@@ -1851,7 +3431,29 @@
         "types": ["dark", "psychic"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 67]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 161,
@@ -1870,19 +3472,62 @@
         "types": ["poison", "dragon"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [53, 54],
+        "alpha": {
+          "chance": 5,
+          "levels": [65, 66]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 163,
     "number": 692,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "levels": [30, 31],
+        "alpha": {
+          "chance": 5,
+          "levels": [42, 43]
+        }
+      }
+    ]
   },
   {
     "id": 164,
     "number": 693,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-11",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [42, 44]
+        }
+      }
+    ]
   },
   {
     "id": 165,
@@ -1900,19 +3545,64 @@
     "id": 167,
     "number": 706,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 168,
     "number": 225,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [32, 35],
+        "alpha": {
+          "chance": 5,
+          "levels": [44, 47]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 169,
     "number": 361,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [32, 34],
+        "alpha": {
+          "chance": 5,
+          "levels": [44, 46]
+        }
+      }
+    ]
   },
   {
     "id": 170,
@@ -1937,13 +3627,36 @@
         "types": ["ice", "ghost"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 172,
     "number": 459,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [32, 33],
+        "alpha": {
+          "chance": 5,
+          "levels": [44, 45]
+        }
+      }
+    ]
   },
   {
     "id": 173,
@@ -1955,25 +3668,78 @@
         "types": ["grass", "ice"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [43, 45]
+        }
+      }
+    ]
   },
   {
     "id": 174,
     "number": 712,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [32, 33],
+        "alpha": {
+          "chance": 5,
+          "levels": [44, 45]
+        }
+      }
+    ]
   },
   {
     "id": 175,
     "number": 713,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "levels": [34, 35],
+        "alpha": {
+          "chance": 5,
+          "levels": [46, 47]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-12",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [54, 56]
+        }
+      }
+    ]
   },
   {
     "id": 176,
     "number": 123,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "levels": [37, 39],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [49, 51]
+        }
+      }
+    ]
   },
   {
     "id": 177,
@@ -2002,7 +3768,29 @@
         "types": ["bug", "flying"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "levels": [36, 38],
+        "alpha": {
+          "chance": 5,
+          "levels": [48, 50]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 179,
@@ -2014,13 +3802,46 @@
         "types": ["bug", "fighting"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "levels": [36, 38],
+        "alpha": {
+          "chance": 5,
+          "levels": [48, 50]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 180,
     "number": 587,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "levels": [36, 37],
+        "alpha": {
+          "chance": 5,
+          "levels": [48, 49]
+        }
+      }
+    ]
   },
   {
     "id": 181,
@@ -2033,19 +3854,54 @@
         "types": ["fighting", "flying"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 182,
     "number": 708,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "levels": [36, 37],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [48, 49]
+        }
+      }
+    ]
   },
   {
     "id": 183,
     "number": 709,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-13",
+        "games": ["legends-za"],
+        "note": "Night only",
+        "alpha": {
+          "chance": 100,
+          "levels": [47, 48]
+        }
+      }
+    ]
   },
   {
     "id": 184,
@@ -2064,25 +3920,105 @@
         "types": ["dark", "fighting"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 56],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 68]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 186,
     "number": 714,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "levels": [44, 45],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [56, 57]
+        }
+      }
+    ]
   },
   {
     "id": 187,
     "number": 715,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "levels": [48, 49],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [60, 61]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 188,
     "number": 707,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "levels": [44, 46],
+        "note": "Day only",
+        "alpha": {
+          "chance": 5,
+          "levels": [56, 58]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 189,
@@ -2094,7 +4030,19 @@
     "id": 190,
     "number": 608,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "levels": [45, 46],
+        "note": "Night only",
+        "alpha": {
+          "chance": 5,
+          "levels": [57, 58]
+        }
+      }
+    ]
   },
   {
     "id": 191,
@@ -2107,7 +4055,19 @@
         "types": ["ghost", "fire"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 192,
@@ -2149,7 +4109,18 @@
     "id": 197,
     "number": 95,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "levels": [37, 39],
+        "alpha": {
+          "chance": 5,
+          "levels": [49, 51]
+        }
+      }
+    ]
   },
   {
     "id": 198,
@@ -2161,19 +4132,52 @@
         "types": ["steel", "ground"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-3",
+        "games": ["legends-za"],
+        "note": "Only during Main Mission 40",
+        "alpha": {
+          "chance": 100,
+          "levels": [70, 70]
+        }
+      }
+    ]
   },
   {
     "id": 199,
     "number": 304,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "levels": [28, 37],
+        "alpha": {
+          "chance": 5,
+          "levels": [40, 49]
+        }
+      }
+    ]
   },
   {
     "id": 200,
     "number": 305,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "levels": [38, 39],
+        "alpha": {
+          "chance": 5,
+          "levels": [50, 51]
+        }
+      }
+    ]
   },
   {
     "id": 201,
@@ -2185,37 +4189,126 @@
         "types": ["steel"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "levels": [54, 55],
+        "alpha": {
+          "chance": 5,
+          "levels": [66, 67]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 202,
     "number": 694,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-14",
+        "games": ["legends-za"],
+        "levels": [37, 38],
+        "note": "Day only, in clear or harsh sunlight",
+        "alpha": {
+          "chance": 5,
+          "levels": [49, 50]
+        }
+      }
+    ]
   },
   {
     "id": 203,
     "number": 695,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 204,
     "number": 710,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "levels": [42, 43],
+        "alpha": {
+          "chance": 5,
+          "levels": [54, 55]
+        }
+      }
+    ]
   },
   {
     "id": 205,
     "number": 711,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [52, 53]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 206,
     "number": 246,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-15",
+        "games": ["legends-za"],
+        "levels": [40, 43],
+        "alpha": {
+          "chance": 5,
+          "levels": [52, 55]
+        }
+      }
+    ]
   },
   {
     "id": 207,
@@ -2233,13 +4326,36 @@
         "types": ["rock", "dark"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 209,
     "number": 656,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "levels": [20, 25],
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 37]
+        }
+      }
+    ]
   },
   {
     "id": 210,
@@ -2271,13 +4387,46 @@
         "types": ["fighting"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-16",
+        "games": ["legends-za"],
+        "levels": [41, 42],
+        "alpha": {
+          "chance": 5,
+          "levels": [53, 54]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 213,
     "number": 650,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "levels": [20, 25],
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 37]
+        }
+      }
+    ]
   },
   {
     "id": 214,
@@ -2309,13 +4458,47 @@
         "types": ["steel", "flying"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-17",
+        "games": ["legends-za"],
+        "levels": [45, 46],
+        "note": "Not in rain",
+        "alpha": {
+          "chance": 5,
+          "levels": [57, 58]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 217,
     "number": 653,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "levels": [20, 25],
+        "alpha": {
+          "chance": 5,
+          "levels": [32, 37]
+        }
+      }
+    ]
   },
   {
     "id": 218,
@@ -2340,7 +4523,18 @@
     "id": 220,
     "number": 371,
     "games": ["legends-za"],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "levels": [44, 45],
+        "alpha": {
+          "chance": 5,
+          "levels": [56, 57]
+        }
+      }
+    ]
   },
   {
     "id": 221,
@@ -2358,7 +4552,17 @@
         "types": ["dragon", "flying"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-18",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [61, 62]
+        }
+      }
+    ]
   },
   {
     "id": 223,
@@ -2370,7 +4574,29 @@
         "types": ["normal"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "levels": [50, 51],
+        "alpha": {
+          "chance": 5,
+          "levels": [62, 63]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 224,
@@ -2383,7 +4609,29 @@
         "types": ["normal", "dragon"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-19",
+        "games": ["legends-za"],
+        "levels": [49, 51],
+        "alpha": {
+          "chance": 5,
+          "levels": [61, 63]
+        }
+      },
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [64, 65]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 225,
@@ -2407,7 +4655,19 @@
         "types": ["steel", "psychic"]
       }
     ],
-    "encounters": []
+    "encounters": [
+      {
+        "method": "walk",
+        "path": "wild-zone-20",
+        "games": ["legends-za"],
+        "alpha": {
+          "chance": 100,
+          "levels": [63, 64]
+        },
+        "chance": [3, 3],
+        "note": "Center of the zone"
+      }
+    ]
   },
   {
     "id": 228,

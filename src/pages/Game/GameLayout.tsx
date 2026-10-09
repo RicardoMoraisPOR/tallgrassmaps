@@ -32,7 +32,9 @@ export const GameLayout = () => {
         as="section"
         className={cn(
           'flex flex-1 flex-col',
-          immersive ? 'max-w-none px-0' : 'gap-7 pt-6 pb-10 sm:pt-10 sm:pb-16',
+          immersive
+            ? 'max-w-none px-0'
+            : 'max-w-[1600px] gap-7 pt-6 pb-10 sm:pt-10 sm:pb-16',
         )}
       >
         <PageHeader

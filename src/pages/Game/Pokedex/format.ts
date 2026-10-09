@@ -41,8 +41,13 @@ export const alphaLabel = (encounter: Encounter, withMethod = false) => {
   const levels =
     alpha.levels && levelLabel({ levels: alpha.levels } as Encounter);
 
+  const always = alpha.chance >= 100;
+  const method = withMethod ? methodLabel(encounter) : undefined;
+
   return [
-    `${withMethod ? `${methodLabel(encounter)} ` : ''}Alpha (${alpha.chance >= 100 ? 'guaranteed' : `${alpha.chance}%`})`,
+    always
+      ? [method, 'Always alpha'].filter(Boolean).join(' · ')
+      : `${method ? `${method} ` : ''}Alpha (${alpha.chance}%)`,
     levels,
   ]
     .filter(Boolean)

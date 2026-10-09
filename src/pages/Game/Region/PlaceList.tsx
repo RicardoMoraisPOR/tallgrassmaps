@@ -7,6 +7,7 @@ import type { PlaceGroups } from '@/data/maps';
 import { cn } from '@/lib/utils';
 
 import { groupOf, type Place } from '../places';
+import { MapLegend } from './MapLegend';
 import { PlaceIcon } from './PlaceIcon';
 
 type Tab = string;
@@ -117,6 +118,9 @@ export const PlaceList = ({
           </li>
         )}
       </ul>
+      <div className="border-t px-4 py-3">
+        <MapLegend placeGroups={placeGroups} />
+      </div>
     </section>
   );
 };

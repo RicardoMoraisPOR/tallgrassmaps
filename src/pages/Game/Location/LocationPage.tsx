@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { Map as MapIcon, Info } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
@@ -17,7 +18,7 @@ import { trailPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-import { GameAside } from '../GameAside';
+import { AsideCard, GameAside } from '../GameAside';
 import { useMapFrame } from '../mapFrame';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
@@ -295,15 +296,26 @@ export const LocationPage = () => {
   );
   const cards = (
     <>
-      <TownMapCard
-        region={route.region}
-        path={trailPath(trail)}
-        href={route.href}
-      />
-      <LocationPanel
-        tabs={panelTabs}
-        className={immersive ? 'min-h-48 flex-1' : 'lg:flex-1'}
-      />
+      <AsideCard
+        icon={MapIcon}
+        label="Town Map"
+        className={cn(!immersive && 'xl:order-last xl:w-[360px] xl:flex-none')}
+      >
+        <TownMapCard
+          region={route.region}
+          path={trailPath(trail)}
+          href={route.href}
+          collapsible={!immersive}
+        />
+      </AsideCard>
+      <AsideCard
+        icon={Info}
+        label="Location info"
+        grow
+        className={cn(!immersive && 'xl:w-[360px] xl:flex-none')}
+      >
+        <LocationPanel tabs={panelTabs} className="min-h-0 flex-1" />
+      </AsideCard>
     </>
   );
   const viewer = (
@@ -327,7 +339,7 @@ export const LocationPage = () => {
         className={cn(
           immersive
             ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-hidden'
-            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
+            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_744px]',
         )}
       >
         <div
@@ -363,7 +375,12 @@ export const LocationPage = () => {
             </PageTransition>
           </div>
         </div>
-        <GameAside immersive={immersive}>{cards}</GameAside>
+        <GameAside
+          immersive={immersive}
+          contentClassName={immersive ? undefined : 'xl:flex-row xl:gap-6'}
+        >
+          {cards}
+        </GameAside>
       </div>
       {pokedex && (
         <TrainerDialog
