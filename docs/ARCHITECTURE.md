@@ -52,12 +52,14 @@ Folders are feature-based (`pages/Game/Location`, `pages/Game/Pokedex`), not typ
 - `GameLayout` renders the header, the layout toggle (minimalist or immersive) and a `PageTransition` outlet. Transitions are keyed by `/game` versus `/game/location`, or just `/game` for seamless regions.
 - `GamePage` picks one of three views: `SeamlessMapPage` when `region.navigation === 'seamless'`, `RegionPage` for an empty trail, otherwise `LocationPage`. The seamless and location pages are lazy-loaded.
 - The Pokédex is not a route. It is a drawer driven by the `?pokedex=<number>` query param (`usePokedex`, `usePokedexLink`), so it overlays whichever page is open.
+- Region and seamless overview pages show one `GameInfoCard` (`pages/Game/Region`): cover, console, release date, developer, remake status, Pokédex and world counts from `gameStats.ts` (a row is hidden when its section is marked missing in `Game.contentStatus`), a build-progress block, and the Pokédex and Bulbapedia buttons.
+- Place search: `GameLayout` wraps every game page in `PlaceSearchProvider` (`pages/Game/Search`). A Search button (and Ctrl/⌘ K, or `/`) opens a palette that searches the region's towns, routes, caves and buildings (`placeSearch.ts`) and navigates to the pick. The button sits in the top-right row in both layouts.
 
 ## 4. Data layer (`src/data`)
 
 Data is keyed by **version group** (`RBY`, `ZA`) or **game id** (`red`, `blue`, `yellow`, `legends-za`).
 
-- `games.ts`: the `Game` list (names, platform, region id, sprite set and format, colours, per-section `contentStatus` for the "missing content" dialog), plus `getGame` and `gamesSharingMap`.
+- `games.ts`: the `Game` list (names, platform, release date, developer, wiki article, optional remake source, region id, sprite set and format, colours, per-section `contentStatus` for the "missing content" dialog), plus `getGame` and `gamesSharingMap`.
 - `catalog/`: the home page list. `generations.ts` groups games by generation, merging real games with "coming soon" entries from `upcoming.ts`. `CatalogEntry` is `Game | UpcomingGame`, discriminated by `status`. `entries.ts` has the name, region and version-group helpers, `versionGroups.ts` the label letters, and `mapSets.ts` the map switcher list.
 - `maps/`: the core model. `Region` → `Location[]` (recursive) → `floors`, `hotspots` (exits and entrances with rect or polygon, travel direction, door/ladder flags, `lands`/`pad` arrival info), `markers` (house, mart, center) and `wildAreas`. Per-game filtering uses an optional `games: string[]` on most things, with `inGame()` and `locationInGame()`.
   - `kanto-rby/` holds the hand-curated Kanto data (`outdoor`, `inside`, `services`, with shared `entries` types and `helpers`) and `build.ts`, which turns it into `Location`s. `index.ts` assembles the `kantoRby` region.

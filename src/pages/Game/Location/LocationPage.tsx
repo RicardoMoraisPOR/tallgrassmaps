@@ -18,6 +18,7 @@ import { trailPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
+import { BackLink } from '../BackLink';
 import { AsideCard, GameAside } from '../GameAside';
 import { useMapFrame } from '../mapFrame';
 import { Pokedex } from '../Pokedex/Pokedex';
@@ -296,11 +297,7 @@ export const LocationPage = () => {
   );
   const cards = (
     <>
-      <AsideCard
-        icon={MapIcon}
-        label="Town Map"
-        className={cn(!immersive && 'xl:order-last xl:w-[360px] xl:flex-none')}
-      >
+      <AsideCard icon={MapIcon} label="Town Map">
         <TownMapCard
           region={route.region}
           path={trailPath(trail)}
@@ -308,12 +305,7 @@ export const LocationPage = () => {
           collapsible={!immersive}
         />
       </AsideCard>
-      <AsideCard
-        icon={Info}
-        label="Location info"
-        grow
-        className={cn(!immersive && 'xl:w-[360px] xl:flex-none')}
-      >
+      <AsideCard icon={Info} label="Location info" grow>
         <LocationPanel tabs={panelTabs} className="min-h-0 flex-1" />
       </AsideCard>
     </>
@@ -339,7 +331,7 @@ export const LocationPage = () => {
         className={cn(
           immersive
             ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-hidden'
-            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_744px]',
+            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
         )}
       >
         <div
@@ -375,12 +367,15 @@ export const LocationPage = () => {
             </PageTransition>
           </div>
         </div>
-        <GameAside
-          immersive={immersive}
-          contentClassName={immersive ? undefined : 'xl:flex-row xl:gap-6'}
-        >
-          {cards}
-        </GameAside>
+        {!immersive && (
+          <BackLink
+            game={route.game}
+            trail={trail}
+            href={route.href}
+            fullWidth
+          />
+        )}
+        <GameAside immersive={immersive}>{cards}</GameAside>
       </div>
       {pokedex && (
         <TrainerDialog

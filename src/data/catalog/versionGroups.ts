@@ -77,7 +77,7 @@ const versionGroupLetters: Record<
     ['S', 'scarlet'],
     ['V', 'violet'],
   ],
-  'Z-A': [['Z-A', 'legends-za']],
+  ZA: [['Z-A', 'legends-za']],
 };
 
 const gameColor = (gameId: string) =>

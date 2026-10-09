@@ -18,6 +18,9 @@ import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
+import { PlaceSearchButton } from './Search/PlaceSearch';
+import { toolbarButtonClass } from './toolbarButton';
+
 type CardInfo = {
   id: string;
   label: string;
@@ -59,6 +62,13 @@ export const GameAside = ({
   );
   const tablet = useMediaQuery(TABLET_QUERY);
   const [desktop] = useState(() => window.matchMedia(DESKTOP_QUERY).matches);
+  const [wasImmersive, setWasImmersive] = useState(immersive);
+
+  if (immersive !== wasImmersive) {
+    setWasImmersive(immersive);
+
+    if (immersive && !tablet) setOverrides({});
+  }
 
   const isOpen = useCallback(
     (id: string) => overrides[id] ?? desktop,
@@ -81,10 +91,10 @@ export const GameAside = ({
     <AsideContext value={state}>
       {immersive && (
         <div className="pointer-events-none absolute top-1/2 left-0 z-30 flex -translate-y-1/2 flex-col gap-2 md:top-4 md:right-16 md:left-auto md:translate-y-0 md:flex-row md:gap-2">
+          <PlaceSearchButton />
           {cards.map(({ id, label, icon: Icon, to }) => {
             const open = isOpen(id);
-            const buttonClassName =
-              'pointer-events-auto flex h-12 min-w-12 items-center justify-center gap-2 rounded-r-[16px] border border-l-0 bg-card outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 md:h-9 md:min-w-9 md:rounded-[14px] md:border-l md:px-3';
+            const buttonClassName = toolbarButtonClass;
             const content = (
               <>
                 <Icon aria-hidden className="size-5 flex-none md:size-4" />

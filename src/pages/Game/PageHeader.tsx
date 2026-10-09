@@ -1,26 +1,20 @@
-import { ChevronLeft, ChevronRight, MapPinned } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { m } from 'motion/react';
 import { Link } from 'react-router';
 
-import { getCover } from '@/data/covers';
 import type { Game } from '@/data/games';
 import type { Location, Region } from '@/data/maps';
-import { gameHref, trailPath } from '@/lib/paths';
+import { trailPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
+import { BackLink } from './BackLink';
+import { breadcrumbParents, TOWN_MAP } from './breadcrumbs';
 import { GameSwitcher } from './GameSwitcher';
 import { MapSwitcher } from './MapSwitcher';
 
-const TOWN_MAP = 'Town Map';
-
 const crumbLink =
   'rounded-sm underline-offset-3 hover:text-foreground hover:underline';
-
-type Crumb = {
-  name: string;
-  href: string;
-};
 
 type PageHeaderProps = {
   game: Game;
@@ -38,23 +32,10 @@ export const PageHeader = ({
   floating = false,
 }: PageHeaderProps) => {
   const animations = useSettingsStore((state) => state.animations);
-  const cover = getCover(game.id);
   const location = trail.at(-1);
   const title = location?.name ?? region.name;
   const current = location?.name ?? TOWN_MAP;
-  const parents: Array<Crumb> = location
-    ? [
-        { name: TOWN_MAP, href: gameHref(game.id) },
-        ...trail.slice(0, -1).map((step, index) => ({
-          name: step.name,
-          href: href(trailPath(trail.slice(0, index + 1))),
-        })),
-      ]
-    : [];
-  const back = parents.at(-1);
-  const toRegion = region.navigation === 'seamless' && parents.length === 1;
-  const backLabel = toRegion ? `Show ${region.name}` : back?.name;
-  const BackIcon = toRegion ? MapPinned : ChevronLeft;
+  const parents = breadcrumbParents(game, trail, href);
 
   return (
     <m.div
@@ -74,16 +55,6 @@ export const PageHeader = ({
             : 'pr-12 sm:pr-0',
         )}
       >
-        {cover && (
-          <img
-            src={cover}
-            alt={`${game.fullName} box art`}
-            className={cn(
-              'h-18 w-auto flex-none rounded-md border shadow-[0_8px_20px_-10px_oklch(0_0_0/0.45)]',
-              floating ? 'h-14 sm:h-16' : 'sm:h-24',
-            )}
-          />
-        )}
         <div className="flex min-w-0 flex-col gap-2">
           <nav aria-label="Breadcrumb" className="hidden sm:block">
             <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] text-muted-foreground">
@@ -128,19 +99,7 @@ export const PageHeader = ({
           </h1>
         </div>
       </header>
-      {back && !(toRegion && floating) && (
-        <Link
-          to={back.href}
-          aria-label={toRegion ? backLabel : `Back to ${back.name}`}
-          className={cn(
-            'flex min-h-9 w-fit max-w-full items-center gap-1 rounded-[10px] border bg-card py-1 pr-3 pl-2 text-[13px] font-medium outline-offset-2 hover:bg-muted sm:hidden',
-            !floating && 'self-center',
-          )}
-        >
-          <BackIcon aria-hidden className="size-4 flex-none" />
-          <span className="truncate">{backLabel}</span>
-        </Link>
-      )}
+      {floating && <BackLink game={game} trail={trail} href={href} />}
     </m.div>
   );
 };

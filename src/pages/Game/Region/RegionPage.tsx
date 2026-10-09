@@ -1,6 +1,6 @@
-import { type CSSProperties, useEffect } from 'react';
+import { useEffect } from 'react';
 
-import { BookOpen, MapPin } from 'lucide-react';
+import { Gamepad2 } from 'lucide-react';
 
 import { RegionMap } from '@/components/map/RegionMap';
 import { useGameRoute } from '@/hooks/useGameRoute';
@@ -9,14 +9,11 @@ import { cn } from '@/lib/utils';
 
 import { AsideCard, GameAside } from '../GameAside';
 import { useMapFrame } from '../mapFrame';
-import { collectPlaces, placeGroupsFor } from '../places';
 import { Pokedex } from '../Pokedex/Pokedex';
-import { PlaceList } from './PlaceList';
-import { PokedexCard } from './PokedexCard';
+import { GameInfoCard } from './GameInfoCard';
 
 const IMMERSIVE_MAP_SHARE = 0.8;
 const MINIMALIST_MAP_HEIGHT = '(100svh - 13rem)';
-const MINIMALIST_MAP_MAX_WIDTH = '736px';
 
 export const RegionPage = () => {
   const route = useGameRoute();
@@ -31,7 +28,6 @@ export const RegionPage = () => {
   if (!route) return null;
 
   const { game, region, href } = route;
-  const minimalistMapWidth = `min(${MINIMALIST_MAP_MAX_WIDTH}, calc(${MINIMALIST_MAP_HEIGHT} * ${region.width} / ${region.height}))`;
 
   return (
     <>
@@ -39,26 +35,19 @@ export const RegionPage = () => {
         className={cn(
           immersive
             ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-hidden'
-            : 'grid items-start gap-6 lg:grid-cols-[var(--map-width)_360px]',
+            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
         )}
-        style={
-          immersive
-            ? undefined
-            : ({ '--map-width': minimalistMapWidth } as CSSProperties)
-        }
       >
         <div
           style={
             immersive
               ? undefined
               : {
-                  maxWidth: minimalistMapWidth,
+                  maxWidth: `calc(${MINIMALIST_MAP_HEIGHT} * ${region.width} / ${region.height})`,
                   aspectRatio: `${region.width} / ${region.height}`,
                 }
           }
-          className={cn(
-            immersive ? 'absolute inset-0' : 'relative w-full min-w-0',
-          )}
+          className={cn(immersive ? 'absolute inset-0' : 'relative min-w-0')}
         >
           <div
             {...mapFrame}
@@ -79,16 +68,8 @@ export const RegionPage = () => {
           </div>
         </div>
         <GameAside immersive={immersive}>
-          <AsideCard icon={BookOpen} label="Pokédex">
-            <PokedexCard game={game} region={region} />
-          </AsideCard>
-          <AsideCard icon={MapPin} label="Places" grow>
-            <PlaceList
-              places={collectPlaces(region, game.id)}
-              placeGroups={placeGroupsFor(region)}
-              href={href}
-              className="min-h-0 flex-1"
-            />
+          <AsideCard icon={Gamepad2} label="Game info" grow>
+            <GameInfoCard game={game} region={region} />
           </AsideCard>
         </GameAside>
       </div>

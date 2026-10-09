@@ -88,7 +88,7 @@ export const ZonePanel = ({ game, region, zone, href }: ZonePanelProps) => {
   return (
     <>
       <AsideCard icon={MapPinned} label={`Show ${region.name}`} to={href('')}>
-        <div className="rounded-[14px] border bg-card p-3 max-sm:hidden">
+        <div className="rounded-[14px] border bg-card p-3">
           <Button variant="outline" className="h-10 w-full" asChild>
             <Link to={href('')}>
               <MapPinned aria-hidden />

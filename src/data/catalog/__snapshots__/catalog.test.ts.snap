@@ -1111,8 +1111,8 @@ exports[`catalog > names and labels each version group 1`] = `
     ],
     [
       {
-        "color": undefined,
-        "text": "ZA",
+        "color": "oklch(0.7 0.14 150)",
+        "text": "Z-A",
       },
     ],
   ],

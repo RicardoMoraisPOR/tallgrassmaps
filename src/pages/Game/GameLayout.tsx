@@ -8,6 +8,7 @@ import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
 import { LayoutToggle } from './LayoutToggle';
 import { PageHeader } from './PageHeader';
+import { PlaceSearchButton, PlaceSearchProvider } from './Search/PlaceSearch';
 
 const pageKind = (pathname: string) => {
   const [game, ...place] = pathSegments(pathname);
@@ -26,35 +27,42 @@ export const GameLayout = () => {
   const immersive = layout === 'immersive';
 
   return (
-    <div className="relative flex flex-1 flex-col">
-      <LayoutToggle versionGroup={route.region.versionGroup} />
-      <Container
-        as="section"
-        className={cn(
-          'flex flex-1 flex-col',
-          immersive
-            ? 'max-w-none px-0'
-            : 'max-w-[1600px] gap-7 pt-6 pb-10 sm:pt-10 sm:pb-16',
-        )}
-      >
-        <PageHeader
-          floating={immersive}
-          game={route.game}
-          region={route.region}
-          trail={route.trail ?? []}
-          href={route.href}
-        />
-        <div className="flex flex-1 flex-col overflow-clip">
-          <PageTransition
-            mapMotion
-            keyFor={
-              route.region.navigation === 'seamless'
-                ? (pathname) => `/${pathSegments(pathname)[0]}`
-                : pageKind
-            }
+    <PlaceSearchProvider
+      game={route.game}
+      region={route.region}
+      href={route.href}
+    >
+      <div className="relative flex flex-1 flex-col">
+        <LayoutToggle versionGroup={route.region.versionGroup} />
+        {!immersive && <PlaceSearchButton floating />}
+        <Container
+          as="section"
+          className={cn(
+            'flex flex-1 flex-col',
+            immersive
+              ? 'max-w-none px-0'
+              : 'gap-7 pt-6 pb-10 sm:pt-10 sm:pb-16',
+          )}
+        >
+          <PageHeader
+            floating={immersive}
+            game={route.game}
+            region={route.region}
+            trail={route.trail ?? []}
+            href={route.href}
           />
-        </div>
-      </Container>
-    </div>
+          <div className="flex flex-1 flex-col overflow-clip">
+            <PageTransition
+              mapMotion
+              keyFor={
+                route.region.navigation === 'seamless'
+                  ? (pathname) => `/${pathSegments(pathname)[0]}`
+                  : pageKind
+              }
+            />
+          </div>
+        </Container>
+      </div>
+    </PlaceSearchProvider>
   );
 };

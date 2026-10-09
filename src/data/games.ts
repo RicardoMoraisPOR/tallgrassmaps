@@ -77,6 +77,10 @@ export type Game = {
   generation: number;
   region: string;
   platform: Platform;
+  releaseDate: string;
+  developer: string;
+  wiki: string;
+  remakeOf?: string;
   tileSize?: number;
   sprites?: {
     set: string;
@@ -103,6 +107,9 @@ export const games: Array<Game> = [
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
+    releaseDate: '1998-09-28',
+    developer: 'Game Freak',
+    wiki: 'Pokémon_Red_and_Blue_Versions',
     tileSize: 16,
     sprites: { set: 'red-blue', count: 151 },
     obtainableWithoutTrading: 135,
@@ -116,6 +123,9 @@ export const games: Array<Game> = [
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
+    releaseDate: '1998-09-28',
+    developer: 'Game Freak',
+    wiki: 'Pokémon_Red_and_Blue_Versions',
     tileSize: 16,
     sprites: { set: 'red-blue', count: 151 },
     obtainableWithoutTrading: 135,
@@ -129,6 +139,9 @@ export const games: Array<Game> = [
     generation: 1,
     region: 'kanto-rby',
     platform: 'Game Boy',
+    releaseDate: '1999-10-19',
+    developer: 'Game Freak',
+    wiki: 'Pokémon_Yellow_Version',
     tileSize: 16,
     sprites: { set: 'yellow', count: 151 },
     obtainableWithoutTrading: 134,
@@ -142,6 +155,9 @@ export const games: Array<Game> = [
     generation: 9,
     region: 'lumiose-za',
     platform: 'Nintendo Switch',
+    releaseDate: '2025-10-16',
+    developer: 'Game Freak',
+    wiki: 'Pokémon_Legends:_Z-A',
     sprites: {
       set: 'legends-za',
       count: 870,
@@ -176,7 +192,8 @@ export const games: Array<Game> = [
       },
       {
         section: 'wild-encounters',
-        status: 'missing',
+        status: 'in-progress',
+        details: 'Wild Zones 1 to 20 are in. Sector zones are still missing.',
       },
       {
         section: 'trainer-battles',
