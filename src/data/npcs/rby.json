@@ -4,7 +4,7 @@
     "x": 6,
     "y": 2,
     "name": "Clerk",
-    "sprite": "bike_shop_clerk",
+    "sprite": "/sprites/rby/overworld/bike_shop_clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -24,7 +24,7 @@
         "trigger": "With the Bike Voucher, he gives you the Bicycle",
         "gift": {
           "name": "Bicycle",
-          "sprite": "red_bike"
+          "sprite": "/sprites/rby/overworld/red_bike.png"
         }
       },
       {
@@ -44,7 +44,7 @@
     "x": 5,
     "y": 6,
     "name": "Middle Aged Woman",
-    "sprite": "middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -58,7 +58,7 @@
     "x": 1,
     "y": 3,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "up",
     "dialog": [
       {
@@ -77,7 +77,7 @@
     "x": 6,
     "y": 5,
     "name": "Bill",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -101,7 +101,7 @@
     "x": 4,
     "y": 4,
     "name": "Bill",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -109,7 +109,7 @@
         "trigger": "After you run the Cell Separation System, he gives you the S.S. Ticket",
         "gift": {
           "name": "S.S. Ticket",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -135,7 +135,7 @@
     "x": 2,
     "y": 3,
     "name": "Daisy",
-    "sprite": "daisy",
+    "sprite": "/sprites/rby/overworld/daisy.png",
     "facing": "right",
     "dialog": [
       {
@@ -147,7 +147,7 @@
         "trigger": "After you get the Pokédex, she gives you the Town Map",
         "gift": {
           "name": "Town Map",
-          "sprite": "pokedex"
+          "sprite": "/sprites/rby/overworld/pokedex.png"
         }
       },
       {
@@ -171,7 +171,7 @@
     "x": 4,
     "y": 2,
     "name": "Chief",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -185,7 +185,7 @@
     "x": 1,
     "y": 4,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -199,7 +199,7 @@
     "x": 5,
     "y": 6,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "left",
     "dialog": [
       {
@@ -213,7 +213,7 @@
     "x": 8,
     "y": 17,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -227,7 +227,7 @@
     "x": 11,
     "y": 28,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "up",
     "dialog": [
       {
@@ -241,7 +241,7 @@
     "x": 14,
     "y": 19,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -255,7 +255,7 @@
     "x": 25,
     "y": 22,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -269,7 +269,7 @@
     "x": 22,
     "y": 16,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -277,7 +277,7 @@
         "trigger": "When you talk to him, he gives you TM41",
         "gift": {
           "name": "TM41",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -297,7 +297,7 @@
     "x": 32,
     "y": 12,
     "name": "Fisher",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "left",
     "dialog": [
       {
@@ -311,7 +311,7 @@
     "x": 30,
     "y": 12,
     "name": "Poliwrath",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "right",
     "dialog": [
       {
@@ -325,7 +325,7 @@
     "x": 32,
     "y": 29,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -339,7 +339,7 @@
     "x": 42,
     "y": 14,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -353,7 +353,7 @@
     "x": 8,
     "y": 5,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -367,7 +367,7 @@
     "x": 7,
     "y": 2,
     "name": "Middle Aged Woman",
-    "sprite": "middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -381,7 +381,7 @@
     "x": 1,
     "y": 4,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "down",
     "dialog": [
       {
@@ -395,7 +395,7 @@
     "x": 5,
     "y": 3,
     "name": "Fisher",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "right",
     "dialog": [
       {
@@ -409,7 +409,7 @@
     "x": 0,
     "y": 1,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -417,7 +417,7 @@
         "trigger": "When you talk to him, he gives you the Coin Case",
         "gift": {
           "name": "Coin Case",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -437,7 +437,7 @@
     "x": 3,
     "y": 1,
     "name": "Granny",
-    "sprite": "granny",
+    "sprite": "/sprites/rby/overworld/granny.png",
     "facing": "down",
     "dialog": [
       {
@@ -451,7 +451,7 @@
     "x": 2,
     "y": 4,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "down",
     "dialog": [
       {
@@ -465,7 +465,7 @@
     "x": 8,
     "y": 4,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -480,7 +480,7 @@
     "x": 0,
     "y": 5,
     "name": "Meowth",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "right",
     "dialog": [
       {
@@ -495,7 +495,7 @@
     "x": 1,
     "y": 5,
     "name": "Granny",
-    "sprite": "granny",
+    "sprite": "/sprites/rby/overworld/granny.png",
     "facing": "down",
     "dialog": [
       {
@@ -510,7 +510,7 @@
     "x": 1,
     "y": 8,
     "name": "Clefairy",
-    "sprite": "fairy",
+    "sprite": "/sprites/rby/overworld/fairy.png",
     "facing": "down",
     "dialog": [
       {
@@ -525,7 +525,7 @@
     "x": 4,
     "y": 4,
     "name": "Nidoranf",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -540,7 +540,7 @@
     "x": 0,
     "y": 4,
     "name": "Programmer",
-    "sprite": "bike_shop_clerk",
+    "sprite": "/sprites/rby/overworld/bike_shop_clerk.png",
     "facing": "up",
     "dialog": [
       {
@@ -555,7 +555,7 @@
     "x": 3,
     "y": 4,
     "name": "Graphic Artist",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "up",
     "dialog": [
       {
@@ -570,7 +570,7 @@
     "x": 0,
     "y": 7,
     "name": "Writer",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "up",
     "dialog": [
       {
@@ -585,7 +585,7 @@
     "x": 2,
     "y": 3,
     "name": "Game Designer",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -605,7 +605,7 @@
     "x": 2,
     "y": 2,
     "name": "Roof House Hiker",
-    "sprite": "hiker",
+    "sprite": "/sprites/rby/overworld/hiker.png",
     "facing": "down",
     "dialog": [
       {
@@ -620,7 +620,7 @@
     "x": 8,
     "y": 3,
     "name": "Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -635,7 +635,7 @@
     "x": 5,
     "y": 3,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -650,7 +650,7 @@
     "x": 6,
     "y": 3,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -665,7 +665,7 @@
     "x": 19,
     "y": 5,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "down",
     "dialog": [
       {
@@ -680,7 +680,7 @@
     "x": 14,
     "y": 4,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -695,7 +695,7 @@
     "x": 16,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -703,7 +703,7 @@
         "trigger": "When you talk to him, he gives you TM18",
         "gift": {
           "name": "TM18",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -724,7 +724,7 @@
     "x": 11,
     "y": 6,
     "name": "Gameboy Kid",
-    "sprite": "gameboy_kid",
+    "sprite": "/sprites/rby/overworld/gameboy_kid.png",
     "facing": "right",
     "dialog": [
       {
@@ -739,7 +739,7 @@
     "x": 7,
     "y": 2,
     "name": "Gameboy Kid",
-    "sprite": "gameboy_kid",
+    "sprite": "/sprites/rby/overworld/gameboy_kid.png",
     "facing": "down",
     "dialog": [
       {
@@ -754,7 +754,7 @@
     "x": 8,
     "y": 2,
     "name": "Gameboy Kid",
-    "sprite": "gameboy_kid",
+    "sprite": "/sprites/rby/overworld/gameboy_kid.png",
     "facing": "down",
     "dialog": [
       {
@@ -769,7 +769,7 @@
     "x": 2,
     "y": 5,
     "name": "Little Boy",
-    "sprite": "little_boy",
+    "sprite": "/sprites/rby/overworld/little_boy.png",
     "facing": "up",
     "dialog": [
       {
@@ -784,7 +784,7 @@
     "x": 5,
     "y": 7,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -799,7 +799,7 @@
     "x": 15,
     "y": 5,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -814,7 +814,7 @@
     "x": 5,
     "y": 2,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -829,7 +829,7 @@
     "x": 14,
     "y": 5,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -844,7 +844,7 @@
     "x": 2,
     "y": 6,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "down",
     "dialog": [
       {
@@ -859,7 +859,7 @@
     "x": 5,
     "y": 3,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -874,7 +874,7 @@
     "x": 6,
     "y": 3,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -889,7 +889,7 @@
     "x": 10,
     "y": 4,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "left",
     "dialog": [
       {
@@ -904,7 +904,7 @@
     "x": 5,
     "y": 5,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -920,7 +920,7 @@
         "trigger": "If you give her Fresh Water, she gives you TM13",
         "gift": {
           "name": "TM13",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -928,7 +928,7 @@
         "trigger": "If you give her Soda Pop, she gives you TM48",
         "gift": {
           "name": "TM48",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -936,7 +936,7 @@
         "trigger": "If you give her Lemonade, she gives you TM49",
         "gift": {
           "name": "TM49",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -956,7 +956,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -979,7 +979,7 @@
     "x": 7,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -993,7 +993,7 @@
     "x": 10,
     "y": 5,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "down",
     "dialog": [
       {
@@ -1007,7 +1007,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -1022,7 +1022,7 @@
     "x": 5,
     "y": 3,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "right",
     "dialog": [
       {
@@ -1073,7 +1073,7 @@
     "x": 31,
     "y": 20,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -1087,7 +1087,7 @@
     "x": 15,
     "y": 18,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -1101,7 +1101,7 @@
     "x": 9,
     "y": 21,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -1115,7 +1115,7 @@
     "x": 29,
     "y": 26,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "left",
     "dialog": [
       {
@@ -1138,7 +1138,7 @@
     "x": 28,
     "y": 26,
     "name": "Slowbro",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -1165,7 +1165,7 @@
     "x": 9,
     "y": 27,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -1179,7 +1179,7 @@
     "x": 4,
     "y": 12,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -1197,7 +1197,7 @@
     "x": 27,
     "y": 12,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -1215,7 +1215,7 @@
     "x": 7,
     "y": 10,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -1234,7 +1234,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -1248,7 +1248,7 @@
     "x": 3,
     "y": 4,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -1262,7 +1262,7 @@
     "x": 6,
     "y": 2,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -1276,7 +1276,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -1299,7 +1299,7 @@
     "x": 10,
     "y": 5,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -1313,7 +1313,7 @@
     "x": 4,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -1327,7 +1327,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -1342,7 +1342,7 @@
     "x": 5,
     "y": 4,
     "name": "Granny",
-    "sprite": "granny",
+    "sprite": "/sprites/rby/overworld/granny.png",
     "facing": "left",
     "dialog": [
       {
@@ -1356,7 +1356,7 @@
     "x": 1,
     "y": 2,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -1398,7 +1398,7 @@
     "x": 2,
     "y": 1,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "down",
     "dialog": [
       {
@@ -1417,7 +1417,7 @@
     "x": 5,
     "y": 6,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -1432,7 +1432,7 @@
     "x": 3,
     "y": 7,
     "name": "Prof. Oak",
-    "sprite": "oak",
+    "sprite": "/sprites/rby/overworld/oak.png",
     "facing": "up",
     "dialog": [
       {
@@ -1450,7 +1450,7 @@
     "x": 16,
     "y": 13,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -1469,7 +1469,7 @@
     "x": 12,
     "y": 5,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -1483,7 +1483,7 @@
     "x": 14,
     "y": 6,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -1498,7 +1498,7 @@
     "x": 1,
     "y": 3,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "down",
     "dialog": [
       {
@@ -1513,7 +1513,7 @@
     "x": 5,
     "y": 2,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -1566,7 +1566,7 @@
     "x": 7,
     "y": 6,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "up",
     "dialog": [
       {
@@ -1609,7 +1609,7 @@
     "x": 7,
     "y": 2,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -1617,7 +1617,7 @@
         "trigger": "When you talk to him, he gives you TM35",
         "gift": {
           "name": "TM35",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -1638,7 +1638,7 @@
     "x": 2,
     "y": 3,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -1653,7 +1653,7 @@
     "x": 3,
     "y": 2,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -1668,7 +1668,7 @@
     "x": 1,
     "y": 4,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -1711,7 +1711,7 @@
     "x": 5,
     "y": 5,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "up",
     "dialog": [
       {
@@ -1753,7 +1753,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -1767,7 +1767,7 @@
     "x": 6,
     "y": 2,
     "name": "Silph Worker F",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -1781,7 +1781,7 @@
     "x": 3,
     "y": 4,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -1795,7 +1795,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -1818,7 +1818,7 @@
     "x": 9,
     "y": 4,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -1832,7 +1832,7 @@
     "x": 2,
     "y": 6,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -1846,7 +1846,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -1862,7 +1862,7 @@
     "x": 2,
     "y": 2,
     "name": "Middle Aged Woman",
-    "sprite": "middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -1877,7 +1877,7 @@
     "x": 5,
     "y": 4,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "left",
     "dialog": [
       {
@@ -1892,7 +1892,7 @@
     "x": 1,
     "y": 4,
     "name": "Chansey",
-    "sprite": "fairy",
+    "sprite": "/sprites/rby/overworld/fairy.png",
     "facing": "down",
     "dialog": [
       {
@@ -1907,7 +1907,7 @@
     "x": 4,
     "y": 3,
     "name": "Copycat",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -1919,7 +1919,7 @@
         "trigger": "If you have a Poké Doll, she trades it for TM31",
         "gift": {
           "name": "TM31",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -1940,7 +1940,7 @@
     "x": 4,
     "y": 6,
     "name": "Doduo",
-    "sprite": "bird",
+    "sprite": "/sprites/rby/overworld/bird.png",
     "facing": "down",
     "dialog": [
       {
@@ -1955,7 +1955,7 @@
     "x": 5,
     "y": 1,
     "name": "Doll",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -1970,7 +1970,7 @@
     "x": 2,
     "y": 0,
     "name": "Doll",
-    "sprite": "bird",
+    "sprite": "/sprites/rby/overworld/bird.png",
     "facing": "down",
     "dialog": [
       {
@@ -1985,7 +1985,7 @@
     "x": 1,
     "y": 6,
     "name": "Doll",
-    "sprite": "fairy",
+    "sprite": "/sprites/rby/overworld/fairy.png",
     "facing": "right",
     "dialog": [
       {
@@ -1999,7 +1999,7 @@
     "x": 2,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "right",
     "dialog": [
       {
@@ -2059,7 +2059,7 @@
     "x": 2,
     "y": 3,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -2073,7 +2073,7 @@
     "x": 3,
     "y": 3,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "down",
     "dialog": [
       {
@@ -2087,7 +2087,7 @@
     "x": 2,
     "y": 3,
     "name": "Middle Aged Woman",
-    "sprite": "middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/middle_aged_woman.png",
     "facing": "right",
     "dialog": [
       {
@@ -2101,7 +2101,7 @@
     "x": 7,
     "y": 2,
     "name": "Bills Grandpa",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "up",
     "dialog": [
       {
@@ -2115,7 +2115,7 @@
     "x": 5,
     "y": 5,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -2129,7 +2129,7 @@
     "x": 10,
     "y": 12,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -2143,7 +2143,7 @@
     "x": 28,
     "y": 17,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -2157,7 +2157,7 @@
     "x": 30,
     "y": 14,
     "name": "Erik",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "down",
     "dialog": [
       {
@@ -2171,7 +2171,7 @@
     "x": 24,
     "y": 8,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "up",
     "dialog": [
       {
@@ -2185,7 +2185,7 @@
     "x": 31,
     "y": 5,
     "name": "Chansey",
-    "sprite": "fairy",
+    "sprite": "/sprites/rby/overworld/fairy.png",
     "facing": "down",
     "dialog": [
       {
@@ -2199,7 +2199,7 @@
     "x": 25,
     "y": 6,
     "name": "Voltorb",
-    "sprite": "poke_ball",
+    "sprite": "/sprites/rby/overworld/poke_ball.png",
     "facing": "down",
     "dialog": [
       {
@@ -2213,7 +2213,7 @@
     "x": 12,
     "y": 6,
     "name": "Kangaskhan",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -2227,7 +2227,7 @@
     "x": 30,
     "y": 12,
     "name": "Slowpoke",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -2241,7 +2241,7 @@
     "x": 8,
     "y": 17,
     "name": "Lapras",
-    "sprite": "seel",
+    "sprite": "/sprites/rby/overworld/seel.png",
     "facing": "down",
     "dialog": [
       {
@@ -2255,7 +2255,7 @@
     "x": 6,
     "y": 5,
     "name": "Fossil",
-    "sprite": "fossil",
+    "sprite": "/sprites/rby/overworld/fossil.png",
     "facing": "down",
     "dialog": [
       {
@@ -2269,7 +2269,7 @@
     "x": 5,
     "y": 3,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "right",
     "dialog": [
       {
@@ -2281,7 +2281,7 @@
         "trigger": "If you say yes, he gives you the Good Rod",
         "gift": {
           "name": "Good Rod",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -2305,7 +2305,7 @@
     "x": 7,
     "y": 15,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -2324,7 +2324,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -2338,7 +2338,7 @@
     "x": 4,
     "y": 2,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "down",
     "dialog": [
       {
@@ -2352,7 +2352,7 @@
     "x": 6,
     "y": 5,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -2366,7 +2366,7 @@
     "x": 4,
     "y": 1,
     "name": "Safari Zone Worker",
-    "sprite": "safari_zone_worker",
+    "sprite": "/sprites/rby/overworld/safari_zone_worker.png",
     "facing": "down",
     "dialog": [
       {
@@ -2380,7 +2380,7 @@
     "x": 0,
     "y": 2,
     "name": "Safari Zone Worker",
-    "sprite": "safari_zone_worker",
+    "sprite": "/sprites/rby/overworld/safari_zone_worker.png",
     "facing": "up",
     "dialog": [
       {
@@ -2394,7 +2394,7 @@
     "x": 10,
     "y": 1,
     "name": "Safari Zone Worker",
-    "sprite": "safari_zone_worker",
+    "sprite": "/sprites/rby/overworld/safari_zone_worker.png",
     "facing": "down",
     "dialog": [
       {
@@ -2408,7 +2408,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -2431,7 +2431,7 @@
     "x": 2,
     "y": 3,
     "name": "Rocker",
-    "sprite": "rocker",
+    "sprite": "/sprites/rby/overworld/rocker.png",
     "facing": "down",
     "dialog": [
       {
@@ -2445,7 +2445,7 @@
     "x": 6,
     "y": 5,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -2459,7 +2459,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -2475,7 +2475,7 @@
     "x": 2,
     "y": 6,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "down",
     "dialog": [
       {
@@ -2490,7 +2490,7 @@
     "x": 5,
     "y": 6,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -2526,7 +2526,7 @@
     "x": 2,
     "y": 10,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "left",
     "dialog": [
       {
@@ -2541,7 +2541,7 @@
     "x": 2,
     "y": 13,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "left",
     "dialog": [
       {
@@ -2556,7 +2556,7 @@
     "x": 5,
     "y": 11,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "right",
     "dialog": [
       {
@@ -2585,7 +2585,7 @@
     "x": 8,
     "y": 11,
     "name": "Middle Aged Woman",
-    "sprite": "middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/middle_aged_woman.png",
     "facing": "left",
     "dialog": [
       {
@@ -2600,7 +2600,7 @@
     "x": 8,
     "y": 14,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "left",
     "dialog": [
       {
@@ -2620,7 +2620,7 @@
     "x": 11,
     "y": 15,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "right",
     "dialog": [
       {
@@ -2635,7 +2635,7 @@
     "x": 14,
     "y": 11,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "left",
     "dialog": [
       {
@@ -2664,7 +2664,7 @@
     "x": 17,
     "y": 13,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "right",
     "dialog": [
       {
@@ -2692,7 +2692,7 @@
     "x": 1,
     "y": 4,
     "name": "Balding Guy",
-    "sprite": "balding_guy",
+    "sprite": "/sprites/rby/overworld/balding_guy.png",
     "facing": "down",
     "dialog": [
       {
@@ -2706,7 +2706,7 @@
     "x": 7,
     "y": 3,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -2721,7 +2721,7 @@
     "x": 5,
     "y": 2,
     "name": "Prof. Oak",
-    "sprite": "oak",
+    "sprite": "/sprites/rby/overworld/oak.png",
     "facing": "down",
     "dialog": [
       {
@@ -2735,7 +2735,7 @@
     "x": 7,
     "y": 5,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -2758,7 +2758,7 @@
     "x": 4,
     "y": 9,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "right",
     "dialog": [
       {
@@ -2772,7 +2772,7 @@
     "x": 5,
     "y": 1,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -2786,7 +2786,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -2800,7 +2800,7 @@
     "x": 13,
     "y": 6,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -2815,7 +2815,7 @@
     "x": 3,
     "y": 5,
     "name": "Cubone",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "up",
     "dialog": [
       {
@@ -2829,7 +2829,7 @@
     "x": 2,
     "y": 4,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "right",
     "dialog": [
       {
@@ -2848,7 +2848,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -2862,7 +2862,7 @@
     "x": 3,
     "y": 4,
     "name": "Balding Guy",
-    "sprite": "balding_guy",
+    "sprite": "/sprites/rby/overworld/balding_guy.png",
     "facing": "down",
     "dialog": [
       {
@@ -2876,7 +2876,7 @@
     "x": 7,
     "y": 2,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -2895,7 +2895,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -2918,7 +2918,7 @@
     "x": 5,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -2932,7 +2932,7 @@
     "x": 2,
     "y": 6,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -2946,7 +2946,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -2961,7 +2961,7 @@
     "x": 15,
     "y": 9,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -2984,7 +2984,7 @@
     "x": 9,
     "y": 10,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -2998,7 +2998,7 @@
     "x": 8,
     "y": 7,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -3012,7 +3012,7 @@
     "x": 3,
     "y": 5,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -3031,7 +3031,7 @@
     "x": 6,
     "y": 3,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -3050,7 +3050,7 @@
     "x": 6,
     "y": 4,
     "name": "Psyduck",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "up",
     "dialog": [
       {
@@ -3064,7 +3064,7 @@
     "x": 1,
     "y": 3,
     "name": "Nidorino",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -3078,7 +3078,7 @@
     "x": 3,
     "y": 1,
     "name": "Mr. Fuji",
-    "sprite": "mr_fuji",
+    "sprite": "/sprites/rby/overworld/mr_fuji.png",
     "facing": "down",
     "dialog": [
       {
@@ -3086,7 +3086,7 @@
         "trigger": "After you rescue him from Pokémon Tower, he gives you the Poké Flute",
         "gift": {
           "name": "Poké Flute",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -3107,7 +3107,7 @@
     "x": 5,
     "y": 3,
     "name": "Mr Psychic",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "left",
     "dialog": [
       {
@@ -3115,7 +3115,7 @@
         "trigger": "When you talk to him, he gives you TM29",
         "gift": {
           "name": "TM29",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -3136,7 +3136,7 @@
     "x": 12,
     "y": 6,
     "name": "Dome Fossil",
-    "sprite": "fossil",
+    "sprite": "/sprites/rby/overworld/fossil.png",
     "facing": "down",
     "dialog": [
       {
@@ -3148,7 +3148,7 @@
         "trigger": "If you say yes, you get the Dome Fossil and he takes the other one",
         "gift": {
           "name": "Dome Fossil",
-          "sprite": "fossil"
+          "sprite": "/sprites/rby/overworld/fossil.png"
         }
       },
       {
@@ -3166,7 +3166,7 @@
     "x": 13,
     "y": 6,
     "name": "Helix Fossil",
-    "sprite": "fossil",
+    "sprite": "/sprites/rby/overworld/fossil.png",
     "facing": "down",
     "dialog": [
       {
@@ -3178,7 +3178,7 @@
         "trigger": "If you say yes, you get the Helix Fossil and he takes the other one",
         "gift": {
           "name": "Helix Fossil",
-          "sprite": "fossil"
+          "sprite": "/sprites/rby/overworld/fossil.png"
         }
       },
       {
@@ -3195,7 +3195,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -3218,7 +3218,7 @@
     "x": 4,
     "y": 3,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "up",
     "dialog": [
       {
@@ -3232,7 +3232,7 @@
     "x": 7,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "up",
     "dialog": [
       {
@@ -3246,7 +3246,7 @@
     "x": 10,
     "y": 6,
     "name": "Magikarp Salesman",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "down",
     "dialog": [
       {
@@ -3278,7 +3278,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -3294,7 +3294,7 @@
     "x": 12,
     "y": 4,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "left",
     "dialog": [
       {
@@ -3342,7 +3342,7 @@
     "x": 1,
     "y": 4,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -3357,7 +3357,7 @@
     "x": 15,
     "y": 2,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -3365,7 +3365,7 @@
         "trigger": "He gives you the Old Amber",
         "gift": {
           "name": "Old Amber",
-          "sprite": "old_amber"
+          "sprite": "/sprites/rby/overworld/old_amber.png"
         }
       },
       {
@@ -3386,7 +3386,7 @@
     "x": 17,
     "y": 4,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -3401,7 +3401,7 @@
     "x": 1,
     "y": 7,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -3416,7 +3416,7 @@
     "x": 0,
     "y": 5,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -3431,7 +3431,7 @@
     "x": 7,
     "y": 5,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -3446,7 +3446,7 @@
     "x": 11,
     "y": 5,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -3461,7 +3461,7 @@
     "x": 12,
     "y": 5,
     "name": "Hiker",
-    "sprite": "hiker",
+    "sprite": "/sprites/rby/overworld/hiker.png",
     "facing": "down",
     "dialog": [
       {
@@ -3475,7 +3475,7 @@
     "x": 5,
     "y": 3,
     "name": "Name Rater",
-    "sprite": "silph_president",
+    "sprite": "/sprites/rby/overworld/silph_president.png",
     "facing": "left",
     "dialog": [
       {
@@ -3511,7 +3511,7 @@
     "x": 5,
     "y": 2,
     "name": "Prof. Oak",
-    "sprite": "oak",
+    "sprite": "/sprites/rby/overworld/oak.png",
     "facing": "down",
     "dialog": [
       {
@@ -3543,7 +3543,7 @@
         "trigger": "Right after you deliver the parcel",
         "gift": {
           "name": "Pokédex",
-          "sprite": "pokedex"
+          "sprite": "/sprites/rby/overworld/pokedex.png"
         }
       },
       {
@@ -3556,7 +3556,7 @@
         "gift": {
           "name": "Poké Ball",
           "count": 5,
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -3577,7 +3577,7 @@
     "x": 1,
     "y": 9,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -3591,7 +3591,7 @@
     "x": 2,
     "y": 10,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -3605,7 +3605,7 @@
     "x": 8,
     "y": 10,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -3619,7 +3619,7 @@
     "x": 8,
     "y": 5,
     "name": "Prof. Oak",
-    "sprite": "oak",
+    "sprite": "/sprites/rby/overworld/oak.png",
     "facing": "down",
     "dialog": [
       {
@@ -3637,7 +3637,7 @@
     "x": 3,
     "y": 8,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -3651,7 +3651,7 @@
     "x": 11,
     "y": 14,
     "name": "Fisher",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "down",
     "dialog": [
       {
@@ -3665,7 +3665,7 @@
     "x": 8,
     "y": 15,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -3679,7 +3679,7 @@
     "x": 17,
     "y": 25,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -3693,7 +3693,7 @@
     "x": 27,
     "y": 17,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -3717,7 +3717,7 @@
     "x": 26,
     "y": 25,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -3740,7 +3740,7 @@
     "x": 35,
     "y": 16,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -3757,7 +3757,7 @@
     "x": 7,
     "y": 10,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -3784,7 +3784,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -3798,7 +3798,7 @@
     "x": 3,
     "y": 3,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -3812,7 +3812,7 @@
     "x": 5,
     "y": 5,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -3826,7 +3826,7 @@
     "x": 4,
     "y": 5,
     "name": "Nidoran",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "left",
     "dialog": [
       {
@@ -3840,7 +3840,7 @@
     "x": 3,
     "y": 5,
     "name": "Little Boy",
-    "sprite": "little_boy",
+    "sprite": "/sprites/rby/overworld/little_boy.png",
     "facing": "right",
     "dialog": [
       {
@@ -3854,7 +3854,7 @@
     "x": 1,
     "y": 2,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "down",
     "dialog": [
       {
@@ -3868,7 +3868,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -3891,7 +3891,7 @@
     "x": 11,
     "y": 7,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "left",
     "dialog": [
       {
@@ -3905,7 +3905,7 @@
     "x": 1,
     "y": 3,
     "name": "Jigglypuff",
-    "sprite": "fairy",
+    "sprite": "/sprites/rby/overworld/fairy.png",
     "facing": "down",
     "dialog": [
       {
@@ -3919,7 +3919,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -3934,7 +3934,7 @@
     "x": 2,
     "y": 3,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "right",
     "dialog": [
       {
@@ -3948,7 +3948,7 @@
     "x": 4,
     "y": 5,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -3962,7 +3962,7 @@
     "x": 6,
     "y": 3,
     "name": "Pikachu Fan",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "left",
     "dialog": [
       {
@@ -3981,7 +3981,7 @@
     "x": 1,
     "y": 3,
     "name": "Seel Fan",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "right",
     "dialog": [
       {
@@ -4000,7 +4000,7 @@
     "x": 6,
     "y": 4,
     "name": "Pikachu",
-    "sprite": "fairy",
+    "sprite": "/sprites/rby/overworld/fairy.png",
     "facing": "left",
     "dialog": [
       {
@@ -4014,7 +4014,7 @@
     "x": 1,
     "y": 4,
     "name": "Seel",
-    "sprite": "seel",
+    "sprite": "/sprites/rby/overworld/seel.png",
     "facing": "right",
     "dialog": [
       {
@@ -4028,7 +4028,7 @@
     "x": 3,
     "y": 1,
     "name": "Chairman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -4040,7 +4040,7 @@
         "trigger": "If you say yes, he tells his story and gives you a Bike Voucher",
         "gift": {
           "name": "Bike Voucher",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4064,7 +4064,7 @@
     "x": 5,
     "y": 1,
     "name": "Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -4079,7 +4079,7 @@
     "x": 15,
     "y": 13,
     "name": "Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "up",
     "dialog": [
       {
@@ -4094,7 +4094,7 @@
     "x": 6,
     "y": 8,
     "name": "Middle Aged Woman",
-    "sprite": "middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -4109,7 +4109,7 @@
     "x": 8,
     "y": 12,
     "name": "Balding Guy",
-    "sprite": "balding_guy",
+    "sprite": "/sprites/rby/overworld/balding_guy.png",
     "facing": "down",
     "dialog": [
       {
@@ -4124,7 +4124,7 @@
     "x": 13,
     "y": 7,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -4139,7 +4139,7 @@
     "x": 17,
     "y": 7,
     "name": "Channeler",
-    "sprite": "channeler",
+    "sprite": "/sprites/rby/overworld/channeler.png",
     "facing": "left",
     "dialog": [
       {
@@ -4154,7 +4154,7 @@
     "x": 3,
     "y": 7,
     "name": "Channeler",
-    "sprite": "channeler",
+    "sprite": "/sprites/rby/overworld/channeler.png",
     "facing": "right",
     "dialog": [
       {
@@ -4169,7 +4169,7 @@
     "x": 12,
     "y": 8,
     "name": "Channeler",
-    "sprite": "channeler",
+    "sprite": "/sprites/rby/overworld/channeler.png",
     "facing": "down",
     "dialog": [
       {
@@ -4184,7 +4184,7 @@
     "x": 10,
     "y": 3,
     "name": "Mr. Fuji",
-    "sprite": "mr_fuji",
+    "sprite": "/sprites/rby/overworld/mr_fuji.png",
     "facing": "down",
     "dialog": [
       {
@@ -4203,7 +4203,7 @@
     "x": 5,
     "y": 4,
     "name": "Mom",
-    "sprite": "mom",
+    "sprite": "/sprites/rby/overworld/mom.png",
     "facing": "left",
     "dialog": [
       {
@@ -4222,7 +4222,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -4245,7 +4245,7 @@
     "x": 7,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -4259,7 +4259,7 @@
     "x": 2,
     "y": 5,
     "name": "Fisher",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "down",
     "dialog": [
       {
@@ -4273,7 +4273,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -4288,7 +4288,7 @@
     "x": 5,
     "y": 24,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -4296,7 +4296,7 @@
         "trigger": "The first time you talk to him, he gives you a Potion",
         "gift": {
           "name": "Potion",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4316,7 +4316,7 @@
     "x": 15,
     "y": 13,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -4331,7 +4331,7 @@
     "x": 4,
     "y": 1,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4346,7 +4346,7 @@
     "x": 4,
     "y": 2,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -4389,7 +4389,7 @@
     "x": 2,
     "y": 6,
     "name": "Oak's Aide",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -4401,7 +4401,7 @@
         "trigger": "If you say yes with at least 30 kinds caught, he gives you the Itemfinder",
         "gift": {
           "name": "Itemfinder",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4430,7 +4430,7 @@
     "x": 1,
     "y": 3,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4445,7 +4445,7 @@
     "x": 3,
     "y": 4,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -4453,7 +4453,7 @@
         "trigger": "The first time you talk to her, she gives you TM39",
         "gift": {
           "name": "TM39",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4473,7 +4473,7 @@
     "x": 2,
     "y": 4,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "right",
     "dialog": [
       {
@@ -4485,7 +4485,7 @@
         "trigger": "If you say yes, he gives you the Super Rod",
         "gift": {
           "name": "Super Rod",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4510,7 +4510,7 @@
     "x": 4,
     "y": 1,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4525,7 +4525,7 @@
     "x": 4,
     "y": 2,
     "name": "Oak's Aide",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -4537,7 +4537,7 @@
         "trigger": "If you say yes with at least 50 kinds caught, he gives you the Exp. All",
         "gift": {
           "name": "Exp. All",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4565,7 +4565,7 @@
     "x": 2,
     "y": 3,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "right",
     "dialog": [
       {
@@ -4573,7 +4573,7 @@
         "trigger": "When you talk to her, she gives you HM02",
         "gift": {
           "name": "HM02",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4593,7 +4593,7 @@
     "x": 6,
     "y": 4,
     "name": "Fearow",
-    "sprite": "bird",
+    "sprite": "/sprites/rby/overworld/bird.png",
     "facing": "down",
     "dialog": [
       {
@@ -4608,7 +4608,7 @@
     "x": 4,
     "y": 5,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4632,7 +4632,7 @@
     "x": 4,
     "y": 3,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -4647,7 +4647,7 @@
     "x": 4,
     "y": 2,
     "name": "Little Boy",
-    "sprite": "little_boy",
+    "sprite": "/sprites/rby/overworld/little_boy.png",
     "facing": "down",
     "dialog": [
       {
@@ -4662,7 +4662,7 @@
     "x": 2,
     "y": 5,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -4677,7 +4677,7 @@
     "x": 4,
     "y": 1,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4701,7 +4701,7 @@
     "x": 4,
     "y": 2,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -4743,7 +4743,7 @@
     "x": 6,
     "y": 2,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "left",
     "dialog": [
       {
@@ -4762,7 +4762,7 @@
     "x": 4,
     "y": 35,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4781,7 +4781,7 @@
     "x": 10,
     "y": 56,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4800,7 +4800,7 @@
     "x": 8,
     "y": 85,
     "name": "Swimmer",
-    "sprite": "swimmer",
+    "sprite": "/sprites/rby/overworld/swimmer.png",
     "facing": "down",
     "dialog": [
       {
@@ -4819,7 +4819,7 @@
     "x": 11,
     "y": 96,
     "name": "Swimmer",
-    "sprite": "swimmer",
+    "sprite": "/sprites/rby/overworld/swimmer.png",
     "facing": "down",
     "dialog": [
       {
@@ -4838,7 +4838,7 @@
     "x": 12,
     "y": 105,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4857,7 +4857,7 @@
     "x": 8,
     "y": 119,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4876,7 +4876,7 @@
     "x": 8,
     "y": 136,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -4895,7 +4895,7 @@
     "x": 1,
     "y": 4,
     "name": "Oak's Aide",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "left",
     "dialog": [
       {
@@ -4907,7 +4907,7 @@
         "trigger": "If you say yes with at least 10 kinds caught, he gives you HM05",
         "gift": {
           "name": "HM05",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -4935,7 +4935,7 @@
     "x": 5,
     "y": 4,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -4949,7 +4949,7 @@
     "x": 2,
     "y": 4,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "right",
     "dialog": [
       {
@@ -4963,7 +4963,7 @@
     "x": 4,
     "y": 1,
     "name": "Gameboy Kid",
-    "sprite": "gameboy_kid",
+    "sprite": "/sprites/rby/overworld/gameboy_kid.png",
     "facing": "down",
     "dialog": [
       {
@@ -5005,7 +5005,7 @@
     "x": 57,
     "y": 11,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -5019,7 +5019,7 @@
     "x": 9,
     "y": 8,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -5033,7 +5033,7 @@
     "x": 1,
     "y": 3,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "right",
     "dialog": [
       {
@@ -5057,7 +5057,7 @@
     "x": 6,
     "y": 2,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "left",
     "dialog": [
       {
@@ -5081,7 +5081,7 @@
     "x": 3,
     "y": 1,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -5105,7 +5105,7 @@
     "x": 2,
     "y": 1,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -5130,7 +5130,7 @@
     "x": 12,
     "y": 6,
     "name": "Waiter",
-    "sprite": "waiter",
+    "sprite": "/sprites/rby/overworld/waiter.png",
     "facing": "down",
     "dialog": [
       {
@@ -5145,7 +5145,7 @@
     "x": 27,
     "y": 5,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "down",
     "dialog": [
       {
@@ -5160,7 +5160,7 @@
     "x": 22,
     "y": 3,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -5175,7 +5175,7 @@
     "x": 0,
     "y": 14,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "down",
     "dialog": [
       {
@@ -5190,7 +5190,7 @@
     "x": 2,
     "y": 11,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -5205,7 +5205,7 @@
     "x": 3,
     "y": 11,
     "name": "Wigglytuff",
-    "sprite": "fairy",
+    "sprite": "/sprites/rby/overworld/fairy.png",
     "facing": "down",
     "dialog": [
       {
@@ -5220,7 +5220,7 @@
     "x": 10,
     "y": 13,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "right",
     "dialog": [
       {
@@ -5235,7 +5235,7 @@
     "x": 21,
     "y": 13,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -5250,7 +5250,7 @@
     "x": 3,
     "y": 7,
     "name": "Waiter",
-    "sprite": "waiter",
+    "sprite": "/sprites/rby/overworld/waiter.png",
     "facing": "down",
     "dialog": [
       {
@@ -5265,7 +5265,7 @@
     "x": 1,
     "y": 2,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -5280,7 +5280,7 @@
     "x": 21,
     "y": 2,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -5295,7 +5295,7 @@
     "x": 22,
     "y": 1,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -5310,7 +5310,7 @@
     "x": 12,
     "y": 12,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -5325,7 +5325,7 @@
     "x": 11,
     "y": 14,
     "name": "Little Boy",
-    "sprite": "little_boy",
+    "sprite": "/sprites/rby/overworld/little_boy.png",
     "facing": "down",
     "dialog": [
       {
@@ -5340,7 +5340,7 @@
     "x": 22,
     "y": 12,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "left",
     "dialog": [
       {
@@ -5355,7 +5355,7 @@
     "x": 20,
     "y": 12,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "right",
     "dialog": [
       {
@@ -5370,7 +5370,7 @@
     "x": 9,
     "y": 3,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "down",
     "dialog": [
       {
@@ -5385,7 +5385,7 @@
     "x": 10,
     "y": 13,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "right",
     "dialog": [
       {
@@ -5400,7 +5400,7 @@
     "x": 11,
     "y": 12,
     "name": "Machoke",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -5415,7 +5415,7 @@
     "x": 5,
     "y": 2,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "up",
     "dialog": [
       {
@@ -5430,7 +5430,7 @@
     "x": 4,
     "y": 9,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "down",
     "dialog": [
       {
@@ -5445,7 +5445,7 @@
     "x": 7,
     "y": 11,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -5460,7 +5460,7 @@
     "x": 4,
     "y": 2,
     "name": "Captain",
-    "sprite": "captain",
+    "sprite": "/sprites/rby/overworld/captain.png",
     "facing": "up",
     "dialog": [
       {
@@ -5468,7 +5468,7 @@
         "trigger": "You rub his back, and he gives you HM01",
         "gift": {
           "name": "HM01",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -5489,7 +5489,7 @@
     "x": 1,
     "y": 8,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -5504,7 +5504,7 @@
     "x": 5,
     "y": 8,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -5519,7 +5519,7 @@
     "x": 9,
     "y": 7,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -5534,7 +5534,7 @@
     "x": 13,
     "y": 6,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -5549,7 +5549,7 @@
     "x": 13,
     "y": 8,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -5564,7 +5564,7 @@
     "x": 13,
     "y": 10,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -5579,7 +5579,7 @@
     "x": 11,
     "y": 13,
     "name": "Chef",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "up",
     "dialog": [
       {
@@ -5603,7 +5603,7 @@
     "x": 3,
     "y": 2,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -5618,7 +5618,7 @@
     "x": 1,
     "y": 4,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -5633,7 +5633,7 @@
     "x": 1,
     "y": 3,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -5648,7 +5648,7 @@
     "x": 4,
     "y": 2,
     "name": "Rocker",
-    "sprite": "rocker",
+    "sprite": "/sprites/rby/overworld/rocker.png",
     "facing": "down",
     "dialog": [
       {
@@ -5663,7 +5663,7 @@
     "x": 5,
     "y": 2,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -5677,7 +5677,7 @@
     "x": 6,
     "y": 2,
     "name": "Safari Zone Worker",
-    "sprite": "safari_zone_worker",
+    "sprite": "/sprites/rby/overworld/safari_zone_worker.png",
     "facing": "left",
     "dialog": [
       {
@@ -5725,7 +5725,7 @@
     "x": 1,
     "y": 4,
     "name": "Safari Zone Worker",
-    "sprite": "safari_zone_worker",
+    "sprite": "/sprites/rby/overworld/safari_zone_worker.png",
     "facing": "right",
     "dialog": [
       {
@@ -5749,7 +5749,7 @@
     "x": 6,
     "y": 3,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -5764,7 +5764,7 @@
     "x": 3,
     "y": 4,
     "name": "Safari Zone Worker",
-    "sprite": "safari_zone_worker",
+    "sprite": "/sprites/rby/overworld/safari_zone_worker.png",
     "facing": "down",
     "dialog": [
       {
@@ -5779,7 +5779,7 @@
     "x": 1,
     "y": 5,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -5794,7 +5794,7 @@
     "x": 3,
     "y": 3,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "down",
     "dialog": [
       {
@@ -5802,7 +5802,7 @@
         "trigger": "When you talk to him, he gives you HM03",
         "gift": {
           "name": "HM03",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -5823,7 +5823,7 @@
     "x": 4,
     "y": 4,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -5838,7 +5838,7 @@
     "x": 0,
     "y": 2,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "right",
     "dialog": [
       {
@@ -5853,7 +5853,7 @@
     "x": 6,
     "y": 2,
     "name": "Silph Worker F",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -5867,7 +5867,7 @@
     "x": 7,
     "y": 6,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -5882,7 +5882,7 @@
     "x": 20,
     "y": 8,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -5897,7 +5897,7 @@
     "x": 34,
     "y": 4,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -5912,7 +5912,7 @@
     "x": 13,
     "y": 12,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -5927,7 +5927,7 @@
     "x": 11,
     "y": 25,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -5942,7 +5942,7 @@
     "x": 32,
     "y": 13,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -5957,7 +5957,7 @@
     "x": 18,
     "y": 30,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -5972,7 +5972,7 @@
     "x": 8,
     "y": 14,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -5987,7 +5987,7 @@
     "x": 23,
     "y": 23,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6002,7 +6002,7 @@
     "x": 17,
     "y": 30,
     "name": "Silph Worker F",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -6017,7 +6017,7 @@
     "x": 30,
     "y": 12,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -6032,7 +6032,7 @@
     "x": 31,
     "y": 12,
     "name": "Pidgeot",
-    "sprite": "bird",
+    "sprite": "/sprites/rby/overworld/bird.png",
     "facing": "down",
     "dialog": [
       {
@@ -6047,7 +6047,7 @@
     "x": 18,
     "y": 8,
     "name": "Rocker",
-    "sprite": "rocker",
+    "sprite": "/sprites/rby/overworld/rocker.png",
     "facing": "up",
     "dialog": [
       {
@@ -6062,7 +6062,7 @@
     "x": 18,
     "y": 22,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -6077,7 +6077,7 @@
     "x": 19,
     "y": 22,
     "name": "Rocket",
-    "sprite": "rocket",
+    "sprite": "/sprites/rby/overworld/rocket.png",
     "facing": "down",
     "dialog": [
       {
@@ -6092,7 +6092,7 @@
     "x": 10,
     "y": 15,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -6111,7 +6111,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -6125,7 +6125,7 @@
     "x": 4,
     "y": 2,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -6139,7 +6139,7 @@
     "x": 6,
     "y": 5,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -6153,7 +6153,7 @@
     "x": 2,
     "y": 3,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "right",
     "dialog": [
       {
@@ -6167,7 +6167,7 @@
     "x": 0,
     "y": 4,
     "name": "Pidgey",
-    "sprite": "bird",
+    "sprite": "/sprites/rby/overworld/bird.png",
     "facing": "down",
     "dialog": [
       {
@@ -6181,7 +6181,7 @@
     "x": 4,
     "y": 1,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -6195,7 +6195,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -6218,7 +6218,7 @@
     "x": 5,
     "y": 5,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "down",
     "dialog": [
       {
@@ -6232,7 +6232,7 @@
     "x": 8,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -6246,7 +6246,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -6262,7 +6262,7 @@
     "x": 9,
     "y": 15,
     "name": "Silph Worker F",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -6282,7 +6282,7 @@
     "x": 7,
     "y": 5,
     "name": "Silph President",
-    "sprite": "silph_president",
+    "sprite": "/sprites/rby/overworld/silph_president.png",
     "facing": "down",
     "dialog": [
       {
@@ -6290,7 +6290,7 @@
         "trigger": "When you talk to him, he gives you the Master Ball",
         "gift": {
           "name": "Master Ball",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -6311,7 +6311,7 @@
     "x": 10,
     "y": 5,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "down",
     "dialog": [
       {
@@ -6326,7 +6326,7 @@
     "x": 10,
     "y": 1,
     "name": "Silph Worker F",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "up",
     "dialog": [
       {
@@ -6334,7 +6334,7 @@
         "trigger": "When you talk to her, she gives you TM36",
         "gift": {
           "name": "TM36",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -6355,7 +6355,7 @@
     "x": 24,
     "y": 8,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6375,7 +6375,7 @@
     "x": 6,
     "y": 2,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6395,7 +6395,7 @@
     "x": 13,
     "y": 9,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6415,7 +6415,7 @@
     "x": 10,
     "y": 6,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6435,7 +6435,7 @@
     "x": 20,
     "y": 6,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6455,7 +6455,7 @@
     "x": 21,
     "y": 6,
     "name": "Silph Worker F",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -6475,7 +6475,7 @@
     "x": 11,
     "y": 10,
     "name": "Silph Worker F",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "right",
     "dialog": [
       {
@@ -6495,7 +6495,7 @@
     "x": 18,
     "y": 13,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "up",
     "dialog": [
       {
@@ -6515,7 +6515,7 @@
     "x": 1,
     "y": 5,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6543,7 +6543,7 @@
     "x": 13,
     "y": 13,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "up",
     "dialog": [
       {
@@ -6563,7 +6563,7 @@
     "x": 7,
     "y": 10,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6583,7 +6583,7 @@
     "x": 10,
     "y": 8,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_f",
+    "sprite": "/sprites/rby/overworld/silph_worker_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -6603,7 +6603,7 @@
     "x": 4,
     "y": 2,
     "name": "Silph Worker M",
-    "sprite": "silph_worker_m",
+    "sprite": "/sprites/rby/overworld/silph_worker_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6623,7 +6623,7 @@
     "x": 3,
     "y": 14,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -6646,7 +6646,7 @@
     "x": 2,
     "y": 3,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -6688,7 +6688,7 @@
     "x": 2,
     "y": 3,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -6702,7 +6702,7 @@
     "x": 2,
     "y": 4,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "down",
     "dialog": [
       {
@@ -6716,7 +6716,7 @@
     "x": 3,
     "y": 4,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -6730,7 +6730,7 @@
     "x": 19,
     "y": 7,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "down",
     "dialog": [
       {
@@ -6744,7 +6744,7 @@
     "x": 14,
     "y": 6,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -6763,7 +6763,7 @@
     "x": 19,
     "y": 30,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "up",
     "dialog": [
       {
@@ -6795,7 +6795,7 @@
     "x": 30,
     "y": 7,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -6809,7 +6809,7 @@
     "x": 29,
     "y": 9,
     "name": "Machop",
-    "sprite": "monster",
+    "sprite": "/sprites/rby/overworld/monster.png",
     "facing": "down",
     "dialog": [
       {
@@ -6824,7 +6824,7 @@
     "x": 25,
     "y": 27,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "down",
     "dialog": [
       {
@@ -6838,7 +6838,7 @@
     "x": 4,
     "y": 14,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -6857,7 +6857,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -6871,7 +6871,7 @@
     "x": 5,
     "y": 6,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -6885,7 +6885,7 @@
     "x": 3,
     "y": 3,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -6899,7 +6899,7 @@
     "x": 2,
     "y": 4,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "right",
     "dialog": [
       {
@@ -6911,7 +6911,7 @@
         "trigger": "If you say yes, he gives you the Old Rod",
         "gift": {
           "name": "Old Rod",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -6935,7 +6935,7 @@
     "x": 5,
     "y": 3,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "left",
     "dialog": [
       {
@@ -6949,7 +6949,7 @@
     "x": 3,
     "y": 5,
     "name": "Pidgey",
-    "sprite": "bird",
+    "sprite": "/sprites/rby/overworld/bird.png",
     "facing": "down",
     "dialog": [
       {
@@ -6963,7 +6963,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -6986,7 +6986,7 @@
     "x": 10,
     "y": 5,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "down",
     "dialog": [
       {
@@ -7000,7 +7000,7 @@
     "x": 5,
     "y": 4,
     "name": "Sailor",
-    "sprite": "sailor",
+    "sprite": "/sprites/rby/overworld/sailor.png",
     "facing": "down",
     "dialog": [
       {
@@ -7014,7 +7014,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -7029,7 +7029,7 @@
     "x": 3,
     "y": 5,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "up",
     "dialog": [
       {
@@ -7071,7 +7071,7 @@
     "x": 13,
     "y": 20,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -7085,7 +7085,7 @@
     "x": 30,
     "y": 8,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -7104,7 +7104,7 @@
     "x": 30,
     "y": 25,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -7127,7 +7127,7 @@
     "x": 17,
     "y": 9,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "right",
     "dialog": [
       {
@@ -7146,7 +7146,7 @@
     "x": 18,
     "y": 9,
     "name": "Old Man",
-    "sprite": "gambler_asleep",
+    "sprite": "/sprites/rby/overworld/gambler_asleep.png",
     "facing": "down",
     "dialog": [
       {
@@ -7164,7 +7164,7 @@
     "x": 6,
     "y": 23,
     "name": "Fisher",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "down",
     "dialog": [
       {
@@ -7172,7 +7172,7 @@
         "trigger": "The first time you talk to him, he gives you TM42",
         "gift": {
           "name": "TM42",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -7192,7 +7192,7 @@
     "x": 17,
     "y": 5,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -7216,7 +7216,7 @@
     "x": 16,
     "y": 43,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -7230,7 +7230,7 @@
     "x": 27,
     "y": 40,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -7244,7 +7244,7 @@
     "x": 3,
     "y": 2,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -7258,7 +7258,7 @@
     "x": 2,
     "y": 5,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -7272,7 +7272,7 @@
     "x": 8,
     "y": 4,
     "name": "Girl",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "left",
     "dialog": [
       {
@@ -7286,7 +7286,7 @@
     "x": 2,
     "y": 4,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -7300,7 +7300,7 @@
     "x": 16,
     "y": 15,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -7319,7 +7319,7 @@
     "x": 0,
     "y": 5,
     "name": "Clerk",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "right",
     "dialog": [
       {
@@ -7327,7 +7327,7 @@
         "trigger": "When you first walk in, he gives you Oak’s Parcel",
         "gift": {
           "name": "Oak’s Parcel",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -7347,7 +7347,7 @@
     "x": 5,
     "y": 5,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -7361,7 +7361,7 @@
     "x": 3,
     "y": 3,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -7375,7 +7375,7 @@
     "x": 5,
     "y": 3,
     "name": "Balding Guy",
-    "sprite": "balding_guy",
+    "sprite": "/sprites/rby/overworld/balding_guy.png",
     "facing": "down",
     "dialog": [
       {
@@ -7389,7 +7389,7 @@
     "x": 1,
     "y": 4,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -7403,7 +7403,7 @@
     "x": 5,
     "y": 5,
     "name": "Spearow",
-    "sprite": "bird",
+    "sprite": "/sprites/rby/overworld/bird.png",
     "facing": "down",
     "dialog": [
       {
@@ -7417,7 +7417,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "nurse",
+    "sprite": "/sprites/rby/overworld/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -7440,7 +7440,7 @@
     "x": 10,
     "y": 5,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -7454,7 +7454,7 @@
     "x": 4,
     "y": 3,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -7468,7 +7468,7 @@
     "x": 11,
     "y": 2,
     "name": "Link Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -7483,7 +7483,7 @@
     "x": 3,
     "y": 5,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "up",
     "dialog": [
       {
@@ -7497,7 +7497,7 @@
     "x": 4,
     "y": 1,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -7511,7 +7511,7 @@
     "x": 2,
     "y": 3,
     "name": "Warden",
-    "sprite": "warden",
+    "sprite": "/sprites/rby/overworld/warden.png",
     "facing": "down",
     "dialog": [
       {
@@ -7531,7 +7531,7 @@
         "trigger": "If you have the Gold Teeth, he gives you HM04",
         "gift": {
           "name": "HM04",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -7551,7 +7551,7 @@
     "x": 6,
     "y": 2,
     "name": "Clerk",
-    "sprite": "yellow/bike_shop_clerk",
+    "sprite": "/sprites/rby/overworld/yellow/bike_shop_clerk.png",
     "facing": "down",
     "dialog": [
       {
@@ -7571,7 +7571,7 @@
         "trigger": "With the Bike Voucher, he gives you the Bicycle",
         "gift": {
           "name": "Bicycle",
-          "sprite": "red_bike"
+          "sprite": "/sprites/rby/overworld/red_bike.png"
         }
       },
       {
@@ -7591,7 +7591,7 @@
     "x": 5,
     "y": 6,
     "name": "Middle Aged Woman",
-    "sprite": "yellow/middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/yellow/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -7605,7 +7605,7 @@
     "x": 2,
     "y": 3,
     "name": "Daisy",
-    "sprite": "yellow/daisy",
+    "sprite": "/sprites/rby/overworld/yellow/daisy.png",
     "facing": "right",
     "dialog": [
       {
@@ -7617,7 +7617,7 @@
         "trigger": "After you get the Pokédex, she gives you the Town Map",
         "gift": {
           "name": "Town Map",
-          "sprite": "pokedex"
+          "sprite": "/sprites/rby/overworld/pokedex.png"
         }
       },
       {
@@ -7641,7 +7641,7 @@
     "x": 8,
     "y": 17,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -7655,7 +7655,7 @@
     "x": 7,
     "y": 2,
     "name": "Middle Aged Woman",
-    "sprite": "yellow/middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/yellow/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -7670,7 +7670,7 @@
     "x": 1,
     "y": 5,
     "name": "Granny",
-    "sprite": "granny",
+    "sprite": "/sprites/rby/overworld/granny.png",
     "facing": "down",
     "dialog": [
       {
@@ -7710,7 +7710,7 @@
     "x": 0,
     "y": 4,
     "name": "Programmer",
-    "sprite": "yellow/bike_shop_clerk",
+    "sprite": "/sprites/rby/overworld/yellow/bike_shop_clerk.png",
     "facing": "up",
     "dialog": [
       {
@@ -7730,7 +7730,7 @@
     "x": 3,
     "y": 4,
     "name": "Graphic Artist",
-    "sprite": "clerk",
+    "sprite": "/sprites/rby/overworld/clerk.png",
     "facing": "up",
     "dialog": [
       {
@@ -7762,7 +7762,7 @@
     "x": 0,
     "y": 7,
     "name": "Writer",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "up",
     "dialog": [
       {
@@ -7782,7 +7782,7 @@
     "x": 15,
     "y": 5,
     "name": "Super Nerd",
-    "sprite": "super_nerd",
+    "sprite": "/sprites/rby/overworld/super_nerd.png",
     "facing": "down",
     "dialog": [
       {
@@ -7797,7 +7797,7 @@
     "x": 5,
     "y": 5,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -7813,7 +7813,7 @@
         "trigger": "If you give her Fresh Water, she gives you TM13",
         "gift": {
           "name": "TM13",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -7821,7 +7821,7 @@
         "trigger": "If you give her Soda Pop, she gives you TM48",
         "gift": {
           "name": "TM48",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -7829,7 +7829,7 @@
         "trigger": "If you give her Lemonade, she gives you TM49",
         "gift": {
           "name": "TM49",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -7849,7 +7849,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -7872,7 +7872,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -7886,7 +7886,7 @@
     "x": 5,
     "y": 3,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "right",
     "dialog": [
       {
@@ -7937,7 +7937,7 @@
     "x": 29,
     "y": 26,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "left",
     "dialog": [
       {
@@ -7960,7 +7960,7 @@
     "x": 28,
     "y": 26,
     "name": "Electrode",
-    "sprite": "poke_ball",
+    "sprite": "/sprites/rby/overworld/poke_ball.png",
     "facing": "down",
     "dialog": [
       {
@@ -7987,7 +7987,7 @@
     "x": 27,
     "y": 12,
     "name": "Officer Jenny",
-    "sprite": "yellow/officer_jenny",
+    "sprite": "/sprites/rby/overworld/yellow/officer_jenny.png",
     "facing": "down",
     "dialog": [
       {
@@ -8005,7 +8005,7 @@
     "x": 7,
     "y": 10,
     "name": "Gym Guide",
-    "sprite": "gym_guide",
+    "sprite": "/sprites/rby/overworld/gym_guide.png",
     "facing": "down",
     "dialog": [
       {
@@ -8024,7 +8024,7 @@
     "x": 3,
     "y": 1,
     "name": "Melanie",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -8060,7 +8060,7 @@
     "x": 4,
     "y": 1,
     "name": "Bulbasaur",
-    "sprite": "yellow/bulbasaur",
+    "sprite": "/sprites/rby/overworld/yellow/bulbasaur.png",
     "facing": "down",
     "dialog": [
       {
@@ -8074,7 +8074,7 @@
     "x": 1,
     "y": 4,
     "name": "Oddish",
-    "sprite": "yellow/oddish",
+    "sprite": "/sprites/rby/overworld/yellow/oddish.png",
     "facing": "down",
     "dialog": [
       {
@@ -8088,7 +8088,7 @@
     "x": 5,
     "y": 3,
     "name": "Sandshrew",
-    "sprite": "yellow/sandshrew",
+    "sprite": "/sprites/rby/overworld/yellow/sandshrew.png",
     "facing": "left",
     "dialog": [
       {
@@ -8102,7 +8102,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -8125,7 +8125,7 @@
     "x": 4,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "up",
     "dialog": [
       {
@@ -8139,7 +8139,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8153,7 +8153,7 @@
     "x": 14,
     "y": 6,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -8168,7 +8168,7 @@
     "x": 7,
     "y": 6,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "up",
     "dialog": [
       {
@@ -8211,7 +8211,7 @@
     "x": 1,
     "y": 4,
     "name": "Gramps",
-    "sprite": "gramps",
+    "sprite": "/sprites/rby/overworld/gramps.png",
     "facing": "down",
     "dialog": [
       {
@@ -8254,7 +8254,7 @@
     "x": 5,
     "y": 5,
     "name": "Beauty",
-    "sprite": "beauty",
+    "sprite": "/sprites/rby/overworld/beauty.png",
     "facing": "up",
     "dialog": [
       {
@@ -8296,7 +8296,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -8319,7 +8319,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8334,7 +8334,7 @@
     "x": 2,
     "y": 2,
     "name": "Middle Aged Woman",
-    "sprite": "yellow/middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/yellow/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -8349,7 +8349,7 @@
     "x": 1,
     "y": 4,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8363,7 +8363,7 @@
     "x": 2,
     "y": 3,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "right",
     "dialog": [
       {
@@ -8423,7 +8423,7 @@
     "x": 2,
     "y": 3,
     "name": "Middle Aged Woman",
-    "sprite": "yellow/middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/yellow/middle_aged_woman.png",
     "facing": "right",
     "dialog": [
       {
@@ -8437,7 +8437,7 @@
     "x": 31,
     "y": 5,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8451,7 +8451,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -8474,7 +8474,7 @@
     "x": 4,
     "y": 3,
     "name": "Rocker",
-    "sprite": "rocker",
+    "sprite": "/sprites/rby/overworld/rocker.png",
     "facing": "up",
     "dialog": [
       {
@@ -8488,7 +8488,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8503,7 +8503,7 @@
     "x": 8,
     "y": 11,
     "name": "Middle Aged Woman",
-    "sprite": "yellow/middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/yellow/middle_aged_woman.png",
     "facing": "left",
     "dialog": [
       {
@@ -8518,7 +8518,7 @@
     "x": 14,
     "y": 11,
     "name": "Middle Aged Man",
-    "sprite": "middle_aged_man",
+    "sprite": "/sprites/rby/overworld/middle_aged_man.png",
     "facing": "left",
     "dialog": [
       {
@@ -8547,7 +8547,7 @@
     "x": 17,
     "y": 13,
     "name": "Fishing Guru",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "right",
     "dialog": [
       {
@@ -8576,7 +8576,7 @@
     "x": 5,
     "y": 2,
     "name": "Prof. Oak",
-    "sprite": "oak",
+    "sprite": "/sprites/rby/overworld/oak.png",
     "facing": "down",
     "dialog": [
       {
@@ -8590,7 +8590,7 @@
     "x": 7,
     "y": 5,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -8613,7 +8613,7 @@
     "x": 8,
     "y": 5,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8627,7 +8627,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -8650,7 +8650,7 @@
     "x": 10,
     "y": 5,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -8664,7 +8664,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8678,7 +8678,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -8701,7 +8701,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8716,7 +8716,7 @@
     "x": 15,
     "y": 2,
     "name": "Scientist",
-    "sprite": "scientist",
+    "sprite": "/sprites/rby/overworld/scientist.png",
     "facing": "down",
     "dialog": [
       {
@@ -8724,7 +8724,7 @@
         "trigger": "He gives you the Old Amber",
         "gift": {
           "name": "Old Amber",
-          "sprite": "old_amber"
+          "sprite": "/sprites/rby/overworld/old_amber.png"
         }
       },
       {
@@ -8745,7 +8745,7 @@
     "x": 12,
     "y": 5,
     "name": "Hiker",
-    "sprite": "hiker",
+    "sprite": "/sprites/rby/overworld/hiker.png",
     "facing": "down",
     "dialog": [
       {
@@ -8768,7 +8768,7 @@
     "x": 5,
     "y": 3,
     "name": "Name Rater",
-    "sprite": "silph_president",
+    "sprite": "/sprites/rby/overworld/silph_president.png",
     "facing": "left",
     "dialog": [
       {
@@ -8804,7 +8804,7 @@
     "x": 5,
     "y": 2,
     "name": "Prof. Oak",
-    "sprite": "oak",
+    "sprite": "/sprites/rby/overworld/oak.png",
     "facing": "down",
     "dialog": [
       {
@@ -8836,7 +8836,7 @@
         "trigger": "Right after you deliver the parcel",
         "gift": {
           "name": "Pokédex",
-          "sprite": "pokedex"
+          "sprite": "/sprites/rby/overworld/pokedex.png"
         }
       },
       {
@@ -8849,7 +8849,7 @@
         "gift": {
           "name": "Poké Ball",
           "count": 5,
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -8870,7 +8870,7 @@
     "x": 10,
     "y": 4,
     "name": "Prof. Oak",
-    "sprite": "oak",
+    "sprite": "/sprites/rby/overworld/oak.png",
     "facing": "down",
     "dialog": [
       {
@@ -8888,7 +8888,7 @@
     "x": 3,
     "y": 3,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -8902,7 +8902,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -8925,7 +8925,7 @@
     "x": 1,
     "y": 3,
     "name": "Jigglypuff",
-    "sprite": "yellow/jigglypuff",
+    "sprite": "/sprites/rby/overworld/yellow/jigglypuff.png",
     "facing": "down",
     "dialog": [
       {
@@ -8939,7 +8939,7 @@
     "x": 4,
     "y": 3,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "up",
     "dialog": [
       {
@@ -8953,7 +8953,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -8967,7 +8967,7 @@
     "x": 6,
     "y": 3,
     "name": "Clefairy Fan",
-    "sprite": "fisher",
+    "sprite": "/sprites/rby/overworld/fisher.png",
     "facing": "left",
     "dialog": [
       {
@@ -8990,7 +8990,7 @@
     "x": 1,
     "y": 3,
     "name": "Seel Fan",
-    "sprite": "girl",
+    "sprite": "/sprites/rby/overworld/girl.png",
     "facing": "right",
     "dialog": [
       {
@@ -9013,7 +9013,7 @@
     "x": 6,
     "y": 4,
     "name": "Clefairy",
-    "sprite": "yellow/clefairy",
+    "sprite": "/sprites/rby/overworld/yellow/clefairy.png",
     "facing": "left",
     "dialog": [
       {
@@ -9027,7 +9027,7 @@
     "x": 3,
     "y": 1,
     "name": "Chairman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -9039,7 +9039,7 @@
         "trigger": "If you say yes, he tells his story and gives you a Bike Voucher",
         "gift": {
           "name": "Bike Voucher",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -9063,7 +9063,7 @@
     "x": 5,
     "y": 1,
     "name": "Receptionist",
-    "sprite": "link_receptionist",
+    "sprite": "/sprites/rby/overworld/link_receptionist.png",
     "facing": "down",
     "dialog": [
       {
@@ -9078,7 +9078,7 @@
     "x": 6,
     "y": 8,
     "name": "Middle Aged Woman",
-    "sprite": "yellow/middle_aged_woman",
+    "sprite": "/sprites/rby/overworld/yellow/middle_aged_woman.png",
     "facing": "down",
     "dialog": [
       {
@@ -9093,7 +9093,7 @@
     "x": 5,
     "y": 4,
     "name": "Mom",
-    "sprite": "mom",
+    "sprite": "/sprites/rby/overworld/mom.png",
     "facing": "left",
     "dialog": [
       {
@@ -9112,7 +9112,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -9135,7 +9135,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -9150,7 +9150,7 @@
     "x": 4,
     "y": 2,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -9193,7 +9193,7 @@
     "x": 3,
     "y": 4,
     "name": "Brunette Girl",
-    "sprite": "brunette_girl",
+    "sprite": "/sprites/rby/overworld/brunette_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -9201,7 +9201,7 @@
         "trigger": "The first time you talk to her, she gives you TM39",
         "gift": {
           "name": "TM39",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -9222,7 +9222,7 @@
     "x": 4,
     "y": 2,
     "name": "Cook",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "down",
     "dialog": [
       {
@@ -9264,7 +9264,7 @@
     "x": 6,
     "y": 5,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -9296,7 +9296,7 @@
     "x": 4,
     "y": 1,
     "name": "Gameboy Kid",
-    "sprite": "gameboy_kid",
+    "sprite": "/sprites/rby/overworld/gameboy_kid.png",
     "facing": "down",
     "dialog": [
       {
@@ -9338,7 +9338,7 @@
     "x": 1,
     "y": 3,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "right",
     "dialog": [
       {
@@ -9362,7 +9362,7 @@
     "x": 6,
     "y": 2,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "left",
     "dialog": [
       {
@@ -9386,7 +9386,7 @@
     "x": 3,
     "y": 1,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -9410,7 +9410,7 @@
     "x": 2,
     "y": 1,
     "name": "Guard",
-    "sprite": "guard",
+    "sprite": "/sprites/rby/overworld/guard.png",
     "facing": "down",
     "dialog": [
       {
@@ -9435,7 +9435,7 @@
     "x": 3,
     "y": 11,
     "name": "Wigglytuff",
-    "sprite": "yellow/jigglypuff",
+    "sprite": "/sprites/rby/overworld/yellow/jigglypuff.png",
     "facing": "down",
     "dialog": [
       {
@@ -9450,7 +9450,7 @@
     "x": 1,
     "y": 2,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "down",
     "dialog": [
       {
@@ -9465,7 +9465,7 @@
     "x": 4,
     "y": 2,
     "name": "Captain",
-    "sprite": "captain",
+    "sprite": "/sprites/rby/overworld/captain.png",
     "facing": "up",
     "dialog": [
       {
@@ -9473,7 +9473,7 @@
         "trigger": "You rub his back, and he gives you HM01",
         "gift": {
           "name": "HM01",
-          "sprite": "poke_ball"
+          "sprite": "/sprites/rby/overworld/poke_ball.png"
         }
       },
       {
@@ -9494,7 +9494,7 @@
     "x": 11,
     "y": 13,
     "name": "Chef",
-    "sprite": "cook",
+    "sprite": "/sprites/rby/overworld/cook.png",
     "facing": "up",
     "dialog": [
       {
@@ -9517,7 +9517,7 @@
     "x": 6,
     "y": 2,
     "name": "Safari Zone Worker",
-    "sprite": "safari_zone_worker",
+    "sprite": "/sprites/rby/overworld/safari_zone_worker.png",
     "facing": "left",
     "dialog": [
       {
@@ -9565,7 +9565,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -9588,7 +9588,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -9603,7 +9603,7 @@
     "x": 3,
     "y": 14,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -9626,7 +9626,7 @@
     "x": 2,
     "y": 3,
     "name": "Surfin' Dude",
-    "sprite": "fishing_guru",
+    "sprite": "/sprites/rby/overworld/fishing_guru.png",
     "facing": "down",
     "dialog": [
       {
@@ -9654,7 +9654,7 @@
     "x": 5,
     "y": 3,
     "name": "Pikachu",
-    "sprite": "yellow/pikachu",
+    "sprite": "/sprites/rby/overworld/yellow/pikachu.png",
     "facing": "down",
     "dialog": [
       {
@@ -9668,7 +9668,7 @@
     "x": 2,
     "y": 3,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -9710,7 +9710,7 @@
     "x": 19,
     "y": 7,
     "name": "Beauty",
-    "sprite": "cooltrainer_f",
+    "sprite": "/sprites/rby/overworld/cooltrainer_f.png",
     "facing": "down",
     "dialog": [
       {
@@ -9724,7 +9724,7 @@
     "x": 19,
     "y": 15,
     "name": "Officer Jenny",
-    "sprite": "yellow/officer_jenny",
+    "sprite": "/sprites/rby/overworld/yellow/officer_jenny.png",
     "facing": "down",
     "dialog": [
       {
@@ -9760,7 +9760,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -9783,7 +9783,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -9797,7 +9797,7 @@
     "x": 3,
     "y": 5,
     "name": "Gentleman",
-    "sprite": "gentleman",
+    "sprite": "/sprites/rby/overworld/gentleman.png",
     "facing": "up",
     "dialog": [
       {
@@ -9811,7 +9811,7 @@
     "x": 13,
     "y": 20,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -9825,7 +9825,7 @@
     "x": 17,
     "y": 5,
     "name": "Old Man",
-    "sprite": "gambler",
+    "sprite": "/sprites/rby/overworld/gambler.png",
     "facing": "down",
     "dialog": [
       {
@@ -9845,7 +9845,7 @@
     "x": 2,
     "y": 4,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "down",
     "dialog": [
       {
@@ -9859,7 +9859,7 @@
     "x": 5,
     "y": 5,
     "name": "Youngster",
-    "sprite": "youngster",
+    "sprite": "/sprites/rby/overworld/youngster.png",
     "facing": "down",
     "dialog": [
       {
@@ -9873,7 +9873,7 @@
     "x": 3,
     "y": 3,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "down",
     "dialog": [
       {
@@ -9887,7 +9887,7 @@
     "x": 3,
     "y": 1,
     "name": "Nurse",
-    "sprite": "yellow/nurse",
+    "sprite": "/sprites/rby/overworld/yellow/nurse.png",
     "facing": "down",
     "dialog": [
       {
@@ -9910,7 +9910,7 @@
     "x": 4,
     "y": 3,
     "name": "Cooltrainer",
-    "sprite": "cooltrainer_m",
+    "sprite": "/sprites/rby/overworld/cooltrainer_m.png",
     "facing": "up",
     "dialog": [
       {
@@ -9924,7 +9924,7 @@
     "x": 4,
     "y": 1,
     "name": "Chansey",
-    "sprite": "yellow/chansey",
+    "sprite": "/sprites/rby/overworld/yellow/chansey.png",
     "facing": "down",
     "dialog": [
       {
@@ -9938,7 +9938,7 @@
     "x": 4,
     "y": 5,
     "name": "Little Girl",
-    "sprite": "little_girl",
+    "sprite": "/sprites/rby/overworld/little_girl.png",
     "facing": "up",
     "dialog": [
       {
@@ -9952,7 +9952,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -9967,7 +9967,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -9982,7 +9982,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -9997,7 +9997,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10012,7 +10012,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10027,7 +10027,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10042,7 +10042,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10057,7 +10057,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10072,7 +10072,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10087,7 +10087,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10102,7 +10102,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [
@@ -10117,7 +10117,7 @@
     "x": 0,
     "y": 4,
     "name": "Bench Guy",
-    "sprite": "bench_guy",
+    "sprite": "/sprites/rby/overworld/bench_guy.png",
     "facing": "down",
     "spriteOffset": [6, 0],
     "dialog": [

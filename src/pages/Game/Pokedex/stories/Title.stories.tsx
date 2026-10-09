@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useThemeStyle } from '@/components/settings/themes';
 
 import { useStoryGameId } from '../../../../../.storybook/StoryGame';
-import { pokedexStoryContext } from '../pokedexStoryData';
-import { PokedexStorySurface } from '../PokedexStorySurface';
-import { pokedexStoryViewFor } from '../pokedexStoryViews';
+import { pokedexStoryContext } from './pokedexStoryData';
+import { PokedexStorySurface } from './PokedexStorySurface';
+import { pokedexStoryViewFor } from './pokedexStoryViews';
 
 const TitleStory = () => {
   const gameId = useStoryGameId();

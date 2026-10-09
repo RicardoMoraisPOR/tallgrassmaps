@@ -104,7 +104,7 @@ const statusStyles: Record<GameContentStatus, string> = {
 const ContentStatusTag = ({ status }: { status: GameContentStatus }) => {
   return (
     <span
-      className={`inline-flex whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ${statusStyles[status]}`}
+      className={`inline-flex rounded-full px-2 py-0.5 text-[11px] font-medium whitespace-nowrap ${statusStyles[status]}`}
     >
       {statusLabels[status]}
     </span>

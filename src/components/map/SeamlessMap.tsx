@@ -26,8 +26,8 @@ import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import { hotspotBorder, imageBounds, toLatLng } from './coordinates';
-import { mapIconArt } from './MapViewer';
 import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
+import { mapIconArt } from './viewer/iconArt';
 
 const MIN_ZOOM = -8;
 const DOOR_SIZE = 26;

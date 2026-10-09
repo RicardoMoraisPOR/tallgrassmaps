@@ -6,8 +6,8 @@ import { useThemeStyle } from '@/components/settings/themes';
 import { Button } from '@/components/ui/button';
 
 import { useStoryGameId } from '../../../../../.storybook/StoryGame';
-import { pokedexStoryContext } from '../pokedexStoryData';
-import { pokedexStoryViewFor } from '../pokedexStoryViews';
+import { pokedexStoryContext } from './pokedexStoryData';
+import { pokedexStoryViewFor } from './pokedexStoryViews';
 
 const DrawerStory = () => {
   const gameId = useStoryGameId();

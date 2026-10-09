@@ -1,5 +1,3 @@
-import { useSyncExternalStore } from 'react';
-
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
@@ -130,26 +128,3 @@ export const useSettingsStore = create<SettingsState>()(
     },
   ),
 );
-
-const MOBILE_QUERY = '(max-width: 639px)';
-
-const subscribeToViewport = (onChange: () => void) => {
-  const query = matchMedia(MOBILE_QUERY);
-
-  query.addEventListener('change', onChange);
-
-  return () => query.removeEventListener('change', onChange);
-};
-
-const isMobileViewport = () => matchMedia(MOBILE_QUERY).matches;
-
-export const useMapLayout = (versionGroup: string): MapLayout => {
-  const mobile = useSyncExternalStore(
-    subscribeToViewport,
-    isMobileViewport,
-    () => false,
-  );
-  const saved = useSettingsStore((state) => state.layouts[versionGroup]);
-
-  return saved ?? (mobile ? 'immersive' : 'minimalist');
-};

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { useStoryGameId } from '../../../../.storybook/StoryGame';
-import { Pokedex } from './Pokedex';
+import { useStoryGameId } from '../../../../../.storybook/StoryGame';
+import { Pokedex } from '../Pokedex';
 import { pokedexStoryContext } from './pokedexStoryData';
 
 const PokedexStory = () => {

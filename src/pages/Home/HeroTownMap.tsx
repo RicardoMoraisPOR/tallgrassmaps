@@ -1,9 +1,4 @@
-import {
-  type PointerEvent,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { type PointerEvent, useCallback, useEffect, useState } from 'react';
 
 import {
   animate,

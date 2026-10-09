@@ -363,10 +363,16 @@ const yellowSprites = new Set(
   ),
 );
 
-export const spritePath = (game, sprite) => {
+const OVERWORLD_SPRITES = '/sprites/rby/overworld';
+
+export const overworldSprite = (name) => `${OVERWORLD_SPRITES}/${name}.png`;
+
+export const spriteUrl = (game, sprite) => {
   const name = sprite.toLowerCase();
 
-  return game.id === 'yellow' && yellowSprites.has(`${name}.png`)
-    ? `yellow/${name}`
-    : name;
+  return overworldSprite(
+    game.id === 'yellow' && yellowSprites.has(`${name}.png`)
+      ? `yellow/${name}`
+      : name,
+  );
 };

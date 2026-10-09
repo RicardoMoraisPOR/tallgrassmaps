@@ -10,7 +10,8 @@ import {
   games,
   hasOwnMapImage,
   read,
-  spritePath,
+  overworldSprite,
+  spriteUrl,
 } from '../rby/disassembly.mjs';
 import { farText, labelText, mapText, mapTextBlock } from '../rby/text.mjs';
 
@@ -2637,7 +2638,7 @@ const npcTrade = (game, file, textId) => {
 
 const giftFor = (game, { sprite = 'POKE_BALL', ...gift }) => ({
   ...gift,
-  sprite: spritePath(game, sprite),
+  sprite: spriteUrl(game, sprite),
 });
 
 const scriptedDialog = (game, dialog, values = {}) =>
@@ -2774,7 +2775,7 @@ for (const game of games) {
           NPC_NAMES[toggles[index]] ??
           spriteNames[sprite] ??
           displayName(textId),
-        sprite: spritePath(game, sprite),
+        sprite: spriteUrl(game, sprite),
         facing: facings[direction] ?? 'down',
         dialog,
         ...(scripted?.cutscene && { cutscene: true }),
@@ -2850,7 +2851,7 @@ const benchGuys = (game) => {
         x: Number(x),
         y: Number(y),
         name: 'Bench Guy',
-        sprite: 'bench_guy',
+        sprite: overworldSprite('bench_guy'),
         facing: 'down',
         spriteOffset: [6, 0],
         dialog,

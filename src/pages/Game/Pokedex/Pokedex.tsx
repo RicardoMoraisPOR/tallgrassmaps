@@ -29,8 +29,7 @@ export const Pokedex = ({ game, region, href }: PokedexProps) => {
   }
 
   const view = pokedexViews[region.versionGroup];
-  const Content =
-    view?.[style] ?? view?.['tall-grass'] ?? defaultPokedexView;
+  const Content = view?.[style] ?? view?.['tall-grass'] ?? defaultPokedexView;
   const names = new Map(entries.map((entry) => [entry.number, entry.name]));
   const nameOf = (number: number) => names.get(number) ?? `#${number}`;
 

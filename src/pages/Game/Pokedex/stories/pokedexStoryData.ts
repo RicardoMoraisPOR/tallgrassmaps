@@ -4,7 +4,7 @@ import { getSpecies, species } from '@/data/pokedex/master';
 import type { PokedexData, PokedexEntry } from '@/data/pokedex/types';
 import { locationHref } from '@/lib/paths';
 
-import { hasPokedex } from './pokedexViews';
+import { hasPokedex } from '../pokedexViews';
 
 const gameIdsWith = (supports: (versionGroup: string) => boolean) =>
   games

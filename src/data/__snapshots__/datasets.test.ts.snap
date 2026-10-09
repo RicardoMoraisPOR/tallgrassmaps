@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RBY datasets > keeps the items data unchanged 1`] = `"4d8a8aa47dd1"`;
+
+exports[`RBY datasets > keeps the npcs data unchanged 1`] = `"aa36abc6af49"`;
+
+exports[`RBY datasets > keeps the pokedex data unchanged 1`] = `"03bb25fe8815"`;
+
+exports[`RBY datasets > keeps the signs data unchanged 1`] = `"cc2f93021ce8"`;
+
+exports[`RBY datasets > keeps the static pokemon data unchanged 1`] = `"394e558f81fc"`;
+
+exports[`RBY datasets > keeps the trainers data unchanged 1`] = `"37b5241dab61"`;

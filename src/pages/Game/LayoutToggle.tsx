@@ -1,7 +1,8 @@
 import { Maximize2, Minimize2 } from 'lucide-react';
 import { AnimatePresence, m } from 'motion/react';
 
-import { useMapLayout, useSettingsStore } from '@/stores/settings';
+import { useMapLayout } from '@/hooks/useMapLayout';
+import { useSettingsStore } from '@/stores/settings';
 
 import { captureMapFrame } from './mapFrame';
 

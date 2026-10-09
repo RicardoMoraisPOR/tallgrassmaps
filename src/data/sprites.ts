@@ -30,11 +30,11 @@ export const pokemonSprite = (number: number) =>
 
 export const gameSprite = (number: number, game: Game) =>
   game.sprites && number <= game.sprites.count
-    ? `/sprites/pokemon/${game.sprites.set}/${number}.png`
+    ? `/sprites/pokemon/${game.sprites.set}/${number}.${game.sprites.extension ?? 'png'}`
     : undefined;
 
 export const megaSprite = (number: number, form?: string) =>
-  `/sprites/pokemon/legends-za/mega/${number}${form ? `-${form.toLowerCase()}` : ''}.png`;
+  `/sprites/pokemon/legends-za/mega/${number}${form ? `-${form.toLowerCase()}` : ''}.webp`;
 
 export const megaStoneSprite = (stone: string) =>
   `/sprites/items/mega-stones/${stone.toLowerCase().replaceAll(' ', '-')}.png`;

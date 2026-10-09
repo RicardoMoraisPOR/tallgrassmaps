@@ -11,7 +11,8 @@ import {
   pokeredDir,
   read,
   siteLocation,
-  spritePath,
+  overworldSprite,
+  spriteUrl,
 } from '../rby/disassembly.mjs';
 
 const OUTPUT = new URL(
@@ -212,7 +213,7 @@ const place = (game, map, x, y, kind, pokemon, extra = {}) => {
 };
 
 const objectSprite = (game, sprite, direction) => ({
-  sprite: spritePath(game, sprite),
+  sprite: spriteUrl(game, sprite),
   facing: facings[direction] ?? 'down',
 });
 
@@ -299,7 +300,7 @@ for (const game of games) {
       y,
       'static',
       entry.species.map((species) => ({ number: numberOf(species), level })),
-      { sprite: spritePath(game, entry.sprite), note: entry.note },
+      { sprite: spriteUrl(game, entry.sprite), note: entry.note },
     );
   }
 }
@@ -314,7 +315,7 @@ for (const game of games) {
 
     place(game, map, x, y, 'gift', [{ number: numberOf(species), level }], {
       path,
-      sprite: 'poke_ball',
+      sprite: overworldSprite('poke_ball'),
       note,
     });
   }

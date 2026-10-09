@@ -8,6 +8,8 @@ import {
 } from 'node:fs';
 import { dirname } from 'node:path';
 
+import { toWebp } from '../lib/webp.mjs';
+
 const API_URL = 'https://bulbapedia.bulbagarden.net/w/api.php';
 const OUTPUT = new URL('../../public/sprites/', import.meta.url);
 const DEX = new URL('../../src/data/pokedex/za/za.json', import.meta.url);
@@ -42,13 +44,13 @@ const species = [...new Set(dex.map((entry) => entry.number))]
   .sort((a, b) => a - b)
   .map((number) => ({
     title: `File:Menu ZA ${padded(number)}.png`,
-    path: `pokemon/legends-za/${number}.png`,
+    path: `pokemon/legends-za/${number}.webp`,
   }));
 
 const megas = dex.flatMap((entry) =>
   (entry.megas ?? []).map(({ form, stone }) => ({
     title: `File:Menu ZA ${padded(entry.number)}-Mega${form ? ` ${form}` : ''}.png`,
-    path: `pokemon/legends-za/mega/${entry.number}${form ? `-${form.toLowerCase()}` : ''}.png`,
+    path: `pokemon/legends-za/mega/${entry.number}${form ? `-${form.toLowerCase()}` : ''}.webp`,
     stone,
   })),
 );
@@ -101,7 +103,12 @@ for (const job of wanted) {
   if (!url) continue;
 
   mkdirSync(dirname(fileFor(job).pathname), { recursive: true });
-  writeFileSync(fileFor(job), await fetchWithRetry(url));
+  const image = await fetchWithRetry(url);
+
+  writeFileSync(
+    fileFor(job),
+    job.path.endsWith('.webp') ? await toWebp(image) : image,
+  );
   downloaded++;
 
   await wait(DELAY_MS);

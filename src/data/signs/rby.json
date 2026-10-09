@@ -4,7 +4,7 @@
     "x": 3,
     "y": 3,
     "text": "It's a big map! This is useful!",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "opens": "town-map",
     "games": ["red", "blue", "yellow"]
   },
@@ -699,7 +699,7 @@
     "x": 3,
     "y": 3,
     "text": "POKéMON Monthly Grand Prize Drawing!\n\nThe application form is...\n\nGone! It's been clipped out!",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -731,7 +731,7 @@
     "x": 2,
     "y": 1,
     "text": "It's encyclopedia-like, but the pages are blank!",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "opens": "pokedex",
     "games": ["red", "blue", "yellow"]
   },
@@ -740,7 +740,7 @@
     "x": 3,
     "y": 1,
     "text": "It's encyclopedia-like, but the pages are blank!",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "opens": "pokedex",
     "games": ["red", "blue", "yellow"]
   },
@@ -841,7 +841,7 @@
     "x": 18,
     "y": 2,
     "text": "Diary: July 5 Guyana, South America\n\nA new POKéMON was discovered deep in the jungle.",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -850,7 +850,7 @@
     "x": 3,
     "y": 22,
     "text": "Diary: July 10 We christened the newly discovered POKéMON, MEW.",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -859,7 +859,7 @@
     "x": 6,
     "y": 12,
     "text": "Diary: Feb. 6 MEW gave birth.\n\nWe named the newborn MEWTWO.",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -868,7 +868,7 @@
     "x": 16,
     "y": 20,
     "text": "Diary; Sept. 1 MEWTWO is far too powerful.\n\nWe have failed to curb its vicious tendencies...",
-    "sprite": "pokedex",
+    "sprite": "/sprites/rby/overworld/pokedex.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1442,7 +1442,7 @@
     "x": 3,
     "y": 3,
     "text": "I was given a PP UP as a gift.\n\nIt's used for increasing the PP of techniques!",
-    "sprite": "paper",
+    "sprite": "/sprites/rby/overworld/paper.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1467,7 +1467,7 @@
     "x": 22,
     "y": 12,
     "text": "It's a POKéMON REPORT!\n\nPOKéMON LAB created PORYGON, the first virtual reality POKéMON.",
-    "sprite": "clipboard",
+    "sprite": "/sprites/rby/overworld/clipboard.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1476,7 +1476,7 @@
     "x": 25,
     "y": 10,
     "text": "It's a POKéMON REPORT!\n\nOver 160 POKéMON techniques have been confirmed.",
-    "sprite": "clipboard",
+    "sprite": "/sprites/rby/overworld/clipboard.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1485,7 +1485,7 @@
     "x": 24,
     "y": 6,
     "text": "It's a POKéMON REPORT!\n\n4 POKéMON evolve only when traded by link-cable.",
-    "sprite": "clipboard",
+    "sprite": "/sprites/rby/overworld/clipboard.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1550,7 +1550,7 @@
     "x": 4,
     "y": 3,
     "text": "Dear PIPPI, I hope to see you soon.\n\nI heard SAFFRON has problems with TEAM ROCKET.\n\nVERMILION appears to be safe.",
-    "sprite": "paper",
+    "sprite": "/sprites/rby/overworld/paper.png",
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1642,7 +1642,7 @@
     "x": 4,
     "y": 0,
     "text": "SPEAROW Name: SPEARY",
-    "sprite": "clipboard",
+    "sprite": "/sprites/rby/overworld/clipboard.png",
     "games": ["red", "blue", "yellow"]
   },
   {

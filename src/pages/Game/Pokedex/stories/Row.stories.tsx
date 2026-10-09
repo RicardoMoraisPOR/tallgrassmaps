@@ -9,8 +9,8 @@ import type { PokedexData } from '@/data/pokedex/types';
 import { cn } from '@/lib/utils';
 
 import { useStoryGameId } from '../../../../../.storybook/StoryGame';
-import { pokedexStoryContext, storyEntry } from '../pokedexStoryData';
-import { pokedexStoryViewFor } from '../pokedexStoryViews';
+import { pokedexStoryContext, storyEntry } from './pokedexStoryData';
+import { pokedexStoryViewFor } from './pokedexStoryViews';
 
 type RowStoryProps = {
   pokemon: number;

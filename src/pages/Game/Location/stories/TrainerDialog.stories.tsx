@@ -4,9 +4,12 @@ import { useArgs } from 'storybook/preview-api';
 import { Button } from '@/components/ui/button';
 import type { TrainerBattle } from '@/data/trainers/types';
 
-import { useStoryGameId } from '../../../../.storybook/StoryGame';
-import { pokedexStoryContext, storyEntries } from '../Pokedex/pokedexStoryData';
-import { TrainerDialog } from './TrainerDialog';
+import { useStoryGameId } from '../../../../../.storybook/StoryGame';
+import {
+  pokedexStoryContext,
+  storyEntries,
+} from '../../Pokedex/stories/pokedexStoryData';
+import { TrainerDialog } from '../TrainerDialog';
 import { findBattle } from './trainerStoryData';
 
 type TrainerDialogStoryProps = {

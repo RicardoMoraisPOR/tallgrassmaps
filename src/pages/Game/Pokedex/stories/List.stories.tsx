@@ -4,9 +4,9 @@ import { useThemeStyle } from '@/components/settings/themes';
 import { pokedexFor } from '@/data/pokedex';
 
 import { useStoryGameId } from '../../../../../.storybook/StoryGame';
-import { pokedexStoryContext } from '../pokedexStoryData';
-import { PokedexStorySurface } from '../PokedexStorySurface';
-import { pokedexStoryViewFor } from '../pokedexStoryViews';
+import { pokedexStoryContext } from './pokedexStoryData';
+import { PokedexStorySurface } from './PokedexStorySurface';
+import { pokedexStoryViewFor } from './pokedexStoryViews';
 
 const ListStory = ({ empty = false }: { empty?: boolean }) => {
   const gameId = useStoryGameId();

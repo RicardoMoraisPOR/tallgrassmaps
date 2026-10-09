@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useThemeStyle } from '@/components/settings/themes';
 import { getSpecies } from '@/data/pokedex/master';
 
-import { useStoryGameId } from '../../../../.storybook/StoryGame';
+import { useStoryGameId } from '../../../../../.storybook/StoryGame';
 import {
   allTypes,
   pokedexStoryContext,

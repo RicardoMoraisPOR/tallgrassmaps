@@ -1,7 +1,7 @@
 import { AnimatePresence, m } from 'motion/react';
 
 import { Container } from '@/components/Container';
-import { generationRegions } from '@/data/catalog';
+import { generationRegions } from '@/data/catalog/entries';
 import { easeOutSoft } from '@/lib/motion';
 import { generationId } from '@/lib/paths';
 import { formatList } from '@/lib/utils';
@@ -107,7 +107,7 @@ export const GamesSection = () => {
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-5">
                   {generation.entries.map((entry) => (
                     <m.div
-                      key={entry.game.id}
+                      key={entry.id}
                       variants={animations ? chainItem : undefined}
                       custom={chainIndex++}
                     >

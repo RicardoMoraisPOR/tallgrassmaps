@@ -8,11 +8,8 @@ export type Platform =
 
 export type LabelPart = { text: string; color?: string };
 
-export type GameStatus = 'complete' | 'missing-content' | 'coming-soon';
-export type GameContentStatus =
-  | 'complete'
-  | 'missing'
-  | 'in-progress';
+export type GameStatus = 'complete' | 'missing-content';
+export type GameContentStatus = 'complete' | 'missing' | 'in-progress';
 export type GameContentSection =
   | 'town-map-sprites'
   | 'town-map-data'
@@ -76,12 +73,17 @@ export type Game = {
   id: string;
   fullName: string;
   shortName: string;
-  status: Exclude<GameStatus, 'coming-soon'>;
+  status: GameStatus;
   generation: number;
   region: string;
   platform: Platform;
   tileSize?: number;
-  sprites?: { set: string; count: number; pixelated?: boolean };
+  sprites?: {
+    set: string;
+    count: number;
+    pixelated?: boolean;
+    extension?: 'png' | 'webp';
+  };
   obtainableWithoutTrading?: number;
   obtainableExcluding?: string;
   contentStatus?: Array<{
@@ -140,14 +142,19 @@ export const games: Array<Game> = [
     generation: 9,
     region: 'lumiose-za',
     platform: 'Nintendo Switch',
-    sprites: { set: 'legends-za', count: 870, pixelated: false },
+    sprites: {
+      set: 'legends-za',
+      count: 870,
+      pixelated: false,
+      extension: 'webp',
+    },
     obtainableWithoutTrading: 226,
     obtainableExcluding: 'DLC or trading',
     contentStatus: [
       {
         section: 'town-map-sprites',
         status: 'in-progress',
-        details: 'Tall Grass version is missing'
+        details: 'Tall Grass version is missing',
       },
       {
         section: 'town-map-data',

@@ -4,10 +4,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import type { Encounter, EncounterMethod } from '@/data/pokedex/types';
 
-import { useStoryGameId } from '../../../../.storybook/StoryGame';
-import { pokedexStoryContext, storyEntry } from '../Pokedex/pokedexStoryData';
-import type { EncounterGroup } from './encounters';
-import { WildPopup } from './WildPopup';
+import { useStoryGameId } from '../../../../../.storybook/StoryGame';
+import {
+  pokedexStoryContext,
+  storyEntry,
+} from '../../Pokedex/stories/pokedexStoryData';
+import type { EncounterGroup } from '../encounters';
+import { WildPopup } from '../WildPopup';
 
 type WildPopupProps = ComponentProps<typeof WildPopup>;
 

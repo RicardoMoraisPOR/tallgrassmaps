@@ -11,7 +11,7 @@ import {
   locationFor,
   pokeredDir,
   read,
-  spritePath,
+  spriteUrl,
 } from '../rby/disassembly.mjs';
 import { farText, trainerTexts } from '../rby/text.mjs';
 import { trainerMoves } from './rby-moves.mjs';
@@ -849,7 +849,7 @@ for (const game of games) {
       ...(cutscene && placed.x !== undefined && { cutscene }),
       ...(presence && { presence }),
       ...(partner && placed.x !== undefined && { partner }),
-      ...(sprite && { sprite: spritePath(game, sprite) }),
+      ...(sprite && { sprite: spriteUrl(game, sprite) }),
       ...(dialog.length > 0 && { dialog }),
       ...(choicePrompt && { choicePrompt }),
       parties: parties.map(({ label, choice, party }) => ({
@@ -885,7 +885,7 @@ for (const game of games) {
               ...(gift && {
                 gift: {
                   ...gift,
-                  sprite: spritePath(game, gift.sprite ?? 'POKE_BALL'),
+                  sprite: spriteUrl(game, gift.sprite ?? 'POKE_BALL'),
                 },
               }),
             },
@@ -1020,7 +1020,7 @@ for (const game of games) {
         ...(partner && {
           partner: {
             ...shifted(objectPosition(script, partner.object), shift),
-            sprite: spritePath(game, partner.sprite),
+            sprite: spriteUrl(game, partner.sprite),
           },
         }),
       }),

@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router';
 
 import type { LocationFloor } from '@/data/maps';
 
-import { arrivalKey } from './locationLinks';
+import { arrivalKey } from './links/arrivals';
 
 const FLOOR_PARAM = 'floor';
 const VIA_PARAM = 'via';

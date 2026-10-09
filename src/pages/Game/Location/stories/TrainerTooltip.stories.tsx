@@ -2,10 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import type { TrainerBattle } from '@/data/trainers/types';
 
-import { useStoryGameId } from '../../../../.storybook/StoryGame';
-import { pokedexStoryContext, storyEntries } from '../Pokedex/pokedexStoryData';
+import { useStoryGameId } from '../../../../../.storybook/StoryGame';
+import {
+  pokedexStoryContext,
+  storyEntries,
+} from '../../Pokedex/stories/pokedexStoryData';
+import { TrainerTooltip } from '../TrainerTooltip';
 import { findBattle } from './trainerStoryData';
-import { TrainerTooltip } from './TrainerTooltip';
 
 type TrainerTooltipStoryProps = {
   battle: TrainerBattle;

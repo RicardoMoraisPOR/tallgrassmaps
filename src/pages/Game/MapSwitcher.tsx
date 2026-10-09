@@ -12,7 +12,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { type MapSet, mapSets } from '@/data/catalog';
+import { mapSets } from '@/data/catalog/mapSets';
+import type { MapSet } from '@/data/catalog/types';
 import { type Game, getGame } from '@/data/games';
 import { getRegion } from '@/data/maps';
 import { formatList } from '@/lib/utils';

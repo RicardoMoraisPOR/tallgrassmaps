@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useGlobals } from 'storybook/preview-api';
 
-import { mapIconArt, mapStepArt, type MapIconKind } from './MapViewer';
+import { mapIconArt, mapStepArt } from './viewer/iconArt';
+import type { MapIconKind } from './viewer/types';
 
 const groups: Array<{
   title: string;

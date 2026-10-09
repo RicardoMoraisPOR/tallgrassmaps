@@ -3,30 +3,28 @@ import type { ComponentType } from 'react';
 import type { Region } from '@/data/maps';
 import type { ThemeStyle } from '@/stores/settings';
 
-import { PokemonTypeTags } from './PokemonTypeTags';
-import { RbyDrawer } from './rby/RbyDrawer';
-import { RbyList } from './rby/RbyList';
-import { RbyRow } from './rby/RbyRow';
-import { RbySearch } from './rby/RbySearch';
-import { RbyTitle } from './rby/RbyTitle';
-import { TallGrassDrawer } from './tall-grass/TallGrassDrawer';
-import { TallGrassList } from './tall-grass/TallGrassList';
-import { TallGrassRow } from './tall-grass/TallGrassRow';
-import { TallGrassSearch } from './tall-grass/TallGrassSearch';
-import { TallGrassTitle } from './tall-grass/TallGrassTitle';
+import {
+  ListDrawer,
+  type ListSkin,
+  ListPokedexList,
+  ListSearch,
+} from '../ListPokedex';
+import { PokemonTypeTags } from '../PokemonTypeTags';
+import { rbySkin } from '../rby/rbySkin';
+import { tallGrassSkin } from '../tall-grass/tallGrassSkin';
 import type {
   PokedexDrawerProps,
   PokedexListProps,
   PokedexRowProps,
   PokedexSearchProps,
   PokedexTitleProps,
-} from './types';
-import { ZaDrawer } from './za/ZaDrawer';
-import { ZaList } from './za/ZaList';
-import { ZaRow } from './za/ZaRow';
-import { ZaSearch } from './za/ZaSearch';
-import { ZaTitle } from './za/ZaTitle';
-import { ZaTypeTags } from './za/ZaTypeTags';
+} from '../types';
+import { ZaDrawer } from '../za/ZaDrawer';
+import { ZaList } from '../za/ZaList';
+import { ZaRow } from '../za/ZaRow';
+import { ZaSearch } from '../za/ZaSearch';
+import { ZaTitle } from '../za/ZaTitle';
+import { ZaTypeTags } from '../za/ZaTypeTags';
 
 type PokedexStoryView = {
   Drawer: ComponentType<PokedexDrawerProps>;
@@ -39,31 +37,28 @@ type PokedexStoryView = {
   rowListClassName: string;
 };
 
-const tallGrassView: PokedexStoryView = {
-  Drawer: TallGrassDrawer,
-  List: TallGrassList,
-  Row: TallGrassRow,
-  Search: TallGrassSearch,
-  Title: TallGrassTitle,
+const listView = (
+  skin: ListSkin,
+  surfaceClassName?: string,
+): PokedexStoryView => ({
+  Drawer: (props) => <ListDrawer skin={skin} {...props} />,
+  List: (props) => <ListPokedexList skin={skin} {...props} />,
+  Row: skin.Row,
+  Search: (props) => <ListSearch skin={skin} {...props} />,
+  Title: skin.Title,
   TypeTags: PokemonTypeTags,
+  surfaceClassName,
   rowListClassName: 'flex flex-col',
-};
+});
+
+const tallGrassView = listView(tallGrassSkin);
 
 const views: Partial<
   Record<string, Partial<Record<ThemeStyle, PokedexStoryView>>>
 > = {
   RBY: {
     'tall-grass': tallGrassView,
-    game: {
-      Drawer: RbyDrawer,
-      List: RbyList,
-      Row: RbyRow,
-      Search: RbySearch,
-      Title: RbyTitle,
-      TypeTags: PokemonTypeTags,
-      surfaceClassName: 'pokedex-game rounded-none',
-      rowListClassName: 'flex flex-col',
-    },
+    game: listView(rbySkin, 'pokedex-game rounded-none'),
   },
   ZA: {
     'tall-grass': tallGrassView,

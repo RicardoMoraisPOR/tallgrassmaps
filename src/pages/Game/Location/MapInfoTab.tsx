@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
-import type { LayerEntry, LayerSection } from './locationLinks';
+import type { LayerEntry, LayerSection } from './links/types';
 import { EmptyTab } from './LocationPanel';
 import type { MapLayerId } from './mapLayers';
 import { MapSettingsDialog } from './MapSettingsDialog';

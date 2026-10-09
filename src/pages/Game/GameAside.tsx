@@ -3,10 +3,9 @@ import { type ReactNode, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { m } from 'motion/react';
 
+import { DESKTOP_QUERY } from '@/lib/breakpoints';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
-
-const DESKTOP_QUERY = '(min-width: 1024px)';
 
 type GameAsideProps = {
   immersive: boolean;

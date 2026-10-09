@@ -1,0 +1,1120 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`catalog > groups games into map sets 1`] = `
+[
+  {
+    "available": true,
+    "games": [
+      {
+        "available": true,
+        "color": "oklch(0.58 0.2 27)",
+        "id": "red",
+        "name": "Red",
+      },
+      {
+        "available": true,
+        "color": "oklch(0.5 0.17 262)",
+        "id": "blue",
+        "name": "Blue",
+      },
+      {
+        "available": true,
+        "color": "oklch(0.86 0.16 92)",
+        "id": "yellow",
+        "name": "Yellow",
+      },
+    ],
+    "regions": [
+      "Kanto",
+    ],
+    "versionGroup": "RBY",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.76 0.12 85)",
+        "id": "gold",
+        "name": "Pokémon Gold",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.78 0.01 250)",
+        "id": "silver",
+        "name": "Pokémon Silver",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.78 0.09 220)",
+        "id": "crystal",
+        "name": "Pokémon Crystal",
+      },
+    ],
+    "regions": [
+      "Johto",
+      "Kanto",
+    ],
+    "versionGroup": "GSC",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.52 0.2 20)",
+        "id": "ruby",
+        "name": "Pokémon Ruby",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.48 0.16 265)",
+        "id": "sapphire",
+        "name": "Pokémon Sapphire",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.62 0.15 155)",
+        "id": "emerald",
+        "name": "Pokémon Emerald",
+      },
+    ],
+    "regions": [
+      "Hoenn",
+    ],
+    "versionGroup": "RSE",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.64 0.2 38)",
+        "id": "firered",
+        "name": "Pokémon FireRed",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.66 0.17 140)",
+        "id": "leafgreen",
+        "name": "Pokémon LeafGreen",
+      },
+    ],
+    "regions": [
+      "Kanto",
+    ],
+    "versionGroup": "FRLG",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.72 0.1 250)",
+        "id": "diamond",
+        "name": "Pokémon Diamond",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.8 0.07 350)",
+        "id": "pearl",
+        "name": "Pokémon Pearl",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.7 0.02 260)",
+        "id": "platinum",
+        "name": "Pokémon Platinum",
+      },
+    ],
+    "regions": [
+      "Sinnoh",
+    ],
+    "versionGroup": "DPPt",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.76 0.12 85)",
+        "id": "heartgold",
+        "name": "Pokémon HeartGold",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.78 0.01 250)",
+        "id": "soulsilver",
+        "name": "Pokémon SoulSilver",
+      },
+    ],
+    "regions": [
+      "Johto",
+      "Kanto",
+    ],
+    "versionGroup": "HGSS",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.25 0 0)",
+        "id": "black",
+        "name": "Pokémon Black",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.95 0 0)",
+        "id": "white",
+        "name": "Pokémon White",
+      },
+    ],
+    "regions": [
+      "Unova",
+    ],
+    "versionGroup": "BW",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.25 0 0)",
+        "id": "black-2",
+        "name": "Pokémon Black 2",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.95 0 0)",
+        "id": "white-2",
+        "name": "Pokémon White 2",
+      },
+    ],
+    "regions": [
+      "Unova",
+    ],
+    "versionGroup": "B2W2",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.5 0.15 255)",
+        "id": "x",
+        "name": "Pokémon X",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.55 0.2 25)",
+        "id": "y",
+        "name": "Pokémon Y",
+      },
+    ],
+    "regions": [
+      "Kalos",
+    ],
+    "versionGroup": "XY",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.52 0.2 20)",
+        "id": "omega-ruby",
+        "name": "Pokémon Omega Ruby",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.48 0.16 265)",
+        "id": "alpha-sapphire",
+        "name": "Pokémon Alpha Sapphire",
+      },
+    ],
+    "regions": [
+      "Hoenn",
+    ],
+    "versionGroup": "ORAS",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.72 0.17 60)",
+        "id": "sun",
+        "name": "Pokémon Sun",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.5 0.15 300)",
+        "id": "moon",
+        "name": "Pokémon Moon",
+      },
+    ],
+    "regions": [
+      "Alola",
+    ],
+    "versionGroup": "SM",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.7 0.18 50)",
+        "id": "ultra-sun",
+        "name": "Pokémon Ultra Sun",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.45 0.18 290)",
+        "id": "ultra-moon",
+        "name": "Pokémon Ultra Moon",
+      },
+    ],
+    "regions": [
+      "Alola",
+    ],
+    "versionGroup": "USUM",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.86 0.16 92)",
+        "id": "lets-go-pikachu",
+        "name": "Pokémon Let's Go, Pikachu!",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.65 0.1 60)",
+        "id": "lets-go-eevee",
+        "name": "Pokémon Let's Go, Eevee!",
+      },
+    ],
+    "regions": [
+      "Kanto",
+    ],
+    "versionGroup": "LGPE",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.6 0.13 230)",
+        "id": "sword",
+        "name": "Pokémon Sword",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.55 0.18 10)",
+        "id": "shield",
+        "name": "Pokémon Shield",
+      },
+    ],
+    "regions": [
+      "Galar",
+    ],
+    "versionGroup": "SwSh",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.72 0.1 250)",
+        "id": "brilliant-diamond",
+        "name": "Pokémon Brilliant Diamond",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.8 0.07 350)",
+        "id": "shining-pearl",
+        "name": "Pokémon Shining Pearl",
+      },
+    ],
+    "regions": [
+      "Sinnoh",
+    ],
+    "versionGroup": "BDSP",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.75 0.08 90)",
+        "id": "legends-arceus",
+        "name": "Pokémon Legends: Arceus",
+      },
+    ],
+    "regions": [
+      "Hisui",
+    ],
+    "versionGroup": "PLA",
+  },
+  {
+    "available": false,
+    "games": [
+      {
+        "available": false,
+        "color": "oklch(0.6 0.22 25)",
+        "id": "scarlet",
+        "name": "Pokémon Scarlet",
+      },
+      {
+        "available": false,
+        "color": "oklch(0.5 0.2 305)",
+        "id": "violet",
+        "name": "Pokémon Violet",
+      },
+    ],
+    "regions": [
+      "Paldea",
+    ],
+    "versionGroup": "SV",
+  },
+  {
+    "available": true,
+    "games": [
+      {
+        "available": true,
+        "color": "oklch(0.7 0.14 150)",
+        "id": "legends-za",
+        "name": "Legends Z-A",
+      },
+    ],
+    "regions": [
+      "Lumiose City",
+    ],
+    "versionGroup": "ZA",
+  },
+]
+`;
+
+exports[`catalog > lists every entry per generation 1`] = `
+[
+  [
+    1,
+    [
+      {
+        "id": "red",
+        "name": "Pokémon Red",
+        "regions": [
+          "Kanto",
+        ],
+        "status": "complete",
+        "versionGroup": "RBY",
+      },
+      {
+        "id": "blue",
+        "name": "Pokémon Blue",
+        "regions": [
+          "Kanto",
+        ],
+        "status": "complete",
+        "versionGroup": "RBY",
+      },
+      {
+        "id": "yellow",
+        "name": "Pokémon Yellow",
+        "regions": [
+          "Kanto",
+        ],
+        "status": "complete",
+        "versionGroup": "RBY",
+      },
+    ],
+  ],
+  [
+    2,
+    [
+      {
+        "id": "gold",
+        "name": "Pokémon Gold",
+        "regions": [
+          "Johto",
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "GSC",
+      },
+      {
+        "id": "silver",
+        "name": "Pokémon Silver",
+        "regions": [
+          "Johto",
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "GSC",
+      },
+      {
+        "id": "crystal",
+        "name": "Pokémon Crystal",
+        "regions": [
+          "Johto",
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "GSC",
+      },
+    ],
+  ],
+  [
+    3,
+    [
+      {
+        "id": "ruby",
+        "name": "Pokémon Ruby",
+        "regions": [
+          "Hoenn",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "RSE",
+      },
+      {
+        "id": "sapphire",
+        "name": "Pokémon Sapphire",
+        "regions": [
+          "Hoenn",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "RSE",
+      },
+      {
+        "id": "emerald",
+        "name": "Pokémon Emerald",
+        "regions": [
+          "Hoenn",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "RSE",
+      },
+      {
+        "id": "firered",
+        "name": "Pokémon FireRed",
+        "regions": [
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "FRLG",
+      },
+      {
+        "id": "leafgreen",
+        "name": "Pokémon LeafGreen",
+        "regions": [
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "FRLG",
+      },
+    ],
+  ],
+  [
+    4,
+    [
+      {
+        "id": "diamond",
+        "name": "Pokémon Diamond",
+        "regions": [
+          "Sinnoh",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "DPPt",
+      },
+      {
+        "id": "pearl",
+        "name": "Pokémon Pearl",
+        "regions": [
+          "Sinnoh",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "DPPt",
+      },
+      {
+        "id": "platinum",
+        "name": "Pokémon Platinum",
+        "regions": [
+          "Sinnoh",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "DPPt",
+      },
+      {
+        "id": "heartgold",
+        "name": "Pokémon HeartGold",
+        "regions": [
+          "Johto",
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "HGSS",
+      },
+      {
+        "id": "soulsilver",
+        "name": "Pokémon SoulSilver",
+        "regions": [
+          "Johto",
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "HGSS",
+      },
+    ],
+  ],
+  [
+    5,
+    [
+      {
+        "id": "black",
+        "name": "Pokémon Black",
+        "regions": [
+          "Unova",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "BW",
+      },
+      {
+        "id": "white",
+        "name": "Pokémon White",
+        "regions": [
+          "Unova",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "BW",
+      },
+      {
+        "id": "black-2",
+        "name": "Pokémon Black 2",
+        "regions": [
+          "Unova",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "B2W2",
+      },
+      {
+        "id": "white-2",
+        "name": "Pokémon White 2",
+        "regions": [
+          "Unova",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "B2W2",
+      },
+    ],
+  ],
+  [
+    6,
+    [
+      {
+        "id": "x",
+        "name": "Pokémon X",
+        "regions": [
+          "Kalos",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "XY",
+      },
+      {
+        "id": "y",
+        "name": "Pokémon Y",
+        "regions": [
+          "Kalos",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "XY",
+      },
+      {
+        "id": "omega-ruby",
+        "name": "Pokémon Omega Ruby",
+        "regions": [
+          "Hoenn",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "ORAS",
+      },
+      {
+        "id": "alpha-sapphire",
+        "name": "Pokémon Alpha Sapphire",
+        "regions": [
+          "Hoenn",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "ORAS",
+      },
+    ],
+  ],
+  [
+    7,
+    [
+      {
+        "id": "sun",
+        "name": "Pokémon Sun",
+        "regions": [
+          "Alola",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "SM",
+      },
+      {
+        "id": "moon",
+        "name": "Pokémon Moon",
+        "regions": [
+          "Alola",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "SM",
+      },
+      {
+        "id": "ultra-sun",
+        "name": "Pokémon Ultra Sun",
+        "regions": [
+          "Alola",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "USUM",
+      },
+      {
+        "id": "ultra-moon",
+        "name": "Pokémon Ultra Moon",
+        "regions": [
+          "Alola",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "USUM",
+      },
+      {
+        "id": "lets-go-pikachu",
+        "name": "Pokémon Let's Go, Pikachu!",
+        "regions": [
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "LGPE",
+      },
+      {
+        "id": "lets-go-eevee",
+        "name": "Pokémon Let's Go, Eevee!",
+        "regions": [
+          "Kanto",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "LGPE",
+      },
+    ],
+  ],
+  [
+    8,
+    [
+      {
+        "id": "sword",
+        "name": "Pokémon Sword",
+        "regions": [
+          "Galar",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "SwSh",
+      },
+      {
+        "id": "shield",
+        "name": "Pokémon Shield",
+        "regions": [
+          "Galar",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "SwSh",
+      },
+      {
+        "id": "brilliant-diamond",
+        "name": "Pokémon Brilliant Diamond",
+        "regions": [
+          "Sinnoh",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "BDSP",
+      },
+      {
+        "id": "shining-pearl",
+        "name": "Pokémon Shining Pearl",
+        "regions": [
+          "Sinnoh",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "BDSP",
+      },
+      {
+        "id": "legends-arceus",
+        "name": "Pokémon Legends: Arceus",
+        "regions": [
+          "Hisui",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "PLA",
+      },
+    ],
+  ],
+  [
+    9,
+    [
+      {
+        "id": "scarlet",
+        "name": "Pokémon Scarlet",
+        "regions": [
+          "Paldea",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "SV",
+      },
+      {
+        "id": "violet",
+        "name": "Pokémon Violet",
+        "regions": [
+          "Paldea",
+        ],
+        "status": "coming-soon",
+        "versionGroup": "SV",
+      },
+      {
+        "id": "legends-za",
+        "name": "Pokémon Legends: Z-A",
+        "regions": [
+          "Lumiose City",
+        ],
+        "status": "missing-content",
+        "versionGroup": "ZA",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`catalog > names and labels each version group 1`] = `
+[
+  [
+    "RBY",
+    [
+      "Pokémon Red",
+      "Pokémon Blue",
+      "Pokémon Yellow",
+    ],
+    [
+      {
+        "color": "oklch(0.58 0.2 27)",
+        "text": "R",
+      },
+      {
+        "color": "oklch(0.5 0.17 262)",
+        "text": "B",
+      },
+      {
+        "color": "oklch(0.86 0.16 92)",
+        "text": "Y",
+      },
+    ],
+  ],
+  [
+    "GSC",
+    [
+      "Pokémon Gold",
+      "Pokémon Silver",
+      "Pokémon Crystal",
+    ],
+    [
+      {
+        "color": "oklch(0.76 0.12 85)",
+        "text": "G",
+      },
+      {
+        "color": "oklch(0.78 0.01 250)",
+        "text": "S",
+      },
+      {
+        "color": "oklch(0.78 0.09 220)",
+        "text": "C",
+      },
+    ],
+  ],
+  [
+    "RSE",
+    [
+      "Pokémon Ruby",
+      "Pokémon Sapphire",
+      "Pokémon Emerald",
+    ],
+    [
+      {
+        "color": "oklch(0.52 0.2 20)",
+        "text": "R",
+      },
+      {
+        "color": "oklch(0.48 0.16 265)",
+        "text": "S",
+      },
+      {
+        "color": "oklch(0.62 0.15 155)",
+        "text": "E",
+      },
+    ],
+  ],
+  [
+    "FRLG",
+    [
+      "Pokémon FireRed",
+      "Pokémon LeafGreen",
+    ],
+    [
+      {
+        "color": "oklch(0.64 0.2 38)",
+        "text": "FR",
+      },
+      {
+        "color": "oklch(0.66 0.17 140)",
+        "text": "LG",
+      },
+    ],
+  ],
+  [
+    "DPPt",
+    [
+      "Pokémon Diamond",
+      "Pokémon Pearl",
+      "Pokémon Platinum",
+    ],
+    [
+      {
+        "color": "oklch(0.72 0.1 250)",
+        "text": "D",
+      },
+      {
+        "color": "oklch(0.8 0.07 350)",
+        "text": "P",
+      },
+      {
+        "color": "oklch(0.7 0.02 260)",
+        "text": "Pt",
+      },
+    ],
+  ],
+  [
+    "HGSS",
+    [
+      "Pokémon HeartGold",
+      "Pokémon SoulSilver",
+    ],
+    [
+      {
+        "color": "oklch(0.76 0.12 85)",
+        "text": "HG",
+      },
+      {
+        "color": "oklch(0.78 0.01 250)",
+        "text": "SS",
+      },
+    ],
+  ],
+  [
+    "BW",
+    [
+      "Pokémon Black",
+      "Pokémon White",
+    ],
+    [
+      {
+        "color": "oklch(0.25 0 0)",
+        "text": "B",
+      },
+      {
+        "color": "oklch(0.95 0 0)",
+        "text": "W",
+      },
+    ],
+  ],
+  [
+    "B2W2",
+    [
+      "Pokémon Black 2",
+      "Pokémon White 2",
+    ],
+    [
+      {
+        "color": "oklch(0.25 0 0)",
+        "text": "B2",
+      },
+      {
+        "color": "oklch(0.95 0 0)",
+        "text": "W2",
+      },
+    ],
+  ],
+  [
+    "XY",
+    [
+      "Pokémon X",
+      "Pokémon Y",
+    ],
+    [
+      {
+        "color": "oklch(0.5 0.15 255)",
+        "text": "X",
+      },
+      {
+        "color": "oklch(0.55 0.2 25)",
+        "text": "Y",
+      },
+    ],
+  ],
+  [
+    "ORAS",
+    [
+      "Pokémon Omega Ruby",
+      "Pokémon Alpha Sapphire",
+    ],
+    [
+      {
+        "color": "oklch(0.52 0.2 20)",
+        "text": "OR",
+      },
+      {
+        "color": "oklch(0.48 0.16 265)",
+        "text": "AS",
+      },
+    ],
+  ],
+  [
+    "SM",
+    [
+      "Pokémon Sun",
+      "Pokémon Moon",
+    ],
+    [
+      {
+        "color": "oklch(0.72 0.17 60)",
+        "text": "S",
+      },
+      {
+        "color": "oklch(0.5 0.15 300)",
+        "text": "M",
+      },
+    ],
+  ],
+  [
+    "USUM",
+    [
+      "Pokémon Ultra Sun",
+      "Pokémon Ultra Moon",
+    ],
+    [
+      {
+        "color": "oklch(0.7 0.18 50)",
+        "text": "US",
+      },
+      {
+        "color": "oklch(0.45 0.18 290)",
+        "text": "UM",
+      },
+    ],
+  ],
+  [
+    "LGPE",
+    [
+      "Pokémon Let's Go, Pikachu!",
+      "Pokémon Let's Go, Eevee!",
+    ],
+    [
+      {
+        "color": undefined,
+        "text": "LG",
+      },
+      {
+        "color": "oklch(0.86 0.16 92)",
+        "text": "P",
+      },
+      {
+        "color": "oklch(0.65 0.1 60)",
+        "text": "E",
+      },
+    ],
+  ],
+  [
+    "SwSh",
+    [
+      "Pokémon Sword",
+      "Pokémon Shield",
+    ],
+    [
+      {
+        "color": "oklch(0.6 0.13 230)",
+        "text": "Sw",
+      },
+      {
+        "color": "oklch(0.55 0.18 10)",
+        "text": "Sh",
+      },
+    ],
+  ],
+  [
+    "BDSP",
+    [
+      "Pokémon Brilliant Diamond",
+      "Pokémon Shining Pearl",
+    ],
+    [
+      {
+        "color": "oklch(0.72 0.1 250)",
+        "text": "BD",
+      },
+      {
+        "color": "oklch(0.8 0.07 350)",
+        "text": "SP",
+      },
+    ],
+  ],
+  [
+    "PLA",
+    [
+      "Pokémon Legends: Arceus",
+    ],
+    [
+      {
+        "color": "oklch(0.75 0.08 90)",
+        "text": "PLA",
+      },
+    ],
+  ],
+  [
+    "SV",
+    [
+      "Pokémon Scarlet",
+      "Pokémon Violet",
+    ],
+    [
+      {
+        "color": "oklch(0.6 0.22 25)",
+        "text": "S",
+      },
+      {
+        "color": "oklch(0.5 0.2 305)",
+        "text": "V",
+      },
+    ],
+  ],
+  [
+    "ZA",
+    [
+      "Pokémon Legends: Z-A",
+    ],
+    [
+      {
+        "color": undefined,
+        "text": "ZA",
+      },
+    ],
+  ],
+]
+`;

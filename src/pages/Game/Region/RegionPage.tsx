@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 
 import { RegionMap } from '@/components/map/RegionMap';
 import { useGameRoute } from '@/hooks/useGameRoute';
+import { useMapLayout } from '@/hooks/useMapLayout';
 import { cn } from '@/lib/utils';
-import { useMapLayout } from '@/stores/settings';
 
 import { GameAside } from '../GameAside';
-import { mapFrameProps, useMapFrame } from '../mapFrame';
+import { useMapFrame } from '../mapFrame';
 import { collectPlaces, placeGroupsFor } from '../places';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { MapLegend } from './MapLegend';
@@ -20,7 +20,7 @@ export const RegionPage = () => {
   const route = useGameRoute();
   const immersive =
     useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
-  const mapFrame = useMapFrame(String(immersive));
+  const mapFrame = useMapFrame(route?.region.versionGroup ?? '');
 
   useEffect(() => {
     void import('@/pages/Game/Location/LocationPage');
@@ -51,8 +51,7 @@ export const RegionPage = () => {
           className={cn(immersive ? 'absolute inset-0' : 'relative min-w-0')}
         >
           <div
-            ref={mapFrame}
-            {...mapFrameProps}
+            {...mapFrame}
             className={cn(
               'absolute inset-0 flex items-center justify-center overflow-hidden [container-type:size]',
               immersive && 'bg-muted',

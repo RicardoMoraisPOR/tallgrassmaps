@@ -1,12 +1,10 @@
+import { entryRegions, entryVersionGroup } from '@/data/catalog/entries';
+import { generations } from '@/data/catalog/generations';
+import type { CatalogEntry, Generation } from '@/data/catalog/types';
 import {
-  type CatalogEntry,
-  entryRegions,
-  entryVersionGroup,
-  type Generation,
-  generations,
   versionGroupNames,
   versionGroupParts,
-} from '@/data/catalog';
+} from '@/data/catalog/versionGroups';
 import { type LabelPart, platformParts } from '@/data/games';
 import { formatList, slugify } from '@/lib/utils';
 
@@ -47,7 +45,7 @@ export const filterGroups: Array<FilterGroup> = [
   {
     key: 'console',
     label: 'Console',
-    options: [...new Set(allEntries.map((entry) => entry.game.platform))].map(
+    options: [...new Set(allEntries.map((entry) => entry.platform))].map(
       (platform) => ({
         value: slugify(platform),
         label: platform,
@@ -80,7 +78,7 @@ export const totalGames = allEntries.length;
 const entryValues = (entry: CatalogEntry): Filters => ({
   region: entryRegions(entry).map(slugify),
   map: entryMaps(entry).map(slugify),
-  console: [slugify(entry.game.platform)],
+  console: [slugify(entry.platform)],
   status: [entry.status],
 });
 

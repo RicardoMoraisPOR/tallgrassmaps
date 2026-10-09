@@ -8,6 +8,7 @@ import {
   forGame,
   games,
   hasOwnMapImage,
+  overworldSprite,
   read,
 } from '../rby/disassembly.mjs';
 import { farText, mapText } from '../rby/text.mjs';
@@ -517,7 +518,7 @@ for (const game of games) {
         x: Number(x),
         y: Number(y),
         text: message,
-        sprite: sprite.toLowerCase(),
+        sprite: overworldSprite(sprite.toLowerCase()),
         ...(opens && { opens }),
       });
     }

@@ -3,13 +3,10 @@ import { type CSSProperties, type ReactNode, useState } from 'react';
 import { ArrowRight, CircleAlert, Lock } from 'lucide-react';
 import { Link } from 'react-router';
 
-import {
-  type CatalogEntry,
-  type UpcomingGame,
-  versionGroupNames,
-} from '@/data/catalog';
+import type { CatalogEntry, UpcomingGame } from '@/data/catalog/types';
+import { versionGroupNames } from '@/data/catalog/versionGroups';
 import { getCover } from '@/data/covers';
-import type { Game, GameStatus, Platform } from '@/data/games';
+import type { Game, Platform } from '@/data/games';
 import { getRegion } from '@/data/maps';
 import { cn, formatList } from '@/lib/utils';
 
@@ -21,19 +18,14 @@ type GameCardProps = {
 
 export const GameCard = ({ entry }: GameCardProps) => {
   return entry.status === 'coming-soon' ? (
-    <UpcomingCard game={entry.game} />
+    <UpcomingCard game={entry} />
   ) : (
-    <CatalogGameCard game={entry.game} status={entry.status} />
+    <CatalogGameCard game={entry} />
   );
 };
 
-const CatalogGameCard = ({
-  game,
-  status,
-}: {
-  game: Game;
-  status: Exclude<GameStatus, 'coming-soon'>;
-}) => {
+const CatalogGameCard = ({ game }: { game: Game }) => {
+  const { status } = game;
   const [missingOpen, setMissingOpen] = useState(false);
   const region = getRegion(game.region);
 
@@ -80,9 +72,7 @@ const CatalogGameCard = ({
             <Details regions={[region.name]} platform={game.platform} />
           </div>
           {status === 'missing-content' ? (
-            <span
-              className="mt-auto inline-flex h-11 items-center justify-center gap-1.5 rounded-[10px] border border-input bg-background text-sm font-medium transition-colors duration-200 group-hover/card:border-primary group-hover/card:bg-primary group-hover/card:text-primary-foreground group-focus-visible/card:border-primary group-focus-visible/card:bg-primary group-focus-visible/card:text-primary-foreground sm:h-9 dark:bg-input/30 dark:group-hover/card:bg-primary dark:group-focus-visible/card:bg-primary"
-            >
+            <span className="mt-auto inline-flex h-11 items-center justify-center gap-1.5 rounded-[10px] border border-input bg-background text-sm font-medium transition-colors duration-200 group-hover/card:border-primary group-hover/card:bg-primary group-hover/card:text-primary-foreground group-focus-visible/card:border-primary group-focus-visible/card:bg-primary group-focus-visible/card:text-primary-foreground sm:h-9 dark:bg-input/30 dark:group-hover/card:bg-primary dark:group-focus-visible/card:bg-primary">
               Details
               <ArrowRight className="size-4 transition-transform duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1" />
             </span>

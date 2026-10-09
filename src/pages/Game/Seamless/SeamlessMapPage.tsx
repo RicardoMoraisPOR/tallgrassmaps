@@ -1,17 +1,17 @@
-import { useSyncExternalStore } from 'react';
-
 import { AnimatePresence, m } from 'motion/react';
 import { useNavigate } from 'react-router';
 
 import { SeamlessMap } from '@/components/map/SeamlessMap';
 import { useGameRoute } from '@/hooks/useGameRoute';
+import { useMapLayout } from '@/hooks/useMapLayout';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { DESKTOP_QUERY } from '@/lib/breakpoints';
 import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
-import { useMapLayout } from '@/stores/settings';
 
 import { GameAside } from '../GameAside';
-import { mapFrameProps, useMapFrame } from '../mapFrame';
+import { useMapFrame } from '../mapFrame';
 import { collectPlaces, placeGroupsFor } from '../places';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { MapLegend } from '../Region/MapLegend';
@@ -20,20 +20,7 @@ import { PokedexCard } from '../Region/PokedexCard';
 import { ZonePanel } from './ZonePanel';
 
 const ASIDE_INSET = 392;
-const DESKTOP_QUERY = '(min-width: 1024px)';
 
-const useDesktop = () =>
-  useSyncExternalStore(
-    (notify) => {
-      const query = matchMedia(DESKTOP_QUERY);
-
-      query.addEventListener('change', notify);
-
-      return () => query.removeEventListener('change', notify);
-    },
-    () => matchMedia(DESKTOP_QUERY).matches,
-    () => true,
-  );
 const OFFSCREEN = { x: '115%', opacity: 0 };
 const ENTER = { duration: 0.35, ease: easeOutSoft };
 const EXIT = { duration: 0.25, ease: easeOutSoft };
@@ -43,8 +30,8 @@ export const SeamlessMapPage = () => {
   const navigate = useNavigate();
   const immersive =
     useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
-  const mapFrame = useMapFrame(String(immersive));
-  const desktop = useDesktop();
+  const mapFrame = useMapFrame(route?.region.versionGroup ?? '');
+  const desktop = useMediaQuery(DESKTOP_QUERY);
 
   if (!route?.trail) return <NotFoundPage />;
 
@@ -68,8 +55,7 @@ export const SeamlessMapPage = () => {
           )}
         >
           <div
-            ref={mapFrame}
-            {...mapFrameProps}
+            {...mapFrame}
             className={cn(
               'absolute inset-0 overflow-hidden',
               !immersive && 'rounded-[14px] border',

@@ -12,20 +12,21 @@ import { signsFor } from '@/data/signs';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
+import { useMapLayout } from '@/hooks/useMapLayout';
 import { trailPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
-import { useMapLayout } from '@/stores/settings';
 
 import { GameAside } from '../GameAside';
-import { mapFrameProps, useMapFrame } from '../mapFrame';
+import { useMapFrame } from '../mapFrame';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { encounterGroups, wildAreaFor } from './encounters';
 import { EncountersTab, OpenPokedexButton } from './EncountersTab';
 import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
-import { locationLinks, openableNames } from './locationLinks';
+import { openableNames } from './links/signs';
+import { locationLinks } from './locationLinks';
 import { EmptyTab, LocationPanel, type PanelTab } from './LocationPanel';
 import { MapInfoTab, MapLayerSettingsButton } from './MapInfoTab';
 import { useMapLayers } from './mapLayers';
@@ -48,7 +49,7 @@ export const LocationPage = () => {
   const pokedexLink = usePokedexLink();
   const immersive =
     useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
-  const mapFrame = useMapFrame(String(immersive));
+  const mapFrame = useMapFrame(route?.region.versionGroup ?? '');
 
   const trail = route?.trail;
   const location = trail?.at(-1);
@@ -337,8 +338,7 @@ export const LocationPage = () => {
           )}
         >
           <div
-            ref={mapFrame}
-            {...mapFrameProps}
+            {...mapFrame}
             className={cn(
               'absolute inset-0 flex flex-col overflow-hidden',
               !immersive && 'rounded-[14px] border',

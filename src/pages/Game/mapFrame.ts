@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from 'react';
 
 import { animate } from 'motion/react';
 
+import { useMapLayout } from '@/hooks/useMapLayout';
 import { easeOutSoft, prefersReducedMotion } from '@/lib/motion';
 
 const FRAME_ATTRIBUTE = 'data-map-frame';
@@ -13,8 +14,6 @@ type FrameBox = {
 };
 
 let captured: FrameBox | undefined;
-
-export const mapFrameProps = { [FRAME_ATTRIBUTE]: '' };
 
 const boxOf = (element: Element): FrameBox => ({
   rect: element.getBoundingClientRect(),
@@ -29,8 +28,9 @@ export const captureMapFrame = () => {
 
 const px = (value: number) => `${value}px`;
 
-export const useMapFrame = (layoutKey: string) => {
+export const useMapFrame = (versionGroup: string) => {
   const frame = useRef<HTMLDivElement>(null);
+  const layout = useMapLayout(versionGroup);
 
   useLayoutEffect(() => {
     const element = frame.current;
@@ -73,7 +73,7 @@ export const useMapFrame = (layoutKey: string) => {
       controls.stop();
       reset();
     };
-  }, [layoutKey]);
+  }, [layout]);
 
-  return frame;
+  return { ref: frame, [FRAME_ATTRIBUTE]: '' };
 };

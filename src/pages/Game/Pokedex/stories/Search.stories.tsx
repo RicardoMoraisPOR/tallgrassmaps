@@ -4,10 +4,10 @@ import { useThemeStyle } from '@/components/settings/themes';
 import { pokedexFor } from '@/data/pokedex';
 
 import { useStoryGameId } from '../../../../../.storybook/StoryGame';
-import { pokedexStoryContext } from '../pokedexStoryData';
-import { PokedexStorySurface } from '../PokedexStorySurface';
-import { pokedexStoryViewFor } from '../pokedexStoryViews';
 import { type PokedexFilterId, usePokedexSearch } from '../usePokedexSearch';
+import { pokedexStoryContext } from './pokedexStoryData';
+import { PokedexStorySurface } from './PokedexStorySurface';
+import { pokedexStoryViewFor } from './pokedexStoryViews';
 
 type SearchStoryProps = {
   gameId?: string;

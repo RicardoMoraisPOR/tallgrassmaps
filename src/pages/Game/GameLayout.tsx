@@ -1,10 +1,10 @@
 import { Container } from '@/components/Container';
 import { PageTransition } from '@/components/PageTransition';
 import { useGameRoute } from '@/hooks/useGameRoute';
+import { useMapLayout } from '@/hooks/useMapLayout';
 import { pathSegments } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
-import { useMapLayout } from '@/stores/settings';
 
 import { LayoutToggle } from './LayoutToggle';
 import { PageHeader } from './PageHeader';
