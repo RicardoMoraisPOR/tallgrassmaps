@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { rbyItems } from './items/rby';
 import { rbyNpcs } from './npcs/rby';
 import { rbyPokedex } from './pokedex/rby';
+import { zaPokedex } from './pokedex/za';
 import { rbySigns } from './signs/rby';
 import { rbyStaticPokemon } from './static-pokemon/rby';
 import { rbyTrainers } from './trainers/rby';
@@ -65,5 +66,24 @@ describe('RBY dataset shape', () => {
     ];
 
     expect(facings.filter((facing) => !FACINGS.includes(facing))).toEqual([]);
+  });
+});
+
+describe('Legends Z-A pokedex', () => {
+  it('explains how to get every Pokémon', () => {
+    const unexplained = zaPokedex
+      .filter((entry) => entry.encounters.length === 0 && !entry.evolvesFrom)
+      .map((entry) => entry.name);
+
+    expect(unexplained).toEqual([]);
+  });
+
+  it('only evolves from Pokémon that are in the Pokédex', () => {
+    const numbers = new Set(zaPokedex.map((entry) => entry.number));
+    const missing = zaPokedex.filter(
+      (entry) => entry.evolvesFrom && !numbers.has(entry.evolvesFrom.number),
+    );
+
+    expect(missing.map((entry) => entry.name)).toEqual([]);
   });
 });

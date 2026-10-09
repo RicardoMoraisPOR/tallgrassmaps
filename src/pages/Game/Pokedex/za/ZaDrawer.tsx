@@ -25,7 +25,7 @@ export const ZaDrawer = ({
     direction="bottom"
     handleOnly
   >
-    <DrawerContent className="pokedex-za za-screen data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:h-svh data-[vaul-drawer-direction=bottom]:max-h-svh data-[vaul-drawer-direction=bottom]:rounded-none data-[vaul-drawer-direction=bottom]:border-0">
+    <DrawerContent className="pokedex-za za-screen select-text! data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:h-svh data-[vaul-drawer-direction=bottom]:max-h-svh data-[vaul-drawer-direction=bottom]:rounded-none data-[vaul-drawer-direction=bottom]:border-0">
       <div
         aria-hidden
         className="za-scanlines pointer-events-none absolute inset-0"

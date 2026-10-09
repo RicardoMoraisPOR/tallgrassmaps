@@ -64,12 +64,17 @@ export const chanceLabel = (encounter: Encounter) => {
   return min === max ? `${min}%` : `${min}–${max}%`;
 };
 
-export const evolutionLabel = (evolution: Evolution) => {
-  if (evolution.method === 'level') return `at level ${evolution.level}`;
-  if (evolution.method === 'item') return `with a ${evolution.item}`;
+const evolutionMethodLabel = ({ method, level, item }: Evolution) => {
+  if (method === 'level') return `at level ${level}`;
+  if (method === 'item') return `with a ${item}`;
+  if (method === 'trade')
+    return item ? `by trading while holding a ${item}` : 'by trading';
 
-  return 'by trading';
+  return undefined;
 };
+
+export const evolutionLabel = (evolution: Evolution) =>
+  [evolutionMethodLabel(evolution), evolution.note].filter(Boolean).join(' ');
 
 export const bulbapediaUrl = (name: string) =>
   `https://bulbapedia.bulbagarden.net/wiki/${encodeURIComponent(`${name.replaceAll(' ', '_')}_(Pokémon)`)}`;

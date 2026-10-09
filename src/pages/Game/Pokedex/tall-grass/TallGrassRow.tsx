@@ -107,9 +107,11 @@ export const TallGrassRow = ({
       >
         <MegaEvolutions entry={entry} compact TypeTags={PokemonTypeTags} />
         {appearsIn.length === 0 ? (
-          <p className="text-[13px] text-muted-foreground">
-            Not obtainable in these games without trading or events.
-          </p>
+          evolution ? null : (
+            <p className="text-[13px] text-muted-foreground">
+              Not obtainable in these games without trading or events.
+            </p>
+          )
         ) : (
           sharedMap && (
             <div className="flex flex-col gap-2">
@@ -132,31 +134,34 @@ export const TallGrassRow = ({
             </div>
           )
         )}
-        {obtainable && (encounters.length > 0 || evolution) && (
-          <div className="flex flex-col gap-3">
-            {paths.length > 0 && (
-              <PlacesMap
-                region={region}
-                paths={paths}
-                label={placesMapLabel(entry, game, region, paths)}
-              />
-            )}
-            <ul className="flex flex-col divide-y rounded-lg border text-[13px]">
-              <EncounterPlaces
-                encounters={encounters}
-                region={region}
-                href={href}
-                nameOf={nameOf}
-                placeClassName="font-medium"
-                lineClassName="text-muted-foreground"
-                noteClassName="text-xs"
-              />
-              {evolution && (
-                <li className="px-3 py-2 text-muted-foreground">{evolution}</li>
+        {(obtainable || appearsIn.length === 0) &&
+          (encounters.length > 0 || evolution) && (
+            <div className="flex flex-col gap-3">
+              {paths.length > 0 && (
+                <PlacesMap
+                  region={region}
+                  paths={paths}
+                  label={placesMapLabel(entry, game, region, paths)}
+                />
               )}
-            </ul>
-          </div>
-        )}
+              <ul className="flex flex-col divide-y rounded-lg border text-[13px]">
+                <EncounterPlaces
+                  encounters={encounters}
+                  region={region}
+                  href={href}
+                  nameOf={nameOf}
+                  placeClassName="font-medium"
+                  lineClassName="text-muted-foreground"
+                  noteClassName="text-xs"
+                />
+                {evolution && (
+                  <li className="px-3 py-2 text-muted-foreground">
+                    {evolution}
+                  </li>
+                )}
+              </ul>
+            </div>
+          )}
         <a
           href={bulbapediaUrl(entry.name)}
           target="_blank"

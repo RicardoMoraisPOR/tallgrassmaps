@@ -26,6 +26,7 @@ export type EncounterAlpha = {
 export type Encounter = {
   method: EncounterMethod;
   path: string | null;
+  place?: string;
   games: Array<string>;
   levels?: [number, number];
   chance?: [number, number];
@@ -37,9 +38,10 @@ export type Encounter = {
 
 export type Evolution = {
   number: number;
-  method: 'level' | 'item' | 'trade';
+  method: 'level' | 'item' | 'trade' | 'other';
   level?: number;
   item?: string;
+  note?: string;
 };
 
 export type MegaEvolution = {

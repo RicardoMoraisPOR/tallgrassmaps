@@ -82,9 +82,11 @@ export const ListDrawer = ({
       open={open}
       onOpenChange={(next) => !next && onClose()}
       direction={wide ? 'right' : 'bottom'}
+      handleOnly={wide}
     >
       <DrawerContent
         className={cn(
+          'select-text!',
           skin.drawerClassName,
           'data-[vaul-drawer-direction=bottom]:h-[85svh] data-[vaul-drawer-direction=bottom]:max-h-[85svh] data-[vaul-drawer-direction=right]:w-full data-[vaul-drawer-direction=right]:sm:max-w-md',
         )}

@@ -34,9 +34,11 @@ export const ZaDetails = ({
   return (
     <div className="flex flex-col gap-4 text-base">
       {appearsIn.length === 0 ? (
-        <p className="text-white/70">
-          Not obtainable in these games without trading or events.
-        </p>
+        evolution ? null : (
+          <p className="text-white/70">
+            Not obtainable in these games without trading or events.
+          </p>
+        )
       ) : (
         sharedMap && (
           <div className="flex flex-col gap-2">
@@ -57,32 +59,33 @@ export const ZaDetails = ({
           </div>
         )
       )}
-      {obtainable && (encounters.length > 0 || evolution) && (
-        <div className="flex flex-col gap-3">
-          {paths.length > 0 && (
-            <PlacesMap
-              region={region}
-              paths={paths}
-              label={placesMapLabel(entry, game, region, paths)}
-              className="mx-auto w-full max-w-56"
-            />
-          )}
-          <ul className="flex flex-col divide-y divide-white/15 rounded-lg border border-white/20">
-            <EncounterPlaces
-              encounters={encounters}
-              region={region}
-              href={href}
-              nameOf={nameOf}
-              placeClassName="font-bold"
-              lineClassName="text-white/70"
-              noteClassName="text-sm text-white/55"
-            />
-            {evolution && (
-              <li className="px-3 py-2 text-white/70">{evolution}</li>
+      {(obtainable || appearsIn.length === 0) &&
+        (encounters.length > 0 || evolution) && (
+          <div className="flex flex-col gap-3">
+            {paths.length > 0 && (
+              <PlacesMap
+                region={region}
+                paths={paths}
+                label={placesMapLabel(entry, game, region, paths)}
+                className="mx-auto w-full max-w-56"
+              />
             )}
-          </ul>
-        </div>
-      )}
+            <ul className="flex flex-col divide-y divide-white/15 rounded-lg border border-white/20">
+              <EncounterPlaces
+                encounters={encounters}
+                region={region}
+                href={href}
+                nameOf={nameOf}
+                placeClassName="font-bold"
+                lineClassName="text-white/70"
+                noteClassName="text-sm text-white/55"
+              />
+              {evolution && (
+                <li className="px-3 py-2 text-white/70">{evolution}</li>
+              )}
+            </ul>
+          </div>
+        )}
       <a
         href={bulbapediaUrl(entry.name)}
         target="_blank"

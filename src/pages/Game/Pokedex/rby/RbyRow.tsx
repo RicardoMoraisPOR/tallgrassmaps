@@ -114,9 +114,11 @@ export const RbyRow = ({
         className="flex flex-col gap-4 border-t-4 border-double p-3 pb-4"
       >
         {appearsIn.length === 0 ? (
-          <p className="text-[10px] leading-loose text-muted-foreground">
-            Not obtainable in these games without trading or events.
-          </p>
+          evolution ? null : (
+            <p className="text-[10px] leading-loose text-muted-foreground">
+              Not obtainable in these games without trading or events.
+            </p>
+          )
         ) : (
           sharedMap && (
             <div className="flex flex-col gap-2">
@@ -139,42 +141,45 @@ export const RbyRow = ({
             </div>
           )
         )}
-        {obtainable && (encounters.length > 0 || evolution) && (
-          <div className="flex flex-col gap-3">
-            {paths.length > 0 && (
-              <PlacesMap
-                region={region}
-                paths={paths}
-                label={placesMapLabel(entry, game, region, paths)}
-              />
-            )}
-            <ul className="flex flex-col divide-y border-2 text-[10px] leading-loose">
-              {encounters.map((encounter) => (
-                <li
-                  key={`${encounter.method}-${encounter.path}-${encounter.tradeFor}`}
-                  className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 px-3 py-2"
-                >
-                  {encounter.path ? (
-                    <Link
-                      to={href(encounter.path)}
-                      className="underline-offset-3 hover:underline"
-                    >
-                      {placeName(region, encounter.path)}
-                    </Link>
-                  ) : (
-                    <span>Any water</span>
-                  )}
-                  <span className="text-muted-foreground">
-                    {encounterSummary(encounter, nameOf)}
-                  </span>
-                </li>
-              ))}
-              {evolution && (
-                <li className="px-3 py-2 text-muted-foreground">{evolution}</li>
+        {(obtainable || appearsIn.length === 0) &&
+          (encounters.length > 0 || evolution) && (
+            <div className="flex flex-col gap-3">
+              {paths.length > 0 && (
+                <PlacesMap
+                  region={region}
+                  paths={paths}
+                  label={placesMapLabel(entry, game, region, paths)}
+                />
               )}
-            </ul>
-          </div>
-        )}
+              <ul className="flex flex-col divide-y border-2 text-[10px] leading-loose">
+                {encounters.map((encounter) => (
+                  <li
+                    key={`${encounter.method}-${encounter.path}-${encounter.tradeFor}`}
+                    className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 px-3 py-2"
+                  >
+                    {encounter.path ? (
+                      <Link
+                        to={href(encounter.path)}
+                        className="underline-offset-3 hover:underline"
+                      >
+                        {placeName(region, encounter.path)}
+                      </Link>
+                    ) : (
+                      <span>Any water</span>
+                    )}
+                    <span className="text-muted-foreground">
+                      {encounterSummary(encounter, nameOf)}
+                    </span>
+                  </li>
+                ))}
+                {evolution && (
+                  <li className="px-3 py-2 text-muted-foreground">
+                    {evolution}
+                  </li>
+                )}
+              </ul>
+            </div>
+          )}
         <a
           href={bulbapediaUrl(entry.name)}
           target="_blank"

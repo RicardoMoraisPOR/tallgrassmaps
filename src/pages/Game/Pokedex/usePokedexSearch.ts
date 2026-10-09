@@ -50,7 +50,9 @@ export const usePokedexSearch = (
         (encounter) =>
           encounter.method === 'trade' && encounter.games.includes(game.id),
       ),
-    'trade-only': (entry) => entry.evolvesFrom?.method === 'trade',
+    'trade-only': (entry) =>
+      entry.evolvesFrom?.method === 'trade' &&
+      !entry.encounters.some((encounter) => encounter.games.includes(game.id)),
     obtainable: (entry) => entry.games.includes(game.id),
     mega: (entry) => !!entry.megas?.length,
   };

@@ -6,14 +6,25 @@ import { cn } from '@/lib/utils';
 import { encounterLines, placeName } from './entryDetails';
 import type { PokedexContext } from './types';
 
-type PlaceGroup = { path: string | null; encounters: Array<Encounter> };
+type PlaceGroup = {
+  path: string | null;
+  place?: string;
+  encounters: Array<Encounter>;
+};
 
 const groupByPath = (encounters: Array<Encounter>) =>
   encounters.reduce<Array<PlaceGroup>>((groups, encounter) => {
-    const group = groups.find(({ path }) => path === encounter.path);
+    const group = groups.find(
+      ({ path, place }) => path === encounter.path && place === encounter.place,
+    );
 
     if (group) group.encounters.push(encounter);
-    else groups.push({ path: encounter.path, encounters: [encounter] });
+    else
+      groups.push({
+        path: encounter.path,
+        place: encounter.place,
+        encounters: [encounter],
+      });
 
     return groups;
   }, []);
@@ -51,12 +62,12 @@ export const EncounterPlaces = ({
   lineClassName,
   noteClassName,
 }: EncounterPlacesProps) =>
-  groupByPath(encounters).map(({ path, encounters: grouped }) => {
+  groupByPath(encounters).map(({ path, place, encounters: grouped }) => {
     const { lines, notes } = groupDetails(grouped, nameOf);
 
     return (
       <li
-        key={path ?? 'anywhere'}
+        key={path ?? place ?? 'anywhere'}
         className="flex items-start justify-between gap-x-3 px-3 py-2"
       >
         <div className="flex flex-col gap-0.5">
@@ -71,7 +82,7 @@ export const EncounterPlaces = ({
               {placeName(region, path)}
             </Link>
           ) : (
-            <span className={placeClassName}>Any water</span>
+            <span className={placeClassName}>{place ?? 'Any water'}</span>
           )}
           {notes.map((note) => (
             <span key={note} className={noteClassName}>

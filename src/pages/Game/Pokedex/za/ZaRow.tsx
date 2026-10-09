@@ -56,7 +56,6 @@ export const ZaRow = ({
           className={cn(
             'aspect-square w-full rounded-md object-contain',
             sprite.pixelated && 'pixelated',
-            !obtainable && 'opacity-40 brightness-0',
           )}
         />
         <span className="flex items-center gap-1 text-sm font-bold tabular-nums">
