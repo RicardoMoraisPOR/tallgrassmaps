@@ -43,7 +43,7 @@ type MapViewerProps = {
   links?: Array<MapLink>;
   highlightable?: Array<MapLink>;
   highlighted?: string;
-  pinRequest?: { key: string };
+  pinRequest?: { key: string; initial?: boolean };
   focusKey?: string;
   zoomPosition?: ZoomPosition;
   className?: string;

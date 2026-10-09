@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useId, useState } from 'react';
 
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router';
@@ -25,6 +25,7 @@ import {
 import { bulbapediaUrl } from '../format';
 import { PokemonTypeTags } from '../PokemonTypeTags';
 import type { PokedexRowProps } from '../types';
+import { useScrollToFocused } from '../useScrollToFocused';
 
 export const RbyRow = ({
   entry,
@@ -36,7 +37,7 @@ export const RbyRow = ({
 }: PokedexRowProps) => {
   const [expanded, setExpanded] = useState(focused);
   const panelId = useId();
-  const rowRef = useRef<HTMLLIElement>(null);
+  const rowRef = useScrollToFocused(focused);
   const spriteFor = usePokemonSprite(game);
 
   const sprite = spriteFor(entry.number);
@@ -47,15 +48,11 @@ export const RbyRow = ({
   const paths = encounterPaths(encounters);
   const evolution = evolutionSummary(entry, nameOf);
 
-  useEffect(() => {
-    if (focused) rowRef.current?.scrollIntoView({ block: 'start' });
-  }, [focused]);
-
   return (
     <li
       ref={rowRef}
       data-expanded={expanded || undefined}
-      className="group/row scroll-mt-36 border-b-2 border-dashed"
+      className="group/row border-b-2 border-dashed"
     >
       <div className="relative grid grid-cols-[auto_auto_auto_1fr_auto] grid-rows-[auto_auto] items-center gap-x-2 gap-y-1 overflow-y-clip px-2 py-3">
         <span

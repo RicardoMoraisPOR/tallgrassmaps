@@ -4,9 +4,7 @@ const POKEDEX_PARAM = 'pokedex';
 
 type PokedexState = { openedInApp?: boolean };
 
-export const usePokedexLink = (number?: number) => {
-  const [params] = useSearchParams();
-
+export const pokedexLink = (params: URLSearchParams, number?: number) => {
   const kept = new URLSearchParams(params);
   const pokedex = number ? `${POKEDEX_PARAM}=${number}` : POKEDEX_PARAM;
 
@@ -18,6 +16,12 @@ export const usePokedexLink = (number?: number) => {
     },
     state: { openedInApp: true } satisfies PokedexState,
   };
+};
+
+export const usePokedexLink = (number?: number) => {
+  const [params] = useSearchParams();
+
+  return pokedexLink(params, number);
 };
 
 export const usePokedex = () => {

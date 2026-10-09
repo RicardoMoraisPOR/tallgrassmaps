@@ -728,7 +728,6 @@ export const lumioseZa: Region = {
         kinds: ['sector'],
       },
     ],
-    search: 'Search wild zones, buildings…',
   },
   image: MAP_IMAGE,
   width: MAP_SIZE,

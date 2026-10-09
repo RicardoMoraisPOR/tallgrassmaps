@@ -5,6 +5,9 @@ import { entryKey } from './keys';
 import { dotBox, spriteBox } from './tiles';
 import type { LayeredMapLink, MarkerSources } from './types';
 
+export const itemKey = ({ path, floor, x, y }: MapItem) =>
+  `item:${path}:${floor ?? ''}:${x},${y}`;
+
 export const itemMarkers = (
   items: Array<MapItem>,
   tileSize: number,
@@ -19,7 +22,7 @@ export const itemMarkers = (
       label,
       layer: layer.id,
       className: layer.className,
-      highlightKey: entryKey(layer.id, label),
+      highlightKey: [entryKey(layer.id, label), itemKey(item)],
       tooltip: itemTooltip?.(item),
     };
 

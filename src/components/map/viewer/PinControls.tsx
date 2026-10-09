@@ -34,12 +34,12 @@ export const PinOnRequest = ({
   links,
   onPin,
 }: {
-  request?: { key: string };
+  request?: { key: string; initial?: boolean };
   links: Array<MapLink>;
   onPin: (link: MapLink) => void;
 }) => {
   const leafletMap = useMap();
-  const handled = useRef(request);
+  const handled = useRef(request?.initial ? undefined : request);
 
   useEffect(() => {
     if (!request || handled.current === request) return;

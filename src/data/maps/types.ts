@@ -88,7 +88,6 @@ export type PlaceGroup = {
 export type PlaceGroups = {
   groups: Array<PlaceGroup>;
   legend?: Array<string>;
-  search: string;
 };
 
 export type LocationFloor = MapImage & {

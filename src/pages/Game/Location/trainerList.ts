@@ -62,3 +62,20 @@ export const battleGroups = (
     battles: numbered(battles.filter((battle) => battle.area === area)),
   }));
 };
+
+export const listBattles = (
+  trainers: Array<TrainerBattle>,
+  game: Game,
+): Array<ListedBattle> => {
+  const groups = new Map<string, Array<TrainerBattle>>();
+
+  for (const battle of trainers) {
+    if (!battle.games.includes(game.id)) continue;
+
+    const key = `${battle.path}|${battle.floor ?? battle.area ?? ''}`;
+
+    groups.set(key, [...(groups.get(key) ?? []), battle]);
+  }
+
+  return [...groups.values()].flatMap(numbered);
+};

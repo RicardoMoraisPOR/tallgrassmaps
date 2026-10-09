@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useId, useState } from 'react';
 
 import { ChevronDown, ExternalLink } from 'lucide-react';
 
@@ -24,6 +24,7 @@ import { bulbapediaUrl } from '../format';
 import { MegaEvolutions } from '../MegaEvolutions';
 import { PokemonTypeTags } from '../PokemonTypeTags';
 import type { PokedexRowProps } from '../types';
+import { useScrollToFocused } from '../useScrollToFocused';
 
 export const TallGrassRow = ({
   entry,
@@ -35,7 +36,7 @@ export const TallGrassRow = ({
 }: PokedexRowProps) => {
   const [expanded, setExpanded] = useState(focused);
   const panelId = useId();
-  const rowRef = useRef<HTMLLIElement>(null);
+  const rowRef = useScrollToFocused(focused);
   const spriteFor = usePokemonSprite(game);
 
   const sprite = spriteFor(entry.number);
@@ -46,15 +47,11 @@ export const TallGrassRow = ({
   const paths = encounterPaths(encounters);
   const evolution = evolutionSummary(entry, nameOf);
 
-  useEffect(() => {
-    if (focused) rowRef.current?.scrollIntoView({ block: 'start' });
-  }, [focused]);
-
   return (
     <li
       ref={rowRef}
       data-expanded={expanded || undefined}
-      className="scroll-mt-36 rounded-[12px] border bg-card"
+      className="rounded-[12px] border bg-card"
     >
       <div className="flex items-center gap-3 p-2.5">
         <span className="w-10 flex-none font-mono text-xs text-muted-foreground tabular-nums">

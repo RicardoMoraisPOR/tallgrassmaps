@@ -113,7 +113,10 @@ export const ListDrawer = ({
 };
 
 export const ListSearch = ({ skin, search }: Skinned<PokedexSearchProps>) => (
-  <div className="sticky top-0 z-10 flex flex-col gap-2.5 bg-popover pb-3">
+  <div
+    data-pokedex-header
+    className="sticky top-0 z-10 flex flex-col gap-2.5 bg-popover pb-3"
+  >
     <label className={skin.searchClassName}>
       <Search
         aria-hidden

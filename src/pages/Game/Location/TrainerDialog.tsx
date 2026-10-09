@@ -2,6 +2,7 @@ import '@fontsource/press-start-2p';
 import { useState } from 'react';
 
 import { MessageSquare } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 import { Collapse } from '@/components/Collapse';
 import { useThemeStyle } from '@/components/settings/themes';
@@ -31,6 +32,7 @@ type TrainerDialogProps = {
   place: string;
   game: Game;
   pokedex: Array<PokedexEntry>;
+  href?: (path: string) => string;
   onSelect?: (key: string) => void;
   onClose: () => void;
 };
@@ -41,9 +43,11 @@ export const TrainerDialog = ({
   place,
   game,
   pokedex,
+  href,
   onSelect,
   onClose,
 }: TrainerDialogProps) => {
+  const navigate = useNavigate();
   const spriteFor = usePokemonSprite(game);
   const gameTheme = useThemeStyle('trainers') === 'game';
   const [showingDialog, setShowingDialog] = useState(false);
@@ -106,7 +110,29 @@ export const TrainerDialog = ({
                   <TrainerSprite src={listed.battle.sprite} />
                 )}
                 <DialogHeader className="min-w-0 flex-1">
-                  <DialogTitle>{listed.label}</DialogTitle>
+                  <DialogTitle>
+                    {href && listed.battle.x !== undefined ? (
+                      <button
+                        type="button"
+                        title="Show on map"
+                        onClick={() => {
+                          const floor = listed.battle.floor
+                            ? `?floor=${listed.battle.floor}`
+                            : '';
+
+                          navigate(`${href(listed.battle.path)}${floor}`, {
+                            state: { focusKey: listed.key },
+                          });
+                          onClose();
+                        }}
+                        className="cursor-pointer text-left underline-offset-4 hover:underline"
+                      >
+                        {listed.label}
+                      </button>
+                    ) : (
+                      listed.label
+                    )}
+                  </DialogTitle>
                   <DialogDescription className={cn(!area && 'sr-only')}>
                     {area ?? place}
                   </DialogDescription>

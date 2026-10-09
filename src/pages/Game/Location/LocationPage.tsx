@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { Map as MapIcon, Info } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
@@ -56,7 +56,8 @@ export const LocationPage = () => {
   const trail = route?.trail;
   const location = trail?.at(-1);
   const { floor, arrivedAt, from, selectFloor } = useFloor(location?.floors);
-  const { key: visitKey } = useLocation();
+  const { key: visitKey, state: navState } = useLocation();
+  const [focusShown, setFocusShown] = useState<string>();
   const [arrivalShown, setArrivalShown] = useState<string>();
   const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
@@ -86,6 +87,24 @@ export const LocationPage = () => {
   }, [arrivedAt, visitKey]);
 
   const arrival = arrivalShown === visitKey ? undefined : arrivedAt;
+
+  const requestedFocus = (navState as { focusKey?: string } | null)?.focusKey;
+  const focusKey = focusShown === visitKey ? undefined : requestedFocus;
+  const focusRequest = useMemo(
+    () => (focusKey ? { key: focusKey, initial: true } : undefined),
+    [focusKey],
+  );
+
+  useEffect(() => {
+    if (!requestedFocus) return;
+
+    const timer = setTimeout(
+      () => setFocusShown(visitKey),
+      ARRIVAL_HIGHLIGHT_MS,
+    );
+
+    return () => clearTimeout(timer);
+  }, [requestedFocus, visitKey]);
 
   if (!route || !trail || !location) {
     return <NotFoundPage />;
@@ -316,10 +335,14 @@ export const LocationPage = () => {
       links={links.filter((link) => !hiddenLayers.has(link.layer))}
       highlightable={links}
       highlighted={
-        (highlight.scope === scope ? highlight.key : undefined) ?? arrival
+        (highlight.scope === scope ? highlight.key : undefined) ??
+        focusKey ??
+        arrival
       }
-      focusKey={arrivedAt}
-      pinRequest={pinRequest?.scope === scope ? pinRequest : undefined}
+      focusKey={requestedFocus ?? arrivedAt}
+      pinRequest={
+        focusRequest ?? (pinRequest?.scope === scope ? pinRequest : undefined)
+      }
       zoomPosition={immersive ? 'bottomleft' : undefined}
       className="size-full"
     />
@@ -388,6 +411,7 @@ export const LocationPage = () => {
           place={location.name}
           game={route.game}
           pokedex={pokedex}
+          href={route.href}
           onSelect={selectTrainer}
           onClose={() => selectTrainer(undefined)}
         />

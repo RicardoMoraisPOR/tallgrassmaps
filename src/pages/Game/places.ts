@@ -39,7 +39,6 @@ export const defaultPlaceGroups: PlaceGroups = {
     },
   ],
   legend: ['town', 'landmark', 'route'],
-  search: 'Search towns, routes, caves…',
 };
 
 export const placeGroupsFor = (region: Region) =>

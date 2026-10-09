@@ -127,20 +127,6 @@ export const FitToViewport = ({
 
     fitView();
 
-    const focusOn = (lat: number, lng: number) =>
-      leafletMap.flyTo(
-        [lat, lng],
-        Math.min(Math.floor(leafletMap.getMinZoom()) + 1, MAX_ZOOM),
-        { duration: FOCUS_DURATION },
-      );
-
-    const focusTimer =
-      focusLat !== undefined &&
-      focusLng !== undefined &&
-      leafletMap.getMinZoom() < FOCUS_BELOW_ZOOM
-        ? setTimeout(() => focusOn(focusLat, focusLng), FOCUS_DELAY)
-        : undefined;
-
     const onResize = () => {
       const zoom = fitZoom();
       const current = leafletMap.getZoom();
@@ -161,11 +147,28 @@ export const FitToViewport = ({
     observer.observe(leafletMap.getContainer());
 
     return () => {
-      clearTimeout(focusTimer);
       observer.disconnect();
       leafletMap.off('resize', onResize);
     };
-  }, [leafletMap, width, height, focusLat, focusLng]);
+  }, [leafletMap, width, height]);
+
+  useEffect(() => {
+    const focusOn = (lat: number, lng: number) =>
+      leafletMap.flyTo(
+        [lat, lng],
+        Math.min(Math.floor(leafletMap.getMinZoom()) + 1, MAX_ZOOM),
+        { duration: FOCUS_DURATION },
+      );
+
+    const focusTimer =
+      focusLat !== undefined &&
+      focusLng !== undefined &&
+      leafletMap.getMinZoom() < FOCUS_BELOW_ZOOM
+        ? setTimeout(() => focusOn(focusLat, focusLng), FOCUS_DELAY)
+        : undefined;
+
+    return () => clearTimeout(focusTimer);
+  }, [leafletMap, focusLat, focusLng]);
 
   return null;
 };
