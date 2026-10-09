@@ -10,6 +10,7 @@ import {
 
 import type { LucideIcon } from 'lucide-react';
 import { AnimatePresence, m } from 'motion/react';
+import { Link } from 'react-router';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { DESKTOP_QUERY, TABLET_QUERY } from '@/lib/breakpoints';
@@ -17,7 +18,12 @@ import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
-type CardInfo = { id: string; label: string; icon: LucideIcon };
+type CardInfo = {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+  to?: string;
+};
 
 type AsideState = {
   immersive: boolean;
@@ -75,8 +81,31 @@ export const GameAside = ({
     <AsideContext value={state}>
       {immersive && (
         <div className="pointer-events-none absolute top-1/2 left-0 z-30 flex -translate-y-1/2 flex-col gap-2 md:top-4 md:right-16 md:left-auto md:translate-y-0 md:flex-row md:gap-2">
-          {cards.map(({ id, label, icon: Icon }) => {
+          {cards.map(({ id, label, icon: Icon, to }) => {
             const open = isOpen(id);
+            const buttonClassName =
+              'pointer-events-auto flex h-12 min-w-12 items-center justify-center gap-2 rounded-r-[16px] border border-l-0 bg-card outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 md:h-9 md:min-w-9 md:rounded-[14px] md:border-l md:px-3';
+            const content = (
+              <>
+                <Icon aria-hidden className="size-5 flex-none md:size-4" />
+                <span className="hidden text-[13px] font-medium md:inline">
+                  {label}
+                </span>
+              </>
+            );
+
+            if (to)
+              return (
+                <Link
+                  key={id}
+                  to={to}
+                  aria-label={label}
+                  title={label}
+                  className={cn(buttonClassName, 'text-foreground')}
+                >
+                  {content}
+                </Link>
+              );
 
             return (
               <button
@@ -98,14 +127,11 @@ export const GameAside = ({
                   )
                 }
                 className={cn(
-                  'pointer-events-auto flex h-12 min-w-12 items-center justify-center gap-2 rounded-r-[16px] border border-l-0 bg-card outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 md:h-9 md:min-w-9 md:rounded-[14px] md:border-l md:px-3',
+                  buttonClassName,
                   open ? 'text-foreground' : 'text-muted-foreground/60',
                 )}
               >
-                <Icon aria-hidden className="size-5 flex-none md:size-4" />
-                <span className="hidden text-[13px] font-medium md:inline">
-                  {label}
-                </span>
+                {content}
               </button>
             );
           })}
@@ -140,6 +166,7 @@ type AsideCardProps = {
   icon: LucideIcon;
   label: string;
   grow?: boolean;
+  to?: string;
   className?: string;
   children: ReactNode;
 };
@@ -148,6 +175,7 @@ export const AsideCard = ({
   icon,
   label,
   grow = false,
+  to,
   className,
   children,
 }: AsideCardProps) => {
@@ -156,8 +184,8 @@ export const AsideCard = ({
   const open = isOpen(label);
 
   useEffect(
-    () => register({ id: label, label, icon }),
-    [register, label, icon],
+    () => register({ id: label, label, icon, to }),
+    [register, label, icon, to],
   );
 
   if (!immersive) {
@@ -174,6 +202,8 @@ export const AsideCard = ({
       </m.div>
     );
   }
+
+  if (to) return null;
 
   return (
     <m.div

@@ -52,9 +52,9 @@ export const PageHeader = ({
       ]
     : [];
   const back = parents.at(-1);
-  const seamless = region.navigation === 'seamless';
-  const backLabel = seamless ? `Show ${region.name}` : back?.name;
-  const BackIcon = seamless ? MapPinned : ChevronLeft;
+  const toRegion = region.navigation === 'seamless' && parents.length === 1;
+  const backLabel = toRegion ? `Show ${region.name}` : back?.name;
+  const BackIcon = toRegion ? MapPinned : ChevronLeft;
 
   return (
     <m.div
@@ -128,10 +128,10 @@ export const PageHeader = ({
           </h1>
         </div>
       </header>
-      {back && (
+      {back && !(toRegion && floating) && (
         <Link
           to={back.href}
-          aria-label={seamless ? backLabel : `Back to ${back.name}`}
+          aria-label={toRegion ? backLabel : `Back to ${back.name}`}
           className={cn(
             'flex min-h-9 w-fit max-w-full items-center gap-1 rounded-[10px] border bg-card py-1 pr-3 pl-2 text-[13px] font-medium outline-offset-2 hover:bg-muted sm:hidden',
             !floating && 'self-center',
