@@ -1,16 +1,24 @@
-import { type ReactNode, useEffect } from 'react';
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
+import { m } from 'motion/react';
 import { useLocation } from 'react-router';
 
 import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { coverSources } from '@/data/covers';
-import { kantoRby } from '@/data/maps/kanto-rby';
 import { pokemonSpriteSources } from '@/data/sprites';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { cn } from '@/lib/utils';
 
 import { ChangelogBadge } from './ChangelogBadge';
 import { GamesSection } from './GamesSection';
-import { HeroTownMap } from './HeroTownMap';
+import { HeroTileWalker } from './HeroTileWalker';
 
 export const HomePage = () => {
   const { hash } = useLocation();
@@ -30,33 +38,100 @@ export const HomePage = () => {
   );
 };
 
+const headlineLines = ['Pokémon,', 'mapped to', 'the tile'];
+const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
+
 const Hero = () => {
+  const reducedMotion = usePrefersReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const markerRef = useRef<HTMLSpanElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [armed, setArmed] = useState(false);
+  const [launched, setLaunched] = useState(false);
+
+  const launch = useCallback(() => setLaunched(true), []);
+
+  const reveal = (delay: number, y: number) => ({
+    initial: reducedMotion ? false : { opacity: 0, y },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.9, delay, ease: EASE_OUT_EXPO },
+  });
+
   return (
-    <section className="relative isolate">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-60"
-        style={{
-          backgroundImage:
-            'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-          maskImage:
-            'radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 75%)',
-        }}
-      />
-      <Container className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-12 pt-10 pb-14 sm:pt-22 sm:pb-26">
-        <div className="flex flex-col items-start gap-6">
-          <h1 className="font-heading text-[38px] leading-[1.02] font-bold tracking-[-0.04em] text-balance sm:text-6xl sm:leading-[1.02]">
-            Every Pokémon map, <span className="text-brand">in one place.</span>
-          </h1>
-          <p className="max-w-[52ch] text-lg text-pretty text-muted-foreground">
-            An interactive atlas of the main Pokémon games, with wild
-            encounters, trainer battles, items and more mapped to their exact
-            place in every town, route and cave.
-          </p>
-          <ChangelogBadge />
+    <section className="relative isolate overflow-hidden border-b">
+      <Container
+        ref={containerRef}
+        className="relative grid gap-x-12 gap-y-10 pt-10 pb-10 sm:pt-16 sm:pb-14 lg:grid-cols-12 lg:pb-16"
+      >
+        <h1 className="font-heading text-[clamp(3.5rem,13vw,6rem)] leading-[0.88] font-bold tracking-[-0.055em] lg:col-span-7 lg:self-center lg:text-[clamp(4.5rem,8.4vw,7.5rem)]">
+          {headlineLines.map((line, index) => (
+            <span
+              key={line}
+              className="-my-[0.06em] block overflow-hidden py-[0.06em]"
+            >
+              <m.span
+                className="block"
+                initial={reducedMotion ? false : { y: '110%', rotate: 3 }}
+                animate={{ y: 0, rotate: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.1 + index * 0.12,
+                  ease: EASE_OUT_EXPO,
+                }}
+                style={{ transformOrigin: 'left bottom' }}
+                onAnimationComplete={
+                  index === headlineLines.length - 1
+                    ? () => setArmed(true)
+                    : undefined
+                }
+              >
+                {line}
+                {index === headlineLines.length - 1 && (
+                  <span
+                    ref={markerRef}
+                    className={cn(
+                      'ml-[0.04em] inline-block size-[0.16em] transition-colors duration-300',
+                      launched ? 'bg-foreground' : 'bg-brand',
+                    )}
+                  />
+                )}
+              </m.span>
+            </span>
+          ))}
+        </h1>
+        <div
+          ref={stageRef}
+          aria-hidden
+          className="h-44 lg:col-span-5 lg:aspect-[10/9] lg:h-auto lg:self-center"
+        />
+        <div className="relative col-span-full flex flex-wrap items-end justify-between gap-6 pt-6">
+          <m.span
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-px origin-left bg-border"
+            initial={reducedMotion ? false : { scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: EASE_OUT_EXPO }}
+          />
+          <m.p
+            className="max-w-[46ch] text-base text-pretty text-muted-foreground sm:text-lg"
+            {...reveal(0.9, 16)}
+          >
+            An interactive atlas of the main games. Wild encounters, trainers
+            and items, pinned to their exact spot in every town, route and cave.
+          </m.p>
+          <m.div {...reveal(1.05, 16)}>
+            <ChangelogBadge />
+          </m.div>
         </div>
-        <HeroTownMap region={kantoRby} focus="lavender-town" />
+        {!reducedMotion && (
+          <HeroTileWalker
+            containerRef={containerRef}
+            startRef={markerRef}
+            stageRef={stageRef}
+            armed={armed}
+            onLaunch={launch}
+          />
+        )}
       </Container>
     </section>
   );

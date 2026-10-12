@@ -37,7 +37,6 @@ pnpm connections:rby    # map connections
 pnpm wild:rby           # wild encounter areas
 pnpm maps:rby           # render location images
 pnpm sprites:pokemon    # sprite sets (also sprites:za, sprites:megas, sprites:rby)
-pnpm town-map:tall-grass
 ```
 
 Run a generator, then review the diff of the files it touched before committing.

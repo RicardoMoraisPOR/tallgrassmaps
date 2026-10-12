@@ -119,7 +119,7 @@ The largest feature. `LocationPage` orchestrates:
 
 ## 8. Home page
 
-`HomePage` is the hero, `GamesSection` and a footer. The hero is an animated "exploding layers" Kanto Town Map (`HeroTownMap`, `HeroMapStack`, `HeroMapLayer`, `HeroMapSlab`, `heroMapTimeline`). `GamesSection` has filters (`useFilters`, `filters.ts`, `GameFilters`), a `GameCard` per catalog entry, `MissingContentDialog` and `ChangelogBadge`/`ChangelogDialog`.
+`HomePage` is the hero, `GamesSection` and a footer. The hero is the headline plus a small green tile that crosses the page and drops a city pin now and then (`HeroTileWalker`, `HeroCityPin`, `heroCities`). `GamesSection` has filters (`useFilters`, `filters.ts`, `GameFilters`), a `GameCard` per catalog entry, `MissingContentDialog` and `ChangelogBadge`/`ChangelogDialog`.
 
 ## 9. Scripts (offline pipeline)
 
@@ -128,7 +128,6 @@ Plain `node scripts/…mjs`, run through `pnpm` scripts. None run at build time 
 - `scripts/rby/*`: the shared pret toolkit. `disassembly.mjs` downloads pinned `pret/pokered` and `pret/pokeyellow` commits into `vendor/` and exports helpers such as `spriteUrl` and `overworldSprite`. `text.mjs`, `tiles.mjs` and `map-tiles.mjs` parse assets. `render-maps.mjs` draws location PNGs into `public/maps/rby`, `clean-maps.mjs` makes the NPC-free versions, and `connections.mjs` and `wild-areas.mjs` write the JSON used by `data/maps/kanto-rby`.
 - `scripts/{pokedex,trainers,items,npcs,signs,static-pokemon}/rby.mjs`: write the matching `src/data/*/rby.json`. `pokedex/master.mjs` builds the national dex.
 - `scripts/sprites/*`: fetch and process Pokémon, Z-A, mega and RBY overworld sprites into `public/sprites`. Z-A sprites are written as lossy WebP through `scripts/lib/webp.mjs` (sharp); the others stay PNG.
-- `scripts/town-map/*`: generates the site-styled "Tall Grass" Town Map (see the `tall-grass-town-map` skill).
 
 ## 10. Tooling and tests
 

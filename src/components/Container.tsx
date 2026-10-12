@@ -1,9 +1,10 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 
 import { cn } from '@/lib/utils';
 
 type ContainerProps = HTMLAttributes<HTMLElement> & {
   as?: 'div' | 'section';
+  ref?: Ref<HTMLDivElement>;
 };
 
 export const Container = ({

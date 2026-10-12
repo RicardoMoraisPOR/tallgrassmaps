@@ -164,6 +164,5 @@ export type Region = MapImage & {
   label?: RegionLabel;
   navigation?: 'nested' | 'seamless';
   placeGroups?: PlaceGroups;
-  tallGrassMap?: string;
   wildAreas?: Array<WildArea>;
 };

@@ -1,5 +1,4 @@
 import wildAreaData from '../kanto-rby-wild.json';
-import tallGrassMap from '../tall-grass/kanto-rby.svg?raw';
 import type { Rect, Region, WildArea } from '../types';
 import { locations } from './build';
 import { IMAGE_DIR, rect } from './helpers';
@@ -25,7 +24,6 @@ export const kantoRby: Region = {
     note: 'The Kanto Town Map art and the flying bird cursor sprites',
   },
   locations,
-  tallGrassMap,
   wildAreas: wildAreaData as Array<WildArea>,
   label: {
     x: 8,
