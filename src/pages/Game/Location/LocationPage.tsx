@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { Map as MapIcon, Info } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
@@ -14,6 +14,8 @@ import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { useMapLayout } from '@/hooks/useMapLayout';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { DESKTOP_QUERY } from '@/lib/breakpoints';
 import { trailPath } from '@/lib/paths';
 import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
@@ -52,6 +54,8 @@ export const LocationPage = () => {
   const immersive =
     useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
   const mapFrame = useMapFrame(route?.region.versionGroup ?? '');
+  const desktop = useMediaQuery(DESKTOP_QUERY);
+  const mapSection = useRef<HTMLDivElement>(null);
 
   const trail = route?.trail;
   const location = trail?.at(-1);
@@ -243,7 +247,19 @@ export const LocationPage = () => {
             if (listedBattles.some((listed) => listed.key === key))
               selectTrainer(key);
             else if (action) action();
-            else setPinRequest({ scope, key });
+            else {
+              setPinRequest({ scope, key });
+
+              if (!immersive && !desktop)
+                mapSection.current?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
+
+              return true;
+            }
+
+            return false;
           }}
           hiddenLayers={hiddenLayers}
         />
@@ -325,7 +341,11 @@ export const LocationPage = () => {
         />
       </AsideCard>
       <AsideCard icon={Info} label="Location info" grow>
-        <LocationPanel tabs={panelTabs} className="min-h-0 flex-1" />
+        <LocationPanel
+          tabs={panelTabs}
+          title={location.name}
+          className="min-h-0 flex-1"
+        />
       </AsideCard>
     </>
   );
@@ -358,10 +378,11 @@ export const LocationPage = () => {
         )}
       >
         <div
+          ref={mapSection}
           className={cn(
             immersive
               ? 'absolute inset-x-0 bottom-0 -top-[57px]'
-              : 'relative h-[60svh] min-w-0 lg:h-[min(72svh,760px)]',
+              : 'relative h-[60svh] min-w-0 scroll-mt-20 lg:h-[min(72svh,760px)]',
           )}
         >
           <div

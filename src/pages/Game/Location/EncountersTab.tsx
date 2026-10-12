@@ -1,7 +1,10 @@
-import { BookOpen } from 'lucide-react';
+import { useState } from 'react';
+
+import { BookOpen, Search } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import type { Game } from '@/data/games';
 import type { Encounter } from '@/data/pokedex/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
@@ -15,12 +18,15 @@ import {
 } from '../Pokedex/format';
 import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
 import { usePokedexLink } from '../Pokedex/usePokedex';
+import { searchPokemon } from '../pokemonSearch';
 import {
   type EncounterGroup,
   encounterHighlightKey,
   type EncounterRowData,
 } from './encounters';
 import { PokedexEntryLink } from './PokedexEntryLink';
+
+const SEARCH_MIN_SPECIES = 10;
 
 type EncountersTabProps = {
   game: Game;
@@ -35,9 +41,49 @@ export const EncountersTab = ({
   groups,
   onHighlight,
 }: EncountersTabProps) => {
+  const [query, setQuery] = useState('');
+  const species = new Map(
+    groups.flatMap(({ rows }) =>
+      rows.map(({ entry }) => [entry.number, entry] as const),
+    ),
+  );
+  const searchable = species.size >= SEARCH_MIN_SPECIES;
+  const matches = new Set(
+    searchPokemon([...species.values()], searchable ? query : '').map(
+      ({ number }) => number,
+    ),
+  );
+  const visible = groups
+    .map(({ method, rows }) => ({
+      method,
+      rows: rows.filter(({ entry }) => matches.has(entry.number)),
+    }))
+    .filter(({ rows }) => rows.length > 0);
+
   return (
     <>
-      {groups.map(({ method, rows }) => (
+      {searchable && (
+        <div className="relative">
+          <Search
+            aria-hidden
+            className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground"
+          />
+          <Input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search Pokémon"
+            aria-label="Search Pokémon"
+            className="pl-8"
+          />
+        </div>
+      )}
+      {searchable && visible.length === 0 && (
+        <p className="text-[13px] text-muted-foreground">
+          No Pokémon match “{query.trim()}”.
+        </p>
+      )}
+      {visible.map(({ method, rows }) => (
         <div key={method} className="flex flex-col gap-1">
           <h3 className="text-[13px] text-muted-foreground">
             {methodLabel({ method, path, games: [] })}

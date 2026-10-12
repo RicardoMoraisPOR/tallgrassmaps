@@ -3,6 +3,8 @@ import { type KeyboardEvent, type ReactNode, useId, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { type LocationTab, useSettingsStore } from '@/stores/settings';
 
+import { useModalCard } from '../GameAside';
+
 export type PanelTab = {
   id: LocationTab;
   label: string;
@@ -13,12 +15,18 @@ export type PanelTab = {
 
 type LocationPanelProps = {
   tabs: Array<PanelTab>;
+  title?: string;
   className?: string;
 };
 
-export const LocationPanel = ({ tabs, className }: LocationPanelProps) => {
+export const LocationPanel = ({
+  tabs,
+  title,
+  className,
+}: LocationPanelProps) => {
   const saved = useSettingsStore((state) => state.locationTab);
   const setSaved = useSettingsStore((state) => state.setLocationTab);
+  const modal = useModalCard();
   const baseId = useId();
   const tabRefs = useRef(new Map<LocationTab, HTMLButtonElement>());
 
@@ -54,6 +62,9 @@ export const LocationPanel = ({ tabs, className }: LocationPanelProps) => {
       )}
     >
       <div className="sticky top-0 z-10 rounded-t-[14px] bg-card p-3 pb-0">
+        {title && modal && (
+          <h2 className="truncate px-1 pb-2 text-sm font-semibold">{title}</h2>
+        )}
         <div
           role="tablist"
           aria-label="Location details"

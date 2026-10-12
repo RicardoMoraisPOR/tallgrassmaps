@@ -50,6 +50,19 @@ const AsideContext = createContext<AsideState>({
   register: () => () => {},
 });
 
+const CardContext = createContext<string | undefined>(undefined);
+
+export const useCloseCard = () => {
+  const { modal, close } = useContext(AsideContext);
+  const label = useContext(CardContext);
+
+  return useCallback(() => {
+    if (modal && label) close(label);
+  }, [modal, label, close]);
+};
+
+export const useModalCard = () => useContext(AsideContext).modal;
+
 const OFFSCREEN = { x: '115%', opacity: 0 };
 const ENTER = { duration: 0.3, ease: easeOutSoft };
 const EXIT = { duration: 0.2, ease: easeOutSoft };
@@ -247,14 +260,16 @@ export const AsideCard = ({
         >
           <DialogTitle className="sr-only">{label}</DialogTitle>
           <DialogDescription className="sr-only">{label}</DialogDescription>
-          <div
-            className={cn(
-              'flex max-h-[80svh] min-h-0 flex-col overflow-y-auto overscroll-contain',
-              className,
-            )}
-          >
-            {children}
-          </div>
+          <CardContext value={label}>
+            <div
+              className={cn(
+                'flex max-h-[80svh] min-h-0 flex-col overflow-y-auto overscroll-contain',
+                className,
+              )}
+            >
+              {children}
+            </div>
+          </CardContext>
         </DialogContent>
       </Dialog>
     );

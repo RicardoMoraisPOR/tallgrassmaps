@@ -27,7 +27,10 @@ export const ZaRow = ({
   }, [focused]);
 
   return (
-    <li ref={rowRef} className="relative">
+    <li
+      ref={rowRef}
+      className="relative [contain-intrinsic-size:auto_5.5rem] [content-visibility:auto]"
+    >
       {selected && (
         <m.span
           aria-hidden
@@ -53,6 +56,7 @@ export const ZaRow = ({
           width={96}
           height={96}
           loading="lazy"
+          decoding="async"
           className={cn(
             'aspect-square w-full rounded-md object-contain',
             sprite.pixelated && 'pixelated',

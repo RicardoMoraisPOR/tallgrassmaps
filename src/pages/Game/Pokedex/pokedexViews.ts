@@ -34,5 +34,13 @@ export const pokedexViews: Partial<Record<string, PokedexView>> = {
   ZA: { 'tall-grass': TallGrassPokedex, game: ZaPokedex },
 };
 
+const preloaders: Partial<Record<string, () => Promise<unknown>>> = {
+  RBY: () => import('./rby/RbyPokedex'),
+  ZA: () => import('./za/ZaPokedex'),
+};
+
+export const preloadPokedex = (region: Region) =>
+  preloaders[region.versionGroup]?.();
+
 export const hasPokedex = (region: Region) =>
   region.versionGroup in pokedexViews;

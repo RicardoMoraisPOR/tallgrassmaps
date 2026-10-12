@@ -1,3 +1,4 @@
+import { cubicBezier } from './cubicBezier';
 import { irisClipAt } from './irisClip';
 import { radialClipFrames } from './radialClip';
 import { spiralClipFrames } from './spiralClip';
@@ -10,15 +11,15 @@ const BALL_OVERLAP = 0.5;
 const COVER_MS = 900;
 const HOLD_MS = 100;
 const SPLIT_MS = 900;
-const IRIS_APPROACH_END = 0.2;
-const IRIS_HOLD_END = 0.7;
+const IRIS_APPROACH_END = 0.3;
+const IRIS_HOLD_END = 0.8;
 const IRIS_APPROACH_PROGRESS = 0.8;
 const IRIS_EFFECT_START = 0.3;
 const IRIS_ZOOM = 1.3;
 const IRIS_BLUR_PX = 14;
 const IRIS_EASING = 'cubic-bezier(0.45, 0, 0.4, 1)';
-const IRIS_CLOSE_EASING = 'cubic-bezier(0.2, 0.7, 0.3, 1)';
-const IRIS_FINISH_EASING = 'cubic-bezier(0.55, 0, 0.45, 1)';
+const irisCloseEasing = cubicBezier(0.2, 0.7, 0.3, 1);
+const irisFinishEasing = cubicBezier(0.55, 0, 0.45, 1);
 const COVER_COLOR = '#000';
 const SPLIT_EASING = 'cubic-bezier(0.65, 0, 0.35, 1)';
 const OVERLAY_Z_INDEX = '2147483000';
@@ -223,6 +224,34 @@ const createBlurLayer = () => {
   return layer;
 };
 
+const irisProgressAt = (time: number) => {
+  if (time < IRIS_APPROACH_END)
+    return IRIS_APPROACH_PROGRESS * irisCloseEasing(time / IRIS_APPROACH_END);
+
+  if (time < IRIS_HOLD_END) return IRIS_APPROACH_PROGRESS;
+
+  return (
+    IRIS_APPROACH_PROGRESS +
+    (1 - IRIS_APPROACH_PROGRESS) *
+      irisFinishEasing((time - IRIS_HOLD_END) / (1 - IRIS_HOLD_END))
+  );
+};
+
+const playIrisClip = (cover: HTMLElement, width: number, height: number) =>
+  new Promise<void>((resolve) => {
+    const start = performance.now();
+    const frame = (now: number) => {
+      const time = Math.min(1, (now - start) / COVER_MS);
+
+      cover.style.clipPath = irisClipAt(width, height, irisProgressAt(time));
+
+      if (time < 1) requestAnimationFrame(frame);
+      else resolve();
+    };
+
+    requestAnimationFrame(frame);
+  });
+
 const playIris = async (width: number, height: number, swap: () => void) => {
   const page = document.querySelector<HTMLElement>('main');
   const frame = page?.parentElement ?? null;
@@ -246,27 +275,7 @@ const playIris = async (width: number, height: number, swap: () => void) => {
 
   document.body.append(blur, overlay);
 
-  const closing = cover.animate(
-    [
-      {
-        clipPath: irisClipAt(width, height, 0),
-        offset: 0,
-        easing: IRIS_CLOSE_EASING,
-      },
-      {
-        clipPath: irisClipAt(width, height, IRIS_APPROACH_PROGRESS),
-        offset: IRIS_APPROACH_END,
-        easing: 'linear',
-      },
-      {
-        clipPath: irisClipAt(width, height, IRIS_APPROACH_PROGRESS),
-        offset: IRIS_HOLD_END,
-        easing: IRIS_FINISH_EASING,
-      },
-      { clipPath: irisClipAt(width, height, 1), offset: 1 },
-    ],
-    { duration: COVER_MS, fill: 'forwards' },
-  );
+  const closing = playIrisClip(cover, width, height);
   const zoom = page?.animate(
     { transform: ['scale(1)', `scale(${IRIS_ZOOM})`] },
     effectTiming,
@@ -283,7 +292,7 @@ const playIris = async (width: number, height: number, swap: () => void) => {
   );
 
   try {
-    await Promise.all([closing.finished, zoom?.finished, blurIn.finished]);
+    await Promise.all([closing, zoom?.finished, blurIn.finished]);
     zoom?.cancel();
     blur.remove();
 
@@ -312,10 +321,31 @@ const playIris = async (width: number, height: number, swap: () => void) => {
   }
 };
 
+const measureViewport = () => {
+  const probe = document.createElement('div');
+
+  probe.setAttribute('aria-hidden', 'true');
+  Object.assign(probe.style, {
+    position: 'fixed',
+    inset: '0',
+    visibility: 'hidden',
+    pointerEvents: 'none',
+  });
+  document.body.append(probe);
+
+  const { width, height } = probe.getBoundingClientRect();
+
+  probe.remove();
+
+  return {
+    width: Math.ceil(Math.max(width, window.innerWidth)) + 1,
+    height: Math.ceil(Math.max(height, window.innerHeight)) + 1,
+  };
+};
+
 export const playEncounterTransition = async ({ swap }: EncounterOptions) => {
   const variant = pickVariant();
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const { width, height } = measureViewport();
 
   if (variant === 'bars') return playBars(width, height, swap);
   if (variant === 'iris') return playIris(width, height, swap);

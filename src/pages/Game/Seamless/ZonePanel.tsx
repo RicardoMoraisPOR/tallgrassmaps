@@ -98,7 +98,11 @@ export const ZonePanel = ({ game, region, zone, href }: ZonePanelProps) => {
         </div>
       </AsideCard>
       <AsideCard icon={Info} label="Zone info" grow>
-        <LocationPanel tabs={tabs} className="min-h-0 flex-1" />
+        <LocationPanel
+          tabs={tabs}
+          title={zone.name}
+          className="min-h-0 flex-1"
+        />
       </AsideCard>
       {pokedex && (
         <TrainerDialog

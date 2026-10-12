@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
+import { useCloseCard } from '../GameAside';
 import type { LayerEntry, LayerSection } from './links/types';
 import { EmptyTab } from './LocationPanel';
 import type { MapLayerId } from './mapLayers';
@@ -15,7 +16,7 @@ import { MapSettingsDialog } from './MapSettingsDialog';
 type MapInfoTabProps = {
   sections: Array<LayerSection>;
   onHighlight: (key: string | undefined) => void;
-  onOpen: (key: string) => void;
+  onOpen: (key: string) => boolean;
   hiddenLayers: Set<MapLayerId>;
 };
 
@@ -30,6 +31,8 @@ export const MapInfoTab = ({
   onOpen,
   hiddenLayers,
 }: MapInfoTabProps) => {
+  const closeCard = useCloseCard();
+
   if (sections.length === 0) return <EmptyTab>Nothing on this place.</EmptyTab>;
 
   return sections.map(({ id, groups }, index) => (
@@ -57,7 +60,13 @@ export const MapInfoTab = ({
                 <EntryChip
                   entry={entry}
                   onHighlight={onHighlight}
-                  onOpen={hiddenLayers.has(layer.id) ? undefined : onOpen}
+                  onOpen={
+                    hiddenLayers.has(layer.id)
+                      ? undefined
+                      : (key) => {
+                          if (onOpen(key)) closeCard();
+                        }
+                  }
                 />
               </li>
             ))}

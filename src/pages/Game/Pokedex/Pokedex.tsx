@@ -1,11 +1,15 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import { useThemeStyle } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
 import type { Region } from '@/data/maps';
 import { pokedexFor } from '@/data/pokedex';
 
-import { defaultPokedexView, pokedexViews } from './pokedexViews';
+import {
+  defaultPokedexView,
+  pokedexViews,
+  preloadPokedex,
+} from './pokedexViews';
 import { usePokedex } from './usePokedex';
 import { usePokedexSearch } from './usePokedexSearch';
 
@@ -21,6 +25,12 @@ export const Pokedex = ({ game, region, href }: PokedexProps) => {
   const entries = pokedexFor(region.versionGroup) ?? [];
   const search = usePokedexSearch(entries, game);
   const [wasOpen, setWasOpen] = useState(open);
+
+  useEffect(() => {
+    const timer = setTimeout(() => preloadPokedex(region), 1000);
+
+    return () => clearTimeout(timer);
+  }, [region]);
 
   if (open !== wasOpen) {
     setWasOpen(open);
