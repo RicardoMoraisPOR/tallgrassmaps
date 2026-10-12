@@ -746,3 +746,19 @@ path.leaflet-interactive:focus {
   width: calc(var(--icon-size) * 0.58);
   height: calc(var(--icon-size) * 0.58);
 }
+
+@keyframes nerd-scan {
+  from {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.nerd-scan {
+  animation: nerd-scan 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+}
