@@ -11,7 +11,7 @@ export const trailPath = (trail: Array<Location>) =>
 export const generationId = (generation: number) => `gen-${generation}`;
 
 export const generationHref = (generation: number) =>
-  `/#${generationId(generation)}`;
+  `/maps#${generationId(generation)}`;
 
 export const gameHref = (gameId: string) => `/${gameId}`;
 

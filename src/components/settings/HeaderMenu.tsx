@@ -1,6 +1,13 @@
 import { useState } from 'react';
 
-import { Award, Ellipsis, Settings } from 'lucide-react';
+import {
+  Award,
+  Database,
+  Ellipsis,
+  Map as MapIcon,
+  ScrollText,
+  Settings,
+} from 'lucide-react';
 import { Link } from 'react-router';
 
 import { Button } from '@/components/ui/button';
@@ -33,6 +40,24 @@ export const HeaderMenu = () => {
           <DropdownMenuItem onSelect={() => setSettingsOpen(true)}>
             <Settings aria-hidden />
             Settings
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link to="/maps">
+              <MapIcon aria-hidden />
+              Explore maps
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link to="/data-lake">
+              <Database aria-hidden />
+              Data Lake
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link to="/changelog">
+              <ScrollText aria-hidden />
+              Changelog
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link to="/credits">

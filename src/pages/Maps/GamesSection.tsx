@@ -48,25 +48,9 @@ export const GamesSection = () => {
   let chainIndex = 0;
 
   return (
-    <section
-      id="games"
-      aria-labelledby="games-heading"
-      className="border-t bg-muted/40"
-    >
-      <Container className="flex flex-col gap-14 py-18">
+    <section aria-label="Games">
+      <Container className="flex flex-col gap-14 pb-18">
         <div className="flex flex-col gap-8">
-          <div className="flex flex-col gap-2">
-            <h2
-              id="games-heading"
-              className="font-heading text-[28px] leading-[1.1] font-bold tracking-[-0.03em] sm:text-4xl sm:leading-[1.1]"
-            >
-              Find your game
-            </h2>
-            <p className="max-w-[56ch] text-muted-foreground">
-              Every main-series game in release order, grouped by generation.
-              Pick yours and start on its Town Map.
-            </p>
-          </div>
           <GameFilters
             filters={filters}
             active={active}

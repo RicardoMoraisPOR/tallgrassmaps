@@ -1,9 +1,12 @@
 import { createBrowserRouter } from 'react-router';
 
+import { ChangelogPage } from '@/pages/Changelog/ChangelogPage';
 import { CreditsPage } from '@/pages/Credits/CreditsPage';
+import { DataLakePage } from '@/pages/DataLake/DataLakePage';
 import { GameLayout } from '@/pages/Game/GameLayout';
 import { GamePage } from '@/pages/Game/GamePage';
 import { HomePage } from '@/pages/Home/HomePage';
+import { MapsPage } from '@/pages/Maps/MapsPage';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 import { RootLayout } from '@/pages/RootLayout/RootLayout';
 
@@ -13,6 +16,9 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: 'maps', element: <MapsPage /> },
+      { path: 'data-lake', element: <DataLakePage /> },
+      { path: 'changelog', element: <ChangelogPage /> },
       { path: 'credits', element: <CreditsPage /> },
       ...(import.meta.env.DEV
         ? [

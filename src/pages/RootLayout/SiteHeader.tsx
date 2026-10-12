@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Link, useLocation } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 
 import { Logo } from '@/components/Logo';
 import { HeaderMenu } from '@/components/settings/HeaderMenu';
@@ -10,6 +10,11 @@ import { cn } from '@/lib/utils';
 
 const HEADER_HEIGHT_PIXELS = 57;
 const TOP_THRESHOLD_PIXELS = 8;
+
+const navLinks = [
+  { to: '/maps', label: 'Explore maps' },
+  { to: '/data-lake', label: 'Data Lake' },
+];
 
 const isAtTop = () =>
   Boolean(document.querySelector('[data-hero]')) &&
@@ -55,6 +60,25 @@ export const SiteHeader = () => {
           >
             <Logo className="font-heading text-lg tracking-tight" />
           </Link>
+          <nav
+            aria-label="Main"
+            className="ml-auto hidden items-center gap-1 sm:flex"
+          >
+            {navLinks.map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  cn(
+                    'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors hover:text-foreground',
+                    isActive ? 'text-foreground' : 'text-muted-foreground',
+                  )
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+          </nav>
           <div className="flex items-center gap-2">
             <HeaderMenu />
             <ThemeToggle />

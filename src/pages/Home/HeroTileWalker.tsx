@@ -431,11 +431,14 @@ const TileWalker = ({
     });
 
     const approach = () => {
-      const horizontalFirst = Math.abs(center.x - position.x) > 1;
+      const clearToTheSide = center.x - position.x > 1;
+      const verticalFirst =
+        !clearToTheSide && Math.abs(center.y - position.y) > 1;
 
-      waypoints = horizontalFirst
-        ? [{ x: center.x, y: position.y }, center]
-        : [center];
+      if (clearToTheSide) waypoints = [{ x: center.x, y: position.y }, center];
+      else if (verticalFirst)
+        waypoints = [{ x: position.x, y: center.y }, center];
+      else waypoints = [center];
     };
 
     const relayout = () => {

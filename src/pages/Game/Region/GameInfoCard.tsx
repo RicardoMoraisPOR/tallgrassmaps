@@ -26,7 +26,7 @@ import { platformParts, type Game } from '@/data/games';
 import type { Region } from '@/data/maps';
 import { cn, formatList } from '@/lib/utils';
 
-import { MissingContentDialog } from '../../Home/MissingContentDialog';
+import { MissingContentDialog } from '../../Maps/MissingContentDialog';
 import { hasPokedex } from '../Pokedex/pokedexViews';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { gameStats } from './gameStats';

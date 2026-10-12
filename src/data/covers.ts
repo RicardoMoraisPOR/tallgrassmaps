@@ -61,3 +61,15 @@ export const getCover = (gameId: string) =>
 
 export const coverCount = (source: CoverSource) =>
   Object.values(COVERS).filter((other) => other === source).length;
+
+export const coversFrom = (source: CoverSource, limit: number) => {
+  const ids = Object.keys(COVERS).filter((id) => COVERS[id] === source);
+  const step = ids.length / limit;
+
+  return Array.from({ length: Math.min(limit, ids.length) }, (_, index) =>
+    getCover(ids[Math.floor(index * step)]),
+  ).filter((cover) => cover !== undefined);
+};
+
+export const coverIdsFrom = (source: CoverSource) =>
+  Object.keys(COVERS).filter((id) => COVERS[id] === source);

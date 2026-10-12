@@ -1,12 +1,21 @@
-import { coverCount, coverSources } from './covers';
+import { coverCount, coversFrom, coverSources } from './covers';
+import { getGame } from './games';
 import { type Location, type MapSource, regions } from './maps';
-import { pokemonSpriteSources } from './sprites';
+import { gameSprite, pokemonSprite, pokemonSpriteSources } from './sprites';
 
 export type Credit = {
   name: string;
   url: string;
   by?: string;
   detail?: string;
+  fontFamily?: string;
+  covers?: Array<string>;
+  sprite?: { src: string; pixelated?: boolean };
+};
+
+export type DataCredit = Omit<Credit, 'detail'> & {
+  games: Array<string>;
+  uses: Array<string>;
 };
 
 export type MapWork = { label: string; url: string };
@@ -17,6 +26,17 @@ export type MapCredit = {
   note?: string;
   url?: string;
   works: Array<MapWork>;
+};
+
+export type MapCreditGroup = {
+  id: string;
+  title: string;
+  credits: Array<MapCredit>;
+};
+
+const groupTitles: Record<string, string> = {
+  RBY: 'Red, Blue and Yellow',
+  ZA: 'Legends: Z-A',
 };
 
 type Placed = { location: Location; parent?: Location };
@@ -30,27 +50,28 @@ const collectLocations = (
     ...collectLocations(location.locations, location),
   ]);
 
-export const mapCredits = (): Array<MapCredit> => {
-  const credits = new Map<string, MapCredit>();
+export const mapCredits = (): Array<MapCreditGroup> => {
   const seen = new Set<string>();
-  const add = (source: MapSource, image: string, label: string) => {
-    if (seen.has(image)) return;
 
-    seen.add(image);
+  return regions.map((region) => {
+    const credits = new Map<string, MapCredit>();
+    const add = (source: MapSource, image: string, label: string) => {
+      if (seen.has(image)) return;
 
-    const key = `${source.credit}|${source.name}`;
-    const credit = credits.get(key) ?? {
-      credit: source.credit,
-      site: source.name,
-      note: source.note,
-      works: [],
+      seen.add(image);
+
+      const key = `${source.credit}|${source.name}`;
+      const credit = credits.get(key) ?? {
+        credit: source.credit,
+        site: source.name,
+        note: source.note,
+        works: [],
+      };
+
+      credit.works.push({ label, url: source.url });
+      credits.set(key, credit);
     };
 
-    credit.works.push({ label, url: source.url });
-    credits.set(key, credit);
-  };
-
-  for (const region of regions) {
     add(
       region.source,
       region.image,
@@ -82,13 +103,26 @@ export const mapCredits = (): Array<MapCredit> => {
         }
       }
     }
-  }
 
-  return [...credits.values()].map((credit) => {
-    const urls = new Set(credit.works.map((work) => work.url));
+    return {
+      id: region.versionGroup,
+      title: groupTitles[region.versionGroup] ?? region.name,
+      credits: [...credits.values()].map((credit) => {
+        const urls = new Set(credit.works.map((work) => work.url));
 
-    return urls.size === 1 ? { ...credit, url: [...urls][0] } : credit;
+        return urls.size === 1 ? { ...credit, url: [...urls][0] } : credit;
+      }),
+    };
   });
+};
+
+const spriteOf = (number: number, gameId: string) => {
+  const game = getGame(gameId);
+  const src = game && gameSprite(number, game);
+
+  return src
+    ? { src, pixelated: game.sprites?.pixelated ?? true }
+    : { src: pokemonSprite(number) };
 };
 
 export const spriteCredits: Array<Credit> = [
@@ -98,85 +132,121 @@ export const spriteCredits: Array<Credit> = [
     by: pokemonSpriteSources.pret.credit,
     detail:
       'Pokémon sprites for Red, Blue and Yellow in their Super Game Boy colours, and the people, trainers and items on the maps (Yellow only where they differ from Red and Blue)',
+    sprite: spriteOf(25, 'yellow'),
   },
   {
     ...pokemonSpriteSources.showdown,
     by: pokemonSpriteSources.showdown.credit,
     detail: 'Pokémon and Mega Evolution sprites in the Pokédex',
+    sprite: { src: pokemonSprite(6) },
   },
   {
     ...pokemonSpriteSources.smogon,
     by: pokemonSpriteSources.smogon.credit,
     detail: 'Sprites for the Pokémon added after Black and White',
+    sprite: { src: pokemonSprite(658) },
   },
   {
     ...pokemonSpriteSources.bulbagarden,
     by: pokemonSpriteSources.bulbagarden.credit,
     detail: 'Pokémon menu sprites and Mega Stone icons for Legends Z-A',
+    sprite: spriteOf(448, 'legends-za'),
   },
 ];
+
+const COVER_PREVIEWS = 4;
 
 export const coverCredits: Array<Credit> = [
   {
     ...coverSources.libretro,
     by: coverSources.libretro.credit,
     detail: `Box art for ${coverCount('libretro')} games`,
+    covers: coversFrom('libretro', COVER_PREVIEWS),
   },
   {
     ...coverSources.thegamesdb,
     by: coverSources.thegamesdb.credit,
     detail: `Box art for ${coverCount('thegamesdb')} games`,
+    covers: coversFrom('thegamesdb', COVER_PREVIEWS),
   },
 ];
 
-export const dataCredits: Array<Credit> = [
+export const dataCredits: Array<DataCredit> = [
   {
     name: 'pret/pokered',
     url: 'https://github.com/pret/pokered',
     by: 'the pret team',
-    detail:
-      'Red and Blue disassembly: encounters, trades, trainers and their teams, items, people and their dialogue, signs, warps, Town Map positions and map connections',
+    uses: [
+      'Encounters and trades',
+      'Trainers and their teams',
+      'Items',
+      'People and their dialogue',
+      'Signs',
+      'Warps and map connections',
+      'Town Map positions',
+    ],
+    games: ['red', 'blue'],
   },
   {
     name: 'pret/pokeyellow',
     url: 'https://github.com/pret/pokeyellow',
     by: 'the pret team',
-    detail:
-      'Yellow disassembly: only what differs from Red and Blue, such as encounters, trainers, gifts, maps and sprites',
+    uses: [
+      'Only what differs from Red and Blue',
+      'Encounters, trainers and gifts',
+      'Maps and sprites',
+    ],
+    games: ['yellow'],
   },
   {
     name: 'Bulbapedia',
     url: 'https://bulbapedia.bulbagarden.net/',
     by: 'the Bulbagarden community',
-    detail:
-      'Pokémon availability in Red, Blue, Yellow and Legends Z-A, Mega Evolutions and Mega Stones, and the Pokédex links',
+    uses: [
+      'Pokémon availability in Red, Blue, Yellow and Legends Z-A',
+      'Mega Evolutions and Mega Stones',
+      'Links to Pokémon and game pages',
+    ],
+    games: ['red', 'blue', 'yellow', 'legends-za'],
   },
   {
     name: 'Serebii.net',
     url: 'https://www.serebii.net/',
     by: 'Joe Merrick and the Serebii team',
-    detail:
-      'Unobtainable Pokémon in Yellow, and the wild zone levels, Alpha chances and trainers in Legends Z-A',
+    uses: [
+      'Unobtainable Pokémon in Yellow',
+      'Wild zone levels in Legends Z-A',
+      'Alpha chances in Legends Z-A',
+      'Trainers in Legends Z-A',
+    ],
+    games: ['yellow', 'legends-za'],
   },
   {
     name: 'Eurogamer',
     url: 'https://www.eurogamer.net/all-wild-zone-pokemon-legends-z-a',
     by: 'the Eurogamer team',
-    detail:
-      'Where and when each Pokémon appears in the Legends Z-A wild zones, and the in-game map used to trace the zone outlines',
+    uses: [
+      'Where and when each Pokémon appears in the Legends Z-A wild zones',
+      'The in-game map used to trace the zone outlines',
+    ],
+    games: ['legends-za'],
   },
   {
     name: 'Nintendo Life',
     url: 'https://www.nintendolife.com/guides/pokemon-legends-z-a-wild-zone-1-guide-all-pokemon-and-alphas',
     by: 'the Nintendo Life team',
-    detail:
-      'Wild zone guides used to cross-check the Legends Z-A Pokémon and guaranteed Alphas',
+    uses: [
+      'Wild zone guides to cross-check the Legends Z-A Pokémon',
+      'Guaranteed Alphas',
+    ],
+    games: ['legends-za'],
   },
   {
     name: 'Pokémon Database',
     url: 'https://pokemondb.net/',
     by: 'the Pokémon Database team',
-    detail: 'Red and Blue version exclusives',
+    uses: ['Red and Blue version exclusives'],
+    games: ['red', 'blue'],
   },
 ];
 
@@ -185,31 +255,29 @@ export const fontCredits: Array<Credit> = [
     name: 'Geist',
     url: 'https://vercel.com/font',
     by: 'Vercel',
+    fontFamily: "'Geist Variable', sans-serif",
     detail: 'SIL Open Font License 1.1',
   },
   {
     name: 'Press Start 2P',
     url: 'https://fonts.google.com/specimen/Press+Start+2P',
     by: 'CodeMan38',
+    fontFamily: "'Press Start 2P', monospace",
     detail: 'SIL Open Font License 1.1',
   },
   {
     name: 'Barlow',
     url: 'https://fonts.google.com/specimen/Barlow',
     by: 'Jeremy Tribby',
+    fontFamily: "'Barlow', sans-serif",
     detail: 'SIL Open Font License 1.1',
   },
   {
     name: 'Michroma',
     url: 'https://fonts.google.com/specimen/Michroma',
     by: 'Vernon Adams',
+    fontFamily: "'Michroma', sans-serif",
     detail: 'SIL Open Font License 1.1',
-  },
-  {
-    name: 'Fontsource',
-    url: 'https://fontsource.org/',
-    by: 'the Fontsource team',
-    detail: 'Self-hosted font packages',
   },
 ];
 
