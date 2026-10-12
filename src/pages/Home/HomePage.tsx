@@ -1,3 +1,4 @@
+import '@fontsource/barlow/400.css';
 import {
   type ReactNode,
   useCallback,
@@ -16,7 +17,7 @@ import { pokemonSpriteSources } from '@/data/sprites';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
 
-import { ChangelogBadge } from './ChangelogBadge';
+import { ChangelogCard } from './ChangelogCard';
 import { GamesSection } from './GamesSection';
 import { HeroTileWalker } from './HeroTileWalker';
 
@@ -38,7 +39,7 @@ export const HomePage = () => {
   );
 };
 
-const headlineLines = ['Pokémon,', 'mapped to', 'the tile'];
+const headlineLines = ['The', 'Definitive', 'Pokémon Atlas'];
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
 
 const Hero = () => {
@@ -58,16 +59,16 @@ const Hero = () => {
   });
 
   return (
-    <section className="relative isolate overflow-hidden border-b">
+    <section data-hero className="relative isolate overflow-hidden border-b">
       <Container
         ref={containerRef}
-        className="relative grid gap-x-12 gap-y-10 pt-10 pb-10 sm:pt-16 sm:pb-14 lg:grid-cols-12 lg:pb-16"
+        className="relative grid max-w-[88rem] gap-x-12 gap-y-8 px-4 pt-10 pb-10 sm:px-8 sm:pt-14 sm:pb-12 lg:grid-cols-12 lg:gap-y-10 lg:px-12"
       >
-        <h1 className="font-heading text-[clamp(3.5rem,13vw,6rem)] leading-[0.88] font-bold tracking-[-0.055em] lg:col-span-7 lg:self-center lg:text-[clamp(4.5rem,8.4vw,7.5rem)]">
+        <h1 className="font-heading text-[clamp(2.75rem,11.5vw,5.5rem)] leading-[0.9] font-bold tracking-[-0.03em] lg:col-span-8 lg:self-center lg:text-[clamp(3.75rem,6.2vw,7.25rem)]">
           {headlineLines.map((line, index) => (
             <span
               key={line}
-              className="-my-[0.06em] block overflow-hidden py-[0.06em]"
+              className="-my-[0.06em] block overflow-hidden py-[0.06em] whitespace-nowrap"
             >
               <m.span
                 className="block"
@@ -102,25 +103,19 @@ const Hero = () => {
         <div
           ref={stageRef}
           aria-hidden
-          className="h-44 lg:col-span-5 lg:aspect-[10/9] lg:h-auto lg:self-center"
+          className="h-44 lg:col-span-4 lg:aspect-[10/9] lg:h-auto lg:self-center"
         />
-        <div className="relative col-span-full flex flex-wrap items-end justify-between gap-6 pt-6">
-          <m.span
-            aria-hidden
-            className="absolute inset-x-0 top-0 h-px origin-left bg-border"
-            initial={reducedMotion ? false : { scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.2, delay: 0.6, ease: EASE_OUT_EXPO }}
-          />
+        <div className="col-span-full flex flex-col items-start gap-5">
           <m.p
-            className="max-w-[46ch] text-base text-pretty text-muted-foreground sm:text-lg"
+            className="max-w-[50ch] font-['Barlow',sans-serif] text-base leading-snug font-normal text-pretty text-muted-foreground sm:text-lg"
             {...reveal(0.9, 16)}
           >
-            An interactive atlas of the main games. Wild encounters, trainers
-            and items, pinned to their exact spot in every town, route and cave.
+            Explore the Pokémon games on interactive maps, designed to give you
+            an accurate and effortless way to explore, without feeling like you
+            left the game.
           </m.p>
-          <m.div {...reveal(1.05, 16)}>
-            <ChangelogBadge />
+          <m.div className="w-full max-w-sm" {...reveal(1.05, 16)}>
+            <ChangelogCard />
           </m.div>
         </div>
         {!reducedMotion && (

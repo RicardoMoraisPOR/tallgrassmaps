@@ -353,14 +353,14 @@ export const LocationPage = () => {
       <div
         className={cn(
           immersive
-            ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-hidden'
+            ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-x-clip'
             : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
         )}
       >
         <div
           className={cn(
             immersive
-              ? 'absolute inset-0'
+              ? 'absolute inset-x-0 bottom-0 -top-[57px]'
               : 'relative h-[60svh] min-w-0 lg:h-[min(72svh,760px)]',
           )}
         >

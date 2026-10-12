@@ -2,9 +2,10 @@ import { type RefObject, useEffect, useRef, useState } from 'react';
 
 import { m, useMotionValue, useTransform } from 'motion/react';
 
-import { type HeroCity, heroCities } from './heroCities';
+import { createCityPicker } from './heroCities';
 import {
   type CityPin,
+  createCityPin,
   HeroCityGrid,
   HeroCityMap,
   HeroCityPin,
@@ -28,11 +29,7 @@ const PIN_BEHIND_PIXELS = 70;
 const PIN_FIRST_DELAY_MS = [1200, 2200];
 const PIN_INTERVAL_MS = [2800, 5200];
 const PIN_MAX_VISIBLE = 3;
-const PIN_RECENT_MEMORY = 8;
-const LABEL_CHARACTER_PIXELS = 8.4;
-const LABEL_EDGE_PIXELS = 12;
 const HISTORY_PIXELS = 400;
-const MAPPED_CITY_SHARE = 0.55;
 
 type Point = { x: number; y: number };
 
@@ -170,7 +167,7 @@ const TileWalker = ({
     let pinTimer: ReturnType<typeof setTimeout> | undefined;
     let pinId = 0;
     const history: Array<Breadcrumb> = [];
-    const recentCities: Array<HeroCity> = [];
+    const pickCity = createCityPicker();
 
     const measure = () => {
       const origin = container.getBoundingClientRect();
@@ -321,45 +318,22 @@ const TileWalker = ({
       }
     };
 
-    const chooseCity = () => {
-      const fresh = heroCities.filter((city) => !recentCities.includes(city));
-      const mapped = fresh.filter((city) => city.map);
-      const pool =
-        mapped.length > 0 && Math.random() < MAPPED_CITY_SHARE ? mapped : fresh;
-      const city = pool[Math.floor(Math.random() * pool.length)];
-
-      recentCities.push(city);
-      if (recentCities.length > PIN_RECENT_MEMORY) recentCities.shift();
-
-      return city;
-    };
-
     const dropPin = () => {
       const wanted = odometer - PIN_BEHIND_PIXELS;
       const spot = history.findLast((crumb) => crumb.distance <= wanted);
 
       if (!spot) return;
 
-      const { name, map } = chooseCity();
-      const halfLabel = (name.length * LABEL_CHARACTER_PIXELS) / 2;
-      const width = container.getBoundingClientRect().width;
-      const center = Math.min(
-        Math.max(spot.x, halfLabel + LABEL_EDGE_PIXELS),
-        width - halfLabel - LABEL_EDGE_PIXELS,
+      pinId += 1;
+
+      const pin = createCityPin(
+        pinId,
+        pickCity(),
+        spot,
+        container.getBoundingClientRect().width,
       );
 
-      pinId += 1;
-      setPins((current) => [
-        ...current.slice(-(PIN_MAX_VISIBLE - 1)),
-        {
-          id: pinId,
-          name,
-          map,
-          x: spot.x,
-          y: spot.y,
-          labelShift: center - spot.x,
-        },
-      ]);
+      setPins((current) => [...current.slice(-(PIN_MAX_VISIBLE - 1)), pin]);
     };
 
     const schedulePin = (range: Array<number>) => {

@@ -7,11 +7,11 @@ import { Button } from '@/components/ui/button';
 import { prefersReducedMotion } from '@/lib/motion';
 import { getTheme, setTheme, type Theme } from '@/lib/theme';
 
-const REVEAL_MS = 500;
+import { playEncounterTransition } from './encounterTransition';
 
 export const ThemeToggle = () => {
   const [theme, setThemeState] = useState<Theme>(getTheme);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const busy = useRef(false);
 
   const next = theme === 'dark' ? 'light' : 'dark';
 
@@ -21,42 +21,25 @@ export const ThemeToggle = () => {
   };
 
   const toggle = async () => {
-    const button = buttonRef.current;
+    if (busy.current) return;
 
-    if (!button || !document.startViewTransition || prefersReducedMotion()) {
+    if (prefersReducedMotion()) {
       apply();
 
       return;
     }
 
-    await document.startViewTransition(() => flushSync(apply)).ready;
+    busy.current = true;
 
-    const { top, left, width, height } = button.getBoundingClientRect();
-    const x = left + width / 2;
-    const y = top + height / 2;
-    const maxRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y),
-    );
-
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRadius}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration: REVEAL_MS,
-        easing: 'ease-in-out',
-        pseudoElement: '::view-transition-new(root)',
-      },
-    );
+    try {
+      await playEncounterTransition({ swap: () => flushSync(apply) });
+    } finally {
+      busy.current = false;
+    }
   };
 
   return (
     <Button
-      ref={buttonRef}
       variant="outline"
       size="icon"
       aria-label={`Switch to ${next} mode`}

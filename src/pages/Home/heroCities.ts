@@ -120,3 +120,23 @@ export const heroCities: Array<HeroCity> = cityNames.map((name) => ({
   name,
   map: mapOf(name),
 }));
+
+const MAPPED_CITY_SHARE = 0.55;
+const RECENT_CITY_MEMORY = 8;
+
+export const createCityPicker = () => {
+  const recent: Array<HeroCity> = [];
+
+  return () => {
+    const fresh = heroCities.filter((city) => !recent.includes(city));
+    const mapped = fresh.filter((city) => city.map);
+    const pool =
+      mapped.length > 0 && Math.random() < MAPPED_CITY_SHARE ? mapped : fresh;
+    const city = pool[Math.floor(Math.random() * pool.length)];
+
+    recent.push(city);
+    if (recent.length > RECENT_CITY_MEMORY) recent.shift();
+
+    return city;
+  };
+};

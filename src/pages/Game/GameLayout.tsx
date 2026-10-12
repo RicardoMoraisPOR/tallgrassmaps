@@ -51,7 +51,12 @@ export const GameLayout = () => {
             trail={route.trail ?? []}
             href={route.href}
           />
-          <div className="flex flex-1 flex-col overflow-clip">
+          <div
+            className={cn(
+              'flex flex-1 flex-col',
+              immersive ? 'overflow-x-clip' : 'overflow-clip',
+            )}
+          >
             <PageTransition
               mapMotion
               keyFor={

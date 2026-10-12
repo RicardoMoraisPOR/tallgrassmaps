@@ -34,7 +34,7 @@ export const RegionPage = () => {
       <div
         className={cn(
           immersive
-            ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-hidden'
+            ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-x-clip'
             : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
         )}
       >
@@ -47,7 +47,11 @@ export const RegionPage = () => {
                   aspectRatio: `${region.width} / ${region.height}`,
                 }
           }
-          className={cn(immersive ? 'absolute inset-0' : 'relative min-w-0')}
+          className={cn(
+            immersive
+              ? 'absolute inset-x-0 bottom-0 -top-[57px]'
+              : 'relative min-w-0',
+          )}
         >
           <div
             {...mapFrame}

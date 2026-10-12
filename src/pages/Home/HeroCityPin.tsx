@@ -2,7 +2,7 @@ import { m } from 'motion/react';
 
 import { cn } from '@/lib/utils';
 
-import type { CityMap } from './heroCities';
+import type { CityMap, HeroCity } from './heroCities';
 
 const HOLD_SECONDS = 3.4;
 const FADE_IN_SHARE = 0.14;
@@ -11,6 +11,8 @@ const GRID_CELL_PIXELS = 24;
 const GRID_RADIUS_PIXELS = 105;
 const MAP_WIDTH_PIXELS = 230;
 const MAP_OPACITY = 0.2;
+const LABEL_CHARACTER_PIXELS = 8.4;
+const LABEL_EDGE_PIXELS = 12;
 
 export type CityPin = {
   id: number;
@@ -19,6 +21,28 @@ export type CityPin = {
   x: number;
   y: number;
   labelShift: number;
+};
+
+export const createCityPin = (
+  id: number,
+  city: HeroCity,
+  point: { x: number; y: number },
+  containerWidth: number,
+): CityPin => {
+  const halfLabel = (city.name.length * LABEL_CHARACTER_PIXELS) / 2;
+  const center = Math.min(
+    Math.max(point.x, halfLabel + LABEL_EDGE_PIXELS),
+    containerWidth - halfLabel - LABEL_EDGE_PIXELS,
+  );
+
+  return {
+    id,
+    name: city.name,
+    map: city.map,
+    x: point.x,
+    y: point.y,
+    labelShift: center - point.x,
+  };
 };
 
 type HeroCityPinProps = {
@@ -66,20 +90,17 @@ export const HeroCityPin = ({ pin, onDone }: HeroCityPinProps) => {
         aria-hidden
         className="absolute top-0 left-0 size-14 -translate-1/2 rounded-full bg-brand/20 blur-xl"
       />
-      {[0, 0.2].map((extraDelay) => (
-        <m.span
-          key={extraDelay}
-          aria-hidden
-          className="absolute top-0 left-0 size-8 -translate-1/2 rounded-full border border-brand"
-          initial={{ scale: 0.2, opacity: 0 }}
-          animate={{ scale: [0.2, 2.6], opacity: [0.85, 0] }}
-          transition={{
-            duration: 1.2,
-            delay: LANDING_SECONDS + extraDelay,
-            ease: 'easeOut',
-          }}
-        />
-      ))}
+      <m.span
+        aria-hidden
+        className="absolute top-0 left-0 size-8 -translate-1/2 rounded-full border border-brand"
+        initial={{ scale: 0.3, opacity: 0 }}
+        animate={{ scale: [0.3, 1.6], opacity: [0.35, 0] }}
+        transition={{
+          duration: 1.4,
+          delay: LANDING_SECONDS,
+          ease: 'easeOut',
+        }}
+      />
       <m.svg
         aria-hidden
         viewBox={PIN_VIEWBOX}

@@ -700,12 +700,6 @@
     0 2px 6px -2px oklch(0 0 0 / 0.08);
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
 .zone-tooltip {
   display: flex;
   align-items: baseline;
