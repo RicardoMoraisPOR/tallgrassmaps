@@ -16,6 +16,9 @@ const CRUISE_PIXELS_PER_SECOND = 230;
 const LAUNCH_PIXELS_PER_SECOND = 820;
 const SLOWDOWN_SECONDS = 0.5;
 const TRAIL_SPEED_LIMIT = 340;
+const RETURN_SPEED_MULTIPLIER = 6;
+const BOUNDS_TOLERANCE_PIXELS = 0.5;
+const IDLE_AFTER_MS = 250;
 const REFERENCE_STAGE_PIXELS = 395;
 const MIN_STAGE_SCALE = 0.45;
 const MAX_FRAME_SECONDS = 0.05;
@@ -164,6 +167,9 @@ const TileWalker = ({
     let scale = 1;
     let odometer = 0;
     let pinsStarted = false;
+    let entered = false;
+    let livePins: Array<CityPin> = [];
+    let lastFrameAt = performance.now();
     let pinTimer: ReturnType<typeof setTimeout> | undefined;
     let pinId = 0;
     const history: Array<Breadcrumb> = [];
@@ -318,11 +324,20 @@ const TileWalker = ({
       }
     };
 
+    const isInside = (point: Point) =>
+      point.x >= bounds.minX - BOUNDS_TOLERANCE_PIXELS &&
+      point.x <= bounds.maxX + BOUNDS_TOLERANCE_PIXELS &&
+      point.y >= bounds.minY - BOUNDS_TOLERANCE_PIXELS &&
+      point.y <= bounds.maxY + BOUNDS_TOLERANCE_PIXELS;
+
     const dropPin = () => {
+      if (performance.now() - lastFrameAt > IDLE_AFTER_MS) return;
+      if (!isInside(position)) return;
+
       const wanted = odometer - PIN_BEHIND_PIXELS;
       const spot = history.findLast((crumb) => crumb.distance <= wanted);
 
-      if (!spot) return;
+      if (!spot || !isInside(spot)) return;
 
       pinId += 1;
 
@@ -333,6 +348,7 @@ const TileWalker = ({
         container.getBoundingClientRect().width,
       );
 
+      livePins = [...livePins.slice(-(PIN_MAX_VISIBLE - 1)), pin];
       setPins((current) => [...current.slice(-(PIN_MAX_VISIBLE - 1)), pin]);
     };
 
@@ -365,10 +381,16 @@ const TileWalker = ({
           : Math.min((time - previousTime) / 1000, MAX_FRAME_SECONDS);
 
       previousTime = time;
+      lastFrameAt = performance.now();
       elapsed += seconds;
 
       const previous = { ...position };
-      const speed = speedAt(elapsed) * scale;
+
+      if (isInside(position)) entered = true;
+
+      const returning = entered && !isInside(position);
+      const speed =
+        speedAt(elapsed) * scale * (returning ? RETURN_SPEED_MULTIPLIER : 1);
       const distance = speed * seconds;
 
       if (waypoints.length > 0) {
@@ -388,7 +410,18 @@ const TileWalker = ({
 
       x.set(position.x);
       y.set(position.y);
-      leaveTrail(speed);
+      if (returning) lastDot = { ...position };
+      else leaveTrail(speed);
+
+      const stranded = livePins.filter((pin) => !isInside(pin));
+
+      if (stranded.length > 0) {
+        livePins = livePins.filter((pin) => isInside(pin));
+        setPins((current) =>
+          current.filter(({ id }) => !stranded.some((pin) => pin.id === id)),
+        );
+      }
+
       frame = requestAnimationFrame(tick);
     };
 
