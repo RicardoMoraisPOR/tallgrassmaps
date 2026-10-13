@@ -1497,6 +1497,27 @@
     }
   },
   {
+    "id": 54,
+    "number": 26,
+    "name": "Raichu (Alolan)",
+    "types": ["electric", "psychic"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Alolan",
+      "spriteId": 10100
+    },
+    "encounters": [
+      {
+        "method": "trade",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Side Mission 108: Alola, Raichu",
+        "place": "Lumiose City",
+        "tradeFor": 26
+      }
+    ]
+  },
+  {
     "id": 55,
     "number": 173,
     "games": ["legends-za"],
@@ -3511,6 +3532,27 @@
     ]
   },
   {
+    "id": 137,
+    "number": 79,
+    "name": "Slowpoke (Galarian)",
+    "types": ["psychic"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10164
+    },
+    "encounters": [
+      {
+        "method": "trade",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Side Mission 39: Slowpoke for Slowpoke",
+        "place": "Lumiose City",
+        "tradeFor": 79
+      }
+    ]
+  },
+  {
     "id": 138,
     "number": 80,
     "games": ["legends-za"],
@@ -3538,6 +3580,23 @@
     }
   },
   {
+    "id": 138,
+    "number": 80,
+    "name": "Slowbro (Galarian)",
+    "types": ["poison", "psychic"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10165
+    },
+    "encounters": [],
+    "evolvesFrom": {
+      "number": 79,
+      "method": "other",
+      "note": "(Galarian form)"
+    }
+  },
+  {
     "id": 139,
     "number": 199,
     "games": ["legends-za"],
@@ -3547,6 +3606,23 @@
       "item": "King's Rock"
     },
     "encounters": []
+  },
+  {
+    "id": 139,
+    "number": 199,
+    "name": "Slowking (Galarian)",
+    "types": ["poison", "psychic"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10172
+    },
+    "encounters": [],
+    "evolvesFrom": {
+      "number": 79,
+      "method": "other",
+      "note": "(Galarian form)"
+    }
   },
   {
     "id": 140,
@@ -3885,6 +3961,26 @@
     ]
   },
   {
+    "id": 157,
+    "number": 618,
+    "name": "Stunfisk (Galarian)",
+    "types": ["ground", "steel"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10180
+    },
+    "encounters": [
+      {
+        "method": "static",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Side Mission 72: Find My Galarian Stunfisk",
+        "place": "Wild Zone 11"
+      }
+    ]
+  },
+  {
     "id": 158,
     "number": 676,
     "games": ["legends-za"],
@@ -4107,6 +4203,23 @@
     }
   },
   {
+    "id": 166,
+    "number": 705,
+    "name": "Sliggoo (Hisuian)",
+    "types": ["steel", "dragon"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Hisuian",
+      "spriteId": 10241
+    },
+    "encounters": [],
+    "evolvesFrom": {
+      "number": 704,
+      "method": "other",
+      "note": "(Hisuian form)"
+    }
+  },
+  {
     "id": 167,
     "number": 706,
     "games": ["legends-za"],
@@ -4128,6 +4241,23 @@
       "method": "level",
       "level": 50,
       "note": "while it is raining"
+    }
+  },
+  {
+    "id": 167,
+    "number": 706,
+    "name": "Goodra (Hisuian)",
+    "types": ["steel", "dragon"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Hisuian",
+      "spriteId": 10242
+    },
+    "encounters": [],
+    "evolvesFrom": {
+      "number": 705,
+      "method": "other",
+      "note": "(Hisuian form)"
     }
   },
   {
@@ -4313,6 +4443,23 @@
       "number": 712,
       "method": "level",
       "level": 37
+    }
+  },
+  {
+    "id": 175,
+    "number": 713,
+    "name": "Avalugg (Hisuian)",
+    "types": ["ice", "rock"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Hisuian",
+      "spriteId": 10243
+    },
+    "encounters": [],
+    "evolvesFrom": {
+      "number": 712,
+      "method": "other",
+      "note": "(Hisuian form)"
     }
   },
   {
@@ -5587,9 +5734,72 @@
     ]
   },
   {
+    "id": 236,
+    "number": 52,
+    "name": "Meowth (Alolan)",
+    "types": ["dark"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Alolan",
+      "spriteId": 10107
+    },
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 236,
+    "number": 52,
+    "name": "Meowth (Galarian)",
+    "types": ["steel"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10161
+    },
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
     "id": 237,
     "number": 53,
     "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 237,
+    "number": 53,
+    "name": "Persian (Alolan)",
+    "types": ["dark"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Alolan",
+      "spriteId": 10108
+    },
     "dlc": true,
     "encounters": [
       {
@@ -5620,6 +5830,27 @@
     "id": 239,
     "number": 83,
     "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "number": 83,
+    "name": "Farfetch'd (Galarian)",
+    "types": ["fighting"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10166
+    },
     "dlc": true,
     "encounters": [
       {
@@ -5665,6 +5896,27 @@
     "id": 242,
     "number": 105,
     "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 242,
+    "number": 105,
+    "name": "Marowak (Alolan)",
+    "types": ["fire", "ghost"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Alolan",
+      "spriteId": 10115
+    },
     "dlc": true,
     "encounters": [
       {
@@ -6114,6 +6366,27 @@
     ]
   },
   {
+    "id": 269,
+    "number": 211,
+    "name": "Qwilfish (Hisuian)",
+    "types": ["dark", "poison"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Hisuian",
+      "spriteId": 10234
+    },
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
     "id": 270,
     "number": 904,
     "games": ["legends-za"],
@@ -6461,6 +6734,27 @@
     "id": 291,
     "number": 562,
     "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 291,
+    "number": 562,
+    "name": "Yamask (Galarian)",
+    "types": ["ground", "ghost"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10179
+    },
     "dlc": true,
     "encounters": [
       {
@@ -7243,6 +7537,27 @@
     "id": 341,
     "number": 122,
     "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 341,
+    "number": 122,
+    "name": "Mr. Mime (Galarian)",
+    "types": ["ice", "psychic"],
+    "games": ["legends-za"],
+    "form": {
+      "label": "Galarian",
+      "spriteId": 10168
+    },
     "dlc": true,
     "encounters": [
       {

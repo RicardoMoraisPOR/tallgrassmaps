@@ -39,7 +39,7 @@ export const TallGrassRow = ({
   const rowRef = useScrollToFocused(focused);
   const spriteFor = usePokemonSprite(game);
 
-  const sprite = spriteFor(entry.number);
+  const sprite = spriteFor(entry.number, entry.form?.spriteId);
   const obtainable = isObtainable(entry, game);
   const appearsIn = gamesWithEntry(entry, game);
   const sharedMap = gamesSharingMap(game).length > 1;

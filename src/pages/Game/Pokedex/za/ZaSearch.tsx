@@ -20,7 +20,7 @@ export const ZaSearch = ({ search }: PokedexSearchProps) => (
           <ZaBall caught={false} className="size-5" />
           {String(search.total).padStart(3, '0')}
         </span>
-        <span className="sr-only">Pokémon shown out of the total</span>
+        <span className="sr-only">Entries shown out of the total</span>
       </p>
       <label className="flex h-10 min-w-0 flex-1 items-center gap-2 rounded-md border border-white/25 bg-black/20 px-3 focus-within:border-(--za-green) sm:max-w-xs">
         <Search aria-hidden className="size-4 flex-none text-white/80" />

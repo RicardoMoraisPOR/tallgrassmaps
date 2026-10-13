@@ -19,7 +19,7 @@ export const ZaRow = ({
   const rowRef = useRef<HTMLLIElement>(null);
   const spriteFor = usePokemonSprite(game);
 
-  const sprite = spriteFor(entry.number);
+  const sprite = spriteFor(entry.number, entry.form?.spriteId);
   const obtainable = isObtainable(entry, game);
 
   useEffect(() => {

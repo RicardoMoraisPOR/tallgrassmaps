@@ -22,7 +22,11 @@ export const TrainersTab = ({
 }: TrainersTabProps) => {
   const spriteFor = usePokemonSprite(game);
 
-  const names = new Map(pokedex.map((entry) => [entry.number, entry.name]));
+  const names = new Map(
+    pokedex
+      .filter((entry) => !entry.form)
+      .map((entry) => [entry.number, entry.name]),
+  );
 
   return (
     <>

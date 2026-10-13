@@ -32,7 +32,11 @@ export const TrainerTooltip = ({
     ? battle.parties.toSorted((a, b) => (a.choice ?? 0) - (b.choice ?? 0))
     : battle.parties;
 
-  const names = new Map(pokedex.map((entry) => [entry.number, entry.name]));
+  const names = new Map(
+    pokedex
+      .filter((entry) => !entry.form)
+      .map((entry) => [entry.number, entry.name]),
+  );
   const nameOf = (entry: number) => names.get(entry) ?? `#${entry}`;
 
   if (encounters > 1) {

@@ -84,6 +84,7 @@ const regionalFormsOf = (base) =>
       return {
         name: `${REGIONS[region]} ${displayName(base.name)}${breed ? ` (${breed} Breed)` : ''}`,
         region,
+        types: entry.types.map((type) => type.toLowerCase()),
         spriteId: spriteIdOf(base, [suffix, `${suffix}-standard`]),
       };
     });

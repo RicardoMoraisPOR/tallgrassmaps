@@ -31,8 +31,8 @@ export type PokedexRowProps = PokedexContext & {
 export type PokedexListProps = PokedexContext & {
   entries: Array<PokedexEntry>;
   focus?: number;
-  selectedNumber?: number;
-  onSelectNumber?: (number: number) => void;
+  selectedKey?: string;
+  onSelectKey?: (key: string) => void;
 };
 
 export type PokedexDrawerProps = {

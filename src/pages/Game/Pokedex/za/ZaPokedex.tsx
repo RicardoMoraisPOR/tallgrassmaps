@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { entryKey } from '@/data/pokedex/master';
+
 import type { PokedexProps } from '../types';
 import { ZaDrawer } from './ZaDrawer';
 import { ZaEmptyPreview } from './ZaEmptyPreview';
@@ -18,7 +20,9 @@ export const ZaPokedex = ({
   onClose,
   search,
 }: PokedexProps) => {
-  const [selectedNumber, setSelectedNumber] = useState(focus);
+  const [selectedKey, setSelectedKey] = useState(
+    focus ? String(focus) : undefined,
+  );
   const [detailsOpen, setDetailsOpen] = useState(!!focus);
   const [seen, setSeen] = useState({ open, focus });
 
@@ -26,13 +30,13 @@ export const ZaPokedex = ({
     setSeen({ open, focus });
 
     if (open) {
-      setSelectedNumber(focus);
+      setSelectedKey(focus ? String(focus) : undefined);
       setDetailsOpen(!!focus);
     }
   }
 
   const selected = search.visible.find(
-    (entry) => entry.number === selectedNumber,
+    (entry) => entryKey(entry) === selectedKey,
   );
 
   return (
@@ -44,7 +48,7 @@ export const ZaPokedex = ({
       <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
         {selected ? (
           <ZaPreview
-            key={selected.number}
+            key={entryKey(selected)}
             entry={selected}
             game={game}
             region={region}
@@ -65,9 +69,9 @@ export const ZaPokedex = ({
               region={region}
               href={href}
               nameOf={nameOf}
-              selectedNumber={selected?.number}
+              selectedKey={selected && entryKey(selected)}
               focus={focus}
-              onSelectNumber={setSelectedNumber}
+              onSelectKey={setSelectedKey}
             />
           </div>
         </div>

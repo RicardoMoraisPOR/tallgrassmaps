@@ -8,6 +8,7 @@ import {
   megaSprite,
   megaStoneSprite,
   pokeapiSprite,
+  zaFormSprite,
 } from '@/data/sprites';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
@@ -101,6 +102,37 @@ const builders: Record<string, () => Array<SpriteGroup>> = {
     overworldGroup(),
   ],
   PokeAPI: () => {
+    const zaGroups = (): Array<SpriteGroup> => {
+      const entries = pokedexFor('ZA') ?? [];
+      const megas = entries.flatMap(({ number, megas: forms = [] }) =>
+        forms.map((mega) => ({ number, ...mega })),
+      );
+      const regional = species.flatMap(({ regionalForms = [] }) =>
+        regionalForms.flatMap(({ name, spriteId }) => {
+          const src = zaFormSprite(spriteId);
+
+          return src ? [{ src, label: name }] : [];
+        }),
+      );
+
+      return [
+        {
+          title: 'Legends Z-A menu sprites',
+          sprites: gameNumbers('legends-za', [
+            ...new Set(entries.map(({ number }) => number)),
+          ]),
+        },
+        {
+          title: 'Legends Z-A Mega Evolution menu sprites',
+          sprites: megas.map(({ number, form, stone }) => ({
+            src: megaSprite(number, form),
+            label: stone,
+          })),
+        },
+        { title: 'Legends Z-A regional forms', sprites: regional },
+      ];
+    };
+
     const formSprites = (kind: 'regionalForms' | 'transformations') =>
       species.flatMap((entry) =>
         (entry[kind] ?? []).flatMap(({ name, spriteId }) =>
@@ -115,6 +147,7 @@ const builders: Record<string, () => Array<SpriteGroup>> = {
       },
       { title: 'Regional forms', sprites: formSprites('regionalForms') },
       { title: 'Mega Evolutions', sprites: formSprites('transformations') },
+      ...zaGroups(),
     ];
   },
   'Bulbagarden Archives': () => {
@@ -124,20 +157,6 @@ const builders: Record<string, () => Array<SpriteGroup>> = {
     );
 
     return [
-      {
-        title: 'Legends Z-A menu sprites',
-        sprites: gameNumbers(
-          'legends-za',
-          entries.map(({ number }) => number),
-        ),
-      },
-      {
-        title: 'Mega Evolution menu sprites',
-        sprites: megas.map(({ number, form, stone }) => ({
-          src: megaSprite(number, form),
-          label: stone,
-        })),
-      },
       {
         title: 'Mega Stones',
         sprites: [...new Set(megas.map(({ stone }) => stone))].map((stone) => ({

@@ -24,6 +24,7 @@ import { itemsFor } from '@/data/items';
 import type { MapItem } from '@/data/items/types';
 import { getLocation, type Region } from '@/data/maps';
 import { pokedexFor } from '@/data/pokedex';
+import { entryKey } from '@/data/pokedex/master';
 import type { PokedexEntry } from '@/data/pokedex/types';
 import { trainersFor } from '@/data/trainers';
 import { usePokemonSprite } from '@/hooks/usePokemonSprite';
@@ -224,7 +225,11 @@ const PlaceSearchDialog = ({
 
     if (tab === null || tab === 'Pokémon') {
       for (const entry of searchPokemon(entries, query)) {
-        found.push({ type: 'pokemon', key: `pokemon-${entry.number}`, entry });
+        found.push({
+          type: 'pokemon',
+          key: `pokemon-${entryKey(entry)}`,
+          entry,
+        });
       }
     }
 
@@ -519,7 +524,7 @@ type PokemonResultProps = {
 };
 
 const PokemonResult = ({ entry, game }: PokemonResultProps) => {
-  const sprite = usePokemonSprite(game)(entry.number);
+  const sprite = usePokemonSprite(game)(entry.number, entry.form?.spriteId);
 
   return (
     <>

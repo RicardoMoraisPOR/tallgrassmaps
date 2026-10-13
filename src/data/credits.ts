@@ -1,7 +1,12 @@
 import { coverCount, coversFrom, coverSources } from './covers';
 import { getGame } from './games';
 import { type Location, type MapSource, regions } from './maps';
-import { gameSprite, pokeapiSprite, pokemonSpriteSources } from './sprites';
+import {
+  gameSprite,
+  megaStoneSprite,
+  pokeapiSprite,
+  pokemonSpriteSources,
+} from './sprites';
 
 export type Credit = {
   name: string;
@@ -137,14 +142,15 @@ export const spriteCredits: Array<Credit> = [
   {
     ...pokemonSpriteSources.pokeapi,
     by: pokemonSpriteSources.pokeapi.credit,
-    detail: 'Pokémon, regional form and Mega Evolution sprites',
+    detail:
+      'Pokémon, regional form and Mega Evolution sprites, including the Legends Z-A menu sprites',
     sprite: { src: pokeapiSprite(10034) },
   },
   {
     ...pokemonSpriteSources.bulbagarden,
     by: pokemonSpriteSources.bulbagarden.credit,
-    detail: 'Pokémon menu sprites and Mega Stone icons for Legends Z-A',
-    sprite: spriteOf(448, 'legends-za'),
+    detail: 'Mega Stone icons for Legends Z-A',
+    sprite: { src: megaStoneSprite('Lucarionite Z'), pixelated: false },
   },
 ];
 

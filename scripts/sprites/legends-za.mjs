@@ -13,6 +13,17 @@ import { toWebp } from '../lib/webp.mjs';
 const API_URL = 'https://bulbapedia.bulbagarden.net/w/api.php';
 const OUTPUT = new URL('../../public/sprites/', import.meta.url);
 const DEX = new URL('../../src/data/pokedex/za/za.json', import.meta.url);
+const MASTER = new URL(
+  '../../src/data/pokedex/master-data.json',
+  import.meta.url,
+);
+const FORM_MANIFEST = new URL(
+  '../../src/data/pokedex/za/form-sprites.json',
+  import.meta.url,
+);
+const POKEAPI_ICONS =
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ix/legends-za/icons';
+const CONCURRENCY = 4;
 const BATCH_SIZE = 50;
 const DELAY_MS = 300;
 const USER_AGENT = 'tallgrassmaps-sprite-fetch/1.0';
@@ -36,6 +47,12 @@ const fetchWithRetry = async (url, attempts = 3) => {
 };
 
 const dex = JSON.parse(readFileSync(DEX, 'utf8'));
+const master = new Map(
+  JSON.parse(readFileSync(MASTER, 'utf8')).map((entry) => [
+    entry.number,
+    entry,
+  ]),
+);
 
 const slug = (name) => name.toLowerCase().replaceAll(' ', '-');
 const padded = (number) => String(number).padStart(4, '0');
@@ -45,6 +62,7 @@ const species = [...new Set(dex.map((entry) => entry.number))]
   .map((number) => ({
     title: `File:Menu ZA ${padded(number)}.png`,
     path: `pokemon/legends-za/${number}.webp`,
+    pokeapiId: number,
   }));
 
 const megas = dex.flatMap((entry) =>
@@ -52,7 +70,23 @@ const megas = dex.flatMap((entry) =>
     title: `File:Menu ZA ${padded(entry.number)}-Mega${form ? ` ${form}` : ''}.png`,
     path: `pokemon/legends-za/mega/${entry.number}${form ? `-${form.toLowerCase()}` : ''}.webp`,
     stone,
+    pokeapiId: master
+      .get(entry.number)
+      ?.transformations?.find((mega) => mega.form === form)?.spriteId,
   })),
+);
+
+const forms = [...master.values()].flatMap(({ regionalForms = [] }) =>
+  regionalForms.flatMap(({ spriteId }) =>
+    spriteId
+      ? [
+          {
+            path: `pokemon/legends-za/forms/${spriteId}.webp`,
+            pokeapiId: spriteId,
+          },
+        ]
+      : [],
+  ),
 );
 
 const stones = [...new Set(megas.map(({ stone }) => stone))].map((stone) => ({
@@ -84,7 +118,39 @@ const lookup = async (batch) => {
 
 const fileFor = (job) => new URL(job.path, OUTPUT);
 
-const wanted = jobs.filter((job) => force || !existsSync(fileFor(job)));
+const fetchPokeapiIcon = async (id) => {
+  const response = await fetch(`${POKEAPI_ICONS}/${id}.png`);
+
+  return response.ok ? Buffer.from(await response.arrayBuffer()) : undefined;
+};
+
+const pokeapiQueue = [...species, ...megas, ...forms].filter(
+  (job) => job.pokeapiId && (force || !existsSync(fileFor(job))),
+);
+
+const pokeapiWorker = async () => {
+  for (let job = pokeapiQueue.shift(); job; job = pokeapiQueue.shift()) {
+    const image = await fetchPokeapiIcon(job.pokeapiId);
+
+    if (!image) continue;
+
+    mkdirSync(dirname(fileFor(job).pathname), { recursive: true });
+    writeFileSync(fileFor(job), await toWebp(image));
+  }
+};
+
+await Promise.all(Array.from({ length: CONCURRENCY }, pokeapiWorker));
+
+writeFileSync(
+  FORM_MANIFEST,
+  `${JSON.stringify(
+    forms.filter((job) => existsSync(fileFor(job))).map((job) => job.pokeapiId),
+  )}\n`,
+);
+
+const wanted = jobs.filter(
+  (job) => !existsSync(fileFor(job)) || (force && !job.pokeapiId),
+);
 const urls = new Map();
 
 for (let i = 0; i < wanted.length; i += BATCH_SIZE) {

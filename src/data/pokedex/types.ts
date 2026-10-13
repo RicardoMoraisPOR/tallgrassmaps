@@ -53,6 +53,11 @@ export type MegaEvolution = {
   types?: Array<string>;
 };
 
+export type EntryForm = {
+  label: string;
+  spriteId?: number;
+};
+
 export type PokedexEntry = {
   id: number;
   number: number;
@@ -61,6 +66,7 @@ export type PokedexEntry = {
   games: Array<string>;
   evolvesFrom?: Evolution;
   megas?: Array<MegaEvolution>;
+  form?: EntryForm;
   dlc?: boolean;
   encounters: Array<Encounter>;
 };
@@ -68,6 +74,7 @@ export type PokedexEntry = {
 export type RegionalForm = {
   name: string;
   region: 'Alola' | 'Galar' | 'Hisui' | 'Paldea';
+  types: Array<string>;
   spriteId?: number;
 };
 

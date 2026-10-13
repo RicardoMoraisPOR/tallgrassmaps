@@ -34,7 +34,7 @@ export const ZaPreview = ({
 
   const megas = entry.megas ?? [];
   const sprites = [
-    spriteFor(entry.number),
+    spriteFor(entry.number, entry.form?.spriteId),
     ...megas.map(({ form }) => megaSpriteFor(entry.number, form)),
   ];
   const spriteIndex = activeMega === undefined ? 0 : activeMega + 1;

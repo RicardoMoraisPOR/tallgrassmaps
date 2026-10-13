@@ -5,6 +5,9 @@ export const species = data as Array<Species>;
 
 const speciesByNumber = new Map(species.map((entry) => [entry.number, entry]));
 
+export const entryKey = (entry: Pick<PokedexEntry, 'number' | 'form'>) =>
+  entry.form ? `${entry.number}-${entry.form.spriteId}` : String(entry.number);
+
 export const getSpecies = (number: number) => speciesByNumber.get(number);
 
 export const withSpecies = (entries: Array<PokedexData>): Array<PokedexEntry> =>

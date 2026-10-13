@@ -5,6 +5,7 @@ import {
   megaSprite,
   pokeapiMegaSprite,
   pokeapiSprite,
+  zaFormSprite,
 } from '@/data/sprites';
 
 export type PokemonSprite = {
@@ -16,13 +17,18 @@ export type PokemonSprite = {
 export const usePokemonSprite = (game: Game) => {
   const style = useThemeStyle('sprites');
 
-  return (number: number): PokemonSprite => {
-    const fromGame = style === 'game' ? gameSprite(number, game) : undefined;
+  return (number: number, variant?: number): PokemonSprite => {
+    const fromGame =
+      style === 'game'
+        ? variant
+          ? zaFormSprite(variant)
+          : gameSprite(number, game)
+        : undefined;
 
     const pixelated = !!fromGame && (game.sprites?.pixelated ?? true);
 
     return {
-      src: fromGame ?? pokeapiSprite(number),
+      src: fromGame ?? pokeapiSprite(variant ?? number),
       pixelated,
       pixelArt: !fromGame || pixelated,
     };

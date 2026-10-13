@@ -20,7 +20,12 @@ import type {
   Species,
   Transformation,
 } from '@/data/pokedex/types';
-import { gameSprite, megaSprite, pokeapiSprite } from '@/data/sprites';
+import {
+  gameSprite,
+  megaSprite,
+  pokeapiSprite,
+  zaFormSprite,
+} from '@/data/sprites';
 import { cn } from '@/lib/utils';
 
 type Sprite = { src: string; pixelArt: boolean };
@@ -67,7 +72,13 @@ const gameSource = (game: Game): SourceSprites => {
         ? { src, pixelArt: game.sprites?.pixelated ?? true }
         : undefined;
     },
-    regional: () => undefined,
+    regional: ({ spriteId }) => {
+      const src = zaFormSprite(spriteId);
+
+      return game.id === 'legends-za' && src
+        ? { src, pixelArt: false }
+        : undefined;
+    },
     mega: (number, { form }) =>
       megas.has(megaKey(number, form))
         ? { src: megaSprite(number, form), pixelArt: false }

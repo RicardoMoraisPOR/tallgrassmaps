@@ -1,6 +1,7 @@
 import type { Game } from './games';
 import type { MapSource } from './maps';
 import { getSpecies } from './pokedex/master';
+import zaFormSprites from './pokedex/za/form-sprites.json';
 
 export const pokemonSpriteSources = {
   pret: {
@@ -30,6 +31,11 @@ export const gameSprite = (number: number, game: Game) =>
 
 export const megaSprite = (number: number, form?: string) =>
   `/sprites/pokemon/legends-za/mega/${number}${form ? `-${form.toLowerCase()}` : ''}.webp`;
+
+export const zaFormSprite = (spriteId: number | undefined) =>
+  spriteId && (zaFormSprites as Array<number>).includes(spriteId)
+    ? `/sprites/pokemon/legends-za/forms/${spriteId}.webp`
+    : undefined;
 
 export const megaStoneSprite = (stone: string) =>
   `/sprites/items/mega-stones/${stone.toLowerCase().replaceAll(' ', '-')}.png`;

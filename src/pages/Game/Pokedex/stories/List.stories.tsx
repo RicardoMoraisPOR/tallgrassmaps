@@ -16,7 +16,11 @@ const ListStory = ({ empty = false }: { empty?: boolean }) => {
   const entries = empty
     ? []
     : (pokedexFor(region.versionGroup) ?? []).slice(0, 30);
-  const names = new Map(entries.map((entry) => [entry.number, entry.name]));
+  const names = new Map(
+    entries
+      .filter((entry) => !entry.form)
+      .map((entry) => [entry.number, entry.name]),
+  );
   const nameOf = (number: number) => names.get(number) ?? `#${number}`;
 
   return (

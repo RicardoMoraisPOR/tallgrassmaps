@@ -10,6 +10,7 @@ import {
   DrawerContent,
   DrawerHeader,
 } from '@/components/ui/drawer';
+import { entryKey } from '@/data/pokedex/master';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { DESKTOP_QUERY } from '@/lib/breakpoints';
 import { cn } from '@/lib/utils';
@@ -41,8 +42,8 @@ export const PokedexList = ({
   emptyClassName,
   entries,
   focus,
-  selectedNumber,
-  onSelectNumber,
+  selectedKey,
+  onSelectKey,
   ...context
 }: PokedexListProps & {
   Row: ComponentType<PokedexRowProps>;
@@ -53,12 +54,12 @@ export const PokedexList = ({
     <ul aria-label="Pokémon" className={className}>
       {entries.map((entry) => (
         <Row
-          key={entry.id}
+          key={entryKey(entry)}
           {...context}
           entry={entry}
-          focused={entry.number === focus}
-          selected={entry.number === selectedNumber}
-          onSelect={onSelectNumber && (() => onSelectNumber(entry.number))}
+          focused={entry.number === focus && !entry.form}
+          selected={entryKey(entry) === selectedKey}
+          onSelect={onSelectKey && (() => onSelectKey(entryKey(entry)))}
         />
       ))}
     </ul>
@@ -150,8 +151,8 @@ export const ListSearch = ({ skin, search }: Skinned<PokedexSearchProps>) => (
     )}
     <p aria-live="polite" className="text-xs text-muted-foreground">
       {search.visible.length === search.total
-        ? `${search.total} Pokémon`
-        : `Showing ${search.visible.length} of ${search.total} Pokémon`}
+        ? `${search.total} entries`
+        : `Showing ${search.visible.length} of ${search.total} entries`}
     </p>
   </div>
 );
