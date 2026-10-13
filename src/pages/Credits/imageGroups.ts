@@ -2,12 +2,12 @@ import { coverIdsFrom, getCover } from '@/data/covers';
 import { getGame } from '@/data/games';
 import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
-import showdownMegas from '@/data/pokedex/za/showdown-megas.json';
+import { species } from '@/data/pokedex/master';
 import {
   gameSprite,
   megaSprite,
   megaStoneSprite,
-  pokemonSprite,
+  pokeapiSprite,
 } from '@/data/sprites';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
@@ -20,7 +20,6 @@ export type SpriteGroup = {
   large?: boolean;
 };
 
-const LAST_BLACK_WHITE_NUMBER = 649;
 const LAST_NUMBER = 1025;
 const KANTO_COUNT = 151;
 const ITEM_SPRITE = '/sprites/rby/overworld/poke_ball.png';
@@ -101,29 +100,23 @@ const builders: Record<string, () => Array<SpriteGroup>> = {
     },
     overworldGroup(),
   ],
-  'Pokémon Showdown': () => [
-    {
-      title: 'Pokémon',
-      sprites: numbered(range(1, LAST_BLACK_WHITE_NUMBER), pokemonSprite),
-    },
-    {
-      title: 'Mega Evolutions',
-      sprites: Object.entries(showdownMegas).map(([key, kind]) => ({
-        src: `/sprites/pokemon/mega/${key}.png`,
-        label: `#${key}`,
-        pixelated: kind === 'pixel',
-      })),
-    },
-  ],
-  'Smogon Sprite Project': () => [
-    {
-      title: 'Pokémon added after Black and White',
-      sprites: numbered(
-        range(LAST_BLACK_WHITE_NUMBER + 1, LAST_NUMBER),
-        pokemonSprite,
-      ),
-    },
-  ],
+  PokeAPI: () => {
+    const formSprites = (kind: 'regionalForms' | 'transformations') =>
+      species.flatMap((entry) =>
+        (entry[kind] ?? []).flatMap(({ name, spriteId }) =>
+          spriteId ? [{ src: pokeapiSprite(spriteId), label: name }] : [],
+        ),
+      );
+
+    return [
+      {
+        title: 'Pokémon',
+        sprites: numbered(range(1, LAST_NUMBER), pokeapiSprite),
+      },
+      { title: 'Regional forms', sprites: formSprites('regionalForms') },
+      { title: 'Mega Evolutions', sprites: formSprites('transformations') },
+    ];
+  },
   'Bulbagarden Archives': () => {
     const entries = pokedexFor('ZA') ?? [];
     const megas = entries.flatMap(({ number, megas: forms = [] }) =>

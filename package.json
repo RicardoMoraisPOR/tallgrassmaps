@@ -26,9 +26,8 @@
     "wild:rby": "node scripts/rby/wild-areas.mjs",
     "maps:rby": "node scripts/rby/render-maps.mjs",
     "maps:rby-clean": "node scripts/rby/clean-maps.mjs",
-    "sprites:pokemon": "node scripts/sprites/pokemon.mjs",
     "sprites:za": "node scripts/sprites/legends-za.mjs",
-    "sprites:megas": "node scripts/sprites/megas.mjs",
+    "sprites:pokeapi": "node scripts/sprites/pokeapi.mjs",
     "sprites:rby": "node scripts/sprites/rby.mjs",
     "sprites:rby-overworld": "node scripts/sprites/rby-overworld.mjs"
   },

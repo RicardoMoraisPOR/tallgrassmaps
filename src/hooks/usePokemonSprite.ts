@@ -3,8 +3,8 @@ import type { Game } from '@/data/games';
 import {
   gameSprite,
   megaSprite,
-  pokemonSprite,
-  showdownMegaSprite,
+  pokeapiMegaSprite,
+  pokeapiSprite,
 } from '@/data/sprites';
 
 export type PokemonSprite = {
@@ -22,7 +22,7 @@ export const usePokemonSprite = (game: Game) => {
     const pixelated = !!fromGame && (game.sprites?.pixelated ?? true);
 
     return {
-      src: fromGame ?? pokemonSprite(number),
+      src: fromGame ?? pokeapiSprite(number),
       pixelated,
       pixelArt: !fromGame || pixelated,
     };
@@ -33,14 +33,14 @@ export const useMegaSprite = () => {
   const style = useThemeStyle('sprites');
 
   return (number: number, form?: string): PokemonSprite => {
-    const fromShowdown =
-      style === 'tall-grass' ? showdownMegaSprite(number, form) : undefined;
+    const fromPokeapi =
+      style === 'tall-grass' ? pokeapiMegaSprite(number, form) : undefined;
 
-    if (fromShowdown) {
+    if (fromPokeapi) {
       return {
-        src: fromShowdown.src,
+        src: fromPokeapi.src,
         pixelated: false,
-        pixelArt: fromShowdown.pixelArt,
+        pixelArt: fromPokeapi.pixelArt,
       };
     }
 

@@ -65,10 +65,25 @@ export type PokedexEntry = {
   encounters: Array<Encounter>;
 };
 
+export type RegionalForm = {
+  name: string;
+  region: 'Alola' | 'Galar' | 'Hisui' | 'Paldea';
+  spriteId?: number;
+};
+
+export type Transformation = {
+  name: string;
+  kind: 'mega';
+  form?: 'X' | 'Y' | 'Z';
+  spriteId?: number;
+};
+
 export type Species = {
   number: number;
   name: string;
   types: Array<string>;
+  regionalForms?: Array<RegionalForm>;
+  transformations?: Array<Transformation>;
 };
 
 export type PokedexData = Omit<PokedexEntry, 'name' | 'types'> &

@@ -40,7 +40,7 @@ export const themeAreas: Array<{
     area: 'sprites',
     label: 'Pokémon sprites',
     description: 'Pokémon artwork across the site.',
-    styleLabels: { 'tall-grass': 'Showdown' },
+    styleLabels: { 'tall-grass': 'PokeAPI' },
   },
 ];
 

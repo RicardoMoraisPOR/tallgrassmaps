@@ -1,6 +1,9 @@
 import { writeFileSync } from 'node:fs';
 
 const SPECIES_URL = 'https://play.pokemonshowdown.com/data/pokedex.json';
+const POKEAPI_URL = 'https://pokeapi.co/api/v2/pokemon?limit=3000';
+const POKEAPI_SPRITE_URL =
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
 const OUTPUT = new URL(
   '../../src/data/pokedex/master-data.json',
   import.meta.url,
@@ -12,11 +15,122 @@ const specialNames = { 'Nidoran-F': 'Nidoran♀', 'Nidoran-M': 'Nidoran♂' };
 const displayName = (name) =>
   (specialNames[name] ?? name).normalize('NFC').replaceAll('’', "'");
 
+const REGIONS = {
+  Alola: 'Alolan',
+  Galar: 'Galarian',
+  Hisui: 'Hisuian',
+  Paldea: 'Paldean',
+};
+
 const response = await fetch(SPECIES_URL);
 
 if (!response.ok) throw new Error(`${response.status} for ${SPECIES_URL}`);
 
-const species = Object.values(await response.json())
+const entries = Object.values(await response.json());
+
+const pokeapiResponse = await fetch(POKEAPI_URL);
+
+if (!pokeapiResponse.ok) {
+  throw new Error(`${pokeapiResponse.status} for ${POKEAPI_URL}`);
+}
+
+const pokeapiIds = new Map(
+  (await pokeapiResponse.json()).results.map(({ name, url }) => [
+    name,
+    Number(url.match(/\/(\d+)\/$/)[1]),
+  ]),
+);
+
+const pokeapiNames = new Map([...pokeapiIds].map(([name, id]) => [id, name]));
+
+const slugOf = (name) =>
+  name
+    .toLowerCase()
+    .replace(/[.'’:]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+const spriteIdOf = (base, suffixes) => {
+  const stems = [slugOf(base.name), pokeapiNames.get(base.num)];
+  const candidates = stems.flatMap((stem) =>
+    suffixes.map((suffix) => `${stem}-${suffix}`),
+  );
+  const name = candidates.find((candidate) => pokeapiIds.has(candidate));
+
+  if (!name) {
+    console.warn(`No PokeAPI sprite id for ${base.name} ${suffixes[0]}`);
+  }
+
+  return pokeapiIds.get(name);
+};
+
+const regionalFormsOf = (base) =>
+  entries
+    .filter(
+      (entry) =>
+        base.name !== 'Pikachu' &&
+        entry.baseSpecies === base.name &&
+        Object.keys(REGIONS).includes(entry.forme?.split('-')[0]) &&
+        !['Totem', 'Zen'].some((suffix) => entry.forme.endsWith(suffix)),
+    )
+    .map((entry) => {
+      const [region, breed] = entry.forme.split('-');
+
+      const suffix = [region, breed && `${breed}-breed`]
+        .filter(Boolean)
+        .join('-')
+        .toLowerCase();
+
+      return {
+        name: `${REGIONS[region]} ${displayName(base.name)}${breed ? ` (${breed} Breed)` : ''}`,
+        region,
+        spriteId: spriteIdOf(base, [suffix, `${suffix}-standard`]),
+      };
+    });
+
+const MEGA_VARIANTS = ['M', 'F', 'Curly', 'Droopy', 'Stretchy', 'Original'];
+
+const transformationsOf = (base) => {
+  const megas = entries
+    .filter(
+      (entry) =>
+        entry.baseSpecies === base.name &&
+        entry.forme?.split('-').includes('Mega'),
+    )
+    .map((entry) => {
+      const form = entry.forme
+        .split('-')
+        .find((part) => !['Mega', ...MEGA_VARIANTS].includes(part));
+
+      return {
+        name: `Mega ${displayName(base.name)}${form ? ` ${form}` : ''}`,
+        kind: 'mega',
+        ...(form && { form }),
+        spriteId: spriteIdOf(base, [
+          `mega${form ? `-${form.toLowerCase()}` : ''}`,
+        ]),
+      };
+    });
+
+  return [...new Map(megas.map((mega) => [mega.name, mega])).values()].sort(
+    (a, b) => a.name.localeCompare(b.name),
+  );
+};
+
+const withForms = (base) => {
+  const regionalForms = regionalFormsOf(base);
+  const transformations = transformationsOf(base);
+
+  return {
+    number: base.num,
+    name: displayName(base.name),
+    types: base.types.map((type) => type.toLowerCase()),
+    ...(regionalForms.length > 0 && { regionalForms }),
+    ...(transformations.length > 0 && { transformations }),
+  };
+};
+
+const species = entries
   .filter(
     (entry) =>
       entry.num >= 1 &&
@@ -24,12 +138,23 @@ const species = Object.values(await response.json())
       !entry.forme &&
       !entry.baseSpecies,
   )
-  .map((entry) => ({
-    number: entry.num,
-    name: displayName(entry.name),
-    types: entry.types.map((type) => type.toLowerCase()),
-  }))
+  .map(withForms)
   .sort((a, b) => a.number - b.number);
+
+for (const { regionalForms = [], transformations = [] } of species) {
+  for (const form of [...regionalForms, ...transformations]) {
+    if (!form.spriteId) continue;
+
+    const { ok } = await fetch(`${POKEAPI_SPRITE_URL}/${form.spriteId}.png`, {
+      method: 'HEAD',
+    });
+
+    if (!ok) {
+      console.warn(`PokeAPI has no sprite for ${form.name}`);
+      delete form.spriteId;
+    }
+  }
+}
 
 if (species.length !== TOTAL_SPECIES) {
   throw new Error(`Expected ${TOTAL_SPECIES} species, found ${species.length}`);

@@ -8,6 +8,8 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { SITE_NAME } from '@/data/site';
 import { cn } from '@/lib/utils';
 
+import { DevMenu } from './DevMenu';
+
 const HEADER_HEIGHT_PIXELS = 57;
 const TOP_THRESHOLD_PIXELS = 8;
 
@@ -80,6 +82,7 @@ export const SiteHeader = () => {
             ))}
           </nav>
           <div className="flex items-center gap-2">
+            {import.meta.env.DEV && <DevMenu />}
             <HeaderMenu />
             <ThemeToggle />
           </div>

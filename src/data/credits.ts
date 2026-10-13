@@ -1,7 +1,7 @@
 import { coverCount, coversFrom, coverSources } from './covers';
 import { getGame } from './games';
 import { type Location, type MapSource, regions } from './maps';
-import { gameSprite, pokemonSprite, pokemonSpriteSources } from './sprites';
+import { gameSprite, pokeapiSprite, pokemonSpriteSources } from './sprites';
 
 export type Credit = {
   name: string;
@@ -122,7 +122,7 @@ const spriteOf = (number: number, gameId: string) => {
 
   return src
     ? { src, pixelated: game.sprites?.pixelated ?? true }
-    : { src: pokemonSprite(number) };
+    : { src: pokeapiSprite(number) };
 };
 
 export const spriteCredits: Array<Credit> = [
@@ -135,16 +135,10 @@ export const spriteCredits: Array<Credit> = [
     sprite: spriteOf(25, 'yellow'),
   },
   {
-    ...pokemonSpriteSources.showdown,
-    by: pokemonSpriteSources.showdown.credit,
-    detail: 'Pokémon and Mega Evolution sprites in the Pokédex',
-    sprite: { src: pokemonSprite(6) },
-  },
-  {
-    ...pokemonSpriteSources.smogon,
-    by: pokemonSpriteSources.smogon.credit,
-    detail: 'Sprites for the Pokémon added after Black and White',
-    sprite: { src: pokemonSprite(658) },
+    ...pokemonSpriteSources.pokeapi,
+    by: pokemonSpriteSources.pokeapi.credit,
+    detail: 'Pokémon, regional form and Mega Evolution sprites',
+    sprite: { src: pokeapiSprite(10034) },
   },
   {
     ...pokemonSpriteSources.bulbagarden,

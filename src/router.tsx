@@ -23,6 +23,14 @@ export const router = createBrowserRouter([
       ...(import.meta.env.DEV
         ? [
             {
+              path: 'pokemon-sprites',
+              lazy: async () => ({
+                Component: (
+                  await import('@/pages/PokemonSprites/PokemonSpritesPage')
+                ).PokemonSpritesPage,
+              }),
+            },
+            {
               path: 'legends-za/map-maker',
               lazy: async () => ({
                 Component: (await import('@/pages/MapMaker/MapMakerPage'))

@@ -26,7 +26,7 @@ const preview: Preview = {
         title: 'Sprites',
         icon: 'photo',
         items: [
-          { value: 'tall-grass', title: 'Showdown Pokémon Sprites' },
+          { value: 'tall-grass', title: 'PokeAPI Pokémon Sprites' },
           { value: 'game', title: 'Game Pokémon Sprites' },
         ],
         dynamicTitle: true,

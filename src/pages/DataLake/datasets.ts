@@ -8,7 +8,7 @@ import {
 } from '@/data/maps';
 import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
-import { getSpecies } from '@/data/pokedex/master';
+import { getSpecies, species } from '@/data/pokedex/master';
 import { signsFor } from '@/data/signs';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
@@ -93,6 +93,22 @@ const regionRows = (region: Region, label: string): Array<Row> =>
     versions: location.games ? gameNames(location.games) : 'All',
   }));
 
+const GENERATION_ENDS = [151, 251, 386, 493, 649, 721, 809, 905, 1025];
+
+const generationOf = (number: number) =>
+  GENERATION_ENDS.findIndex((last) => number <= last) + 1;
+
+const capitalize = (text: string) =>
+  text.charAt(0).toUpperCase() + text.slice(1);
+
+const trackedIn = (number: number) => {
+  const groups = VERSION_GROUPS.filter(([versionGroup]) =>
+    pokedexFor(versionGroup)?.some((entry) => entry.number === number),
+  ).map(([, label]) => label);
+
+  return groups.length > 0 ? groups : ['Not tracked yet'];
+};
+
 const levelOf = ({ level }: { level: number }) => level;
 
 export const datasets: Array<Dataset> = [
@@ -129,6 +145,35 @@ export const datasets: Array<Dataset> = [
           megas: entry.megas?.length ?? 0,
         },
       ]),
+  },
+  {
+    id: 'global-pokedex',
+    label: 'Global Pokédex',
+    blurb:
+      'Every Pokémon from #1 to #1025, and which games here track it so far.',
+    columns: [
+      { id: 'number', label: 'National #', kind: 'number' },
+      { id: 'name', label: 'Name', kind: 'text' },
+      { id: 'generation', label: 'Generation', kind: 'number' },
+      { id: 'types', label: 'Type', kind: 'category' },
+      { id: 'typeCount', label: 'Type count', kind: 'number' },
+      { id: 'regionalForms', label: 'Regional forms', kind: 'category' },
+      { id: 'transformations', label: 'Transformations', kind: 'category' },
+      { id: 'tracked', label: 'Tracked in', kind: 'category' },
+    ],
+    rows: () =>
+      species.map(
+        ({ number, name, types, regionalForms, transformations }) => ({
+          number,
+          name,
+          generation: generationOf(number),
+          types: types.map(capitalize),
+          typeCount: types.length,
+          regionalForms: regionalForms?.map((form) => form.name),
+          transformations: transformations?.map((form) => form.name),
+          tracked: trackedIn(number),
+        }),
+      ),
   },
   {
     id: 'encounters',

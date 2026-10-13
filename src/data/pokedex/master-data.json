@@ -12,7 +12,14 @@
   {
     "number": 3,
     "name": "Venusaur",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "transformations": [
+      {
+        "name": "Mega Venusaur",
+        "kind": "mega",
+        "spriteId": 10033
+      }
+    ]
   },
   {
     "number": 4,
@@ -27,7 +34,21 @@
   {
     "number": 6,
     "name": "Charizard",
-    "types": ["fire", "flying"]
+    "types": ["fire", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Charizard X",
+        "kind": "mega",
+        "form": "X",
+        "spriteId": 10034
+      },
+      {
+        "name": "Mega Charizard Y",
+        "kind": "mega",
+        "form": "Y",
+        "spriteId": 10035
+      }
+    ]
   },
   {
     "number": 7,
@@ -42,7 +63,14 @@
   {
     "number": 9,
     "name": "Blastoise",
-    "types": ["water"]
+    "types": ["water"],
+    "transformations": [
+      {
+        "name": "Mega Blastoise",
+        "kind": "mega",
+        "spriteId": 10036
+      }
+    ]
   },
   {
     "number": 10,
@@ -72,7 +100,14 @@
   {
     "number": 15,
     "name": "Beedrill",
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "transformations": [
+      {
+        "name": "Mega Beedrill",
+        "kind": "mega",
+        "spriteId": 10090
+      }
+    ]
   },
   {
     "number": 16,
@@ -87,17 +122,38 @@
   {
     "number": 18,
     "name": "Pidgeot",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Pidgeot",
+        "kind": "mega",
+        "spriteId": 10073
+      }
+    ]
   },
   {
     "number": 19,
     "name": "Rattata",
-    "types": ["normal"]
+    "types": ["normal"],
+    "regionalForms": [
+      {
+        "name": "Alolan Rattata",
+        "region": "Alola",
+        "spriteId": 10091
+      }
+    ]
   },
   {
     "number": 20,
     "name": "Raticate",
-    "types": ["normal"]
+    "types": ["normal"],
+    "regionalForms": [
+      {
+        "name": "Alolan Raticate",
+        "region": "Alola",
+        "spriteId": 10092
+      }
+    ]
   },
   {
     "number": 21,
@@ -127,17 +183,52 @@
   {
     "number": 26,
     "name": "Raichu",
-    "types": ["electric"]
+    "types": ["electric"],
+    "regionalForms": [
+      {
+        "name": "Alolan Raichu",
+        "region": "Alola",
+        "spriteId": 10100
+      }
+    ],
+    "transformations": [
+      {
+        "name": "Mega Raichu X",
+        "kind": "mega",
+        "form": "X",
+        "spriteId": 10304
+      },
+      {
+        "name": "Mega Raichu Y",
+        "kind": "mega",
+        "form": "Y",
+        "spriteId": 10305
+      }
+    ]
   },
   {
     "number": 27,
     "name": "Sandshrew",
-    "types": ["ground"]
+    "types": ["ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Sandshrew",
+        "region": "Alola",
+        "spriteId": 10101
+      }
+    ]
   },
   {
     "number": 28,
     "name": "Sandslash",
-    "types": ["ground"]
+    "types": ["ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Sandslash",
+        "region": "Alola",
+        "spriteId": 10102
+      }
+    ]
   },
   {
     "number": 29,
@@ -177,17 +268,38 @@
   {
     "number": 36,
     "name": "Clefable",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "transformations": [
+      {
+        "name": "Mega Clefable",
+        "kind": "mega",
+        "spriteId": 10278
+      }
+    ]
   },
   {
     "number": 37,
     "name": "Vulpix",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Alolan Vulpix",
+        "region": "Alola",
+        "spriteId": 10103
+      }
+    ]
   },
   {
     "number": 38,
     "name": "Ninetales",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Alolan Ninetales",
+        "region": "Alola",
+        "spriteId": 10104
+      }
+    ]
   },
   {
     "number": 39,
@@ -247,22 +359,55 @@
   {
     "number": 50,
     "name": "Diglett",
-    "types": ["ground"]
+    "types": ["ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Diglett",
+        "region": "Alola",
+        "spriteId": 10105
+      }
+    ]
   },
   {
     "number": 51,
     "name": "Dugtrio",
-    "types": ["ground"]
+    "types": ["ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Dugtrio",
+        "region": "Alola",
+        "spriteId": 10106
+      }
+    ]
   },
   {
     "number": 52,
     "name": "Meowth",
-    "types": ["normal"]
+    "types": ["normal"],
+    "regionalForms": [
+      {
+        "name": "Alolan Meowth",
+        "region": "Alola",
+        "spriteId": 10107
+      },
+      {
+        "name": "Galarian Meowth",
+        "region": "Galar",
+        "spriteId": 10161
+      }
+    ]
   },
   {
     "number": 53,
     "name": "Persian",
-    "types": ["normal"]
+    "types": ["normal"],
+    "regionalForms": [
+      {
+        "name": "Alolan Persian",
+        "region": "Alola",
+        "spriteId": 10108
+      }
+    ]
   },
   {
     "number": 54,
@@ -287,12 +432,26 @@
   {
     "number": 58,
     "name": "Growlithe",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Growlithe",
+        "region": "Hisui",
+        "spriteId": 10229
+      }
+    ]
   },
   {
     "number": 59,
     "name": "Arcanine",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Arcanine",
+        "region": "Hisui",
+        "spriteId": 10230
+      }
+    ]
   },
   {
     "number": 60,
@@ -322,7 +481,14 @@
   {
     "number": 65,
     "name": "Alakazam",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "transformations": [
+      {
+        "name": "Mega Alakazam",
+        "kind": "mega",
+        "spriteId": 10037
+      }
+    ]
   },
   {
     "number": 66,
@@ -352,7 +518,14 @@
   {
     "number": 71,
     "name": "Victreebel",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "transformations": [
+      {
+        "name": "Mega Victreebel",
+        "kind": "mega",
+        "spriteId": 10279
+      }
+    ]
   },
   {
     "number": 72,
@@ -367,37 +540,93 @@
   {
     "number": 74,
     "name": "Geodude",
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Geodude",
+        "region": "Alola",
+        "spriteId": 10109
+      }
+    ]
   },
   {
     "number": 75,
     "name": "Graveler",
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Graveler",
+        "region": "Alola",
+        "spriteId": 10110
+      }
+    ]
   },
   {
     "number": 76,
     "name": "Golem",
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Golem",
+        "region": "Alola",
+        "spriteId": 10111
+      }
+    ]
   },
   {
     "number": 77,
     "name": "Ponyta",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Galarian Ponyta",
+        "region": "Galar",
+        "spriteId": 10162
+      }
+    ]
   },
   {
     "number": 78,
     "name": "Rapidash",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Galarian Rapidash",
+        "region": "Galar",
+        "spriteId": 10163
+      }
+    ]
   },
   {
     "number": 79,
     "name": "Slowpoke",
-    "types": ["water", "psychic"]
+    "types": ["water", "psychic"],
+    "regionalForms": [
+      {
+        "name": "Galarian Slowpoke",
+        "region": "Galar",
+        "spriteId": 10164
+      }
+    ]
   },
   {
     "number": 80,
     "name": "Slowbro",
-    "types": ["water", "psychic"]
+    "types": ["water", "psychic"],
+    "regionalForms": [
+      {
+        "name": "Galarian Slowbro",
+        "region": "Galar",
+        "spriteId": 10165
+      }
+    ],
+    "transformations": [
+      {
+        "name": "Mega Slowbro",
+        "kind": "mega",
+        "spriteId": 10071
+      }
+    ]
   },
   {
     "number": 81,
@@ -412,7 +641,14 @@
   {
     "number": 83,
     "name": "Farfetch'd",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "regionalForms": [
+      {
+        "name": "Galarian Farfetch'd",
+        "region": "Galar",
+        "spriteId": 10166
+      }
+    ]
   },
   {
     "number": 84,
@@ -437,12 +673,26 @@
   {
     "number": 88,
     "name": "Grimer",
-    "types": ["poison"]
+    "types": ["poison"],
+    "regionalForms": [
+      {
+        "name": "Alolan Grimer",
+        "region": "Alola",
+        "spriteId": 10112
+      }
+    ]
   },
   {
     "number": 89,
     "name": "Muk",
-    "types": ["poison"]
+    "types": ["poison"],
+    "regionalForms": [
+      {
+        "name": "Alolan Muk",
+        "region": "Alola",
+        "spriteId": 10113
+      }
+    ]
   },
   {
     "number": 90,
@@ -467,7 +717,14 @@
   {
     "number": 94,
     "name": "Gengar",
-    "types": ["ghost", "poison"]
+    "types": ["ghost", "poison"],
+    "transformations": [
+      {
+        "name": "Mega Gengar",
+        "kind": "mega",
+        "spriteId": 10038
+      }
+    ]
   },
   {
     "number": 95,
@@ -497,12 +754,26 @@
   {
     "number": 100,
     "name": "Voltorb",
-    "types": ["electric"]
+    "types": ["electric"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Voltorb",
+        "region": "Hisui",
+        "spriteId": 10231
+      }
+    ]
   },
   {
     "number": 101,
     "name": "Electrode",
-    "types": ["electric"]
+    "types": ["electric"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Electrode",
+        "region": "Hisui",
+        "spriteId": 10232
+      }
+    ]
   },
   {
     "number": 102,
@@ -512,7 +783,14 @@
   {
     "number": 103,
     "name": "Exeggutor",
-    "types": ["grass", "psychic"]
+    "types": ["grass", "psychic"],
+    "regionalForms": [
+      {
+        "name": "Alolan Exeggutor",
+        "region": "Alola",
+        "spriteId": 10114
+      }
+    ]
   },
   {
     "number": 104,
@@ -522,7 +800,14 @@
   {
     "number": 105,
     "name": "Marowak",
-    "types": ["ground"]
+    "types": ["ground"],
+    "regionalForms": [
+      {
+        "name": "Alolan Marowak",
+        "region": "Alola",
+        "spriteId": 10115
+      }
+    ]
   },
   {
     "number": 106,
@@ -547,7 +832,14 @@
   {
     "number": 110,
     "name": "Weezing",
-    "types": ["poison"]
+    "types": ["poison"],
+    "regionalForms": [
+      {
+        "name": "Galarian Weezing",
+        "region": "Galar",
+        "spriteId": 10167
+      }
+    ]
   },
   {
     "number": 111,
@@ -572,7 +864,14 @@
   {
     "number": 115,
     "name": "Kangaskhan",
-    "types": ["normal"]
+    "types": ["normal"],
+    "transformations": [
+      {
+        "name": "Mega Kangaskhan",
+        "kind": "mega",
+        "spriteId": 10039
+      }
+    ]
   },
   {
     "number": 116,
@@ -602,12 +901,26 @@
   {
     "number": 121,
     "name": "Starmie",
-    "types": ["water", "psychic"]
+    "types": ["water", "psychic"],
+    "transformations": [
+      {
+        "name": "Mega Starmie",
+        "kind": "mega",
+        "spriteId": 10280
+      }
+    ]
   },
   {
     "number": 122,
     "name": "Mr. Mime",
-    "types": ["psychic", "fairy"]
+    "types": ["psychic", "fairy"],
+    "regionalForms": [
+      {
+        "name": "Galarian Mr. Mime",
+        "region": "Galar",
+        "spriteId": 10168
+      }
+    ]
   },
   {
     "number": 123,
@@ -632,12 +945,36 @@
   {
     "number": 127,
     "name": "Pinsir",
-    "types": ["bug"]
+    "types": ["bug"],
+    "transformations": [
+      {
+        "name": "Mega Pinsir",
+        "kind": "mega",
+        "spriteId": 10040
+      }
+    ]
   },
   {
     "number": 128,
     "name": "Tauros",
-    "types": ["normal"]
+    "types": ["normal"],
+    "regionalForms": [
+      {
+        "name": "Paldean Tauros (Combat Breed)",
+        "region": "Paldea",
+        "spriteId": 10250
+      },
+      {
+        "name": "Paldean Tauros (Blaze Breed)",
+        "region": "Paldea",
+        "spriteId": 10251
+      },
+      {
+        "name": "Paldean Tauros (Aqua Breed)",
+        "region": "Paldea",
+        "spriteId": 10252
+      }
+    ]
   },
   {
     "number": 129,
@@ -647,7 +984,14 @@
   {
     "number": 130,
     "name": "Gyarados",
-    "types": ["water", "flying"]
+    "types": ["water", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Gyarados",
+        "kind": "mega",
+        "spriteId": 10041
+      }
+    ]
   },
   {
     "number": 131,
@@ -707,7 +1051,14 @@
   {
     "number": 142,
     "name": "Aerodactyl",
-    "types": ["rock", "flying"]
+    "types": ["rock", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Aerodactyl",
+        "kind": "mega",
+        "spriteId": 10042
+      }
+    ]
   },
   {
     "number": 143,
@@ -717,17 +1068,38 @@
   {
     "number": 144,
     "name": "Articuno",
-    "types": ["ice", "flying"]
+    "types": ["ice", "flying"],
+    "regionalForms": [
+      {
+        "name": "Galarian Articuno",
+        "region": "Galar",
+        "spriteId": 10169
+      }
+    ]
   },
   {
     "number": 145,
     "name": "Zapdos",
-    "types": ["electric", "flying"]
+    "types": ["electric", "flying"],
+    "regionalForms": [
+      {
+        "name": "Galarian Zapdos",
+        "region": "Galar",
+        "spriteId": 10170
+      }
+    ]
   },
   {
     "number": 146,
     "name": "Moltres",
-    "types": ["fire", "flying"]
+    "types": ["fire", "flying"],
+    "regionalForms": [
+      {
+        "name": "Galarian Moltres",
+        "region": "Galar",
+        "spriteId": 10171
+      }
+    ]
   },
   {
     "number": 147,
@@ -742,12 +1114,33 @@
   {
     "number": 149,
     "name": "Dragonite",
-    "types": ["dragon", "flying"]
+    "types": ["dragon", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Dragonite",
+        "kind": "mega",
+        "spriteId": 10281
+      }
+    ]
   },
   {
     "number": 150,
     "name": "Mewtwo",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "transformations": [
+      {
+        "name": "Mega Mewtwo X",
+        "kind": "mega",
+        "form": "X",
+        "spriteId": 10043
+      },
+      {
+        "name": "Mega Mewtwo Y",
+        "kind": "mega",
+        "form": "Y",
+        "spriteId": 10044
+      }
+    ]
   },
   {
     "number": 151,
@@ -767,7 +1160,14 @@
   {
     "number": 154,
     "name": "Meganium",
-    "types": ["grass"]
+    "types": ["grass"],
+    "transformations": [
+      {
+        "name": "Mega Meganium",
+        "kind": "mega",
+        "spriteId": 10282
+      }
+    ]
   },
   {
     "number": 155,
@@ -782,7 +1182,14 @@
   {
     "number": 157,
     "name": "Typhlosion",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Typhlosion",
+        "region": "Hisui",
+        "spriteId": 10233
+      }
+    ]
   },
   {
     "number": 158,
@@ -797,7 +1204,14 @@
   {
     "number": 160,
     "name": "Feraligatr",
-    "types": ["water"]
+    "types": ["water"],
+    "transformations": [
+      {
+        "name": "Mega Feraligatr",
+        "kind": "mega",
+        "spriteId": 10283
+      }
+    ]
   },
   {
     "number": 161,
@@ -902,7 +1316,14 @@
   {
     "number": 181,
     "name": "Ampharos",
-    "types": ["electric"]
+    "types": ["electric"],
+    "transformations": [
+      {
+        "name": "Mega Ampharos",
+        "kind": "mega",
+        "spriteId": 10045
+      }
+    ]
   },
   {
     "number": 182,
@@ -967,7 +1388,14 @@
   {
     "number": 194,
     "name": "Wooper",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "regionalForms": [
+      {
+        "name": "Paldean Wooper",
+        "region": "Paldea",
+        "spriteId": 10253
+      }
+    ]
   },
   {
     "number": 195,
@@ -992,7 +1420,14 @@
   {
     "number": 199,
     "name": "Slowking",
-    "types": ["water", "psychic"]
+    "types": ["water", "psychic"],
+    "regionalForms": [
+      {
+        "name": "Galarian Slowking",
+        "region": "Galar",
+        "spriteId": 10172
+      }
+    ]
   },
   {
     "number": 200,
@@ -1037,7 +1472,14 @@
   {
     "number": 208,
     "name": "Steelix",
-    "types": ["steel", "ground"]
+    "types": ["steel", "ground"],
+    "transformations": [
+      {
+        "name": "Mega Steelix",
+        "kind": "mega",
+        "spriteId": 10072
+      }
+    ]
   },
   {
     "number": 209,
@@ -1052,12 +1494,26 @@
   {
     "number": 211,
     "name": "Qwilfish",
-    "types": ["water", "poison"]
+    "types": ["water", "poison"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Qwilfish",
+        "region": "Hisui",
+        "spriteId": 10234
+      }
+    ]
   },
   {
     "number": 212,
     "name": "Scizor",
-    "types": ["bug", "steel"]
+    "types": ["bug", "steel"],
+    "transformations": [
+      {
+        "name": "Mega Scizor",
+        "kind": "mega",
+        "spriteId": 10046
+      }
+    ]
   },
   {
     "number": 213,
@@ -1067,12 +1523,26 @@
   {
     "number": 214,
     "name": "Heracross",
-    "types": ["bug", "fighting"]
+    "types": ["bug", "fighting"],
+    "transformations": [
+      {
+        "name": "Mega Heracross",
+        "kind": "mega",
+        "spriteId": 10047
+      }
+    ]
   },
   {
     "number": 215,
     "name": "Sneasel",
-    "types": ["dark", "ice"]
+    "types": ["dark", "ice"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Sneasel",
+        "region": "Hisui",
+        "spriteId": 10235
+      }
+    ]
   },
   {
     "number": 216,
@@ -1107,7 +1577,14 @@
   {
     "number": 222,
     "name": "Corsola",
-    "types": ["water", "rock"]
+    "types": ["water", "rock"],
+    "regionalForms": [
+      {
+        "name": "Galarian Corsola",
+        "region": "Galar",
+        "spriteId": 10173
+      }
+    ]
   },
   {
     "number": 223,
@@ -1132,7 +1609,14 @@
   {
     "number": 227,
     "name": "Skarmory",
-    "types": ["steel", "flying"]
+    "types": ["steel", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Skarmory",
+        "kind": "mega",
+        "spriteId": 10284
+      }
+    ]
   },
   {
     "number": 228,
@@ -1142,7 +1626,14 @@
   {
     "number": 229,
     "name": "Houndoom",
-    "types": ["dark", "fire"]
+    "types": ["dark", "fire"],
+    "transformations": [
+      {
+        "name": "Mega Houndoom",
+        "kind": "mega",
+        "spriteId": 10048
+      }
+    ]
   },
   {
     "number": 230,
@@ -1237,7 +1728,14 @@
   {
     "number": 248,
     "name": "Tyranitar",
-    "types": ["rock", "dark"]
+    "types": ["rock", "dark"],
+    "transformations": [
+      {
+        "name": "Mega Tyranitar",
+        "kind": "mega",
+        "spriteId": 10049
+      }
+    ]
   },
   {
     "number": 249,
@@ -1267,7 +1765,14 @@
   {
     "number": 254,
     "name": "Sceptile",
-    "types": ["grass"]
+    "types": ["grass"],
+    "transformations": [
+      {
+        "name": "Mega Sceptile",
+        "kind": "mega",
+        "spriteId": 10065
+      }
+    ]
   },
   {
     "number": 255,
@@ -1282,7 +1787,14 @@
   {
     "number": 257,
     "name": "Blaziken",
-    "types": ["fire", "fighting"]
+    "types": ["fire", "fighting"],
+    "transformations": [
+      {
+        "name": "Mega Blaziken",
+        "kind": "mega",
+        "spriteId": 10050
+      }
+    ]
   },
   {
     "number": 258,
@@ -1297,7 +1809,14 @@
   {
     "number": 260,
     "name": "Swampert",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "transformations": [
+      {
+        "name": "Mega Swampert",
+        "kind": "mega",
+        "spriteId": 10064
+      }
+    ]
   },
   {
     "number": 261,
@@ -1312,12 +1831,26 @@
   {
     "number": 263,
     "name": "Zigzagoon",
-    "types": ["normal"]
+    "types": ["normal"],
+    "regionalForms": [
+      {
+        "name": "Galarian Zigzagoon",
+        "region": "Galar",
+        "spriteId": 10174
+      }
+    ]
   },
   {
     "number": 264,
     "name": "Linoone",
-    "types": ["normal"]
+    "types": ["normal"],
+    "regionalForms": [
+      {
+        "name": "Galarian Linoone",
+        "region": "Galar",
+        "spriteId": 10175
+      }
+    ]
   },
   {
     "number": 265,
@@ -1407,7 +1940,14 @@
   {
     "number": 282,
     "name": "Gardevoir",
-    "types": ["psychic", "fairy"]
+    "types": ["psychic", "fairy"],
+    "transformations": [
+      {
+        "name": "Mega Gardevoir",
+        "kind": "mega",
+        "spriteId": 10051
+      }
+    ]
   },
   {
     "number": 283,
@@ -1507,12 +2047,26 @@
   {
     "number": 302,
     "name": "Sableye",
-    "types": ["dark", "ghost"]
+    "types": ["dark", "ghost"],
+    "transformations": [
+      {
+        "name": "Mega Sableye",
+        "kind": "mega",
+        "spriteId": 10066
+      }
+    ]
   },
   {
     "number": 303,
     "name": "Mawile",
-    "types": ["steel", "fairy"]
+    "types": ["steel", "fairy"],
+    "transformations": [
+      {
+        "name": "Mega Mawile",
+        "kind": "mega",
+        "spriteId": 10052
+      }
+    ]
   },
   {
     "number": 304,
@@ -1527,7 +2081,14 @@
   {
     "number": 306,
     "name": "Aggron",
-    "types": ["steel", "rock"]
+    "types": ["steel", "rock"],
+    "transformations": [
+      {
+        "name": "Mega Aggron",
+        "kind": "mega",
+        "spriteId": 10053
+      }
+    ]
   },
   {
     "number": 307,
@@ -1537,7 +2098,14 @@
   {
     "number": 308,
     "name": "Medicham",
-    "types": ["fighting", "psychic"]
+    "types": ["fighting", "psychic"],
+    "transformations": [
+      {
+        "name": "Mega Medicham",
+        "kind": "mega",
+        "spriteId": 10054
+      }
+    ]
   },
   {
     "number": 309,
@@ -1547,7 +2115,14 @@
   {
     "number": 310,
     "name": "Manectric",
-    "types": ["electric"]
+    "types": ["electric"],
+    "transformations": [
+      {
+        "name": "Mega Manectric",
+        "kind": "mega",
+        "spriteId": 10055
+      }
+    ]
   },
   {
     "number": 311,
@@ -1592,7 +2167,14 @@
   {
     "number": 319,
     "name": "Sharpedo",
-    "types": ["water", "dark"]
+    "types": ["water", "dark"],
+    "transformations": [
+      {
+        "name": "Mega Sharpedo",
+        "kind": "mega",
+        "spriteId": 10070
+      }
+    ]
   },
   {
     "number": 320,
@@ -1612,7 +2194,14 @@
   {
     "number": 323,
     "name": "Camerupt",
-    "types": ["fire", "ground"]
+    "types": ["fire", "ground"],
+    "transformations": [
+      {
+        "name": "Mega Camerupt",
+        "kind": "mega",
+        "spriteId": 10087
+      }
+    ]
   },
   {
     "number": 324,
@@ -1667,7 +2256,14 @@
   {
     "number": 334,
     "name": "Altaria",
-    "types": ["dragon", "flying"]
+    "types": ["dragon", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Altaria",
+        "kind": "mega",
+        "spriteId": 10067
+      }
+    ]
   },
   {
     "number": 335,
@@ -1767,7 +2363,14 @@
   {
     "number": 354,
     "name": "Banette",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "transformations": [
+      {
+        "name": "Mega Banette",
+        "kind": "mega",
+        "spriteId": 10056
+      }
+    ]
   },
   {
     "number": 355,
@@ -1787,12 +2390,32 @@
   {
     "number": 358,
     "name": "Chimecho",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "transformations": [
+      {
+        "name": "Mega Chimecho",
+        "kind": "mega",
+        "spriteId": 10306
+      }
+    ]
   },
   {
     "number": 359,
     "name": "Absol",
-    "types": ["dark"]
+    "types": ["dark"],
+    "transformations": [
+      {
+        "name": "Mega Absol",
+        "kind": "mega",
+        "spriteId": 10057
+      },
+      {
+        "name": "Mega Absol Z",
+        "kind": "mega",
+        "form": "Z",
+        "spriteId": 10307
+      }
+    ]
   },
   {
     "number": 360,
@@ -1807,7 +2430,14 @@
   {
     "number": 362,
     "name": "Glalie",
-    "types": ["ice"]
+    "types": ["ice"],
+    "transformations": [
+      {
+        "name": "Mega Glalie",
+        "kind": "mega",
+        "spriteId": 10074
+      }
+    ]
   },
   {
     "number": 363,
@@ -1862,7 +2492,14 @@
   {
     "number": 373,
     "name": "Salamence",
-    "types": ["dragon", "flying"]
+    "types": ["dragon", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Salamence",
+        "kind": "mega",
+        "spriteId": 10089
+      }
+    ]
   },
   {
     "number": 374,
@@ -1877,7 +2514,14 @@
   {
     "number": 376,
     "name": "Metagross",
-    "types": ["steel", "psychic"]
+    "types": ["steel", "psychic"],
+    "transformations": [
+      {
+        "name": "Mega Metagross",
+        "kind": "mega",
+        "spriteId": 10076
+      }
+    ]
   },
   {
     "number": 377,
@@ -1897,12 +2541,26 @@
   {
     "number": 380,
     "name": "Latias",
-    "types": ["dragon", "psychic"]
+    "types": ["dragon", "psychic"],
+    "transformations": [
+      {
+        "name": "Mega Latias",
+        "kind": "mega",
+        "spriteId": 10062
+      }
+    ]
   },
   {
     "number": 381,
     "name": "Latios",
-    "types": ["dragon", "psychic"]
+    "types": ["dragon", "psychic"],
+    "transformations": [
+      {
+        "name": "Mega Latios",
+        "kind": "mega",
+        "spriteId": 10063
+      }
+    ]
   },
   {
     "number": 382,
@@ -1917,7 +2575,14 @@
   {
     "number": 384,
     "name": "Rayquaza",
-    "types": ["dragon", "flying"]
+    "types": ["dragon", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Rayquaza",
+        "kind": "mega",
+        "spriteId": 10079
+      }
+    ]
   },
   {
     "number": 385,
@@ -1987,7 +2652,14 @@
   {
     "number": 398,
     "name": "Staraptor",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Staraptor",
+        "kind": "mega",
+        "spriteId": 10308
+      }
+    ]
   },
   {
     "number": 399,
@@ -2137,7 +2809,14 @@
   {
     "number": 428,
     "name": "Lopunny",
-    "types": ["normal"]
+    "types": ["normal"],
+    "transformations": [
+      {
+        "name": "Mega Lopunny",
+        "kind": "mega",
+        "spriteId": 10088
+      }
+    ]
   },
   {
     "number": 429,
@@ -2222,7 +2901,20 @@
   {
     "number": 445,
     "name": "Garchomp",
-    "types": ["dragon", "ground"]
+    "types": ["dragon", "ground"],
+    "transformations": [
+      {
+        "name": "Mega Garchomp",
+        "kind": "mega",
+        "spriteId": 10058
+      },
+      {
+        "name": "Mega Garchomp Z",
+        "kind": "mega",
+        "form": "Z",
+        "spriteId": 10309
+      }
+    ]
   },
   {
     "number": 446,
@@ -2237,7 +2929,20 @@
   {
     "number": 448,
     "name": "Lucario",
-    "types": ["fighting", "steel"]
+    "types": ["fighting", "steel"],
+    "transformations": [
+      {
+        "name": "Mega Lucario",
+        "kind": "mega",
+        "spriteId": 10059
+      },
+      {
+        "name": "Mega Lucario Z",
+        "kind": "mega",
+        "form": "Z",
+        "spriteId": 10310
+      }
+    ]
   },
   {
     "number": 449,
@@ -2297,7 +3002,14 @@
   {
     "number": 460,
     "name": "Abomasnow",
-    "types": ["grass", "ice"]
+    "types": ["grass", "ice"],
+    "transformations": [
+      {
+        "name": "Mega Abomasnow",
+        "kind": "mega",
+        "spriteId": 10060
+      }
+    ]
   },
   {
     "number": 461,
@@ -2372,7 +3084,14 @@
   {
     "number": 475,
     "name": "Gallade",
-    "types": ["psychic", "fighting"]
+    "types": ["psychic", "fighting"],
+    "transformations": [
+      {
+        "name": "Mega Gallade",
+        "kind": "mega",
+        "spriteId": 10068
+      }
+    ]
   },
   {
     "number": 476,
@@ -2387,7 +3106,14 @@
   {
     "number": 478,
     "name": "Froslass",
-    "types": ["ice", "ghost"]
+    "types": ["ice", "ghost"],
+    "transformations": [
+      {
+        "name": "Mega Froslass",
+        "kind": "mega",
+        "spriteId": 10285
+      }
+    ]
   },
   {
     "number": 479,
@@ -2422,7 +3148,14 @@
   {
     "number": 485,
     "name": "Heatran",
-    "types": ["fire", "steel"]
+    "types": ["fire", "steel"],
+    "transformations": [
+      {
+        "name": "Mega Heatran",
+        "kind": "mega",
+        "spriteId": 10311
+      }
+    ]
   },
   {
     "number": 486,
@@ -2452,7 +3185,14 @@
   {
     "number": 491,
     "name": "Darkrai",
-    "types": ["dark"]
+    "types": ["dark"],
+    "transformations": [
+      {
+        "name": "Mega Darkrai",
+        "kind": "mega",
+        "spriteId": 10312
+      }
+    ]
   },
   {
     "number": 492,
@@ -2497,7 +3237,14 @@
   {
     "number": 500,
     "name": "Emboar",
-    "types": ["fire", "fighting"]
+    "types": ["fire", "fighting"],
+    "transformations": [
+      {
+        "name": "Mega Emboar",
+        "kind": "mega",
+        "spriteId": 10286
+      }
+    ]
   },
   {
     "number": 501,
@@ -2512,7 +3259,14 @@
   {
     "number": 503,
     "name": "Samurott",
-    "types": ["water"]
+    "types": ["water"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Samurott",
+        "region": "Hisui",
+        "spriteId": 10236
+      }
+    ]
   },
   {
     "number": 504,
@@ -2647,12 +3401,26 @@
   {
     "number": 530,
     "name": "Excadrill",
-    "types": ["ground", "steel"]
+    "types": ["ground", "steel"],
+    "transformations": [
+      {
+        "name": "Mega Excadrill",
+        "kind": "mega",
+        "spriteId": 10287
+      }
+    ]
   },
   {
     "number": 531,
     "name": "Audino",
-    "types": ["normal"]
+    "types": ["normal"],
+    "transformations": [
+      {
+        "name": "Mega Audino",
+        "kind": "mega",
+        "spriteId": 10069
+      }
+    ]
   },
   {
     "number": 532,
@@ -2722,7 +3490,14 @@
   {
     "number": 545,
     "name": "Scolipede",
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "transformations": [
+      {
+        "name": "Mega Scolipede",
+        "kind": "mega",
+        "spriteId": 10288
+      }
+    ]
   },
   {
     "number": 546,
@@ -2742,7 +3517,14 @@
   {
     "number": 549,
     "name": "Lilligant",
-    "types": ["grass"]
+    "types": ["grass"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Lilligant",
+        "region": "Hisui",
+        "spriteId": 10237
+      }
+    ]
   },
   {
     "number": 550,
@@ -2767,12 +3549,26 @@
   {
     "number": 554,
     "name": "Darumaka",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Galarian Darumaka",
+        "region": "Galar",
+        "spriteId": 10176
+      }
+    ]
   },
   {
     "number": 555,
     "name": "Darmanitan",
-    "types": ["fire"]
+    "types": ["fire"],
+    "regionalForms": [
+      {
+        "name": "Galarian Darmanitan",
+        "region": "Galar",
+        "spriteId": 10177
+      }
+    ]
   },
   {
     "number": 556,
@@ -2797,7 +3593,14 @@
   {
     "number": 560,
     "name": "Scrafty",
-    "types": ["dark", "fighting"]
+    "types": ["dark", "fighting"],
+    "transformations": [
+      {
+        "name": "Mega Scrafty",
+        "kind": "mega",
+        "spriteId": 10289
+      }
+    ]
   },
   {
     "number": 561,
@@ -2807,7 +3610,14 @@
   {
     "number": 562,
     "name": "Yamask",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "regionalForms": [
+      {
+        "name": "Galarian Yamask",
+        "region": "Galar",
+        "spriteId": 10179
+      }
+    ]
   },
   {
     "number": 563,
@@ -2847,12 +3657,26 @@
   {
     "number": 570,
     "name": "Zorua",
-    "types": ["dark"]
+    "types": ["dark"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Zorua",
+        "region": "Hisui",
+        "spriteId": 10238
+      }
+    ]
   },
   {
     "number": 571,
     "name": "Zoroark",
-    "types": ["dark"]
+    "types": ["dark"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Zoroark",
+        "region": "Hisui",
+        "spriteId": 10239
+      }
+    ]
   },
   {
     "number": 572,
@@ -3017,7 +3841,14 @@
   {
     "number": 604,
     "name": "Eelektross",
-    "types": ["electric"]
+    "types": ["electric"],
+    "transformations": [
+      {
+        "name": "Mega Eelektross",
+        "kind": "mega",
+        "spriteId": 10290
+      }
+    ]
   },
   {
     "number": 605,
@@ -3042,7 +3873,14 @@
   {
     "number": 609,
     "name": "Chandelure",
-    "types": ["ghost", "fire"]
+    "types": ["ghost", "fire"],
+    "transformations": [
+      {
+        "name": "Mega Chandelure",
+        "kind": "mega",
+        "spriteId": 10291
+      }
+    ]
   },
   {
     "number": 610,
@@ -3087,7 +3925,14 @@
   {
     "number": 618,
     "name": "Stunfisk",
-    "types": ["ground", "electric"]
+    "types": ["ground", "electric"],
+    "regionalForms": [
+      {
+        "name": "Galarian Stunfisk",
+        "region": "Galar",
+        "spriteId": 10180
+      }
+    ]
   },
   {
     "number": 619,
@@ -3112,7 +3957,14 @@
   {
     "number": 623,
     "name": "Golurk",
-    "types": ["ground", "ghost"]
+    "types": ["ground", "ghost"],
+    "transformations": [
+      {
+        "name": "Mega Golurk",
+        "kind": "mega",
+        "spriteId": 10313
+      }
+    ]
   },
   {
     "number": 624,
@@ -3137,7 +3989,14 @@
   {
     "number": 628,
     "name": "Braviary",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Braviary",
+        "region": "Hisui",
+        "spriteId": 10240
+      }
+    ]
   },
   {
     "number": 629,
@@ -3257,7 +4116,14 @@
   {
     "number": 652,
     "name": "Chesnaught",
-    "types": ["grass", "fighting"]
+    "types": ["grass", "fighting"],
+    "transformations": [
+      {
+        "name": "Mega Chesnaught",
+        "kind": "mega",
+        "spriteId": 10292
+      }
+    ]
   },
   {
     "number": 653,
@@ -3272,7 +4138,14 @@
   {
     "number": 655,
     "name": "Delphox",
-    "types": ["fire", "psychic"]
+    "types": ["fire", "psychic"],
+    "transformations": [
+      {
+        "name": "Mega Delphox",
+        "kind": "mega",
+        "spriteId": 10293
+      }
+    ]
   },
   {
     "number": 656,
@@ -3287,7 +4160,14 @@
   {
     "number": 658,
     "name": "Greninja",
-    "types": ["water", "dark"]
+    "types": ["water", "dark"],
+    "transformations": [
+      {
+        "name": "Mega Greninja",
+        "kind": "mega",
+        "spriteId": 10294
+      }
+    ]
   },
   {
     "number": 659,
@@ -3337,7 +4217,14 @@
   {
     "number": 668,
     "name": "Pyroar",
-    "types": ["fire", "normal"]
+    "types": ["fire", "normal"],
+    "transformations": [
+      {
+        "name": "Mega Pyroar",
+        "kind": "mega",
+        "spriteId": 10295
+      }
+    ]
   },
   {
     "number": 669,
@@ -3347,7 +4234,14 @@
   {
     "number": 670,
     "name": "Floette",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "transformations": [
+      {
+        "name": "Mega Floette",
+        "kind": "mega",
+        "spriteId": 10296
+      }
+    ]
   },
   {
     "number": 671,
@@ -3387,7 +4281,14 @@
   {
     "number": 678,
     "name": "Meowstic",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "transformations": [
+      {
+        "name": "Mega Meowstic",
+        "kind": "mega",
+        "spriteId": 10314
+      }
+    ]
   },
   {
     "number": 679,
@@ -3432,7 +4333,14 @@
   {
     "number": 687,
     "name": "Malamar",
-    "types": ["dark", "psychic"]
+    "types": ["dark", "psychic"],
+    "transformations": [
+      {
+        "name": "Mega Malamar",
+        "kind": "mega",
+        "spriteId": 10297
+      }
+    ]
   },
   {
     "number": 688,
@@ -3442,7 +4350,14 @@
   {
     "number": 689,
     "name": "Barbaracle",
-    "types": ["rock", "water"]
+    "types": ["rock", "water"],
+    "transformations": [
+      {
+        "name": "Mega Barbaracle",
+        "kind": "mega",
+        "spriteId": 10298
+      }
+    ]
   },
   {
     "number": 690,
@@ -3452,7 +4367,14 @@
   {
     "number": 691,
     "name": "Dragalge",
-    "types": ["poison", "dragon"]
+    "types": ["poison", "dragon"],
+    "transformations": [
+      {
+        "name": "Mega Dragalge",
+        "kind": "mega",
+        "spriteId": 10299
+      }
+    ]
   },
   {
     "number": 692,
@@ -3502,7 +4424,14 @@
   {
     "number": 701,
     "name": "Hawlucha",
-    "types": ["fighting", "flying"]
+    "types": ["fighting", "flying"],
+    "transformations": [
+      {
+        "name": "Mega Hawlucha",
+        "kind": "mega",
+        "spriteId": 10300
+      }
+    ]
   },
   {
     "number": 702,
@@ -3522,12 +4451,26 @@
   {
     "number": 705,
     "name": "Sliggoo",
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Sliggoo",
+        "region": "Hisui",
+        "spriteId": 10241
+      }
+    ]
   },
   {
     "number": 706,
     "name": "Goodra",
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Goodra",
+        "region": "Hisui",
+        "spriteId": 10242
+      }
+    ]
   },
   {
     "number": 707,
@@ -3562,7 +4505,14 @@
   {
     "number": 713,
     "name": "Avalugg",
-    "types": ["ice"]
+    "types": ["ice"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Avalugg",
+        "region": "Hisui",
+        "spriteId": 10243
+      }
+    ]
   },
   {
     "number": 714,
@@ -3587,12 +4537,25 @@
   {
     "number": 718,
     "name": "Zygarde",
-    "types": ["dragon", "ground"]
+    "types": ["dragon", "ground"],
+    "transformations": [
+      {
+        "name": "Mega Zygarde",
+        "kind": "mega"
+      }
+    ]
   },
   {
     "number": 719,
     "name": "Diancie",
-    "types": ["rock", "fairy"]
+    "types": ["rock", "fairy"],
+    "transformations": [
+      {
+        "name": "Mega Diancie",
+        "kind": "mega",
+        "spriteId": 10075
+      }
+    ]
   },
   {
     "number": 720,
@@ -3617,7 +4580,14 @@
   {
     "number": 724,
     "name": "Decidueye",
-    "types": ["grass", "ghost"]
+    "types": ["grass", "ghost"],
+    "regionalForms": [
+      {
+        "name": "Hisuian Decidueye",
+        "region": "Hisui",
+        "spriteId": 10244
+      }
+    ]
   },
   {
     "number": 725,
@@ -3697,7 +4667,14 @@
   {
     "number": 740,
     "name": "Crabominable",
-    "types": ["fighting", "ice"]
+    "types": ["fighting", "ice"],
+    "transformations": [
+      {
+        "name": "Mega Crabominable",
+        "kind": "mega",
+        "spriteId": 10315
+      }
+    ]
   },
   {
     "number": 741,
@@ -3837,7 +4814,14 @@
   {
     "number": 768,
     "name": "Golisopod",
-    "types": ["bug", "water"]
+    "types": ["bug", "water"],
+    "transformations": [
+      {
+        "name": "Mega Golisopod",
+        "kind": "mega",
+        "spriteId": 10316
+      }
+    ]
   },
   {
     "number": 769,
@@ -3897,7 +4881,14 @@
   {
     "number": 780,
     "name": "Drampa",
-    "types": ["normal", "dragon"]
+    "types": ["normal", "dragon"],
+    "transformations": [
+      {
+        "name": "Mega Drampa",
+        "kind": "mega",
+        "spriteId": 10302
+      }
+    ]
   },
   {
     "number": 781,
@@ -4002,7 +4993,14 @@
   {
     "number": 801,
     "name": "Magearna",
-    "types": ["steel", "fairy"]
+    "types": ["steel", "fairy"],
+    "transformations": [
+      {
+        "name": "Mega Magearna",
+        "kind": "mega",
+        "spriteId": 10317
+      }
+    ]
   },
   {
     "number": 802,
@@ -4032,7 +5030,14 @@
   {
     "number": 807,
     "name": "Zeraora",
-    "types": ["electric"]
+    "types": ["electric"],
+    "transformations": [
+      {
+        "name": "Mega Zeraora",
+        "kind": "mega",
+        "spriteId": 10319
+      }
+    ]
   },
   {
     "number": 808,
@@ -4347,7 +5352,14 @@
   {
     "number": 870,
     "name": "Falinks",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "transformations": [
+      {
+        "name": "Mega Falinks",
+        "kind": "mega",
+        "spriteId": 10303
+      }
+    ]
   },
   {
     "number": 871,
@@ -4757,7 +5769,14 @@
   {
     "number": 952,
     "name": "Scovillain",
-    "types": ["grass", "fire"]
+    "types": ["grass", "fire"],
+    "transformations": [
+      {
+        "name": "Mega Scovillain",
+        "kind": "mega",
+        "spriteId": 10320
+      }
+    ]
   },
   {
     "number": 953,
@@ -4847,7 +5866,14 @@
   {
     "number": 970,
     "name": "Glimmora",
-    "types": ["rock", "poison"]
+    "types": ["rock", "poison"],
+    "transformations": [
+      {
+        "name": "Mega Glimmora",
+        "kind": "mega",
+        "spriteId": 10321
+      }
+    ]
   },
   {
     "number": 971,
@@ -4887,7 +5913,14 @@
   {
     "number": 978,
     "name": "Tatsugiri",
-    "types": ["dragon", "water"]
+    "types": ["dragon", "water"],
+    "transformations": [
+      {
+        "name": "Mega Tatsugiri",
+        "kind": "mega",
+        "spriteId": 10322
+      }
+    ]
   },
   {
     "number": 979,
@@ -4987,7 +6020,14 @@
   {
     "number": 998,
     "name": "Baxcalibur",
-    "types": ["dragon", "ice"]
+    "types": ["dragon", "ice"],
+    "transformations": [
+      {
+        "name": "Mega Baxcalibur",
+        "kind": "mega",
+        "spriteId": 10325
+      }
+    ]
   },
   {
     "number": 999,
