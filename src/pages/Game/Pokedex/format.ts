@@ -17,6 +17,7 @@ const methodLabels: Record<EncounterMethod, string> = {
   trade: 'In-game trade',
   prize: 'Game Corner prize',
   battle: 'Battle only',
+  hyperspace: 'Hyperspace Lumiose',
 };
 
 export const dexNumber = (number: number) =>

@@ -27,7 +27,7 @@ describe('gameStats', () => {
   it('only counts sections that exist for Legends Z-A', () => {
     const stats = statsFor('legends-za');
 
-    expect(stats.pokedexSize).toBe(232);
+    expect(stats.pokedexSize).toBe(364);
     expect(stats.items).toBeUndefined();
     expect(stats.trainers).toBeUndefined();
     expect(stats.versionExclusives).toBeUndefined();

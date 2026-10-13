@@ -8,7 +8,8 @@ export type PokedexFilterId =
   | 'trade'
   | 'trade-only'
   | 'obtainable'
-  | 'mega';
+  | 'mega'
+  | 'dlc';
 
 export type PokedexFilter = { id: PokedexFilterId; label: string };
 
@@ -55,6 +56,7 @@ export const usePokedexSearch = (
       !entry.encounters.some((encounter) => encounter.games.includes(game.id)),
     obtainable: (entry) => entry.games.includes(game.id),
     mega: (entry) => !!entry.megas?.length,
+    dlc: (entry) => !!entry.dlc,
   };
 
   const filters: Array<PokedexFilter> = [
@@ -75,6 +77,9 @@ export const usePokedexSearch = (
       : []),
     ...(entries.some((entry) => entry.megas?.length)
       ? [{ id: 'mega' as const, label: 'Mega Evolution' }]
+      : []),
+    ...(entries.some((entry) => entry.dlc)
+      ? [{ id: 'dlc' as const, label: 'Mega Dimension' }]
       : []),
   ];
 

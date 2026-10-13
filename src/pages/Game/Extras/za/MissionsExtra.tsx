@@ -21,7 +21,7 @@ export const MissionsExtra = ({ game, region }: ExtraContentProps) => {
   const matches = (mission: Mission) =>
     !needle ||
     mission.title.toLowerCase().includes(needle) ||
-    String(mission.number) === needle;
+    String(mission.number ?? mission.label?.toLowerCase()) === needle;
   const found = missions.filter(matches).length;
 
   const toggle = (id: string) =>
@@ -118,9 +118,9 @@ const MissionRow = ({
         onClick={onToggle}
         className="flex w-full items-center gap-3 px-3 py-2.5 text-left text-[13px] hover:bg-muted/50"
       >
-        {mission.number !== undefined && (
-          <span className="w-7 flex-none text-xs text-muted-foreground tabular-nums">
-            {mission.number}
+        {(mission.number ?? mission.label) !== undefined && (
+          <span className="w-8 flex-none text-xs text-muted-foreground tabular-nums">
+            {mission.number ?? mission.label}
           </span>
         )}
         <span className="flex-1 font-medium">{mission.title}</span>

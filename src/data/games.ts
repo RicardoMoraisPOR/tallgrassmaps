@@ -160,7 +160,7 @@ export const games: Array<Game> = [
     wiki: 'Pokémon_Legends:_Z-A',
     sprites: {
       set: 'legends-za',
-      count: 870,
+      count: 998,
       pixelated: false,
       extension: 'webp',
     },

@@ -19,6 +19,7 @@ const LISTED: Array<EncounterMethod> = [
   'trade',
   'prize',
   'battle',
+  'hyperspace',
 ];
 
 export type EncounterRowData = { entry: PokedexEntry; encounter: Encounter };

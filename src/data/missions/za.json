@@ -299,56 +299,56 @@
     "group": "Side missions",
     "number": 1,
     "title": "A Big Ol' Bunnelby",
-    "description": "Go to the alley to find a giant Bunnelby."
+    "description": "Meet the requester at the spot where he saw a giant Bunnelby."
   },
   {
     "id": "side-2",
     "group": "Side missions",
     "number": 2,
-    "title": "A Use for an Evolution Stone!",
-    "description": "Trade a Pikachu for Heracross."
+    "title": "A Use for an Evolution Stone",
+    "description": "Give a trainer a Pikachu for a Thunder Stone, in exchange for her Heracross."
   },
   {
     "id": "side-3",
     "group": "Side missions",
     "number": 3,
     "title": "Sableye in the Cemetery",
-    "description": "Retrieve a ring from the Dormez Bien Cemetery."
+    "description": "Retrieve an item the requester dropped in the now-wild cemetery."
   },
   {
     "id": "side-4",
     "group": "Side missions",
     "number": 4,
     "title": "A Break Time Battle",
-    "description": "Battle a worker on break."
+    "description": "Battle a worker on break so he'll restart the Holovator."
   },
   {
     "id": "side-5",
     "group": "Side missions",
     "number": 5,
-    "title": "I'd Like to See an Ekans!",
-    "description": "Catch and show an Ekans."
+    "title": "I'd Like to See an Ekans",
+    "description": "Catch an Ekans and show it to a young girl."
   },
   {
     "id": "side-6",
     "group": "Side missions",
     "number": 6,
     "title": "Long-Range Moves Have Style",
-    "description": "Battle Distan."
+    "description": "Battle Distan to test his long-range strategy."
   },
   {
     "id": "side-7",
     "group": "Side missions",
     "number": 7,
     "title": "A Feisty Chespin",
-    "description": "Defeat Chespin and receive it."
+    "description": "Remove a wild Chespin blocking a taxi cab."
   },
   {
     "id": "side-8",
     "group": "Side missions",
     "number": 8,
     "title": "Get Well, Fennekin",
-    "description": "Get a Revitalizing Twig and receive Fennekin.",
+    "description": "Find a way to help a listless Fennekin that refuses food.",
     "location": "wild-zone-5"
   },
   {
@@ -356,63 +356,63 @@
     "group": "Side missions",
     "number": 9,
     "title": "A Challenge from Froakie",
-    "description": "Beat Froakie's scaffolding course time and receive Froakie."
+    "description": "Beat a Froakie's record time on a scaffolding course."
   },
   {
     "id": "side-10",
     "group": "Side missions",
     "number": 10,
     "title": "Skiddo's Fragrant Leaves",
-    "description": "Show a Skiddo."
+    "description": "Choose the scent of a perfume made from Skiddo leaves."
   },
   {
     "id": "side-11",
     "group": "Side missions",
     "number": 11,
     "title": "The Kakuna Master",
-    "description": "Battle a young Kakuna trainer."
+    "description": "Battle a girl who specializes in Kakuna."
   },
   {
     "id": "side-12",
     "group": "Side missions",
     "number": 12,
     "title": "The Many Flowers of Flabébé",
-    "description": "Show all five Flabébé forms."
+    "description": "Collect every flower color a Flabébé can have for a hairstylist."
   },
   {
     "id": "side-13",
     "group": "Side missions",
     "number": 13,
     "title": "Stumped at the Fountain",
-    "description": "Destroy the brambles by the fountain with moves."
+    "description": "Clear the brambles that ruined an artist's fountain scene."
   },
   {
     "id": "side-14",
     "group": "Side missions",
     "number": 14,
     "title": "Slurpuff's Café Visit",
-    "description": "Take Slurpuff to Café Soleil."
+    "description": "Take a grumpy Slurpuff to Café Soleil until it's satisfied."
   },
   {
     "id": "side-15",
     "group": "Side missions",
     "number": 15,
     "title": "A Sensitive Audino",
-    "description": "Battle the requester's Audino."
+    "description": "Battle to calm an Audino that is acting strangely."
   },
   {
     "id": "side-16",
     "group": "Side missions",
     "number": 16,
     "title": "The Budew Show",
-    "description": "Join a Budew showcase."
+    "description": "Bring a Budew to an event showcase."
   },
   {
     "id": "side-17",
     "group": "Side missions",
     "number": 17,
-    "title": "A Shiny Mareep?",
-    "description": "Find a Shiny Mareep.",
+    "title": "A Shiny Mareep",
+    "description": "Check whether a shiny Mareep really appeared in Wild Zone 1.",
     "location": "wild-zone-1"
   },
   {
@@ -420,308 +420,322 @@
     "group": "Side missions",
     "number": 18,
     "title": "A Pan-tastic Pot of Tea",
-    "description": "Bring Pansage, Pansear and Panpour."
+    "description": "Find Pansage, Pansear and Panpour and bring them to the requester."
   },
   {
     "id": "side-19",
     "group": "Side missions",
     "number": 19,
     "title": "Poisonous, Paralyzing Strategies",
-    "description": "Battle two requesters."
+    "description": "Test which status condition is stronger in battle."
   },
   {
     "id": "side-20",
     "group": "Side missions",
     "number": 20,
     "title": "A Berry Clever Plan",
-    "description": "Battle a requester who uses held Berries."
+    "description": "Battle a trainer whose Pokémon hold Berries."
   },
   {
     "id": "side-21",
     "group": "Side missions",
     "number": 21,
     "title": "Spewpa in the Museum",
-    "description": "Find 12 Spewpa and receive one."
+    "description": "Find all 12 hidden Spewpa in the museum."
   },
   {
     "id": "side-22",
     "group": "Side missions",
     "number": 22,
     "title": "A Call from Mable",
-    "description": "Visit the Research Lab and choose a Pokémon."
+    "description": "Go to the Pokémon Research Lab as Mable requested."
   },
   {
     "id": "side-23",
     "group": "Side missions",
     "number": 23,
     "title": "Underneath the Holovator",
-    "description": "Chase away a Pokémon near a Holovator."
+    "description": "Get a Pokémon living under a Holovator to move."
   },
   {
     "id": "side-24",
     "group": "Side missions",
     "number": 24,
     "title": "An Abra Playmate",
-    "description": "Trade Abra for Riolu."
+    "description": "Provide an Abra to play with the requester, in exchange for his Riolu."
   },
   {
     "id": "side-25",
     "group": "Side missions",
     "number": 25,
     "title": "Trubblesome Patrons",
-    "description": "Move Trubbish from Café Pokémon-Amie to the drop-off."
+    "description": "Relocate the wild Trubbish gathering at Café Pokémon-Amie."
   },
   {
     "id": "side-26",
     "group": "Side missions",
     "number": 26,
     "title": "Burn, Litleo, Burn",
-    "description": "Battle a requester."
+    "description": "Battle Litleo to fire up its flame for a restaurant."
   },
   {
     "id": "side-27",
     "group": "Side missions",
     "number": 27,
     "title": "Restored from a Fossil",
-    "description": "Buy a Sail or Jaw Fossil and give it to the requester."
+    "description": "Buy a Jaw Fossil or Sail Fossil from the Stone Emporium for a researcher."
   },
   {
     "id": "side-28",
     "group": "Side missions",
     "number": 28,
-    "title": "Who Says Normal Is Weak?",
-    "description": "Battle a requester."
+    "title": "Who Says Normal Is Weak",
+    "description": "Show what Normal types can do in battle."
   },
   {
     "id": "side-29",
     "group": "Side missions",
     "number": 29,
     "title": "Full Course of Battles: One Star",
-    "description": "Complete the course at Restaurant Le Nah."
+    "description": "Finish the one-star battle course at Restaurant Le Nah without healing mid-course."
   },
   {
     "id": "side-30",
     "group": "Side missions",
     "number": 30,
-    "title": "Show Me a Mega Camerupt!",
-    "description": "Mega Evolve Camerupt during a battle."
+    "title": "Show Me a Mega Camerupt",
+    "description": "Mega Evolve a Camerupt in battle for a designer."
   },
   {
     "id": "side-31",
     "group": "Side missions",
     "number": 31,
-    "title": "Show Me a Mega Sableye!",
-    "description": "Mega Evolve Sableye during a battle."
+    "title": "Show Me a Mega Sableye",
+    "description": "Mega Evolve a Sableye in battle for a designer."
   },
   {
     "id": "side-32",
     "group": "Side missions",
     "number": 32,
-    "title": "Show Me a Mega Medicham!",
-    "description": "Mega Evolve Medicham during a battle."
+    "title": "Show Me a Mega Medicham",
+    "description": "Mega Evolve a Medicham in battle for a designer."
   },
   {
     "id": "side-33",
     "group": "Side missions",
     "number": 33,
-    "title": "Who Has the Bigger Magikarp?",
-    "description": "Find a Magikarp bigger than XL."
+    "title": "Who Has the Bigger Magikarp",
+    "description": "Find a Magikarp larger than XL size."
   },
   {
     "id": "side-34",
     "group": "Side missions",
     "number": 34,
     "title": "Moves That Put Up a Wall",
-    "description": "Battle a requester."
+    "description": "Battle a trainer who uses barrier moves."
+  },
+  {
+    "id": "side-35",
+    "group": "Side missions",
+    "number": 35,
+    "title": "Guidance from a Yoga Master",
+    "description": "Find the legendary yoga master to help a Meditite focus."
   },
   {
     "id": "side-36",
     "group": "Side missions",
     "number": 36,
     "title": "Some Friendly Competition",
-    "description": "Battle a requester."
+    "description": "Battle a Pokémon raised with high affection."
   },
   {
     "id": "side-37",
     "group": "Side missions",
     "number": 37,
     "title": "Binacle by the Boatload",
-    "description": "Chase away the swarming Binacle."
+    "description": "Drive off the Binacle swarming a prized boat."
   },
   {
     "id": "side-38",
     "group": "Side missions",
     "number": 38,
     "title": "Chasing Status",
-    "description": "Battle two requesters."
+    "description": "Battle two trainers skilled in status moves."
   },
   {
     "id": "side-39",
     "group": "Side missions",
     "number": 39,
     "title": "Slowpoke for Slowpoke",
-    "description": "Trade Slowpoke for Galarian Slowpoke."
+    "description": "Trade your Slowpoke for a Galarian Slowpoke."
   },
   {
     "id": "side-40",
     "group": "Side missions",
     "number": 40,
     "title": "A Holovator Without Power",
-    "description": "Bring a drink and shock the Holovator."
+    "description": "Get electricity to a Holovator that lacks power."
   },
   {
     "id": "side-41",
     "group": "Side missions",
     "number": 41,
     "title": "Watch Out for Traps",
-    "description": "Battle a requester."
+    "description": "Battle to experience trap moves firsthand."
   },
   {
     "id": "side-42",
     "group": "Side missions",
     "number": 42,
     "title": "A Fan of Fairy Types",
-    "description": "Battle a requester."
+    "description": "Battle a Fairy-type fan with your favorite Pokémon."
   },
   {
     "id": "side-43",
     "group": "Side missions",
     "number": 43,
     "title": "A Big Weedle Problem",
-    "description": "Catch the daytime alpha Weedle."
+    "description": "Catch an alpha Weedle with a Poké Ball instead of chasing it away."
+  },
+  {
+    "id": "side-44",
+    "group": "Side missions",
+    "number": 44,
+    "title": "Vanillite's Fragrant Snow",
+    "description": "Choose the scent of a perfume made with Vanillite snow."
   },
   {
     "id": "side-45",
     "group": "Side missions",
     "number": 45,
     "title": "On Maintenance Duty",
-    "description": "Battle a requester."
+    "description": "Bring a drink to a thirsty maintenance worker."
   },
   {
     "id": "side-46",
     "group": "Side missions",
     "number": 46,
     "title": "Pidgeot Soaring High",
-    "description": "Battle a requester."
+    "description": "Hear out a courier's enthusiasm for Pidgeot and its move Fly."
   },
   {
     "id": "side-47",
     "group": "Side missions",
     "number": 47,
     "title": "Becoming a Furfrou Trimmer",
-    "description": "Hit the Substitute doll with Slash."
+    "description": "Teach Scyther a move to help a Furfrou salon owner."
   },
   {
     "id": "side-48",
     "group": "Side missions",
     "number": 48,
     "title": "All Tied Up",
-    "description": "Free a man from webbing with a high-powered move."
+    "description": "Use a move to get a man down from a tree."
   },
   {
     "id": "side-49",
     "group": "Side missions",
     "number": 49,
     "title": "Hit and Heal",
-    "description": "Battle a requester."
+    "description": "Battle the requester to see healing-by-damage moves in action."
   },
   {
     "id": "side-50",
     "group": "Side missions",
     "number": 50,
     "title": "Just a Few Questions for You...",
-    "description": "Answer an officer's questions."
+    "description": "Answer a police officer's questions after meeting a Goomy at night."
   },
   {
     "id": "side-51",
     "group": "Side missions",
     "number": 51,
     "title": "Floette Frolicking with Flowers",
-    "description": "Battle five Floette at once."
+    "description": "Battle a hairstylist's five Floette at once."
   },
   {
     "id": "side-52",
     "group": "Side missions",
     "number": 52,
     "title": "Numel Frozen Solid",
-    "description": "Thaw Numel with a Fire-type move."
+    "description": "Thaw a frozen Numel with a strong Fire-type attack."
   },
   {
     "id": "side-53",
     "group": "Side missions",
     "number": 53,
     "title": "The Most Electrifying Eelektrik",
-    "description": "Battle a requester."
+    "description": "Check whether a raised Eelektrik can evolve into Eelektross."
   },
   {
     "id": "side-54",
     "group": "Side missions",
     "number": 54,
-    "title": "Get ENERGIZED!",
-    "description": "Battle a requester."
+    "title": "Get ENERGIZED",
+    "description": "Face a requester who relies on Focus Energy."
   },
   {
     "id": "side-55",
     "group": "Side missions",
     "number": 55,
-    "title": "Carvanha, Menace of the Deep!",
-    "description": "Add Carvanha for filming."
+    "title": "Carvanha, Menace of the Deep",
+    "description": "Lend a Carvanha to a film director."
   },
   {
     "id": "side-56",
     "group": "Side missions",
     "number": 56,
-    "title": "We'll Just Muscle Our Way Through!",
-    "description": "Hit a Holovator with a Fighting-type move."
+    "title": "We'll Just Muscle Our Way Through",
+    "description": "Hit a Holovator with a Fighting-type physical move."
   },
   {
     "id": "side-57",
     "group": "Side missions",
     "number": 57,
     "title": "The Camerupt Entrepreneur",
-    "description": "Meet in the sewers, then battle."
+    "description": "Find out what business scheme the requester has in mind."
   },
   {
     "id": "side-58",
     "group": "Side missions",
     "number": 58,
     "title": "Better to Detect Than to Protect",
-    "description": "Battle a requester."
+    "description": "Learn the difference between Protect and Detect."
   },
   {
     "id": "side-59",
     "group": "Side missions",
     "number": 59,
-    "title": "A Rematch with Hawlucha!",
-    "description": "Win a rematch against Hawlucha."
+    "title": "A Rematch with Hawlucha",
+    "description": "Face Hawlucha in a rematch."
   },
   {
     "id": "side-60",
     "group": "Side missions",
     "number": 60,
     "title": "Full Course of Battles: Two Stars",
-    "description": "Complete the course at Restaurant Le Yeah."
+    "description": "Finish the two-star battle course at Restaurant Le Yeah."
   },
   {
     "id": "side-61",
     "group": "Side missions",
     "number": 61,
     "title": "My Favorite Holovator",
-    "description": "Battle a grunt."
+    "description": "Defeat a Rust Syndicate grunt guarding his favorite Holovator."
   },
   {
     "id": "side-62",
     "group": "Side missions",
     "number": 62,
     "title": "Becoming a Pro Furfrou Trimmer",
-    "description": "Hit the Substitute doll with Razor Leaf."
+    "description": "Teach Scyther another move for a Furfrou stylist."
   },
   {
     "id": "side-63",
     "group": "Side missions",
     "number": 63,
     "title": "An Extra-Large Gogoat",
-    "description": "Give an XL Gogoat."
+    "description": "Find an extra-large Gogoat for a courier."
   },
   {
     "id": "side-64",
@@ -735,56 +749,56 @@
     "group": "Side missions",
     "number": 65,
     "title": "Apartment Block Eeriness",
-    "description": "Investigate the rooftop and chase a Dedenne."
+    "description": "Investigate strange noises from a haunted apartment rooftop."
   },
   {
     "id": "side-66",
     "group": "Side missions",
     "number": 66,
     "title": "Investigating with Shuppet",
-    "description": "Give a Shuppet to an officer."
+    "description": "Bring a Shuppet to a police officer."
   },
   {
     "id": "side-67",
     "group": "Side missions",
     "number": 67,
     "title": "Sylveon the Soother",
-    "description": "Settle five fights near Coulant Waterway."
+    "description": "Use Sylveon to end nearby squabbles peacefully."
   },
   {
     "id": "side-68",
     "group": "Side missions",
     "number": 68,
     "title": "The Best Use for Leftovers",
-    "description": "Battle a waitress."
+    "description": "Battle a waitress whose Pokémon holds Leftovers."
   },
   {
     "id": "side-69",
     "group": "Side missions",
     "number": 69,
     "title": "A Sky Battle, for Old Times' Sake",
-    "description": "Battle using only Flying types."
+    "description": "Battle using only Flying-type Pokémon."
   },
   {
     "id": "side-70",
     "group": "Side missions",
     "number": 70,
-    "title": "Who's the Strongest, Huh?!",
-    "description": "Battle grunts using one Pokémon each."
+    "title": "Who's the Strongest, Huh",
+    "description": "Settle a dispute among Rust Syndicate grunts with a battle."
   },
   {
     "id": "side-71",
     "group": "Side missions",
     "number": 71,
     "title": "The Burning Gaze of Watchog",
-    "description": "Chase away the alpha Watchog."
+    "description": "Defeat the alpha Watchog to make the Holovator safe."
   },
   {
     "id": "side-72",
     "group": "Side missions",
     "number": 72,
-    "title": "Find My Galarian Stunfisk!",
-    "description": "Find a disguised Stunfisk.",
+    "title": "Find My Galarian Stunfisk",
+    "description": "Find the disguised Stunfisk in Wild Zone 11.",
     "location": "wild-zone-11"
   },
   {
@@ -792,320 +806,1018 @@
     "group": "Side missions",
     "number": 73,
     "title": "Full Course of Battles: High Rolling",
-    "description": "Complete the course at Sushi High Roller."
+    "description": "Finish the battle course with Sushi High Roller."
   },
   {
     "id": "side-74",
     "group": "Side missions",
     "number": 74,
     "title": "Delibird Gets in a Flap",
-    "description": "Chase away a Garbodor."
+    "description": "Drive off the Garbodor menacing a Delibird."
   },
   {
     "id": "side-75",
     "group": "Side missions",
     "number": 75,
     "title": "Some Unusual Pokémon",
-    "description": "Battle a requester."
+    "description": "Battle a girl with rare Pokémon."
   },
   {
     "id": "side-76",
     "group": "Side missions",
     "number": 76,
-    "title": "Let's Learn About Mega Evolution!",
-    "description": "Follow a requester and teach the children."
+    "title": "Let's Learn About Mega Evolution",
+    "description": "Teach schoolchildren about Mega Evolution."
   },
   {
     "id": "side-77",
     "group": "Side missions",
     "number": 77,
     "title": "Catch Mawile If You Can",
-    "description": "Catch the uncatchable Mawile."
+    "description": "Catch the Mawile that resists every Poké Ball."
   },
   {
     "id": "side-78",
     "group": "Side missions",
     "number": 78,
     "title": "Inkay's Fragrant Ink",
-    "description": "Show an Inkay."
+    "description": "Choose the scent of an ink-based perfume."
   },
   {
     "id": "side-79",
     "group": "Side missions",
     "number": 79,
     "title": "A Fateful Swing of a Metronome",
-    "description": "Battle a requester."
+    "description": "Test your luck with Metronome in battle."
   },
   {
     "id": "side-80",
     "group": "Side missions",
     "number": 80,
     "title": "A Shocking Territorial Dispute",
-    "description": "Chase away two Electric-type Pokémon."
+    "description": "Move Electric types standing off near a Holovator."
   },
   {
     "id": "side-81",
     "group": "Side missions",
     "number": 81,
     "title": "Pancham the Courier",
-    "description": "Battle a rude tourist."
+    "description": "Help a courier and Pancham with a difficult customer."
   },
   {
     "id": "side-82",
     "group": "Side missions",
     "number": 82,
     "title": "Clauncher Launching Water Gun",
-    "description": "Use Water Gun on the sludge."
+    "description": "Have a Clauncher wash away sludge with Water Gun."
   },
   {
     "id": "side-83",
     "group": "Side missions",
     "number": 83,
     "title": "Honedge's Cutting Edge",
-    "description": "Battle using a single Pupitar."
+    "description": "Battle a Pupitar to help a Honedge feel better."
   },
   {
     "id": "side-84",
     "group": "Side missions",
     "number": 84,
-    "title": "Strike First to Make 'Em Flinch!",
-    "description": "Battle Flynn."
+    "title": "Strike First to Make 'Em Flinch",
+    "description": "Battle Flynn, who uses flinch-inducing moves."
   },
   {
     "id": "side-85",
     "group": "Side missions",
     "number": 85,
-    "title": "Follow Litwick!",
-    "description": "Follow Litwick and find the sister in the sewer."
+    "title": "Follow Litwick",
+    "description": "Follow the Litwick to find the requester's missing sister."
+  },
+  {
+    "id": "side-86",
+    "group": "Side missions",
+    "number": 86,
+    "title": "Who Messed Up the Garden",
+    "description": "Find the culprit behind the Rust Syndicate garden hole."
+  },
+  {
+    "id": "side-87",
+    "group": "Side missions",
+    "number": 87,
+    "title": "Becoming a Peerless Furfrou Trimmer",
+    "description": "Teach Scyther yet another move for a Furfrou stylist."
+  },
+  {
+    "id": "side-88",
+    "group": "Side missions",
+    "number": 88,
+    "title": "The Nervous Novice Cabbie",
+    "description": "Be the first fare for a new taxi driver."
+  },
+  {
+    "id": "side-89",
+    "group": "Side missions",
+    "number": 89,
+    "title": "Up, Up, and Away After Emolga",
+    "description": "Use Roto-Glide to chase an Emolga and recover stolen Berries."
+  },
+  {
+    "id": "side-90",
+    "group": "Side missions",
+    "number": 90,
+    "title": "Froslass's Unfinished Business",
+    "description": "Follow a Froslass that seems to want you to come along."
+  },
+  {
+    "id": "side-91",
+    "group": "Side missions",
+    "number": 91,
+    "title": "Dragon You into Battle",
+    "description": "Battle an SBC member who favors Dragon types."
+  },
+  {
+    "id": "side-92",
+    "group": "Side missions",
+    "number": 92,
+    "title": "The Beldum Blockade",
+    "description": "Clear wild Beldum from a repaired Holovator."
+  },
+  {
+    "id": "side-93",
+    "group": "Side missions",
+    "number": 93,
+    "title": "Finding a Place for Heliolisk",
+    "description": "Find a spot that meets a man's conditions for his Heliolisk."
   },
   {
     "id": "side-94",
     "group": "Side missions",
     "number": 94,
     "title": "Full Course of Battles: Three Stars",
-    "description": "Complete the course at Restaurant Le Wow."
+    "description": "Finish the three-star battle course at Restaurant Le Wow."
   },
   {
-    "id": "side-extra-84",
+    "id": "side-95",
     "group": "Side missions",
-    "title": "Vanillite's Fragrant Snow",
-    "description": "Show a Vanillite."
-  },
-  {
-    "id": "side-extra-85",
-    "group": "Side missions",
-    "title": "Becoming a Peerless Furfrou Trimmer",
-    "description": "Hit the Substitute doll with Psycho Cut."
-  },
-  {
-    "id": "side-extra-86",
-    "group": "Side missions",
-    "title": "Let Us Battle...Artistically",
-    "description": "Battle a requester."
-  },
-  {
-    "id": "side-extra-87",
-    "group": "Side missions",
-    "title": "Pleasing Aron's Palate",
-    "description": "Hit scrap metal with Sludge Bomb."
-  },
-  {
-    "id": "side-extra-88",
-    "group": "Side missions",
-    "title": "The Nervous Novice Cabbie",
-    "description": "Become a taxi's first fare."
-  },
-  {
-    "id": "side-extra-89",
-    "group": "Side missions",
-    "title": "The Beldum Blockade",
-    "description": "Chase away four Beldum."
-  },
-  {
-    "id": "side-extra-90",
-    "group": "Side missions",
-    "title": "Facing the Furfrou League",
-    "description": "Defeat the Furfrou League Elite Four and Champion."
-  },
-  {
-    "id": "side-extra-91",
-    "group": "Side missions",
-    "title": "Dragon You into Battle",
-    "description": "Battle an SBC member."
-  },
-  {
-    "id": "side-extra-92",
-    "group": "Side missions",
-    "title": "A Chilling Challenge",
-    "description": "Battle Glace."
-  },
-  {
-    "id": "side-extra-93",
-    "group": "Side missions",
-    "title": "Abuzz About Bug Types",
-    "description": "Battle Constance."
-  },
-  {
-    "id": "side-extra-94",
-    "group": "Side missions",
+    "number": 95,
     "title": "A Haunting Experience",
-    "description": "Battle using only Ghost types."
+    "description": "Battle using only Ghost-type Pokémon."
   },
   {
-    "id": "side-extra-95",
+    "id": "side-96",
     "group": "Side missions",
-    "title": "Steadfast as Steel",
-    "description": "Battle a grunt."
+    "number": 96,
+    "title": "Let Us Battle...Artistically",
+    "description": "Battle an artistic trainer to see what artistry means in battle."
   },
   {
-    "id": "side-extra-96",
+    "id": "side-97",
     "group": "Side missions",
-    "title": "Wondrous Self-Healing Pokémon",
-    "description": "Battle a requester."
+    "number": 97,
+    "title": "Stop the Runaway Whirlipede",
+    "description": "Chase down and battle the runaway Whirlipede."
   },
   {
-    "id": "side-extra-97",
+    "id": "side-98",
     "group": "Side missions",
-    "title": "A Tune That Beckons Doom",
-    "description": "Battle a requester."
-  },
-  {
-    "id": "side-extra-98",
-    "group": "Side missions",
-    "title": "The World's Greatest Pikachu!",
-    "description": "Battle with a single Pikachu."
-  },
-  {
-    "id": "side-extra-99",
-    "group": "Side missions",
-    "title": "Alola, Raichu!",
-    "description": "Battle with a single Raichu, then trade Raichu."
-  },
-  {
-    "id": "side-extra-100",
-    "group": "Side missions",
-    "title": "My Adorable, Adorable Babies",
-    "description": "Battle a requester."
-  },
-  {
-    "id": "side-extra-101",
-    "group": "Side missions",
-    "title": "Trevenant, the Haunted Elder Tree!",
-    "description": "Add Trevenant for night filming."
-  },
-  {
-    "id": "side-extra-102",
-    "group": "Side missions",
-    "title": "Tyrantrum's Furious Jaws!",
-    "description": "Add Tyrantrum for filming."
-  },
-  {
-    "id": "side-extra-103",
-    "group": "Side missions",
-    "title": "Le Super-Tournoi de Jacinthe O",
-    "description": "Win every round against Jacinthe."
-  },
-  {
-    "id": "side-extra-104",
-    "group": "Side missions",
-    "title": "Who Messed Up the Garden?",
-    "description": "Find the garden vandal and report back."
-  },
-  {
-    "id": "side-extra-105",
-    "group": "Side missions",
+    "number": 98,
     "title": "Jumbo Variety Pumpkaboo",
-    "description": "Give a Jumbo Pumpkaboo."
+    "description": "Obtain a Jumbo Variety Pumpkaboo."
   },
   {
-    "id": "side-extra-106",
+    "id": "side-99",
     "group": "Side missions",
-    "title": "Klefki's Lost Key",
-    "description": "Retrace the requester's steps."
+    "number": 99,
+    "title": "Pleasing Aron's Palate",
+    "description": "Find seasoning to make wild Aron's meals more appealing."
   },
   {
-    "id": "side-extra-107",
+    "id": "side-100",
     "group": "Side missions",
-    "title": "Guidance from a Yoga Master",
-    "description": "Locate the yoga master."
-  },
-  {
-    "id": "side-extra-108",
-    "group": "Side missions",
-    "title": "Stop the Runaway Whirlipede!",
-    "description": "Battle the runaway Whirlipede."
-  },
-  {
-    "id": "side-extra-109",
-    "group": "Side missions",
-    "title": "Froslass's Unfinished Business",
-    "description": "Follow the Froslass."
-  },
-  {
-    "id": "side-extra-110",
-    "group": "Side missions",
+    "number": 100,
     "title": "Starmie on High",
-    "description": "Add Starmie and meet at night."
+    "description": "Join the Starmie messaging gathering with your own Starmie."
   },
   {
-    "id": "side-extra-111",
+    "id": "side-101",
     "group": "Side missions",
+    "number": 101,
+    "title": "Steadfast as Steel",
+    "description": "Battle a Rust Syndicate grunt who favors Steel types."
+  },
+  {
+    "id": "side-102",
+    "group": "Side missions",
+    "number": 102,
+    "title": "A Chilling Challenge",
+    "description": "Battle Glace and her Ice-type Pokémon without getting frozen."
+  },
+  {
+    "id": "side-103",
+    "group": "Side missions",
+    "number": 103,
+    "title": "Facing the Furfrou League",
+    "description": "Defeat the Furfrou League's Elite Four."
+  },
+  {
+    "id": "side-104",
+    "group": "Side missions",
+    "number": 104,
+    "title": "Abuzz About Bug Types",
+    "description": "Battle Constance with your favorite Pokémon."
+  },
+  {
+    "id": "side-105",
+    "group": "Side missions",
+    "number": 105,
+    "title": "Trevenant, the Haunted Elder Tree",
+    "description": "Lend a Trevenant to a horror film director."
+  },
+  {
+    "id": "side-106",
+    "group": "Side missions",
+    "number": 106,
+    "title": "Klefki's Lost Key",
+    "description": "Find the key Klefki lost, using the requester's clues."
+  },
+  {
+    "id": "side-107",
+    "group": "Side missions",
+    "number": 107,
+    "title": "The World's Greatest Pikachu",
+    "description": "Battle a trainer with a single Pikachu against his."
+  },
+  {
+    "id": "side-108",
+    "group": "Side missions",
+    "number": 108,
+    "title": "Alola, Raichu",
+    "description": "Trade your Raichu for the requester's Alolan Raichu."
+  },
+  {
+    "id": "side-109",
+    "group": "Side missions",
+    "number": 109,
+    "title": "Wondrous Self-Healing Pokémon",
+    "description": "Battle a requester whose Pokémon use healing moves."
+  },
+  {
+    "id": "side-110",
+    "group": "Side missions",
+    "number": 110,
+    "title": "A Tune That Beckons Doom",
+    "description": "Battle a woman to learn what she meant by \"in 30 seconds.\""
+  },
+  {
+    "id": "side-111",
+    "group": "Side missions",
+    "number": 111,
+    "title": "My Adorable, Adorable Babies",
+    "description": "Battle a requester with formidable, cute-looking Pokémon."
+  },
+  {
+    "id": "side-112",
+    "group": "Side missions",
+    "number": 112,
+    "title": "Exploring the Scents of Spritzee",
+    "description": "Bring Berries so Spritzee can discover new scents."
+  },
+  {
+    "id": "side-113",
+    "group": "Side missions",
+    "number": 113,
+    "title": "Bergmite sur un Avalugg",
+    "description": "Find an extra-large Avalugg for a photo with four Bergmite."
+  },
+  {
+    "id": "side-114",
+    "group": "Side missions",
+    "number": 114,
     "title": "A Feather from Skarmory",
-    "description": "Find a Skarmory feather.",
+    "description": "Find a Skarmory feather in Wild Zone 17.",
     "location": "wild-zone-17"
   },
   {
-    "id": "side-extra-112",
+    "id": "side-115",
     "group": "Side missions",
-    "title": "Exploring the Scents of Spritzee",
-    "description": "Give 20 Cheri, 5 Tamato and 5 Occa Berries."
+    "number": 115,
+    "title": "Tyrantrum's Furious Jaws",
+    "description": "Lend a Tyrantrum to a kaiju film director."
   },
   {
-    "id": "side-extra-113",
+    "id": "side-116",
     "group": "Side missions",
-    "title": "Show the Power of Aurorus!",
-    "description": "Defeat the brother with a single Aurorus."
+    "number": 116,
+    "title": "Show the Power of Aurorus",
+    "description": "Help two siblings decide between a Sail Fossil and a Jaw Fossil."
   },
   {
-    "id": "side-extra-114",
+    "id": "side-117",
     "group": "Side missions",
-    "title": "Finding a Place for Heliolisk",
-    "description": "Find a place that meets the requester's conditions."
-  },
-  {
-    "id": "side-extra-115",
-    "group": "Side missions",
+    "number": 117,
     "title": "Josée's Training",
-    "description": "Battle Josée and the Pangoro Duo."
+    "description": "Battle Josée to help clear her mind."
   },
   {
-    "id": "side-extra-116",
+    "id": "side-118",
     "group": "Side missions",
-    "title": "Up, Up, and Away After Emolga!",
-    "description": "Chase Emolga using the Roto-Glide."
+    "number": 118,
+    "title": "Goodbye Gengar",
+    "description": "Find a missing Gengar with Gwynn's help."
   },
   {
-    "id": "side-extra-117",
+    "id": "side-119",
     "group": "Side missions",
-    "title": "Bergmite sur un Avalugg",
-    "description": "Show an XL Avalugg."
+    "number": 119,
+    "title": "Le Super-Tournoi de Jacinthe O",
+    "description": "Battle Jacinthe alone in a tournament."
   },
   {
-    "id": "side-extra-118",
+    "id": "side-ex1",
     "group": "Side missions",
-    "title": "Goodbye, Gengar",
-    "description": "Search for the missing Gengar in three locations with Gwynn's help."
-  },
-  {
-    "id": "side-extra-119",
-    "group": "Side missions",
+    "label": "EX1",
     "title": "Shine Bright like a Gemstone",
-    "description": "Follow Mimi and catch Diancie."
+    "description": "Find where Mimi went after sensing psychic energy from a Mega Stone."
   },
   {
-    "id": "side-extra-120",
+    "id": "side-ex2",
     "group": "Side missions",
+    "label": "EX2",
     "title": "Project M",
-    "description": "Catch Mewtwo."
+    "description": "Catch the Mewtwo reactivated at the old Lysandre Labs."
+  },
+  {
+    "id": "hyperspace-1",
+    "group": "Hyperspace missions",
+    "number": 1,
+    "title": "Hyperspace Lumiose Survey No. 1",
+    "description": "Survey Hyperspace Lumiose for the Rust Syndicate with Hoopa's help."
+  },
+  {
+    "id": "hyperspace-2",
+    "group": "Hyperspace missions",
+    "number": 2,
+    "title": "Lebanne Arrives with a Bang!",
+    "description": "Calm down Lebanne after she bursts into your home angry."
+  },
+  {
+    "id": "hyperspace-3",
+    "group": "Hyperspace missions",
+    "number": 3,
+    "title": "Hyperspace Lumiose Survey No. 2",
+    "description": "Continue surveying Hyperspace Lumiose, which still has much left to cover."
+  },
+  {
+    "id": "hyperspace-4",
+    "group": "Hyperspace missions",
+    "number": 4,
+    "title": "Le Musée et le Café",
+    "description": "Sightsee around Lumiose with Ansha and Korrina during a break from surveying."
+  },
+  {
+    "id": "hyperspace-5",
+    "group": "Hyperspace missions",
+    "number": 5,
+    "title": "A Boom from the Strategy Room",
+    "description": "Find the source of a loud noise in Team MZ's strategy meeting room."
+  },
+  {
+    "id": "hyperspace-6",
+    "group": "Hyperspace missions",
+    "number": 6,
+    "title": "Hyperspace Lumiose Survey No. 3",
+    "description": "Use your survey progress to calibrate distortion-detecting tools and reach more dangerous areas."
+  },
+  {
+    "id": "hyperspace-7",
+    "group": "Hyperspace missions",
+    "number": 7,
+    "title": "Naveen's Not OK",
+    "description": "Check on Naveen in his room after he misses breakfast."
+  },
+  {
+    "id": "hyperspace-8",
+    "group": "Hyperspace missions",
+    "number": 8,
+    "title": "Hyperspace Lumiose Survey No. 4",
+    "description": "Investigate the large distortion over the tower that is causing trouble for the city."
+  },
+  {
+    "id": "hyperspace-9",
+    "group": "Hyperspace missions",
+    "number": 9,
+    "title": "Hyperspace Lumiose Survey No. 5",
+    "description": "Find a way to stop Hyperspace Lumiose from expanding and swallowing the real city."
+  },
+  {
+    "id": "hyperspace-10",
+    "group": "Hyperspace missions",
+    "number": 10,
+    "title": "Mayhem at Midnight",
+    "description": "Look into the commotion Lida's shouting caused at the hotel at night."
+  },
+  {
+    "id": "hyperspace-11",
+    "group": "Hyperspace missions",
+    "number": 11,
+    "title": "Hyperspace Lumiose Survey No. 6",
+    "description": "Use your collected data to solve the mystery and stop Hyperspace Lumiose from fusing with the city."
+  },
+  {
+    "id": "hyperspace-12",
+    "group": "Hyperspace missions",
+    "number": 12,
+    "title": "The Greatest Gift",
+    "description": "Make a special donut to enter the emerald distortion and catch Rayquaza."
+  },
+  {
+    "id": "hyperspace-13",
+    "group": "Hyperspace missions",
+    "number": 13,
+    "title": "A Ruby-Red Legend",
+    "description": "Make the donut needed to enter Groudon's pocket of hyperspace and catch Groudon."
+  },
+  {
+    "id": "hyperspace-14",
+    "group": "Hyperspace missions",
+    "number": 14,
+    "title": "A Sapphire-Blue Legend",
+    "description": "Make the donut needed to enter Kyogre's pocket of hyperspace and catch Kyogre."
+  },
+  {
+    "id": "side-120",
+    "group": "Mega Dimension side missions",
+    "number": 120,
+    "title": "Donuts of Unworldly Deliciousness",
+    "description": "Help Ansha make a donut with Hoopa."
+  },
+  {
+    "id": "side-121",
+    "group": "Mega Dimension side missions",
+    "number": 121,
+    "title": "A Big Ol' Battle",
+    "description": "Battle Trevelle and his team."
+  },
+  {
+    "id": "side-122",
+    "group": "Mega Dimension side missions",
+    "number": 122,
+    "title": "Let's Golden Goooooo",
+    "description": "Collect 999 Gimmighoul Coins to evolve Gimmighoul into Gholdengo."
+  },
+  {
+    "id": "side-123",
+    "group": "Mega Dimension side missions",
+    "number": 123,
+    "title": "Charging Toward Victory",
+    "description": "Battle a requester who favors charge moves."
+  },
+  {
+    "id": "side-124",
+    "group": "Mega Dimension side missions",
+    "number": 124,
+    "title": "Multistrike, Multistrike, Multistrike Moves",
+    "description": "Withstand the requester's multi-hit moves in battle."
+  },
+  {
+    "id": "side-125",
+    "group": "Mega Dimension side missions",
+    "number": 125,
+    "title": "My Hasty Jolteon",
+    "description": "Catch up to the Hasty Jolteon and battle it."
+  },
+  {
+    "id": "side-126",
+    "group": "Mega Dimension side missions",
+    "number": 126,
+    "title": "Cyclizoom",
+    "description": "Win a speed battle against Cyclizar."
+  },
+  {
+    "id": "side-127",
+    "group": "Mega Dimension side missions",
+    "number": 127,
+    "title": "Mime Jr.'s First Big Job",
+    "description": "Escort Mime Jr. discreetly to the postbox across the bridge."
+  },
+  {
+    "id": "side-128",
+    "group": "Mega Dimension side missions",
+    "number": 128,
+    "title": "A Novel Adventure",
+    "description": "Battle to help Crivain find inspiration for an adventure novel."
+  },
+  {
+    "id": "side-129",
+    "group": "Mega Dimension side missions",
+    "number": 129,
+    "title": "A Work of Great Love",
+    "description": "Battle to help Crivain find inspiration for a romance novel."
+  },
+  {
+    "id": "side-130",
+    "group": "Mega Dimension side missions",
+    "number": 130,
+    "title": "A Tale of Mystery",
+    "description": "Battle to help Crivain find inspiration for a mystery novel."
+  },
+  {
+    "id": "side-131",
+    "group": "Mega Dimension side missions",
+    "number": 131,
+    "title": "Rouge District's Utility Hole Covers",
+    "description": "Identify the Pokémon on the Rouge District hole covers."
+  },
+  {
+    "id": "side-132",
+    "group": "Mega Dimension side missions",
+    "number": 132,
+    "title": "Bitter Blue Flames vs. Blazing Crimson",
+    "description": "Battle Adver's rivals, Armarouge and Ceruledge."
+  },
+  {
+    "id": "side-133",
+    "group": "Mega Dimension side missions",
+    "number": 133,
+    "title": "Farfetch'd Ambush!",
+    "description": "Lure out and punish the culprits behind the Farfetch'd ambushes."
+  },
+  {
+    "id": "side-134",
+    "group": "Mega Dimension side missions",
+    "number": 134,
+    "title": "Squawking, Squabbling Squawkabilly!",
+    "description": "Show strength to stop four squabbling Squawkabilly."
+  },
+  {
+    "id": "side-135",
+    "group": "Mega Dimension side missions",
+    "number": 135,
+    "title": "Cubone's Survey",
+    "description": "Answer the street survey a Cubone is conducting."
+  },
+  {
+    "id": "side-136",
+    "group": "Mega Dimension side missions",
+    "number": 136,
+    "title": "Fidough Loves Walks",
+    "description": "Take Promme's Fidough on its usual walk."
+  },
+  {
+    "id": "side-137",
+    "group": "Mega Dimension side missions",
+    "number": 137,
+    "title": "Fungi-ble Goods",
+    "description": "Bring Bene a Foongus."
+  },
+  {
+    "id": "side-138",
+    "group": "Mega Dimension side missions",
+    "number": 138,
+    "title": "Octolock Away the Pain!",
+    "description": "Use Octolock on a man suffering from back pain."
+  },
+  {
+    "id": "side-139",
+    "group": "Mega Dimension side missions",
+    "number": 139,
+    "title": "The Dauntless Raichu Duo",
+    "description": "Battle two former trade partners' Raichu together."
+  },
+  {
+    "id": "side-140",
+    "group": "Mega Dimension side missions",
+    "number": 140,
+    "title": "A Message from Across Dimensions",
+    "description": "Deliver a letter to the director of Académie étoile."
+  },
+  {
+    "id": "side-141",
+    "group": "Mega Dimension side missions",
+    "number": 141,
+    "title": "Rogue Mega Showdown",
+    "description": "Break up the fight between two Mega Crabominable."
+  },
+  {
+    "id": "side-142",
+    "group": "Mega Dimension side missions",
+    "number": 142,
+    "title": "That's Some Nacli Coffee",
+    "description": "Investigate the salty coffee and the suspicious rooftop Pokémon."
+  },
+  {
+    "id": "side-143",
+    "group": "Mega Dimension side missions",
+    "number": 143,
+    "title": "Which Meowth Do You Purrfer",
+    "description": "Beat Felina to choose one of three Meowth."
+  },
+  {
+    "id": "side-144",
+    "group": "Mega Dimension side missions",
+    "number": 144,
+    "title": "Imitation Is the Sincerest Form of Flattery",
+    "description": "Find the bench from a photo of Canari relaxing."
+  },
+  {
+    "id": "side-145",
+    "group": "Mega Dimension side missions",
+    "number": 145,
+    "title": "My Neighbor Tinkatuff",
+    "description": "Act as go-between for a man and his new Tinkatuff neighbor."
+  },
+  {
+    "id": "side-146",
+    "group": "Mega Dimension side missions",
+    "number": 146,
+    "title": "Terror in the Sands",
+    "description": "Find out why the Pokémon in Wild Zone 8 are behaving oddly.",
+    "location": "wild-zone-8"
+  },
+  {
+    "id": "side-147",
+    "group": "Mega Dimension side missions",
+    "number": 147,
+    "title": "Our Gluttonous Gulpin",
+    "description": "Feed a Gulpin at Hotel Z a donut."
+  },
+  {
+    "id": "side-148",
+    "group": "Mega Dimension side missions",
+    "number": 148,
+    "title": "A Sorta Scary Cemetery Story",
+    "description": "Check whether a gravestone moves in Dormez Bien Cemetery."
+  },
+  {
+    "id": "side-149",
+    "group": "Mega Dimension side missions",
+    "number": 149,
+    "title": "Scovillain's Spice-Off",
+    "description": "Use Scovillain's Spicy Extract to make a spicy event a success."
+  },
+  {
+    "id": "side-150",
+    "group": "Mega Dimension side missions",
+    "number": 150,
+    "title": "Corvisquire's Search",
+    "description": "Use a scarf to help a Galarian Corvisquire find someone."
+  },
+  {
+    "id": "side-151",
+    "group": "Mega Dimension side missions",
+    "number": 151,
+    "title": "Hyperspatial Scuffle vs. DYN4MO",
+    "description": "Win a two-on-two battle with Naveen against DYN4MO."
+  },
+  {
+    "id": "side-152",
+    "group": "Mega Dimension side missions",
+    "number": 152,
+    "title": "Hyperspatial Scuffle vs. the Fist of Justice",
+    "description": "Win a two-on-two battle with Korrina against Ivor and Gwynn."
+  },
+  {
+    "id": "side-153",
+    "group": "Mega Dimension side missions",
+    "number": 153,
+    "title": "Hyperspatial Scuffle vs. the Rust Syndicate",
+    "description": "Win a two-on-two battle with Taunie/Urbain against Corbeau and Philippe."
+  },
+  {
+    "id": "side-154",
+    "group": "Mega Dimension side missions",
+    "number": 154,
+    "title": "Hyperspatial Scuffle vs. the SBC",
+    "description": "Win a two-on-two battle with Lida against Jacinthe and Lebanne."
+  },
+  {
+    "id": "side-155",
+    "group": "Mega Dimension side missions",
+    "number": 155,
+    "title": "Hyperspatial Scuffle vs. Team Flare Nouveau",
+    "description": "Win a two-on-two battle with Emma against Grisham and Griselle."
+  },
+  {
+    "id": "side-156",
+    "group": "Mega Dimension side missions",
+    "number": 156,
+    "title": "A Special Seviper",
+    "description": "Catch a real Seviper to prove the requester's is actually an Arbok."
+  },
+  {
+    "id": "side-157",
+    "group": "Mega Dimension side missions",
+    "number": 157,
+    "title": "What's Wafting from Wigglytuff",
+    "description": "Pretend to battle so you can land a Bubble Beam on Wigglytuff."
+  },
+  {
+    "id": "side-158",
+    "group": "Mega Dimension side missions",
+    "number": 158,
+    "title": "The Trainer Tipster",
+    "description": "Share helpful advice for Avise's Trainer Tips."
+  },
+  {
+    "id": "side-159",
+    "group": "Mega Dimension side missions",
+    "number": 159,
+    "title": "Who Nicked That Snack",
+    "description": "Track down the treat that vanished from a Toxel's owner."
+  },
+  {
+    "id": "side-160",
+    "group": "Mega Dimension side missions",
+    "number": 160,
+    "title": "Feebas's New Friends",
+    "description": "Obtain a Feebas for the requester."
+  },
+  {
+    "id": "side-161",
+    "group": "Mega Dimension side missions",
+    "number": 161,
+    "title": "Frigibax's Friend-Finding",
+    "description": "Talk to the Wild Zone 10 trainers on a Frigibax owner's behalf.",
+    "location": "wild-zone-10"
+  },
+  {
+    "id": "side-162",
+    "group": "Mega Dimension side missions",
+    "number": 162,
+    "title": "Maybe Morpeko Guards",
+    "description": "Test whether Morpeko can serve as a guard Pokémon."
+  },
+  {
+    "id": "side-163",
+    "group": "Mega Dimension side missions",
+    "number": 163,
+    "title": "Help Us Pick a Name",
+    "description": "Choose a name for an unremarkable street."
+  },
+  {
+    "id": "side-164",
+    "group": "Mega Dimension side missions",
+    "number": 164,
+    "title": "Kiosk Conundrum",
+    "description": "Watch a kiosk and charge the correct price for each order."
+  },
+  {
+    "id": "side-165",
+    "group": "Mega Dimension side missions",
+    "number": 165,
+    "title": "The Lumiose Museum Heist",
+    "description": "Play the thief and steal an exhibit in a police training scenario."
+  },
+  {
+    "id": "side-166",
+    "group": "Mega Dimension side missions",
+    "number": 166,
+    "title": "The Joy of Mimicry",
+    "description": "Battle Mike and Mr. Rime to see their mimicry act."
+  },
+  {
+    "id": "side-167",
+    "group": "Mega Dimension side missions",
+    "number": 167,
+    "title": "Porygon's Polygon Count",
+    "description": "Trade your Porygon with Trian."
+  },
+  {
+    "id": "side-168",
+    "group": "Mega Dimension side missions",
+    "number": 168,
+    "title": "Rêve de Musharna",
+    "description": "Visit Rêve de Musharna for its sleep service."
+  },
+  {
+    "id": "side-169",
+    "group": "Mega Dimension side missions",
+    "number": 169,
+    "title": "A Gallant Indeedee",
+    "description": "Help Manny find a gallant Indeedee."
+  },
+  {
+    "id": "side-170",
+    "group": "Mega Dimension side missions",
+    "number": 170,
+    "title": "Rotom Showcase",
+    "description": "View every Rotom form the requester demonstrates."
+  },
+  {
+    "id": "side-171",
+    "group": "Mega Dimension side missions",
+    "number": 171,
+    "title": "Awaken, Cofagrigus",
+    "description": "Investigate screams coming from a Saison Canalside sewer."
+  },
+  {
+    "id": "side-172",
+    "group": "Mega Dimension side missions",
+    "number": 172,
+    "title": "Sawk vs. Throh",
+    "description": "Pick a side and battle in the Sawk-versus-Throh fandom war."
+  },
+  {
+    "id": "side-173",
+    "group": "Mega Dimension side missions",
+    "number": 173,
+    "title": "Be a Defenseless Dodger",
+    "description": "Dodge wild Pokémon attacks without catching or fighting back."
+  },
+  {
+    "id": "side-174",
+    "group": "Mega Dimension side missions",
+    "number": 174,
+    "title": "I Still Remember the Taste...",
+    "description": "Find a way for a returning customer to enjoy Lysandre Café's coffee again."
+  },
+  {
+    "id": "side-175",
+    "group": "Mega Dimension side missions",
+    "number": 175,
+    "title": "Romance avec Purrloin",
+    "description": "Help a nervous requester keep his first-date conversation going."
+  },
+  {
+    "id": "side-176",
+    "group": "Mega Dimension side missions",
+    "number": 176,
+    "title": "Ultimate Beans of Supreme Ultimacy",
+    "description": "Buy the ultimate coffee beans from Café Ultimo."
+  },
+  {
+    "id": "side-177",
+    "group": "Mega Dimension side missions",
+    "number": 177,
+    "title": "Triste Dreams of Tatsugiri",
+    "description": "Show Tatsugiri to a waitress so she can get inspired for sushi."
+  },
+  {
+    "id": "side-178",
+    "group": "Mega Dimension side missions",
+    "number": 178,
+    "title": "Dondozo Down in the Dumps",
+    "description": "Rescue the large Pokémon stuck in a sewer pipe."
+  },
+  {
+    "id": "side-179",
+    "group": "Mega Dimension side missions",
+    "number": 179,
+    "title": "A Sub-30-Second Loss",
+    "description": "Make the Palossand trainer accept a loss within 30 seconds."
+  },
+  {
+    "id": "side-180",
+    "group": "Mega Dimension side missions",
+    "number": 180,
+    "title": "A Wild Rosebud",
+    "description": "Return the wandering Rosebud from Wild Zone 6.",
+    "location": "wild-zone-6"
+  },
+  {
+    "id": "side-181",
+    "group": "Mega Dimension side missions",
+    "number": 181,
+    "title": "Hyperspatial Slugfest vs. DYN4MO",
+    "description": "Win a two-on-two battle with Gwynn against DYN4MO."
+  },
+  {
+    "id": "side-182",
+    "group": "Mega Dimension side missions",
+    "number": 182,
+    "title": "Hyperspatial Slugfest vs. the Fist of Justice",
+    "description": "Win a two-on-two battle with Lebanne against Ivor and Gwynn."
+  },
+  {
+    "id": "side-183",
+    "group": "Mega Dimension side missions",
+    "number": 183,
+    "title": "Hyperspatial Slugfest vs. the Rust Syndicate",
+    "description": "Win a two-on-two battle with Vinnie against Corbeau and Philippe."
+  },
+  {
+    "id": "side-184",
+    "group": "Mega Dimension side missions",
+    "number": 184,
+    "title": "Hyperspatial Slugfest vs. the SBC",
+    "description": "Win a two-on-two battle with Jacinthe against Lebanne and her partner."
+  },
+  {
+    "id": "side-185",
+    "group": "Mega Dimension side missions",
+    "number": 185,
+    "title": "Hyperspatial Slugfest vs. Team Flare Nouveau",
+    "description": "Win a two-on-two battle with Philippe against Grisham and Griselle."
+  },
+  {
+    "id": "side-186",
+    "group": "Mega Dimension side missions",
+    "number": 186,
+    "title": "The Ultimate Techniques",
+    "description": "Complete three trials using Meganium, Emboar and Feraligatr to learn ultimate moves."
+  },
+  {
+    "id": "side-187",
+    "group": "Mega Dimension side missions",
+    "number": 187,
+    "title": "The Dauntless Dragalge Trainer",
+    "description": "Find the Dragalge trainer Marcia is searching for in Lumiose."
+  },
+  {
+    "id": "side-188",
+    "group": "Mega Dimension side missions",
+    "number": 188,
+    "title": "Start Special Scanning",
+    "description": "Visit Corbeau's office to learn about the special scan system."
+  },
+  {
+    "id": "side-189",
+    "group": "Mega Dimension side missions",
+    "number": 189,
+    "title": "Siblings of the Sky",
+    "description": "Accept the siblings' battle challenge with Latios and Latias."
+  },
+  {
+    "id": "side-190",
+    "group": "Mega Dimension side missions",
+    "number": 190,
+    "title": "A Mimikyu for My Cutie",
+    "description": "Catch a Mimikyu for Vinnie's daughter."
+  },
+  {
+    "id": "side-191",
+    "group": "Mega Dimension side missions",
+    "number": 191,
+    "title": "Collecting Four Drives",
+    "description": "Collect Mega Shards to trade for four unique drives."
+  },
+  {
+    "id": "side-192",
+    "group": "Mega Dimension side missions",
+    "number": 192,
+    "title": "The Stealthy Shadow",
+    "description": "Check whether the occult account's ghostly child rumor is true."
+  },
+  {
+    "id": "side-193",
+    "group": "Mega Dimension side missions",
+    "number": 193,
+    "title": "Dreams of Meltan",
+    "description": "Catch the Meltan near a bank entrance."
+  },
+  {
+    "id": "side-194",
+    "group": "Mega Dimension side missions",
+    "number": 194,
+    "title": "Volcanion Unleashed",
+    "description": "Help Mable open the sealed Poké Ball and catch Volcanion."
+  },
+  {
+    "id": "side-195",
+    "group": "Mega Dimension side missions",
+    "number": 195,
+    "title": "Restarting Magearna",
+    "description": "Gather Mega Shards to awaken Magearna."
+  },
+  {
+    "id": "side-196",
+    "group": "Mega Dimension side missions",
+    "number": 196,
+    "title": "The Djinn Unbound",
+    "description": "Investigate the distortion linked to Hoopa and the Prison Bottle."
+  },
+  {
+    "id": "side-197",
+    "group": "Mega Dimension side missions",
+    "number": 197,
+    "title": "Ultra-Hardcore Lucario Showdown",
+    "description": "Battle Korrina one Lucario against one under Tower of Mastery rules."
+  },
+  {
+    "id": "side-198",
+    "group": "Mega Dimension side missions",
+    "number": 198,
+    "title": "Lida's Lament",
+    "description": "Listen to Lida's feelings about her dancing dreams."
+  },
+  {
+    "id": "side-199",
+    "group": "Mega Dimension side missions",
+    "number": 199,
+    "title": "Naveen's Newfound Determination",
+    "description": "Find a way to help Naveen with his family conflict."
+  },
+  {
+    "id": "side-200",
+    "group": "Mega Dimension side missions",
+    "number": 200,
+    "title": "Here in Lumiose City",
+    "description": "Help Taunie/Urbain manage their overloaded schedule."
+  },
+  {
+    "id": "side-ex3",
+    "group": "Mega Dimension side missions",
+    "label": "EX3",
+    "title": "Raging Lightning",
+    "description": "Investigate the hyperspace distortion in front of the Gare de Lumiose."
   }
 ]

@@ -10,7 +10,8 @@ export type EncounterMethod =
   | 'static'
   | 'trade'
   | 'prize'
-  | 'battle';
+  | 'battle'
+  | 'hyperspace';
 
 export type EncounterFloor = {
   floor: string;
@@ -60,6 +61,7 @@ export type PokedexEntry = {
   games: Array<string>;
   evolvesFrom?: Evolution;
   megas?: Array<MegaEvolution>;
+  dlc?: boolean;
   encounters: Array<Encounter>;
 };
 

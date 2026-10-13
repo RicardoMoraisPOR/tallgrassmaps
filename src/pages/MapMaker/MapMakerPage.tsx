@@ -9,6 +9,8 @@ import {
   Eraser,
   Flag,
   Hexagon,
+  MapPin,
+  Magnet,
   MousePointerClick,
   Plus,
   Undo2,
@@ -35,7 +37,8 @@ import {
 import { getRegion } from '@/data/maps';
 
 type Point = [number, number];
-type Mode = 'polygon' | 'circle';
+type Mode = 'polygon' | 'circle' | 'points';
+type PointStyle = 'free' | 'snap';
 
 const REGION_ID = 'lumiose-za';
 const START_CENTER: Point = [2450, 3820];
@@ -54,6 +57,21 @@ const pointIcon = divIcon({
   iconSize: [12, 12],
   iconAnchor: [6, 6],
 });
+
+const MODES: Array<{ id: Mode; label: string; Icon: typeof Hexagon }> = [
+  { id: 'polygon', label: 'Polygon', Icon: Hexagon },
+  { id: 'circle', label: 'Circle', Icon: Circle },
+  { id: 'points', label: 'Points', Icon: MapPin },
+];
+
+const POINT_STYLES: Array<{
+  id: PointStyle;
+  label: string;
+  Icon: typeof Hexagon;
+}> = [
+  { id: 'snap', label: 'Snap to shapes', Icon: Magnet },
+  { id: 'free', label: 'Place anywhere', Icon: MousePointerClick },
+];
 
 const radiusOf = ([cx, cy]: Point, [ex, ey]: Point) =>
   Math.round(Math.hypot(ex - cx, ey - cy));
@@ -100,6 +118,15 @@ const nearestEdge = (points: Array<Point>, [px, py]: Point) => {
   return best;
 };
 
+const nearestBorder = (shapes: Array<Array<Point>>, point: Point) =>
+  shapes
+    .map((outline) => nearestEdge(outline, point))
+    .reduce<ReturnType<typeof nearestEdge>>(
+      (best, edge) =>
+        !best || (edge && edge.distance < best.distance) ? edge : best,
+      undefined,
+    );
+
 const ClickToAdd = ({
   onAdd,
 }: {
@@ -120,6 +147,7 @@ export const MapMakerPage = () => {
   const region = getRegion(REGION_ID);
   const [mode, setMode] = useState<Mode>('polygon');
   const [points, setPoints] = useState<Array<Point>>([]);
+  const [pointStyle, setPointStyle] = useState<PointStyle>('snap');
   const [anchorMode, setAnchorMode] = useState(false);
   const [selecting, setSelecting] = useState(false);
   const [showReference, setShowReference] = useState(true);
@@ -137,10 +165,19 @@ export const MapMakerPage = () => {
     mode === 'circle' && points.length === 2
       ? { center: points[0], radius: radiusOf(points[0], points[1]) }
       : undefined;
-  const shape = circle ? circleOutline(circle.center, circle.radius) : points;
+  const shape =
+    mode === 'points'
+      ? []
+      : circle
+        ? circleOutline(circle.center, circle.radius)
+        : points;
   const positions = shape.map(([x, y]) => toLatLng(x, y));
   const anchoring = anchorMode && mode === 'polygon' && points.length >= 2;
-  const complete = circle ? true : mode === 'polygon' && points.length >= 3;
+  const complete = circle
+    ? true
+    : mode === 'points'
+      ? points.length > 0
+      : points.length >= 3;
   const data = circle
     ? `{\n  "center": [${circle.center.join(', ')}],\n  "radius": ${circle.radius},\n  "outline": ${formatPoints(shape).replaceAll('\n', '\n  ')}\n}`
     : formatPoints(points);
@@ -157,6 +194,19 @@ export const MapMakerPage = () => {
           edge.point,
           ...current.slice(edge.index),
         ]);
+      }
+
+      return;
+    }
+
+    if (mode === 'points' && pointStyle === 'snap') {
+      const edge = nearestBorder(
+        references.map(({ outline }) => outline),
+        point,
+      );
+
+      if (edge && edge.distance <= ANCHOR_TOLERANCE_PX * unitsPerPixel) {
+        setPoints((current) => [...current, edge.point]);
       }
 
       return;
@@ -207,7 +257,7 @@ export const MapMakerPage = () => {
         className="size-full cursor-crosshair"
         style={{ background: 'var(--muted)' }}
       >
-        <MapZoomControls position="topleft" />
+        <MapZoomControls position="bottomleft" />
         <ImageOverlay url={region.image} bounds={bounds} />
         <ClickToAdd onAdd={addPoint} />
         {showReference &&
@@ -261,30 +311,51 @@ export const MapMakerPage = () => {
           />
         ))}
       </MapContainer>
-      <div className="pointer-events-none absolute top-3 right-3 left-16 z-[1000] flex flex-wrap items-center justify-end gap-2">
+      <div className="pointer-events-none absolute right-3 bottom-3 left-16 z-[1000] flex flex-wrap items-center justify-end gap-2">
         <p className="pointer-events-auto mr-auto rounded-lg bg-background/90 px-3 py-1.5 text-sm shadow ring-1 ring-foreground/10">
           {selecting
             ? 'Click an existing shape to copy it.'
-            : mode === 'circle'
-              ? 'Click the center, then click the edge. Drag either point to adjust.'
-              : anchoring
-                ? 'Click on the shape edge to insert a point there.'
-                : 'Click to add a point, drag a point to move it, right-click a point to remove it.'}{' '}
+            : mode === 'points'
+              ? pointStyle === 'snap'
+                ? 'Click near a shape border to drop a point on it. Drag a point to move it, right-click to remove it.'
+                : 'Click anywhere to drop a point. Drag a point to move it, right-click to remove it.'
+              : mode === 'circle'
+                ? 'Click the center, then click the edge. Drag either point to adjust.'
+                : anchoring
+                  ? 'Click on the shape edge to insert a point there.'
+                  : 'Click to add a point, drag a point to move it, right-click a point to remove it.'}{' '}
           <span className="font-semibold tabular-nums">{points.length}</span>{' '}
           points
         </p>
-        <Button
-          variant="outline"
-          className={toolbarButton}
-          onClick={() => switchMode(mode === 'circle' ? 'polygon' : 'circle')}
-        >
-          {mode === 'circle' ? <Hexagon /> : <Circle />}
-          {mode === 'circle' ? 'Polygon mode' : 'Circle mode'}
-        </Button>
+        {MODES.map(({ id, label, Icon }) => (
+          <Button
+            key={id}
+            variant={mode === id ? 'default' : 'outline'}
+            className={mode === id ? activeToolbarButton : toolbarButton}
+            aria-pressed={mode === id}
+            onClick={() => switchMode(id)}
+          >
+            <Icon /> {label}
+          </Button>
+        ))}
+        {mode === 'points' &&
+          POINT_STYLES.map(({ id, label, Icon }) => (
+            <Button
+              key={id}
+              variant={pointStyle === id ? 'default' : 'outline'}
+              className={
+                pointStyle === id ? activeToolbarButton : toolbarButton
+              }
+              aria-pressed={pointStyle === id}
+              onClick={() => setPointStyle(id)}
+            >
+              <Icon /> {label}
+            </Button>
+          ))}
         <Button
           variant={anchoring ? 'default' : 'outline'}
           className={anchoring ? activeToolbarButton : toolbarButton}
-          disabled={mode === 'circle' || points.length < 2}
+          disabled={mode !== 'polygon' || points.length < 2}
           aria-pressed={anchoring}
           onClick={() => {
             setSelecting(false);
@@ -297,6 +368,7 @@ export const MapMakerPage = () => {
           variant={selecting ? 'default' : 'outline'}
           className={selecting ? activeToolbarButton : toolbarButton}
           aria-pressed={selecting}
+          disabled={mode === 'points'}
           onClick={() => {
             setAnchorMode(false);
             setShowReference(true);

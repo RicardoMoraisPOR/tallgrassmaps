@@ -5525,5 +5525,2124 @@
         "place": "Lysandre Labs"
       }
     ]
+  },
+  {
+    "id": 233,
+    "number": 56,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 234,
+    "number": 57,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 235,
+    "number": 979,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 236,
+    "number": 52,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 237,
+    "number": 53,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 238,
+    "number": 863,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "number": 83,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 240,
+    "number": 865,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 241,
+    "number": 104,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 242,
+    "number": 105,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 243,
+    "number": 137,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 244,
+    "number": 233,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 245,
+    "number": 474,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 246,
+    "number": 951,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 247,
+    "number": 952,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Scovillainite",
+        "types": ["grass", "fire"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 248,
+    "number": 957,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 249,
+    "number": 958,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 250,
+    "number": 959,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 251,
+    "number": 967,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 252,
+    "number": 969,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 253,
+    "number": 970,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Glimmoranite",
+        "types": ["rock", "poison"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 254,
+    "number": 479,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 255,
+    "number": 971,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 256,
+    "number": 972,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 257,
+    "number": 769,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 258,
+    "number": 770,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 259,
+    "number": 352,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 260,
+    "number": 973,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 261,
+    "number": 615,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 262,
+    "number": 977,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 263,
+    "number": 978,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Tatsugirinite",
+        "types": ["dragon", "water"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 264,
+    "number": 996,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 265,
+    "number": 997,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 266,
+    "number": 998,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Baxcalibrite",
+        "types": ["dragon", "ice"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 267,
+    "number": 999,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 268,
+    "number": 1000,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 269,
+    "number": 211,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 270,
+    "number": 904,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 271,
+    "number": 252,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 272,
+    "number": 253,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 273,
+    "number": 254,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Sceptilite",
+        "types": ["grass", "dragon"],
+        "dlc": true
+      }
+    ]
+  },
+  {
+    "id": 274,
+    "number": 255,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 275,
+    "number": 256,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 276,
+    "number": 257,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Blazikenite",
+        "types": ["fire", "fighting"],
+        "dlc": true
+      }
+    ]
+  },
+  {
+    "id": 277,
+    "number": 258,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 278,
+    "number": 259,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 279,
+    "number": 260,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Swampertite",
+        "types": ["water", "ground"],
+        "dlc": true
+      }
+    ]
+  },
+  {
+    "id": 280,
+    "number": 349,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 281,
+    "number": 350,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 282,
+    "number": 433,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 283,
+    "number": 358,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Chimechite",
+        "types": ["psychic", "steel"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 284,
+    "number": 876,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 285,
+    "number": 509,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 286,
+    "number": 510,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 287,
+    "number": 517,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 288,
+    "number": 518,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 289,
+    "number": 538,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 290,
+    "number": 539,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 291,
+    "number": 562,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 292,
+    "number": 563,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 293,
+    "number": 867,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 294,
+    "number": 767,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 295,
+    "number": 768,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Golisopite",
+        "types": ["bug", "steel"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 296,
+    "number": 827,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 297,
+    "number": 828,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 298,
+    "number": 852,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 299,
+    "number": 853,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 300,
+    "number": 778,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 301,
+    "number": 900,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 302,
+    "number": 877,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 303,
+    "number": 622,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 304,
+    "number": 623,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Golurkite",
+        "types": ["ground", "ghost"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 305,
+    "number": 821,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 306,
+    "number": 822,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 307,
+    "number": 823,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 308,
+    "number": 174,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 309,
+    "number": 39,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 310,
+    "number": 40,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 311,
+    "number": 926,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 312,
+    "number": 927,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 313,
+    "number": 396,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 314,
+    "number": 397,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 315,
+    "number": 398,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Staraptite",
+        "types": ["fighting", "flying"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 316,
+    "number": 325,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 317,
+    "number": 326,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 318,
+    "number": 931,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 319,
+    "number": 739,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 320,
+    "number": 740,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Crabominite",
+        "types": ["fighting", "ice"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 321,
+    "number": 932,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 322,
+    "number": 933,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 323,
+    "number": 934,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 324,
+    "number": 316,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 325,
+    "number": 317,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 326,
+    "number": 41,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 327,
+    "number": 42,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 328,
+    "number": 169,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 329,
+    "number": 935,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 330,
+    "number": 936,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 331,
+    "number": 937,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 332,
+    "number": 942,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "number": 943,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 334,
+    "number": 848,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 335,
+    "number": 849,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 336,
+    "number": 944,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 337,
+    "number": 945,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 338,
+    "number": 335,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 339,
+    "number": 336,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 340,
+    "number": 439,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 341,
+    "number": 122,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 342,
+    "number": 866,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 343,
+    "number": 590,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 344,
+    "number": 591,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 345,
+    "number": 485,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Heatranite",
+        "types": ["fire", "steel"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 346,
+    "number": 721,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 347,
+    "number": 638,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 348,
+    "number": 639,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 349,
+    "number": 640,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 350,
+    "number": 647,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 351,
+    "number": 648,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 352,
+    "number": 649,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 353,
+    "number": 720,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 354,
+    "number": 802,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 355,
+    "number": 808,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 356,
+    "number": 809,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 357,
+    "number": 491,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Darkranite",
+        "types": ["dark"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 358,
+    "number": 380,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Latiasite",
+        "types": ["dragon", "psychic"],
+        "dlc": true
+      }
+    ]
+  },
+  {
+    "id": 359,
+    "number": 381,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Latiosite",
+        "types": ["dragon", "psychic"],
+        "dlc": true
+      }
+    ]
+  },
+  {
+    "id": 360,
+    "number": 382,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "static",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Hyperspace Mission 14: A Sapphire-Blue Legend (Mega Dimension DLC)",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 361,
+    "number": 383,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "static",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Hyperspace Mission 13: A Ruby-Red Legend (Mega Dimension DLC)",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 362,
+    "number": 384,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "static",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Hyperspace Mission 12: The Greatest Gift (Mega Dimension DLC)",
+        "place": "Hyperspace Lumiose"
+      }
+    ]
+  },
+  {
+    "id": 363,
+    "number": 801,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Magearnite",
+        "types": ["steel", "fairy"],
+        "dlc": true,
+        "new": true
+      }
+    ]
+  },
+  {
+    "id": 364,
+    "number": 807,
+    "games": ["legends-za"],
+    "dlc": true,
+    "encounters": [
+      {
+        "method": "hyperspace",
+        "path": null,
+        "games": ["legends-za"],
+        "note": "Mega Dimension DLC",
+        "place": "Hyperspace Lumiose"
+      }
+    ],
+    "megas": [
+      {
+        "stone": "Zeraorite",
+        "types": ["electric"],
+        "dlc": true,
+        "new": true
+      }
+    ]
   }
 ]
