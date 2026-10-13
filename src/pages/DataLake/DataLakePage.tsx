@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useSearchParams } from 'react-router';
 
 import { Container } from '@/components/Container';
 import { ToggleChip } from '@/components/ToggleChip';
@@ -6,10 +6,26 @@ import { ToggleChip } from '@/components/ToggleChip';
 import { DatasetExplorer } from './DatasetExplorer';
 import { datasets } from './datasets';
 import { StatsForNerds } from './StatsForNerds';
+import { readExplorerState, writeExplorerState } from './urlState';
 
 export const DataLakePage = () => {
-  const [datasetId, setDatasetId] = useState(datasets[0].id);
-  const dataset = datasets.find(({ id }) => id === datasetId) ?? datasets[0];
+  const [params, setParams] = useSearchParams();
+  const dataset =
+    datasets.find(({ id }) => id === params.get('dataset')) ?? datasets[0];
+
+  const selectDataset = (target: (typeof datasets)[number]) => {
+    const { filters } = readExplorerState(params, dataset.columns);
+    const carried = filters.filter(({ column }) =>
+      target.columns.some(({ id }) => id === column),
+    );
+    const next = writeExplorerState(new URLSearchParams(), {
+      query: '',
+      filters: carried,
+    });
+
+    next.set('dataset', target.id);
+    setParams(next);
+  };
 
   return (
     <Container
@@ -42,13 +58,13 @@ export const DataLakePage = () => {
           aria-label="Dataset"
           className="flex flex-wrap gap-1.5"
         >
-          {datasets.map(({ id, label }) => (
+          {datasets.map((entry) => (
             <ToggleChip
-              key={id}
-              pressed={id === dataset.id}
-              onClick={() => setDatasetId(id)}
+              key={entry.id}
+              pressed={entry.id === dataset.id}
+              onClick={() => selectDataset(entry)}
             >
-              {label}
+              {entry.label}
             </ToggleChip>
           ))}
         </div>

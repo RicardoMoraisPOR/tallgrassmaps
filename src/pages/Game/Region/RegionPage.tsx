@@ -17,9 +17,8 @@ const MINIMALIST_MAP_HEIGHT = '(100svh - 13rem)';
 
 export const RegionPage = () => {
   const route = useGameRoute();
-  const immersive =
-    useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
-  const mapFrame = useMapFrame(route?.region.versionGroup ?? '');
+  const immersive = useMapLayout() === 'immersive';
+  const mapFrame = useMapFrame();
 
   useEffect(() => {
     void import('@/pages/Game/Location/LocationPage');

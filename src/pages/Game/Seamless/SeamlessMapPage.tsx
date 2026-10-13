@@ -27,9 +27,8 @@ const EXIT = { duration: 0.25, ease: easeOutSoft };
 export const SeamlessMapPage = () => {
   const route = useGameRoute();
   const navigate = useNavigate();
-  const immersive =
-    useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
-  const mapFrame = useMapFrame(route?.region.versionGroup ?? '');
+  const immersive = useMapLayout() === 'immersive';
+  const mapFrame = useMapFrame();
   const desktop = useMediaQuery(DESKTOP_QUERY);
 
   if (!route?.trail) return <NotFoundPage />;

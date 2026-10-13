@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import { Columns3, Download, Search } from 'lucide-react';
+import { useSearchParams } from 'react-router';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -20,10 +21,14 @@ import {
   applyFilters,
   type Filter,
   searchRows,
-  type Sort,
   sortRows,
   toCsv,
 } from './table';
+import {
+  type ExplorerState,
+  readExplorerState,
+  writeExplorerState,
+} from './urlState';
 
 const PAGE_SIZE = 50;
 
@@ -41,9 +46,7 @@ const download = (name: string, text: string) => {
 
 export const DatasetExplorer = ({ dataset }: { dataset: Dataset }) => {
   const rows = useMemo(() => rowsOf(dataset), [dataset]);
-  const [query, setQuery] = useState('');
-  const [filters, setFilters] = useState<Array<Filter>>([]);
-  const [sort, setSort] = useState<Sort>();
+  const [params, setParams] = useSearchParams();
   const [limit, setLimit] = useState(PAGE_SIZE);
   const [hidden, setHidden] = useState(
     () =>
@@ -51,6 +54,18 @@ export const DatasetExplorer = ({ dataset }: { dataset: Dataset }) => {
         dataset.columns.filter(({ hidden }) => hidden).map(({ id }) => id),
       ),
   );
+
+  const { query, filters, sort } = useMemo(
+    () => readExplorerState(params, dataset.columns),
+    [params, dataset.columns],
+  );
+
+  const update = (change: Partial<ExplorerState>) =>
+    setParams(writeExplorerState(params, { query, filters, sort, ...change }), {
+      replace: true,
+    });
+  const setQuery = (next: string) => update({ query: next });
+  const setFilters = (next: Array<Filter>) => update({ filters: next });
 
   const filtered = useMemo(
     () => applyFilters(searchRows(rows, query), filters),
@@ -61,13 +76,14 @@ export const DatasetExplorer = ({ dataset }: { dataset: Dataset }) => {
   const dirty = query !== '' || filters.length > 0;
 
   const toggleSort = (column: string) =>
-    setSort((current) =>
-      current?.column !== column
-        ? { column, direction: 'asc' }
-        : current.direction === 'asc'
-          ? { column, direction: 'desc' }
-          : undefined,
-    );
+    update({
+      sort:
+        sort?.column !== column
+          ? { column, direction: 'asc' }
+          : sort.direction === 'asc'
+            ? { column, direction: 'desc' }
+            : undefined,
+    });
 
   return (
     <div className="flex flex-col gap-5">
@@ -116,7 +132,7 @@ export const DatasetExplorer = ({ dataset }: { dataset: Dataset }) => {
         columns={dataset.columns}
         rows={filtered}
         onFilter={(filter) => {
-          setFilters((current) => addFilter(current, filter));
+          setFilters(addFilter(filters, filter));
           setLimit(PAGE_SIZE);
         }}
       />
@@ -132,8 +148,7 @@ export const DatasetExplorer = ({ dataset }: { dataset: Dataset }) => {
               <button
                 type="button"
                 onClick={() => {
-                  setQuery('');
-                  setFilters([]);
+                  update({ query: '', filters: [] });
                 }}
                 className="text-foreground underline underline-offset-3"
               >

@@ -28,9 +28,9 @@ export const captureMapFrame = () => {
 
 const px = (value: number) => `${value}px`;
 
-export const useMapFrame = (versionGroup: string) => {
+export const useMapFrame = () => {
   const frame = useRef<HTMLDivElement>(null);
-  const layout = useMapLayout(versionGroup);
+  const layout = useMapLayout();
 
   useLayoutEffect(() => {
     const element = frame.current;

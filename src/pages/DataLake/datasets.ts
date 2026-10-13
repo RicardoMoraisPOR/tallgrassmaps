@@ -14,6 +14,7 @@ import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 
 import type { Column, Row } from './table';
+import { VERSION_GROUPS } from './versionGroups';
 
 export type Dataset = {
   id: string;
@@ -22,11 +23,6 @@ export type Dataset = {
   columns: Array<Column>;
   rows: () => Array<Row>;
 };
-
-const VERSION_GROUPS: Array<[id: string, label: string]> = [
-  ['RBY', 'Red, Blue and Yellow'],
-  ['ZA', 'Legends: Z-A'],
-];
 
 const pokemonName = (number: number) =>
   getSpecies(number)?.name ?? `#${number}`;

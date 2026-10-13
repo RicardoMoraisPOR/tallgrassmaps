@@ -6,8 +6,8 @@ import { useSettingsStore } from '@/stores/settings';
 
 import { captureMapFrame } from './mapFrame';
 
-export const LayoutToggle = ({ versionGroup }: { versionGroup: string }) => {
-  const layout = useMapLayout(versionGroup);
+export const LayoutToggle = () => {
+  const layout = useMapLayout();
   const setLayout = useSettingsStore((state) => state.setLayout);
   const animations = useSettingsStore((state) => state.animations);
   const immersive = layout === 'immersive';
@@ -23,7 +23,7 @@ export const LayoutToggle = ({ versionGroup }: { versionGroup: string }) => {
       title={label}
       onClick={() => {
         captureMapFrame();
-        setLayout(versionGroup, immersive ? 'minimalist' : 'immersive');
+        setLayout(immersive ? 'minimalist' : 'immersive');
       }}
       className="absolute top-4 right-4 z-30 flex size-12 items-center justify-center rounded-[14px] border bg-card text-muted-foreground outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 md:size-9"
     >

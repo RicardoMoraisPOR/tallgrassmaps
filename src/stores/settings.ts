@@ -24,14 +24,14 @@ type SettingsState = {
   themes: Record<ThemeArea, ThemeStyle>;
   mapLayers: Partial<Record<string, boolean>>;
   locationTab: LocationTab;
-  layouts: Partial<Record<string, MapLayout>>;
+  layout: MapLayout | undefined;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
   setThemePreset: (preset: ThemePreset) => void;
   setTheme: (area: ThemeArea, style: ThemeStyle) => void;
   setMapLayer: (layer: string, visible: boolean) => void;
   setLocationTab: (tab: LocationTab) => void;
-  setLayout: (versionGroup: string, layout: MapLayout) => void;
+  setLayout: (layout: MapLayout) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -50,7 +50,7 @@ export const useSettingsStore = create<SettingsState>()(
       },
       mapLayers: {},
       locationTab: 'info',
-      layouts: {},
+      layout: undefined,
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
       setThemePreset: (themePreset) => set({ themePreset }),
@@ -61,24 +61,22 @@ export const useSettingsStore = create<SettingsState>()(
           mapLayers: { ...state.mapLayers, [layer]: visible },
         })),
       setLocationTab: (locationTab) => set({ locationTab }),
-      setLayout: (versionGroup, layout) =>
-        set((state) => ({
-          layouts: { ...state.layouts, [versionGroup]: layout },
-        })),
+      setLayout: (layout) => set({ layout }),
     }),
     {
       name: 'tallgrass-settings',
-      version: 2,
+      version: 3,
       storage: createJSONStorage(() => localStorage),
       migrate: (persisted, version) => {
-        const state = persisted as {
+        let state = persisted as {
           themes?: Partial<Record<string, ThemeStyle>>;
+          layouts?: Partial<Record<string, MapLayout>>;
         };
 
         if (version < 2 && state.themes) {
           const { wildPokemon, mapIcons, ...themes } = state.themes;
 
-          return {
+          state = {
             ...state,
             themePreset: 'custom',
             themes: {
@@ -87,7 +85,17 @@ export const useSettingsStore = create<SettingsState>()(
               dialogBoxes: mapIcons,
               pokemonPopups: wildPokemon,
             },
-          };
+          } as typeof state;
+        }
+
+        if (version < 3 && state.layouts) {
+          const { layouts, ...rest } = state;
+          const saved = Object.values(layouts);
+
+          state = {
+            ...rest,
+            layout: saved.includes('immersive') ? 'immersive' : saved[0],
+          } as typeof state;
         }
 
         return state;
@@ -115,7 +123,7 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
-        layouts,
+        layout,
       }) => ({
         animations,
         gamePointer,
@@ -123,7 +131,7 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
-        layouts,
+        layout,
       }),
     },
   ),

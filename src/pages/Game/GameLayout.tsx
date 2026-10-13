@@ -18,7 +18,7 @@ const pageKind = (pathname: string) => {
 
 export const GameLayout = () => {
   const route = useGameRoute();
-  const layout = useMapLayout(route?.region.versionGroup ?? '');
+  const layout = useMapLayout();
 
   if (!route) {
     return <NotFoundPage />;
@@ -33,7 +33,7 @@ export const GameLayout = () => {
       href={route.href}
     >
       <div className="relative flex flex-1 flex-col">
-        <LayoutToggle versionGroup={route.region.versionGroup} />
+        <LayoutToggle />
         {!immersive && <PlaceSearchButton floating />}
         <Container
           as="section"

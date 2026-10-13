@@ -27,6 +27,7 @@ import { platformParts, type Game } from '@/data/games';
 import type { Region } from '@/data/maps';
 import { cn, formatList } from '@/lib/utils';
 
+import { dataLakeHref } from '../../DataLake/urlState';
 import { MissingContentDialog } from '../../Maps/MissingContentDialog';
 import { extrasFor } from '../Extras/extras';
 import { ExtrasDialog } from '../Extras/ExtrasDialog';
@@ -212,7 +213,15 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
 
         {world.length > 0 && (
           <div className="flex flex-col gap-2">
-            <SectionTitle>In the game</SectionTitle>
+            <div className="flex items-baseline justify-between gap-3">
+              <SectionTitle>Stats</SectionTitle>
+              <Link
+                to={dataLakeHref(region.versionGroup)}
+                className="text-xs text-muted-foreground underline underline-offset-3 hover:text-foreground"
+              >
+                Explore in Data Lake
+              </Link>
+            </div>
             <dl className="flex flex-col divide-y rounded-[10px] border">
               {world.map(({ icon: Icon, label, value, detail }) => (
                 <div

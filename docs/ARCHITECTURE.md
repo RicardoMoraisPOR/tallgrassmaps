@@ -83,7 +83,7 @@ Leaflet runs in `CRS.Simple` (pixel coordinates, no tiles) with the map image as
 - `SeamlessMap`: the single large Lumiose map. Zones are polygons that fly to on selection.
 - `RegionMap`, `RegionImage`, `PlacesMap`: region overview rendering with pointer, cursor and label sprites.
 - `coordinates.ts` converts image pixels to lat/lng. `MapZoomControls`, `HotspotOutline`, `LocationCursor`, `LocationLabel` and `AnimatedSprite` are small pieces.
-- `pages/Game/mapFrame.ts`: `useMapFrame(versionGroup)` animates the map frame between the old and new size when the layout toggle is pressed. The toggle captures the frame's rect just before the layout changes.
+- `pages/Game/mapFrame.ts`: `useMapFrame()` animates the map frame between the old and new size when the layout toggle is pressed. The toggle captures the frame's rect just before the layout changes.
 - `pages/MapMaker` is a dev-only tool for clicking polygons on the Z-A map and copying coordinates into `lumiose-za.ts`.
 
 ## 6. Location page (`pages/Game/Location`)
@@ -113,7 +113,7 @@ The largest feature. `LocationPage` orchestrates:
 
 - **Pokédex:** `Pokedex.tsx` picks a view from `pokedexViews[versionGroup][themeStyle]`. The `tall-grass` and `rby` styles share `ListPokedex.tsx` (drawer, search, list) and differ by a skin: title, row, class names (`tallGrassSkin.ts`, `rbySkin.ts`). `za/` has its own drawer, search, preview pane and rows, and reuses `PokedexList`. `usePokedexSearch` and `entryDetails.ts` are shared; `MegaEvolutions` and `EncounterPlaces` are detail sections. All views are lazy-loaded so their fonts only load when used.
 - **Theming:** two styles, `game` and `tall-grass`, chosen per area (pokedex, mapIcons, dialogBoxes, trainers, pokemonPopups, sprites) through `useThemeStyle(area)`. Presets (`game`, `tall-grass`, `custom`) set every area at once. Light and dark is separate (`lib/theme.ts`, a class on `<html>`, localStorage key `tall-grass-theme`).
-- **Settings:** `stores/settings.ts` is a persisted zustand store (`tallgrass-settings`, version 2 with a migration) holding animations, game pointer, theme preset and areas, map layer toggles, last location tab and the map layout per version group. `useMapLayout` (in `hooks/`) falls back to immersive on mobile when no layout is saved.
+- **Settings:** `stores/settings.ts` is a persisted zustand store (`tallgrass-settings`, version 3 with migrations) holding animations, game pointer, theme preset and areas, map layer toggles, last location tab and the map layout (global, shared by all games). `useMapLayout` (in `hooks/`) falls back to immersive on mobile when no layout is saved.
 - **Breakpoints:** `lib/breakpoints.ts` holds the media queries; components use `useMediaQuery`.
 - **Motion:** `lib/motion.ts` (easings, and a reduced-motion check that also respects the animations setting), `PageTransition`, and the home hero timeline.
 

@@ -51,9 +51,8 @@ export const LocationPage = () => {
   const route = useGameRoute();
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
-  const immersive =
-    useMapLayout(route?.region.versionGroup ?? '') === 'immersive';
-  const mapFrame = useMapFrame(route?.region.versionGroup ?? '');
+  const immersive = useMapLayout() === 'immersive';
+  const mapFrame = useMapFrame();
   const desktop = useMediaQuery(DESKTOP_QUERY);
   const mapSection = useRef<HTMLDivElement>(null);
 
