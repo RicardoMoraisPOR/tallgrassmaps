@@ -9,6 +9,7 @@ import {
   ExternalLink,
   Gamepad2,
   Gift,
+  ListChecks,
   MapPin,
   Signpost,
   Swords,
@@ -27,6 +28,9 @@ import type { Region } from '@/data/maps';
 import { cn, formatList } from '@/lib/utils';
 
 import { MissingContentDialog } from '../../Maps/MissingContentDialog';
+import { extrasFor } from '../Extras/extras';
+import { ExtrasDialog } from '../Extras/ExtrasDialog';
+import type { GameExtra } from '../Extras/types';
 import { hasPokedex } from '../Pokedex/pokedexViews';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { gameStats } from './gameStats';
@@ -44,6 +48,9 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
   const stats = useMemo(() => gameStats(game, region), [game, region]);
   const pokedexLink = usePokedexLink();
   const [missingOpen, setMissingOpen] = useState(false);
+  const [extra, setExtra] = useState<GameExtra>();
+
+  const extras = extrasFor(region.versionGroup) ?? [];
 
   const sections = game.contentStatus ?? [];
   const done = sections.filter(({ status }) => status === 'complete').length;
@@ -145,6 +152,29 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
             {game.developer}
           </Fact>
         </dl>
+
+        {extras.length > 0 && (
+          <div className="flex flex-col gap-2">
+            <SectionTitle>Guides</SectionTitle>
+            {extras.map((entry) => (
+              <Button
+                key={entry.id}
+                variant="outline"
+                size="lg"
+                className="w-full justify-between"
+                onClick={() => setExtra(entry)}
+              >
+                <span className="flex items-center gap-2">
+                  <ListChecks aria-hidden />
+                  {entry.title}
+                </span>
+                <span className="text-xs text-muted-foreground tabular-nums">
+                  {entry.count}
+                </span>
+              </Button>
+            ))}
+          </div>
+        )}
 
         <div className="flex flex-col gap-2">
           <SectionTitle>Pokémon</SectionTitle>
@@ -259,6 +289,12 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
           </Button>
         </div>
       </div>
+      <ExtrasDialog
+        game={game}
+        region={region}
+        extra={extra}
+        onOpenChange={(open) => !open && setExtra(undefined)}
+      />
       <MissingContentDialog
         game={game}
         open={missingOpen}
