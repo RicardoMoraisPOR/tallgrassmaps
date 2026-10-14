@@ -802,6 +802,7 @@ const wildZoneLocation = (number: number): Location => ({
 export const lumioseZa: Region = {
   id: 'lumiose-za',
   name: 'Lumiose City',
+  partOf: 'Kalos',
   versionGroup: 'ZA',
   pokedexSize: 364,
   navigation: 'seamless',

@@ -1,8 +1,4 @@
-import {
-  type Game,
-  type GameContentSection,
-  gamesSharingMap,
-} from '@/data/games';
+import { type Game, gamesSharingMap } from '@/data/games';
 import { itemsFor } from '@/data/items';
 import type { Region } from '@/data/maps';
 import { npcsFor } from '@/data/npcs';
@@ -30,10 +26,6 @@ export type GameStats = {
   places?: number;
 };
 
-const available = (game: Game, section: GameContentSection) =>
-  game.contentStatus?.find((entry) => entry.section === section)?.status !==
-  'missing';
-
 const countFor = <T extends { games: Array<string> }>(
   entries: Array<T> | undefined,
   game: Game,
@@ -46,23 +38,12 @@ const countFor = <T extends { games: Array<string> }>(
 export const gameStats = (game: Game, region: Region): GameStats => {
   const entries = pokedexFor(region.versionGroup) ?? [];
   const sharing = gamesSharingMap(game).length > 1;
-  const items = available(game, 'items')
-    ? countFor(itemsFor(region.versionGroup), game)
-    : undefined;
-  const trainers = available(game, 'trainer-battles')
-    ? countFor(trainersFor(region.versionGroup), game)
-    : undefined;
-  const staticPokemon = available(game, 'static-gift-pokemon')
-    ? countFor(staticPokemonFor(region.versionGroup), game)
-    : undefined;
-  const hasMapData = available(game, 'map-tile-data');
-  const npcs = hasMapData
-    ? countFor(npcsFor(region.versionGroup), game)
-    : undefined;
-  const signs = hasMapData
-    ? countFor(signsFor(region.versionGroup), game)
-    : undefined;
-  const places = hasMapData ? collectPlaces(region, game.id).length : undefined;
+  const items = countFor(itemsFor(region.versionGroup), game);
+  const trainers = countFor(trainersFor(region.versionGroup), game);
+  const staticPokemon = countFor(staticPokemonFor(region.versionGroup), game);
+  const npcs = countFor(npcsFor(region.versionGroup), game);
+  const signs = countFor(signsFor(region.versionGroup), game);
+  const places = collectPlaces(region, game.id).length;
 
   return {
     pokedexSize: region.pokedexSize,

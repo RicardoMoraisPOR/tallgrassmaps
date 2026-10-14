@@ -390,7 +390,7 @@ exports[`catalog > groups games into map sets 1`] = `
       },
     ],
     "regions": [
-      "Lumiose City",
+      "Kalos",
     ],
     "versionGroup": "ZA",
   },
@@ -784,9 +784,9 @@ exports[`catalog > lists every entry per generation 1`] = `
         "id": "legends-za",
         "name": "Pokémon Legends: Z-A",
         "regions": [
-          "Lumiose City",
+          "Kalos",
         ],
-        "status": "missing-content",
+        "status": "complete",
         "versionGroup": "ZA",
       },
     ],

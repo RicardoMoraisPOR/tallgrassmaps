@@ -8,36 +8,7 @@ export type Platform =
 
 export type LabelPart = { text: string; color?: string };
 
-export type GameStatus = 'complete' | 'missing-content';
-export type GameContentStatus = 'complete' | 'missing' | 'in-progress';
-export type GameContentSection =
-  | 'town-map-sprites'
-  | 'town-map-data'
-  | 'map-tile-sprites'
-  | 'map-tile-data'
-  | 'pokedex'
-  | 'wild-encounters'
-  | 'trainer-battles'
-  | 'items'
-  | 'static-gift-pokemon'
-  | 'game-theme-ui';
-
-const gameContentSectionTitles: Record<GameContentSection, string> = {
-  'town-map-sprites': 'Town Map Sprites',
-  'town-map-data': 'Town Map Data',
-  'map-tile-sprites': 'Map Tile Sprites',
-  'map-tile-data': 'Map Tile Data',
-  pokedex: 'Pokedex',
-  'wild-encounters': 'Wild Encounters',
-  'trainer-battles': 'Trainer Battles',
-  items: 'Items',
-  'static-gift-pokemon': 'Static & Gift Pokémon',
-  'game-theme-ui': 'Game Theme UI',
-};
-
-export const gameContentSectionTitle = (section: GameContentSection) =>
-  gameContentSectionTitles[section];
-
+export type GameStatus = 'complete';
 const colorLetters: Array<[text: string, color: string]> = [
   ['C', 'oklch(0.6 0.22 25)'],
   ['o', 'oklch(0.55 0.2 300)'],
@@ -90,11 +61,6 @@ export type Game = {
   };
   obtainableWithoutTrading?: number;
   obtainableExcluding?: string;
-  contentStatus?: Array<{
-    section: GameContentSection;
-    status: GameContentStatus;
-    details?: string;
-  }>;
   colors: Array<string>;
 };
 
@@ -151,7 +117,7 @@ export const games: Array<Game> = [
     id: 'legends-za',
     fullName: 'Pokémon Legends: Z-A',
     shortName: 'Legends Z-A',
-    status: 'missing-content',
+    status: 'complete',
     generation: 9,
     region: 'lumiose-za',
     platform: 'Nintendo Switch',
@@ -166,52 +132,6 @@ export const games: Array<Game> = [
     },
     obtainableWithoutTrading: 226,
     obtainableExcluding: 'DLC or trading',
-    contentStatus: [
-      {
-        section: 'town-map-sprites',
-        status: 'in-progress',
-        details: 'Tall Grass version is missing',
-      },
-      {
-        section: 'town-map-data',
-        status: 'missing',
-      },
-      {
-        section: 'map-tile-sprites',
-        status: 'missing',
-      },
-      {
-        section: 'map-tile-data',
-        status: 'missing',
-      },
-      {
-        section: 'pokedex',
-        status: 'in-progress',
-        details:
-          'Pokémon entries, types, evolutions, and game availability are being added.',
-      },
-      {
-        section: 'wild-encounters',
-        status: 'in-progress',
-        details: 'Wild Zones 1 to 20 are in. Sector zones are still missing.',
-      },
-      {
-        section: 'trainer-battles',
-        status: 'missing',
-      },
-      {
-        section: 'items',
-        status: 'missing',
-      },
-      {
-        section: 'static-gift-pokemon',
-        status: 'missing',
-      },
-      {
-        section: 'game-theme-ui',
-        status: 'missing',
-      },
-    ],
     colors: ['oklch(0.7 0.14 150)'],
   },
 ];

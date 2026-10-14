@@ -8,7 +8,9 @@ import {
 import { type LabelPart, platformParts } from '@/data/games';
 import { formatList, slugify } from '@/lib/utils';
 
-export type FilterKey = 'region' | 'map' | 'console' | 'status';
+export type MapsView = 'map' | 'generation';
+
+export type FilterKey = 'region' | 'map' | 'console' | 'generation';
 
 export type Filters = Record<FilterKey, Array<string>>;
 
@@ -26,6 +28,12 @@ export type FilterGroup = {
 };
 
 const allEntries = generations.flatMap(({ entries }) => entries);
+
+const generationOfEntry = new Map(
+  generations.flatMap(({ number, entries }) =>
+    entries.map((entry) => [entry.id, String(number)] as const),
+  ),
+);
 
 const entryMaps = (entry: CatalogEntry) => {
   const versionGroup = entryVersionGroup(entry);
@@ -63,15 +71,19 @@ export const filterGroups: Array<FilterGroup> = [
     })),
   },
   {
-    key: 'status',
-    label: 'Status',
-    options: [
-      { value: 'complete', label: 'Complete' },
-      { value: 'missing-content', label: 'Missing Content' },
-      { value: 'coming-soon', label: 'Coming Soon' },
-    ],
+    key: 'generation',
+    label: 'Generation',
+    options: generations.map(({ number, roman }) => ({
+      value: String(number),
+      label: `Generation ${roman}`,
+    })),
   },
 ];
+
+export const groupsFor = (view: MapsView) =>
+  filterGroups.filter(({ key }) =>
+    view === 'map' ? key !== 'map' : key !== 'generation',
+  );
 
 export const totalGames = allEntries.length;
 
@@ -79,7 +91,7 @@ const entryValues = (entry: CatalogEntry): Filters => ({
   region: entryRegions(entry).map(slugify),
   map: entryMaps(entry).map(slugify),
   console: [slugify(entry.platform)],
-  status: [entry.status],
+  generation: [generationOfEntry.get(entry.id) ?? ''],
 });
 
 const matches = (entry: CatalogEntry, filters: Filters) => {
@@ -99,3 +111,23 @@ export const filterGenerations = (filters: Filters): Array<Generation> =>
       entries: generation.entries.filter((entry) => matches(entry, filters)),
     }))
     .filter(({ entries }) => entries.length > 0);
+
+export type MapGroup = {
+  versionGroup: string;
+  entries: Array<CatalogEntry>;
+};
+
+export const groupByMap = (entries: Array<CatalogEntry>): Array<MapGroup> => {
+  const groups = new Map<string, Array<CatalogEntry>>();
+
+  for (const entry of entries) {
+    const versionGroup = entryVersionGroup(entry) ?? entry.id;
+
+    groups.set(versionGroup, [...(groups.get(versionGroup) ?? []), entry]);
+  }
+
+  return [...groups].map(([versionGroup, grouped]) => ({
+    versionGroup,
+    entries: grouped,
+  }));
+};

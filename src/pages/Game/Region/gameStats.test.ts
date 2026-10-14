@@ -24,12 +24,11 @@ describe('gameStats', () => {
     expect(stats.megaEvolutions).toBe(0);
   });
 
-  it('only counts sections that exist for Legends Z-A', () => {
+  it('only counts what has been mapped for Legends Z-A', () => {
     const stats = statsFor('legends-za');
 
     expect(stats.pokedexSize).toBe(364);
     expect(stats.items).toBeUndefined();
-    expect(stats.trainers).toBeUndefined();
     expect(stats.versionExclusives).toBeUndefined();
     expect(stats.megaEvolutions).toBeGreaterThan(0);
     expect(stats.wildSpecies).toBeGreaterThan(100);

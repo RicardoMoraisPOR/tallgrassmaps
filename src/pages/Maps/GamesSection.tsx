@@ -2,18 +2,33 @@ import { AnimatePresence, m } from 'motion/react';
 
 import { Container } from '@/components/Container';
 import { generationRegions } from '@/data/catalog/entries';
+import type { CatalogEntry } from '@/data/catalog/types';
 import { easeOutSoft } from '@/lib/motion';
 import { generationId } from '@/lib/paths';
 import { formatList } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
-import { filterGenerations, filterGroups, totalGames } from './filters';
+import { filterGenerations, groupByMap, totalGames } from './filters';
 import { GameCard } from './GameCard';
 import { GameFilters } from './GameFilters';
-import { useFilters } from './useFilters';
+import { MapCard } from './MapCard';
+import { type MapsView, useFilters } from './useFilters';
 
 const STAGGER_SECONDS = 0.02;
 const MAX_STAGGERED_ITEMS = 8;
+
+const VIEWS: Array<{ value: MapsView; label: string }> = [
+  { value: 'map', label: 'By Map' },
+  { value: 'generation', label: 'By Generation' },
+];
+
+type Section = {
+  key: string;
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  entries: Array<CatalogEntry>;
+};
 
 const exitTransition = { duration: 0.12, ease: 'easeIn' } as const;
 
@@ -36,22 +51,64 @@ const chainItem = {
 };
 
 export const GamesSection = () => {
-  const { filters, active, toggle, clear } = useFilters();
+  const { filters, groups, active, view, setView, toggle, clear } =
+    useFilters();
   const animations = useSettingsStore((state) => state.animations);
 
-  const visible = filterGenerations(filters);
-  const shown = visible.reduce((sum, { entries }) => sum + entries.length, 0);
-  const resultsKey = filterGroups
-    .map(({ key }) => filters[key].join(','))
-    .join('|');
+  const generations = filterGenerations(filters);
+  const shown = generations.reduce(
+    (sum, { entries }) => sum + entries.length,
+    0,
+  );
+  const allEntries = generations.flatMap(({ entries }) => entries);
+  const visible: Array<Section> =
+    view === 'map'
+      ? allEntries.length > 0
+        ? [{ key: 'maps', entries: allEntries }]
+        : []
+      : generations.map((generation) => ({
+          key: `generation-${generation.number}`,
+          id: generationId(generation.number),
+          title: `Generation ${generation.roman}`,
+          subtitle: formatList(generationRegions(generation)),
+          entries: generation.entries,
+        }));
+  const resultsKey = [
+    view,
+    ...groups.map(({ key }) => filters[key].join(',')),
+  ].join('|');
 
   let chainIndex = 0;
 
   return (
     <section aria-label="Games">
-      <Container className="flex flex-col gap-14 pb-18">
-        <div className="flex flex-col gap-8">
+      <Container className="flex flex-col gap-10 pb-18">
+        <div className="flex flex-col gap-8 border-b pb-4">
           <GameFilters
+            groups={groups}
+            leading={
+              <div
+                role="group"
+                aria-label="Group games"
+                className="inline-flex w-fit rounded-full border p-0.5"
+              >
+                {VIEWS.map(({ value, label }) => (
+                  <button
+                    key={value}
+                    type="button"
+                    aria-pressed={view === value}
+                    onClick={() => setView(value)}
+                    className={`h-8 rounded-full px-4 text-[13px] font-medium transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 ${
+                      view === value
+                        ? 'bg-foreground text-background'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            }
             filters={filters}
             active={active}
             shown={shown}
@@ -69,35 +126,50 @@ export const GamesSection = () => {
             animate="animate"
             exit="exit"
           >
-            {visible.map((generation) => (
+            {visible.map((section) => (
               <div
-                key={generation.number}
-                id={generationId(generation.number)}
+                key={section.key}
+                id={section.id}
                 className="flex scroll-mt-6 flex-col gap-5"
               >
-                <m.div
-                  variants={animations ? chainItem : undefined}
-                  custom={chainIndex++}
-                  className="flex items-center gap-4"
-                >
-                  <h3 className="text-xl font-semibold tracking-tight whitespace-nowrap">
-                    Generation {generation.roman}{' '}
-                    <span className="font-normal text-muted-foreground">
-                      · {formatList(generationRegions(generation))}
-                    </span>
-                  </h3>
-                  <span className="h-px flex-1 bg-border" />
-                </m.div>
+                {section.title && (
+                  <m.div
+                    variants={animations ? chainItem : undefined}
+                    custom={chainIndex++}
+                    className="flex items-center gap-4"
+                  >
+                    <h3 className="text-xl font-semibold tracking-tight whitespace-nowrap">
+                      {section.title}{' '}
+                      <span className="font-normal text-muted-foreground">
+                        · {section.subtitle}
+                      </span>
+                    </h3>
+                    <span className="h-px flex-1 bg-border" />
+                  </m.div>
+                )}
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-5">
-                  {generation.entries.map((entry) => (
-                    <m.div
-                      key={entry.id}
-                      variants={animations ? chainItem : undefined}
-                      custom={chainIndex++}
-                    >
-                      <GameCard entry={entry} />
-                    </m.div>
-                  ))}
+                  {view === 'map'
+                    ? groupByMap(section.entries).map((group) => (
+                        <m.div
+                          key={group.versionGroup}
+                          variants={animations ? chainItem : undefined}
+                          custom={chainIndex++}
+                        >
+                          <MapCard
+                            versionGroup={group.versionGroup}
+                            entries={group.entries}
+                          />
+                        </m.div>
+                      ))
+                    : section.entries.map((entry) => (
+                        <m.div
+                          key={entry.id}
+                          variants={animations ? chainItem : undefined}
+                          custom={chainIndex++}
+                        >
+                          <GameCard entry={entry} />
+                        </m.div>
+                      ))}
                 </div>
               </div>
             ))}

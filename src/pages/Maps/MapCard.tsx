@@ -1,0 +1,137 @@
+import { ArrowRight, Lock } from 'lucide-react';
+import { Link } from 'react-router';
+
+import { ColorStripe } from '@/components/GameCover';
+import { entryName, entryRegionLabels } from '@/data/catalog/entries';
+import type { CatalogEntry } from '@/data/catalog/types';
+import { getCover } from '@/data/covers';
+import { cn, formatList } from '@/lib/utils';
+
+const COVER_OVERLAP = '-ml-8';
+
+const shortTitle = (entry: CatalogEntry) =>
+  entryName(entry).replace(/^Pokémon /, '');
+
+const ROW_CLASS =
+  'flex h-11 items-center justify-between gap-2 rounded-[10px] border border-input bg-background px-3 text-sm font-medium transition-colors duration-200 sm:h-9 dark:bg-input/30';
+
+const GameRow = ({ entry }: { entry: CatalogEntry }) => {
+  if (entry.status === 'coming-soon')
+    return (
+      <span
+        aria-disabled="true"
+        className={cn(
+          ROW_CLASS,
+          'cursor-not-allowed border-dashed bg-transparent text-muted-foreground dark:bg-transparent',
+        )}
+      >
+        <span className="min-w-0">{shortTitle(entry)}</span>
+        <span className="inline-flex shrink-0 items-center gap-1 text-xs whitespace-nowrap">
+          <Lock aria-hidden className="size-3" />
+          Coming soon
+        </span>
+      </span>
+    );
+
+  return (
+    <Link
+      to={`/${entry.id}`}
+      aria-label={`Open ${entry.fullName} map`}
+      className={cn(
+        ROW_CLASS,
+        'outline-none hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/55 dark:hover:bg-primary',
+      )}
+    >
+      {shortTitle(entry)}
+      <ArrowRight aria-hidden className="size-4" />
+    </Link>
+  );
+};
+
+type MapCardProps = {
+  versionGroup: string;
+  entries: Array<CatalogEntry>;
+};
+
+export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
+  const upcoming = entries.every((entry) => entry.status === 'coming-soon');
+  const covers = entries.flatMap((entry) => {
+    const cover = getCover(entry.id);
+
+    return cover ? [{ id: entry.id, cover }] : [];
+  });
+  const sideBySide = covers.length === 2;
+  const regions = [...new Set(entries.flatMap(entryRegionLabels))];
+  const colors = entries.flatMap((entry) => entry.colors[0] ?? []);
+
+  return (
+    <div
+      className={cn(
+        'flex h-full flex-col overflow-hidden rounded-2xl border shadow-xs',
+        upcoming ? 'border-dashed bg-muted/45' : 'bg-card',
+      )}
+    >
+      <ColorStripe colors={colors} className={cn(upcoming && 'opacity-35')} />
+      <div
+        className={cn(
+          'relative aspect-16/10 shrink-0 overflow-hidden border-b bg-muted',
+          upcoming && 'border-dashed',
+        )}
+      >
+        {covers[0] && (
+          <img
+            src={covers[0].cover}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 size-full scale-125 object-cover opacity-60 blur-xl"
+          />
+        )}
+        <div
+          className={cn(
+            'relative flex size-full items-center justify-center py-3',
+            sideBySide && 'gap-3',
+            upcoming && 'opacity-70',
+          )}
+        >
+          {covers.map(({ id, cover }, index) => (
+            <img
+              key={id}
+              src={cover}
+              alt=""
+              loading="lazy"
+              className={cn(
+                'relative object-contain drop-shadow-[0_6px_14px_oklch(0_0_0/0.35)]',
+                'h-[80%]',
+                !sideBySide && index > 0 && COVER_OVERLAP,
+              )}
+              style={{ zIndex: covers.length - index }}
+            />
+          ))}
+        </div>
+        <span className="absolute bottom-2.5 left-2.5 z-10 inline-flex h-6 items-center rounded-full bg-[oklch(0.145_0_0/0.72)] px-2 text-xs font-medium text-[oklch(0.985_0_0)] backdrop-blur-sm">
+          {versionGroup} map
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col gap-3 p-4">
+        <div className="flex min-w-0 flex-col gap-1">
+          <span
+            className={cn(
+              'font-semibold tracking-tight text-pretty',
+              upcoming && 'font-medium text-muted-foreground',
+            )}
+          >
+            {formatList(entries.map(shortTitle))}
+          </span>
+          <span className="text-[13px] leading-5 text-muted-foreground">
+            {formatList(regions)} · {entries[0].platform}
+          </span>
+        </div>
+        <div className="mt-auto flex flex-col gap-2">
+          {entries.map((entry) => (
+            <GameRow key={entry.id} entry={entry} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};

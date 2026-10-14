@@ -155,6 +155,7 @@ export type WildArea = {
 export type Region = MapImage & {
   id: string;
   name: string;
+  partOf?: string;
   versionGroup: string;
   pokedexSize: number;
   locations: Array<Location>;

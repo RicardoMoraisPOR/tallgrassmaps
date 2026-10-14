@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 import { ChevronDown, X } from 'lucide-react';
 import { AnimatePresence, m } from 'motion/react';
@@ -16,7 +16,6 @@ import {
   type FilterKey,
   type FilterOption,
   type Filters,
-  filterGroups,
 } from './filters';
 
 const chipMotion = {
@@ -27,6 +26,8 @@ const chipMotion = {
 } as const;
 
 type GameFiltersProps = {
+  leading?: ReactNode;
+  groups: Array<FilterGroup>;
   filters: Filters;
   active: boolean;
   shown: number;
@@ -36,6 +37,8 @@ type GameFiltersProps = {
 };
 
 export const GameFilters = ({
+  leading,
+  groups,
   filters,
   active,
   shown,
@@ -43,7 +46,7 @@ export const GameFilters = ({
   onToggle,
   onClear,
 }: GameFiltersProps) => {
-  const selected = filterGroups.flatMap(({ key, options }) =>
+  const selected = groups.flatMap(({ key, options }) =>
     options
       .filter((option) => filters[key].includes(option.value))
       .map((option) => ({ key, option })),
@@ -51,8 +54,9 @@ export const GameFilters = ({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-wrap gap-2">
-        {filterGroups.map((group) => (
+      <div className="flex flex-wrap items-center gap-2">
+        {leading}
+        {groups.map((group) => (
           <FilterDropdown
             key={group.key}
             group={group}
@@ -60,11 +64,15 @@ export const GameFilters = ({
             onToggle={(value) => onToggle(group.key, value)}
           />
         ))}
+        <span
+          aria-live="polite"
+          className="ml-auto text-[13px] text-muted-foreground tabular-nums"
+        >
+          {active ? `${shown} of ${total}` : shown}{' '}
+          {(active ? total : shown) === 1 ? 'game' : 'games'}
+        </span>
       </div>
-      <div
-        aria-live="polite"
-        className="flex min-h-9 flex-wrap items-center gap-1.5 text-[13px] text-muted-foreground"
-      >
+      <div className="flex min-h-9 flex-wrap items-center gap-1.5 text-[13px] text-muted-foreground">
         <AnimatePresence initial={false} mode="popLayout">
           {selected.map(({ key, option }) => (
             <m.span
@@ -93,7 +101,6 @@ export const GameFilters = ({
             transition={chipMotion.transition}
             className="flex h-9 items-center gap-3 pl-1.5"
           >
-            Showing {shown} of {total} games
             <button
               type="button"
               onClick={onClear}

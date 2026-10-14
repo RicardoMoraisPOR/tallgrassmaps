@@ -3,7 +3,6 @@ import { type ReactNode, useMemo, useState } from 'react';
 import {
   Backpack,
   Calendar,
-  CircleAlert,
   Code,
   ExternalLink,
   Gamepad2,
@@ -27,7 +26,6 @@ import type { Region } from '@/data/maps';
 import { cn, formatList } from '@/lib/utils';
 
 import { dataLakeHref } from '../../DataLake/urlState';
-import { MissingContentDialog } from '../../Maps/MissingContentDialog';
 import { extrasFor } from '../Extras/extras';
 import { ExtrasDialog } from '../Extras/ExtrasDialog';
 import type { GameExtra } from '../Extras/types';
@@ -44,17 +42,9 @@ type GameInfoCardProps = {
 
 export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
   const stats = useMemo(() => gameStats(game, region), [game, region]);
-  const [missingOpen, setMissingOpen] = useState(false);
   const [extra, setExtra] = useState<GameExtra>();
 
   const extras = extrasFor(region.versionGroup) ?? [];
-
-  const sections = game.contentStatus ?? [];
-  const done = sections.filter(({ status }) => status === 'complete').length;
-  const started = sections.filter(
-    ({ status }) => status === 'in-progress',
-  ).length;
-  const incomplete = sections.length > 0 && done < sections.length;
 
   const pokemon = [
     { label: 'In the Pokédex', value: stats.pokedexSize },
@@ -228,44 +218,6 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
           </div>
         )}
 
-        {incomplete && (
-          <div className="flex flex-col gap-2.5 rounded-[10px] border border-dashed p-3">
-            <div className="flex items-center justify-between gap-3 text-[13px]">
-              <span className="flex items-center gap-2 font-medium">
-                <CircleAlert aria-hidden className="size-4 text-brand" />
-                Still being built
-              </span>
-              <span className="text-xs text-muted-foreground tabular-nums">
-                {done} of {sections.length} done
-                {started > 0 && ` · ${started} in progress`}
-              </span>
-            </div>
-            <div
-              role="progressbar"
-              aria-valuemin={0}
-              aria-valuemax={sections.length}
-              aria-valuenow={done}
-              aria-label="Content progress"
-              className="h-1.5 overflow-hidden rounded-full bg-muted"
-            >
-              <span
-                className="block h-full rounded-full bg-brand"
-                style={{
-                  width: `${((done + started / 2) / sections.length) * 100}%`,
-                }}
-              />
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="self-start"
-              onClick={() => setMissingOpen(true)}
-            >
-              What&apos;s missing
-            </Button>
-          </div>
-        )}
-
         <div className="flex flex-col gap-2">
           <Button variant="outline" size="lg" className="w-full" asChild>
             <a
@@ -284,11 +236,6 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
         region={region}
         extra={extra}
         onOpenChange={(open) => !open && setExtra(undefined)}
-      />
-      <MissingContentDialog
-        game={game}
-        open={missingOpen}
-        onOpenChange={setMissingOpen}
       />
     </section>
   );

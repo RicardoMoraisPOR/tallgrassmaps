@@ -26,8 +26,7 @@ export const MapsPage = () => {
           Explore maps
         </h1>
         <p className="max-w-[56ch] text-lg text-pretty text-muted-foreground">
-          Every main-series game in release order, grouped by generation. Pick
-          yours and start on its Town Map.
+          Every Town Map in the series. Pick your version and start exploring.
         </p>
       </Container>
       <GamesSection />
