@@ -1,7 +1,7 @@
 import '@fontsource/barlow/400.css';
 import { useCallback, useRef, useState } from 'react';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Award } from 'lucide-react';
 import { m } from 'motion/react';
 import { Link } from 'react-router';
 
@@ -140,18 +140,27 @@ const Hero = () => {
 const Footer = () => {
   return (
     <footer className="border-t">
-      <Container className="flex flex-wrap items-start justify-between gap-x-8 gap-y-3 pt-6 pb-8 text-[13px] leading-5 text-muted-foreground">
+      <Container className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pt-6 pb-8 text-[13px] leading-5 text-muted-foreground">
         <p className="max-w-160 text-pretty">
           This is a fan project. It isn&apos;t affiliated with Nintendo, Game
           Freak, Creatures Inc. or The Pokémon Company, who own Pokémon and
           everything related to it.
         </p>
-        <Link
-          to="/credits"
-          className="text-foreground underline underline-offset-3"
+        <Button
+          variant="outline"
+          size="sm"
+          className="group text-foreground"
+          asChild
         >
-          Credits
-        </Link>
+          <Link to="/credits">
+            <Award aria-hidden />
+            Credits
+            <ArrowRight
+              aria-hidden
+              className="transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+            />
+          </Link>
+        </Button>
       </Container>
     </footer>
   );
