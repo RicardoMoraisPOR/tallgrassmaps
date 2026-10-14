@@ -21,16 +21,9 @@ type PageHeaderProps = {
   region: Region;
   trail: Array<Location>;
   href: (path: string) => string;
-  floating?: boolean;
 };
 
-export const PageHeader = ({
-  game,
-  region,
-  trail,
-  href,
-  floating = false,
-}: PageHeaderProps) => {
+export const PageHeader = ({ game, region, trail, href }: PageHeaderProps) => {
   const animations = useSettingsStore((state) => state.animations);
   const location = trail.at(-1);
   const title = location?.name ?? region.name;
@@ -41,20 +34,10 @@ export const PageHeader = ({
     <m.div
       layout={animations ? 'position' : false}
       className={cn(
-        'flex flex-col items-start gap-3',
-        floating
-          ? 'absolute top-4 left-4 z-20 max-w-[calc(100%-6rem)] gap-2 lg:max-w-[min(48rem,calc(100%-26rem))]'
-          : 'items-stretch sm:items-start',
+        'absolute top-4 left-4 z-20 flex max-w-[calc(100%-6rem)] flex-col items-start gap-2 lg:max-w-[min(48rem,calc(100%-26rem))]',
       )}
     >
-      <header
-        className={cn(
-          'flex max-w-full items-center gap-4 sm:gap-5',
-          floating
-            ? 'gap-3 rounded-[14px] border bg-card p-3 sm:gap-4'
-            : 'pr-12 sm:pr-0',
-        )}
-      >
+      <header className="flex max-w-full items-center gap-3 rounded-[14px] border bg-card p-3 sm:gap-4">
         <div className="flex min-w-0 flex-col gap-2">
           <nav aria-label="Breadcrumb" className="hidden sm:block">
             <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] text-muted-foreground">
@@ -88,18 +71,12 @@ export const PageHeader = ({
             <MapSwitcher game={game} path={trailPath(trail)} />
             <GameSwitcher game={game} path={trailPath(trail)} />
           </div>
-          <h1
-            className={cn(
-              'font-heading leading-[1.05] font-bold tracking-[-0.035em]',
-              'text-balance',
-              floating ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-5xl',
-            )}
-          >
+          <h1 className="font-heading text-2xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-3xl">
             {title}
           </h1>
         </div>
       </header>
-      {floating && <BackLink game={game} trail={trail} href={href} />}
+      <BackLink game={game} trail={trail} href={href} />
     </m.div>
   );
 };

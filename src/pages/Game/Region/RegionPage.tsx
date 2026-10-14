@@ -4,21 +4,15 @@ import { Gamepad2 } from 'lucide-react';
 
 import { RegionMap } from '@/components/map/RegionMap';
 import { useGameRoute } from '@/hooks/useGameRoute';
-import { useMapLayout } from '@/hooks/useMapLayout';
-import { cn } from '@/lib/utils';
 
 import { AsideCard, GameAside } from '../GameAside';
-import { useMapFrame } from '../mapFrame';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { GameInfoCard } from './GameInfoCard';
 
-const IMMERSIVE_MAP_SHARE = 0.8;
-const MINIMALIST_MAP_HEIGHT = '(100svh - 13rem)';
+const MAP_SHARE = 0.8;
 
 export const RegionPage = () => {
   const route = useGameRoute();
-  const immersive = useMapLayout() === 'immersive';
-  const mapFrame = useMapFrame();
 
   useEffect(() => {
     void import('@/pages/Game/Location/LocationPage');
@@ -30,47 +24,21 @@ export const RegionPage = () => {
 
   return (
     <>
-      <div
-        className={cn(
-          immersive
-            ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-x-clip'
-            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
-        )}
-      >
-        <div
-          style={
-            immersive
-              ? undefined
-              : {
-                  maxWidth: `calc(${MINIMALIST_MAP_HEIGHT} * ${region.width} / ${region.height})`,
-                  aspectRatio: `${region.width} / ${region.height}`,
-                }
-          }
-          className={cn(
-            immersive
-              ? 'absolute inset-x-0 bottom-0 -top-[57px]'
-              : 'relative min-w-0',
-          )}
-        >
-          <div
-            {...mapFrame}
-            className={cn(
-              'absolute inset-0 flex items-center justify-center overflow-hidden [container-type:size]',
-              immersive && 'bg-muted',
-            )}
-          >
+      <div className="relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-x-clip">
+        <div className="absolute inset-x-0 -top-[57px] bottom-0">
+          <div className="[container-type:size] absolute inset-0 flex items-center justify-center overflow-hidden bg-muted">
             <RegionMap
               region={region}
               locationHref={href}
               tagLabel
-              className="w-full transition-[max-width] duration-500 ease-out"
+              className="w-full"
               style={{
-                maxWidth: `calc(${immersive ? IMMERSIVE_MAP_SHARE : 1} * 100cqh * ${region.width} / ${region.height})`,
+                maxWidth: `calc(${MAP_SHARE} * 100cqh * ${region.width} / ${region.height})`,
               }}
             />
           </div>
         </div>
-        <GameAside immersive={immersive}>
+        <GameAside>
           <AsideCard icon={Gamepad2} label="Game info" grow>
             <GameInfoCard game={game} region={region} />
           </AsideCard>

@@ -13,8 +13,6 @@ export type ThemeStyle = 'game' | 'tall-grass';
 
 export type ThemePreset = ThemeStyle | 'custom';
 
-export type MapLayout = 'minimalist' | 'immersive';
-
 export type LocationTab = 'info' | 'pokemon' | 'trainers';
 
 type SettingsState = {
@@ -24,14 +22,12 @@ type SettingsState = {
   themes: Record<ThemeArea, ThemeStyle>;
   mapLayers: Partial<Record<string, boolean>>;
   locationTab: LocationTab;
-  layout: MapLayout | undefined;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
   setThemePreset: (preset: ThemePreset) => void;
   setTheme: (area: ThemeArea, style: ThemeStyle) => void;
   setMapLayer: (layer: string, visible: boolean) => void;
   setLocationTab: (tab: LocationTab) => void;
-  setLayout: (layout: MapLayout) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -50,7 +46,6 @@ export const useSettingsStore = create<SettingsState>()(
       },
       mapLayers: {},
       locationTab: 'info',
-      layout: undefined,
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
       setThemePreset: (themePreset) => set({ themePreset }),
@@ -61,16 +56,16 @@ export const useSettingsStore = create<SettingsState>()(
           mapLayers: { ...state.mapLayers, [layer]: visible },
         })),
       setLocationTab: (locationTab) => set({ locationTab }),
-      setLayout: (layout) => set({ layout }),
     }),
     {
       name: 'tallgrass-settings',
-      version: 3,
+      version: 4,
       storage: createJSONStorage(() => localStorage),
       migrate: (persisted, version) => {
         let state = persisted as {
           themes?: Partial<Record<string, ThemeStyle>>;
-          layouts?: Partial<Record<string, MapLayout>>;
+          layout?: unknown;
+          layouts?: unknown;
         };
 
         if (version < 2 && state.themes) {
@@ -88,15 +83,8 @@ export const useSettingsStore = create<SettingsState>()(
           } as typeof state;
         }
 
-        if (version < 3 && state.layouts) {
-          const { layouts, ...rest } = state;
-          const saved = Object.values(layouts);
-
-          state = {
-            ...rest,
-            layout: saved.includes('immersive') ? 'immersive' : saved[0],
-          } as typeof state;
-        }
+        delete state.layout;
+        delete state.layouts;
 
         return state;
       },
@@ -123,7 +111,6 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
-        layout,
       }) => ({
         animations,
         gamePointer,
@@ -131,7 +118,6 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
-        layout,
       }),
     },
   ),

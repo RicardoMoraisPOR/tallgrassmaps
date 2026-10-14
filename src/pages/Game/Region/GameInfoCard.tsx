@@ -1,7 +1,6 @@
 import { type ReactNode, useMemo, useState } from 'react';
 
 import {
-  BookOpen,
   Backpack,
   Calendar,
   CircleAlert,
@@ -32,8 +31,6 @@ import { MissingContentDialog } from '../../Maps/MissingContentDialog';
 import { extrasFor } from '../Extras/extras';
 import { ExtrasDialog } from '../Extras/ExtrasDialog';
 import type { GameExtra } from '../Extras/types';
-import { hasPokedex } from '../Pokedex/pokedexViews';
-import { usePokedexLink } from '../Pokedex/usePokedex';
 import { gameStats } from './gameStats';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
@@ -47,7 +44,6 @@ type GameInfoCardProps = {
 
 export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
   const stats = useMemo(() => gameStats(game, region), [game, region]);
-  const pokedexLink = usePokedexLink();
   const [missingOpen, setMissingOpen] = useState(false);
   const [extra, setExtra] = useState<GameExtra>();
 
@@ -194,21 +190,6 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
               </div>
             ))}
           </dl>
-          {hasPokedex(region) ? (
-            <Button size="lg" className="w-full" asChild>
-              <Link {...pokedexLink}>
-                <BookOpen aria-hidden />
-                Open Pokédex
-              </Link>
-            </Button>
-          ) : (
-            <div title="Coming soon">
-              <Button size="lg" disabled className="w-full">
-                <BookOpen aria-hidden />
-                Open Pokédex
-              </Button>
-            </div>
-          )}
         </div>
 
         {world.length > 0 && (

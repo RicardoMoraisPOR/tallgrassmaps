@@ -28,6 +28,8 @@ import { useSettingsStore } from '@/stores/settings';
 import { hotspotBorder, imageBounds, toLatLng } from './coordinates';
 import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
 import { mapIconArt } from './viewer/iconArt';
+import { zoneLayerOf, zoneLayersOf } from './zoneLayers';
+import { ZoneLayerToggle } from './ZoneLayerToggle';
 
 const MIN_ZOOM = -8;
 const DOOR_SIZE = 26;
@@ -48,6 +50,7 @@ const DEFAULT_COLOR = '#49ea82';
 
 type Zone = {
   target: string;
+  layer?: string;
   name: string;
   hotspot: Hotspot & { shape: Array<[number, number]> };
   focus: LatLngBounds;
@@ -308,11 +311,7 @@ export const SeamlessMap = ({
 }: SeamlessMapProps) => {
   const [hovered, setHovered] = useState<string>();
   const [seen, setSeen] = useState(selected);
-
-  if (seen !== selected) {
-    setSeen(selected);
-    setHovered(undefined);
-  }
+  const [chosenLayer, setChosenLayer] = useState<string>();
 
   const full = useMemo(() => latLngBounds(imageBounds(region)), [region]);
   const zones = useMemo(
@@ -322,6 +321,7 @@ export const SeamlessMap = ({
           ? [
               {
                 target: hotspot.target,
+                layer: zoneLayerOf(region, hotspot.target),
                 name:
                   getLocation(region, hotspot.target)?.name ?? hotspot.target,
                 hotspot: { ...hotspot, shape: hotspot.shape },
@@ -333,6 +333,28 @@ export const SeamlessMap = ({
     [region],
   );
   const current = zones.find((zone) => zone.target === selected);
+  const layers = useMemo(
+    () =>
+      zoneLayersOf(
+        region,
+        zones.map((zone) => zone.target),
+      ),
+    [region, zones],
+  );
+
+  if (seen !== selected) {
+    setSeen(selected);
+    setHovered(undefined);
+
+    if (current?.layer) setChosenLayer(current.layer);
+  }
+
+  const activeLayer =
+    chosenLayer ?? (layers.find(({ count }) => count > 0) ?? layers[0])?.id;
+  const visibleZones = zones.filter(
+    (zone) =>
+      !zone.layer || zone.layer === activeLayer || zone.target === selected,
+  );
 
   return (
     <MapContainer
@@ -356,7 +378,14 @@ export const SeamlessMap = ({
       {(getLocation(region, selected ?? '')?.doors ?? []).map(([x, y]) => (
         <DoorMarker key={`${selected}-${x}-${y}`} x={x} y={y} />
       ))}
-      {zones.map((zone) => {
+      {layers.length > 1 && (
+        <ZoneLayerToggle
+          layers={layers}
+          active={activeLayer}
+          onChange={setChosenLayer}
+        />
+      )}
+      {visibleZones.map((zone) => {
         const color = zone.hotspot.color ?? DEFAULT_COLOR;
         const isSelected = zone.target === selected;
         const dimmed = selected !== undefined && !isSelected;

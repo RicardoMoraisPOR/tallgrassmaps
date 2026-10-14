@@ -123,13 +123,7 @@ export const PlaceSearchProvider = ({
   );
 };
 
-type PlaceSearchButtonProps = {
-  floating?: boolean;
-};
-
-export const PlaceSearchButton = ({
-  floating = false,
-}: PlaceSearchButtonProps) => {
+export const PlaceSearchButton = () => {
   const open = useOpenPlaceSearch();
 
   return (
@@ -138,12 +132,7 @@ export const PlaceSearchButton = ({
       onClick={open}
       aria-label="Search places"
       title="Search places"
-      className={cn(
-        toolbarButtonClass,
-        'text-foreground',
-        floating &&
-          'absolute top-4 right-20 z-30 rounded-[14px] border-l md:right-16',
-      )}
+      className={cn(toolbarButtonClass, 'text-foreground')}
     >
       <Search aria-hidden className="size-5 flex-none md:size-4" />
       <span className="hidden text-[13px] font-medium md:inline">Search</span>

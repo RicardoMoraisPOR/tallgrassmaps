@@ -1,14 +1,11 @@
 import { Container } from '@/components/Container';
 import { PageTransition } from '@/components/PageTransition';
 import { useGameRoute } from '@/hooks/useGameRoute';
-import { useMapLayout } from '@/hooks/useMapLayout';
 import { pathSegments } from '@/lib/paths';
-import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-import { LayoutToggle } from './LayoutToggle';
 import { PageHeader } from './PageHeader';
-import { PlaceSearchButton, PlaceSearchProvider } from './Search/PlaceSearch';
+import { PlaceSearchProvider } from './Search/PlaceSearch';
 
 const pageKind = (pathname: string) => {
   const [game, ...place] = pathSegments(pathname);
@@ -18,13 +15,10 @@ const pageKind = (pathname: string) => {
 
 export const GameLayout = () => {
   const route = useGameRoute();
-  const layout = useMapLayout();
 
   if (!route) {
     return <NotFoundPage />;
   }
-
-  const immersive = layout === 'immersive';
 
   return (
     <PlaceSearchProvider
@@ -33,30 +27,17 @@ export const GameLayout = () => {
       href={route.href}
     >
       <div className="relative flex flex-1 flex-col">
-        <LayoutToggle />
-        {!immersive && <PlaceSearchButton floating />}
         <Container
           as="section"
-          className={cn(
-            'flex flex-1 flex-col',
-            immersive
-              ? 'max-w-none px-0'
-              : 'gap-7 pt-6 pb-10 sm:pt-10 sm:pb-16',
-          )}
+          className="flex max-w-none flex-1 flex-col px-0"
         >
           <PageHeader
-            floating={immersive}
             game={route.game}
             region={route.region}
             trail={route.trail ?? []}
             href={route.href}
           />
-          <div
-            className={cn(
-              'flex flex-1 flex-col',
-              immersive ? 'overflow-x-clip' : 'overflow-clip',
-            )}
-          >
+          <div className="flex flex-1 flex-col overflow-x-clip">
             <PageTransition
               mapMotion
               keyFor={

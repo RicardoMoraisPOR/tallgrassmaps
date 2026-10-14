@@ -24,7 +24,7 @@ src/
   data/                    all content and its typed accessors (§4)
   pages/                   feature folders: Home, Game, Credits, MapMaker, NotFound, RootLayout
   components/              shared: map/, settings/, ui/ (shadcn), small generic components
-  hooks/                   useGameRoute, useMapLayout, useMediaQuery, usePokemonSprite, usePrefersReducedMotion
+  hooks/                   useGameRoute, useMediaQuery, usePokemonSprite, usePrefersReducedMotion
   stores/                  settings (zustand, persisted)
   lib/                     breakpoints, motion, paths, theme, utils
 scripts/                   offline data and asset generators (§9)
@@ -49,7 +49,7 @@ Folders are feature-based (`pages/Game/Location`, `pages/Game/Pokedex`), not typ
 ```
 
 - `useGameRoute()` resolves `:gameId` and the splat path into `{ game, region, trail, href }`. `trail` is the chain of `Location` objects from the region down (`/red/pallet-town/players-house/2f` is three segments). Unknown ids return `undefined` and the pages render NotFound.
-- `GameLayout` renders the header, the layout toggle (minimalist or immersive) and a `PageTransition` outlet. Transitions are keyed by `/game` versus `/game/location`, or just `/game` for seamless regions.
+- `GameLayout` renders the floating header and a `PageTransition` outlet. Transitions are keyed by `/game` versus `/game/location`, or just `/game` for seamless regions.
 - `GamePage` picks one of three views: `SeamlessMapPage` when `region.navigation === 'seamless'`, `RegionPage` for an empty trail, otherwise `LocationPage`. The seamless and location pages are lazy-loaded.
 - The Pokédex is not a route. It is a drawer driven by the `?pokedex=<number>` query param (`usePokedex`, `usePokedexLink`), so it overlays whichever page is open.
 - Region and seamless overview pages show one `GameInfoCard` (`pages/Game/Region`): cover, console, release date, developer, remake status, Pokédex and world counts from `gameStats.ts` (a row is hidden when its section is marked missing in `Game.contentStatus`), a build-progress block, and the Pokédex and Bulbapedia buttons.
@@ -113,7 +113,7 @@ The largest feature. `LocationPage` orchestrates:
 
 - **Pokédex:** `Pokedex.tsx` picks a view from `pokedexViews[versionGroup][themeStyle]`. The `tall-grass` and `rby` styles share `ListPokedex.tsx` (drawer, search, list) and differ by a skin: title, row, class names (`tallGrassSkin.ts`, `rbySkin.ts`). `za/` has its own drawer, search, preview pane and rows, and reuses `PokedexList`. `usePokedexSearch` and `entryDetails.ts` are shared; `MegaEvolutions` and `EncounterPlaces` are detail sections. All views are lazy-loaded so their fonts only load when used.
 - **Theming:** two styles, `game` and `tall-grass`, chosen per area (pokedex, mapIcons, dialogBoxes, trainers, pokemonPopups, sprites) through `useThemeStyle(area)`. Presets (`game`, `tall-grass`, `custom`) set every area at once. Light and dark is separate (`lib/theme.ts`, a class on `<html>`, localStorage key `tall-grass-theme`).
-- **Settings:** `stores/settings.ts` is a persisted zustand store (`tallgrass-settings`, version 3 with migrations) holding animations, game pointer, theme preset and areas, map layer toggles, last location tab and the map layout (global, shared by all games). `useMapLayout` (in `hooks/`) falls back to immersive on mobile when no layout is saved.
+- **Settings:** `stores/settings.ts` is a persisted zustand store (`tallgrass-settings`, version 4 with migrations) holding animations, game pointer, theme preset and areas, map layer toggles, last location tab..
 - **Breakpoints:** `lib/breakpoints.ts` holds the media queries; components use `useMediaQuery`.
 - **Motion:** `lib/motion.ts` (easings, and a reduced-motion check that also respects the animations setting), `PageTransition`, and the home hero timeline.
 

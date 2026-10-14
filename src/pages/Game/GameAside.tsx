@@ -24,6 +24,7 @@ import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
+import { PokedexButton } from './Pokedex/PokedexButton';
 import { PlaceSearchButton } from './Search/PlaceSearch';
 import { toolbarButtonClass } from './toolbarButton';
 
@@ -35,7 +36,6 @@ type CardInfo = {
 };
 
 type AsideState = {
-  immersive: boolean;
   modal: boolean;
   isOpen: (id: string) => boolean;
   close: (id: string) => void;
@@ -43,7 +43,6 @@ type AsideState = {
 };
 
 const AsideContext = createContext<AsideState>({
-  immersive: false,
   modal: false,
   isOpen: () => true,
   close: () => {},
@@ -68,16 +67,11 @@ const ENTER = { duration: 0.3, ease: easeOutSoft };
 const EXIT = { duration: 0.2, ease: easeOutSoft };
 
 type GameAsideProps = {
-  immersive: boolean;
   contentClassName?: string;
   children: ReactNode;
 };
 
-export const GameAside = ({
-  immersive,
-  contentClassName,
-  children,
-}: GameAsideProps) => {
+export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
   const animations = useSettingsStore((state) => state.animations);
   const [cards, setCards] = useState<Array<CardInfo>>([]);
   const [overrides, setOverrides] = useState<Partial<Record<string, boolean>>>(
@@ -85,20 +79,13 @@ export const GameAside = ({
   );
   const tablet = useMediaQuery(TABLET_QUERY);
   const [desktop] = useState(() => window.matchMedia(DESKTOP_QUERY).matches);
-  const [wasImmersive, setWasImmersive] = useState(immersive);
   const { pathname } = useLocation();
   const [wasPathname, setWasPathname] = useState(pathname);
-
-  if (immersive !== wasImmersive) {
-    setWasImmersive(immersive);
-
-    if (immersive && !tablet) setOverrides({});
-  }
 
   if (pathname !== wasPathname) {
     setWasPathname(pathname);
 
-    if (immersive && !tablet) setOverrides({});
+    if (!tablet) setOverrides({});
   }
 
   const isOpen = useCallback(
@@ -118,85 +105,77 @@ export const GameAside = ({
       setCards((current) => current.filter(({ id }) => id !== card.id));
   }, []);
   const state = useMemo(
-    () => ({ immersive, modal: immersive && !tablet, isOpen, close, register }),
-    [immersive, tablet, isOpen, close, register],
+    () => ({ modal: !tablet, isOpen, close, register }),
+    [tablet, isOpen, close, register],
   );
 
   return (
     <AsideContext value={state}>
-      {immersive && (
-        <div className="pointer-events-none absolute top-1/2 left-0 z-30 flex -translate-y-1/2 flex-col gap-2 md:top-4 md:right-16 md:left-auto md:translate-y-0 md:flex-row md:gap-2">
-          <PlaceSearchButton />
-          {cards.map(({ id, label, icon: Icon, to }) => {
-            const open = isOpen(id);
-            const buttonClassName = toolbarButtonClass;
-            const content = (
-              <>
-                <Icon aria-hidden className="size-5 flex-none md:size-4" />
-                <span className="hidden text-[13px] font-medium md:inline">
-                  {label}
-                </span>
-              </>
-            );
+      <div className="pointer-events-none absolute top-1/2 left-0 z-30 flex -translate-y-1/2 flex-col gap-2 md:top-4 md:right-4 md:left-auto md:translate-y-0 md:flex-row md:gap-2">
+        <PlaceSearchButton />
+        <PokedexButton />
+        {cards.map(({ id, label, icon: Icon, to }) => {
+          const open = isOpen(id);
+          const buttonClassName = toolbarButtonClass;
+          const content = (
+            <>
+              <Icon aria-hidden className="size-5 flex-none md:size-4" />
+              <span className="hidden text-[13px] font-medium md:inline">
+                {label}
+              </span>
+            </>
+          );
 
-            if (to)
-              return (
-                <Link
-                  key={id}
-                  to={to}
-                  aria-label={label}
-                  title={label}
-                  className={cn(buttonClassName, 'text-foreground')}
-                >
-                  {content}
-                </Link>
-              );
-
+          if (to)
             return (
-              <button
+              <Link
                 key={id}
-                type="button"
-                aria-pressed={open}
-                aria-label={`${open ? 'Hide' : 'Show'} ${label}`}
-                title={`${open ? 'Hide' : 'Show'} ${label}`}
-                onClick={() =>
-                  setOverrides((current) =>
-                    tablet || open
-                      ? { ...current, [id]: !open }
-                      : {
-                          ...Object.fromEntries(
-                            cards.map((card) => [card.id, false]),
-                          ),
-                          [id]: true,
-                        },
-                  )
-                }
-                className={cn(
-                  buttonClassName,
-                  open ? 'text-foreground' : 'text-muted-foreground/60',
-                )}
+                to={to}
+                aria-label={label}
+                title={label}
+                className={cn(buttonClassName, 'text-foreground')}
               >
                 {content}
-              </button>
+              </Link>
             );
-          })}
-        </div>
-      )}
+
+          return (
+            <button
+              key={id}
+              type="button"
+              aria-pressed={open}
+              aria-label={`${open ? 'Hide' : 'Show'} ${label}`}
+              title={`${open ? 'Hide' : 'Show'} ${label}`}
+              onClick={() =>
+                setOverrides((current) =>
+                  tablet || open
+                    ? { ...current, [id]: !open }
+                    : {
+                        ...Object.fromEntries(
+                          cards.map((card) => [card.id, false]),
+                        ),
+                        [id]: true,
+                      },
+                )
+              }
+              className={cn(
+                buttonClassName,
+                open ? 'text-foreground' : 'text-muted-foreground/60',
+              )}
+            >
+              {content}
+            </button>
+          );
+        })}
+      </div>
       <m.aside
         layout={animations ? 'position' : false}
         aria-label="Cards"
-        className={cn(
-          immersive
-            ? 'pointer-events-none absolute top-40 right-4 bottom-4 z-20 flex w-[360px] max-w-[calc(100%-4.5rem)] flex-col md:top-16 md:max-w-[calc(100%-2rem)]'
-            : 'flex min-w-0 flex-col lg:relative lg:self-stretch',
-        )}
+        className="pointer-events-none absolute top-40 right-4 bottom-4 z-20 flex w-[360px] max-w-[calc(100%-4.5rem)] flex-col md:top-16 md:max-w-[calc(100%-2rem)]"
       >
         <div
           className={cn(
-            'flex min-h-0 flex-col gap-3',
-            immersive
-              ? 'pointer-events-none max-h-full overflow-x-hidden overflow-y-auto overscroll-contain'
-              : 'lg:absolute lg:inset-0 lg:overflow-x-hidden lg:overflow-y-auto',
+            'pointer-events-none flex max-h-full min-h-0 flex-col gap-3 overflow-x-hidden overflow-y-auto overscroll-contain',
             contentClassName,
           )}
         >
@@ -224,8 +203,7 @@ export const AsideCard = ({
   className,
   children,
 }: AsideCardProps) => {
-  const { immersive, modal, isOpen, close, register } =
-    useContext(AsideContext);
+  const { modal, isOpen, close, register } = useContext(AsideContext);
   const animations = useSettingsStore((state) => state.animations);
   const open = isOpen(label);
 
@@ -233,21 +211,6 @@ export const AsideCard = ({
     () => register({ id: label, label, icon, to }),
     [register, label, icon, to],
   );
-
-  if (!immersive) {
-    return (
-      <m.div
-        layout={animations ? 'position' : false}
-        className={cn(
-          'flex min-w-0 flex-col',
-          grow && 'lg:min-h-0 lg:flex-1',
-          className,
-        )}
-      >
-        {children}
-      </m.div>
-    );
-  }
 
   if (to) return null;
 

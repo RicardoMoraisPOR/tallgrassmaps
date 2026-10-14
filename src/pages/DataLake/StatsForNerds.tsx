@@ -51,9 +51,6 @@ export const StatsForNerds = () => {
         >
           Stats for nerds
         </h2>
-        <p className="text-sm text-muted-foreground">
-          Calculated from the data behind the maps.
-        </p>
       </div>
       <div className="relative overflow-hidden rounded-[14px] border">
         <dl

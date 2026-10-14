@@ -38,8 +38,7 @@ export const DataLakePage = () => {
         </h1>
         <p className="max-w-[60ch] text-lg text-pretty text-muted-foreground">
           Every trainer, item, sign and Pokémon we&apos;ve mapped, in one big
-          spreadsheet. Built for Pokémaniac nerds. (Yes, there&apos;s a CSV
-          export. No, we won&apos;t judge.)
+          spreadsheet. Built for Pokémaniac nerds.
         </p>
       </header>
       <StatsForNerds />

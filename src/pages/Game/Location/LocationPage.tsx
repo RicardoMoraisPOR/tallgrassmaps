@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { Map as MapIcon, Info } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
@@ -13,16 +13,10 @@ import { signsFor } from '@/data/signs';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
 import { useGameRoute } from '@/hooks/useGameRoute';
-import { useMapLayout } from '@/hooks/useMapLayout';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { DESKTOP_QUERY } from '@/lib/breakpoints';
 import { trailPath } from '@/lib/paths';
-import { cn } from '@/lib/utils';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-import { BackLink } from '../BackLink';
 import { AsideCard, GameAside } from '../GameAside';
-import { useMapFrame } from '../mapFrame';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { encounterGroups, wildAreaFor } from './encounters';
@@ -51,10 +45,6 @@ export const LocationPage = () => {
   const route = useGameRoute();
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
-  const immersive = useMapLayout() === 'immersive';
-  const mapFrame = useMapFrame();
-  const desktop = useMediaQuery(DESKTOP_QUERY);
-  const mapSection = useRef<HTMLDivElement>(null);
 
   const trail = route?.trail;
   const location = trail?.at(-1);
@@ -249,12 +239,6 @@ export const LocationPage = () => {
             else {
               setPinRequest({ scope, key });
 
-              if (!immersive && !desktop)
-                mapSection.current?.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start',
-                });
-
               return true;
             }
 
@@ -336,7 +320,6 @@ export const LocationPage = () => {
           region={route.region}
           path={trailPath(trail)}
           href={route.href}
-          collapsible={!immersive}
         />
       </AsideCard>
       <AsideCard icon={Info} label="Location info" grow>
@@ -362,47 +345,21 @@ export const LocationPage = () => {
       pinRequest={
         focusRequest ?? (pinRequest?.scope === scope ? pinRequest : undefined)
       }
-      zoomPosition={immersive ? 'bottomleft' : undefined}
+      zoomPosition="bottomleft"
       className="size-full"
     />
   );
 
   return (
     <>
-      <div
-        className={cn(
-          immersive
-            ? 'relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-x-clip'
-            : 'grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]',
-        )}
-      >
-        <div
-          ref={mapSection}
-          className={cn(
-            immersive
-              ? 'absolute inset-x-0 bottom-0 -top-[57px]'
-              : 'relative h-[60svh] min-w-0 scroll-mt-20 lg:h-[min(72svh,760px)]',
-          )}
-        >
-          <div
-            {...mapFrame}
-            className={cn(
-              'absolute inset-0 flex flex-col overflow-hidden',
-              !immersive && 'rounded-[14px] border',
-            )}
-          >
+      <div className="relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-x-clip">
+        <div className="absolute inset-x-0 -top-[57px] bottom-0">
+          <div className="absolute inset-0 flex flex-col overflow-hidden">
             <PageTransition mapMotion>
               <div className="relative flex min-h-0 flex-1 flex-col">
                 <div className="min-h-0 flex-1">{viewer}</div>
                 {pickers && (
-                  <div
-                    className={cn(
-                      'pointer-events-none absolute z-10 flex flex-col gap-2',
-                      immersive
-                        ? 'inset-x-14 bottom-4 items-center'
-                        : 'top-3 right-3 left-14 items-end',
-                    )}
-                  >
+                  <div className="pointer-events-none absolute inset-x-14 bottom-4 z-10 flex flex-col items-center gap-2">
                     {pickers}
                   </div>
                 )}
@@ -410,15 +367,7 @@ export const LocationPage = () => {
             </PageTransition>
           </div>
         </div>
-        {!immersive && (
-          <BackLink
-            game={route.game}
-            trail={trail}
-            href={route.href}
-            fullWidth
-          />
-        )}
-        <GameAside immersive={immersive}>{cards}</GameAside>
+        <GameAside>{cards}</GameAside>
       </div>
       {pokedex && (
         <TrainerDialog
