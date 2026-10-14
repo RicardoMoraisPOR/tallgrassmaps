@@ -118,14 +118,77 @@ const transformationsOf = (base) => {
   );
 };
 
+const entriesByName = new Map(entries.map((entry) => [entry.name, entry]));
+
+const evolutionNote = (parts) => parts.filter(Boolean).join(' ') || undefined;
+
+const evolutionDetails = (base) => {
+  const { evoType, evoLevel, evoItem, evoMove, evoCondition } = base;
+
+  if (evoType === 'useItem') {
+    return { method: 'item', item: evoItem, note: evoCondition };
+  }
+
+  if (evoType === 'trade') {
+    return { method: 'trade', item: evoItem, note: evoCondition };
+  }
+
+  if (evoType === 'levelFriendship') {
+    return {
+      method: 'other',
+      note: evolutionNote(['with high friendship', evoCondition]),
+    };
+  }
+
+  if (evoType === 'levelHold') {
+    return {
+      method: 'other',
+      note: evolutionNote([`when leveled up holding ${evoItem}`, evoCondition]),
+    };
+  }
+
+  if (evoType === 'levelMove') {
+    return {
+      method: 'other',
+      note: evolutionNote([`when leveled up knowing ${evoMove}`, evoCondition]),
+    };
+  }
+
+  if (evoLevel && !evoType) {
+    return { method: 'level', level: evoLevel, note: evoCondition };
+  }
+
+  return { method: 'other', note: evoCondition };
+};
+
+const evolvesFromOf = (base) => {
+  if (!base.prevo) return undefined;
+
+  const previous = entriesByName.get(base.prevo);
+
+  if (!previous) throw new Error(`Unknown pre-evolution ${base.prevo}`);
+
+  const { method, level, item, note } = evolutionDetails(base);
+
+  return {
+    number: previous.num,
+    method,
+    ...(level && { level }),
+    ...(item && { item }),
+    ...(note && { note }),
+  };
+};
+
 const withForms = (base) => {
   const regionalForms = regionalFormsOf(base);
   const transformations = transformationsOf(base);
+  const evolvesFrom = evolvesFromOf(base);
 
   return {
     number: base.num,
     name: displayName(base.name),
     types: base.types.map((type) => type.toLowerCase()),
+    ...(evolvesFrom && { evolvesFrom }),
     ...(regionalForms.length > 0 && { regionalForms }),
     ...(transformations.length > 0 && { transformations }),
   };

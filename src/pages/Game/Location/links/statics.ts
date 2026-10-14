@@ -32,7 +32,8 @@ export const staticMarkers = (
           entryKey(layer.id, label),
           ...marker.pokemon.map(({ number }) => staticHighlightKey(number)),
         ],
-        popup: staticPopup?.(marker),
+        tooltip: staticPopup?.(marker),
+        tooltipOnClick: true,
       };
 
       if (marker.sprite) {

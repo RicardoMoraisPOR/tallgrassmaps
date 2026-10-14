@@ -15,7 +15,7 @@ const TOP_THRESHOLD_PIXELS = 8;
 
 const navLinks = [
   { to: '/maps', label: 'Explore maps' },
-  { to: '/data-lake', label: 'Data Lake' },
+  { to: '/pokedex', label: 'National Pokédex' },
 ];
 
 const isAtTop = () =>

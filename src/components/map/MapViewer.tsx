@@ -2,13 +2,7 @@ import { useMemo, useRef, useState } from 'react';
 
 import { CRS, DomEvent, type Path as LeafletPath } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import {
-  ImageOverlay,
-  MapContainer,
-  Pane,
-  Popup,
-  Tooltip,
-} from 'react-leaflet';
+import { ImageOverlay, MapContainer, Pane, Tooltip } from 'react-leaflet';
 import { useNavigate } from 'react-router';
 
 import type { MapImage } from '@/data/maps';
@@ -26,7 +20,6 @@ import { MapSprite } from './viewer/MapSprite';
 import { PinOnRequest, UnpinOnDismiss } from './viewer/PinControls';
 import type { MapLink } from './viewer/types';
 import {
-  ClosePopupOnOutsidePress,
   FitToViewport,
   IconSizeForZoom,
   PanBounds,
@@ -188,7 +181,6 @@ export const MapViewer = ({
                 'map-link',
                 !link.href &&
                   !link.onClick &&
-                  !link.popup &&
                   !link.tooltipOnClick &&
                   'map-link-static',
                 link.sprite && 'map-link-sprite',
@@ -232,17 +224,7 @@ export const MapViewer = ({
                 },
               }}
             >
-              {link.popup ? (
-                <Popup
-                  className="map-popup"
-                  pane="popupPane"
-                  maxWidth={280}
-                  autoPanPaddingTopLeft={[16, 64]}
-                  autoPanPaddingBottomRight={[16, 16]}
-                >
-                  {link.popup}
-                </Popup>
-              ) : link.tooltip ? null : (
+              {!link.tooltip && (
                 <Tooltip sticky pane="tooltipPane">
                   {link.label}
                 </Tooltip>
@@ -300,7 +282,6 @@ export const MapViewer = ({
         }}
       />
       <PanBounds bounds={bounds} />
-      <ClosePopupOnOutsidePress />
       <FitToViewport map={map} focus={focusPoint} />
       {map.pixelated && <PixelatedWhenZoomedIn />}
       <IconSizeForZoom />

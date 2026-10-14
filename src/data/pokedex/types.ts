@@ -89,6 +89,7 @@ export type Species = {
   number: number;
   name: string;
   types: Array<string>;
+  evolvesFrom?: Evolution;
   regionalForms?: Array<RegionalForm>;
   transformations?: Array<Transformation>;
 };

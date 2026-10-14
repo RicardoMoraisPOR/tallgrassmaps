@@ -7,6 +7,7 @@ import { GameLayout } from '@/pages/Game/GameLayout';
 import { GamePage } from '@/pages/Game/GamePage';
 import { HomePage } from '@/pages/Home/HomePage';
 import { MapsPage } from '@/pages/Maps/MapsPage';
+import { NationalPokedexPage } from '@/pages/NationalPokedex/NationalPokedexPage';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 import { RootLayout } from '@/pages/RootLayout/RootLayout';
 
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'maps', element: <MapsPage /> },
+      { path: 'pokedex', element: <NationalPokedexPage /> },
       { path: 'data-lake', element: <DataLakePage /> },
       { path: 'changelog', element: <ChangelogPage /> },
       { path: 'credits', element: <CreditsPage /> },

@@ -11,7 +11,6 @@ export type MapLink = Rect & {
   replace?: boolean;
   highlightKey?: string | Array<string>;
   onClick?: () => void;
-  popup?: ReactNode;
   tooltip?: ReactNode;
   tooltipOnClick?: boolean;
   tooltipAtClick?: boolean;

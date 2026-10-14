@@ -8,6 +8,6 @@ exports[`RBY datasets > keeps the pokedex data unchanged 1`] = `"03bb25fe8815"`;
 
 exports[`RBY datasets > keeps the signs data unchanged 1`] = `"cc2f93021ce8"`;
 
-exports[`RBY datasets > keeps the static pokemon data unchanged 1`] = `"394e558f81fc"`;
+exports[`RBY datasets > keeps the static pokemon data unchanged 1`] = `"b81fe212f69c"`;
 
 exports[`RBY datasets > keeps the trainers data unchanged 1`] = `"37b5241dab61"`;

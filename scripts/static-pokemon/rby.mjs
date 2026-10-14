@@ -273,7 +273,9 @@ for (const game of games) {
       y,
       entry.kind,
       entry.species.map((species) => ({ number: numberOf(species), level })),
-      entry.kind === 'static' ? objectSprite(game, sprite, direction) : {},
+      entry.kind === 'static' || sprite === 'POKE_BALL'
+        ? objectSprite(game, sprite, direction)
+        : {},
     );
   }
 }

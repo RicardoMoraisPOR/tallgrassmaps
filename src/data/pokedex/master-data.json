@@ -7,12 +7,22 @@
   {
     "number": 2,
     "name": "Ivysaur",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 1,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 3,
     "name": "Venusaur",
     "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 2,
+      "method": "level",
+      "level": 32
+    },
     "transformations": [
       {
         "name": "Mega Venusaur",
@@ -29,12 +39,22 @@
   {
     "number": 5,
     "name": "Charmeleon",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 4,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 6,
     "name": "Charizard",
     "types": ["fire", "flying"],
+    "evolvesFrom": {
+      "number": 5,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Charizard X",
@@ -58,12 +78,22 @@
   {
     "number": 8,
     "name": "Wartortle",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 7,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 9,
     "name": "Blastoise",
     "types": ["water"],
+    "evolvesFrom": {
+      "number": 8,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Blastoise",
@@ -80,12 +110,22 @@
   {
     "number": 11,
     "name": "Metapod",
-    "types": ["bug"]
+    "types": ["bug"],
+    "evolvesFrom": {
+      "number": 10,
+      "method": "level",
+      "level": 7
+    }
   },
   {
     "number": 12,
     "name": "Butterfree",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 11,
+      "method": "level",
+      "level": 10
+    }
   },
   {
     "number": 13,
@@ -95,12 +135,22 @@
   {
     "number": 14,
     "name": "Kakuna",
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "evolvesFrom": {
+      "number": 13,
+      "method": "level",
+      "level": 7
+    }
   },
   {
     "number": 15,
     "name": "Beedrill",
     "types": ["bug", "poison"],
+    "evolvesFrom": {
+      "number": 14,
+      "method": "level",
+      "level": 10
+    },
     "transformations": [
       {
         "name": "Mega Beedrill",
@@ -117,12 +167,22 @@
   {
     "number": 17,
     "name": "Pidgeotto",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 16,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 18,
     "name": "Pidgeot",
     "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 17,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Pidgeot",
@@ -148,6 +208,11 @@
     "number": 20,
     "name": "Raticate",
     "types": ["normal"],
+    "evolvesFrom": {
+      "number": 19,
+      "method": "level",
+      "level": 20
+    },
     "regionalForms": [
       {
         "name": "Alolan Raticate",
@@ -165,7 +230,12 @@
   {
     "number": 22,
     "name": "Fearow",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 21,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 23,
@@ -175,17 +245,32 @@
   {
     "number": 24,
     "name": "Arbok",
-    "types": ["poison"]
+    "types": ["poison"],
+    "evolvesFrom": {
+      "number": 23,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 25,
     "name": "Pikachu",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 172,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 26,
     "name": "Raichu",
     "types": ["electric"],
+    "evolvesFrom": {
+      "number": 25,
+      "method": "item",
+      "item": "Thunder Stone"
+    },
     "regionalForms": [
       {
         "name": "Alolan Raichu",
@@ -226,6 +311,11 @@
     "number": 28,
     "name": "Sandslash",
     "types": ["ground"],
+    "evolvesFrom": {
+      "number": 27,
+      "method": "level",
+      "level": 22
+    },
     "regionalForms": [
       {
         "name": "Alolan Sandslash",
@@ -243,12 +333,22 @@
   {
     "number": 30,
     "name": "Nidorina",
-    "types": ["poison"]
+    "types": ["poison"],
+    "evolvesFrom": {
+      "number": 29,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 31,
     "name": "Nidoqueen",
-    "types": ["poison", "ground"]
+    "types": ["poison", "ground"],
+    "evolvesFrom": {
+      "number": 30,
+      "method": "item",
+      "item": "Moon Stone"
+    }
   },
   {
     "number": 32,
@@ -258,22 +358,42 @@
   {
     "number": 33,
     "name": "Nidorino",
-    "types": ["poison"]
+    "types": ["poison"],
+    "evolvesFrom": {
+      "number": 32,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 34,
     "name": "Nidoking",
-    "types": ["poison", "ground"]
+    "types": ["poison", "ground"],
+    "evolvesFrom": {
+      "number": 33,
+      "method": "item",
+      "item": "Moon Stone"
+    }
   },
   {
     "number": 35,
     "name": "Clefairy",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 173,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 36,
     "name": "Clefable",
     "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 35,
+      "method": "item",
+      "item": "Moon Stone"
+    },
     "transformations": [
       {
         "name": "Mega Clefable",
@@ -299,6 +419,11 @@
     "number": 38,
     "name": "Ninetales",
     "types": ["fire"],
+    "evolvesFrom": {
+      "number": 37,
+      "method": "item",
+      "item": "Fire Stone"
+    },
     "regionalForms": [
       {
         "name": "Alolan Ninetales",
@@ -311,12 +436,22 @@
   {
     "number": 39,
     "name": "Jigglypuff",
-    "types": ["normal", "fairy"]
+    "types": ["normal", "fairy"],
+    "evolvesFrom": {
+      "number": 174,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 40,
     "name": "Wigglytuff",
-    "types": ["normal", "fairy"]
+    "types": ["normal", "fairy"],
+    "evolvesFrom": {
+      "number": 39,
+      "method": "item",
+      "item": "Moon Stone"
+    }
   },
   {
     "number": 41,
@@ -326,7 +461,12 @@
   {
     "number": 42,
     "name": "Golbat",
-    "types": ["poison", "flying"]
+    "types": ["poison", "flying"],
+    "evolvesFrom": {
+      "number": 41,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 43,
@@ -336,12 +476,22 @@
   {
     "number": 44,
     "name": "Gloom",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 43,
+      "method": "level",
+      "level": 21
+    }
   },
   {
     "number": 45,
     "name": "Vileplume",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 44,
+      "method": "item",
+      "item": "Leaf Stone"
+    }
   },
   {
     "number": 46,
@@ -351,7 +501,12 @@
   {
     "number": 47,
     "name": "Parasect",
-    "types": ["bug", "grass"]
+    "types": ["bug", "grass"],
+    "evolvesFrom": {
+      "number": 46,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 48,
@@ -361,7 +516,12 @@
   {
     "number": 49,
     "name": "Venomoth",
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "evolvesFrom": {
+      "number": 48,
+      "method": "level",
+      "level": 31
+    }
   },
   {
     "number": 50,
@@ -380,6 +540,11 @@
     "number": 51,
     "name": "Dugtrio",
     "types": ["ground"],
+    "evolvesFrom": {
+      "number": 50,
+      "method": "level",
+      "level": 26
+    },
     "regionalForms": [
       {
         "name": "Alolan Dugtrio",
@@ -412,6 +577,11 @@
     "number": 53,
     "name": "Persian",
     "types": ["normal"],
+    "evolvesFrom": {
+      "number": 52,
+      "method": "level",
+      "level": 28
+    },
     "regionalForms": [
       {
         "name": "Alolan Persian",
@@ -429,7 +599,12 @@
   {
     "number": 55,
     "name": "Golduck",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 54,
+      "method": "level",
+      "level": 33
+    }
   },
   {
     "number": 56,
@@ -439,7 +614,12 @@
   {
     "number": 57,
     "name": "Primeape",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 56,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 58,
@@ -458,6 +638,11 @@
     "number": 59,
     "name": "Arcanine",
     "types": ["fire"],
+    "evolvesFrom": {
+      "number": 58,
+      "method": "item",
+      "item": "Fire Stone"
+    },
     "regionalForms": [
       {
         "name": "Hisuian Arcanine",
@@ -475,12 +660,22 @@
   {
     "number": 61,
     "name": "Poliwhirl",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 60,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 62,
     "name": "Poliwrath",
-    "types": ["water", "fighting"]
+    "types": ["water", "fighting"],
+    "evolvesFrom": {
+      "number": 61,
+      "method": "item",
+      "item": "Water Stone"
+    }
   },
   {
     "number": 63,
@@ -490,12 +685,21 @@
   {
     "number": 64,
     "name": "Kadabra",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 63,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 65,
     "name": "Alakazam",
     "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 64,
+      "method": "trade"
+    },
     "transformations": [
       {
         "name": "Mega Alakazam",
@@ -512,12 +716,21 @@
   {
     "number": 67,
     "name": "Machoke",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 66,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 68,
     "name": "Machamp",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 67,
+      "method": "trade"
+    }
   },
   {
     "number": 69,
@@ -527,12 +740,22 @@
   {
     "number": 70,
     "name": "Weepinbell",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 69,
+      "method": "level",
+      "level": 21
+    }
   },
   {
     "number": 71,
     "name": "Victreebel",
     "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 70,
+      "method": "item",
+      "item": "Leaf Stone"
+    },
     "transformations": [
       {
         "name": "Mega Victreebel",
@@ -549,7 +772,12 @@
   {
     "number": 73,
     "name": "Tentacruel",
-    "types": ["water", "poison"]
+    "types": ["water", "poison"],
+    "evolvesFrom": {
+      "number": 72,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 74,
@@ -568,6 +796,11 @@
     "number": 75,
     "name": "Graveler",
     "types": ["rock", "ground"],
+    "evolvesFrom": {
+      "number": 74,
+      "method": "level",
+      "level": 25
+    },
     "regionalForms": [
       {
         "name": "Alolan Graveler",
@@ -581,6 +814,10 @@
     "number": 76,
     "name": "Golem",
     "types": ["rock", "ground"],
+    "evolvesFrom": {
+      "number": 75,
+      "method": "trade"
+    },
     "regionalForms": [
       {
         "name": "Alolan Golem",
@@ -607,6 +844,11 @@
     "number": 78,
     "name": "Rapidash",
     "types": ["fire"],
+    "evolvesFrom": {
+      "number": 77,
+      "method": "level",
+      "level": 40
+    },
     "regionalForms": [
       {
         "name": "Galarian Rapidash",
@@ -633,6 +875,11 @@
     "number": 80,
     "name": "Slowbro",
     "types": ["water", "psychic"],
+    "evolvesFrom": {
+      "number": 79,
+      "method": "level",
+      "level": 37
+    },
     "regionalForms": [
       {
         "name": "Galarian Slowbro",
@@ -657,7 +904,12 @@
   {
     "number": 82,
     "name": "Magneton",
-    "types": ["electric", "steel"]
+    "types": ["electric", "steel"],
+    "evolvesFrom": {
+      "number": 81,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 83,
@@ -680,7 +932,12 @@
   {
     "number": 85,
     "name": "Dodrio",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 84,
+      "method": "level",
+      "level": 31
+    }
   },
   {
     "number": 86,
@@ -690,7 +947,12 @@
   {
     "number": 87,
     "name": "Dewgong",
-    "types": ["water", "ice"]
+    "types": ["water", "ice"],
+    "evolvesFrom": {
+      "number": 86,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 88,
@@ -709,6 +971,11 @@
     "number": 89,
     "name": "Muk",
     "types": ["poison"],
+    "evolvesFrom": {
+      "number": 88,
+      "method": "level",
+      "level": 38
+    },
     "regionalForms": [
       {
         "name": "Alolan Muk",
@@ -726,7 +993,12 @@
   {
     "number": 91,
     "name": "Cloyster",
-    "types": ["water", "ice"]
+    "types": ["water", "ice"],
+    "evolvesFrom": {
+      "number": 90,
+      "method": "item",
+      "item": "Water Stone"
+    }
   },
   {
     "number": 92,
@@ -736,12 +1008,21 @@
   {
     "number": 93,
     "name": "Haunter",
-    "types": ["ghost", "poison"]
+    "types": ["ghost", "poison"],
+    "evolvesFrom": {
+      "number": 92,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 94,
     "name": "Gengar",
     "types": ["ghost", "poison"],
+    "evolvesFrom": {
+      "number": 93,
+      "method": "trade"
+    },
     "transformations": [
       {
         "name": "Mega Gengar",
@@ -763,7 +1044,12 @@
   {
     "number": 97,
     "name": "Hypno",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 96,
+      "method": "level",
+      "level": 26
+    }
   },
   {
     "number": 98,
@@ -773,7 +1059,12 @@
   {
     "number": 99,
     "name": "Kingler",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 98,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 100,
@@ -792,6 +1083,11 @@
     "number": 101,
     "name": "Electrode",
     "types": ["electric"],
+    "evolvesFrom": {
+      "number": 100,
+      "method": "level",
+      "level": 30
+    },
     "regionalForms": [
       {
         "name": "Hisuian Electrode",
@@ -810,6 +1106,11 @@
     "number": 103,
     "name": "Exeggutor",
     "types": ["grass", "psychic"],
+    "evolvesFrom": {
+      "number": 102,
+      "method": "item",
+      "item": "Leaf Stone"
+    },
     "regionalForms": [
       {
         "name": "Alolan Exeggutor",
@@ -828,6 +1129,11 @@
     "number": 105,
     "name": "Marowak",
     "types": ["ground"],
+    "evolvesFrom": {
+      "number": 104,
+      "method": "level",
+      "level": 28
+    },
     "regionalForms": [
       {
         "name": "Alolan Marowak",
@@ -840,12 +1146,24 @@
   {
     "number": 106,
     "name": "Hitmonlee",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 236,
+      "method": "level",
+      "level": 20,
+      "note": "with an Atk stat > its Def stat"
+    }
   },
   {
     "number": 107,
     "name": "Hitmonchan",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 236,
+      "method": "level",
+      "level": 20,
+      "note": "with an Atk stat < its Def stat"
+    }
   },
   {
     "number": 108,
@@ -861,6 +1179,11 @@
     "number": 110,
     "name": "Weezing",
     "types": ["poison"],
+    "evolvesFrom": {
+      "number": 109,
+      "method": "level",
+      "level": 35
+    },
     "regionalForms": [
       {
         "name": "Galarian Weezing",
@@ -878,12 +1201,22 @@
   {
     "number": 112,
     "name": "Rhydon",
-    "types": ["ground", "rock"]
+    "types": ["ground", "rock"],
+    "evolvesFrom": {
+      "number": 111,
+      "method": "level",
+      "level": 42
+    }
   },
   {
     "number": 113,
     "name": "Chansey",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 440,
+      "method": "other",
+      "note": "when leveled up holding Oval Stone during the day"
+    }
   },
   {
     "number": 114,
@@ -910,7 +1243,12 @@
   {
     "number": 117,
     "name": "Seadra",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 116,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 118,
@@ -920,7 +1258,12 @@
   {
     "number": 119,
     "name": "Seaking",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 118,
+      "method": "level",
+      "level": 33
+    }
   },
   {
     "number": 120,
@@ -931,6 +1274,11 @@
     "number": 121,
     "name": "Starmie",
     "types": ["water", "psychic"],
+    "evolvesFrom": {
+      "number": 120,
+      "method": "item",
+      "item": "Water Stone"
+    },
     "transformations": [
       {
         "name": "Mega Starmie",
@@ -943,6 +1291,11 @@
     "number": 122,
     "name": "Mr. Mime",
     "types": ["psychic", "fairy"],
+    "evolvesFrom": {
+      "number": 439,
+      "method": "other",
+      "note": "when leveled up knowing Mimic"
+    },
     "regionalForms": [
       {
         "name": "Galarian Mr. Mime",
@@ -960,17 +1313,32 @@
   {
     "number": 124,
     "name": "Jynx",
-    "types": ["ice", "psychic"]
+    "types": ["ice", "psychic"],
+    "evolvesFrom": {
+      "number": 238,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 125,
     "name": "Electabuzz",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 239,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 126,
     "name": "Magmar",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 240,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 127,
@@ -1018,6 +1386,11 @@
     "number": 130,
     "name": "Gyarados",
     "types": ["water", "flying"],
+    "evolvesFrom": {
+      "number": 129,
+      "method": "level",
+      "level": 20
+    },
     "transformations": [
       {
         "name": "Mega Gyarados",
@@ -1044,17 +1417,32 @@
   {
     "number": 134,
     "name": "Vaporeon",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "Water Stone"
+    }
   },
   {
     "number": 135,
     "name": "Jolteon",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "Thunder Stone"
+    }
   },
   {
     "number": 136,
     "name": "Flareon",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "Fire Stone"
+    }
   },
   {
     "number": 137,
@@ -1069,7 +1457,12 @@
   {
     "number": 139,
     "name": "Omastar",
-    "types": ["rock", "water"]
+    "types": ["rock", "water"],
+    "evolvesFrom": {
+      "number": 138,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 140,
@@ -1079,7 +1472,12 @@
   {
     "number": 141,
     "name": "Kabutops",
-    "types": ["rock", "water"]
+    "types": ["rock", "water"],
+    "evolvesFrom": {
+      "number": 140,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 142,
@@ -1096,7 +1494,12 @@
   {
     "number": 143,
     "name": "Snorlax",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 446,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 144,
@@ -1145,12 +1548,22 @@
   {
     "number": 148,
     "name": "Dragonair",
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "evolvesFrom": {
+      "number": 147,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 149,
     "name": "Dragonite",
     "types": ["dragon", "flying"],
+    "evolvesFrom": {
+      "number": 148,
+      "method": "level",
+      "level": 55
+    },
     "transformations": [
       {
         "name": "Mega Dragonite",
@@ -1191,12 +1604,22 @@
   {
     "number": 153,
     "name": "Bayleef",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 152,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 154,
     "name": "Meganium",
     "types": ["grass"],
+    "evolvesFrom": {
+      "number": 153,
+      "method": "level",
+      "level": 32
+    },
     "transformations": [
       {
         "name": "Mega Meganium",
@@ -1213,12 +1636,22 @@
   {
     "number": 156,
     "name": "Quilava",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 155,
+      "method": "level",
+      "level": 14
+    }
   },
   {
     "number": 157,
     "name": "Typhlosion",
     "types": ["fire"],
+    "evolvesFrom": {
+      "number": 156,
+      "method": "level",
+      "level": 36
+    },
     "regionalForms": [
       {
         "name": "Hisuian Typhlosion",
@@ -1236,12 +1669,22 @@
   {
     "number": 159,
     "name": "Croconaw",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 158,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 160,
     "name": "Feraligatr",
     "types": ["water"],
+    "evolvesFrom": {
+      "number": 159,
+      "method": "level",
+      "level": 30
+    },
     "transformations": [
       {
         "name": "Mega Feraligatr",
@@ -1258,7 +1701,12 @@
   {
     "number": 162,
     "name": "Furret",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 161,
+      "method": "level",
+      "level": 15
+    }
   },
   {
     "number": 163,
@@ -1268,7 +1716,12 @@
   {
     "number": 164,
     "name": "Noctowl",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 163,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 165,
@@ -1278,7 +1731,12 @@
   {
     "number": 166,
     "name": "Ledian",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 165,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 167,
@@ -1288,12 +1746,22 @@
   {
     "number": 168,
     "name": "Ariados",
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "evolvesFrom": {
+      "number": 167,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 169,
     "name": "Crobat",
-    "types": ["poison", "flying"]
+    "types": ["poison", "flying"],
+    "evolvesFrom": {
+      "number": 42,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 170,
@@ -1303,7 +1771,12 @@
   {
     "number": 171,
     "name": "Lanturn",
-    "types": ["water", "electric"]
+    "types": ["water", "electric"],
+    "evolvesFrom": {
+      "number": 170,
+      "method": "level",
+      "level": 27
+    }
   },
   {
     "number": 172,
@@ -1328,7 +1801,12 @@
   {
     "number": 176,
     "name": "Togetic",
-    "types": ["fairy", "flying"]
+    "types": ["fairy", "flying"],
+    "evolvesFrom": {
+      "number": 175,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 177,
@@ -1338,7 +1816,12 @@
   {
     "number": 178,
     "name": "Xatu",
-    "types": ["psychic", "flying"]
+    "types": ["psychic", "flying"],
+    "evolvesFrom": {
+      "number": 177,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 179,
@@ -1348,12 +1831,22 @@
   {
     "number": 180,
     "name": "Flaaffy",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 179,
+      "method": "level",
+      "level": 15
+    }
   },
   {
     "number": 181,
     "name": "Ampharos",
     "types": ["electric"],
+    "evolvesFrom": {
+      "number": 180,
+      "method": "level",
+      "level": 30
+    },
     "transformations": [
       {
         "name": "Mega Ampharos",
@@ -1365,27 +1858,52 @@
   {
     "number": 182,
     "name": "Bellossom",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 44,
+      "method": "item",
+      "item": "Sun Stone"
+    }
   },
   {
     "number": 183,
     "name": "Marill",
-    "types": ["water", "fairy"]
+    "types": ["water", "fairy"],
+    "evolvesFrom": {
+      "number": 298,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 184,
     "name": "Azumarill",
-    "types": ["water", "fairy"]
+    "types": ["water", "fairy"],
+    "evolvesFrom": {
+      "number": 183,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 185,
     "name": "Sudowoodo",
-    "types": ["rock"]
+    "types": ["rock"],
+    "evolvesFrom": {
+      "number": 438,
+      "method": "other",
+      "note": "when leveled up knowing Mimic"
+    }
   },
   {
     "number": 186,
     "name": "Politoed",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 61,
+      "method": "trade",
+      "item": "King's Rock"
+    }
   },
   {
     "number": 187,
@@ -1395,12 +1913,22 @@
   {
     "number": 188,
     "name": "Skiploom",
-    "types": ["grass", "flying"]
+    "types": ["grass", "flying"],
+    "evolvesFrom": {
+      "number": 187,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 189,
     "name": "Jumpluff",
-    "types": ["grass", "flying"]
+    "types": ["grass", "flying"],
+    "evolvesFrom": {
+      "number": 188,
+      "method": "level",
+      "level": 27
+    }
   },
   {
     "number": 190,
@@ -1415,7 +1943,12 @@
   {
     "number": 192,
     "name": "Sunflora",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 191,
+      "method": "item",
+      "item": "Sun Stone"
+    }
   },
   {
     "number": 193,
@@ -1438,17 +1971,32 @@
   {
     "number": 195,
     "name": "Quagsire",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "evolvesFrom": {
+      "number": 194,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 196,
     "name": "Espeon",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "other",
+      "note": "with high friendship during the day"
+    }
   },
   {
     "number": 197,
     "name": "Umbreon",
-    "types": ["dark"]
+    "types": ["dark"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "other",
+      "note": "with high friendship at night"
+    }
   },
   {
     "number": 198,
@@ -1459,6 +2007,11 @@
     "number": 199,
     "name": "Slowking",
     "types": ["water", "psychic"],
+    "evolvesFrom": {
+      "number": 79,
+      "method": "trade",
+      "item": "King's Rock"
+    },
     "regionalForms": [
       {
         "name": "Galarian Slowking",
@@ -1481,7 +2034,12 @@
   {
     "number": 202,
     "name": "Wobbuffet",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 360,
+      "method": "level",
+      "level": 15
+    }
   },
   {
     "number": 203,
@@ -1496,7 +2054,12 @@
   {
     "number": 205,
     "name": "Forretress",
-    "types": ["bug", "steel"]
+    "types": ["bug", "steel"],
+    "evolvesFrom": {
+      "number": 204,
+      "method": "level",
+      "level": 31
+    }
   },
   {
     "number": 206,
@@ -1512,6 +2075,11 @@
     "number": 208,
     "name": "Steelix",
     "types": ["steel", "ground"],
+    "evolvesFrom": {
+      "number": 95,
+      "method": "trade",
+      "item": "Metal Coat"
+    },
     "transformations": [
       {
         "name": "Mega Steelix",
@@ -1528,7 +2096,12 @@
   {
     "number": 210,
     "name": "Granbull",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 209,
+      "method": "level",
+      "level": 23
+    }
   },
   {
     "number": 211,
@@ -1547,6 +2120,11 @@
     "number": 212,
     "name": "Scizor",
     "types": ["bug", "steel"],
+    "evolvesFrom": {
+      "number": 123,
+      "method": "trade",
+      "item": "Metal Coat"
+    },
     "transformations": [
       {
         "name": "Mega Scizor",
@@ -1593,7 +2171,12 @@
   {
     "number": 217,
     "name": "Ursaring",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 216,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 218,
@@ -1603,7 +2186,12 @@
   {
     "number": 219,
     "name": "Magcargo",
-    "types": ["fire", "rock"]
+    "types": ["fire", "rock"],
+    "evolvesFrom": {
+      "number": 218,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 220,
@@ -1613,7 +2201,12 @@
   {
     "number": 221,
     "name": "Piloswine",
-    "types": ["ice", "ground"]
+    "types": ["ice", "ground"],
+    "evolvesFrom": {
+      "number": 220,
+      "method": "level",
+      "level": 33
+    }
   },
   {
     "number": 222,
@@ -1636,7 +2229,12 @@
   {
     "number": 224,
     "name": "Octillery",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 223,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 225,
@@ -1646,7 +2244,12 @@
   {
     "number": 226,
     "name": "Mantine",
-    "types": ["water", "flying"]
+    "types": ["water", "flying"],
+    "evolvesFrom": {
+      "number": 458,
+      "method": "other",
+      "note": "with a Remoraid in party"
+    }
   },
   {
     "number": 227,
@@ -1669,6 +2272,11 @@
     "number": 229,
     "name": "Houndoom",
     "types": ["dark", "fire"],
+    "evolvesFrom": {
+      "number": 228,
+      "method": "level",
+      "level": 24
+    },
     "transformations": [
       {
         "name": "Mega Houndoom",
@@ -1680,7 +2288,12 @@
   {
     "number": 230,
     "name": "Kingdra",
-    "types": ["water", "dragon"]
+    "types": ["water", "dragon"],
+    "evolvesFrom": {
+      "number": 117,
+      "method": "trade",
+      "item": "Dragon Scale"
+    }
   },
   {
     "number": 231,
@@ -1690,12 +2303,22 @@
   {
     "number": 232,
     "name": "Donphan",
-    "types": ["ground"]
+    "types": ["ground"],
+    "evolvesFrom": {
+      "number": 231,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 233,
     "name": "Porygon2",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 137,
+      "method": "trade",
+      "item": "Up-Grade"
+    }
   },
   {
     "number": 234,
@@ -1715,7 +2338,13 @@
   {
     "number": 237,
     "name": "Hitmontop",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 236,
+      "method": "level",
+      "level": 20,
+      "note": "with an Atk stat equal to its Def stat"
+    }
   },
   {
     "number": 238,
@@ -1740,7 +2369,12 @@
   {
     "number": 242,
     "name": "Blissey",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 113,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 243,
@@ -1765,12 +2399,22 @@
   {
     "number": 247,
     "name": "Pupitar",
-    "types": ["rock", "ground"]
+    "types": ["rock", "ground"],
+    "evolvesFrom": {
+      "number": 246,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 248,
     "name": "Tyranitar",
     "types": ["rock", "dark"],
+    "evolvesFrom": {
+      "number": 247,
+      "method": "level",
+      "level": 55
+    },
     "transformations": [
       {
         "name": "Mega Tyranitar",
@@ -1802,12 +2446,22 @@
   {
     "number": 253,
     "name": "Grovyle",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 252,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 254,
     "name": "Sceptile",
     "types": ["grass"],
+    "evolvesFrom": {
+      "number": 253,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Sceptile",
@@ -1824,12 +2478,22 @@
   {
     "number": 256,
     "name": "Combusken",
-    "types": ["fire", "fighting"]
+    "types": ["fire", "fighting"],
+    "evolvesFrom": {
+      "number": 255,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 257,
     "name": "Blaziken",
     "types": ["fire", "fighting"],
+    "evolvesFrom": {
+      "number": 256,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Blaziken",
@@ -1846,12 +2510,22 @@
   {
     "number": 259,
     "name": "Marshtomp",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "evolvesFrom": {
+      "number": 258,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 260,
     "name": "Swampert",
     "types": ["water", "ground"],
+    "evolvesFrom": {
+      "number": 259,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Swampert",
@@ -1868,7 +2542,12 @@
   {
     "number": 262,
     "name": "Mightyena",
-    "types": ["dark"]
+    "types": ["dark"],
+    "evolvesFrom": {
+      "number": 261,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 263,
@@ -1887,6 +2566,11 @@
     "number": 264,
     "name": "Linoone",
     "types": ["normal"],
+    "evolvesFrom": {
+      "number": 263,
+      "method": "level",
+      "level": 20
+    },
     "regionalForms": [
       {
         "name": "Galarian Linoone",
@@ -1904,22 +2588,42 @@
   {
     "number": 266,
     "name": "Silcoon",
-    "types": ["bug"]
+    "types": ["bug"],
+    "evolvesFrom": {
+      "number": 265,
+      "method": "level",
+      "level": 7
+    }
   },
   {
     "number": 267,
     "name": "Beautifly",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 266,
+      "method": "level",
+      "level": 10
+    }
   },
   {
     "number": 268,
     "name": "Cascoon",
-    "types": ["bug"]
+    "types": ["bug"],
+    "evolvesFrom": {
+      "number": 265,
+      "method": "level",
+      "level": 7
+    }
   },
   {
     "number": 269,
     "name": "Dustox",
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "evolvesFrom": {
+      "number": 268,
+      "method": "level",
+      "level": 10
+    }
   },
   {
     "number": 270,
@@ -1929,12 +2633,22 @@
   {
     "number": 271,
     "name": "Lombre",
-    "types": ["water", "grass"]
+    "types": ["water", "grass"],
+    "evolvesFrom": {
+      "number": 270,
+      "method": "level",
+      "level": 14
+    }
   },
   {
     "number": 272,
     "name": "Ludicolo",
-    "types": ["water", "grass"]
+    "types": ["water", "grass"],
+    "evolvesFrom": {
+      "number": 271,
+      "method": "item",
+      "item": "Water Stone"
+    }
   },
   {
     "number": 273,
@@ -1944,12 +2658,22 @@
   {
     "number": 274,
     "name": "Nuzleaf",
-    "types": ["grass", "dark"]
+    "types": ["grass", "dark"],
+    "evolvesFrom": {
+      "number": 273,
+      "method": "level",
+      "level": 14
+    }
   },
   {
     "number": 275,
     "name": "Shiftry",
-    "types": ["grass", "dark"]
+    "types": ["grass", "dark"],
+    "evolvesFrom": {
+      "number": 274,
+      "method": "item",
+      "item": "Leaf Stone"
+    }
   },
   {
     "number": 276,
@@ -1959,7 +2683,12 @@
   {
     "number": 277,
     "name": "Swellow",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 276,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 278,
@@ -1969,7 +2698,12 @@
   {
     "number": 279,
     "name": "Pelipper",
-    "types": ["water", "flying"]
+    "types": ["water", "flying"],
+    "evolvesFrom": {
+      "number": 278,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 280,
@@ -1979,12 +2713,22 @@
   {
     "number": 281,
     "name": "Kirlia",
-    "types": ["psychic", "fairy"]
+    "types": ["psychic", "fairy"],
+    "evolvesFrom": {
+      "number": 280,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 282,
     "name": "Gardevoir",
     "types": ["psychic", "fairy"],
+    "evolvesFrom": {
+      "number": 281,
+      "method": "level",
+      "level": 30
+    },
     "transformations": [
       {
         "name": "Mega Gardevoir",
@@ -2001,7 +2745,12 @@
   {
     "number": 284,
     "name": "Masquerain",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 283,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 285,
@@ -2011,7 +2760,12 @@
   {
     "number": 286,
     "name": "Breloom",
-    "types": ["grass", "fighting"]
+    "types": ["grass", "fighting"],
+    "evolvesFrom": {
+      "number": 285,
+      "method": "level",
+      "level": 23
+    }
   },
   {
     "number": 287,
@@ -2021,12 +2775,22 @@
   {
     "number": 288,
     "name": "Vigoroth",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 287,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 289,
     "name": "Slaking",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 288,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 290,
@@ -2036,12 +2800,22 @@
   {
     "number": 291,
     "name": "Ninjask",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 290,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 292,
     "name": "Shedinja",
-    "types": ["bug", "ghost"]
+    "types": ["bug", "ghost"],
+    "evolvesFrom": {
+      "number": 290,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 293,
@@ -2051,12 +2825,22 @@
   {
     "number": 294,
     "name": "Loudred",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 293,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 295,
     "name": "Exploud",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 294,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 296,
@@ -2066,7 +2850,12 @@
   {
     "number": 297,
     "name": "Hariyama",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 296,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 298,
@@ -2086,7 +2875,12 @@
   {
     "number": 301,
     "name": "Delcatty",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 300,
+      "method": "item",
+      "item": "Moon Stone"
+    }
   },
   {
     "number": 302,
@@ -2120,12 +2914,22 @@
   {
     "number": 305,
     "name": "Lairon",
-    "types": ["steel", "rock"]
+    "types": ["steel", "rock"],
+    "evolvesFrom": {
+      "number": 304,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 306,
     "name": "Aggron",
     "types": ["steel", "rock"],
+    "evolvesFrom": {
+      "number": 305,
+      "method": "level",
+      "level": 42
+    },
     "transformations": [
       {
         "name": "Mega Aggron",
@@ -2143,6 +2947,11 @@
     "number": 308,
     "name": "Medicham",
     "types": ["fighting", "psychic"],
+    "evolvesFrom": {
+      "number": 307,
+      "method": "level",
+      "level": 37
+    },
     "transformations": [
       {
         "name": "Mega Medicham",
@@ -2160,6 +2969,11 @@
     "number": 310,
     "name": "Manectric",
     "types": ["electric"],
+    "evolvesFrom": {
+      "number": 309,
+      "method": "level",
+      "level": 26
+    },
     "transformations": [
       {
         "name": "Mega Manectric",
@@ -2191,7 +3005,12 @@
   {
     "number": 315,
     "name": "Roselia",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 406,
+      "method": "other",
+      "note": "with high friendship during the day"
+    }
   },
   {
     "number": 316,
@@ -2201,7 +3020,12 @@
   {
     "number": 317,
     "name": "Swalot",
-    "types": ["poison"]
+    "types": ["poison"],
+    "evolvesFrom": {
+      "number": 316,
+      "method": "level",
+      "level": 26
+    }
   },
   {
     "number": 318,
@@ -2212,6 +3036,11 @@
     "number": 319,
     "name": "Sharpedo",
     "types": ["water", "dark"],
+    "evolvesFrom": {
+      "number": 318,
+      "method": "level",
+      "level": 30
+    },
     "transformations": [
       {
         "name": "Mega Sharpedo",
@@ -2228,7 +3057,12 @@
   {
     "number": 321,
     "name": "Wailord",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 320,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 322,
@@ -2239,6 +3073,11 @@
     "number": 323,
     "name": "Camerupt",
     "types": ["fire", "ground"],
+    "evolvesFrom": {
+      "number": 322,
+      "method": "level",
+      "level": 33
+    },
     "transformations": [
       {
         "name": "Mega Camerupt",
@@ -2260,7 +3099,12 @@
   {
     "number": 326,
     "name": "Grumpig",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 325,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 327,
@@ -2275,12 +3119,22 @@
   {
     "number": 329,
     "name": "Vibrava",
-    "types": ["ground", "dragon"]
+    "types": ["ground", "dragon"],
+    "evolvesFrom": {
+      "number": 328,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 330,
     "name": "Flygon",
-    "types": ["ground", "dragon"]
+    "types": ["ground", "dragon"],
+    "evolvesFrom": {
+      "number": 329,
+      "method": "level",
+      "level": 45
+    }
   },
   {
     "number": 331,
@@ -2290,7 +3144,12 @@
   {
     "number": 332,
     "name": "Cacturne",
-    "types": ["grass", "dark"]
+    "types": ["grass", "dark"],
+    "evolvesFrom": {
+      "number": 331,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 333,
@@ -2301,6 +3160,11 @@
     "number": 334,
     "name": "Altaria",
     "types": ["dragon", "flying"],
+    "evolvesFrom": {
+      "number": 333,
+      "method": "level",
+      "level": 35
+    },
     "transformations": [
       {
         "name": "Mega Altaria",
@@ -2337,7 +3201,12 @@
   {
     "number": 340,
     "name": "Whiscash",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "evolvesFrom": {
+      "number": 339,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 341,
@@ -2347,7 +3216,12 @@
   {
     "number": 342,
     "name": "Crawdaunt",
-    "types": ["water", "dark"]
+    "types": ["water", "dark"],
+    "evolvesFrom": {
+      "number": 341,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 343,
@@ -2357,7 +3231,12 @@
   {
     "number": 344,
     "name": "Claydol",
-    "types": ["ground", "psychic"]
+    "types": ["ground", "psychic"],
+    "evolvesFrom": {
+      "number": 343,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 345,
@@ -2367,7 +3246,12 @@
   {
     "number": 346,
     "name": "Cradily",
-    "types": ["rock", "grass"]
+    "types": ["rock", "grass"],
+    "evolvesFrom": {
+      "number": 345,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 347,
@@ -2377,7 +3261,12 @@
   {
     "number": 348,
     "name": "Armaldo",
-    "types": ["rock", "bug"]
+    "types": ["rock", "bug"],
+    "evolvesFrom": {
+      "number": 347,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 349,
@@ -2387,7 +3276,12 @@
   {
     "number": 350,
     "name": "Milotic",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 349,
+      "method": "trade",
+      "item": "Prism Scale"
+    }
   },
   {
     "number": 351,
@@ -2408,6 +3302,11 @@
     "number": 354,
     "name": "Banette",
     "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 353,
+      "method": "level",
+      "level": 37
+    },
     "transformations": [
       {
         "name": "Mega Banette",
@@ -2424,7 +3323,12 @@
   {
     "number": 356,
     "name": "Dusclops",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 355,
+      "method": "level",
+      "level": 37
+    }
   },
   {
     "number": 357,
@@ -2435,6 +3339,11 @@
     "number": 358,
     "name": "Chimecho",
     "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 433,
+      "method": "other",
+      "note": "with high friendship at night"
+    },
     "transformations": [
       {
         "name": "Mega Chimecho",
@@ -2475,6 +3384,11 @@
     "number": 362,
     "name": "Glalie",
     "types": ["ice"],
+    "evolvesFrom": {
+      "number": 361,
+      "method": "level",
+      "level": 42
+    },
     "transformations": [
       {
         "name": "Mega Glalie",
@@ -2491,12 +3405,22 @@
   {
     "number": 364,
     "name": "Sealeo",
-    "types": ["ice", "water"]
+    "types": ["ice", "water"],
+    "evolvesFrom": {
+      "number": 363,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 365,
     "name": "Walrein",
-    "types": ["ice", "water"]
+    "types": ["ice", "water"],
+    "evolvesFrom": {
+      "number": 364,
+      "method": "level",
+      "level": 44
+    }
   },
   {
     "number": 366,
@@ -2506,12 +3430,22 @@
   {
     "number": 367,
     "name": "Huntail",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 366,
+      "method": "trade",
+      "item": "Deep Sea Tooth"
+    }
   },
   {
     "number": 368,
     "name": "Gorebyss",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 366,
+      "method": "trade",
+      "item": "Deep Sea Scale"
+    }
   },
   {
     "number": 369,
@@ -2531,12 +3465,22 @@
   {
     "number": 372,
     "name": "Shelgon",
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "evolvesFrom": {
+      "number": 371,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 373,
     "name": "Salamence",
     "types": ["dragon", "flying"],
+    "evolvesFrom": {
+      "number": 372,
+      "method": "level",
+      "level": 50
+    },
     "transformations": [
       {
         "name": "Mega Salamence",
@@ -2553,12 +3497,22 @@
   {
     "number": 375,
     "name": "Metang",
-    "types": ["steel", "psychic"]
+    "types": ["steel", "psychic"],
+    "evolvesFrom": {
+      "number": 374,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 376,
     "name": "Metagross",
     "types": ["steel", "psychic"],
+    "evolvesFrom": {
+      "number": 375,
+      "method": "level",
+      "level": 45
+    },
     "transformations": [
       {
         "name": "Mega Metagross",
@@ -2646,12 +3600,22 @@
   {
     "number": 388,
     "name": "Grotle",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 387,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 389,
     "name": "Torterra",
-    "types": ["grass", "ground"]
+    "types": ["grass", "ground"],
+    "evolvesFrom": {
+      "number": 388,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 390,
@@ -2661,12 +3625,22 @@
   {
     "number": 391,
     "name": "Monferno",
-    "types": ["fire", "fighting"]
+    "types": ["fire", "fighting"],
+    "evolvesFrom": {
+      "number": 390,
+      "method": "level",
+      "level": 14
+    }
   },
   {
     "number": 392,
     "name": "Infernape",
-    "types": ["fire", "fighting"]
+    "types": ["fire", "fighting"],
+    "evolvesFrom": {
+      "number": 391,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 393,
@@ -2676,12 +3650,22 @@
   {
     "number": 394,
     "name": "Prinplup",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 393,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 395,
     "name": "Empoleon",
-    "types": ["water", "steel"]
+    "types": ["water", "steel"],
+    "evolvesFrom": {
+      "number": 394,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 396,
@@ -2691,12 +3675,22 @@
   {
     "number": 397,
     "name": "Staravia",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 396,
+      "method": "level",
+      "level": 14
+    }
   },
   {
     "number": 398,
     "name": "Staraptor",
     "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 397,
+      "method": "level",
+      "level": 34
+    },
     "transformations": [
       {
         "name": "Mega Staraptor",
@@ -2713,7 +3707,12 @@
   {
     "number": 400,
     "name": "Bibarel",
-    "types": ["normal", "water"]
+    "types": ["normal", "water"],
+    "evolvesFrom": {
+      "number": 399,
+      "method": "level",
+      "level": 15
+    }
   },
   {
     "number": 401,
@@ -2723,7 +3722,12 @@
   {
     "number": 402,
     "name": "Kricketune",
-    "types": ["bug"]
+    "types": ["bug"],
+    "evolvesFrom": {
+      "number": 401,
+      "method": "level",
+      "level": 10
+    }
   },
   {
     "number": 403,
@@ -2733,12 +3737,22 @@
   {
     "number": 404,
     "name": "Luxio",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 403,
+      "method": "level",
+      "level": 15
+    }
   },
   {
     "number": 405,
     "name": "Luxray",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 404,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 406,
@@ -2748,7 +3762,12 @@
   {
     "number": 407,
     "name": "Roserade",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 315,
+      "method": "item",
+      "item": "Shiny Stone"
+    }
   },
   {
     "number": 408,
@@ -2758,7 +3777,12 @@
   {
     "number": 409,
     "name": "Rampardos",
-    "types": ["rock"]
+    "types": ["rock"],
+    "evolvesFrom": {
+      "number": 408,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 410,
@@ -2768,7 +3792,12 @@
   {
     "number": 411,
     "name": "Bastiodon",
-    "types": ["rock", "steel"]
+    "types": ["rock", "steel"],
+    "evolvesFrom": {
+      "number": 410,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 412,
@@ -2778,12 +3807,22 @@
   {
     "number": 413,
     "name": "Wormadam",
-    "types": ["bug", "grass"]
+    "types": ["bug", "grass"],
+    "evolvesFrom": {
+      "number": 412,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 414,
     "name": "Mothim",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 412,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 415,
@@ -2793,7 +3832,12 @@
   {
     "number": 416,
     "name": "Vespiquen",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 415,
+      "method": "level",
+      "level": 21
+    }
   },
   {
     "number": 417,
@@ -2808,7 +3852,12 @@
   {
     "number": 419,
     "name": "Floatzel",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 418,
+      "method": "level",
+      "level": 26
+    }
   },
   {
     "number": 420,
@@ -2818,7 +3867,12 @@
   {
     "number": 421,
     "name": "Cherrim",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 420,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 422,
@@ -2828,12 +3882,22 @@
   {
     "number": 423,
     "name": "Gastrodon",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "evolvesFrom": {
+      "number": 422,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 424,
     "name": "Ambipom",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 190,
+      "method": "other",
+      "note": "when leveled up knowing Double Hit"
+    }
   },
   {
     "number": 425,
@@ -2843,7 +3907,12 @@
   {
     "number": 426,
     "name": "Drifblim",
-    "types": ["ghost", "flying"]
+    "types": ["ghost", "flying"],
+    "evolvesFrom": {
+      "number": 425,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 427,
@@ -2854,6 +3923,11 @@
     "number": 428,
     "name": "Lopunny",
     "types": ["normal"],
+    "evolvesFrom": {
+      "number": 427,
+      "method": "other",
+      "note": "with high friendship"
+    },
     "transformations": [
       {
         "name": "Mega Lopunny",
@@ -2865,12 +3939,22 @@
   {
     "number": 429,
     "name": "Mismagius",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 200,
+      "method": "item",
+      "item": "Dusk Stone"
+    }
   },
   {
     "number": 430,
     "name": "Honchkrow",
-    "types": ["dark", "flying"]
+    "types": ["dark", "flying"],
+    "evolvesFrom": {
+      "number": 198,
+      "method": "item",
+      "item": "Dusk Stone"
+    }
   },
   {
     "number": 431,
@@ -2880,7 +3964,12 @@
   {
     "number": 432,
     "name": "Purugly",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 431,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 433,
@@ -2895,7 +3984,12 @@
   {
     "number": 435,
     "name": "Skuntank",
-    "types": ["poison", "dark"]
+    "types": ["poison", "dark"],
+    "evolvesFrom": {
+      "number": 434,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 436,
@@ -2905,7 +3999,12 @@
   {
     "number": 437,
     "name": "Bronzong",
-    "types": ["steel", "psychic"]
+    "types": ["steel", "psychic"],
+    "evolvesFrom": {
+      "number": 436,
+      "method": "level",
+      "level": 33
+    }
   },
   {
     "number": 438,
@@ -2940,12 +4039,22 @@
   {
     "number": 444,
     "name": "Gabite",
-    "types": ["dragon", "ground"]
+    "types": ["dragon", "ground"],
+    "evolvesFrom": {
+      "number": 443,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 445,
     "name": "Garchomp",
     "types": ["dragon", "ground"],
+    "evolvesFrom": {
+      "number": 444,
+      "method": "level",
+      "level": 48
+    },
     "transformations": [
       {
         "name": "Mega Garchomp",
@@ -2974,6 +4083,11 @@
     "number": 448,
     "name": "Lucario",
     "types": ["fighting", "steel"],
+    "evolvesFrom": {
+      "number": 447,
+      "method": "other",
+      "note": "with high friendship during the day"
+    },
     "transformations": [
       {
         "name": "Mega Lucario",
@@ -2996,7 +4110,12 @@
   {
     "number": 450,
     "name": "Hippowdon",
-    "types": ["ground"]
+    "types": ["ground"],
+    "evolvesFrom": {
+      "number": 449,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 451,
@@ -3006,7 +4125,12 @@
   {
     "number": 452,
     "name": "Drapion",
-    "types": ["poison", "dark"]
+    "types": ["poison", "dark"],
+    "evolvesFrom": {
+      "number": 451,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 453,
@@ -3016,7 +4140,12 @@
   {
     "number": 454,
     "name": "Toxicroak",
-    "types": ["poison", "fighting"]
+    "types": ["poison", "fighting"],
+    "evolvesFrom": {
+      "number": 453,
+      "method": "level",
+      "level": 37
+    }
   },
   {
     "number": 455,
@@ -3031,7 +4160,12 @@
   {
     "number": 457,
     "name": "Lumineon",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 456,
+      "method": "level",
+      "level": 31
+    }
   },
   {
     "number": 458,
@@ -3047,6 +4181,11 @@
     "number": 460,
     "name": "Abomasnow",
     "types": ["grass", "ice"],
+    "evolvesFrom": {
+      "number": 459,
+      "method": "level",
+      "level": 40
+    },
     "transformations": [
       {
         "name": "Mega Abomasnow",
@@ -3058,77 +4197,152 @@
   {
     "number": 461,
     "name": "Weavile",
-    "types": ["dark", "ice"]
+    "types": ["dark", "ice"],
+    "evolvesFrom": {
+      "number": 215,
+      "method": "other",
+      "note": "when leveled up holding Razor Claw at night"
+    }
   },
   {
     "number": 462,
     "name": "Magnezone",
-    "types": ["electric", "steel"]
+    "types": ["electric", "steel"],
+    "evolvesFrom": {
+      "number": 82,
+      "method": "item",
+      "item": "Thunder Stone"
+    }
   },
   {
     "number": 463,
     "name": "Lickilicky",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 108,
+      "method": "other",
+      "note": "when leveled up knowing Rollout"
+    }
   },
   {
     "number": 464,
     "name": "Rhyperior",
-    "types": ["ground", "rock"]
+    "types": ["ground", "rock"],
+    "evolvesFrom": {
+      "number": 112,
+      "method": "trade",
+      "item": "Protector"
+    }
   },
   {
     "number": 465,
     "name": "Tangrowth",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 114,
+      "method": "other",
+      "note": "when leveled up knowing Ancient Power"
+    }
   },
   {
     "number": 466,
     "name": "Electivire",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 125,
+      "method": "trade",
+      "item": "Electirizer"
+    }
   },
   {
     "number": 467,
     "name": "Magmortar",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 126,
+      "method": "trade",
+      "item": "Magmarizer"
+    }
   },
   {
     "number": 468,
     "name": "Togekiss",
-    "types": ["fairy", "flying"]
+    "types": ["fairy", "flying"],
+    "evolvesFrom": {
+      "number": 176,
+      "method": "item",
+      "item": "Shiny Stone"
+    }
   },
   {
     "number": 469,
     "name": "Yanmega",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 193,
+      "method": "other",
+      "note": "when leveled up knowing Ancient Power"
+    }
   },
   {
     "number": 470,
     "name": "Leafeon",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "Leaf Stone"
+    }
   },
   {
     "number": 471,
     "name": "Glaceon",
-    "types": ["ice"]
+    "types": ["ice"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "item",
+      "item": "Ice Stone"
+    }
   },
   {
     "number": 472,
     "name": "Gliscor",
-    "types": ["ground", "flying"]
+    "types": ["ground", "flying"],
+    "evolvesFrom": {
+      "number": 207,
+      "method": "other",
+      "note": "when leveled up holding Razor Fang at night"
+    }
   },
   {
     "number": 473,
     "name": "Mamoswine",
-    "types": ["ice", "ground"]
+    "types": ["ice", "ground"],
+    "evolvesFrom": {
+      "number": 221,
+      "method": "other",
+      "note": "when leveled up knowing Ancient Power"
+    }
   },
   {
     "number": 474,
     "name": "Porygon-Z",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 233,
+      "method": "trade",
+      "item": "Dubious Disc"
+    }
   },
   {
     "number": 475,
     "name": "Gallade",
     "types": ["psychic", "fighting"],
+    "evolvesFrom": {
+      "number": 281,
+      "method": "item",
+      "item": "Dawn Stone"
+    },
     "transformations": [
       {
         "name": "Mega Gallade",
@@ -3140,17 +4354,32 @@
   {
     "number": 476,
     "name": "Probopass",
-    "types": ["rock", "steel"]
+    "types": ["rock", "steel"],
+    "evolvesFrom": {
+      "number": 299,
+      "method": "other",
+      "note": "near a special magnetic field"
+    }
   },
   {
     "number": 477,
     "name": "Dusknoir",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 356,
+      "method": "trade",
+      "item": "Reaper Cloth"
+    }
   },
   {
     "number": 478,
     "name": "Froslass",
     "types": ["ice", "ghost"],
+    "evolvesFrom": {
+      "number": 361,
+      "method": "item",
+      "item": "Dawn Stone"
+    },
     "transformations": [
       {
         "name": "Mega Froslass",
@@ -3261,12 +4490,22 @@
   {
     "number": 496,
     "name": "Servine",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 495,
+      "method": "level",
+      "level": 17
+    }
   },
   {
     "number": 497,
     "name": "Serperior",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 496,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 498,
@@ -3276,12 +4515,22 @@
   {
     "number": 499,
     "name": "Pignite",
-    "types": ["fire", "fighting"]
+    "types": ["fire", "fighting"],
+    "evolvesFrom": {
+      "number": 498,
+      "method": "level",
+      "level": 17
+    }
   },
   {
     "number": 500,
     "name": "Emboar",
     "types": ["fire", "fighting"],
+    "evolvesFrom": {
+      "number": 499,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Emboar",
@@ -3298,12 +4547,22 @@
   {
     "number": 502,
     "name": "Dewott",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 501,
+      "method": "level",
+      "level": 17
+    }
   },
   {
     "number": 503,
     "name": "Samurott",
     "types": ["water"],
+    "evolvesFrom": {
+      "number": 502,
+      "method": "level",
+      "level": 36
+    },
     "regionalForms": [
       {
         "name": "Hisuian Samurott",
@@ -3321,7 +4580,12 @@
   {
     "number": 505,
     "name": "Watchog",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 504,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 506,
@@ -3331,12 +4595,22 @@
   {
     "number": 507,
     "name": "Herdier",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 506,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 508,
     "name": "Stoutland",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 507,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 509,
@@ -3346,7 +4620,12 @@
   {
     "number": 510,
     "name": "Liepard",
-    "types": ["dark"]
+    "types": ["dark"],
+    "evolvesFrom": {
+      "number": 509,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 511,
@@ -3356,7 +4635,12 @@
   {
     "number": 512,
     "name": "Simisage",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 511,
+      "method": "item",
+      "item": "Leaf Stone"
+    }
   },
   {
     "number": 513,
@@ -3366,7 +4650,12 @@
   {
     "number": 514,
     "name": "Simisear",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 513,
+      "method": "item",
+      "item": "Fire Stone"
+    }
   },
   {
     "number": 515,
@@ -3376,7 +4665,12 @@
   {
     "number": 516,
     "name": "Simipour",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 515,
+      "method": "item",
+      "item": "Water Stone"
+    }
   },
   {
     "number": 517,
@@ -3386,7 +4680,12 @@
   {
     "number": 518,
     "name": "Musharna",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 517,
+      "method": "item",
+      "item": "Moon Stone"
+    }
   },
   {
     "number": 519,
@@ -3396,12 +4695,22 @@
   {
     "number": 520,
     "name": "Tranquill",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 519,
+      "method": "level",
+      "level": 21
+    }
   },
   {
     "number": 521,
     "name": "Unfezant",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 520,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 522,
@@ -3411,7 +4720,12 @@
   {
     "number": 523,
     "name": "Zebstrika",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 522,
+      "method": "level",
+      "level": 27
+    }
   },
   {
     "number": 524,
@@ -3421,12 +4735,21 @@
   {
     "number": 525,
     "name": "Boldore",
-    "types": ["rock"]
+    "types": ["rock"],
+    "evolvesFrom": {
+      "number": 524,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 526,
     "name": "Gigalith",
-    "types": ["rock"]
+    "types": ["rock"],
+    "evolvesFrom": {
+      "number": 525,
+      "method": "trade"
+    }
   },
   {
     "number": 527,
@@ -3436,7 +4759,12 @@
   {
     "number": 528,
     "name": "Swoobat",
-    "types": ["psychic", "flying"]
+    "types": ["psychic", "flying"],
+    "evolvesFrom": {
+      "number": 527,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 529,
@@ -3447,6 +4775,11 @@
     "number": 530,
     "name": "Excadrill",
     "types": ["ground", "steel"],
+    "evolvesFrom": {
+      "number": 529,
+      "method": "level",
+      "level": 31
+    },
     "transformations": [
       {
         "name": "Mega Excadrill",
@@ -3475,12 +4808,21 @@
   {
     "number": 533,
     "name": "Gurdurr",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 532,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 534,
     "name": "Conkeldurr",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 533,
+      "method": "trade"
+    }
   },
   {
     "number": 535,
@@ -3490,12 +4832,22 @@
   {
     "number": 536,
     "name": "Palpitoad",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "evolvesFrom": {
+      "number": 535,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 537,
     "name": "Seismitoad",
-    "types": ["water", "ground"]
+    "types": ["water", "ground"],
+    "evolvesFrom": {
+      "number": 536,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 538,
@@ -3515,12 +4867,22 @@
   {
     "number": 541,
     "name": "Swadloon",
-    "types": ["bug", "grass"]
+    "types": ["bug", "grass"],
+    "evolvesFrom": {
+      "number": 540,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 542,
     "name": "Leavanny",
-    "types": ["bug", "grass"]
+    "types": ["bug", "grass"],
+    "evolvesFrom": {
+      "number": 541,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 543,
@@ -3530,12 +4892,22 @@
   {
     "number": 544,
     "name": "Whirlipede",
-    "types": ["bug", "poison"]
+    "types": ["bug", "poison"],
+    "evolvesFrom": {
+      "number": 543,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 545,
     "name": "Scolipede",
     "types": ["bug", "poison"],
+    "evolvesFrom": {
+      "number": 544,
+      "method": "level",
+      "level": 30
+    },
     "transformations": [
       {
         "name": "Mega Scolipede",
@@ -3552,7 +4924,12 @@
   {
     "number": 547,
     "name": "Whimsicott",
-    "types": ["grass", "fairy"]
+    "types": ["grass", "fairy"],
+    "evolvesFrom": {
+      "number": 546,
+      "method": "item",
+      "item": "Sun Stone"
+    }
   },
   {
     "number": 548,
@@ -3563,6 +4940,11 @@
     "number": 549,
     "name": "Lilligant",
     "types": ["grass"],
+    "evolvesFrom": {
+      "number": 548,
+      "method": "item",
+      "item": "Sun Stone"
+    },
     "regionalForms": [
       {
         "name": "Hisuian Lilligant",
@@ -3585,12 +4967,22 @@
   {
     "number": 552,
     "name": "Krokorok",
-    "types": ["ground", "dark"]
+    "types": ["ground", "dark"],
+    "evolvesFrom": {
+      "number": 551,
+      "method": "level",
+      "level": 29
+    }
   },
   {
     "number": 553,
     "name": "Krookodile",
-    "types": ["ground", "dark"]
+    "types": ["ground", "dark"],
+    "evolvesFrom": {
+      "number": 552,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 554,
@@ -3609,6 +5001,11 @@
     "number": 555,
     "name": "Darmanitan",
     "types": ["fire"],
+    "evolvesFrom": {
+      "number": 554,
+      "method": "level",
+      "level": 35
+    },
     "regionalForms": [
       {
         "name": "Galarian Darmanitan",
@@ -3631,7 +5028,12 @@
   {
     "number": 558,
     "name": "Crustle",
-    "types": ["bug", "rock"]
+    "types": ["bug", "rock"],
+    "evolvesFrom": {
+      "number": 557,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 559,
@@ -3642,6 +5044,11 @@
     "number": 560,
     "name": "Scrafty",
     "types": ["dark", "fighting"],
+    "evolvesFrom": {
+      "number": 559,
+      "method": "level",
+      "level": 39
+    },
     "transformations": [
       {
         "name": "Mega Scrafty",
@@ -3671,7 +5078,12 @@
   {
     "number": 563,
     "name": "Cofagrigus",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 562,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 564,
@@ -3681,7 +5093,12 @@
   {
     "number": 565,
     "name": "Carracosta",
-    "types": ["water", "rock"]
+    "types": ["water", "rock"],
+    "evolvesFrom": {
+      "number": 564,
+      "method": "level",
+      "level": 37
+    }
   },
   {
     "number": 566,
@@ -3691,7 +5108,12 @@
   {
     "number": 567,
     "name": "Archeops",
-    "types": ["rock", "flying"]
+    "types": ["rock", "flying"],
+    "evolvesFrom": {
+      "number": 566,
+      "method": "level",
+      "level": 37
+    }
   },
   {
     "number": 568,
@@ -3701,7 +5123,12 @@
   {
     "number": 569,
     "name": "Garbodor",
-    "types": ["poison"]
+    "types": ["poison"],
+    "evolvesFrom": {
+      "number": 568,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 570,
@@ -3720,6 +5147,11 @@
     "number": 571,
     "name": "Zoroark",
     "types": ["dark"],
+    "evolvesFrom": {
+      "number": 570,
+      "method": "level",
+      "level": 30
+    },
     "regionalForms": [
       {
         "name": "Hisuian Zoroark",
@@ -3737,7 +5169,12 @@
   {
     "number": 573,
     "name": "Cinccino",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 572,
+      "method": "item",
+      "item": "Shiny Stone"
+    }
   },
   {
     "number": 574,
@@ -3747,12 +5184,22 @@
   {
     "number": 575,
     "name": "Gothorita",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 574,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 576,
     "name": "Gothitelle",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 575,
+      "method": "level",
+      "level": 41
+    }
   },
   {
     "number": 577,
@@ -3762,12 +5209,22 @@
   {
     "number": 578,
     "name": "Duosion",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 577,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 579,
     "name": "Reuniclus",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 578,
+      "method": "level",
+      "level": 41
+    }
   },
   {
     "number": 580,
@@ -3777,7 +5234,12 @@
   {
     "number": 581,
     "name": "Swanna",
-    "types": ["water", "flying"]
+    "types": ["water", "flying"],
+    "evolvesFrom": {
+      "number": 580,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 582,
@@ -3787,12 +5249,22 @@
   {
     "number": 583,
     "name": "Vanillish",
-    "types": ["ice"]
+    "types": ["ice"],
+    "evolvesFrom": {
+      "number": 582,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 584,
     "name": "Vanilluxe",
-    "types": ["ice"]
+    "types": ["ice"],
+    "evolvesFrom": {
+      "number": 583,
+      "method": "level",
+      "level": 47
+    }
   },
   {
     "number": 585,
@@ -3802,7 +5274,12 @@
   {
     "number": 586,
     "name": "Sawsbuck",
-    "types": ["normal", "grass"]
+    "types": ["normal", "grass"],
+    "evolvesFrom": {
+      "number": 585,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 587,
@@ -3817,7 +5294,12 @@
   {
     "number": 589,
     "name": "Escavalier",
-    "types": ["bug", "steel"]
+    "types": ["bug", "steel"],
+    "evolvesFrom": {
+      "number": 588,
+      "method": "trade",
+      "note": "with a Shelmet"
+    }
   },
   {
     "number": 590,
@@ -3827,7 +5309,12 @@
   {
     "number": 591,
     "name": "Amoonguss",
-    "types": ["grass", "poison"]
+    "types": ["grass", "poison"],
+    "evolvesFrom": {
+      "number": 590,
+      "method": "level",
+      "level": 39
+    }
   },
   {
     "number": 592,
@@ -3837,7 +5324,12 @@
   {
     "number": 593,
     "name": "Jellicent",
-    "types": ["water", "ghost"]
+    "types": ["water", "ghost"],
+    "evolvesFrom": {
+      "number": 592,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 594,
@@ -3852,7 +5344,12 @@
   {
     "number": 596,
     "name": "Galvantula",
-    "types": ["bug", "electric"]
+    "types": ["bug", "electric"],
+    "evolvesFrom": {
+      "number": 595,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 597,
@@ -3862,7 +5359,12 @@
   {
     "number": 598,
     "name": "Ferrothorn",
-    "types": ["grass", "steel"]
+    "types": ["grass", "steel"],
+    "evolvesFrom": {
+      "number": 597,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 599,
@@ -3872,12 +5374,22 @@
   {
     "number": 600,
     "name": "Klang",
-    "types": ["steel"]
+    "types": ["steel"],
+    "evolvesFrom": {
+      "number": 599,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 601,
     "name": "Klinklang",
-    "types": ["steel"]
+    "types": ["steel"],
+    "evolvesFrom": {
+      "number": 600,
+      "method": "level",
+      "level": 49
+    }
   },
   {
     "number": 602,
@@ -3887,12 +5399,22 @@
   {
     "number": 603,
     "name": "Eelektrik",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 602,
+      "method": "level",
+      "level": 39
+    }
   },
   {
     "number": 604,
     "name": "Eelektross",
     "types": ["electric"],
+    "evolvesFrom": {
+      "number": 603,
+      "method": "item",
+      "item": "Thunder Stone"
+    },
     "transformations": [
       {
         "name": "Mega Eelektross",
@@ -3909,7 +5431,12 @@
   {
     "number": 606,
     "name": "Beheeyem",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 605,
+      "method": "level",
+      "level": 42
+    }
   },
   {
     "number": 607,
@@ -3919,12 +5446,22 @@
   {
     "number": 608,
     "name": "Lampent",
-    "types": ["ghost", "fire"]
+    "types": ["ghost", "fire"],
+    "evolvesFrom": {
+      "number": 607,
+      "method": "level",
+      "level": 41
+    }
   },
   {
     "number": 609,
     "name": "Chandelure",
     "types": ["ghost", "fire"],
+    "evolvesFrom": {
+      "number": 608,
+      "method": "item",
+      "item": "Dusk Stone"
+    },
     "transformations": [
       {
         "name": "Mega Chandelure",
@@ -3941,12 +5478,22 @@
   {
     "number": 611,
     "name": "Fraxure",
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "evolvesFrom": {
+      "number": 610,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 612,
     "name": "Haxorus",
-    "types": ["dragon"]
+    "types": ["dragon"],
+    "evolvesFrom": {
+      "number": 611,
+      "method": "level",
+      "level": 48
+    }
   },
   {
     "number": 613,
@@ -3956,7 +5503,12 @@
   {
     "number": 614,
     "name": "Beartic",
-    "types": ["ice"]
+    "types": ["ice"],
+    "evolvesFrom": {
+      "number": 613,
+      "method": "level",
+      "level": 37
+    }
   },
   {
     "number": 615,
@@ -3971,7 +5523,12 @@
   {
     "number": 617,
     "name": "Accelgor",
-    "types": ["bug"]
+    "types": ["bug"],
+    "evolvesFrom": {
+      "number": 616,
+      "method": "trade",
+      "note": "with a Karrablast"
+    }
   },
   {
     "number": 618,
@@ -3994,7 +5551,12 @@
   {
     "number": 620,
     "name": "Mienshao",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 619,
+      "method": "level",
+      "level": 50
+    }
   },
   {
     "number": 621,
@@ -4010,6 +5572,11 @@
     "number": 623,
     "name": "Golurk",
     "types": ["ground", "ghost"],
+    "evolvesFrom": {
+      "number": 622,
+      "method": "level",
+      "level": 43
+    },
     "transformations": [
       {
         "name": "Mega Golurk",
@@ -4026,7 +5593,12 @@
   {
     "number": 625,
     "name": "Bisharp",
-    "types": ["dark", "steel"]
+    "types": ["dark", "steel"],
+    "evolvesFrom": {
+      "number": 624,
+      "method": "level",
+      "level": 52
+    }
   },
   {
     "number": 626,
@@ -4042,6 +5614,11 @@
     "number": 628,
     "name": "Braviary",
     "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 627,
+      "method": "level",
+      "level": 54
+    },
     "regionalForms": [
       {
         "name": "Hisuian Braviary",
@@ -4059,7 +5636,12 @@
   {
     "number": 630,
     "name": "Mandibuzz",
-    "types": ["dark", "flying"]
+    "types": ["dark", "flying"],
+    "evolvesFrom": {
+      "number": 629,
+      "method": "level",
+      "level": 54
+    }
   },
   {
     "number": 631,
@@ -4079,12 +5661,22 @@
   {
     "number": 634,
     "name": "Zweilous",
-    "types": ["dark", "dragon"]
+    "types": ["dark", "dragon"],
+    "evolvesFrom": {
+      "number": 633,
+      "method": "level",
+      "level": 50
+    }
   },
   {
     "number": 635,
     "name": "Hydreigon",
-    "types": ["dark", "dragon"]
+    "types": ["dark", "dragon"],
+    "evolvesFrom": {
+      "number": 634,
+      "method": "level",
+      "level": 64
+    }
   },
   {
     "number": 636,
@@ -4094,7 +5686,12 @@
   {
     "number": 637,
     "name": "Volcarona",
-    "types": ["bug", "fire"]
+    "types": ["bug", "fire"],
+    "evolvesFrom": {
+      "number": 636,
+      "method": "level",
+      "level": 59
+    }
   },
   {
     "number": 638,
@@ -4164,12 +5761,22 @@
   {
     "number": 651,
     "name": "Quilladin",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 650,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 652,
     "name": "Chesnaught",
     "types": ["grass", "fighting"],
+    "evolvesFrom": {
+      "number": 651,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Chesnaught",
@@ -4186,12 +5793,22 @@
   {
     "number": 654,
     "name": "Braixen",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 653,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 655,
     "name": "Delphox",
     "types": ["fire", "psychic"],
+    "evolvesFrom": {
+      "number": 654,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Delphox",
@@ -4208,12 +5825,22 @@
   {
     "number": 657,
     "name": "Frogadier",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 656,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 658,
     "name": "Greninja",
     "types": ["water", "dark"],
+    "evolvesFrom": {
+      "number": 657,
+      "method": "level",
+      "level": 36
+    },
     "transformations": [
       {
         "name": "Mega Greninja",
@@ -4230,7 +5857,12 @@
   {
     "number": 660,
     "name": "Diggersby",
-    "types": ["normal", "ground"]
+    "types": ["normal", "ground"],
+    "evolvesFrom": {
+      "number": 659,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 661,
@@ -4240,12 +5872,22 @@
   {
     "number": 662,
     "name": "Fletchinder",
-    "types": ["fire", "flying"]
+    "types": ["fire", "flying"],
+    "evolvesFrom": {
+      "number": 661,
+      "method": "level",
+      "level": 17
+    }
   },
   {
     "number": 663,
     "name": "Talonflame",
-    "types": ["fire", "flying"]
+    "types": ["fire", "flying"],
+    "evolvesFrom": {
+      "number": 662,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 664,
@@ -4255,12 +5897,22 @@
   {
     "number": 665,
     "name": "Spewpa",
-    "types": ["bug"]
+    "types": ["bug"],
+    "evolvesFrom": {
+      "number": 664,
+      "method": "level",
+      "level": 9
+    }
   },
   {
     "number": 666,
     "name": "Vivillon",
-    "types": ["bug", "flying"]
+    "types": ["bug", "flying"],
+    "evolvesFrom": {
+      "number": 665,
+      "method": "level",
+      "level": 12
+    }
   },
   {
     "number": 667,
@@ -4271,6 +5923,11 @@
     "number": 668,
     "name": "Pyroar",
     "types": ["fire", "normal"],
+    "evolvesFrom": {
+      "number": 667,
+      "method": "level",
+      "level": 35
+    },
     "transformations": [
       {
         "name": "Mega Pyroar",
@@ -4288,6 +5945,11 @@
     "number": 670,
     "name": "Floette",
     "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 669,
+      "method": "level",
+      "level": 19
+    },
     "transformations": [
       {
         "name": "Mega Floette",
@@ -4299,7 +5961,12 @@
   {
     "number": 671,
     "name": "Florges",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 670,
+      "method": "item",
+      "item": "Shiny Stone"
+    }
   },
   {
     "number": 672,
@@ -4309,7 +5976,12 @@
   {
     "number": 673,
     "name": "Gogoat",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 672,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 674,
@@ -4319,7 +5991,13 @@
   {
     "number": 675,
     "name": "Pangoro",
-    "types": ["fighting", "dark"]
+    "types": ["fighting", "dark"],
+    "evolvesFrom": {
+      "number": 674,
+      "method": "level",
+      "level": 32,
+      "note": "with a Dark-type in the party"
+    }
   },
   {
     "number": 676,
@@ -4335,6 +6013,11 @@
     "number": 678,
     "name": "Meowstic",
     "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 677,
+      "method": "level",
+      "level": 25
+    },
     "transformations": [
       {
         "name": "Mega Meowstic",
@@ -4351,12 +6034,22 @@
   {
     "number": 680,
     "name": "Doublade",
-    "types": ["steel", "ghost"]
+    "types": ["steel", "ghost"],
+    "evolvesFrom": {
+      "number": 679,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 681,
     "name": "Aegislash",
-    "types": ["steel", "ghost"]
+    "types": ["steel", "ghost"],
+    "evolvesFrom": {
+      "number": 680,
+      "method": "item",
+      "item": "Dusk Stone"
+    }
   },
   {
     "number": 682,
@@ -4366,7 +6059,12 @@
   {
     "number": 683,
     "name": "Aromatisse",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 682,
+      "method": "trade",
+      "item": "Sachet"
+    }
   },
   {
     "number": 684,
@@ -4376,7 +6074,12 @@
   {
     "number": 685,
     "name": "Slurpuff",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 684,
+      "method": "trade",
+      "item": "Whipped Dream"
+    }
   },
   {
     "number": 686,
@@ -4387,6 +6090,12 @@
     "number": 687,
     "name": "Malamar",
     "types": ["dark", "psychic"],
+    "evolvesFrom": {
+      "number": 686,
+      "method": "level",
+      "level": 30,
+      "note": "with the console turned upside-down"
+    },
     "transformations": [
       {
         "name": "Mega Malamar",
@@ -4404,6 +6113,11 @@
     "number": 689,
     "name": "Barbaracle",
     "types": ["rock", "water"],
+    "evolvesFrom": {
+      "number": 688,
+      "method": "level",
+      "level": 39
+    },
     "transformations": [
       {
         "name": "Mega Barbaracle",
@@ -4421,6 +6135,11 @@
     "number": 691,
     "name": "Dragalge",
     "types": ["poison", "dragon"],
+    "evolvesFrom": {
+      "number": 690,
+      "method": "level",
+      "level": 48
+    },
     "transformations": [
       {
         "name": "Mega Dragalge",
@@ -4437,7 +6156,12 @@
   {
     "number": 693,
     "name": "Clawitzer",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 692,
+      "method": "level",
+      "level": 37
+    }
   },
   {
     "number": 694,
@@ -4447,7 +6171,12 @@
   {
     "number": 695,
     "name": "Heliolisk",
-    "types": ["electric", "normal"]
+    "types": ["electric", "normal"],
+    "evolvesFrom": {
+      "number": 694,
+      "method": "item",
+      "item": "Sun Stone"
+    }
   },
   {
     "number": 696,
@@ -4457,7 +6186,13 @@
   {
     "number": 697,
     "name": "Tyrantrum",
-    "types": ["rock", "dragon"]
+    "types": ["rock", "dragon"],
+    "evolvesFrom": {
+      "number": 696,
+      "method": "level",
+      "level": 39,
+      "note": "during the day"
+    }
   },
   {
     "number": 698,
@@ -4467,12 +6202,23 @@
   {
     "number": 699,
     "name": "Aurorus",
-    "types": ["rock", "ice"]
+    "types": ["rock", "ice"],
+    "evolvesFrom": {
+      "number": 698,
+      "method": "level",
+      "level": 39,
+      "note": "at night"
+    }
   },
   {
     "number": 700,
     "name": "Sylveon",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 133,
+      "method": "other",
+      "note": "with a Fairy-type move and two levels of Affection"
+    }
   },
   {
     "number": 701,
@@ -4505,6 +6251,11 @@
     "number": 705,
     "name": "Sliggoo",
     "types": ["dragon"],
+    "evolvesFrom": {
+      "number": 704,
+      "method": "level",
+      "level": 40
+    },
     "regionalForms": [
       {
         "name": "Hisuian Sliggoo",
@@ -4518,6 +6269,12 @@
     "number": 706,
     "name": "Goodra",
     "types": ["dragon"],
+    "evolvesFrom": {
+      "number": 705,
+      "method": "level",
+      "level": 50,
+      "note": "during rain"
+    },
     "regionalForms": [
       {
         "name": "Hisuian Goodra",
@@ -4540,7 +6297,11 @@
   {
     "number": 709,
     "name": "Trevenant",
-    "types": ["ghost", "grass"]
+    "types": ["ghost", "grass"],
+    "evolvesFrom": {
+      "number": 708,
+      "method": "trade"
+    }
   },
   {
     "number": 710,
@@ -4550,7 +6311,11 @@
   {
     "number": 711,
     "name": "Gourgeist",
-    "types": ["ghost", "grass"]
+    "types": ["ghost", "grass"],
+    "evolvesFrom": {
+      "number": 710,
+      "method": "trade"
+    }
   },
   {
     "number": 712,
@@ -4561,6 +6326,11 @@
     "number": 713,
     "name": "Avalugg",
     "types": ["ice"],
+    "evolvesFrom": {
+      "number": 712,
+      "method": "level",
+      "level": 37
+    },
     "regionalForms": [
       {
         "name": "Hisuian Avalugg",
@@ -4578,7 +6348,12 @@
   {
     "number": 715,
     "name": "Noivern",
-    "types": ["flying", "dragon"]
+    "types": ["flying", "dragon"],
+    "evolvesFrom": {
+      "number": 714,
+      "method": "level",
+      "level": 48
+    }
   },
   {
     "number": 716,
@@ -4631,12 +6406,22 @@
   {
     "number": 723,
     "name": "Dartrix",
-    "types": ["grass", "flying"]
+    "types": ["grass", "flying"],
+    "evolvesFrom": {
+      "number": 722,
+      "method": "level",
+      "level": 17
+    }
   },
   {
     "number": 724,
     "name": "Decidueye",
     "types": ["grass", "ghost"],
+    "evolvesFrom": {
+      "number": 723,
+      "method": "level",
+      "level": 34
+    },
     "regionalForms": [
       {
         "name": "Hisuian Decidueye",
@@ -4654,12 +6439,22 @@
   {
     "number": 726,
     "name": "Torracat",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 725,
+      "method": "level",
+      "level": 17
+    }
   },
   {
     "number": 727,
     "name": "Incineroar",
-    "types": ["fire", "dark"]
+    "types": ["fire", "dark"],
+    "evolvesFrom": {
+      "number": 726,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 728,
@@ -4669,12 +6464,22 @@
   {
     "number": 729,
     "name": "Brionne",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 728,
+      "method": "level",
+      "level": 17
+    }
   },
   {
     "number": 730,
     "name": "Primarina",
-    "types": ["water", "fairy"]
+    "types": ["water", "fairy"],
+    "evolvesFrom": {
+      "number": 729,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 731,
@@ -4684,12 +6489,22 @@
   {
     "number": 732,
     "name": "Trumbeak",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 731,
+      "method": "level",
+      "level": 14
+    }
   },
   {
     "number": 733,
     "name": "Toucannon",
-    "types": ["normal", "flying"]
+    "types": ["normal", "flying"],
+    "evolvesFrom": {
+      "number": 732,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 734,
@@ -4699,7 +6514,13 @@
   {
     "number": 735,
     "name": "Gumshoos",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 734,
+      "method": "level",
+      "level": 20,
+      "note": "during the day"
+    }
   },
   {
     "number": 736,
@@ -4709,12 +6530,22 @@
   {
     "number": 737,
     "name": "Charjabug",
-    "types": ["bug", "electric"]
+    "types": ["bug", "electric"],
+    "evolvesFrom": {
+      "number": 736,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 738,
     "name": "Vikavolt",
-    "types": ["bug", "electric"]
+    "types": ["bug", "electric"],
+    "evolvesFrom": {
+      "number": 737,
+      "method": "item",
+      "item": "Thunder Stone"
+    }
   },
   {
     "number": 739,
@@ -4725,6 +6556,11 @@
     "number": 740,
     "name": "Crabominable",
     "types": ["fighting", "ice"],
+    "evolvesFrom": {
+      "number": 739,
+      "method": "item",
+      "item": "Ice Stone"
+    },
     "transformations": [
       {
         "name": "Mega Crabominable",
@@ -4746,7 +6582,12 @@
   {
     "number": 743,
     "name": "Ribombee",
-    "types": ["bug", "fairy"]
+    "types": ["bug", "fairy"],
+    "evolvesFrom": {
+      "number": 742,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 744,
@@ -4756,7 +6597,13 @@
   {
     "number": 745,
     "name": "Lycanroc",
-    "types": ["rock"]
+    "types": ["rock"],
+    "evolvesFrom": {
+      "number": 744,
+      "method": "level",
+      "level": 25,
+      "note": "during the day"
+    }
   },
   {
     "number": 746,
@@ -4771,7 +6618,12 @@
   {
     "number": 748,
     "name": "Toxapex",
-    "types": ["poison", "water"]
+    "types": ["poison", "water"],
+    "evolvesFrom": {
+      "number": 747,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 749,
@@ -4781,7 +6633,12 @@
   {
     "number": 750,
     "name": "Mudsdale",
-    "types": ["ground"]
+    "types": ["ground"],
+    "evolvesFrom": {
+      "number": 749,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 751,
@@ -4791,7 +6648,12 @@
   {
     "number": 752,
     "name": "Araquanid",
-    "types": ["water", "bug"]
+    "types": ["water", "bug"],
+    "evolvesFrom": {
+      "number": 751,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 753,
@@ -4801,7 +6663,13 @@
   {
     "number": 754,
     "name": "Lurantis",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 753,
+      "method": "level",
+      "level": 34,
+      "note": "during the day"
+    }
   },
   {
     "number": 755,
@@ -4811,7 +6679,12 @@
   {
     "number": 756,
     "name": "Shiinotic",
-    "types": ["grass", "fairy"]
+    "types": ["grass", "fairy"],
+    "evolvesFrom": {
+      "number": 755,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 757,
@@ -4821,7 +6694,12 @@
   {
     "number": 758,
     "name": "Salazzle",
-    "types": ["poison", "fire"]
+    "types": ["poison", "fire"],
+    "evolvesFrom": {
+      "number": 757,
+      "method": "level",
+      "level": 33
+    }
   },
   {
     "number": 759,
@@ -4831,7 +6709,12 @@
   {
     "number": 760,
     "name": "Bewear",
-    "types": ["normal", "fighting"]
+    "types": ["normal", "fighting"],
+    "evolvesFrom": {
+      "number": 759,
+      "method": "level",
+      "level": 27
+    }
   },
   {
     "number": 761,
@@ -4841,12 +6724,22 @@
   {
     "number": 762,
     "name": "Steenee",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 761,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 763,
     "name": "Tsareena",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 762,
+      "method": "other",
+      "note": "when leveled up knowing Stomp"
+    }
   },
   {
     "number": 764,
@@ -4872,6 +6765,11 @@
     "number": 768,
     "name": "Golisopod",
     "types": ["bug", "water"],
+    "evolvesFrom": {
+      "number": 767,
+      "method": "level",
+      "level": 30
+    },
     "transformations": [
       {
         "name": "Mega Golisopod",
@@ -4888,7 +6786,12 @@
   {
     "number": 770,
     "name": "Palossand",
-    "types": ["ghost", "ground"]
+    "types": ["ghost", "ground"],
+    "evolvesFrom": {
+      "number": 769,
+      "method": "level",
+      "level": 42
+    }
   },
   {
     "number": 771,
@@ -4903,7 +6806,12 @@
   {
     "number": 773,
     "name": "Silvally",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 772,
+      "method": "other",
+      "note": "with high friendship"
+    }
   },
   {
     "number": 774,
@@ -4960,12 +6868,22 @@
   {
     "number": 783,
     "name": "Hakamo-o",
-    "types": ["dragon", "fighting"]
+    "types": ["dragon", "fighting"],
+    "evolvesFrom": {
+      "number": 782,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 784,
     "name": "Kommo-o",
-    "types": ["dragon", "fighting"]
+    "types": ["dragon", "fighting"],
+    "evolvesFrom": {
+      "number": 783,
+      "method": "level",
+      "level": 45
+    }
   },
   {
     "number": 785,
@@ -4995,17 +6913,32 @@
   {
     "number": 790,
     "name": "Cosmoem",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 789,
+      "method": "level",
+      "level": 43
+    }
   },
   {
     "number": 791,
     "name": "Solgaleo",
-    "types": ["psychic", "steel"]
+    "types": ["psychic", "steel"],
+    "evolvesFrom": {
+      "number": 790,
+      "method": "level",
+      "level": 53
+    }
   },
   {
     "number": 792,
     "name": "Lunala",
-    "types": ["psychic", "ghost"]
+    "types": ["psychic", "ghost"],
+    "evolvesFrom": {
+      "number": 790,
+      "method": "level",
+      "level": 53
+    }
   },
   {
     "number": 793,
@@ -5072,7 +7005,12 @@
   {
     "number": 804,
     "name": "Naganadel",
-    "types": ["poison", "dragon"]
+    "types": ["poison", "dragon"],
+    "evolvesFrom": {
+      "number": 803,
+      "method": "other",
+      "note": "when leveled up knowing Dragon Pulse"
+    }
   },
   {
     "number": 805,
@@ -5114,12 +7052,22 @@
   {
     "number": 811,
     "name": "Thwackey",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 810,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 812,
     "name": "Rillaboom",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 811,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 813,
@@ -5129,12 +7077,22 @@
   {
     "number": 814,
     "name": "Raboot",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 813,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 815,
     "name": "Cinderace",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 814,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 816,
@@ -5144,12 +7102,22 @@
   {
     "number": 817,
     "name": "Drizzile",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 816,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 818,
     "name": "Inteleon",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 817,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 819,
@@ -5159,7 +7127,12 @@
   {
     "number": 820,
     "name": "Greedent",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 819,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 821,
@@ -5169,12 +7142,22 @@
   {
     "number": 822,
     "name": "Corvisquire",
-    "types": ["flying"]
+    "types": ["flying"],
+    "evolvesFrom": {
+      "number": 821,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 823,
     "name": "Corviknight",
-    "types": ["flying", "steel"]
+    "types": ["flying", "steel"],
+    "evolvesFrom": {
+      "number": 822,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 824,
@@ -5184,12 +7167,22 @@
   {
     "number": 825,
     "name": "Dottler",
-    "types": ["bug", "psychic"]
+    "types": ["bug", "psychic"],
+    "evolvesFrom": {
+      "number": 824,
+      "method": "level",
+      "level": 10
+    }
   },
   {
     "number": 826,
     "name": "Orbeetle",
-    "types": ["bug", "psychic"]
+    "types": ["bug", "psychic"],
+    "evolvesFrom": {
+      "number": 825,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 827,
@@ -5199,7 +7192,12 @@
   {
     "number": 828,
     "name": "Thievul",
-    "types": ["dark"]
+    "types": ["dark"],
+    "evolvesFrom": {
+      "number": 827,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 829,
@@ -5209,7 +7207,12 @@
   {
     "number": 830,
     "name": "Eldegoss",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 829,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 831,
@@ -5219,7 +7222,12 @@
   {
     "number": 832,
     "name": "Dubwool",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 831,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 833,
@@ -5229,7 +7237,12 @@
   {
     "number": 834,
     "name": "Drednaw",
-    "types": ["water", "rock"]
+    "types": ["water", "rock"],
+    "evolvesFrom": {
+      "number": 833,
+      "method": "level",
+      "level": 22
+    }
   },
   {
     "number": 835,
@@ -5239,7 +7252,12 @@
   {
     "number": 836,
     "name": "Boltund",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 835,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 837,
@@ -5249,12 +7267,22 @@
   {
     "number": 838,
     "name": "Carkol",
-    "types": ["rock", "fire"]
+    "types": ["rock", "fire"],
+    "evolvesFrom": {
+      "number": 837,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 839,
     "name": "Coalossal",
-    "types": ["rock", "fire"]
+    "types": ["rock", "fire"],
+    "evolvesFrom": {
+      "number": 838,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 840,
@@ -5264,12 +7292,22 @@
   {
     "number": 841,
     "name": "Flapple",
-    "types": ["grass", "dragon"]
+    "types": ["grass", "dragon"],
+    "evolvesFrom": {
+      "number": 840,
+      "method": "item",
+      "item": "Tart Apple"
+    }
   },
   {
     "number": 842,
     "name": "Appletun",
-    "types": ["grass", "dragon"]
+    "types": ["grass", "dragon"],
+    "evolvesFrom": {
+      "number": 840,
+      "method": "item",
+      "item": "Sweet Apple"
+    }
   },
   {
     "number": 843,
@@ -5279,7 +7317,12 @@
   {
     "number": 844,
     "name": "Sandaconda",
-    "types": ["ground"]
+    "types": ["ground"],
+    "evolvesFrom": {
+      "number": 843,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 845,
@@ -5294,7 +7337,12 @@
   {
     "number": 847,
     "name": "Barraskewda",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 846,
+      "method": "level",
+      "level": 26
+    }
   },
   {
     "number": 848,
@@ -5304,7 +7352,12 @@
   {
     "number": 849,
     "name": "Toxtricity",
-    "types": ["electric", "poison"]
+    "types": ["electric", "poison"],
+    "evolvesFrom": {
+      "number": 848,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 850,
@@ -5314,7 +7367,12 @@
   {
     "number": 851,
     "name": "Centiskorch",
-    "types": ["fire", "bug"]
+    "types": ["fire", "bug"],
+    "evolvesFrom": {
+      "number": 850,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 852,
@@ -5324,7 +7382,12 @@
   {
     "number": 853,
     "name": "Grapploct",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 852,
+      "method": "other",
+      "note": "when leveled up knowing Taunt"
+    }
   },
   {
     "number": 854,
@@ -5334,7 +7397,12 @@
   {
     "number": 855,
     "name": "Polteageist",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 854,
+      "method": "item",
+      "item": "Cracked Pot"
+    }
   },
   {
     "number": 856,
@@ -5344,12 +7412,22 @@
   {
     "number": 857,
     "name": "Hattrem",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 856,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 858,
     "name": "Hatterene",
-    "types": ["psychic", "fairy"]
+    "types": ["psychic", "fairy"],
+    "evolvesFrom": {
+      "number": 857,
+      "method": "level",
+      "level": 42
+    }
   },
   {
     "number": 859,
@@ -5359,42 +7437,83 @@
   {
     "number": 860,
     "name": "Morgrem",
-    "types": ["dark", "fairy"]
+    "types": ["dark", "fairy"],
+    "evolvesFrom": {
+      "number": 859,
+      "method": "level",
+      "level": 32
+    }
   },
   {
     "number": 861,
     "name": "Grimmsnarl",
-    "types": ["dark", "fairy"]
+    "types": ["dark", "fairy"],
+    "evolvesFrom": {
+      "number": 860,
+      "method": "level",
+      "level": 42
+    }
   },
   {
     "number": 862,
     "name": "Obstagoon",
-    "types": ["dark", "normal"]
+    "types": ["dark", "normal"],
+    "evolvesFrom": {
+      "number": 264,
+      "method": "level",
+      "level": 35,
+      "note": "at night"
+    }
   },
   {
     "number": 863,
     "name": "Perrserker",
-    "types": ["steel"]
+    "types": ["steel"],
+    "evolvesFrom": {
+      "number": 52,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 864,
     "name": "Cursola",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 222,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 865,
     "name": "Sirfetch'd",
-    "types": ["fighting"]
+    "types": ["fighting"],
+    "evolvesFrom": {
+      "number": 83,
+      "method": "other",
+      "note": "Land 3 critical hits in 1 battle"
+    }
   },
   {
     "number": 866,
     "name": "Mr. Rime",
-    "types": ["ice", "psychic"]
+    "types": ["ice", "psychic"],
+    "evolvesFrom": {
+      "number": 122,
+      "method": "level",
+      "level": 42
+    }
   },
   {
     "number": 867,
     "name": "Runerigus",
-    "types": ["ground", "ghost"]
+    "types": ["ground", "ghost"],
+    "evolvesFrom": {
+      "number": 562,
+      "method": "other",
+      "note": "Have 49+ HP lost and walk under stone sculpture in Dusty Bowl"
+    }
   },
   {
     "number": 868,
@@ -5404,7 +7523,12 @@
   {
     "number": 869,
     "name": "Alcremie",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 868,
+      "method": "other",
+      "note": "spin while holding a Sweet"
+    }
   },
   {
     "number": 870,
@@ -5431,7 +7555,12 @@
   {
     "number": 873,
     "name": "Frosmoth",
-    "types": ["ice", "bug"]
+    "types": ["ice", "bug"],
+    "evolvesFrom": {
+      "number": 872,
+      "method": "other",
+      "note": "with high friendship at night"
+    }
   },
   {
     "number": 874,
@@ -5461,7 +7590,12 @@
   {
     "number": 879,
     "name": "Copperajah",
-    "types": ["steel"]
+    "types": ["steel"],
+    "evolvesFrom": {
+      "number": 878,
+      "method": "level",
+      "level": 34
+    }
   },
   {
     "number": 880,
@@ -5496,12 +7630,22 @@
   {
     "number": 886,
     "name": "Drakloak",
-    "types": ["dragon", "ghost"]
+    "types": ["dragon", "ghost"],
+    "evolvesFrom": {
+      "number": 885,
+      "method": "level",
+      "level": 50
+    }
   },
   {
     "number": 887,
     "name": "Dragapult",
-    "types": ["dragon", "ghost"]
+    "types": ["dragon", "ghost"],
+    "evolvesFrom": {
+      "number": 886,
+      "method": "level",
+      "level": 60
+    }
   },
   {
     "number": 888,
@@ -5526,7 +7670,12 @@
   {
     "number": 892,
     "name": "Urshifu",
-    "types": ["fighting", "dark"]
+    "types": ["fighting", "dark"],
+    "evolvesFrom": {
+      "number": 891,
+      "method": "other",
+      "note": "Defeat the Single Strike Tower"
+    }
   },
   {
     "number": 893,
@@ -5561,32 +7710,62 @@
   {
     "number": 899,
     "name": "Wyrdeer",
-    "types": ["normal", "psychic"]
+    "types": ["normal", "psychic"],
+    "evolvesFrom": {
+      "number": 234,
+      "method": "other",
+      "note": "Use Agile style Psyshield Bash 20 times"
+    }
   },
   {
     "number": 900,
     "name": "Kleavor",
-    "types": ["bug", "rock"]
+    "types": ["bug", "rock"],
+    "evolvesFrom": {
+      "number": 123,
+      "method": "item",
+      "note": "Black Augurite"
+    }
   },
   {
     "number": 901,
     "name": "Ursaluna",
-    "types": ["ground", "normal"]
+    "types": ["ground", "normal"],
+    "evolvesFrom": {
+      "number": 217,
+      "method": "other",
+      "note": "Peat Block when there's a full moon"
+    }
   },
   {
     "number": 902,
     "name": "Basculegion",
-    "types": ["water", "ghost"]
+    "types": ["water", "ghost"],
+    "evolvesFrom": {
+      "number": 550,
+      "method": "other",
+      "note": "Receive 294+ recoil without fainting"
+    }
   },
   {
     "number": 903,
     "name": "Sneasler",
-    "types": ["fighting", "poison"]
+    "types": ["fighting", "poison"],
+    "evolvesFrom": {
+      "number": 215,
+      "method": "other",
+      "note": "when leveled up holding Razor Claw during the day"
+    }
   },
   {
     "number": 904,
     "name": "Overqwil",
-    "types": ["dark", "poison"]
+    "types": ["dark", "poison"],
+    "evolvesFrom": {
+      "number": 211,
+      "method": "other",
+      "note": "Use Strong style Barb Barrage 20 times"
+    }
   },
   {
     "number": 905,
@@ -5601,12 +7780,22 @@
   {
     "number": 907,
     "name": "Floragato",
-    "types": ["grass"]
+    "types": ["grass"],
+    "evolvesFrom": {
+      "number": 906,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 908,
     "name": "Meowscarada",
-    "types": ["grass", "dark"]
+    "types": ["grass", "dark"],
+    "evolvesFrom": {
+      "number": 907,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 909,
@@ -5616,12 +7805,22 @@
   {
     "number": 910,
     "name": "Crocalor",
-    "types": ["fire"]
+    "types": ["fire"],
+    "evolvesFrom": {
+      "number": 909,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 911,
     "name": "Skeledirge",
-    "types": ["fire", "ghost"]
+    "types": ["fire", "ghost"],
+    "evolvesFrom": {
+      "number": 910,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 912,
@@ -5631,12 +7830,22 @@
   {
     "number": 913,
     "name": "Quaxwell",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 912,
+      "method": "level",
+      "level": 16
+    }
   },
   {
     "number": 914,
     "name": "Quaquaval",
-    "types": ["water", "fighting"]
+    "types": ["water", "fighting"],
+    "evolvesFrom": {
+      "number": 913,
+      "method": "level",
+      "level": 36
+    }
   },
   {
     "number": 915,
@@ -5646,7 +7855,12 @@
   {
     "number": 916,
     "name": "Oinkologne",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 915,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 917,
@@ -5656,7 +7870,12 @@
   {
     "number": 918,
     "name": "Spidops",
-    "types": ["bug"]
+    "types": ["bug"],
+    "evolvesFrom": {
+      "number": 917,
+      "method": "level",
+      "level": 15
+    }
   },
   {
     "number": 919,
@@ -5666,7 +7885,12 @@
   {
     "number": 920,
     "name": "Lokix",
-    "types": ["bug", "dark"]
+    "types": ["bug", "dark"],
+    "evolvesFrom": {
+      "number": 919,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 921,
@@ -5676,12 +7900,22 @@
   {
     "number": 922,
     "name": "Pawmo",
-    "types": ["electric", "fighting"]
+    "types": ["electric", "fighting"],
+    "evolvesFrom": {
+      "number": 921,
+      "method": "level",
+      "level": 18
+    }
   },
   {
     "number": 923,
     "name": "Pawmot",
-    "types": ["electric", "fighting"]
+    "types": ["electric", "fighting"],
+    "evolvesFrom": {
+      "number": 922,
+      "method": "other",
+      "note": "walk 1000 steps in Let's Go"
+    }
   },
   {
     "number": 924,
@@ -5691,7 +7925,12 @@
   {
     "number": 925,
     "name": "Maushold",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 924,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 926,
@@ -5701,7 +7940,12 @@
   {
     "number": 927,
     "name": "Dachsbun",
-    "types": ["fairy"]
+    "types": ["fairy"],
+    "evolvesFrom": {
+      "number": 926,
+      "method": "level",
+      "level": 26
+    }
   },
   {
     "number": 928,
@@ -5711,12 +7955,22 @@
   {
     "number": 929,
     "name": "Dolliv",
-    "types": ["grass", "normal"]
+    "types": ["grass", "normal"],
+    "evolvesFrom": {
+      "number": 928,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 930,
     "name": "Arboliva",
-    "types": ["grass", "normal"]
+    "types": ["grass", "normal"],
+    "evolvesFrom": {
+      "number": 929,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 931,
@@ -5731,12 +7985,22 @@
   {
     "number": 933,
     "name": "Naclstack",
-    "types": ["rock"]
+    "types": ["rock"],
+    "evolvesFrom": {
+      "number": 932,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 934,
     "name": "Garganacl",
-    "types": ["rock"]
+    "types": ["rock"],
+    "evolvesFrom": {
+      "number": 933,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 935,
@@ -5746,12 +8010,22 @@
   {
     "number": 936,
     "name": "Armarouge",
-    "types": ["fire", "psychic"]
+    "types": ["fire", "psychic"],
+    "evolvesFrom": {
+      "number": 935,
+      "method": "item",
+      "item": "Auspicious Armor"
+    }
   },
   {
     "number": 937,
     "name": "Ceruledge",
-    "types": ["fire", "ghost"]
+    "types": ["fire", "ghost"],
+    "evolvesFrom": {
+      "number": 935,
+      "method": "item",
+      "item": "Malicious Armor"
+    }
   },
   {
     "number": 938,
@@ -5761,7 +8035,12 @@
   {
     "number": 939,
     "name": "Bellibolt",
-    "types": ["electric"]
+    "types": ["electric"],
+    "evolvesFrom": {
+      "number": 938,
+      "method": "item",
+      "item": "Thunder Stone"
+    }
   },
   {
     "number": 940,
@@ -5771,7 +8050,12 @@
   {
     "number": 941,
     "name": "Kilowattrel",
-    "types": ["electric", "flying"]
+    "types": ["electric", "flying"],
+    "evolvesFrom": {
+      "number": 940,
+      "method": "level",
+      "level": 25
+    }
   },
   {
     "number": 942,
@@ -5781,7 +8065,12 @@
   {
     "number": 943,
     "name": "Mabosstiff",
-    "types": ["dark"]
+    "types": ["dark"],
+    "evolvesFrom": {
+      "number": 942,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 944,
@@ -5791,7 +8080,12 @@
   {
     "number": 945,
     "name": "Grafaiai",
-    "types": ["poison", "normal"]
+    "types": ["poison", "normal"],
+    "evolvesFrom": {
+      "number": 944,
+      "method": "level",
+      "level": 28
+    }
   },
   {
     "number": 946,
@@ -5801,7 +8095,12 @@
   {
     "number": 947,
     "name": "Brambleghast",
-    "types": ["grass", "ghost"]
+    "types": ["grass", "ghost"],
+    "evolvesFrom": {
+      "number": 946,
+      "method": "other",
+      "note": "Walk 1000 steps in Let's Go"
+    }
   },
   {
     "number": 948,
@@ -5811,7 +8110,12 @@
   {
     "number": 949,
     "name": "Toedscruel",
-    "types": ["ground", "grass"]
+    "types": ["ground", "grass"],
+    "evolvesFrom": {
+      "number": 948,
+      "method": "level",
+      "level": 30
+    }
   },
   {
     "number": 950,
@@ -5827,6 +8131,11 @@
     "number": 952,
     "name": "Scovillain",
     "types": ["grass", "fire"],
+    "evolvesFrom": {
+      "number": 951,
+      "method": "item",
+      "item": "Fire Stone"
+    },
     "transformations": [
       {
         "name": "Mega Scovillain",
@@ -5843,7 +8152,12 @@
   {
     "number": 954,
     "name": "Rabsca",
-    "types": ["bug", "psychic"]
+    "types": ["bug", "psychic"],
+    "evolvesFrom": {
+      "number": 953,
+      "method": "other",
+      "note": "walk 1000 steps in Let's Go"
+    }
   },
   {
     "number": 955,
@@ -5853,7 +8167,12 @@
   {
     "number": 956,
     "name": "Espathra",
-    "types": ["psychic"]
+    "types": ["psychic"],
+    "evolvesFrom": {
+      "number": 955,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 957,
@@ -5863,12 +8182,22 @@
   {
     "number": 958,
     "name": "Tinkatuff",
-    "types": ["fairy", "steel"]
+    "types": ["fairy", "steel"],
+    "evolvesFrom": {
+      "number": 957,
+      "method": "level",
+      "level": 24
+    }
   },
   {
     "number": 959,
     "name": "Tinkaton",
-    "types": ["fairy", "steel"]
+    "types": ["fairy", "steel"],
+    "evolvesFrom": {
+      "number": 958,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 960,
@@ -5878,7 +8207,12 @@
   {
     "number": 961,
     "name": "Wugtrio",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 960,
+      "method": "level",
+      "level": 26
+    }
   },
   {
     "number": 962,
@@ -5893,7 +8227,12 @@
   {
     "number": 964,
     "name": "Palafin",
-    "types": ["water"]
+    "types": ["water"],
+    "evolvesFrom": {
+      "number": 963,
+      "method": "level",
+      "level": 38
+    }
   },
   {
     "number": 965,
@@ -5903,7 +8242,12 @@
   {
     "number": 966,
     "name": "Revavroom",
-    "types": ["steel", "poison"]
+    "types": ["steel", "poison"],
+    "evolvesFrom": {
+      "number": 965,
+      "method": "level",
+      "level": 40
+    }
   },
   {
     "number": 967,
@@ -5924,6 +8268,11 @@
     "number": 970,
     "name": "Glimmora",
     "types": ["rock", "poison"],
+    "evolvesFrom": {
+      "number": 969,
+      "method": "level",
+      "level": 35
+    },
     "transformations": [
       {
         "name": "Mega Glimmora",
@@ -5940,7 +8289,13 @@
   {
     "number": 972,
     "name": "Houndstone",
-    "types": ["ghost"]
+    "types": ["ghost"],
+    "evolvesFrom": {
+      "number": 971,
+      "method": "level",
+      "level": 30,
+      "note": "at night"
+    }
   },
   {
     "number": 973,
@@ -5955,7 +8310,12 @@
   {
     "number": 975,
     "name": "Cetitan",
-    "types": ["ice"]
+    "types": ["ice"],
+    "evolvesFrom": {
+      "number": 974,
+      "method": "item",
+      "item": "Ice Stone"
+    }
   },
   {
     "number": 976,
@@ -5982,27 +8342,52 @@
   {
     "number": 979,
     "name": "Annihilape",
-    "types": ["fighting", "ghost"]
+    "types": ["fighting", "ghost"],
+    "evolvesFrom": {
+      "number": 57,
+      "method": "other",
+      "note": "Use Rage Fist 20 times and level-up"
+    }
   },
   {
     "number": 980,
     "name": "Clodsire",
-    "types": ["poison", "ground"]
+    "types": ["poison", "ground"],
+    "evolvesFrom": {
+      "number": 194,
+      "method": "level",
+      "level": 20
+    }
   },
   {
     "number": 981,
     "name": "Farigiraf",
-    "types": ["normal", "psychic"]
+    "types": ["normal", "psychic"],
+    "evolvesFrom": {
+      "number": 203,
+      "method": "other",
+      "note": "when leveled up knowing Twin Beam"
+    }
   },
   {
     "number": 982,
     "name": "Dudunsparce",
-    "types": ["normal"]
+    "types": ["normal"],
+    "evolvesFrom": {
+      "number": 206,
+      "method": "other",
+      "note": "when leveled up knowing Hyper Drill"
+    }
   },
   {
     "number": 983,
     "name": "Kingambit",
-    "types": ["dark", "steel"]
+    "types": ["dark", "steel"],
+    "evolvesFrom": {
+      "number": 625,
+      "method": "other",
+      "note": "Defeat 3 Bisharp leading Pawniard and level-up"
+    }
   },
   {
     "number": 984,
@@ -6072,12 +8457,22 @@
   {
     "number": 997,
     "name": "Arctibax",
-    "types": ["dragon", "ice"]
+    "types": ["dragon", "ice"],
+    "evolvesFrom": {
+      "number": 996,
+      "method": "level",
+      "level": 35
+    }
   },
   {
     "number": 998,
     "name": "Baxcalibur",
     "types": ["dragon", "ice"],
+    "evolvesFrom": {
+      "number": 997,
+      "method": "level",
+      "level": 54
+    },
     "transformations": [
       {
         "name": "Mega Baxcalibur",
@@ -6094,7 +8489,12 @@
   {
     "number": 1000,
     "name": "Gholdengo",
-    "types": ["steel", "ghost"]
+    "types": ["steel", "ghost"],
+    "evolvesFrom": {
+      "number": 999,
+      "method": "other",
+      "note": "Level up with 999 Coins in the bag"
+    }
   },
   {
     "number": 1001,
@@ -6149,7 +8549,12 @@
   {
     "number": 1011,
     "name": "Dipplin",
-    "types": ["grass", "dragon"]
+    "types": ["grass", "dragon"],
+    "evolvesFrom": {
+      "number": 840,
+      "method": "item",
+      "item": "Syrupy Apple"
+    }
   },
   {
     "number": 1012,
@@ -6159,7 +8564,12 @@
   {
     "number": 1013,
     "name": "Sinistcha",
-    "types": ["grass", "ghost"]
+    "types": ["grass", "ghost"],
+    "evolvesFrom": {
+      "number": 1012,
+      "method": "item",
+      "item": "Unremarkable Teacup"
+    }
   },
   {
     "number": 1014,
@@ -6184,12 +8594,22 @@
   {
     "number": 1018,
     "name": "Archaludon",
-    "types": ["steel", "dragon"]
+    "types": ["steel", "dragon"],
+    "evolvesFrom": {
+      "number": 884,
+      "method": "item",
+      "item": "Metal Alloy"
+    }
   },
   {
     "number": 1019,
     "name": "Hydrapple",
-    "types": ["grass", "dragon"]
+    "types": ["grass", "dragon"],
+    "evolvesFrom": {
+      "number": 1011,
+      "method": "other",
+      "note": "when leveled up knowing Dragon Cheer"
+    }
   },
   {
     "number": 1020,

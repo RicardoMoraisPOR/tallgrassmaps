@@ -62,23 +62,6 @@ export const PanBounds = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
   return null;
 };
 
-export const ClosePopupOnOutsidePress = () => {
-  const leafletMap = useMap();
-
-  useEffect(() => {
-    const closeIfOutside = (event: PointerEvent) => {
-      if (!leafletMap.getContainer().contains(event.target as Node))
-        leafletMap.closePopup();
-    };
-
-    document.addEventListener('pointerdown', closeIfOutside);
-
-    return () => document.removeEventListener('pointerdown', closeIfOutside);
-  }, [leafletMap]);
-
-  return null;
-};
-
 type ZoomLimiter = { _limitZoom: (zoom: number) => number };
 
 export const FitToViewport = ({
