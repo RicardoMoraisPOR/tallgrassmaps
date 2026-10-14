@@ -37,6 +37,7 @@ const MORE_AFTER_MS = 5000;
 const TILE_OVERHANG_PIXELS = 5;
 const GRASS_LEAVES_SECONDS = 0.55;
 const PARK_AFTER_MS = 450;
+const HINT_OPACITY = 0.75;
 
 type HeroDioramaProps = {
   onReveal: (tile: DOMRect) => void;
@@ -184,7 +185,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   return (
     <div
       ref={stage}
-      className="pointer-events-none relative mx-auto w-full max-w-[21rem] self-center sm:max-w-[26rem] lg:col-span-4 lg:max-w-none"
+      className="pointer-events-none relative mx-auto w-full max-w-[21rem] self-center select-none sm:max-w-[26rem] lg:col-span-4 lg:max-w-none"
       style={{
         aspectRatio: `${SCENE_WIDTH} / ${SCENE_HEIGHT}`,
         perspective: PERSPECTIVE_PIXELS,
@@ -255,7 +256,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
         aria-hidden
         className="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full border bg-card/90 px-3 py-1 text-[11px] leading-5 whitespace-nowrap text-muted-foreground transition-opacity duration-500 motion-safe:animate-in motion-safe:delay-[3200ms] motion-safe:duration-700 motion-safe:fill-mode-backwards motion-safe:fade-in motion-reduce:transition-none"
         style={{
-          opacity: hintDismissed ? 0 : 1,
+          opacity: hintDismissed ? 0 : HINT_OPACITY,
           visibility: hintDismissed ? 'hidden' : 'visible',
           transition: `opacity 0.4s ease, visibility 0s linear ${hintDismissed ? 0.4 : 0}s`,
         }}

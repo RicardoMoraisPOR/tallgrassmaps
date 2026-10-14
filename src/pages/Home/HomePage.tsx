@@ -1,5 +1,5 @@
 import '@fontsource/barlow/400.css';
-import { Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { ArrowRight, Award } from 'lucide-react';
 import { AnimatePresence, m } from 'motion/react';
@@ -23,16 +23,14 @@ export const HomePage = () => {
   );
 };
 
-const headlineLines = [['The'], ['Definitive'], ['Pokémon', 'Atlas.']];
-const MASK_SECONDS = 0.9;
-const MASK_STAGGER_SECONDS = 0.08;
-const MASK_FROM_EM = 1.1;
-const MASK_DELAY_SECONDS = 0.1;
+const headlineLines = ['The', 'Definitive', 'Pokémon Atlas'];
+const HEADLINE_SECONDS = 0.6;
+const HEADLINE_STAGGER_SECONDS = 0.08;
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
 
 const riseIn = (delay: number) => ({
   className:
-    'animate-in fill-mode-backwards fade-in slide-in-from-bottom-4 duration-900 will-change-[transform,opacity]',
+    'animate-in fill-mode-backwards fade-in slide-in-from-bottom-4 duration-600 will-change-[transform,opacity]',
   style: {
     animationDelay: `${delay}s`,
     animationTimingFunction: `cubic-bezier(${EASE_OUT_EXPO.join(',')})`,
@@ -68,7 +66,7 @@ const Hero = () => {
   const rise = (delay: number, y: number) => ({
     initial: reducedMotion ? false : { opacity: 0, y },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.9, delay, ease: EASE_OUT_EXPO },
+    transition: { duration: 0.6, delay, ease: EASE_OUT_EXPO },
     style: { willChange: 'transform, opacity' },
   });
 
@@ -83,44 +81,25 @@ const Hero = () => {
         <h1
           className={`font-heading text-[clamp(2.75rem,11.5vw,5.5rem)] leading-[0.9] font-bold tracking-[-0.03em] lg:col-span-8 lg:self-center lg:text-[clamp(3.75rem,6.2vw,7.25rem)] ${FADE_OUT}`}
         >
-          {headlineLines.map((words, lineIndex) => (
-            <span key={lineIndex} className="block whitespace-nowrap">
-              {words.map((word, wordIndex) => (
-                <Fragment key={word}>
-                  <span
-                    className="inline-block overflow-hidden align-bottom"
-                    style={{
-                      paddingTop: '0.06em',
-                      paddingBottom: '0.18em',
-                      marginTop: '-0.06em',
-                      marginBottom: '-0.18em',
-                    }}
-                  >
-                    <m.span
-                      className="inline-block"
-                      style={{ willChange: 'transform' }}
-                      initial={
-                        reducedMotion ? false : { y: `${MASK_FROM_EM}em` }
-                      }
-                      animate={{ y: '0em' }}
-                      transition={{
-                        duration: MASK_SECONDS,
-                        delay:
-                          MASK_DELAY_SECONDS +
-                          (headlineLines
-                            .slice(0, lineIndex)
-                            .reduce((total, line) => total + line.length, 0) +
-                            wordIndex) *
-                            MASK_STAGGER_SECONDS,
-                        ease: EASE_OUT_EXPO,
-                      }}
-                    >
-                      {word}
-                    </m.span>
-                  </span>
-                  {wordIndex < words.length - 1 && ' '}
-                </Fragment>
-              ))}
+          {headlineLines.map((line, index) => (
+            <span
+              key={line}
+              className="-my-[0.06em] block overflow-hidden py-[0.06em] whitespace-nowrap"
+            >
+              <m.span
+                className="block"
+                initial={reducedMotion ? false : { y: '110%', rotate: 3 }}
+                animate={{ y: 0, rotate: 0 }}
+                transition={{
+                  duration: HEADLINE_SECONDS,
+                  delay: 0.1 + index * HEADLINE_STAGGER_SECONDS,
+                  ease: EASE_OUT_EXPO,
+                }}
+                style={{ transformOrigin: 'left bottom' }}
+              >
+                {line}
+                {index === headlineLines.length - 1 && '.'}
+              </m.span>
             </span>
           ))}
         </h1>
@@ -130,14 +109,14 @@ const Hero = () => {
         >
           <m.p
             className="max-w-[50ch] font-['Barlow',sans-serif] text-base leading-snug font-normal text-pretty text-muted-foreground sm:text-lg"
-            {...rise(0.9, 16)}
+            {...rise(0.7, 16)}
           >
             Explore the Pokémon games on interactive maps, designed to give you
             an accurate and effortless way to explore, without feeling like you
             left the game.
           </m.p>
           <div className="flex w-full max-w-sm flex-col gap-3">
-            <div {...riseIn(1.05)}>
+            <div {...riseIn(0.82)}>
               <Button size="lg" className="w-full" asChild>
                 <Link to="/maps">
                   Explore maps
@@ -145,7 +124,7 @@ const Hero = () => {
                 </Link>
               </Button>
             </div>
-            <div {...riseIn(1.17)}>
+            <div {...riseIn(0.94)}>
               <ChangelogCard />
             </div>
           </div>

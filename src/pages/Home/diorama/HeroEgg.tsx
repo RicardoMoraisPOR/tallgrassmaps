@@ -153,7 +153,7 @@ export const HeroEgg = ({
     <m.div
       ref={root}
       onClick={throwBall}
-      className="absolute z-20 cursor-crosshair overflow-hidden"
+      className="absolute z-20 cursor-crosshair overflow-hidden select-none"
       style={{
         border: `2px solid ${COLORS.light}`,
         backgroundColor: 'rgb(108 196 106 / 0.13)',
