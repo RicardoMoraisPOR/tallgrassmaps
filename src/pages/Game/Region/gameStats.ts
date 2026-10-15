@@ -76,3 +76,25 @@ export const gameStats = (game: Game, region: Region): GameStats => {
     places: places || undefined,
   };
 };
+
+export type Stat = { label: string; value: number | undefined };
+
+export const pokemonStats = (game: Game, stats: GameStats): Array<Stat> => [
+  { label: 'In the Pokédex', value: stats.pokedexSize },
+  {
+    label: `In ${game.shortName} without ${game.obtainableExcluding ?? 'trading'}`,
+    value: stats.obtainableWithoutTrading,
+  },
+  { label: `Only in ${game.shortName}`, value: stats.versionExclusives },
+  { label: 'Found in the wild', value: stats.wildSpecies },
+  { label: 'Mega Evolutions', value: stats.megaEvolutions },
+];
+
+export const worldStats = (stats: GameStats): Array<Stat> => [
+  { label: 'Items', value: stats.items?.total },
+  { label: 'Trainer battles', value: stats.trainers },
+  { label: 'People to talk to', value: stats.npcs },
+  { label: 'Signs', value: stats.signs },
+  { label: 'Gift & static Pokémon', value: stats.staticPokemon },
+  { label: 'Mapped places', value: stats.places },
+];

@@ -36,6 +36,8 @@ import {
 } from '@/components/ui/dialog';
 import { getRegion } from '@/data/maps';
 
+import { MapMakerSwitcher } from './MapMakerSwitcher';
+
 type Point = [number, number];
 type Mode = 'polygon' | 'circle' | 'points';
 type PointStyle = 'free' | 'snap';
@@ -311,6 +313,7 @@ export const MapMakerPage = () => {
           />
         ))}
       </MapContainer>
+      <MapMakerSwitcher className="absolute top-3 right-3 z-[1100]" />
       <div className="pointer-events-none absolute right-3 bottom-3 left-16 z-[1000] flex flex-wrap items-center justify-end gap-2">
         <p className="pointer-events-auto mr-auto rounded-sm bg-background/90 px-3 py-1.5 text-sm shadow ring-1 ring-foreground/10">
           {selecting

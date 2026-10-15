@@ -1,4 +1,5 @@
-import { pathSegments } from '@/lib/paths';
+import { joinPath, locationHref, pathSegments } from '@/lib/paths';
+import { slugify } from '@/lib/utils';
 
 import { kantoRby } from './kanto-rby';
 import { lumioseZa } from './lumiose-za';
@@ -29,6 +30,11 @@ export const getLocationTrail = (
 
   return trail.length > 0 ? trail : undefined;
 };
+
+export const regionSlug = (region: Region) => slugify(region.name);
+
+export const regionHref = (gameId: string, region: Region, path = '') =>
+  locationHref(gameId, joinPath(regionSlug(region), path));
 
 export const getLocation = (region: Region, path: string) =>
   getLocationTrail(region, path)?.at(-1);

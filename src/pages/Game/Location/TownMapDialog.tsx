@@ -29,7 +29,7 @@ export const TownMapDialog = ({
       if (!isOpen) onClose();
     }}
   >
-    <DialogContent className="pokedex-game gb-frame flex flex-col gap-4 rounded-none p-6 ring-0 sm:max-w-md">
+    <DialogContent className="pokedex-game gb-frame flex flex-col gap-4 rounded-none p-6 ring-0 sm:max-w-2xl">
       <DialogTitle className="text-[10px] leading-[14px] font-normal">
         Town Map
       </DialogTitle>

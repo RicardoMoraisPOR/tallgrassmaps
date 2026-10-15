@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import { BackLink } from './BackLink';
-import { breadcrumbParents, TOWN_MAP } from './breadcrumbs';
+import { breadcrumbParents } from './breadcrumbs';
 import { GameSwitcher } from './GameSwitcher';
 import { MapSwitcher } from './MapSwitcher';
 
@@ -20,15 +20,22 @@ type PageHeaderProps = {
   game: Game;
   region: Region;
   trail: Array<Location>;
+  hub: boolean;
   href: (path: string) => string;
 };
 
-export const PageHeader = ({ game, region, trail, href }: PageHeaderProps) => {
+export const PageHeader = ({
+  game,
+  region,
+  trail,
+  hub,
+  href,
+}: PageHeaderProps) => {
   const animations = useSettingsStore((state) => state.animations);
   const location = trail.at(-1);
-  const title = location?.name ?? region.name;
-  const current = location?.name ?? TOWN_MAP;
-  const parents = breadcrumbParents(game, trail, href);
+  const title = hub ? game.fullName : (location?.name ?? region.name);
+  const current = hub ? undefined : (location?.name ?? region.name);
+  const parents = breadcrumbParents(game, region, trail, href);
 
   return (
     <m.div
@@ -56,27 +63,31 @@ export const PageHeader = ({ game, region, trail, href }: PageHeaderProps) => {
                   </Link>
                 </li>
               ))}
-              <li className="flex items-center gap-1.5">
-                <Separator />
-                <span
-                  aria-current="page"
-                  className="font-medium text-foreground"
-                >
-                  {current}
-                </span>
-              </li>
+              {current && (
+                <li className="flex items-center gap-1.5">
+                  <Separator />
+                  <span
+                    aria-current="page"
+                    className="font-medium text-foreground"
+                  >
+                    {current}
+                  </span>
+                </li>
+              )}
             </ol>
           </nav>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground sm:hidden">
             <MapSwitcher game={game} path={trailPath(trail)} />
             <GameSwitcher game={game} path={trailPath(trail)} />
           </div>
-          <h1 className="font-heading text-2xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-3xl">
-            {title}
-          </h1>
+          {!hub && (
+            <h1 className="font-heading text-2xl leading-[1.05] font-bold tracking-[-0.035em] text-balance sm:text-3xl">
+              {title}
+            </h1>
+          )}
         </div>
       </header>
-      <BackLink game={game} trail={trail} href={href} />
+      <BackLink game={game} region={region} trail={trail} href={href} />
     </m.div>
   );
 };

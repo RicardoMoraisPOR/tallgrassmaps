@@ -44,6 +44,14 @@ export const router = createBrowserRouter([
                   }),
                 },
                 {
+                  path: 'rby/map-maker',
+                  lazy: async () => ({
+                    Component: (
+                      await import('@/pages/MapMaker/RbyMapMakerPage')
+                    ).RbyMapMakerPage,
+                  }),
+                },
+                {
                   path: 'legends-za/map-maker',
                   lazy: async () => ({
                     Component: (await import('@/pages/MapMaker/MapMakerPage'))

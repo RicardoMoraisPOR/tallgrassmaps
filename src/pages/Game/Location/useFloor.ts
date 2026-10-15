@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router';
 
 import type { LocationFloor } from '@/data/maps';
+import { useSettingsStore } from '@/stores/settings';
 
 import { arrivalKey } from './links/arrivals';
 
@@ -11,6 +12,8 @@ const STACK_PARAM = 'floors';
 
 export const useFloor = (floors: Array<LocationFloor> | undefined) => {
   const [params, setParams] = useSearchParams();
+  const allFloors = useSettingsStore((state) => state.allFloors);
+  const setAllFloors = useSettingsStore((state) => state.setAllFloors);
 
   const requested = params.get(FLOOR_PARAM);
   const floor = floors?.find(({ id }) => id === requested) ?? floors?.at(0);
@@ -18,7 +21,8 @@ export const useFloor = (floors: Array<LocationFloor> | undefined) => {
   const arrivedAt = via ? arrivalKey(via) : undefined;
   const from = params.get(FROM_PARAM) ?? undefined;
   const stacked =
-    (floors?.length ?? 0) > 1 && params.get(STACK_PARAM) === 'all';
+    (floors?.length ?? 0) > 1 &&
+    (allFloors || params.get(STACK_PARAM) === 'all');
 
   const selectFloor = (id: string) =>
     setParams(
@@ -34,7 +38,9 @@ export const useFloor = (floors: Array<LocationFloor> | undefined) => {
       { replace: true, preventScrollReset: true },
     );
 
-  const setStacked = (on: boolean) =>
+  const setStacked = (on: boolean) => {
+    setAllFloors(on);
+
     setParams(
       (current) => {
         const next = new URLSearchParams(current);
@@ -46,6 +52,7 @@ export const useFloor = (floors: Array<LocationFloor> | undefined) => {
       },
       { replace: true, preventScrollReset: true },
     );
+  };
 
   return {
     floor,

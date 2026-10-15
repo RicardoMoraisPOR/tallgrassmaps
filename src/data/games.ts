@@ -52,6 +52,7 @@ export type Game = {
   developer: string;
   wiki: string;
   remakeOf?: string;
+  remadeAs?: Array<string>;
   tileSize?: number;
   sprites?: {
     set: string;
@@ -79,6 +80,7 @@ export const games: Array<Game> = [
     tileSize: 16,
     sprites: { set: 'red-blue', count: 151 },
     obtainableWithoutTrading: 135,
+    remadeAs: ['Pokémon FireRed', 'Pokémon LeafGreen'],
     colors: ['oklch(0.58 0.2 27)'],
   },
   {
@@ -95,6 +97,7 @@ export const games: Array<Game> = [
     tileSize: 16,
     sprites: { set: 'red-blue', count: 151 },
     obtainableWithoutTrading: 135,
+    remadeAs: ['Pokémon FireRed', 'Pokémon LeafGreen'],
     colors: ['oklch(0.5 0.17 262)'],
   },
   {
@@ -111,6 +114,12 @@ export const games: Array<Game> = [
     tileSize: 16,
     sprites: { set: 'yellow', count: 151 },
     obtainableWithoutTrading: 134,
+    remadeAs: [
+      'Pokémon FireRed',
+      'Pokémon LeafGreen',
+      "Pokémon Let's Go, Pikachu!",
+      "Pokémon Let's Go, Eevee!",
+    ],
     colors: ['oklch(0.86 0.16 92)'],
   },
   {

@@ -170,7 +170,7 @@ const PlaceSearchDialog = ({
                 setActive(0);
               }}
               onKeyDown={onKeyDown}
-              placeholder="Search anything…"
+              placeholder="Search"
               className="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-muted-foreground"
             />
           </label>

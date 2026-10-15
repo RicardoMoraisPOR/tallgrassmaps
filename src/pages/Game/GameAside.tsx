@@ -18,6 +18,12 @@ import {
   DialogDescription,
   DialogTitle,
 } from '@/components/ui/dialog';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+} from '@/components/ui/drawer';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { DESKTOP_QUERY, TABLET_QUERY } from '@/lib/breakpoints';
 import { matchesQuery } from '@/lib/media';
@@ -34,11 +40,13 @@ type CardInfo = {
   label: string;
   icon: LucideIcon;
   to?: string;
+  defaultOpen?: boolean;
+  drawer?: boolean;
 };
 
 type AsideState = {
   modal: boolean;
-  isOpen: (id: string) => boolean;
+  isOpen: (id: string, fallback?: boolean) => boolean;
   close: (id: string) => void;
   register: (card: CardInfo) => () => void;
 };
@@ -97,7 +105,7 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
   }
 
   const isOpen = useCallback(
-    (id: string) => overrides[id] ?? (desktop && tablet),
+    (id: string, fallback = desktop && tablet) => overrides[id] ?? fallback,
     [overrides, desktop, tablet],
   );
   const close = useCallback(
@@ -117,69 +125,79 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
     [tablet, isOpen, close, register],
   );
 
+  const renderCard = ({
+    id,
+    label,
+    icon: Icon,
+    to,
+    defaultOpen,
+    drawer,
+  }: CardInfo) => {
+    const open = isOpen(id, defaultOpen);
+    const buttonClassName = toolbarButtonClass;
+    const content = (
+      <>
+        <Icon aria-hidden className="size-5 flex-none md:size-4" />
+        <span className="hidden text-xs font-medium md:inline">{label}</span>
+      </>
+    );
+
+    if (to)
+      return (
+        <Link
+          key={id}
+          to={to}
+          aria-label={label}
+          title={label}
+          className={cn(buttonClassName, 'text-foreground')}
+        >
+          {content}
+        </Link>
+      );
+
+    return (
+      <button
+        key={id}
+        type="button"
+        aria-pressed={open}
+        aria-label={`${open ? 'Hide' : 'Show'} ${label}`}
+        title={`${open ? 'Hide' : 'Show'} ${label}`}
+        onClick={() =>
+          setOverrides((current) =>
+            tablet || open
+              ? { ...current, [id]: !open }
+              : {
+                  ...Object.fromEntries(cards.map((card) => [card.id, false])),
+                  [id]: true,
+                },
+          )
+        }
+        className={cn(
+          buttonClassName,
+          open || drawer ? 'text-foreground' : 'text-muted-foreground/60',
+        )}
+      >
+        {content}
+      </button>
+    );
+  };
+
   return (
     <AsideContext value={state}>
-      <div className="pointer-events-none absolute top-1/2 left-0 z-30 flex -translate-y-1/2 flex-col gap-2 md:top-4 md:right-4 md:left-auto md:translate-y-0 md:flex-row md:gap-2">
-        <PlaceSearchButton />
-        <PokedexButton />
-        {cards.map(({ id, label, icon: Icon, to }) => {
-          const open = isOpen(id);
-          const buttonClassName = toolbarButtonClass;
-          const content = (
-            <>
-              <Icon aria-hidden className="size-5 flex-none md:size-4" />
-              <span className="hidden text-xs font-medium md:inline">
-                {label}
-              </span>
-            </>
-          );
-
-          if (to)
-            return (
-              <Link
-                key={id}
-                to={to}
-                aria-label={label}
-                title={label}
-                className={cn(buttonClassName, 'text-foreground')}
-              >
-                {content}
-              </Link>
-            );
-
-          return (
-            <button
-              key={id}
-              type="button"
-              aria-pressed={open}
-              aria-label={`${open ? 'Hide' : 'Show'} ${label}`}
-              title={`${open ? 'Hide' : 'Show'} ${label}`}
-              onClick={() =>
-                setOverrides((current) =>
-                  tablet || open
-                    ? { ...current, [id]: !open }
-                    : {
-                        ...Object.fromEntries(
-                          cards.map((card) => [card.id, false]),
-                        ),
-                        [id]: true,
-                      },
-                )
-              }
-              className={cn(
-                buttonClassName,
-                open ? 'text-foreground' : 'text-muted-foreground/60',
-              )}
-            >
-              {content}
-            </button>
-          );
-        })}
+      <div className="pointer-events-none absolute top-1/2 left-0 z-30 flex -translate-y-1/2 flex-col gap-2 md:contents">
+        <div className="flex flex-col gap-2 md:absolute md:top-4 md:right-4 md:z-30 md:flex-row">
+          <PlaceSearchButton />
+          {cards.filter(({ drawer }) => !drawer).map(renderCard)}
+        </div>
+        <div className="flex flex-col gap-2 md:absolute md:right-4 md:bottom-4 md:z-30 md:flex-row">
+          <PokedexButton />
+          {cards.filter(({ drawer }) => drawer).map(renderCard)}
+        </div>
       </div>
       <m.aside
         layout={animations ? 'position' : false}
         aria-label="Cards"
-        className="pointer-events-none absolute top-40 right-4 bottom-4 z-20 flex w-[360px] max-w-[calc(100%-4.5rem)] flex-col md:top-16 md:max-w-[calc(100%-2rem)]"
+        className="pointer-events-none absolute top-40 right-4 bottom-4 z-20 flex w-[360px] max-w-[calc(100%-4.5rem)] flex-col md:top-16 md:bottom-16 md:max-w-[calc(100%-2rem)]"
       >
         <div
           className={cn(
@@ -199,6 +217,7 @@ type AsideCardProps = {
   label: string;
   grow?: boolean;
   to?: string;
+  drawer?: boolean;
   className?: string;
   children: ReactNode;
 };
@@ -208,19 +227,47 @@ export const AsideCard = ({
   label,
   grow = false,
   to,
+  drawer = false,
   className,
   children,
 }: AsideCardProps) => {
   const { modal, isOpen, close, register } = useContext(AsideContext);
   const animations = useSettingsStore((state) => state.animations);
-  const open = isOpen(label);
+  const open = isOpen(label, drawer ? false : undefined);
 
   useEffect(
-    () => register({ id: label, label, icon, to }),
-    [register, label, icon, to],
+    () =>
+      register({
+        id: label,
+        label,
+        icon,
+        to,
+        defaultOpen: drawer ? false : undefined,
+        drawer,
+      }),
+    [register, label, icon, to, drawer],
   );
 
   if (to) return null;
+
+  if (drawer)
+    return (
+      <Drawer
+        direction="right"
+        open={open}
+        onOpenChange={(next) => !next && close(label)}
+      >
+        <DrawerContent className="data-[vaul-drawer-direction=right]:w-[26rem] data-[vaul-drawer-direction=right]:max-w-[calc(100%-1rem)] data-[vaul-drawer-direction=right]:bg-card data-[vaul-drawer-direction=right]:sm:max-w-none">
+          <DrawerTitle className="sr-only">{label}</DrawerTitle>
+          <DrawerDescription className="sr-only">{label}</DrawerDescription>
+          <CardContext value={label}>
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain [&>*]:rounded-none [&>*]:border-0">
+              {children}
+            </div>
+          </CardContext>
+        </DrawerContent>
+      </Drawer>
+    );
 
   if (modal)
     return (

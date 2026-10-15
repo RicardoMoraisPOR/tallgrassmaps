@@ -84,6 +84,7 @@ export const MapIcon = ({
 
           if (link.href)
             navigate(link.href, { state: travelState(link.travel) });
+          else link.onClick?.();
         },
       }}
     />

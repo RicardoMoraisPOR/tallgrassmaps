@@ -5,35 +5,22 @@ import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
-import { itemsFor } from '@/data/items';
-import {
-  inGame,
-  type LocationFloor,
-  locationInGame,
-  type WildArea,
-} from '@/data/maps';
-import { npcsFor } from '@/data/npcs';
-import { pokedexFor } from '@/data/pokedex';
-import { signsFor } from '@/data/signs';
-import { staticPokemonFor } from '@/data/static-pokemon';
-import { trainersFor } from '@/data/trainers';
+import type { LocationFloor } from '@/data/maps';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
+import { useSettingsStore } from '@/stores/settings';
 
 import { AsideCard, GameAside } from '../GameAside';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
-import { encounterGroups, wildAreaFor } from './encounters';
-import { EncountersTab, OpenPokedexButton } from './EncountersTab';
+import { WorldSwitch } from '../Region/WorldToggle';
 import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
-import { openableNames } from './links/signs';
-import { locationLinks } from './locationLinks';
-import { EmptyTab, LocationPanel, type PanelTab } from './LocationPanel';
-import { MapInfoTab, MapLayerSettingsButton } from './MapInfoTab';
+import { LocationPanel } from './LocationPanel';
+import { locationPanelTabs } from './locationPanelTabs';
+import { buildLocationView } from './locationView';
 import { useMapLayers } from './mapLayers';
-import { MapTextTooltip } from './MapTextTooltip';
 import {
   floorLayouts,
   offsetLink,
@@ -43,18 +30,15 @@ import {
 import { TownMapCard } from './TownMapCard';
 import { TownMapDialog } from './TownMapDialog';
 import { TrainerDialog } from './TrainerDialog';
-import { battleGroups } from './trainerList';
-import { TrainersTab } from './TrainersTab';
-import { TrainerTooltip } from './TrainerTooltip';
 import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
-import { StaticPopup, WildPopup } from './WildPopup';
 
 const ARRIVAL_HIGHLIGHT_MS = 1500;
 
 export const LocationPage = () => {
   const route = useGameRoute();
   const navigate = useNavigate();
+  const setWorldPreferred = useSettingsStore((state) => state.setWorldView);
   const pokedexLink = usePokedexLink();
 
   const trail = route?.trail;
@@ -123,129 +107,35 @@ export const LocationPage = () => {
     return <NotFoundPage />;
   }
 
-  const pokedex = pokedexFor(route.region.versionGroup);
-  const trainers = trainersFor(route.region.versionGroup);
   const selectTrainer = (key: string | undefined) =>
     setSelected({ scope, key });
-
-  const floorData = (target: LocationFloor | undefined) => {
-    const trainerGroups = trainers
-      ? battleGroups(trainers, {
-          game: route.game,
-          path: dataPath,
-          floor: target?.id,
-          onMapOnly: location.kind === 'town',
-        })
-      : [];
-    const listedBattles = trainerGroups.flatMap((group) => group.battles);
-    const onThisMap = (marker: {
-      path: string;
-      floor?: string;
-      games: Array<string>;
-    }) =>
-      marker.path === dataPath &&
-      marker.floor === target?.id &&
-      marker.games.includes(route.game.id);
-    const wildAreas =
-      route.region.wildAreas?.filter(
-        (area) =>
-          area.path === dataPath &&
-          area.floor === target?.id &&
-          inGame(area, route.game.id),
-      ) ?? [];
-    const encounters = pokedex
-      ? encounterGroups(pokedex, {
-          game: route.game,
-          path: dataPath,
-          floor: target?.id,
-          hasWater: wildAreas.some((area) => area.method === 'water'),
-        })
-      : [];
-    const wildPopup = (area: WildArea['method'], note?: string) => {
-      const groups = encounters.filter(
-        ({ method }) => wildAreaFor(method) === area,
-      );
-
-      return (
-        groups.length > 0 && (
-          <WildPopup
-            game={route.game}
-            path={dataPath}
-            groups={groups}
-            note={note}
-          />
-        )
-      );
-    };
-
-    const { links, layerSections } = locationLinks(
-      route.region,
-      locationInGame(location, route.game.id),
-      trailPath(trail),
-      route.href,
-      route.game.tileSize,
-      target,
+  const openTownMap = () => setTownMapOpen(true);
+  const viewFor = (target: LocationFloor | undefined) =>
+    buildLocationView(
       {
+        route,
+        location,
+        trail,
+        dataPath,
         from: target?.id === floor?.id ? from : undefined,
-        items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
-        itemTooltip: (item) => (
-          <MapTextTooltip
-            text={item.hidden ? `${item.item} (hidden)` : item.item}
-            presence={item.note}
-          />
-        ),
-        trainers: listedBattles,
-        onSelectTrainer: selectTrainer,
-        npcs: npcsFor(route.region.versionGroup)?.filter(onThisMap),
-        npcTooltip: (npc) => (
-          <MapTextTooltip
-            name={npc.name}
-            dialog={npc.dialog}
-            game={route.game}
-            presence={npc.presence}
-          />
-        ),
-        signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
-        signTooltip: (sign) => (
-          <MapTextTooltip
-            text={sign.opens ? openableNames[sign.opens] : sign.text}
-          />
-        ),
-        onOpen: (target) => {
-          if (target === 'pokedex')
-            navigate(pokedexLink.to, { state: pokedexLink.state });
-          else setTownMapOpen(true);
-        },
-        trainerTooltip: ([listed, ...others]) =>
-          pokedex && (
-            <TrainerTooltip
-              listed={listed}
-              encounters={others.length + 1}
-              game={route.game}
-              pokedex={pokedex}
-            />
-          ),
-        wildAreas,
-        wildPopup,
-        staticPokemon: staticPokemonFor(route.region.versionGroup)?.filter(
-          onThisMap,
-        ),
-        staticPopup: (marker) =>
-          pokedex && (
-            <StaticPopup game={route.game} marker={marker} pokedex={pokedex} />
-          ),
+        navigate,
+        pokedexLink,
+        openTownMap,
+        selectTrainer,
       },
+      target,
     );
+  const floorData = viewFor;
 
-    return { trainerGroups, listedBattles, encounters, links, layerSections };
-  };
-
-  const { trainerGroups, listedBattles, encounters, links, layerSections } =
-    floorData(floor);
+  const {
+    trainerGroups,
+    pokedex,
+    listedBattles,
+    encounters,
+    links,
+    layerSections,
+  } = floorData(floor);
   const highlightTo = (key: string | undefined) => setHighlight({ scope, key });
-  const pokemonCount = new Set(
-    encounters.flatMap((group) => group.rows.map((row) => row.entry.number)),
-  ).size;
   const panelSections = stacked
     ? layerSections.map((section) => ({
         ...section,
@@ -257,71 +147,16 @@ export const LocationPage = () => {
         })),
       }))
     : layerSections;
-  const panelTabs: Array<PanelTab> = [
-    {
-      id: 'info',
-      label: 'Map info',
-      action: <MapLayerSettingsButton />,
-      content: (
-        <MapInfoTab
-          sections={panelSections}
-          onHighlight={highlightTo}
-          onOpen={(key) => {
-            const action = links.find(
-              (link) =>
-                link.onClick && [link.highlightKey].flat().includes(key),
-            )?.onClick;
-
-            if (listedBattles.some((listed) => listed.key === key))
-              selectTrainer(key);
-            else if (action) action();
-            else {
-              setPinRequest({ scope, key });
-
-              return true;
-            }
-
-            return false;
-          }}
-          hiddenLayers={hiddenLayers}
-        />
-      ),
-    },
-    {
-      id: 'pokemon',
-      label: 'Pokémon',
-      count: pokemonCount,
-      action: <OpenPokedexButton />,
-      content:
-        pokedex && pokemonCount > 0 ? (
-          <EncountersTab
-            game={route.game}
-            path={dataPath}
-            groups={encounters}
-            onHighlight={highlightTo}
-          />
-        ) : (
-          <EmptyTab>No Pokémon to catch here.</EmptyTab>
-        ),
-    },
-    {
-      id: 'trainers',
-      label: 'Trainers',
-      count: listedBattles.length,
-      content:
-        pokedex && listedBattles.length > 0 ? (
-          <TrainersTab
-            game={route.game}
-            groups={trainerGroups}
-            pokedex={pokedex}
-            onHighlight={highlightTo}
-            onSelect={selectTrainer}
-          />
-        ) : (
-          <EmptyTab>No trainer battles here.</EmptyTab>
-        ),
-    },
-  ];
+  const panelTabs = locationPanelTabs({
+    route,
+    dataPath,
+    view: { trainerGroups, pokedex, listedBattles, encounters, links },
+    sections: panelSections,
+    hiddenLayers,
+    onHighlight: highlightTo,
+    onSelectTrainer: selectTrainer,
+    onPin: (key) => setPinRequest({ scope, key }),
+  });
 
   const baseImage = floor ?? location;
   const event = baseImage.event;
@@ -374,8 +209,23 @@ export const LocationPage = () => {
   const dialogBattles =
     stackedData?.flatMap((data) => data.listedBattles) ?? listedBattles;
 
-  const pickers = ((location.floors && floor) || event) && (
+  const worldTile =
+    trail.length === 1 && route.region.world?.[trail[0].id]
+      ? trail[0].id
+      : undefined;
+  const pickers = ((location.floors && floor) || event || worldTile) && (
     <>
+      {worldTile && (
+        <WorldSwitch
+          world={false}
+          labels={['Focus View', 'World View']}
+          worldFirst
+          onChange={() => {
+            setWorldPreferred(true);
+            navigate(route.href(worldTile));
+          }}
+        />
+      )}
       {location.floors && floor && (
         <FloorPicker
           floors={location.floors}

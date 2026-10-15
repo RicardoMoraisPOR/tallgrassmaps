@@ -16,6 +16,7 @@ import { mapSets } from '@/data/catalog/mapSets';
 import type { MapSet } from '@/data/catalog/types';
 import { type Game, getGame } from '@/data/games';
 import { getRegion } from '@/data/maps';
+import { useGameRoute } from '@/hooks/useGameRoute';
 import { formatList } from '@/lib/utils';
 
 import { ColorDot } from './ColorDot';
@@ -28,6 +29,7 @@ type MapSwitcherProps = {
 
 export const MapSwitcher = ({ game, path }: MapSwitcherProps) => {
   const navigate = useNavigate();
+  const route = useGameRoute();
   const { search } = useLocation();
 
   const current = getRegion(game.region)?.versionGroup;
@@ -37,7 +39,7 @@ export const MapSwitcher = ({ game, path }: MapSwitcherProps) => {
 
     if (!target || target.id === game.id) return;
 
-    navigate(switchHref(target, path, search));
+    navigate(switchHref(target, path, search, route?.hub));
   };
 
   return (

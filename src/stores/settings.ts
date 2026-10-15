@@ -22,12 +22,16 @@ type SettingsState = {
   themes: Record<ThemeArea, ThemeStyle>;
   mapLayers: Partial<Record<string, boolean>>;
   locationTab: LocationTab;
+  worldView: boolean;
+  allFloors: boolean;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
   setThemePreset: (preset: ThemePreset) => void;
   setTheme: (area: ThemeArea, style: ThemeStyle) => void;
   setMapLayer: (layer: string, visible: boolean) => void;
   setLocationTab: (tab: LocationTab) => void;
+  setWorldView: (worldView: boolean) => void;
+  setAllFloors: (allFloors: boolean) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -46,6 +50,8 @@ export const useSettingsStore = create<SettingsState>()(
       },
       mapLayers: {},
       locationTab: 'info',
+      worldView: false,
+      allFloors: false,
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
       setThemePreset: (themePreset) => set({ themePreset }),
@@ -56,6 +62,8 @@ export const useSettingsStore = create<SettingsState>()(
           mapLayers: { ...state.mapLayers, [layer]: visible },
         })),
       setLocationTab: (locationTab) => set({ locationTab }),
+      setWorldView: (worldView) => set({ worldView }),
+      setAllFloors: (allFloors) => set({ allFloors }),
     }),
     {
       name: 'tallgrass-settings',
@@ -111,6 +119,8 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
+        worldView,
+        allFloors,
       }) => ({
         animations,
         gamePointer,
@@ -118,6 +128,8 @@ export const useSettingsStore = create<SettingsState>()(
         themes,
         mapLayers,
         locationTab,
+        worldView,
+        allFloors,
       }),
     },
   ),

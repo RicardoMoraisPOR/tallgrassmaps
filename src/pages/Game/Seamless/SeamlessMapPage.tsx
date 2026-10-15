@@ -64,8 +64,8 @@ export const SeamlessMapPage = () => {
                 />
               ) : (
                 <>
-                  <AsideCard icon={Gamepad2} label="Game info" grow>
-                    <GameInfoCard game={game} region={region} />
+                  <AsideCard icon={Gamepad2} label="Game info" drawer>
+                    <GameInfoCard game={game} region={region} pageButton />
                   </AsideCard>
                 </>
               )}

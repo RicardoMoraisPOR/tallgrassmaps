@@ -13,6 +13,7 @@ import type { MapImage } from '@/data/maps';
 import { toLatLng } from '../coordinates';
 import { MAP_ICON_SIZE, MAX_ZOOM } from './constants';
 
+const FOCUS_BELOW_ZOOM = 2;
 const FOCUS_DELAY = 250;
 const FOCUS_DURATION = 0.6;
 
@@ -61,6 +62,8 @@ export const PanBounds = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
   return null;
 };
 
+const FIT_PADDING_PIXELS = 48;
+
 type ZoomLimiter = { _limitZoom: (zoom: number) => number };
 
 export const FitToViewport = ({
@@ -91,7 +94,12 @@ export const FitToViewport = ({
   useEffect(() => {
     const fitZoom = () => {
       const { x, y } = leafletMap.getSize();
-      const zoom = Math.log2(Math.min(x / width, y / height));
+      const zoom = Math.log2(
+        Math.min(
+          (x - FIT_PADDING_PIXELS * 2) / width,
+          (y - FIT_PADDING_PIXELS * 2) / height,
+        ),
+      );
 
       return zoom < 0 ? zoom : Math.floor(zoom);
     };
@@ -143,7 +151,9 @@ export const FitToViewport = ({
       );
 
     const focusTimer =
-      focusLat !== undefined && focusLng !== undefined
+      focusLat !== undefined &&
+      focusLng !== undefined &&
+      leafletMap.getMinZoom() < FOCUS_BELOW_ZOOM
         ? setTimeout(() => focusOn(focusLat, focusLng), FOCUS_DELAY)
         : undefined;
 
@@ -196,6 +206,40 @@ export const PixelatedWhenZoomedIn = () => {
       leafletMap.off('zoomend', update);
     };
   }, [leafletMap]);
+
+  return null;
+};
+
+type ZoomState = { _animatingZoom: boolean };
+
+export const ResyncAfterInterruptedZoom = () => {
+  const zooming = useRef(false);
+
+  useMapEvents({
+    zoomstart: () => {
+      zooming.current = true;
+    },
+    zoomend: () => {
+      zooming.current = false;
+    },
+    moveend: ({ target }) => {
+      const state = target as unknown as ZoomState;
+      const stuck = state._animatingZoom;
+
+      if (!zooming.current && !stuck) return;
+
+      zooming.current = false;
+      state._animatingZoom = false;
+
+      const zoom = target.getZoom();
+
+      target.setView(
+        target.getCenter(),
+        zoom <= target.getMinZoom() ? zoom : Math.round(zoom),
+        { reset: true, animate: false },
+      );
+    },
+  });
 
   return null;
 };

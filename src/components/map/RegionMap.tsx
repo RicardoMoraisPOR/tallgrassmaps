@@ -10,6 +10,7 @@ import { useSettingsStore } from '@/stores/settings';
 import { AnimatedSprite } from './AnimatedSprite';
 import { hotspotHighlight, percent } from './coordinates';
 import { HotspotOutline } from './HotspotOutline';
+import { LocationCursor } from './LocationCursor';
 import { RegionImage } from './RegionImage';
 
 type RegionMapProps = {
@@ -41,7 +42,7 @@ export const RegionMap = ({
   const activeName = active ? getLocation(region, active)?.name : undefined;
   const activeHotspot = hovered
     ? getHotspot(region, hovered)
-    : !miniMap && focus
+    : !miniMap && !region.marker && focus
       ? getHotspot(region, focus)
       : undefined;
   const focusHotspot = focus
@@ -110,6 +111,13 @@ export const RegionMap = ({
               }}
             />
           ))}
+        {!miniMap && region.marker && focusHotspot && (
+          <LocationCursor
+            region={region}
+            hotspot={focusHotspot}
+            cursor={region.marker}
+          />
+        )}
         {region.hotspots.map((hotspot) => {
           const location = getLocation(region, hotspot.target);
 

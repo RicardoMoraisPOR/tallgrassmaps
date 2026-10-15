@@ -35,6 +35,7 @@ export const GameLayout = () => {
             game={route.game}
             region={route.region}
             trail={route.trail ?? []}
+            hub={route.hub}
             href={route.href}
           />
           <div className="flex flex-1 flex-col overflow-x-clip">

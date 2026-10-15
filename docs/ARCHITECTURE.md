@@ -48,7 +48,8 @@ Folders are feature-based (`pages/Game/Location`, `pages/Game/Pokedex`), not typ
   *                      NotFoundPage
 ```
 
-- `useGameRoute()` resolves `:gameId` and the splat path into `{ game, region, trail, href }`. `trail` is the chain of `Location` objects from the region down (`/red/pallet-town/players-house/2f` is three segments). Unknown ids return `undefined` and the pages render NotFound.
+- URLs are `/{game}` (the game hub: game info, map cards, quick links), `/{game}/{map}` (the map itself: the world view for Kanto, the seamless map for Z-A, the Town Map art page for a map without a world layout) and `/{game}/{map}/{place}/...` (a location; `/red/kanto/pallet-town/players-house/2f` is three place segments). With the saved `worldView` setting on, a top-level place that has a world position opens inside the world view instead of its own tile page. URLs without the map segment redirect to the new form.
+- `useGameRoute()` resolves `:gameId` and the splat path into `{ game, region, trail, hub, onMap, worldShown, href }`. `trail` is the chain of `Location` objects below the map. Unknown ids return `undefined` and the pages render NotFound.
 - `GameLayout` renders the floating header and a `PageTransition` outlet. Transitions are keyed by `/game` versus `/game/location`, or just `/game` for seamless regions.
 - `GamePage` picks one of three views: `SeamlessMapPage` when `region.navigation === 'seamless'`, `RegionPage` for an empty trail, otherwise `LocationPage`. The seamless and location pages are lazy-loaded.
 - The Pokédex is not a route. It is a drawer driven by the `?pokedex=<number>` query param (`usePokedex`, `usePokedexLink`), so it overlays whichever page is open.

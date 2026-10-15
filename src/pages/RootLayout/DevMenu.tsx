@@ -8,13 +8,20 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
 const devLinks = [
   { to: '/pokemon-sprites', label: 'Pokémon Sprites', icon: Images },
   { to: '/theme', label: 'Theme', icon: Palette },
-  { to: '/legends-za/map-maker', label: 'Map Maker', icon: MapPinned },
+];
+
+const mapMakers = [
+  { to: '/legends-za/map-maker', label: 'Legends: Z-A' },
+  { to: '/rby/map-maker', label: 'Red · Blue · Yellow' },
 ];
 
 export const DevMenu = () => (
@@ -40,6 +47,19 @@ export const DevMenu = () => (
           </Link>
         </DropdownMenuItem>
       ))}
+      <DropdownMenuSub>
+        <DropdownMenuSubTrigger>
+          <MapPinned aria-hidden />
+          Map Maker
+        </DropdownMenuSubTrigger>
+        <DropdownMenuSubContent>
+          {mapMakers.map(({ to, label }) => (
+            <DropdownMenuItem key={to} asChild>
+              <Link to={to}>{label}</Link>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuSubContent>
+      </DropdownMenuSub>
     </DropdownMenuContent>
   </DropdownMenu>
 );

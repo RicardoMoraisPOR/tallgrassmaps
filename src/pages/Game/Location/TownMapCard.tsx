@@ -1,11 +1,12 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 
 import { MapPinned } from 'lucide-react';
-import { Link } from 'react-router';
 
 import { RegionMap } from '@/components/map/RegionMap';
 import { Button } from '@/components/ui/button';
 import type { Region } from '@/data/maps';
+
+import { TownMapDialog } from './TownMapDialog';
 
 type TownMapCardProps = {
   region: Region;
@@ -15,6 +16,7 @@ type TownMapCardProps = {
 
 export const TownMapCard = ({ region, path, href }: TownMapCardProps) => {
   const headingId = useId();
+  const [open, setOpen] = useState(false);
 
   return (
     <section
@@ -35,13 +37,22 @@ export const TownMapCard = ({ region, path, href }: TownMapCardProps) => {
           miniMap
           className="gap-1"
         />
-        <Button variant="outline" className="h-10 w-full" asChild>
-          <Link to={href('')}>
-            <MapPinned aria-hidden />
-            Show {region.name}
-          </Link>
+        <Button
+          variant="outline"
+          className="h-10 w-full"
+          onClick={() => setOpen(true)}
+        >
+          <MapPinned aria-hidden />
+          Open {region.name} Town Map
         </Button>
       </div>
+      <TownMapDialog
+        open={open}
+        region={region}
+        path={path}
+        href={href}
+        onClose={() => setOpen(false)}
+      />
     </section>
   );
 };

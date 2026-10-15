@@ -125,6 +125,7 @@ export type RegionPointer = {
 
 export type RegionCursor = {
   image: string;
+  sheetFrames?: number;
   size: number;
   pixelated: boolean;
   blink?: {
@@ -161,9 +162,11 @@ export type Region = MapImage & {
   locations: Array<Location>;
   hotspots: Array<Hotspot>;
   cursor?: RegionCursor;
+  marker?: RegionCursor;
   pointer?: RegionPointer;
   label?: RegionLabel;
   navigation?: 'nested' | 'seamless';
+  world?: Record<string, { x: number; y: number }>;
   placeGroups?: PlaceGroups;
   wildAreas?: Array<WildArea>;
 };

@@ -1,4 +1,5 @@
-import type { Hotspot, Region } from '@/data/maps';
+import type { Hotspot, Region, RegionCursor } from '@/data/maps';
+import { cn } from '@/lib/utils';
 
 import { AnimatedSprite } from './AnimatedSprite';
 import { percent } from './coordinates';
@@ -6,11 +7,14 @@ import { percent } from './coordinates';
 type LocationCursorProps = {
   region: Region;
   hotspot: Hotspot;
+  cursor?: RegionCursor;
 };
 
-export const LocationCursor = ({ region, hotspot }: LocationCursorProps) => {
-  const { cursor } = region;
-
+export const LocationCursor = ({
+  region,
+  hotspot,
+  cursor = region.cursor,
+}: LocationCursorProps) => {
   if (!cursor) return null;
 
   return (
@@ -24,11 +28,23 @@ export const LocationCursor = ({ region, hotspot }: LocationCursorProps) => {
         transform: 'translate(-50%, -50%)',
       }}
     >
-      <AnimatedSprite
-        animation={{ frames: [cursor.image] }}
-        blink={cursor.blink}
-        pixelated={cursor.pixelated}
-      />
+      {cursor.sheetFrames ? (
+        <span
+          className={cn('block size-full', cursor.pixelated && 'pixelated')}
+          style={{
+            backgroundImage: `url(${cursor.image})`,
+            backgroundSize: `100% ${cursor.sheetFrames * 100}%`,
+            backgroundPosition: 'top',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+      ) : (
+        <AnimatedSprite
+          animation={{ frames: [cursor.image] }}
+          blink={cursor.blink}
+          pixelated={cursor.pixelated}
+        />
+      )}
     </span>
   );
 };

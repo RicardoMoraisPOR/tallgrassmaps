@@ -1,4 +1,5 @@
 import wildAreaData from '../kanto-rby-wild.json';
+import worldData from '../kanto-rby-world.json';
 import type { Rect, Region, WildArea } from '../types';
 import { locations } from './build';
 import { IMAGE_DIR, rect } from './helpers';
@@ -25,6 +26,7 @@ export const kantoRby: Region = {
   },
   locations,
   wildAreas: wildAreaData as Array<WildArea>,
+  world: worldData,
   label: {
     x: 8,
     y: 0.5,
@@ -38,6 +40,12 @@ export const kantoRby: Region = {
     size: 16,
     pixelated: true,
     blink: { visibleMs: 500, hiddenMs: 500 },
+  },
+  marker: {
+    image: '/sprites/rby/overworld/red.png',
+    sheetFrames: 3,
+    size: 16,
+    pixelated: true,
   },
   pointer: {
     hover: { frames: ['/sprites/rby/bird-hover.png'] },

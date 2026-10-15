@@ -2,21 +2,22 @@ import { ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router';
 
 import type { Game } from '@/data/games';
-import type { Location } from '@/data/maps';
+import type { Location, Region } from '@/data/maps';
 
 import { breadcrumbParents } from './breadcrumbs';
 
 type BackLinkProps = {
   game: Game;
+  region: Region;
   trail: Array<Location>;
   href: (path: string) => string;
 };
 
-export const BackLink = ({ game, trail, href }: BackLinkProps) => {
-  const parents = breadcrumbParents(game, trail, href);
+export const BackLink = ({ game, region, trail, href }: BackLinkProps) => {
+  const parents = breadcrumbParents(game, region, trail, href);
   const back = parents.at(-1);
 
-  if (!back || parents.length === 1) return null;
+  if (!back) return null;
 
   return (
     <Link

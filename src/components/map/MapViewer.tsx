@@ -25,6 +25,7 @@ import {
   IconSizeForZoom,
   PanBounds,
   PixelatedWhenZoomedIn,
+  ResyncAfterInterruptedZoom,
 } from './viewer/ViewportEffects';
 
 const MAP_IMAGE_PANE = 'map-image';
@@ -329,6 +330,7 @@ export const MapViewer = ({
       <FitToViewport map={map} focus={focusPoint} />
       {map.pixelated && <PixelatedWhenZoomedIn />}
       <IconSizeForZoom />
+      <ResyncAfterInterruptedZoom />
     </MapContainer>
   );
 };
