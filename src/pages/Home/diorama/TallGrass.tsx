@@ -1,7 +1,8 @@
 import { Billboard } from './Billboard';
-import { PLATFORM_SIZE, seeded } from './config';
+import { isTouchDevice, PLATFORM_SIZE, seeded } from './config';
 
 const GRID = 9;
+const TOUCH_GRID = 6;
 const MARGIN = 34;
 const JITTER = 9;
 const HEIGHT_RATIO = 1.5;
@@ -42,45 +43,52 @@ type Clump = {
   returnDelay: number;
 };
 
-const random = seeded(23);
-const pick = (colors: Array<string>) =>
-  colors[Math.floor(random() * colors.length)];
 const span = PLATFORM_SIZE - 2 * MARGIN;
 const centre = PLATFORM_SIZE / 2;
 
-const clumps: Array<Clump> = Array.from({ length: GRID * GRID }, (_, index) => {
-  const column = index % GRID;
-  const row = Math.floor(index / GRID);
-  const x =
-    MARGIN + (column / (GRID - 1)) * span + (random() - 0.5) * JITTER * 2;
-  const y = MARGIN + (row / (GRID - 1)) * span + (random() - 0.5) * JITTER * 2;
+const buildClumps = (grid: number): Array<Clump> => {
+  const random = seeded(23);
+  const pick = (colors: Array<string>) =>
+    colors[Math.floor(random() * colors.length)];
 
-  return {
-    x,
-    y,
-    width: 52 + random() * 14,
-    flip: random() > 0.5,
-    fills: BLADES.map((blade) =>
-      blade.front ? pick(FRONT_GREENS) : pick(BACK_GREENS),
-    ),
-    delay: 1.15 + random() * 1.1,
-    sway: 2.4 + random() * 2.2,
-    swayDelay: -random() * 5,
-    blowX: ((x - centre) / centre) * 150 + (random() - 0.5) * 60,
-    blowY: -(90 + random() * 130),
-    blowRotate: (random() - 0.5) * 150,
-    leaveDelay:
-      Math.hypot(x - centre, y - centre) * WAVE_SECONDS_PER_PIXEL +
-      random() * 0.2,
-    returnDelay: 0.25 + random() * 0.6,
-  };
-});
+  return Array.from({ length: grid * grid }, (_, index) => {
+    const column = index % grid;
+    const row = Math.floor(index / grid);
+    const x =
+      MARGIN + (column / (grid - 1)) * span + (random() - 0.5) * JITTER * 2;
+    const y =
+      MARGIN + (row / (grid - 1)) * span + (random() - 0.5) * JITTER * 2;
+
+    return {
+      x,
+      y,
+      width: 52 + random() * 14,
+      flip: random() > 0.5,
+      fills: BLADES.map((blade) =>
+        blade.front ? pick(FRONT_GREENS) : pick(BACK_GREENS),
+      ),
+      delay: 1.15 + random() * 1.1,
+      sway: 2.4 + random() * 2.2,
+      swayDelay: -random() * 5,
+      blowX: ((x - centre) / centre) * 150 + (random() - 0.5) * 60,
+      blowY: -(90 + random() * 130),
+      blowRotate: (random() - 0.5) * 150,
+      leaveDelay:
+        Math.hypot(x - centre, y - centre) * WAVE_SECONDS_PER_PIXEL +
+        random() * 0.2,
+      returnDelay: 0.25 + random() * 0.6,
+    };
+  });
+};
+
+const clumps = buildClumps(GRID);
+const touchClumps = buildClumps(TOUCH_GRID);
 
 type TallGrassProps = { animated: boolean; map: boolean };
 
 export const TallGrass = ({ animated, map }: TallGrassProps) => (
   <>
-    {clumps.map((clump, index) => {
+    {(isTouchDevice() ? touchClumps : clumps).map((clump, index) => {
       const { x, y, width, flip, fills, delay, sway, swayDelay } = clump;
 
       return (
@@ -119,6 +127,7 @@ export const TallGrass = ({ animated, map }: TallGrassProps) => (
                   ? {
                       transformOrigin: '50% 100%',
                       animation: `diorama-sway ${sway}s ease-in-out ${swayDelay}s infinite`,
+                      animationPlayState: map ? 'paused' : 'running',
                     }
                   : undefined),
               }}

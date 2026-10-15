@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { type RefObject, useEffect, useRef, useState } from 'react';
 
 import { animate, m, useMotionValue } from 'motion/react';
 
@@ -18,6 +18,9 @@ const MAX_STOPS = 4;
 const LEADER_LINE_PIXELS = 40;
 const LEADER_LINE_STEP_PIXELS = 17;
 const MAP_REVEAL_SECONDS = 1.55;
+const CATCH_PADDING_PIXELS = 26;
+const CATCH_ZONE_PIXELS =
+  SPRITE_SIZE * MAP_SPRITE_SCALE + CATCH_PADDING_PIXELS * 2;
 
 const randomSpecies = () =>
   allSpecies[Math.floor(random(0, allSpecies.length))].number;
@@ -40,6 +43,10 @@ type Sighting = {
   species: number;
   level: number;
 };
+
+export type WalkerHandle = { hide: () => void; remove: () => void };
+
+export type WalkerRegistry = Map<number, WalkerHandle>;
 
 type LabelProps = { sighting: Sighting; show: boolean };
 
@@ -87,12 +94,29 @@ const MapLabel = ({ sighting, show }: LabelProps) => {
   );
 };
 
-type WalkerProps = { sighting: Sighting; map: boolean; onDone: () => void };
+type WalkerProps = {
+  sighting: Sighting;
+  map: boolean;
+  registry: RefObject<WalkerRegistry>;
+  onCatch: (sighting: Sighting, sprite: DOMRect) => void;
+  onDone: () => void;
+  onCaught: () => void;
+};
 
-const Walker = ({ sighting, map, onDone }: WalkerProps) => {
+const Walker = ({
+  sighting,
+  map,
+  registry,
+  onCatch,
+  onDone,
+  onCaught,
+}: WalkerProps) => {
   const [start] = useState(edgePoint);
   const done = useRef(onDone);
+  const caught = useRef(onCaught);
   const mapRef = useRef(map);
+  const halted = useRef(false);
+  const running = useRef<Array<{ stop: () => void }>>([]);
   const x = useMotionValue(start.x);
   const y = useMotionValue(start.y);
   const [facing, setFacing] = useState(1);
@@ -102,12 +126,26 @@ const Walker = ({ sighting, map, onDone }: WalkerProps) => {
 
   useEffect(() => {
     done.current = onDone;
+    caught.current = onCaught;
     mapRef.current = map;
-  }, [onDone, map]);
+  }, [onDone, onCaught, map]);
+
+  useEffect(() => {
+    const registered = registry.current;
+
+    registered.set(sighting.key, {
+      hide: () => setVisible(false),
+      remove: () => caught.current(),
+    });
+
+    return () => {
+      registered.delete(sighting.key);
+    };
+  }, [registry, sighting.key]);
 
   useEffect(() => {
     let cancelled = false;
-    const running: Array<{ stop: () => void }> = [];
+    const interrupted = () => cancelled || halted.current;
 
     const walkTo = async (target: { x: number; y: number }) => {
       const dx = target.x - x.get();
@@ -123,7 +161,7 @@ const Walker = ({ sighting, map, onDone }: WalkerProps) => {
         animate(y, target.y, { duration: seconds, ease }),
       ];
 
-      running.push(...controls);
+      running.current = controls;
       await Promise.all(controls);
       setMoving(false);
     };
@@ -134,27 +172,38 @@ const Walker = ({ sighting, map, onDone }: WalkerProps) => {
 
       const stops = Math.floor(random(MIN_STOPS, MAX_STOPS + 1));
 
-      for (let stop = 0; stop < stops && !cancelled; stop++) {
+      for (
+        let stop = 0;
+        (mapRef.current || stop < stops) && !interrupted();
+        stop++
+      ) {
         await walkTo(randomPoint());
         await wait(random(500, 1400));
       }
 
-      if (!cancelled) await walkTo(edgePoint());
-      if (cancelled) return;
+      if (!interrupted()) await walkTo(edgePoint());
+      if (interrupted()) return;
 
       setVisible(false);
       await wait(450);
 
-      if (!cancelled) done.current();
+      if (!interrupted()) done.current();
     };
 
     void life();
 
     return () => {
       cancelled = true;
-      running.forEach((controls) => controls.stop());
+      running.current.forEach((controls) => controls.stop());
     };
   }, [x, y]);
+
+  const targeted = () => {
+    halted.current = true;
+    running.current.forEach((controls) => controls.stop());
+    setMoving(false);
+  };
+  const catchable = map && visible && !halted.current;
 
   return (
     <m.div
@@ -210,41 +259,103 @@ const Walker = ({ sighting, map, onDone }: WalkerProps) => {
             </m.div>
           </div>
           <MapLabel sighting={sighting} show={map && visible} />
+          {catchable && (
+            <div
+              aria-hidden
+              className="absolute left-1/2 cursor-pointer"
+              style={{
+                width: CATCH_ZONE_PIXELS,
+                height: CATCH_ZONE_PIXELS,
+                bottom: -CATCH_PADDING_PIXELS,
+                transform: 'translateX(-50%)',
+              }}
+              onClick={(event) => {
+                event.stopPropagation();
+                targeted();
+                onCatch(sighting, event.currentTarget.getBoundingClientRect());
+              }}
+            />
+          )}
         </div>
       </Billboard>
     </m.div>
   );
 };
 
-export const Walkers = ({ map }: { map: boolean }) => {
+type WalkersProps = {
+  map: boolean;
+  registry: RefObject<WalkerRegistry>;
+  onCatch: (sighting: Sighting, sprite: DOMRect) => void;
+  onCleared: (cleared: boolean) => void;
+};
+
+export const Walkers = ({
+  map,
+  registry,
+  onCatch,
+  onCleared,
+}: WalkersProps) => {
   const [walkers, setWalkers] = useState<Array<Sighting>>([]);
+  const [caught, setCaught] = useState(0);
   const counter = useRef(0);
+  const mapRef = useRef(map);
+
+  const fillTo = (current: Array<Sighting>, total: number) => {
+    const added = Array.from(
+      { length: Math.max(0, total - current.length) },
+      (): Sighting => {
+        counter.current += 1;
+
+        return {
+          key: counter.current,
+          species: randomSpecies(),
+          level: Math.round(random(3, 72)),
+        };
+      },
+    );
+
+    return added.length ? [...current, ...added] : current;
+  };
+
+  useEffect(() => {
+    mapRef.current = map;
+  }, [map]);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
 
     const spawn = () => {
-      setWalkers((current) => {
-        if (current.length >= MAX_WALKERS || document.hidden) return current;
+      if (!document.hidden && !mapRef.current)
+        setWalkers((current) => fillTo(current, MAX_WALKERS));
 
-        counter.current += 1;
-
-        return [
-          ...current,
-          {
-            key: counter.current,
-            species: randomSpecies(),
-            level: Math.round(random(3, 72)),
-          },
-        ];
-      });
       timer = setTimeout(spawn, random(SPAWN_EVERY_MS[0], SPAWN_EVERY_MS[1]));
     };
 
     timer = setTimeout(spawn, FIRST_SPAWN_MS);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (!map) return;
+
+    setWalkers((current) => fillTo(current, MAX_WALKERS - caught));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map, caught, walkers.length]);
+
+  useEffect(() => {
+    if (!map) return;
+
+    return () => {
+      setWalkers([]);
+      setCaught(0);
+    };
+  }, [map]);
+
+  useEffect(() => {
+    onCleared(map && caught >= MAX_WALKERS);
+  }, [map, caught, onCleared]);
 
   return (
     <>
@@ -253,11 +364,25 @@ export const Walkers = ({ map }: { map: boolean }) => {
           key={sighting.key}
           sighting={sighting}
           map={map}
+          registry={registry}
+          onCatch={onCatch}
           onDone={() =>
+            setWalkers((current) => {
+              const remaining = current.filter(
+                (item) => item.key !== sighting.key,
+              );
+
+              return mapRef.current
+                ? remaining
+                : fillTo(remaining, MAX_WALKERS);
+            })
+          }
+          onCaught={() => {
             setWalkers((current) =>
               current.filter((item) => item.key !== sighting.key),
-            )
-          }
+            );
+            setCaught((current) => current + 1);
+          }}
         />
       ))}
     </>

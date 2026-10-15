@@ -21,7 +21,7 @@ import { type Bounds, type Registry, Swarm } from './Swarm';
 const EXPAND_SECONDS = 1;
 const EASE = [0.22, 1, 0.36, 1] as const;
 const MESSAGE_DELAY_SECONDS = 1.1;
-const TITLE = 'Bigger than you remember';
+const TITLE = 'Yes! There is way more to explore.';
 const SLIDE_DISTANCE_EM = 0.6;
 const SLIDE_SECONDS = 0.9;
 const SLIDE_STAGGER_SECONDS = 0.03;

@@ -27,6 +27,7 @@ type BallProps = {
   onLand: (target: Throw) => CritterHandle | null;
   follow: (id: number) => CritterHandle | undefined;
   onDone: () => void;
+  catchChance?: number;
 };
 
 type Phase = 'flying' | 'miss' | 'hold' | 'caught' | 'escaped';
@@ -63,7 +64,14 @@ const BallArt = () => (
   </svg>
 );
 
-const Ball = ({ bounds, target, onLand, follow, onDone }: BallProps) => {
+const Ball = ({
+  bounds,
+  target,
+  onLand,
+  follow,
+  onDone,
+  catchChance = CATCH_CHANCE,
+}: BallProps) => {
   const startX = bounds.width / 2;
   const startY = bounds.height + START_BELOW_PIXELS;
   const x = useMotionValue(startX);
@@ -109,7 +117,7 @@ const Ball = ({ bounds, target, onLand, follow, onDone }: BallProps) => {
 
       if (cancelled) return;
 
-      const caught = Math.random() < CATCH_CHANCE;
+      const caught = Math.random() < catchChance;
 
       setPhase(caught ? 'caught' : 'escaped');
 
@@ -273,12 +281,14 @@ export const Pokeballs = ({
   onLand,
   follow,
   onDone,
+  catchChance,
 }: {
   throws: Array<Throw>;
   bounds: Bounds;
   onLand: (target: Throw) => CritterHandle | null;
   follow: (id: number) => CritterHandle | undefined;
   onDone: (key: number) => void;
+  catchChance?: number;
 }) => (
   <>
     {throws.map((item) => (
@@ -289,6 +299,7 @@ export const Pokeballs = ({
         onLand={onLand}
         follow={follow}
         onDone={() => onDone(item.key)}
+        catchChance={catchChance}
       />
     ))}
   </>

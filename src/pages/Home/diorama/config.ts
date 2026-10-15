@@ -37,3 +37,6 @@ export const seeded = (seed: number) => {
     return state / 4294967296;
   };
 };
+
+export const isTouchDevice = () =>
+  window.matchMedia('(hover: none), (pointer: coarse)').matches;

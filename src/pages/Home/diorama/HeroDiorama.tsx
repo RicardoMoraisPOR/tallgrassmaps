@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   animate,
   m,
+  motionValue,
   useMotionValue,
   useSpring,
   useTransform,
@@ -13,14 +14,17 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import {
   BASE_TILT_X,
   BASE_TILT_Z,
+  isTouchDevice,
   PLATFORM_SIZE,
   SCENE_HEIGHT,
   SCENE_WIDTH,
   TOP_Z,
 } from './config';
 import { Platform } from './Platform';
+import { Pokeballs, type Throw } from './Pokeball';
+import type { Bounds, CritterHandle } from './Swarm';
 import { TallGrass } from './TallGrass';
-import { Walkers } from './Walkers';
+import { Walkers, type WalkerRegistry } from './Walkers';
 
 const TILT_SPRING = { stiffness: 70, damping: 16, mass: 0.8 };
 const POINTER_Z_DEGREES = 16;
@@ -33,7 +37,7 @@ const MAP_POINTER_GAIN = 0;
 const MAP_SURFACE_Z = 9;
 const COLLAPSED_LAYER_SEPARATION = 0.45;
 const MAP_SCALE = 1.14;
-const MORE_AFTER_MS = 5000;
+const GUARANTEED_CATCH = 1;
 const TILE_OVERHANG_PIXELS = 5;
 const GRASS_LEAVES_SECONDS = 0.55;
 const PARK_AFTER_MS = 450;
@@ -54,7 +58,11 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   const progress = useMotionValue(0);
   const [map, setMap] = useState(false);
   const [hintDismissed, setHintDismissed] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [cleared, setCleared] = useState(false);
+  const [throws, setThrows] = useState<Array<Throw>>([]);
+  const [bounds, setBounds] = useState<Bounds>({ width: 0, height: 0 });
+  const registry = useRef<WalkerRegistry>(new Map());
+  const throwCounter = useRef(0);
   const [parked, setParked] = useState(false);
   const world = useRef<HTMLDivElement>(null);
   const pointerX = useSpring(rawX, TILT_SPRING);
@@ -98,11 +106,13 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
 
     if (!element || !inner) return;
 
-    const fit = () =>
+    const fit = () => {
       inner.style.setProperty(
         '--scene-scale',
         String(element.clientWidth / SCENE_WIDTH),
       );
+      setBounds({ width: element.clientWidth, height: element.clientHeight });
+    };
     const observer = new ResizeObserver(fit);
 
     fit();
@@ -112,7 +122,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   }, []);
 
   useEffect(() => {
-    if (reducedMotion || revealed) return;
+    if (reducedMotion || revealed || isTouchDevice()) return;
 
     const onMove = (event: PointerEvent) => {
       rawX.set((event.clientX / window.innerWidth - 0.5) * 2);
@@ -136,12 +146,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   useEffect(() => {
     if (!map) return;
 
-    const timer = setTimeout(() => setReady(true), MORE_AFTER_MS);
-
-    return () => {
-      clearTimeout(timer);
-      setReady(false);
-    };
+    return () => setThrows([]);
   }, [map]);
 
   useEffect(() => {
@@ -157,7 +162,42 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   }, [revealed]);
 
   const animated = !reducedMotion;
-  const showMore = map && ready && !revealed;
+  const showMore = map && (cleared || !animated) && !revealed;
+  const catchWalker = ({ key }: { key: number }, sprite: DOMRect) => {
+    const box = stage.current?.getBoundingClientRect();
+
+    if (!box) return;
+
+    throwCounter.current += 1;
+    setThrows((current) => [
+      ...current,
+      {
+        key: throwCounter.current,
+        id: key,
+        x: sprite.left + sprite.width / 2 - box.left,
+        y: sprite.top + sprite.height / 2 - box.top,
+      },
+    ]);
+  };
+  const landOnWalker = ({ id, x, y }: Throw): CritterHandle | null => {
+    const walker = id === undefined ? undefined : registry.current.get(id);
+
+    if (id === undefined || !walker) return null;
+
+    walker.hide();
+
+    return {
+      id,
+      x: motionValue(x),
+      y: motionValue(y),
+      size: 0,
+      busy: () => true,
+      capture: () => {},
+      finish: (caught) => {
+        if (caught) walker.remove();
+      },
+    };
+  };
   const reveal = () => {
     const element = world.current;
 
@@ -241,9 +281,26 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
         >
           <Platform animated={animated} map={map} />
           <TallGrass animated={animated} map={map} />
-          {animated && !revealed && <Walkers map={map} />}
+          {animated && !revealed && (
+            <Walkers
+              map={map}
+              registry={registry}
+              onCatch={catchWalker}
+              onCleared={setCleared}
+            />
+          )}
         </m.div>
       </div>
+      <Pokeballs
+        throws={throws}
+        bounds={bounds}
+        onLand={landOnWalker}
+        follow={() => undefined}
+        catchChance={GUARANTEED_CATCH}
+        onDone={(key) =>
+          setThrows((current) => current.filter((item) => item.key !== key))
+        }
+      />
       <button
         type="button"
         aria-pressed={map}
@@ -274,7 +331,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
           transition: `opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0s linear ${showMore ? 0 : 0.5}s`,
         }}
       >
-        How big is the Pokémon world?
+        Is there more?
       </button>
     </div>
   );
