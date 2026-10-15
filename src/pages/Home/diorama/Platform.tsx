@@ -1,10 +1,4 @@
-import {
-  COLORS,
-  GLOW,
-  LAYER_GAP,
-  PLATFORM_LAYERS,
-  PLATFORM_SIZE,
-} from './config';
+import { COLORS, LAYER_GAP, PLATFORM_LAYERS, PLATFORM_SIZE } from './config';
 
 const sideColor = (index: number) => {
   const ratio = index / (PLATFORM_LAYERS - 1);
@@ -21,15 +15,11 @@ const TOP_INDEX = PLATFORM_LAYERS - 1;
 const FLATTEN_DELAY_SECONDS = 0.55;
 
 const FLATTEN_SECONDS = 0.95;
-const GLOW_SECONDS = 0.9;
 
 const flatten = (map: boolean) => {
   const delay = map ? FLATTEN_DELAY_SECONDS : 0;
-  const glow = map
-    ? `box-shadow ${GLOW_SECONDS}s ease ${FLATTEN_DELAY_SECONDS + FLATTEN_SECONDS * 0.85}s`
-    : 'box-shadow 0.3s ease 0s';
 
-  return `transform ${FLATTEN_SECONDS}s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, opacity 0.7s ease ${delay}s, ${glow}`;
+  return `transform ${FLATTEN_SECONDS}s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, opacity 0.7s ease ${delay}s`;
 };
 
 type PlatformProps = { animated: boolean; map: boolean };
@@ -60,9 +50,7 @@ export const Platform = ({ animated, map }: PlatformProps) => (
               ? `${PLATFORM_SIZE / 4}px ${PLATFORM_SIZE / 4}px`
               : undefined,
             boxShadow: top
-              ? map
-                ? `0 0 30px 8px ${GLOW}, inset 0 0 0 3px ${COLORS.light}`
-                : `0 0 0 0 rgb(108 196 106 / 0), inset 0 0 0 3px color-mix(in srgb, ${COLORS.light} 70%, white)`
+              ? `inset 0 0 0 3px ${map ? COLORS.light : `color-mix(in srgb, ${COLORS.light} 70%, white)`}`
               : undefined,
           }}
         />

@@ -10,46 +10,59 @@ import { MapsPage } from '@/pages/Maps/MapsPage';
 import { NationalPokedexPage } from '@/pages/NationalPokedex/NationalPokedexPage';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 import { RootLayout } from '@/pages/RootLayout/RootLayout';
+import { RouteErrorPage } from '@/pages/RouteError/RouteErrorPage';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: 'maps', element: <MapsPage /> },
-      { path: 'pokedex', element: <NationalPokedexPage /> },
-      { path: 'data-lake', element: <DataLakePage /> },
-      { path: 'changelog', element: <ChangelogPage /> },
-      { path: 'credits', element: <CreditsPage /> },
-      ...(import.meta.env.DEV
-        ? [
-            {
-              path: 'pokemon-sprites',
-              lazy: async () => ({
-                Component: (
-                  await import('@/pages/PokemonSprites/PokemonSpritesPage')
-                ).PokemonSpritesPage,
-              }),
-            },
-            {
-              path: 'legends-za/map-maker',
-              lazy: async () => ({
-                Component: (await import('@/pages/MapMaker/MapMakerPage'))
-                  .MapMakerPage,
-              }),
-            },
-          ]
-        : []),
       {
-        path: ':gameId',
-        element: <GameLayout />,
+        errorElement: <RouteErrorPage />,
         children: [
-          { index: true, element: <GamePage /> },
-          { path: '*', element: <GamePage /> },
+          { index: true, element: <HomePage /> },
+          { path: 'maps', element: <MapsPage /> },
+          { path: 'pokedex', element: <NationalPokedexPage /> },
+          { path: 'data-lake', element: <DataLakePage /> },
+          { path: 'changelog', element: <ChangelogPage /> },
+          { path: 'credits', element: <CreditsPage /> },
+          ...(import.meta.env.DEV
+            ? [
+                {
+                  path: 'pokemon-sprites',
+                  lazy: async () => ({
+                    Component: (
+                      await import('@/pages/PokemonSprites/PokemonSpritesPage')
+                    ).PokemonSpritesPage,
+                  }),
+                },
+                {
+                  path: 'theme',
+                  lazy: async () => ({
+                    Component: (await import('@/pages/Theme/ThemePage'))
+                      .ThemePage,
+                  }),
+                },
+                {
+                  path: 'legends-za/map-maker',
+                  lazy: async () => ({
+                    Component: (await import('@/pages/MapMaker/MapMakerPage'))
+                      .MapMakerPage,
+                  }),
+                },
+              ]
+            : []),
+          {
+            path: ':gameId',
+            element: <GameLayout />,
+            children: [
+              { index: true, element: <GamePage /> },
+              { path: '*', element: <GamePage /> },
+            ],
+          },
+          { path: '*', element: <NotFoundPage /> },
         ],
       },
-      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ]);

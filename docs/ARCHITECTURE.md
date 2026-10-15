@@ -31,7 +31,7 @@ scripts/                   offline data and asset generators (§9)
 public/                    covers, map images, sprites
 vendor/                    gitignored pret checkouts used by the scripts
 .storybook/                Storybook config and decorators
-docs/                      this file (docs/superpowers is gitignored)
+docs/                      this file and the cleanup audit
 ```
 
 Folders are feature-based (`pages/Game/Location`, `pages/Game/Pokedex`), not type-based. Tests sit next to the code they cover.

@@ -105,7 +105,7 @@ export const TallGrassRow = ({
         <MegaEvolutions entry={entry} compact TypeTags={PokemonTypeTags} />
         {appearsIn.length === 0 ? (
           evolution ? null : (
-            <p className="text-[13px] text-muted-foreground">
+            <p className="text-xs text-muted-foreground">
               Not obtainable in these games without trading or events.
             </p>
           )
@@ -124,7 +124,7 @@ export const TallGrassRow = ({
                 ))}
               </ul>
               {!obtainable && (
-                <p className="text-[13px] text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {tradeOnlyNote(entry, game)}
                 </p>
               )}
@@ -141,7 +141,7 @@ export const TallGrassRow = ({
                   label={placesMapLabel(entry, game, region, paths)}
                 />
               )}
-              <ul className="flex flex-col divide-y rounded-lg border text-[13px]">
+              <ul className="flex flex-col divide-y rounded-lg border text-xs">
                 <EncounterPlaces
                   encounters={encounters}
                   region={region}
@@ -163,7 +163,7 @@ export const TallGrassRow = ({
           href={bulbapediaUrl(entry.name)}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium underline underline-offset-3"
+          className="inline-flex items-center gap-1.5 self-start text-xs font-medium underline underline-offset-3"
         >
           {entry.name} on Bulbapedia
           <ExternalLink aria-hidden className="size-3.5" />

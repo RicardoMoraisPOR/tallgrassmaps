@@ -23,9 +23,6 @@ export const ChangelogCard = () => {
       whileFocus="hover"
       className="flex w-full items-center gap-3 rounded-lg border bg-card px-3 py-2 text-left transition-colors hover:border-ring"
     >
-      <span className="inline-flex h-5 shrink-0 items-center rounded-full bg-[oklch(0.39_0.08_150)] px-2 text-[11px] font-semibold text-[oklch(0.9_0.1_145)]">
-        New
-      </span>
       <span className="flex-1 text-sm font-medium">Changelog</span>
       <time
         dateTime={latestChangelog.date}

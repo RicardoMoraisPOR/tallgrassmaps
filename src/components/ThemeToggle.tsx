@@ -4,7 +4,7 @@ import { Moon, Sun } from 'lucide-react';
 import { flushSync } from 'react-dom';
 
 import { Button } from '@/components/ui/button';
-import { prefersReducedMotion } from '@/lib/motion';
+import { prefersReducedMotion } from '@/lib/media';
 import { getTheme, setTheme, type Theme } from '@/lib/theme';
 
 import { playEncounterTransition } from './encounterTransition';

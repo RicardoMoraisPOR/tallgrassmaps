@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router';
 
 import { Container } from '@/components/Container';
+import { PageTitle } from '@/components/PageTitle';
 import { ToggleChip } from '@/components/ToggleChip';
 
 import { DatasetExplorer } from './DatasetExplorer';
@@ -30,12 +31,11 @@ export const DataLakePage = () => {
   return (
     <Container
       as="section"
-      className="flex max-w-7xl flex-col gap-10 pt-10 pb-16 sm:pt-14 sm:pb-20"
+      size="wide"
+      className="flex flex-col gap-10 pt-10 pb-16 sm:pt-14 sm:pb-20"
     >
       <header className="flex flex-col gap-3">
-        <h1 className="font-heading text-4xl leading-[1.05] font-bold tracking-[-0.035em] sm:text-5xl">
-          Data Lake
-        </h1>
+        <PageTitle>Data Lake</PageTitle>
         <p className="max-w-[60ch] text-lg text-pretty text-muted-foreground">
           Every trainer, item, sign and Pokémon we&apos;ve mapped, in one big
           spreadsheet. Built for Pokémaniac nerds.

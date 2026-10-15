@@ -12,6 +12,7 @@ import {
 import { ChevronRight, ExternalLink as ExternalLinkIcon } from 'lucide-react';
 
 import { Container } from '@/components/Container';
+import { PageTitle } from '@/components/PageTitle';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -53,9 +54,7 @@ export const CreditsPage = () => {
           className="size-20 shrink-0 self-start sm:size-28 sm:self-center"
         />
         <div className="flex max-w-[60ch] flex-col gap-3">
-          <h1 className="font-heading text-4xl leading-[1.05] font-bold tracking-[-0.035em] sm:text-5xl">
-            Credits
-          </h1>
+          <PageTitle>Credits</PageTitle>
           <p className="text-lg text-pretty text-muted-foreground">
             {SITE_NAME} is built on maps, sprites, research and code that other
             people made and shared. Here is everyone, and what they made.
@@ -95,7 +94,7 @@ export const CreditsPage = () => {
 
       <CreditSection id="fonts" title="Fonts">
         <CreditList credits={fontCredits} />
-        <p className="text-[13px] text-muted-foreground">
+        <p className="text-xs text-muted-foreground">
           Fonts are self-hosted through{' '}
           <ExternalLink href="https://fontsource.org/">Fontsource</ExternalLink>
           .
@@ -170,11 +169,11 @@ const MapCreditGroupSection = ({ group }: { group: MapCreditGroup }) => {
   );
 
   return (
-    <div className="overflow-hidden rounded-[14px] border bg-card">
+    <div className="overflow-hidden rounded-xl border bg-card">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b bg-muted/40 px-4 py-3">
         <div className="flex items-baseline gap-2">
           <h3 className="font-semibold tracking-tight">{group.title}</h3>
-          <span className="text-[13px] text-muted-foreground tabular-nums">
+          <span className="text-xs text-muted-foreground tabular-nums">
             {total} {total === 1 ? 'map tile' : 'map tiles'}
           </span>
         </div>
@@ -197,12 +196,12 @@ const MapCreditGroupSection = ({ group }: { group: MapCreditGroup }) => {
             <div className="flex min-w-0 flex-col gap-0.5">
               <span className="font-medium">{credit.credit}</span>
               {credit.note && (
-                <span className="max-w-[60ch] text-[13px] text-pretty text-muted-foreground">
+                <span className="max-w-[60ch] text-xs text-pretty text-muted-foreground">
                   {credit.note}
                 </span>
               )}
             </div>
-            <div className="flex items-baseline gap-3 text-[13px] text-muted-foreground">
+            <div className="flex items-baseline gap-3 text-xs text-muted-foreground">
               {credit.url ? (
                 <ExternalLink href={credit.url}>{credit.site}</ExternalLink>
               ) : (
@@ -235,7 +234,7 @@ const MapCreditGroupSection = ({ group }: { group: MapCreditGroup }) => {
                   · {credit.works.length}
                 </span>
               </h4>
-              <ul className="flex flex-col gap-1 text-[13px] text-muted-foreground">
+              <ul className="flex flex-col gap-1 text-xs text-muted-foreground">
                 {credit.works.map((work) => (
                   <li key={work.label}>
                     <ExternalLink href={work.url}>{work.label}</ExternalLink>
@@ -278,7 +277,7 @@ const CreditRows = ({ credits }: { credits: Array<DataCredit> }) => {
   );
 
   return (
-    <ul className="divide-y overflow-hidden rounded-[14px] border bg-card">
+    <ul className="divide-y overflow-hidden rounded-xl border bg-card">
       {byGameCount.map((credit) => (
         <DataCreditRow key={credit.name} credit={credit} />
       ))}
@@ -318,9 +317,7 @@ const DataCreditRow = ({ credit }: { credit: DataCredit }) => {
           <span className="flex min-w-0 flex-col">
             <span className="font-medium">{credit.name}</span>
             {credit.by && (
-              <span className="text-[13px] text-muted-foreground">
-                {credit.by}
-              </span>
+              <span className="text-xs text-muted-foreground">{credit.by}</span>
             )}
           </span>
           <span className="flex flex-wrap gap-1.5">
@@ -442,7 +439,7 @@ const CreditList = ({
       {credits.map((credit) => (
         <li
           key={credit.name}
-          className={`relative flex flex-col gap-1 overflow-hidden rounded-[14px] border bg-card p-4 ${credit.sprite ? 'pr-24 sm:pr-28' : ''}`}
+          className={`relative flex flex-col gap-1 overflow-hidden rounded-xl border bg-card p-4 ${credit.sprite ? 'pr-24 sm:pr-28' : ''}`}
         >
           {credit.covers && <CoverFan covers={credit.covers} />}
           {credit.sprite && (
@@ -467,12 +464,12 @@ const CreditList = ({
             {credit.name}
           </ExternalLink>
           {credit.by && (
-            <span className="relative text-[13px] text-muted-foreground">
+            <span className="relative text-xs text-muted-foreground">
               By {credit.by}
             </span>
           )}
           {credit.detail && (
-            <span className="relative text-[13px] text-pretty text-muted-foreground">
+            <span className="relative text-xs text-pretty text-muted-foreground">
               {credit.detail}
             </span>
           )}

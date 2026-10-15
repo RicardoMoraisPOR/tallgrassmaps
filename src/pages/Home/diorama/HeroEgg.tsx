@@ -14,7 +14,7 @@ import { Link } from 'react-router';
 import { Button } from '@/components/ui/button';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
-import { COLORS, GLOW } from './config';
+import { COLORS } from './config';
 import { Pokeballs, type Throw } from './Pokeball';
 import { type Bounds, type Registry, Swarm } from './Swarm';
 
@@ -157,7 +157,6 @@ export const HeroEgg = ({
       style={{
         border: `2px solid ${COLORS.light}`,
         backgroundColor: 'rgb(108 196 106 / 0.13)',
-        boxShadow: `0 0 36px 8px ${GLOW}, inset 0 0 90px 10px rgb(108 196 106 / 0.12)`,
       }}
       initial={{
         left: from.left,

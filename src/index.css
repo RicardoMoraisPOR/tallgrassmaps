@@ -685,12 +685,6 @@
   }
 }
 
-@utility game-card-glow {
-  box-shadow:
-    0 12px 28px -16px color-mix(in oklch, var(--card-accent) 35%, transparent),
-    0 2px 6px -2px oklch(0 0 0 / 0.08);
-}
-
 .zone-tooltip {
   display: flex;
   align-items: baseline;

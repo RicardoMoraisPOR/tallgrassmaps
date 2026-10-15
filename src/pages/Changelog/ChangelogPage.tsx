@@ -1,8 +1,11 @@
 import { useState } from 'react';
 
 import { Container } from '@/components/Container';
+import { PageTitle } from '@/components/PageTitle';
 import { Button } from '@/components/ui/button';
 import { changelog } from '@/data/changelog';
+import { ENTER, enterDelay } from '@/lib/enter';
+import { cn } from '@/lib/utils';
 
 const PAGE_SIZE = 3;
 const STAGGER_SECONDS = 0.07;
@@ -17,12 +20,11 @@ export const ChangelogPage = () => {
   return (
     <Container
       as="section"
-      className="flex max-w-3xl flex-col gap-12 pt-10 pb-16 sm:pt-14 sm:pb-20"
+      size="narrow"
+      className="flex flex-col gap-12 pt-10 pb-16 sm:pt-14 sm:pb-20"
     >
       <header className="flex flex-col gap-3">
-        <h1 className="font-heading text-4xl leading-[1.05] font-bold tracking-[-0.035em] sm:text-5xl">
-          Changelog
-        </h1>
+        <PageTitle>Changelog</PageTitle>
         <p className="text-lg text-pretty text-muted-foreground">
           Everything that has changed on the site.
         </p>
@@ -31,10 +33,8 @@ export const ChangelogPage = () => {
       {changelog.slice(0, shown).map((entry, index) => (
         <article
           key={entry.version}
-          className="flex animate-in flex-col gap-4 border-t pt-8 duration-450 ease-out fill-mode-backwards fade-in slide-in-from-bottom-12"
-          style={{
-            animationDelay: `${(index % PAGE_SIZE) * STAGGER_SECONDS}s`,
-          }}
+          className={cn('flex flex-col gap-4 border-t pt-8', ENTER)}
+          style={enterDelay((index % PAGE_SIZE) * STAGGER_SECONDS)}
         >
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-3">

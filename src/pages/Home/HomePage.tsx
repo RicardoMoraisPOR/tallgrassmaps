@@ -8,6 +8,8 @@ import { Link } from 'react-router';
 import { Container } from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { ENTER, enterDelay } from '@/lib/enter';
+import { cn } from '@/lib/utils';
 
 import { ChangelogCard } from './ChangelogCard';
 import { HeroDiorama } from './diorama/HeroDiorama';
@@ -29,10 +31,9 @@ const HEADLINE_STAGGER_SECONDS = 0.08;
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
 
 const riseIn = (delay: number) => ({
-  className:
-    'animate-in fill-mode-backwards fade-in slide-in-from-bottom-4 duration-600 will-change-[transform,opacity]',
+  className: cn(ENTER, 'duration-600 will-change-[transform,opacity]'),
   style: {
-    animationDelay: `${delay}s`,
+    ...enterDelay(delay),
     animationTimingFunction: `cubic-bezier(${EASE_OUT_EXPO.join(',')})`,
   },
 });
@@ -77,7 +78,10 @@ const Hero = () => {
       data-egg={egg ? 'true' : 'false'}
       className="group/hero relative isolate flex flex-1 flex-col overflow-hidden border-b"
     >
-      <Container className="relative grid max-w-[88rem] flex-1 content-center gap-x-12 gap-y-8 px-4 pt-10 pb-10 sm:px-8 sm:pt-14 sm:pb-12 lg:grid-cols-12 lg:gap-y-10 lg:px-12">
+      <Container
+        size="full"
+        className="relative grid flex-1 content-center gap-x-12 gap-y-8 px-4 pt-10 pb-10 sm:px-8 sm:pt-14 sm:pb-12 lg:grid-cols-12 lg:gap-y-10 lg:px-12"
+      >
         <h1
           className={`font-heading text-[clamp(2.75rem,11.5vw,5.5rem)] leading-[0.9] font-bold tracking-[-0.03em] lg:col-span-8 lg:self-center lg:text-[clamp(3.75rem,6.2vw,7.25rem)] ${FADE_OUT}`}
         >
@@ -148,7 +152,7 @@ const Hero = () => {
 const Footer = () => {
   return (
     <footer className="border-t">
-      <Container className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pt-6 pb-8 text-[13px] leading-5 text-muted-foreground">
+      <Container className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pt-6 pb-8 text-xs leading-5 text-muted-foreground">
         <p className="max-w-160 text-pretty">
           This is a fan project. It isn&apos;t affiliated with Nintendo, Game
           Freak, Creatures Inc. or The Pokémon Company, who own Pokémon and

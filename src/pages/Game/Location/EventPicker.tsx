@@ -24,10 +24,10 @@ export const EventPicker = ({
   const labelId = useId();
 
   return (
-    <div className="pointer-events-auto flex max-w-full flex-wrap items-center justify-end gap-x-1 gap-y-0.5 rounded-xl border bg-card/90 p-1 shadow-sm backdrop-blur">
+    <div className="pointer-events-auto flex max-w-full flex-wrap items-center justify-end gap-x-1 gap-y-0.5 rounded-xl border bg-card/90 p-1 shadow-sm">
       <span
         id={labelId}
-        className="min-w-0 px-2 text-[13px] font-medium text-foreground"
+        className="min-w-0 px-2 text-xs font-medium text-foreground"
       >
         {event.name}
       </span>

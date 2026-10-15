@@ -5,7 +5,6 @@ export const SCENE_WIDTH = 450;
 export const SCENE_HEIGHT = 420;
 export const TOP_Z = (PLATFORM_LAYERS - 1) * LAYER_GAP + 1;
 export const MAP_SPRITE_SCALE = 0.51;
-export const GLOW = 'rgb(108 196 106 / 0.65)';
 export const BASE_TILT_X = 58;
 export const BASE_TILT_Z = -45;
 
@@ -37,6 +36,3 @@ export const seeded = (seed: number) => {
     return state / 4294967296;
   };
 };
-
-export const isTouchDevice = () =>
-  window.matchMedia('(hover: none), (pointer: coarse)').matches;

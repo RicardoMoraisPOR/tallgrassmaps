@@ -291,11 +291,6 @@ export const softwareCredits: Array<Credit> = [
     detail: 'Hippocratic License 2.1',
   },
   { name: 'Motion', url: 'https://motion.dev/', detail: 'MIT' },
-  {
-    name: 'React Transition Group',
-    url: 'https://github.com/reactjs/react-transition-group',
-    detail: 'BSD-3-Clause',
-  },
   { name: 'Radix UI', url: 'https://www.radix-ui.com/', detail: 'MIT' },
   { name: 'shadcn/ui', url: 'https://ui.shadcn.com/', detail: 'MIT' },
   { name: 'Vaul', url: 'https://vaul.emilkowal.ski/', detail: 'MIT' },

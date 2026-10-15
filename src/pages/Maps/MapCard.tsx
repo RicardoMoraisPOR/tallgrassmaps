@@ -2,6 +2,7 @@ import { ArrowRight, Lock } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { ColorStripe } from '@/components/GameCover';
+import { OverlayPill } from '@/components/OverlayPill';
 import { entryName, entryRegionLabels } from '@/data/catalog/entries';
 import type { CatalogEntry } from '@/data/catalog/types';
 import { getCover } from '@/data/covers';
@@ -13,7 +14,7 @@ const shortTitle = (entry: CatalogEntry) =>
   entryName(entry).replace(/^Pokémon /, '');
 
 const ROW_CLASS =
-  'flex h-11 items-center justify-between gap-2 rounded-[10px] border border-input bg-background px-3 text-sm font-medium transition-colors duration-200 sm:h-9 dark:bg-input/30';
+  'flex h-11 items-center justify-between gap-2 rounded-lg border border-input bg-background px-3 text-sm font-medium transition-colors duration-200 sm:h-9 dark:bg-input/30';
 
 const GameRow = ({ entry }: { entry: CatalogEntry }) => {
   if (entry.status === 'coming-soon')
@@ -108,9 +109,7 @@ export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
             />
           ))}
         </div>
-        <span className="absolute bottom-2.5 left-2.5 z-10 inline-flex h-6 items-center rounded-full bg-[oklch(0.145_0_0/0.72)] px-2 text-xs font-medium text-[oklch(0.985_0_0)] backdrop-blur-sm">
-          {versionGroup} map
-        </span>
+        <OverlayPill className="left-2.5 z-10">{versionGroup} map</OverlayPill>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="flex min-w-0 flex-col gap-1">
@@ -122,7 +121,7 @@ export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
           >
             {formatList(entries.map(shortTitle))}
           </span>
-          <span className="text-[13px] leading-5 text-muted-foreground">
+          <span className="text-xs leading-5 text-muted-foreground">
             {formatList(regions)} · {entries[0].platform}
           </span>
         </div>

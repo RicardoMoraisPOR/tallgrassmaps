@@ -52,7 +52,7 @@ export const StatsForNerds = () => {
           Stats for nerds
         </h2>
       </div>
-      <div className="relative overflow-hidden rounded-[14px] border">
+      <div className="relative overflow-hidden rounded-xl border">
         <dl
           ref={grid}
           className="grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-4"

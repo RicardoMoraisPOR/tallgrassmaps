@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/dialog';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { DESKTOP_QUERY, TABLET_QUERY } from '@/lib/breakpoints';
+import { matchesQuery } from '@/lib/media';
 import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
@@ -78,7 +79,7 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
     {},
   );
   const tablet = useMediaQuery(TABLET_QUERY);
-  const [desktop] = useState(() => window.matchMedia(DESKTOP_QUERY).matches);
+  const [desktop] = useState(() => matchesQuery(DESKTOP_QUERY));
   const { pathname } = useLocation();
   const [wasPathname, setWasPathname] = useState(pathname);
 
@@ -120,7 +121,7 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
           const content = (
             <>
               <Icon aria-hidden className="size-5 flex-none md:size-4" />
-              <span className="hidden text-[13px] font-medium md:inline">
+              <span className="hidden text-xs font-medium md:inline">
                 {label}
               </span>
             </>

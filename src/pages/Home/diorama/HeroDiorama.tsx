@@ -10,11 +10,11 @@ import {
 } from 'motion/react';
 
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { isTouchDevice } from '@/lib/media';
 
 import {
   BASE_TILT_X,
   BASE_TILT_Z,
-  isTouchDevice,
   PLATFORM_SIZE,
   SCENE_HEIGHT,
   SCENE_WIDTH,
@@ -323,7 +323,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
       <button
         type="button"
         onClick={reveal}
-        className="pointer-events-auto absolute bottom-1 left-1/2 rounded-full border border-brand bg-card px-4 py-1.5 text-xs font-medium whitespace-nowrap text-foreground shadow-[0_0_18px_2px_rgb(108_196_106/0.35)] outline-none hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
+        className="pointer-events-auto absolute bottom-1 left-1/2 rounded-full border border-brand bg-card px-4 py-1.5 text-xs font-medium whitespace-nowrap text-foreground outline-none hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
         style={{
           opacity: showMore ? 1 : 0,
           visibility: showMore ? 'visible' : 'hidden',

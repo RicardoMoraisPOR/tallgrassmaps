@@ -17,7 +17,7 @@ export const PokedexButton = () => {
   const content = (
     <>
       <BookOpen aria-hidden className="size-5 flex-none md:size-4" />
-      <span className="hidden text-[13px] font-medium md:inline">Pokédex</span>
+      <span className="hidden text-xs font-medium md:inline">Pokédex</span>
     </>
   );
 

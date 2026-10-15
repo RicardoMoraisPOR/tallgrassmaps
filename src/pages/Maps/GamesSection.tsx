@@ -98,7 +98,7 @@ export const GamesSection = () => {
                     type="button"
                     aria-pressed={view === value}
                     onClick={() => setView(value)}
-                    className={`h-8 rounded-full px-4 text-[13px] font-medium transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 ${
+                    className={`h-8 rounded-full px-4 text-xs font-medium transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 ${
                       view === value
                         ? 'bg-foreground text-background'
                         : 'text-muted-foreground hover:text-foreground'
@@ -183,7 +183,7 @@ export const GamesSection = () => {
                 <button
                   type="button"
                   onClick={clear}
-                  className="h-9 rounded-full border border-input px-4 text-[13px] font-medium text-foreground hover:bg-muted"
+                  className="h-9 rounded-full border border-input px-4 text-xs font-medium text-foreground hover:bg-muted"
                 >
                   Clear filters
                 </button>

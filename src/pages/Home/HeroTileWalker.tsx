@@ -502,7 +502,7 @@ const TileWalker = ({
           />
         ))}
         <m.span
-          className="absolute bg-brand shadow-[0_0_24px_oklch(0.74_0.15_145/0.7)]"
+          className="absolute bg-brand"
           style={{ width: size, height: size, x: left, y: top }}
         />
       </div>

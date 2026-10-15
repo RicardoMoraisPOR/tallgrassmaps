@@ -40,9 +40,7 @@ export const WildPopup = ({ game, path, groups, note }: WildPopupProps) => {
       <div className="flex max-h-56 flex-col gap-3 overflow-y-auto pr-2">
         {groups.map((group) => (
           <section key={group.method} className="flex flex-col gap-1">
-            <h3 className="text-[13px] text-muted-foreground">
-              {titleOf(group)}
-            </h3>
+            <h3 className="text-xs text-muted-foreground">{titleOf(group)}</h3>
             <EncounterList game={game} rows={group.rows} compact linked />
           </section>
         ))}

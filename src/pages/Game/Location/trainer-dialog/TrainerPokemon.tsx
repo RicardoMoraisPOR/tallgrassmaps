@@ -46,7 +46,7 @@ export const TallGrassPokemon = ({
           </PokedexEntryLink>
           <PokemonTypeTags types={types} />
         </div>
-        <span className="text-[13px] text-muted-foreground tabular-nums">
+        <span className="text-xs text-muted-foreground tabular-nums">
           Lv. {pokemon.level}
         </span>
       </div>

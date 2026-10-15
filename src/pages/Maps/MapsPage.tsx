@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 
 import { Container } from '@/components/Container';
+import { PageTitle } from '@/components/PageTitle';
 
 import { GamesSection } from './GamesSection';
 
@@ -22,9 +23,7 @@ export const MapsPage = () => {
         as="section"
         className="flex flex-col gap-2 pt-10 pb-8 sm:pt-14"
       >
-        <h1 className="font-heading text-4xl leading-[1.05] font-bold tracking-[-0.035em] sm:text-5xl">
-          Explore maps
-        </h1>
+        <PageTitle>Explore maps</PageTitle>
         <p className="max-w-[56ch] text-lg text-pretty text-muted-foreground">
           Every Town Map in the series. Pick your version and start exploring.
         </p>

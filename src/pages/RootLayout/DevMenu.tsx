@@ -1,4 +1,4 @@
-import { Images, MapPinned, Wrench } from 'lucide-react';
+import { Images, MapPinned, Palette, Wrench } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { Button } from '@/components/ui/button';
@@ -13,6 +13,7 @@ import {
 
 const devLinks = [
   { to: '/pokemon-sprites', label: 'Pokémon Sprites', icon: Images },
+  { to: '/theme', label: 'Theme', icon: Palette },
   { to: '/legends-za/map-maker', label: 'Map Maker', icon: MapPinned },
 ];
 

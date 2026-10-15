@@ -137,12 +137,12 @@ export const PokemonLocations = ({
   const hidden = places.length - visiblePlaces.length;
 
   if (spots.length === 0) {
-    return <p className="text-[13px] text-muted-foreground">{emptyNote}</p>;
+    return <p className="text-xs text-muted-foreground">{emptyNote}</p>;
   }
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-[13px] text-muted-foreground">
+      <p className="text-xs text-muted-foreground">
         {totalPlaces} {totalPlaces === 1 ? 'place' : 'places'} across{' '}
         {gameOptions.length} {gameOptions.length === 1 ? 'game' : 'games'}
       </p>
@@ -185,11 +185,11 @@ export const PokemonLocations = ({
         </div>
       )}
       {places.length === 0 ? (
-        <p className="py-4 text-center text-[13px] text-muted-foreground">
+        <p className="py-4 text-center text-xs text-muted-foreground">
           No places match these filters.
         </p>
       ) : (
-        <ul className="flex flex-col divide-y rounded-[10px] border">
+        <ul className="flex flex-col divide-y rounded-lg border">
           {visiblePlaces.map(
             ({ key, label, regionName, link, spots: rows }, index) => (
               <Fragment key={key}>
@@ -202,7 +202,7 @@ export const PokemonLocations = ({
                       {regionName}
                     </li>
                   )}
-                <li className="flex items-start justify-between gap-x-4 px-3 py-2 text-[13px]">
+                <li className="flex items-start justify-between gap-x-4 px-3 py-2 text-xs">
                   {link ? (
                     <Link
                       to={link.to}

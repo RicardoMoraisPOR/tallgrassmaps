@@ -137,7 +137,7 @@ export const DatasetExplorer = ({ dataset }: { dataset: Dataset }) => {
         }}
       />
       <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between gap-3 text-[13px] text-muted-foreground">
+        <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <p aria-live="polite" className="tabular-nums">
               {dirty

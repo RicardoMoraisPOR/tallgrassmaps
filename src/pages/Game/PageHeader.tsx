@@ -37,10 +37,10 @@ export const PageHeader = ({ game, region, trail, href }: PageHeaderProps) => {
         'absolute top-4 left-4 z-20 flex max-w-[calc(100%-6rem)] flex-col items-start gap-2 lg:max-w-[min(48rem,calc(100%-26rem))]',
       )}
     >
-      <header className="flex max-w-full items-center gap-3 rounded-[14px] border bg-card p-3 sm:gap-4">
+      <header className="flex max-w-full items-center gap-3 rounded-xl border bg-card p-3 sm:gap-4">
         <div className="flex min-w-0 flex-col gap-2">
           <nav aria-label="Breadcrumb" className="hidden sm:block">
-            <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] text-muted-foreground">
+            <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-muted-foreground">
               <li className="flex items-center">
                 <MapSwitcher game={game} path={trailPath(trail)} />
               </li>
@@ -67,7 +67,7 @@ export const PageHeader = ({ game, region, trail, href }: PageHeaderProps) => {
               </li>
             </ol>
           </nav>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-muted-foreground sm:hidden">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground sm:hidden">
             <MapSwitcher game={game} path={trailPath(trail)} />
             <GameSwitcher game={game} path={trailPath(trail)} />
           </div>

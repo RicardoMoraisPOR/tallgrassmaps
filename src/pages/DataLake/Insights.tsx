@@ -54,7 +54,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
       {groupBy && (
         <section
           aria-label="Group by"
-          className="flex flex-col gap-3 rounded-[14px] border bg-card p-4"
+          className="flex flex-col gap-3 rounded-xl border bg-card p-4"
         >
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-sm font-semibold">Most common</h3>
@@ -81,7 +81,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
                     type="button"
                     title={`Filter to ${name}`}
                     onClick={() => onFilter({ column: groupBy, equals: name })}
-                    className="group grid w-full grid-cols-[minmax(0,10rem)_1fr_auto] items-center gap-3 rounded-md px-1 py-0.5 text-left text-[13px] hover:bg-muted"
+                    className="group grid w-full grid-cols-[minmax(0,10rem)_1fr_auto] items-center gap-3 rounded-md px-1 py-0.5 text-left text-xs hover:bg-muted"
                   >
                     <span className="truncate">{name}</span>
                     <span className="h-2 rounded-full bg-muted group-hover:bg-background">
@@ -125,7 +125,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
       {statColumn && (
         <section
           aria-label="Number summary"
-          className="flex flex-col gap-3 rounded-[14px] border bg-card p-4"
+          className="flex flex-col gap-3 rounded-xl border bg-card p-4"
         >
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-sm font-semibold">Number crunching</h3>
@@ -216,7 +216,7 @@ const AllCountsDialog = ({
               <button
                 type="button"
                 onClick={() => onPick(name)}
-                className="group grid w-full grid-cols-[minmax(0,12rem)_1fr_auto] items-center gap-3 rounded-md px-1 py-0.5 text-left text-[13px] hover:bg-muted"
+                className="group grid w-full grid-cols-[minmax(0,12rem)_1fr_auto] items-center gap-3 rounded-md px-1 py-0.5 text-left text-xs hover:bg-muted"
               >
                 <span className="truncate">{name}</span>
                 <span className="h-2 rounded-full bg-muted group-hover:bg-background">

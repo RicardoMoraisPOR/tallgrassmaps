@@ -47,7 +47,7 @@ export const MissionsExtra = ({ game, region }: ExtraContentProps) => {
         />
       </label>
       {found === 0 && (
-        <p className="py-6 text-center text-[13px] text-muted-foreground">
+        <p className="py-6 text-center text-xs text-muted-foreground">
           No missions match &ldquo;{query.trim()}&rdquo;.
         </p>
       )}
@@ -63,7 +63,7 @@ export const MissionsExtra = ({ game, region }: ExtraContentProps) => {
             <h3 className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
               {group} · {entries.length}
             </h3>
-            <ul className="flex flex-col divide-y rounded-[10px] border">
+            <ul className="flex flex-col divide-y rounded-lg border">
               {entries.map((mission) => (
                 <MissionRow
                   key={mission.id}
@@ -116,7 +116,7 @@ const MissionRow = ({
         aria-expanded={open}
         aria-controls={panelId}
         onClick={onToggle}
-        className="flex w-full items-center gap-3 px-3 py-2.5 text-left text-[13px] hover:bg-muted/50"
+        className="flex w-full items-center gap-3 px-3 py-2.5 text-left text-xs hover:bg-muted/50"
       >
         {(mission.number ?? mission.label) !== undefined && (
           <span className="w-8 flex-none text-xs text-muted-foreground tabular-nums">
@@ -134,13 +134,11 @@ const MissionRow = ({
         id={panelId}
         className="flex flex-col gap-2 px-3 pb-3"
       >
-        <p className="text-[13px] text-muted-foreground">
-          {mission.description}
-        </p>
+        <p className="text-xs text-muted-foreground">{mission.description}</p>
         {href && (
           <Link
             to={href}
-            className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium text-brand hover:underline"
+            className="inline-flex items-center gap-1.5 self-start text-xs font-medium text-brand hover:underline"
           >
             <MapPin aria-hidden className="size-3.5" />
             {locationName ?? 'Show on the map'}

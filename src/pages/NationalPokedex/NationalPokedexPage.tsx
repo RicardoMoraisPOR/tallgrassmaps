@@ -4,14 +4,15 @@ import { Search } from 'lucide-react';
 import { useSearchParams } from 'react-router';
 
 import { Container } from '@/components/Container';
+import { PageTitle } from '@/components/PageTitle';
 import { SelectField } from '@/components/SelectField';
 import { Input } from '@/components/ui/input';
 import { VirtualGrid } from '@/components/VirtualGrid';
 import { species } from '@/data/pokedex/master';
+import { ENTER, enterDelay } from '@/lib/enter';
 import { cn } from '@/lib/utils';
 
 import { PokemonTypeTags } from '../Game/Pokedex/PokemonTypeTags';
-import { FIRST_RENDER, HOVER_TINT, stagger } from './enter';
 import { PokemonDialog } from './PokemonDialog';
 import { PokemonImage } from './PokemonImage';
 import { allTypes, generationOf, generations, hasType } from './pokemonProfile';
@@ -21,6 +22,8 @@ const TILE_MIN_WIDTH = 120;
 const TILE_HEIGHT = 176;
 const TILE_GAP = 8;
 const ENTER_WINDOW_MS = 600;
+const MAX_STAGGERED = 24;
+const STAGGER_SECONDS = 0.008;
 const POKEMON_PARAM = 'pokemon';
 const ANY = 'any';
 
@@ -96,12 +99,10 @@ export const NationalPokedexPage = () => {
   return (
     <Container
       as="section"
-      className="flex max-w-6xl flex-col gap-6 pt-10 pb-16 sm:pt-14 sm:pb-20"
+      className="flex flex-col gap-6 pt-10 pb-16 sm:pt-14 sm:pb-20"
     >
       <header className="flex flex-col gap-3">
-        <h1 className="font-heading text-4xl leading-[1.05] font-bold tracking-[-0.035em] sm:text-5xl">
-          National Pokédex Explorer
-        </h1>
+        <PageTitle>National Pokédex Explorer</PageTitle>
         <p className="text-lg text-pretty text-muted-foreground">
           Search any Pokémon to see its types, forms, evolutions, the games it
           is in and where to find it.
@@ -135,7 +136,7 @@ export const NationalPokedexPage = () => {
           options={generationOptions}
         />
       </div>
-      <p className="text-[13px] text-muted-foreground" aria-live="polite">
+      <p className="text-xs text-muted-foreground" aria-live="polite">
         {visible.length} of {species.length} Pokémon
       </p>
       {visible.length === 0 ? (
@@ -155,13 +156,15 @@ export const NationalPokedexPage = () => {
               onClick={() => select(number)}
               style={{
                 ...typeTintStyle(types),
-                ...(entering ? stagger(index) : undefined),
+                ...(entering
+                  ? enterDelay(Math.min(index, MAX_STAGGERED) * STAGGER_SECONDS)
+                  : undefined),
               }}
               className={cn(
-                'flex h-full w-full flex-col items-center gap-1 overflow-hidden rounded-[10px] border bg-card p-2 text-center outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+                'flex h-full w-full flex-col items-center gap-1 overflow-hidden rounded-lg border bg-card p-2 text-center outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
                 TYPE_TINT,
-                HOVER_TINT,
-                entering && FIRST_RENDER,
+                'transition-colors duration-150 motion-reduce:transition-none',
+                entering && ENTER,
               )}
             >
               <PokemonImage number={number} name={name} size={80} />

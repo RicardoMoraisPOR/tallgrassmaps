@@ -73,7 +73,7 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
   return (
     <>
       <div className="flex items-center gap-4">
-        <div className="flex size-32 flex-none items-center justify-center rounded-[10px] bg-muted/40">
+        <div className="flex size-32 flex-none items-center justify-center rounded-lg bg-muted/40">
           <PokemonImage number={number} name={name} size={HERO_SIZE} />
         </div>
         <div className="flex min-w-0 flex-col items-start gap-2">
@@ -123,7 +123,7 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
             {forms.map((form) => (
               <li
                 key={form.name}
-                className="flex items-center gap-2 rounded-[10px] border p-2"
+                className="flex items-center gap-2 rounded-lg border p-2"
               >
                 {form.spriteId && (
                   <img
@@ -164,7 +164,7 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
                 <Link
                   to={`${gameHref(game.id)}?pokedex=${number}`}
                   title={`Open ${name} in the ${game.fullName} Pokédex`}
-                  className="flex items-center gap-2 rounded-full border px-3 py-1 text-[13px] hover:bg-muted/60"
+                  className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs hover:bg-muted/60"
                 >
                   <span
                     aria-hidden
@@ -177,7 +177,7 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
             ))}
           </ul>
         ) : (
-          <p className="text-[13px] text-muted-foreground">
+          <p className="text-xs text-muted-foreground">
             Not in a mapped Pokédex yet.
           </p>
         )}

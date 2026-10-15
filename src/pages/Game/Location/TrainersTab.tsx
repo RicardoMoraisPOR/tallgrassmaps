@@ -32,9 +32,7 @@ export const TrainersTab = ({
     <>
       {groups.map(({ area, battles }) => (
         <div key={area ?? ''} className="flex flex-col gap-1">
-          {area && (
-            <h3 className="text-[13px] text-muted-foreground">{area}</h3>
-          )}
+          {area && <h3 className="text-xs text-muted-foreground">{area}</h3>}
           <ul className="flex flex-col divide-y">
             {battles.map(({ battle, key, number }) => (
               <li key={key} className="flex flex-col gap-2 py-2.5">

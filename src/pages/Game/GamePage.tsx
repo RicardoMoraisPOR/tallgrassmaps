@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 
+import { PageSkeleton } from '@/components/PageSkeleton';
 import { useGameRoute } from '@/hooks/useGameRoute';
 
 import { RegionPage } from './Region/RegionPage';
@@ -23,7 +24,7 @@ export const GamePage = () => {
 
   if (route.region.navigation === 'seamless') {
     return (
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageSkeleton />}>
         <SeamlessMapPage />
       </Suspense>
     );
@@ -32,7 +33,7 @@ export const GamePage = () => {
   if (route.trail?.length === 0) return <RegionPage />;
 
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<PageSkeleton />}>
       <LocationPage />
     </Suspense>
   );

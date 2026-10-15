@@ -162,7 +162,7 @@ const Ball = ({
       cancelled = true;
       running.forEach((controls) => controls.stop());
     };
-  }, [startX, startY, target, x, y, rotate, scale]);
+  }, [startX, startY, target, x, y, rotate, scale, catchChance]);
 
   const faded = phase === 'miss' || phase === 'escaped';
   const halfStyle = { width: BALL_SIZE, height: BALL_SIZE };

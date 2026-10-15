@@ -1,4 +1,4 @@
-import { reducedMotionQuery } from '@/lib/motion';
+import { reducedMotionQuery } from '@/lib/media';
 import { useSettingsStore } from '@/stores/settings';
 
 import { useMediaQuery } from './useMediaQuery';

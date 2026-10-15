@@ -1,16 +1,16 @@
-import { type ReactNode, type RefObject, useRef } from 'react';
+import {
+  type ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import { useLocation, useNavigationType, useOutlet } from 'react-router';
-import { SwitchTransition, Transition } from 'react-transition-group';
-import type { TransitionProps } from 'react-transition-group/Transition';
 
 import type { Direction } from '@/data/maps';
-import {
-  easeSineIn,
-  easeSineOut,
-  prefersReducedMotion,
-  type TravelState,
-} from '@/lib/motion';
+import { prefersReducedMotion } from '@/lib/media';
+import { easeSineIn, easeSineOut, type TravelState } from '@/lib/motion';
 import { pathSegments } from '@/lib/paths';
 
 const EXIT_MS = 200;
@@ -67,6 +67,18 @@ const motionFor = (
   return slideMotion;
 };
 
+const play = (
+  element: HTMLElement | null,
+  keyframes: Array<Keyframe>,
+  duration: number,
+  easing: string,
+) =>
+  element?.animate(keyframes, {
+    duration: prefersReducedMotion() ? 0 : duration,
+    easing,
+    fill: 'both',
+  });
+
 type PageTransitionProps = {
   depth?: number;
   mapMotion?: boolean;
@@ -74,121 +86,108 @@ type PageTransitionProps = {
   children?: ReactNode;
 };
 
-export const PageTransition = ({
-  depth,
-  mapMotion = false,
-  keyFor,
-  children,
-}: PageTransitionProps) => {
-  const { pathname } = useLocation();
-  const outlet = useOutlet();
-  const motionRef = useRef<Motion>(undefined);
-
-  const keyOf = keyFor ?? ((path: string) => pageKey(path, depth));
-  const key = keyOf(pathname);
-
-  return (
-    <SwitchTransition>
-      <PageFrame
-        key={key}
-        path={key}
-        keyOf={keyOf}
-        mapMotion={mapMotion}
-        motionRef={motionRef}
-      >
-        {children ?? outlet}
-      </PageFrame>
-    </SwitchTransition>
-  );
-};
+type Frame = { key: string; content: ReactNode; entering: boolean };
 
 const pageKey = (pathname: string, depth: number | undefined) =>
   depth === undefined
     ? pathname
     : `/${pathSegments(pathname).slice(0, depth).join('/')}`;
 
-const PageFrame = ({
+export const PageTransition = ({
+  depth,
+  mapMotion = false,
+  keyFor,
   children,
-  path,
-  keyOf,
-  mapMotion,
-  motionRef,
-  ...transitionProps
-}: {
-  children: ReactNode;
-  path: string;
-  keyOf: (pathname: string) => string;
-  mapMotion: boolean;
-  motionRef: RefObject<Motion | undefined>;
-} & Pick<TransitionProps<HTMLDivElement>, 'in' | 'onExited'>) => {
-  const nodeRef = useRef<HTMLDivElement>(null);
+}: PageTransitionProps) => {
   const { pathname, state } = useLocation();
   const navigationType = useNavigationType();
+  const outlet = useOutlet();
+  const node = useRef<HTMLDivElement>(null);
+  const motion = useRef<Motion>(slideMotion);
 
+  const keyOf = keyFor ?? ((path: string) => pageKey(path, depth));
+  const key = keyOf(pathname);
+  const content = children ?? outlet;
+  const [frame, setFrame] = useState<Frame>({
+    key,
+    content,
+    entering: false,
+  });
+  const latest = useRef({ key, content });
+  const leaving = frame.key !== key;
   const travel =
     navigationType === 'POP'
       ? undefined
       : (state as TravelState | null)?.travel;
-  const nextPath = keyOf(pathname);
 
-  const animate = (
-    keyframes: Array<Keyframe>,
-    duration: number,
-    easing: string,
-  ) =>
-    nodeRef.current?.animate(keyframes, {
-      duration: prefersReducedMotion() ? 0 : duration,
-      easing,
-      fill: 'both',
-    });
+  if (!leaving && frame.content !== content) setFrame({ ...frame, content });
+
+  useEffect(() => {
+    latest.current = { key, content };
+  }, [key, content]);
+
+  useEffect(() => {
+    if (!leaving) return;
+
+    let cancelled = false;
+
+    motion.current = motionFor(frame.key, key, travel, mapMotion);
+
+    const exit = play(
+      node.current,
+      [
+        { transform: 'none', opacity: 1 },
+        { transform: motion.current.exitTo, opacity: 0 },
+      ],
+      EXIT_MS,
+      easeSineIn,
+    );
+    const swap = () => {
+      if (!cancelled) setFrame({ ...latest.current, entering: true });
+    };
+
+    if (exit) exit.finished.then(swap, () => {});
+    else swap();
+
+    return () => {
+      cancelled = true;
+      exit?.cancel();
+    };
+  }, [leaving, key, frame.key, travel, mapMotion]);
+
+  useLayoutEffect(() => {
+    if (!frame.entering) return;
+
+    window.scrollTo(0, 0);
+
+    const enter = play(
+      node.current,
+      [
+        { transform: motion.current.enterFrom, opacity: 0 },
+        { transform: 'none', opacity: 1 },
+      ],
+      ENTER_MS,
+      easeSineOut,
+    );
+
+    void enter?.finished.then(
+      () => {
+        enter.cancel();
+
+        const { hash } = window.location;
+
+        if (hash)
+          document
+            .getElementById(decodeURIComponent(hash.slice(1)))
+            ?.scrollIntoView();
+      },
+      () => {},
+    );
+  }, [frame.key, frame.entering]);
 
   return (
-    <Transition
-      {...transitionProps}
-      nodeRef={nodeRef}
-      timeout={{ enter: ENTER_MS, exit: EXIT_MS }}
-      onEnter={() => {
-        window.scrollTo(0, 0);
-        const { enterFrom } = motionRef.current ?? slideMotion;
-        const animation = animate(
-          [
-            { transform: enterFrom, opacity: 0 },
-            { transform: 'none', opacity: 1 },
-          ],
-          ENTER_MS,
-          easeSineOut,
-        );
-
-        animation?.finished
-          .then(() => {
-            animation.cancel();
-            const { hash } = window.location;
-
-            if (hash) {
-              document
-                .getElementById(decodeURIComponent(hash.slice(1)))
-                ?.scrollIntoView();
-            }
-          })
-          .catch(() => {});
-      }}
-      onExit={() => {
-        const motion = motionFor(path, nextPath, travel, mapMotion);
-
-        motionRef.current = motion;
-        animate(
-          [
-            { transform: 'none', opacity: 1 },
-            { transform: motion.exitTo, opacity: 0 },
-          ],
-          EXIT_MS,
-          easeSineIn,
-        );
-      }}
-    >
-      <div ref={nodeRef} className="flex flex-1 flex-col">
-        {children}
-      </div>
-    </Transition>
+    <div key={frame.key} ref={node} className="flex flex-1 flex-col">
+      {frame.content}
+    </div>
   );
 };

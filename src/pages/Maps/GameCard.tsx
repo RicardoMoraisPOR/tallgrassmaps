@@ -1,15 +1,16 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties } from 'react';
 
 import { ArrowRight, Lock } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { ColorStripe, Cover } from '@/components/GameCover';
+import { OverlayPill } from '@/components/OverlayPill';
 import { entryRegionLabels } from '@/data/catalog/entries';
 import type { CatalogEntry, UpcomingGame } from '@/data/catalog/types';
 import { versionGroupNames } from '@/data/catalog/versionGroups';
 import type { Game, Platform } from '@/data/games';
 import { getRegion } from '@/data/maps';
-import { cn, formatList } from '@/lib/utils';
+import { formatList } from '@/lib/utils';
 
 type GameCardProps = {
   entry: CatalogEntry;
@@ -40,7 +41,7 @@ const CatalogGameCard = ({ game }: { game: Game }) => {
         aria-label={`Open ${game.fullName} map`}
         className="absolute inset-0 z-0 rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/55"
       />
-      <div className="pointer-events-none relative z-10 flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-xs transition-[box-shadow,border-color] duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:border-[var(--card-accent)] group-hover/card:game-card-glow group-has-[:focus-visible]/card:border-ring">
+      <div className="pointer-events-none relative z-10 flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-xs transition-colors duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:border-[var(--card-accent)] group-has-[:focus-visible]/card:border-ring">
         <ColorStripe colors={game.colors} />
         <Cover gameId={game.id} accent={accent} interactive>
           <MapTag versionGroup={region.versionGroup} />
@@ -55,7 +56,7 @@ const CatalogGameCard = ({ game }: { game: Game }) => {
               platform={game.platform}
             />
           </div>
-          <span className="mt-auto inline-flex h-11 items-center justify-center gap-1.5 rounded-[10px] border border-input bg-background text-sm font-medium transition-colors duration-200 group-hover/card:border-primary group-hover/card:bg-primary group-hover/card:text-primary-foreground group-focus-visible/card:border-primary group-focus-visible/card:bg-primary group-focus-visible/card:text-primary-foreground sm:h-9 dark:bg-input/30 dark:group-hover/card:bg-primary dark:group-focus-visible/card:bg-primary">
+          <span className="mt-auto inline-flex h-11 items-center justify-center gap-1.5 rounded-lg border border-input bg-background text-sm font-medium transition-colors duration-200 group-hover/card:border-primary group-hover/card:bg-primary group-hover/card:text-primary-foreground group-focus-visible/card:border-primary group-focus-visible/card:bg-primary group-focus-visible/card:text-primary-foreground sm:h-9 dark:bg-input/30 dark:group-hover/card:bg-primary dark:group-focus-visible/card:bg-primary">
             Open map
             <ArrowRight className="size-4 transition-transform duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1" />
           </span>
@@ -74,10 +75,10 @@ const UpcomingCard = ({ game }: { game: UpcomingGame }) => {
       <ColorStripe colors={game.colors} className="opacity-35" />
       <Cover gameId={game.id} accent={game.colors[0]} muted>
         <MapTag versionGroup={game.versionGroup} />
-        <CoverTag className="right-2.5">
+        <OverlayPill className="right-2.5">
           <Lock className="size-3" />
           Coming soon
-        </CoverTag>
+        </OverlayPill>
       </Cover>
       <div className="flex flex-1 flex-col gap-1 p-4">
         <span className="font-medium tracking-tight text-pretty">
@@ -97,7 +98,7 @@ const Details = ({
   platform: Platform;
 }) => {
   return (
-    <span className="text-[13px] leading-5 text-muted-foreground">
+    <span className="text-xs leading-5 text-muted-foreground">
       {formatList(regions)} · {platform}
     </span>
   );
@@ -105,33 +106,11 @@ const Details = ({
 
 const MapTag = ({ versionGroup }: { versionGroup: string }) => {
   return (
-    <CoverTag
+    <OverlayPill
       className="left-2.5"
       title={`Same maps in ${formatList(versionGroupNames(versionGroup))}`}
     >
       {versionGroup} map
-    </CoverTag>
-  );
-};
-
-const CoverTag = ({
-  children,
-  className,
-  title,
-}: {
-  children: ReactNode;
-  className?: string;
-  title?: string;
-}) => {
-  return (
-    <span
-      title={title}
-      className={cn(
-        'absolute bottom-2.5 inline-flex h-6 items-center gap-1.5 rounded-full bg-[oklch(0.145_0_0/0.72)] px-2 text-xs font-medium text-[oklch(0.985_0_0)] backdrop-blur-sm',
-        className,
-      )}
-    >
-      {children}
-    </span>
+    </OverlayPill>
   );
 };

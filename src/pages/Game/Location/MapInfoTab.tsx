@@ -46,7 +46,7 @@ export const MapInfoTab = ({
       </h2>
       {groups.map(({ layer, entries }) => (
         <div key={layer.id} className="flex flex-col gap-2">
-          <h3 className="flex items-center gap-2 text-[13px] text-muted-foreground">
+          <h3 className="flex items-center gap-2 text-xs text-muted-foreground">
             <span
               aria-hidden
               className="size-3 rounded-[3px] border-2 border-(--layer) bg-(--layer)/30"
@@ -78,7 +78,7 @@ export const MapInfoTab = ({
 };
 
 const chipClassName =
-  'flex h-7 max-w-full items-center rounded-full border px-2.5 text-[13px] transition-colors';
+  'flex h-7 max-w-full items-center rounded-full border px-2.5 text-xs transition-colors';
 
 const EntryChip = ({
   entry,

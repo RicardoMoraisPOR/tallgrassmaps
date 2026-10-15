@@ -50,7 +50,7 @@ export const SiteHeader = () => {
         <div
           aria-hidden
           className={cn(
-            'absolute inset-0 border-b bg-background/85 backdrop-blur-lg transition-opacity duration-250 motion-reduce:transition-none',
+            'absolute inset-0 border-b bg-background transition-opacity duration-250 motion-reduce:transition-none',
             atTop ? 'opacity-0' : 'opacity-100',
           )}
         />

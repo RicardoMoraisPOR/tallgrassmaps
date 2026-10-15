@@ -16,7 +16,7 @@ export const SpriteGallery = ({ name, sprites }: SpriteGalleryProps) => {
       {groups.map((group) => (
         <div key={group.name} className="flex flex-col gap-2">
           {groups.length > 1 && (
-            <h4 className="text-[13px] font-medium">{group.name}</h4>
+            <h4 className="text-xs font-medium">{group.name}</h4>
           )}
           <ul className="flex flex-wrap gap-3">
             {group.sprites.map((sprite) => (

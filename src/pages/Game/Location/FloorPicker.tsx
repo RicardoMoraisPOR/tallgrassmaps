@@ -22,7 +22,7 @@ export const FloorPicker = ({
       onValueChange={(id) => {
         if (id) onSelect(id);
       }}
-      className="pointer-events-auto flex-wrap justify-end rounded-xl border bg-card/90 p-1 shadow-sm backdrop-blur"
+      className="pointer-events-auto flex-wrap justify-end rounded-xl border bg-card/90 p-1 shadow-sm"
     >
       {floors.map((floor) => (
         <ToggleGroupItem

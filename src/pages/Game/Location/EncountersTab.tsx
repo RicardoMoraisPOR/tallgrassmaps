@@ -79,13 +79,13 @@ export const EncountersTab = ({
         </div>
       )}
       {searchable && visible.length === 0 && (
-        <p className="text-[13px] text-muted-foreground">
+        <p className="text-xs text-muted-foreground">
           No Pokémon match “{query.trim()}”.
         </p>
       )}
       {visible.map(({ method, rows }) => (
         <div key={method} className="flex flex-col gap-1">
-          <h3 className="text-[13px] text-muted-foreground">
+          <h3 className="text-xs text-muted-foreground">
             {methodLabel({ method, path, games: [] })}
           </h3>
           <EncounterList
@@ -263,7 +263,7 @@ const EncounterRow = ({
     highlightKeyFor?.(row),
     onHighlight,
   );
-  const nameClassName = 'truncate text-[13px] font-medium';
+  const nameClassName = 'truncate text-xs font-medium';
 
   return (
     <li className="flex items-center gap-2 pt-1 pb-2">
@@ -307,7 +307,7 @@ const EncounterRow = ({
       {chance && (
         <span
           title="Chance to appear here"
-          className="text-[13px] font-medium tabular-nums"
+          className="text-xs font-medium tabular-nums"
         >
           {chance}
           <span className="sr-only"> chance to appear</span>

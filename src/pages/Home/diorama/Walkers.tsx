@@ -9,7 +9,6 @@ import { Billboard } from './Billboard';
 import { MAP_SPRITE_SCALE, random, WALK_BOUNDS } from './config';
 
 const MAX_WALKERS = 3;
-const SPAWN_EVERY_MS = [1500, 3200];
 const FIRST_SPAWN_MS = 2300;
 const SPEED_PIXELS_PER_SECOND = 34;
 const SPRITE_SIZE = 92;
@@ -34,6 +33,25 @@ const edgePoint = () =>
   random(0, 1) < 0.5
     ? { x: random(WALK_BOUNDS.minX, WALK_BOUNDS.maxX), y: WALK_BOUNDS.minY }
     : { x: WALK_BOUNDS.maxX, y: random(WALK_BOUNDS.minY, WALK_BOUNDS.maxY) };
+
+let lastKey = 0;
+
+const fillTo = (current: Array<Sighting>, total: number) => {
+  const added = Array.from(
+    { length: Math.max(0, total - current.length) },
+    (): Sighting => {
+      lastKey += 1;
+
+      return {
+        key: lastKey,
+        species: randomSpecies(),
+        level: Math.round(random(3, 72)),
+      };
+    },
+  );
+
+  return added.length ? [...current, ...added] : current;
+};
 
 const wait = (ms: number) =>
   new Promise<void>((resolve) => setTimeout(resolve, ms));
@@ -116,6 +134,7 @@ const Walker = ({
   const caught = useRef(onCaught);
   const mapRef = useRef(map);
   const halted = useRef(false);
+  const [locked, setLocked] = useState(false);
   const running = useRef<Array<{ stop: () => void }>>([]);
   const x = useMotionValue(start.x);
   const y = useMotionValue(start.y);
@@ -202,8 +221,9 @@ const Walker = ({
     halted.current = true;
     running.current.forEach((controls) => controls.stop());
     setMoving(false);
+    setLocked(true);
   };
-  const catchable = map && visible && !halted.current;
+  const catchable = map && visible && !locked;
 
   return (
     <m.div
@@ -297,52 +317,20 @@ export const Walkers = ({
 }: WalkersProps) => {
   const [walkers, setWalkers] = useState<Array<Sighting>>([]);
   const [caught, setCaught] = useState(0);
-  const counter = useRef(0);
-  const mapRef = useRef(map);
-
-  const fillTo = (current: Array<Sighting>, total: number) => {
-    const added = Array.from(
-      { length: Math.max(0, total - current.length) },
-      (): Sighting => {
-        counter.current += 1;
-
-        return {
-          key: counter.current,
-          species: randomSpecies(),
-          level: Math.round(random(3, 72)),
-        };
-      },
-    );
-
-    return added.length ? [...current, ...added] : current;
-  };
+  const [started, setStarted] = useState(false);
+  const target = map ? MAX_WALKERS - caught : MAX_WALKERS;
 
   useEffect(() => {
-    mapRef.current = map;
-  }, [map]);
-
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-
-    const spawn = () => {
-      if (!document.hidden && !mapRef.current)
-        setWalkers((current) => fillTo(current, MAX_WALKERS));
-
-      timer = setTimeout(spawn, random(SPAWN_EVERY_MS[0], SPAWN_EVERY_MS[1]));
-    };
-
-    timer = setTimeout(spawn, FIRST_SPAWN_MS);
+    const timer = setTimeout(() => setStarted(true), FIRST_SPAWN_MS);
 
     return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (!map) return;
+    if (!map && !started) return;
 
-    setWalkers((current) => fillTo(current, MAX_WALKERS - caught));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map, caught, walkers.length]);
+    setWalkers((current) => fillTo(current, target));
+  }, [map, started, target, walkers.length]);
 
   useEffect(() => {
     if (!map) return;
@@ -367,15 +355,9 @@ export const Walkers = ({
           registry={registry}
           onCatch={onCatch}
           onDone={() =>
-            setWalkers((current) => {
-              const remaining = current.filter(
-                (item) => item.key !== sighting.key,
-              );
-
-              return mapRef.current
-                ? remaining
-                : fillTo(remaining, MAX_WALKERS);
-            })
+            setWalkers((current) =>
+              current.filter((item) => item.key !== sighting.key),
+            )
           }
           onCaught={() => {
             setWalkers((current) =>

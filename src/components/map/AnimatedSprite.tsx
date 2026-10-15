@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import type { SpriteAnimation } from '@/data/maps';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
-import { reducedMotionQuery } from '@/lib/motion';
+import { reducedMotionQuery } from '@/lib/media';
 import { cn } from '@/lib/utils';
 
 type AnimatedSpriteProps = {

@@ -1,5 +1,7 @@
+import { isTouchDevice } from '@/lib/media';
+
 import { Billboard } from './Billboard';
-import { isTouchDevice, PLATFORM_SIZE, seeded } from './config';
+import { PLATFORM_SIZE, seeded } from './config';
 
 const GRID = 9;
 const TOUCH_GRID = 6;

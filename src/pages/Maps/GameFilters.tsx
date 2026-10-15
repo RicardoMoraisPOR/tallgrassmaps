@@ -66,13 +66,13 @@ export const GameFilters = ({
         ))}
         <span
           aria-live="polite"
-          className="ml-auto text-[13px] text-muted-foreground tabular-nums"
+          className="ml-auto text-xs text-muted-foreground tabular-nums"
         >
           {active ? `${shown} of ${total}` : shown}{' '}
           {(active ? total : shown) === 1 ? 'game' : 'games'}
         </span>
       </div>
-      <div className="flex min-h-9 flex-wrap items-center gap-1.5 text-[13px] text-muted-foreground">
+      <div className="flex min-h-9 flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
         <AnimatePresence initial={false} mode="popLayout">
           {selected.map(({ key, option }) => (
             <m.span
@@ -125,7 +125,7 @@ type FilterDropdownProps = {
 const FilterDropdown = ({ group, values, onToggle }: FilterDropdownProps) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="group inline-flex h-9 items-center gap-2 rounded-full border bg-background px-3.5 text-[13px] font-medium whitespace-nowrap transition-colors outline-none hover:border-foreground/30 hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 data-[state=open]:border-foreground/30 sm:h-8 dark:bg-input/30 dark:hover:bg-input/70">
+      <DropdownMenuTrigger className="group inline-flex h-9 items-center gap-2 rounded-full border bg-background px-3.5 text-xs font-medium whitespace-nowrap transition-colors outline-none hover:border-foreground/30 hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 data-[state=open]:border-foreground/30 sm:h-8 dark:bg-input/30 dark:hover:bg-input/70">
         {group.label}
         {values.length > 0 && (
           <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-foreground px-1.5 text-[11px] leading-none text-background tabular-nums">

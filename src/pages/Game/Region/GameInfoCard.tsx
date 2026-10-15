@@ -79,7 +79,7 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
   return (
     <section
       aria-labelledby="game-heading"
-      className="flex min-h-0 flex-1 flex-col overflow-hidden overflow-y-auto rounded-[14px] border bg-card"
+      className="flex min-h-0 flex-1 flex-col overflow-hidden overflow-y-auto rounded-xl border bg-card"
     >
       <ColorStripe colors={game.colors} />
       <Cover gameId={game.id} accent={game.colors[0]} aspect="aspect-16/7" />
@@ -91,7 +91,7 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
           >
             {game.fullName}
           </h2>
-          <p className="flex flex-wrap items-center gap-x-2 text-[13px] text-muted-foreground">
+          <p className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground">
             <Gamepad2 aria-hidden className="size-4 flex-none" />
             <span className="font-medium">
               {platformParts[game.platform].map(({ text, color }, index) => (
@@ -129,7 +129,7 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
           </div>
         </div>
 
-        <dl className="flex flex-col gap-2.5 text-[13px]">
+        <dl className="flex flex-col gap-2.5 text-xs">
           <Fact icon={Calendar} label="Released">
             <time dateTime={game.releaseDate}>
               {dateFormat.format(new Date(`${game.releaseDate}T00:00:00`))}
@@ -169,7 +169,7 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
             {pokemon.map(({ label, value }) => (
               <div
                 key={label}
-                className="flex flex-col-reverse justify-end gap-0.5 rounded-[10px] bg-muted/60 px-3 py-2.5"
+                className="flex flex-col-reverse justify-end gap-0.5 rounded-lg bg-muted/60 px-3 py-2.5"
               >
                 <dt className="text-xs leading-4 text-muted-foreground">
                   {label}
@@ -193,11 +193,11 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
                 Explore in Data Lake
               </Link>
             </div>
-            <dl className="flex flex-col divide-y rounded-[10px] border">
+            <dl className="flex flex-col divide-y rounded-lg border">
               {world.map(({ icon: Icon, label, value, detail }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-3 px-3 py-2.5 text-[13px]"
+                  className="flex items-center gap-3 px-3 py-2.5 text-xs"
                 >
                   <Icon
                     aria-hidden

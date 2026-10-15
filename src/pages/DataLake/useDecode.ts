@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { prefersReducedMotion } from '@/lib/motion';
+import { prefersReducedMotion } from '@/lib/media';
 
 const GLYPHS = '01{}<>/\\#$%&*+=?';
 const FRAME_MS = 40;

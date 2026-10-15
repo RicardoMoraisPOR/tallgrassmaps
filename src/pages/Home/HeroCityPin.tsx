@@ -86,10 +86,6 @@ export const HeroCityPin = ({ pin, onDone }: HeroCityPinProps) => {
       }}
       onAnimationComplete={() => onDone(pin.id)}
     >
-      <span
-        aria-hidden
-        className="absolute top-0 left-0 size-14 -translate-1/2 rounded-full bg-brand/20 blur-xl"
-      />
       <m.span
         aria-hidden
         className="absolute top-0 left-0 size-8 -translate-1/2 rounded-full border border-brand"

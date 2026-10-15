@@ -11,7 +11,7 @@ export const SelectField = ({
   onChange,
   options,
 }: SelectFieldProps) => (
-  <label className="flex items-center gap-2 text-[13px] text-muted-foreground">
+  <label className="flex items-center gap-2 text-xs text-muted-foreground">
     {label}
     <select
       value={value}
