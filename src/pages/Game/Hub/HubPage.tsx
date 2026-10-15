@@ -90,7 +90,7 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
   return (
     <>
       <Container size="wide" className="flex flex-col gap-12 pt-32 pb-20">
-        <header className="flex items-end gap-6 sm:gap-10">
+        <header className="flex flex-col items-center gap-5 sm:flex-row sm:items-end sm:gap-10">
           {cover && (
             <img
               src={cover}
@@ -101,8 +101,8 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
               )}
             />
           )}
-          <div className="flex min-w-0 flex-col gap-3 pb-1">
-            <h1 className="flex flex-wrap gap-x-[0.25em] font-heading text-5xl leading-[0.95] font-bold tracking-[-0.035em] sm:text-7xl lg:text-8xl">
+          <div className="flex min-w-0 flex-col items-center gap-3 pb-1 sm:items-start">
+            <h1 className="flex justify-center gap-x-[0.25em] font-heading text-[clamp(1.5rem,8.2vw,3rem)] leading-[0.95] font-bold tracking-[-0.035em] sm:flex-wrap sm:justify-start sm:text-7xl lg:text-8xl">
               {game.fullName.split(' ').map((word, index) => (
                 <span
                   key={index}
@@ -124,7 +124,7 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
                 </span>
               ))}
             </h1>
-            <p className="flex flex-wrap gap-x-2 text-sm text-muted-foreground">
+            <p className="flex flex-wrap justify-center gap-x-2 text-center text-sm text-muted-foreground sm:justify-start sm:text-left">
               <span className="font-semibold">
                 {platformParts[game.platform].map(({ text, color }, index) => (
                   <span key={index} style={color ? { color } : undefined}>

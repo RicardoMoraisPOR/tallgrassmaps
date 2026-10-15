@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Map as MapIcon, Info } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
@@ -70,6 +70,7 @@ export const LocationPage = () => {
     scope,
   });
   const [townMapOpen, setTownMapOpen] = useState(false);
+  const openTownMap = useCallback(() => setTownMapOpen(true), [setTownMapOpen]);
   const [stackToggled, setStackToggled] = useState(false);
 
   useEffect(() => {
@@ -109,7 +110,6 @@ export const LocationPage = () => {
 
   const selectTrainer = (key: string | undefined) =>
     setSelected({ scope, key });
-  const openTownMap = () => setTownMapOpen(true);
   const viewFor = (target: LocationFloor | undefined) =>
     buildLocationView(
       {
@@ -253,7 +253,7 @@ export const LocationPage = () => {
       : location.name;
   const cards = (
     <>
-      <AsideCard icon={MapIcon} label="Town Map">
+      <AsideCard icon={MapIcon} label="Town Map" onMobileOpen={openTownMap}>
         <TownMapCard
           region={route.region}
           path={trailPath(trail)}

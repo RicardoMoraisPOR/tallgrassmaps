@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { Gamepad2, Info, Map as MapIcon } from 'lucide-react';
 import { useNavigate } from 'react-router';
@@ -38,6 +38,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     navigate(regionHref(game.id, region, id));
   };
   const [townMapOpen, setTownMapOpen] = useState(false);
+  const openTownMap = useCallback(() => setTownMapOpen(true), [setTownMapOpen]);
   const [trainerKey, setTrainerKey] = useState<string>();
   const [highlight, setHighlight] = useState<string>();
   const [pinRequest, setPinRequest] = useState<string>();
@@ -156,7 +157,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           )}
         </div>
         <GameAside>
-          <AsideCard icon={MapIcon} label="Town Map">
+          <AsideCard icon={MapIcon} label="Town Map" onMobileOpen={openTownMap}>
             <TownMapCard
               region={region}
               path={selected?.id ?? ''}

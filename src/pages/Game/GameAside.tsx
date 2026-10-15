@@ -13,12 +13,6 @@ import { AnimatePresence, m } from 'motion/react';
 import { Link, useLocation } from 'react-router';
 
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-} from '@/components/ui/dialog';
-import {
   Drawer,
   DrawerContent,
   DrawerDescription,
@@ -42,6 +36,7 @@ type CardInfo = {
   to?: string;
   defaultOpen?: boolean;
   drawer?: boolean;
+  onMobileOpen?: () => void;
 };
 
 type AsideState = {
@@ -132,6 +127,7 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
     to,
     defaultOpen,
     drawer,
+    onMobileOpen,
   }: CardInfo) => {
     const open = isOpen(id, defaultOpen);
     const buttonClassName = toolbarButtonClass;
@@ -163,14 +159,18 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
         aria-label={`${open ? 'Hide' : 'Show'} ${label}`}
         title={`${open ? 'Hide' : 'Show'} ${label}`}
         onClick={() =>
-          setOverrides((current) =>
-            tablet || open
-              ? { ...current, [id]: !open }
-              : {
-                  ...Object.fromEntries(cards.map((card) => [card.id, false])),
-                  [id]: true,
-                },
-          )
+          !tablet && onMobileOpen
+            ? onMobileOpen()
+            : setOverrides((current) =>
+                tablet || open
+                  ? { ...current, [id]: !open }
+                  : {
+                      ...Object.fromEntries(
+                        cards.map((card) => [card.id, false]),
+                      ),
+                      [id]: true,
+                    },
+              )
         }
         className={cn(
           buttonClassName,
@@ -218,6 +218,7 @@ type AsideCardProps = {
   grow?: boolean;
   to?: string;
   drawer?: boolean;
+  onMobileOpen?: () => void;
   className?: string;
   children: ReactNode;
 };
@@ -228,6 +229,7 @@ export const AsideCard = ({
   grow = false,
   to,
   drawer = false,
+  onMobileOpen,
   className,
   children,
 }: AsideCardProps) => {
@@ -244,20 +246,21 @@ export const AsideCard = ({
         to,
         defaultOpen: drawer ? false : undefined,
         drawer,
+        onMobileOpen,
       }),
-    [register, label, icon, to, drawer],
+    [register, label, icon, to, drawer, onMobileOpen],
   );
 
-  if (to) return null;
+  if (to || (modal && onMobileOpen)) return null;
 
-  if (drawer)
+  if (drawer || modal)
     return (
       <Drawer
-        direction="right"
+        direction={modal ? 'bottom' : 'right'}
         open={open}
         onOpenChange={(next) => !next && close(label)}
       >
-        <DrawerContent className="data-[vaul-drawer-direction=right]:w-[26rem] data-[vaul-drawer-direction=right]:max-w-[calc(100%-1rem)] data-[vaul-drawer-direction=right]:bg-card data-[vaul-drawer-direction=right]:sm:max-w-none">
+        <DrawerContent className="data-[vaul-drawer-direction=bottom]:h-[85svh] data-[vaul-drawer-direction=bottom]:max-h-[85svh] data-[vaul-drawer-direction=right]:w-[26rem] data-[vaul-drawer-direction=right]:max-w-[calc(100%-1rem)] data-[vaul-drawer-direction=right]:sm:max-w-none">
           <DrawerTitle className="sr-only">{label}</DrawerTitle>
           <DrawerDescription className="sr-only">{label}</DrawerDescription>
           <CardContext value={label}>
@@ -267,29 +270,6 @@ export const AsideCard = ({
           </CardContext>
         </DrawerContent>
       </Drawer>
-    );
-
-  if (modal)
-    return (
-      <Dialog open={open} onOpenChange={(next) => !next && close(label)}>
-        <DialogContent
-          showCloseButton={false}
-          className="top-[10svh] translate-y-0 gap-0 border-0 bg-transparent p-0 shadow-none ring-0"
-        >
-          <DialogTitle className="sr-only">{label}</DialogTitle>
-          <DialogDescription className="sr-only">{label}</DialogDescription>
-          <CardContext value={label}>
-            <div
-              className={cn(
-                'flex max-h-[80svh] min-h-0 flex-col overflow-y-auto overscroll-contain',
-                className,
-              )}
-            >
-              {children}
-            </div>
-          </CardContext>
-        </DialogContent>
-      </Dialog>
     );
 
   return (
