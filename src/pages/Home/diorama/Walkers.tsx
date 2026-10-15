@@ -120,11 +120,12 @@ type WalkerProps = {
   sighting: Sighting;
   map: boolean;
   registry: RefObject<WalkerRegistry>;
+  still: boolean;
   onDone: () => void;
 };
 
-const Walker = ({ sighting, map, registry, onDone }: WalkerProps) => {
-  const [start] = useState(edgePoint);
+const Walker = ({ sighting, map, registry, still, onDone }: WalkerProps) => {
+  const [start] = useState(still ? randomPoint : edgePoint);
   const done = useRef(onDone);
   const mapRef = useRef(map);
   const halted = useRef(false);
@@ -186,6 +187,12 @@ const Walker = ({ sighting, map, registry, onDone }: WalkerProps) => {
   }, [registry, sighting.key, x, y]);
 
   useEffect(() => {
+    if (still) {
+      setVisible(true);
+
+      return;
+    }
+
     let cancelled = false;
     const interrupted = () => cancelled || halted.current;
 
@@ -234,7 +241,7 @@ const Walker = ({ sighting, map, registry, onDone }: WalkerProps) => {
       cancelled = true;
       running.current.forEach((controls) => controls.stop());
     };
-  }, [x, y]);
+  }, [x, y, still]);
 
   return (
     <m.div
@@ -300,23 +307,28 @@ const Walker = ({ sighting, map, registry, onDone }: WalkerProps) => {
 type WalkersProps = {
   map: boolean;
   registry: RefObject<WalkerRegistry>;
+  still?: boolean;
 };
 
-export const Walkers = ({ map, registry }: WalkersProps) => {
-  const [walkers, setWalkers] = useState<Array<Sighting>>([]);
+export const Walkers = ({ map, registry, still = false }: WalkersProps) => {
+  const [walkers, setWalkers] = useState<Array<Sighting>>(() =>
+    still ? fillTo([], MAX_WALKERS) : [],
+  );
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
+    if (still) return;
+
     const timer = setTimeout(() => setStarted(true), FIRST_SPAWN_MS);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [still]);
 
   useEffect(() => {
-    if (!started) return;
+    if (still || !started) return;
 
     setWalkers((current) => fillTo(current, MAX_WALKERS));
-  }, [started, walkers.length]);
+  }, [still, started, walkers.length]);
 
   return (
     <>
@@ -326,6 +338,7 @@ export const Walkers = ({ map, registry }: WalkersProps) => {
           sighting={sighting}
           map={map}
           registry={registry}
+          still={still}
           onDone={() =>
             setWalkers((current) =>
               current.filter((item) => item.key !== sighting.key),

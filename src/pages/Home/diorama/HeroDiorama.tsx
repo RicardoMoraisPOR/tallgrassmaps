@@ -290,8 +290,8 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
         <m.div
           ref={world}
           aria-hidden
-          onClick={map ? throwBall : toggle}
-          className={`pointer-events-auto absolute ${map ? 'cursor-crosshair' : 'cursor-pointer'}`}
+          onClick={animated ? (map ? throwBall : toggle) : undefined}
+          className={`pointer-events-auto absolute ${!animated ? '' : map ? 'cursor-crosshair' : 'cursor-pointer'}`}
           style={{
             left: (SCENE_WIDTH - PLATFORM_SIZE) / 2,
             top: (SCENE_HEIGHT - PLATFORM_SIZE) / 2,
@@ -322,7 +322,9 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
         >
           <Platform animated={animated} map={map} />
           <TallGrass animated={animated} map={map} />
-          {animated && !revealed && <Walkers map={map} registry={registry} />}
+          {!revealed && (
+            <Walkers map={map} registry={registry} still={!animated} />
+          )}
         </m.div>
       </div>
       <Pokeballs
@@ -334,25 +336,29 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
           setThrows((current) => current.filter((item) => item.key !== key))
         }
       />
-      <button
-        type="button"
-        aria-pressed={map}
-        onClick={toggle}
-        className="sr-only"
-      >
-        {map ? 'Back to the grass' : 'Scan the grass'}
-      </button>
-      <span
-        aria-hidden
-        className="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full border bg-card/90 px-3 py-1 text-[11px] leading-5 whitespace-nowrap text-muted-foreground transition-opacity duration-500 motion-safe:animate-in motion-safe:delay-[3200ms] motion-safe:duration-700 motion-safe:fill-mode-backwards motion-safe:fade-in motion-reduce:transition-none"
-        style={{
-          opacity: hintDismissed ? 0 : HINT_OPACITY,
-          visibility: hintDismissed ? 'hidden' : 'visible',
-          transition: `opacity 0.4s ease, visibility 0s linear ${hintDismissed ? 0.4 : 0}s`,
-        }}
-      >
-        Scan the grass
-      </span>
+      {animated && (
+        <>
+          <button
+            type="button"
+            aria-pressed={map}
+            onClick={toggle}
+            className="sr-only"
+          >
+            {map ? 'Back to the grass' : 'Scan the grass'}
+          </button>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full border bg-card/90 px-3 py-1 text-[11px] leading-5 whitespace-nowrap text-muted-foreground transition-opacity duration-500 motion-safe:animate-in motion-safe:delay-[3200ms] motion-safe:duration-700 motion-safe:fill-mode-backwards motion-safe:fade-in motion-reduce:transition-none"
+            style={{
+              opacity: hintDismissed ? 0 : HINT_OPACITY,
+              visibility: hintDismissed ? 'hidden' : 'visible',
+              transition: `opacity 0.4s ease, visibility 0s linear ${hintDismissed ? 0.4 : 0}s`,
+            }}
+          >
+            Scan the grass
+          </span>
+        </>
+      )}
       <div className="pointer-events-none absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2">
         {showBack && (
           <button
