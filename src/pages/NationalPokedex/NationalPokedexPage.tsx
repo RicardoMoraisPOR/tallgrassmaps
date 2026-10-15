@@ -102,7 +102,7 @@ export const NationalPokedexPage = () => {
       className="flex flex-col gap-6 pt-10 pb-16 sm:pt-14 sm:pb-20"
     >
       <header className="flex flex-col gap-3">
-        <PageTitle>National Pokédex Explorer</PageTitle>
+        <PageTitle>National Pokédex</PageTitle>
         <p className="text-lg text-pretty text-muted-foreground">
           Search any Pokémon to see its types, forms, evolutions, the games it
           is in and where to find it.
@@ -161,7 +161,7 @@ export const NationalPokedexPage = () => {
                   : undefined),
               }}
               className={cn(
-                'flex h-full w-full flex-col items-center gap-1 overflow-hidden rounded-lg border bg-card p-2 text-center outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+                'flex h-full w-full flex-col items-center gap-1 overflow-hidden rounded-sm border bg-card p-2 text-center outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
                 TYPE_TINT,
                 'transition-colors duration-150 motion-reduce:transition-none',
                 entering && ENTER,

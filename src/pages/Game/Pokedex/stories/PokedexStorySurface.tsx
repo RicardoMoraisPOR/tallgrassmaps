@@ -15,7 +15,7 @@ export const PokedexStorySurface = ({
   <Drawer>
     <div
       className={cn(
-        'max-h-[85svh] w-md max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border bg-popover p-4 text-sm text-popover-foreground',
+        'max-h-[85svh] w-md max-w-[calc(100vw-2rem)] overflow-y-auto rounded-lg border bg-popover p-4 text-sm text-popover-foreground',
         surfaceClassName,
       )}
     >

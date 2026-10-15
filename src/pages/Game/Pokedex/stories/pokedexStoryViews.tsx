@@ -69,7 +69,7 @@ const views: Partial<
       Search: ZaSearch,
       Title: ZaTitle,
       TypeTags: ZaTypeTags,
-      surfaceClassName: 'pokedex-za za-screen rounded-2xl border-0',
+      surfaceClassName: 'pokedex-za za-screen rounded-lg border-0',
       rowListClassName: 'mx-auto w-24',
     },
   },

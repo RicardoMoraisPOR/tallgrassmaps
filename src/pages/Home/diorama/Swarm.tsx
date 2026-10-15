@@ -20,17 +20,22 @@ const EASES: Array<'linear' | [number, number, number, number]> = [
   [0.45, 0.1, 0.55, 0.9],
   [0.2, 0.3, 0.8, 0.7],
 ];
-const FIRST_POP_SECONDS = 0.9;
+const FIRST_POP_SECONDS = 0.1;
 const POP_STAGGER_SECONDS = 0.045;
 const MIN_SIZE = 38;
 const MAX_SIZE = 58;
 const AREA_PER_CRITTER = 20000;
 const MIN_CRITTERS = 14;
 const MAX_CRITTERS = 72;
-const MESSAGE_HALF_WIDTH = 500;
-const MESSAGE_HALF_HEIGHT = 120;
+const OBSTACLE_MARGIN = 30;
+const FREE_GRID_STEP = 20;
+const EVACUATE_SPEED_MULTIPLIER = 3;
+const EVACUATE_CHECK_MS = 400;
+const PATH_SAMPLES = 14;
 
 export type Bounds = { width: number; height: number };
+
+export type Rect = { left: number; top: number; right: number; bottom: number };
 
 export type CritterHandle = {
   id: number;
@@ -47,28 +52,56 @@ export type Registry = Map<number, CritterHandle>;
 const randomSpecies = () =>
   allSpecies[Math.floor(random(0, allSpecies.length))].number;
 
-const randomPoint = ({ width, height }: Bounds) => {
-  const halfWidth = Math.min(MESSAGE_HALF_WIDTH, width * 0.42);
-  const halfHeight = Math.min(MESSAGE_HALF_HEIGHT, height * 0.2);
+const isBlocked = (x: number, y: number, obstacles: Array<Rect>, pad: number) =>
+  obstacles.some(
+    ({ left, top, right, bottom }) =>
+      x > left - pad && x < right + pad && y > top - pad && y < bottom + pad,
+  );
 
-  for (let attempt = 0; attempt < 30; attempt++) {
-    const x = random(
-      EDGE_PADDING,
-      Math.max(EDGE_PADDING + 1, width - EDGE_PADDING),
-    );
-    const y = random(
-      EDGE_PADDING,
-      Math.max(EDGE_PADDING + 1, height - EDGE_PADDING),
-    );
+const pathBlocked = (
+  from: { x: number; y: number },
+  to: { x: number; y: number },
+  obstacles: Array<Rect>,
+  pad: number,
+) =>
+  Array.from(
+    { length: PATH_SAMPLES + 1 },
+    (_, step) => step / PATH_SAMPLES,
+  ).some((t) =>
+    isBlocked(
+      from.x + (to.x - from.x) * t,
+      from.y + (to.y - from.y) * t,
+      obstacles,
+      pad,
+    ),
+  );
 
-    if (
-      Math.abs(x - width / 2) > halfWidth ||
-      Math.abs(y - height / 2) > halfHeight
-    )
-      return { x, y };
+const randomPoint = (
+  { width, height }: Bounds,
+  obstacles: Array<Rect>,
+  pad = OBSTACLE_MARGIN,
+) => {
+  const columns = Math.floor((width - EDGE_PADDING * 2) / FREE_GRID_STEP);
+  const rows = Math.floor((height - EDGE_PADDING * 2) / FREE_GRID_STEP);
+  const free: Array<{ x: number; y: number }> = [];
+
+  for (let row = 0; row <= rows; row++) {
+    for (let column = 0; column <= columns; column++) {
+      const x = EDGE_PADDING + column * FREE_GRID_STEP;
+      const y = EDGE_PADDING + row * FREE_GRID_STEP;
+
+      if (!isBlocked(x, y, obstacles, pad)) free.push({ x, y });
+    }
   }
 
-  return { x: EDGE_PADDING, y: EDGE_PADDING };
+  if (free.length === 0) return { x: width / 2, y: height - EDGE_PADDING };
+
+  const cell = free[Math.floor(random(0, free.length))];
+
+  return {
+    x: cell.x + random(-FREE_GRID_STEP / 2, FREE_GRID_STEP / 2),
+    y: cell.y + random(-FREE_GRID_STEP / 2, FREE_GRID_STEP / 2),
+  };
 };
 
 const wait = (ms: number) =>
@@ -80,6 +113,7 @@ type CritterProps = {
   fresh: boolean;
   initialBounds: Bounds;
   boundsRef: RefObject<Bounds>;
+  obstaclesRef: RefObject<Array<Rect>>;
   registry: RefObject<Registry>;
   still: boolean;
   onGone: (id: number) => void;
@@ -91,13 +125,16 @@ const Critter = ({
   fresh,
   initialBounds,
   boundsRef,
+  obstaclesRef,
   registry,
   still,
   onGone,
 }: CritterProps) => {
   const [species] = useState(randomSpecies);
   const [size] = useState(() => Math.round(random(MIN_SIZE, MAX_SIZE)));
-  const [start] = useState(() => randomPoint(initialBounds));
+  const [start] = useState(() =>
+    randomPoint(initialBounds, obstaclesRef.current),
+  );
   const x = useMotionValue(start.x);
   const y = useMotionValue(start.y);
   const [facing, setFacing] = useState(1);
@@ -106,6 +143,7 @@ const Critter = ({
   const [breakingFree, setBreakingFree] = useState(false);
   const locked = useRef(false);
   const running = useRef<Array<{ stop: () => void }>>([]);
+  const wake = useRef<() => void>(undefined);
   const gone = useRef(onGone);
   const popDelay = fresh
     ? 0.1
@@ -124,24 +162,32 @@ const Critter = ({
       await wait(popDelay * 1000);
 
       while (!cancelled && !locked.current) {
-        let target = randomPoint(boundsRef.current);
+        const from = { x: x.get(), y: y.get() };
+        const obstacles = obstaclesRef.current;
+        const evacuating = isBlocked(from.x, from.y, obstacles, 0);
+        let target = randomPoint(boundsRef.current, obstacles);
 
-        for (let attempt = 0; attempt < 6; attempt++) {
-          if (
-            Math.hypot(target.x - x.get(), target.y - y.get()) >= MIN_LEG_PIXELS
-          )
-            break;
+        for (let attempt = 0; attempt < 12; attempt++) {
+          const farEnough =
+            Math.hypot(target.x - from.x, target.y - from.y) >= MIN_LEG_PIXELS;
+          const clear =
+            evacuating ||
+            !pathBlocked(from, target, obstacles, OBSTACLE_MARGIN);
 
-          target = randomPoint(boundsRef.current);
+          if (farEnough && clear) break;
+
+          target = randomPoint(boundsRef.current, obstacles);
         }
 
-        const dx = target.x - x.get();
-        const dy = target.y - y.get();
-        const seconds = Math.max(
-          0.6,
-          Math.hypot(dx, dy) / random(MIN_SPEED, MAX_SPEED),
-        );
-        const ease = EASES[Math.floor(random(0, EASES.length))];
+        const dx = target.x - from.x;
+        const dy = target.y - from.y;
+        const speed =
+          random(MIN_SPEED, MAX_SPEED) *
+          (evacuating ? EVACUATE_SPEED_MULTIPLIER : 1);
+        const seconds = Math.max(0.6, Math.hypot(dx, dy) / speed);
+        const ease = evacuating
+          ? 'easeOut'
+          : EASES[Math.floor(random(0, EASES.length))];
 
         setFacing(dx >= 0 ? 1 : -1);
 
@@ -151,17 +197,32 @@ const Critter = ({
         ];
 
         running.current = controls;
-        await Promise.all(controls);
+        await new Promise<void>((resolve) => {
+          wake.current = resolve;
+          void Promise.all(controls).then(() => resolve());
+        });
       }
     };
+
+    const watch = setInterval(() => {
+      if (
+        locked.current ||
+        !isBlocked(x.get(), y.get(), obstaclesRef.current, 0)
+      )
+        return;
+
+      running.current.forEach((controls) => controls.stop());
+      wake.current?.();
+    }, EVACUATE_CHECK_MS);
 
     void wander();
 
     return () => {
       cancelled = true;
+      clearInterval(watch);
       running.current.forEach((controls) => controls.stop());
     };
-  }, [popDelay, still, x, y, boundsRef]);
+  }, [popDelay, still, x, y, boundsRef, obstaclesRef]);
 
   useEffect(() => {
     const registered = registry.current;
@@ -266,10 +327,12 @@ type Slot = { id: number; fresh: boolean };
 
 export const Swarm = ({
   bounds,
+  obstaclesRef,
   registry,
   still,
 }: {
   bounds: Bounds;
+  obstaclesRef: RefObject<Array<Rect>>;
   registry: RefObject<Registry>;
   still: boolean;
 }) => {
@@ -323,6 +386,7 @@ export const Swarm = ({
           fresh={fresh}
           initialBounds={bounds}
           boundsRef={boundsRef}
+          obstaclesRef={obstaclesRef}
           registry={registry}
           still={still}
           onGone={replace}

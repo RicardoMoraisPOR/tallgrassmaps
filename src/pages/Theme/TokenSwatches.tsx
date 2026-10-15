@@ -16,11 +16,11 @@ export const TokenSwatches = ({ tokens }: TokenSwatchesProps) => {
       {tokens.map((token) => (
         <li
           key={token}
-          className="flex items-center gap-2 rounded-lg border p-2"
+          className="flex items-center gap-2 rounded-sm border p-2"
         >
           <span
             aria-hidden
-            className="size-9 flex-none rounded-md border"
+            className="size-9 flex-none rounded-sm border"
             style={{ background: `var(--${token})` }}
           />
           <span className="flex min-w-0 flex-col">

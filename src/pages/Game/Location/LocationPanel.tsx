@@ -57,7 +57,7 @@ export const LocationPanel = ({
     <section
       aria-label="Location details"
       className={cn(
-        'flex min-h-0 flex-col rounded-xl border bg-card',
+        'flex min-h-0 flex-col rounded-lg border bg-card',
         className,
       )}
     >
@@ -68,7 +68,7 @@ export const LocationPanel = ({
         <div
           role="tablist"
           aria-label="Location details"
-          className="flex gap-1 rounded-xl border p-1"
+          className="flex gap-1 rounded-lg border p-1"
         >
           {tabs.map((tab, index) => {
             const selected = tab.id === active.id;
@@ -88,7 +88,7 @@ export const LocationPanel = ({
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setSaved(tab.id)}
                 onKeyDown={(event) => moveFocus(event, index)}
-                className="inline-flex h-8 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg px-2 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-selected:bg-foreground aria-selected:text-background"
+                className="inline-flex h-8 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-sm px-2 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-selected:bg-foreground aria-selected:text-background"
               >
                 {tab.label}
                 {Boolean(tab.count) && (

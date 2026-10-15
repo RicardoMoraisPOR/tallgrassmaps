@@ -67,37 +67,37 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
   const parent = evolutionParent(number);
   const emptyNote = parent
     ? `Not found in the wild. Evolve ${nameOf(parent)}.`
-    : 'No locations mapped yet.';
-  const games = appearances.flatMap((appearance) => appearance.games);
+ :'No locations mapped yet.';
+ const games = appearances.flatMap((appearance) => appearance.games);
 
-  return (
-    <>
-      <div className="flex items-center gap-4">
-        <div className="flex size-32 flex-none items-center justify-center rounded-lg bg-muted/40">
-          <PokemonImage number={number} name={name} size={HERO_SIZE} />
-        </div>
-        <div className="flex min-w-0 flex-col items-start gap-2">
-          <div className="flex flex-col gap-0.5">
-            <DialogTitle className="font-heading text-2xl leading-tight font-bold tracking-tight">
-              {name}
-            </DialogTitle>
-            <DialogDescription>
-              {dexNumber(number)} · {generation.label}
-            </DialogDescription>
-          </div>
-          <PokemonTypeTags types={family.types} />
-          <div className="flex flex-wrap gap-1.5">
-            <Button variant="outline" size="sm" asChild>
-              <a href={bulbapediaUrl(name)} target="_blank" rel="noreferrer">
-                Bulbapedia
-                <ExternalLink aria-hidden />
-              </a>
-            </Button>
-            <Button
-              variant="outline"
-              size="icon-sm"
-              disabled={!previous}
-              aria-label={previous ? `Previous: ${previous.name}` : 'Previous'}
+ return (
+ <>
+ <div className="flex items-center gap-4">
+ <div className="flex size-32 flex-none items-center justify-center rounded-sm bg-muted/40">
+ <PokemonImage number={number} name={name} size={HERO_SIZE} />
+ </div>
+ <div className="flex min-w-0 flex-col items-start gap-2">
+ <div className="flex flex-col gap-0.5">
+ <DialogTitle className="font-heading text-2xl leading-tight font-bold tracking-tight">
+ {name}
+ </DialogTitle>
+ <DialogDescription>
+ {dexNumber(number)} · {generation.label}
+ </DialogDescription>
+ </div>
+ <PokemonTypeTags types={family.types} />
+ <div className="flex flex-wrap gap-1.5">
+ <Button variant="outline" size="sm" asChild>
+ <a href={bulbapediaUrl(name)} target="_blank" rel="noreferrer">
+ Bulbapedia
+ <ExternalLink aria-hidden />
+ </a>
+ </Button>
+ <Button
+ variant="outline"
+ size="icon-sm"
+ disabled={!previous}
+ aria-label={previous ? `Previous: ${previous.name}` : 'Previous'}
               title={previous?.name}
               onClick={() => previous && onSelect(previous.number)}
             >
@@ -123,7 +123,7 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
             {forms.map((form) => (
               <li
                 key={form.name}
-                className="flex items-center gap-2 rounded-lg border p-2"
+                className="flex items-center gap-2 rounded-sm border p-2"
               >
                 {form.spriteId && (
                   <img

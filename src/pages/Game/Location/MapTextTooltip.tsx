@@ -100,7 +100,7 @@ const CardButton = ({
       'flex shrink-0 cursor-pointer items-center justify-center transition-colors disabled:cursor-default disabled:opacity-30',
       gameTheme
         ? 'size-[22px] border-2 border-(--gb-ink) text-(--gb-ink) enabled:hover:bg-(--gb-ink) enabled:hover:text-(--gb-screen) aria-pressed:bg-(--gb-ink) aria-pressed:text-(--gb-screen)'
-        : 'size-6 rounded-md border border-border bg-muted/60 text-foreground enabled:hover:bg-muted aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background aria-pressed:hover:bg-foreground/85',
+        : 'size-6 rounded-sm border border-border bg-muted/60 text-foreground enabled:hover:bg-muted aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background aria-pressed:hover:bg-foreground/85',
     )}
   >
     {children}
@@ -128,7 +128,7 @@ const PokemonTile = ({
         'flex items-center justify-center p-0.5 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
         gameTheme
           ? 'border-2 border-(--gb-ink) hover:bg-(--gb-ink)/15'
-          : 'rounded-md border border-border bg-muted/60 hover:bg-muted',
+          : 'rounded-sm border border-border bg-muted/60 hover:bg-muted',
       )}
     >
       <img
@@ -216,7 +216,7 @@ export const MapTextTooltip = ({
           'whitespace-pre-line text-muted-foreground',
           gameTheme
             ? 'border-2 border-dashed border-(--gb-ink) px-2 py-1.5 text-[8px] leading-[12px]'
-            : 'rounded-md bg-muted px-2 py-1 text-xs italic',
+            : 'rounded-sm bg-muted px-2 py-1 text-xs italic',
         )}
       >
         {trigger}
@@ -318,7 +318,7 @@ export const MapTextTooltip = ({
         'flex flex-col',
         gameTheme
           ? 'pokedex-game gb-frame gap-2 px-3.5 py-2.5'
-          : 'gap-1.5 rounded-lg bg-popover px-2.5 py-1.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10',
+          : 'gap-1.5 rounded-sm bg-popover px-2.5 py-1.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10',
         paged
           ? { 'w-64': gameTheme, 'w-60': !gameTheme }
           : { 'w-max': true, 'max-w-64': gameTheme, 'max-w-60': !gameTheme },

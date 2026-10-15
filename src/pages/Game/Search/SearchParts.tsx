@@ -139,7 +139,7 @@ export const SearchTabs = ({ tab, onChange }: SearchTabsProps) => (
           aria-selected={selected}
           onClick={() => onChange(selected ? null : name)}
           className={cn(
-            '-mb-px flex h-9 flex-1 items-center justify-center gap-1.5 rounded-t-lg border border-b-0 px-2 text-xs font-medium',
+            '-mb-px flex h-9 flex-1 items-center justify-center gap-1.5 rounded-t-sm border border-b-0 px-2 text-xs font-medium',
             selected
               ? 'border-border bg-background text-foreground'
               : 'border-transparent text-muted-foreground hover:bg-muted/60 hover:text-foreground',

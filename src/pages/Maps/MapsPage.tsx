@@ -1,4 +1,3 @@
-import '@fontsource/barlow/400.css';
 import { useEffect } from 'react';
 
 import { useLocation } from 'react-router';

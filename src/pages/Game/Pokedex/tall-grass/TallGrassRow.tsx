@@ -57,7 +57,7 @@ export const TallGrassRow = ({
         <span className="w-10 flex-none font-mono text-xs text-muted-foreground tabular-nums">
           #{String(entry.id).padStart(3, '0')}
         </span>
-        <span className="flex size-12 flex-none items-center justify-center rounded-lg bg-muted">
+        <span className="flex size-12 flex-none items-center justify-center rounded-sm bg-muted">
           <img
             src={sprite.src}
             alt=""
@@ -141,7 +141,7 @@ export const TallGrassRow = ({
                   label={placesMapLabel(entry, game, region, paths)}
                 />
               )}
-              <ul className="flex flex-col divide-y rounded-lg border text-xs">
+              <ul className="flex flex-col divide-y rounded-sm border text-xs">
                 <EncounterPlaces
                   encounters={encounters}
                   region={region}

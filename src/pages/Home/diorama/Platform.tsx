@@ -33,7 +33,7 @@ export const Platform = ({ animated, map }: PlatformProps) => (
         <div
           key={index}
           aria-hidden
-          className="absolute rounded-md motion-reduce:transition-none"
+          className="absolute rounded-sm motion-reduce:transition-none"
           style={{
             inset: top ? -5 : 0,
             ['--z' as string]: `${index * LAYER_GAP}px`,
@@ -58,7 +58,7 @@ export const Platform = ({ animated, map }: PlatformProps) => (
     })}
     <div
       aria-hidden
-      className="pointer-events-none absolute rounded-md motion-reduce:transition-none"
+      className="pointer-events-none absolute rounded-sm motion-reduce:transition-none"
       style={{
         inset: -5,
         transform: `translateZ(calc(${TOP_INDEX * LAYER_GAP}px * var(--build, 1) + ${PLATFORM_LAYERS} * var(--sep, 0px) + 1px))`,

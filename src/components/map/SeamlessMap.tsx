@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import '@fontsource/barlow/700.css';
 import {
   CRS,
   divIcon,

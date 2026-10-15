@@ -68,46 +68,46 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
       label: 'Items',
       value: stats.items?.total,
       detail: stats.items?.hidden ? `${stats.items.hidden} hidden` : undefined,
-    },
-    { icon: Swords, label: 'Trainer battles', value: stats.trainers },
-    { icon: Users, label: 'People to talk to', value: stats.npcs },
-    { icon: Signpost, label: 'Signs', value: stats.signs },
-    { icon: Gift, label: 'Gift & static Pokémon', value: stats.staticPokemon },
-    { icon: MapPin, label: 'Mapped places', value: stats.places },
-  ].filter((row) => row.value);
+ },
+ { icon: Swords, label:'Trainer battles', value: stats.trainers },
+ { icon: Users, label:'People to talk to', value: stats.npcs },
+ { icon: Signpost, label:'Signs', value: stats.signs },
+ { icon: Gift, label:'Gift & static Pokémon', value: stats.staticPokemon },
+ { icon: MapPin, label:'Mapped places', value: stats.places },
+ ].filter((row) => row.value);
 
-  return (
-    <section
-      aria-labelledby="game-heading"
-      className="flex min-h-0 flex-1 flex-col overflow-hidden overflow-y-auto rounded-xl border bg-card"
-    >
-      <ColorStripe colors={game.colors} />
-      <Cover gameId={game.id} accent={game.colors[0]} aspect="aspect-16/7" />
-      <div className="flex flex-col gap-5 p-5">
-        <div className="flex flex-col gap-2">
-          <h2
-            id="game-heading"
-            className="font-heading text-2xl leading-tight font-bold tracking-tight text-balance"
-          >
-            {game.fullName}
-          </h2>
-          <p className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground">
-            <Gamepad2 aria-hidden className="size-4 flex-none" />
-            <span className="font-medium">
-              {platformParts[game.platform].map(({ text, color }, index) => (
-                <span key={index} style={color ? { color } : undefined}>
-                  {text}
-                </span>
-              ))}
-            </span>
-            <span aria-hidden>·</span>
-            <span>
-              Generation {ROMAN[game.generation - 1] ?? game.generation}
-            </span>
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            <Tag>
-              {game.remakeOf ? `Remake of ${game.remakeOf}` : 'Original game'}
+ return (
+ <section
+ aria-labelledby="game-heading"
+ className="flex min-h-0 flex-1 flex-col overflow-hidden overflow-y-auto rounded-lg border bg-card"
+ >
+ <ColorStripe colors={game.colors} />
+ <Cover gameId={game.id} accent={game.colors[0]} aspect="aspect-16/7" />
+ <div className="flex flex-col gap-5 p-5">
+ <div className="flex flex-col gap-2">
+ <h2
+ id="game-heading"
+ className="font-heading text-2xl leading-tight font-bold tracking-tight text-balance"
+ >
+ {game.fullName}
+ </h2>
+ <p className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground">
+ <Gamepad2 aria-hidden className="size-4 flex-none" />
+ <span className="font-bold">
+ {platformParts[game.platform].map(({ text, color }, index) => (
+ <span key={index} style={color ? { color } : undefined}>
+ {text}
+ </span>
+ ))}
+ </span>
+ <span aria-hidden>·</span>
+ <span>
+ Generation {ROMAN[game.generation - 1] ?? game.generation}
+ </span>
+ </p>
+ <div className="flex flex-wrap gap-1.5">
+ <Tag>
+ {game.remakeOf ? `Remake of ${game.remakeOf}` : 'Original game'}
             </Tag>
             <Tag>
               {region.navigation === 'seamless'
@@ -133,95 +133,95 @@ export const GameInfoCard = ({ game, region }: GameInfoCardProps) => {
           <Fact icon={Calendar} label="Released">
             <time dateTime={game.releaseDate}>
               {dateFormat.format(new Date(`${game.releaseDate}T00:00:00`))}
-            </time>
-          </Fact>
-          <Fact icon={Code} label="Developer">
-            {game.developer}
-          </Fact>
-        </dl>
+ </time>
+ </Fact>
+ <Fact icon={Code} label="Developer">
+ {game.developer}
+ </Fact>
+ </dl>
 
-        {extras.length > 0 && (
-          <div className="flex flex-col gap-2">
-            <SectionTitle>Guides</SectionTitle>
-            {extras.map((entry) => (
-              <Button
-                key={entry.id}
-                variant="outline"
-                size="lg"
-                className="w-full justify-between"
-                onClick={() => setExtra(entry)}
-              >
-                <span className="flex items-center gap-2">
-                  <ListChecks aria-hidden />
-                  {entry.title}
-                </span>
-                <span className="text-xs text-muted-foreground tabular-nums">
-                  {entry.count}
-                </span>
-              </Button>
-            ))}
-          </div>
-        )}
+ {extras.length > 0 && (
+ <div className="flex flex-col gap-2">
+ <SectionTitle>Guides</SectionTitle>
+ {extras.map((entry) => (
+ <Button
+ key={entry.id}
+ variant="outline"
+ size="lg"
+ className="w-full justify-between"
+ onClick={() => setExtra(entry)}
+ >
+ <span className="flex items-center gap-2">
+ <ListChecks aria-hidden />
+ {entry.title}
+ </span>
+ <span className="text-xs text-muted-foreground tabular-nums">
+ {entry.count}
+ </span>
+ </Button>
+ ))}
+ </div>
+ )}
 
-        <div className="flex flex-col gap-2">
-          <SectionTitle>Pokémon</SectionTitle>
-          <dl className="grid grid-cols-2 gap-2">
-            {pokemon.map(({ label, value }) => (
-              <div
-                key={label}
-                className="flex flex-col-reverse justify-end gap-0.5 rounded-lg bg-muted/60 px-3 py-2.5"
-              >
-                <dt className="text-xs leading-4 text-muted-foreground">
-                  {label}
-                </dt>
-                <dd className="font-heading text-2xl font-bold tracking-tight tabular-nums">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+ <div className="flex flex-col gap-2">
+ <SectionTitle>Pokémon</SectionTitle>
+ <dl className="grid grid-cols-2 gap-2">
+ {pokemon.map(({ label, value }) => (
+ <div
+ key={label}
+ className="flex flex-col-reverse justify-end gap-0.5 rounded-sm bg-muted/60 px-3 py-2.5"
+ >
+ <dt className="text-xs leading-4 text-muted-foreground">
+ {label}
+ </dt>
+ <dd className="font-heading text-2xl font-bold tracking-tight tabular-nums">
+ {value}
+ </dd>
+ </div>
+ ))}
+ </dl>
+ </div>
 
-        {world.length > 0 && (
-          <div className="flex flex-col gap-2">
-            <div className="flex items-baseline justify-between gap-3">
-              <SectionTitle>Stats</SectionTitle>
-              <Link
-                to={dataLakeHref(region.versionGroup)}
-                className="text-xs text-muted-foreground underline underline-offset-3 hover:text-foreground"
-              >
-                Explore in Data Lake
-              </Link>
-            </div>
-            <dl className="flex flex-col divide-y rounded-lg border">
-              {world.map(({ icon: Icon, label, value, detail }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-3 px-3 py-2.5 text-xs"
-                >
-                  <Icon
-                    aria-hidden
-                    className="size-4 flex-none text-muted-foreground"
-                  />
-                  <dt className="flex-1">{label}</dt>
-                  {detail && (
-                    <span className="text-xs text-muted-foreground">
-                      {detail}
-                    </span>
-                  )}
-                  <dd className="font-heading font-bold tabular-nums">
-                    {value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        )}
+ {world.length > 0 && (
+ <div className="flex flex-col gap-2">
+ <div className="flex items-baseline justify-between gap-3">
+ <SectionTitle>Stats</SectionTitle>
+ <Link
+ to={dataLakeHref(region.versionGroup)}
+ className="text-xs text-muted-foreground underline underline-offset-3 hover:text-foreground"
+ >
+ Explore in Data Lake
+ </Link>
+ </div>
+ <dl className="flex flex-col divide-y rounded-sm border">
+ {world.map(({ icon: Icon, label, value, detail }) => (
+ <div
+ key={label}
+ className="flex items-center gap-3 px-3 py-2.5 text-xs"
+ >
+ <Icon
+ aria-hidden
+ className="size-4 flex-none text-muted-foreground"
+ />
+ <dt className="flex-1">{label}</dt>
+ {detail && (
+ <span className="text-xs text-muted-foreground">
+ {detail}
+ </span>
+ )}
+ <dd className="font-heading font-bold tabular-nums">
+ {value}
+ </dd>
+ </div>
+ ))}
+ </dl>
+ </div>
+ )}
 
-        <div className="flex flex-col gap-2">
-          <Button variant="outline" size="lg" className="w-full" asChild>
-            <a
-              href={`https://bulbapedia.bulbagarden.net/wiki/${encodeURIComponent(game.wiki)}`}
+ <div className="flex flex-col gap-2">
+ <Button variant="outline" size="lg" className="w-full" asChild>
+ <a
+ href={`https://bulbapedia.bulbagarden.net/wiki/${encodeURIComponent(game.wiki)}`}
               target="_blank"
               rel="noreferrer"
             >

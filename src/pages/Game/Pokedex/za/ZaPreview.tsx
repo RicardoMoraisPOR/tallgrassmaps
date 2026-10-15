@@ -75,7 +75,7 @@ export const ZaPreview = ({
               title={stone}
               onClick={() => setActiveMega(active ? undefined : index)}
               className={cn(
-                'flex size-7 items-center justify-center rounded-lg border border-white/25 bg-(--za-tile) shadow-md shadow-black/25 outline-none transition-colors hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green) lg:size-14',
+                'flex size-7 items-center justify-center rounded-sm border border-white/25 bg-(--za-tile) shadow-md shadow-black/25 outline-none transition-colors hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green) lg:size-14',
                 active && 'border-white bg-white hover:bg-white',
               )}
             >
@@ -103,7 +103,7 @@ export const ZaPreview = ({
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={transition(0, 0.3)}
-            className="relative size-full overflow-hidden rounded-2xl border border-white/20 bg-(--za-tile) shadow-lg shadow-black/25"
+            className="relative size-full overflow-hidden rounded-lg border border-white/20 bg-(--za-tile) shadow-lg shadow-black/25"
           >
             {sprites.map((form, index) => {
               const active = index === spriteIndex;
@@ -161,7 +161,7 @@ export const ZaPreview = ({
         <div className="flex min-w-0 flex-1 flex-col gap-1.5 lg:flex-none lg:items-center lg:gap-2">
           <m.span
             {...slideIn(0.12)}
-            className="inline-flex items-center gap-2 self-start rounded-md bg-(--za-deep)/80 py-0.5 pr-3 pl-2 text-base font-bold tabular-nums lg:gap-3 lg:self-center lg:py-1 lg:pr-4 lg:pl-3 lg:text-lg"
+            className="inline-flex items-center gap-2 self-start rounded-sm bg-(--za-deep)/80 py-0.5 pr-3 pl-2 text-base font-bold tabular-nums lg:gap-3 lg:self-center lg:py-1 lg:pr-4 lg:pl-3 lg:text-lg"
           >
             <ZaBall className="size-4 lg:size-5" />
             <span aria-hidden className="h-4 w-px bg-white/40 lg:h-5" />
@@ -193,7 +193,7 @@ export const ZaPreview = ({
         type="button"
         aria-expanded={detailsOpen}
         onClick={onToggleDetails}
-        className="group inline-flex flex-none items-center gap-2 self-center rounded-md text-sm font-bold outline-none focus-visible:ring-2 focus-visible:ring-(--za-green) lg:hidden"
+        className="group inline-flex flex-none items-center gap-2 self-center rounded-sm text-sm font-bold outline-none focus-visible:ring-2 focus-visible:ring-(--za-green) lg:hidden"
       >
         Check Entry
         <ChevronDown
@@ -207,7 +207,7 @@ export const ZaPreview = ({
         transition={transition(0.28, 0.5)}
         data-vaul-no-drag
         className={cn(
-          'min-h-0 flex-1 flex-col gap-3 overflow-y-auto rounded-xl border border-white/20 bg-black/25 p-3 lg:flex lg:gap-4 lg:p-4',
+          'min-h-0 flex-1 flex-col gap-3 overflow-y-auto rounded-lg border border-white/20 bg-black/25 p-3 lg:flex lg:gap-4 lg:p-4',
           detailsOpen ? 'flex' : 'hidden',
         )}
       >

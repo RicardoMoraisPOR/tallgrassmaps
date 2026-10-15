@@ -16,7 +16,7 @@ export const SelectField = ({
     <select
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="h-9 min-w-0 rounded-lg border border-input bg-transparent px-2.5 text-sm text-foreground transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30"
+      className="h-9 min-w-0 rounded-sm border border-input bg-transparent px-2.5 text-sm text-foreground transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30"
     >
       {options.map((option) => (
         <option key={option.value} value={option.value}>

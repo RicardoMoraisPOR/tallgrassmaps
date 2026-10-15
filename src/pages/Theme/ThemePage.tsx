@@ -12,14 +12,12 @@ import { useSettingsStore } from '@/stores/settings';
 import { ComponentSamples } from './ComponentSamples';
 import { MapIconSamples } from './MapIconSamples';
 import {
-  chartTokens,
   coreTokens,
   fonts,
   gameBoyTokens,
   legendsZaTokens,
   mapTokens,
   radii,
-  sidebarTokens,
   textSizes,
 } from './tokens';
 import { TokenSwatches } from './TokenSwatches';
@@ -84,8 +82,6 @@ export const ThemePage = () => {
       </Section>
       <Section title="Colour tokens">
         <TokenSwatches tokens={coreTokens} />
-        <TokenSwatches tokens={chartTokens} />
-        <TokenSwatches tokens={sidebarTokens} />
       </Section>
       <Section title="Map colours">
         <TokenSwatches tokens={mapTokens} />
@@ -95,13 +91,13 @@ export const ThemePage = () => {
           {games.map((game) => (
             <li
               key={game.id}
-              className="flex items-center gap-2 rounded-lg border p-2 text-xs"
+              className="flex items-center gap-2 rounded-sm border p-2 text-xs"
             >
               {game.colors.map((color) => (
                 <span
                   key={color}
                   aria-hidden
-                  className="size-6 rounded-md border"
+                  className="size-6 rounded-sm border"
                   style={{ background: color }}
                 />
               ))}
@@ -115,16 +111,16 @@ export const ThemePage = () => {
           {Object.entries(pokemonTypeColors).map(([type, colors]) => (
             <li
               key={type}
-              className="flex items-center gap-2 rounded-lg border p-2 text-xs capitalize"
+              className="flex items-center gap-2 rounded-sm border p-2 text-xs capitalize"
             >
               <span
                 aria-hidden
-                className="size-6 rounded-md border"
+                className="size-6 rounded-sm border"
                 style={{ background: colors.darkThemeColor }}
               />
               <span
                 aria-hidden
-                className="size-6 rounded-md border"
+                className="size-6 rounded-sm border"
                 style={{ background: colors.whiteThemeColor }}
               />
               {type}
@@ -177,7 +173,7 @@ export const ThemePage = () => {
         </div>
       </Section>
       <Section title="Legends: Z-A skin">
-        <div className="pokedex-za za-screen flex flex-col gap-4 rounded-xl p-4">
+        <div className="pokedex-za za-screen flex flex-col gap-4 rounded-lg p-4">
           <TokenSwatches tokens={legendsZaTokens} />
           <ComponentSamples />
         </div>

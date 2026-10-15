@@ -9,6 +9,7 @@ import { Billboard } from './Billboard';
 import { MAP_SPRITE_SCALE, random, WALK_BOUNDS } from './config';
 
 const MAX_WALKERS = 3;
+const FLEE_SPEED_MULTIPLIER = 3;
 const FIRST_SPAWN_MS = 2300;
 const SPEED_PIXELS_PER_SECOND = 34;
 const SPRITE_SIZE = 92;
@@ -17,9 +18,6 @@ const MAX_STOPS = 4;
 const LEADER_LINE_PIXELS = 40;
 const LEADER_LINE_STEP_PIXELS = 17;
 const MAP_REVEAL_SECONDS = 1.55;
-const CATCH_PADDING_PIXELS = 26;
-const CATCH_ZONE_PIXELS =
-  SPRITE_SIZE * MAP_SPRITE_SCALE + CATCH_PADDING_PIXELS * 2;
 
 const randomSpecies = () =>
   allSpecies[Math.floor(random(0, allSpecies.length))].number;
@@ -62,7 +60,13 @@ type Sighting = {
   level: number;
 };
 
-export type WalkerHandle = { hide: () => void; remove: () => void };
+export type WalkerHandle = {
+  capture: () => void;
+  busy: () => boolean;
+  rect: () => DOMRect | undefined;
+  remove: () => void;
+  flee: () => void;
+};
 
 export type WalkerRegistry = Map<number, WalkerHandle>;
 
@@ -84,7 +88,7 @@ const MapLabel = ({ sighting, show }: LabelProps) => {
       }}
     >
       <div
-        className="rounded-md border bg-card/95 px-2 py-1 text-center text-[10px] leading-tight whitespace-nowrap text-foreground shadow-sm motion-reduce:transition-none"
+        className="rounded-sm border bg-card/95 px-2 py-1 text-center text-[10px] leading-tight whitespace-nowrap text-foreground shadow-sm motion-reduce:transition-none"
         style={{
           transformOrigin: '50% 100%',
           opacity: show ? 1 : 0,
@@ -116,25 +120,15 @@ type WalkerProps = {
   sighting: Sighting;
   map: boolean;
   registry: RefObject<WalkerRegistry>;
-  onCatch: (sighting: Sighting, sprite: DOMRect) => void;
   onDone: () => void;
-  onCaught: () => void;
 };
 
-const Walker = ({
-  sighting,
-  map,
-  registry,
-  onCatch,
-  onDone,
-  onCaught,
-}: WalkerProps) => {
+const Walker = ({ sighting, map, registry, onDone }: WalkerProps) => {
   const [start] = useState(edgePoint);
   const done = useRef(onDone);
-  const caught = useRef(onCaught);
   const mapRef = useRef(map);
   const halted = useRef(false);
-  const [locked, setLocked] = useState(false);
+  const sprite = useRef<HTMLImageElement>(null);
   const running = useRef<Array<{ stop: () => void }>>([]);
   const x = useMotionValue(start.x);
   const y = useMotionValue(start.y);
@@ -145,22 +139,51 @@ const Walker = ({
 
   useEffect(() => {
     done.current = onDone;
-    caught.current = onCaught;
     mapRef.current = map;
-  }, [onDone, onCaught, map]);
+  }, [onDone, map]);
 
   useEffect(() => {
     const registered = registry.current;
 
+    const flee = async () => {
+      const target = edgePoint();
+      const seconds =
+        Math.hypot(target.x - x.get(), target.y - y.get()) /
+        (SPEED_PIXELS_PER_SECOND * FLEE_SPEED_MULTIPLIER);
+
+      setFacing(target.x >= x.get() ? 1 : -1);
+      setVisible(true);
+      setMoving(true);
+
+      const controls = [
+        animate(x, target.x, { duration: seconds, ease: 'easeIn' }),
+        animate(y, target.y, { duration: seconds, ease: 'easeIn' }),
+      ];
+
+      running.current = controls;
+      await Promise.all(controls);
+      setVisible(false);
+      await wait(450);
+      done.current();
+    };
+
     registered.set(sighting.key, {
-      hide: () => setVisible(false),
-      remove: () => caught.current(),
+      capture: () => {
+        halted.current = true;
+        running.current.forEach((controls) => controls.stop());
+        setMoving(false);
+        setVisible(false);
+      },
+      busy: () => halted.current,
+      rect: () => sprite.current?.getBoundingClientRect(),
+      remove: () => done.current(),
+      flee: () => void flee(),
     });
 
     return () => {
       registered.delete(sighting.key);
     };
-  }, [registry, sighting.key]);
+  }, [registry, sighting.key, x, y]);
 
   useEffect(() => {
     let cancelled = false;
@@ -191,11 +214,7 @@ const Walker = ({
 
       const stops = Math.floor(random(MIN_STOPS, MAX_STOPS + 1));
 
-      for (
-        let stop = 0;
-        (mapRef.current || stop < stops) && !interrupted();
-        stop++
-      ) {
+      for (let stop = 0; stop < stops && !interrupted(); stop++) {
         await walkTo(randomPoint());
         await wait(random(500, 1400));
       }
@@ -216,14 +235,6 @@ const Walker = ({
       running.current.forEach((controls) => controls.stop());
     };
   }, [x, y]);
-
-  const targeted = () => {
-    halted.current = true;
-    running.current.forEach((controls) => controls.stop());
-    setMoving(false);
-    setLocked(true);
-  };
-  const catchable = map && visible && !locked;
 
   return (
     <m.div
@@ -264,6 +275,7 @@ const Walker = ({
               transition={{ type: 'spring', stiffness: 260, damping: 16 }}
             >
               <m.img
+                ref={sprite}
                 src={pokeapiSprite(sighting.species)}
                 alt=""
                 draggable={false}
@@ -279,23 +291,6 @@ const Walker = ({
             </m.div>
           </div>
           <MapLabel sighting={sighting} show={map && visible} />
-          {catchable && (
-            <div
-              aria-hidden
-              className="absolute left-1/2 cursor-pointer"
-              style={{
-                width: CATCH_ZONE_PIXELS,
-                height: CATCH_ZONE_PIXELS,
-                bottom: -CATCH_PADDING_PIXELS,
-                transform: 'translateX(-50%)',
-              }}
-              onClick={(event) => {
-                event.stopPropagation();
-                targeted();
-                onCatch(sighting, event.currentTarget.getBoundingClientRect());
-              }}
-            />
-          )}
         </div>
       </Billboard>
     </m.div>
@@ -305,20 +300,11 @@ const Walker = ({
 type WalkersProps = {
   map: boolean;
   registry: RefObject<WalkerRegistry>;
-  onCatch: (sighting: Sighting, sprite: DOMRect) => void;
-  onCleared: (cleared: boolean) => void;
 };
 
-export const Walkers = ({
-  map,
-  registry,
-  onCatch,
-  onCleared,
-}: WalkersProps) => {
+export const Walkers = ({ map, registry }: WalkersProps) => {
   const [walkers, setWalkers] = useState<Array<Sighting>>([]);
-  const [caught, setCaught] = useState(0);
   const [started, setStarted] = useState(false);
-  const target = map ? MAX_WALKERS - caught : MAX_WALKERS;
 
   useEffect(() => {
     const timer = setTimeout(() => setStarted(true), FIRST_SPAWN_MS);
@@ -327,23 +313,10 @@ export const Walkers = ({
   }, []);
 
   useEffect(() => {
-    if (!map && !started) return;
+    if (!started) return;
 
-    setWalkers((current) => fillTo(current, target));
-  }, [map, started, target, walkers.length]);
-
-  useEffect(() => {
-    if (!map) return;
-
-    return () => {
-      setWalkers([]);
-      setCaught(0);
-    };
-  }, [map]);
-
-  useEffect(() => {
-    onCleared(map && caught >= MAX_WALKERS);
-  }, [map, caught, onCleared]);
+    setWalkers((current) => fillTo(current, MAX_WALKERS));
+  }, [started, walkers.length]);
 
   return (
     <>
@@ -353,18 +326,11 @@ export const Walkers = ({
           sighting={sighting}
           map={map}
           registry={registry}
-          onCatch={onCatch}
           onDone={() =>
             setWalkers((current) =>
               current.filter((item) => item.key !== sighting.key),
             )
           }
-          onCaught={() => {
-            setWalkers((current) =>
-              current.filter((item) => item.key !== sighting.key),
-            );
-            setCaught((current) => current + 1);
-          }}
         />
       ))}
     </>

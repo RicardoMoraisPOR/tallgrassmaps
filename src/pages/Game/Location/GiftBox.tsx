@@ -18,7 +18,7 @@ export const GiftBox = ({
           'flex items-center gap-1 py-0.5 pr-2 pl-0.5',
           gameTheme
             ? 'border-2 border-(--gb-ink) text-[8px] leading-none'
-            : 'rounded-md border border-border bg-muted/60 text-xs font-medium',
+            : 'rounded-sm border border-border bg-muted/60 text-xs font-medium',
         )}
       >
         <img

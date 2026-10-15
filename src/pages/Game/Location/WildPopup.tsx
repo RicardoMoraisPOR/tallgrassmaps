@@ -36,7 +36,7 @@ export const WildPopup = ({ game, path, groups, note }: WildPopupProps) => {
   return gameTheme ? (
     <GameWildPopup game={game} groups={groups} titleOf={titleOf} note={note} />
   ) : (
-    <div className="w-68 rounded-xl bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+    <div className="w-68 rounded-lg bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
       <div className="flex max-h-56 flex-col gap-3 overflow-y-auto pr-2">
         {groups.map((group) => (
           <section key={group.method} className="flex flex-col gap-1">

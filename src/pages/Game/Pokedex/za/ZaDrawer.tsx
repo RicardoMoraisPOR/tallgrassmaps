@@ -1,5 +1,3 @@
-import '@fontsource/barlow/500.css';
-import '@fontsource/barlow/700.css';
 import '@fontsource/michroma';
 import { X } from 'lucide-react';
 

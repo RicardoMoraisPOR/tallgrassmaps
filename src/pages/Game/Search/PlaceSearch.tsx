@@ -94,7 +94,7 @@ export const PlaceSearchButton = () => {
     >
       <Search aria-hidden className="size-5 flex-none md:size-4" />
       <span className="hidden text-xs font-medium md:inline">Search</span>
-      <kbd className="hidden rounded border bg-muted px-1.5 py-0.5 font-sans text-[11px] text-muted-foreground lg:inline">
+      <kbd className="hidden rounded-sm border bg-muted px-1.5 py-0.5 font-sans text-[11px] text-muted-foreground lg:inline">
         {searchShortcut()}
       </kbd>
     </button>
@@ -203,7 +203,7 @@ const PlaceSearchDialog = ({
                     onClick={() => go(result)}
                     onMouseMove={() => setActive(index)}
                     className={cn(
-                      'flex min-h-11 w-full items-center gap-3 rounded-lg px-2.5 text-left text-sm',
+                      'flex min-h-11 w-full items-center gap-3 rounded-sm px-2.5 text-left text-sm',
                       index === active && 'bg-muted',
                     )}
                   >

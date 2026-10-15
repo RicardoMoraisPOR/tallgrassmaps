@@ -49,11 +49,11 @@ const EvolutionCard = ({ node, current, onSelect }: StageProps) => {
       type="button"
       aria-current={isCurrent ? 'true' : undefined}
       onClick={() => onSelect(node.number)}
-      className="group flex w-20 flex-none flex-col items-center gap-1 rounded-lg outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+      className="group flex w-20 flex-none flex-col items-center gap-1 rounded-sm outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
     >
       <span
         className={cn(
-          'flex items-center justify-center rounded-lg border border-transparent bg-muted/50 transition-colors group-hover:bg-muted motion-reduce:transition-none',
+          'flex items-center justify-center rounded-sm border border-transparent bg-muted/50 transition-colors group-hover:bg-muted motion-reduce:transition-none',
           isCurrent && SELECTED_TINT,
         )}
         style={{

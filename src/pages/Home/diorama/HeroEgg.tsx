@@ -1,5 +1,4 @@
 import {
-  Fragment,
   type MouseEvent,
   type RefObject,
   useEffect,
@@ -7,26 +6,19 @@ import {
   useState,
 } from 'react';
 
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { m } from 'motion/react';
-import { Link } from 'react-router';
 
-import { Button } from '@/components/ui/button';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 import { COLORS } from './config';
 import { Pokeballs, type Throw } from './Pokeball';
-import { type Bounds, type Registry, Swarm } from './Swarm';
+import { type Bounds, type Rect, type Registry, Swarm } from './Swarm';
 
 const EXPAND_SECONDS = 1;
 const EASE = [0.22, 1, 0.36, 1] as const;
-const MESSAGE_DELAY_SECONDS = 1.1;
-const TITLE = 'Yes! There is way more to explore.';
-const SLIDE_DISTANCE_EM = 0.6;
-const SLIDE_SECONDS = 0.9;
-const SLIDE_STAGGER_SECONDS = 0.03;
-const BACK_DELAY_SECONDS = 2.2;
 const HIT_PADDING_PIXELS = 14;
+const SWARM_AFTER_MS = 900;
 const GRID_CELL_PIXELS = 56;
 const GRID_LINE = 'rgb(108 196 106 / 0.14)';
 
@@ -44,6 +36,32 @@ type HeroEggProps = {
   onClose: () => void;
 };
 
+const measureObstacles = (section: HTMLElement | null): Array<Rect> => {
+  if (!section) return [];
+
+  const box = section.getBoundingClientRect();
+
+  return Array.from(
+    section.querySelectorAll<HTMLElement>('[data-hero-obstacle]'),
+  ).map((element) => {
+    const range = document.createRange();
+
+    range.selectNodeContents(element);
+
+    const rect =
+      element.dataset.heroObstacle === 'text'
+        ? range.getBoundingClientRect()
+        : element.getBoundingClientRect();
+
+    return {
+      left: rect.left - box.left,
+      top: rect.top - box.top,
+      right: rect.right - box.left,
+      bottom: rect.bottom - box.top,
+    };
+  });
+};
+
 const measure = (element: HTMLElement | null): Bounds => ({
   width: element?.clientWidth ?? 0,
   height: element?.clientHeight ?? 0,
@@ -57,22 +75,40 @@ export const HeroEgg = ({
 }: HeroEggProps) => {
   const reducedMotion = usePrefersReducedMotion();
   const [bounds, setBounds] = useState(initialBounds);
+  const [settled, setSettled] = useState(false);
   const [throws, setThrows] = useState<Array<Throw>>([]);
   const root = useRef<HTMLDivElement>(null);
   const throwCount = useRef(0);
   const registry = useRef<Registry>(new Map());
+  const [obstacles] = useState(() => ({
+    current: measureObstacles(sectionRef.current),
+  }));
 
   useEffect(() => {
     const element = sectionRef.current;
 
     if (!element) return;
 
-    const observer = new ResizeObserver(() => setBounds(measure(element)));
+    const observer = new ResizeObserver(() => {
+      obstacles.current = measureObstacles(element);
+      setBounds(measure(element));
+    });
+
+    const settle = setTimeout(
+      () => {
+        obstacles.current = measureObstacles(element);
+        setSettled(true);
+      },
+      reducedMotion ? 0 : SWARM_AFTER_MS,
+    );
 
     observer.observe(element);
 
-    return () => observer.disconnect();
-  }, [sectionRef]);
+    return () => {
+      observer.disconnect();
+      clearTimeout(settle);
+    };
+  }, [sectionRef, obstacles, reducedMotion]);
 
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
@@ -146,14 +182,12 @@ export const HeroEgg = ({
   };
 
   const duration = reducedMotion ? 0 : EXPAND_SECONDS;
-  const messageDelay = reducedMotion ? 0 : MESSAGE_DELAY_SECONDS;
-  const backDelay = reducedMotion ? 0 : BACK_DELAY_SECONDS;
 
   return (
     <m.div
       ref={root}
       onClick={throwBall}
-      className="absolute z-20 cursor-crosshair overflow-hidden select-none"
+      className="absolute z-0 cursor-crosshair overflow-hidden select-none"
       style={{
         border: `2px solid ${COLORS.light}`,
         backgroundColor: 'rgb(108 196 106 / 0.13)',
@@ -192,67 +226,25 @@ export const HeroEgg = ({
           setThrows((current) => current.filter((item) => item.key !== key))
         }
       />
-      <Swarm bounds={bounds} registry={registry} still={reducedMotion} />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 px-6 text-center select-none">
-        <h2 className="font-heading text-[clamp(2.4rem,7vw,6rem)] leading-[0.95] font-bold tracking-[-0.035em] text-foreground select-none">
-          {TITLE.split(' ').map((word, wordIndex, words) => (
-            <Fragment key={wordIndex}>
-              <span aria-hidden className="inline-block whitespace-nowrap">
-                {word.split('').map((letter, letterIndex) => (
-                  <m.span
-                    key={letterIndex}
-                    className="inline-block"
-                    initial={
-                      reducedMotion
-                        ? false
-                        : { x: `-${SLIDE_DISTANCE_EM}em`, opacity: 0 }
-                    }
-                    animate={{ x: '0em', opacity: 1 }}
-                    transition={{
-                      duration: SLIDE_SECONDS,
-                      delay:
-                        messageDelay +
-                        (words.slice(0, wordIndex).join(' ').length +
-                          (wordIndex > 0 ? 1 : 0) +
-                          letterIndex) *
-                          SLIDE_STAGGER_SECONDS,
-                      ease: EASE,
-                    }}
-                  >
-                    {letter}
-                  </m.span>
-                ))}
-              </span>
-              {wordIndex < words.length - 1 && ' '}
-            </Fragment>
-          ))}
-          <span className="sr-only">{TITLE}</span>
-        </h2>
-        <m.div
-          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: messageDelay + 0.25, ease: EASE }}
-        >
-          <Button size="lg" asChild>
-            <Link to="/maps">
-              Explore maps
-              <ArrowRight aria-hidden />
-            </Link>
-          </Button>
-        </m.div>
-      </div>
+      {settled && (
+        <Swarm
+          bounds={bounds}
+          obstaclesRef={obstacles}
+          registry={registry}
+          still={reducedMotion}
+        />
+      )}
       <m.button
         type="button"
         aria-label="Back to the grass"
         onClick={onClose}
-        className="absolute top-3 right-3 flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] leading-5 text-muted-foreground opacity-60 outline-none select-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+        className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border bg-card px-3 py-1.5 text-xs font-medium text-foreground outline-none select-none hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50"
         initial={reducedMotion ? false : { opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: backDelay }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: duration }}
       >
-        <ArrowLeft aria-hidden className="size-3" />
-        Back
+        <ArrowLeft aria-hidden className="size-3.5" />
+        Back to the grass
       </m.button>
     </m.div>
   );

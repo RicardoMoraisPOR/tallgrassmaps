@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { type MouseEvent, useEffect, useRef, useState } from 'react';
 
+import { ArrowLeft } from 'lucide-react';
 import {
   animate,
   m,
@@ -27,8 +28,8 @@ import { TallGrass } from './TallGrass';
 import { Walkers, type WalkerRegistry } from './Walkers';
 
 const TILT_SPRING = { stiffness: 70, damping: 16, mass: 0.8 };
-const POINTER_Z_DEGREES = 16;
-const POINTER_X_DEGREES = 6;
+const POINTER_Z_DEGREES = 8;
+const POINTER_X_DEGREES = 3;
 const IDLE_SWAY_DEGREES = 5;
 const PERSPECTIVE_PIXELS = 1500;
 const PLATFORM_DELAY_SECONDS = 0.35;
@@ -37,7 +38,9 @@ const MAP_POINTER_GAIN = 0;
 const MAP_SURFACE_Z = 9;
 const COLLAPSED_LAYER_SEPARATION = 0.45;
 const MAP_SCALE = 1.14;
-const GUARANTEED_CATCH = 1;
+const BUTTONS_AFTER_MS = 1500;
+const HIT_PADDING_PIXELS = 20;
+const BALL_START_BELOW_PIXELS = 24;
 const TILE_OVERHANG_PIXELS = 5;
 const GRASS_LEAVES_SECONDS = 0.55;
 const PARK_AFTER_MS = 450;
@@ -58,7 +61,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   const progress = useMotionValue(0);
   const [map, setMap] = useState(false);
   const [hintDismissed, setHintDismissed] = useState(false);
-  const [cleared, setCleared] = useState(false);
+  const [settled, setSettled] = useState(false);
   const [throws, setThrows] = useState<Array<Throw>>([]);
   const [bounds, setBounds] = useState<Bounds>({ width: 0, height: 0 });
   const registry = useRef<WalkerRegistry>(new Map());
@@ -146,7 +149,12 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   useEffect(() => {
     if (!map) return;
 
-    return () => setThrows([]);
+    const timer = setTimeout(() => setSettled(true), BUTTONS_AFTER_MS);
+
+    return () => {
+      clearTimeout(timer);
+      setSettled(false);
+    };
   }, [map]);
 
   useEffect(() => {
@@ -162,39 +170,72 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   }, [revealed]);
 
   const animated = !reducedMotion;
-  const showMore = map && (cleared || !animated) && !revealed;
-  const catchWalker = ({ key }: { key: number }, sprite: DOMRect) => {
+  const showMore = map && settled && !revealed;
+  const showBack = map && settled && !revealed;
+  const throwBall = (event: MouseEvent) => {
     const box = stage.current?.getBoundingClientRect();
+    const hero = stage.current?.closest('[data-hero]')?.getBoundingClientRect();
 
-    if (!box) return;
+    if (!box || !hero) return;
 
     throwCounter.current += 1;
     setThrows((current) => [
       ...current,
       {
         key: throwCounter.current,
-        id: key,
-        x: sprite.left + sprite.width / 2 - box.left,
-        y: sprite.top + sprite.height / 2 - box.top,
+        x: event.clientX - box.left,
+        y: event.clientY - box.top,
+        from: {
+          x: hero.left + hero.width / 2 - box.left,
+          y: hero.bottom + BALL_START_BELOW_PIXELS - box.top,
+        },
       },
     ]);
   };
-  const landOnWalker = ({ id, x, y }: Throw): CritterHandle | null => {
-    const walker = id === undefined ? undefined : registry.current.get(id);
+  const landOnWalker = ({ x, y }: Throw): CritterHandle | null => {
+    const box = stage.current?.getBoundingClientRect();
 
-    if (id === undefined || !walker) return null;
+    if (!box) return null;
 
-    walker.hide();
+    const candidates = [...registry.current.entries()].flatMap(
+      ([id, walker]) => {
+        const rect = walker.rect();
+
+        if (!rect || walker.busy()) return [];
+
+        const centerX = rect.left + rect.width / 2 - box.left;
+        const centerY = rect.top + rect.height / 2 - box.top;
+
+        return [
+          {
+            id,
+            walker,
+            centerX,
+            centerY,
+            distance: Math.hypot(centerX - x, centerY - y),
+            reach: Math.max(rect.width, rect.height) / 2 + HIT_PADDING_PIXELS,
+          },
+        ];
+      },
+    );
+    const hit = candidates
+      .filter(({ distance, reach }) => distance <= reach)
+      .sort((a, b) => a.distance - b.distance)[0];
+
+    if (!hit) return null;
+
+    hit.walker.capture();
 
     return {
-      id,
-      x: motionValue(x),
-      y: motionValue(y),
+      id: hit.id,
+      x: motionValue(hit.centerX),
+      y: motionValue(hit.centerY),
       size: 0,
       busy: () => true,
       capture: () => {},
       finish: (caught) => {
-        if (caught) walker.remove();
+        if (caught) hit.walker.remove();
+        else hit.walker.flee();
       },
     };
   };
@@ -225,7 +266,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
   return (
     <div
       ref={stage}
-      className="pointer-events-none relative mx-auto w-full max-w-[21rem] self-center select-none sm:max-w-[26rem] lg:col-span-4 lg:max-w-none"
+      className="pointer-events-none relative mx-auto w-full max-w-[21rem] self-center select-none group-data-[egg=true]/hero:hidden sm:max-w-[26rem] lg:col-span-4 lg:max-w-none"
       style={{
         aspectRatio: `${SCENE_WIDTH} / ${SCENE_HEIGHT}`,
         perspective: PERSPECTIVE_PIXELS,
@@ -249,8 +290,8 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
         <m.div
           ref={world}
           aria-hidden
-          onClick={toggle}
-          className="pointer-events-auto absolute cursor-pointer"
+          onClick={map ? throwBall : toggle}
+          className={`pointer-events-auto absolute ${map ? 'cursor-crosshair' : 'cursor-pointer'}`}
           style={{
             left: (SCENE_WIDTH - PLATFORM_SIZE) / 2,
             top: (SCENE_HEIGHT - PLATFORM_SIZE) / 2,
@@ -281,14 +322,7 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
         >
           <Platform animated={animated} map={map} />
           <TallGrass animated={animated} map={map} />
-          {animated && !revealed && (
-            <Walkers
-              map={map}
-              registry={registry}
-              onCatch={catchWalker}
-              onCleared={setCleared}
-            />
-          )}
+          {animated && !revealed && <Walkers map={map} registry={registry} />}
         </m.div>
       </div>
       <Pokeballs
@@ -296,7 +330,6 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
         bounds={bounds}
         onLand={landOnWalker}
         follow={() => undefined}
-        catchChance={GUARANTEED_CATCH}
         onDone={(key) =>
           setThrows((current) => current.filter((item) => item.key !== key))
         }
@@ -320,19 +353,27 @@ export const HeroDiorama = ({ onReveal, revealed }: HeroDioramaProps) => {
       >
         Scan the grass
       </span>
-      <button
-        type="button"
-        onClick={reveal}
-        className="pointer-events-auto absolute bottom-1 left-1/2 rounded-full border border-brand bg-card px-4 py-1.5 text-xs font-medium whitespace-nowrap text-foreground outline-none hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
-        style={{
-          opacity: showMore ? 1 : 0,
-          visibility: showMore ? 'visible' : 'hidden',
-          transform: `translateX(-50%) scale(${showMore ? 1 : 0.85})`,
-          transition: `opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0s linear ${showMore ? 0 : 0.5}s`,
-        }}
-      >
-        Is there more?
-      </button>
+      <div className="pointer-events-none absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2">
+        {showBack && (
+          <button
+            type="button"
+            onClick={toggle}
+            className="pointer-events-auto inline-flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-xs font-medium whitespace-nowrap text-foreground outline-none hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-safe:animate-in motion-safe:fade-in"
+          >
+            <ArrowLeft aria-hidden className="size-3" />
+            Back to the grass
+          </button>
+        )}
+        {showMore && (
+          <button
+            type="button"
+            onClick={reveal}
+            className="pointer-events-auto rounded-full border border-brand bg-card px-4 py-1.5 text-xs font-medium whitespace-nowrap text-foreground outline-none hover:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-safe:animate-in motion-safe:zoom-in-90 motion-safe:fade-in"
+          >
+            Expand
+          </button>
+        )}
+      </div>
     </div>
   );
 };

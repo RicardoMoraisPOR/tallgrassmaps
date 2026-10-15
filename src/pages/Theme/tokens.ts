@@ -20,25 +20,6 @@ export const coreTokens = [
   'brand',
 ];
 
-export const chartTokens = [
-  'chart-1',
-  'chart-2',
-  'chart-3',
-  'chart-4',
-  'chart-5',
-];
-
-export const sidebarTokens = [
-  'sidebar',
-  'sidebar-foreground',
-  'sidebar-primary',
-  'sidebar-primary-foreground',
-  'sidebar-accent',
-  'sidebar-accent-foreground',
-  'sidebar-border',
-  'sidebar-ring',
-];
-
 export const mapTokens = [
   'map-link',
   'map-connection',
@@ -72,12 +53,8 @@ export const legendsZaTokens = [
 ];
 
 export const fonts = [
-  { name: 'Geist Variable', className: 'font-sans', use: 'Body and headings' },
-  {
-    name: 'Barlow',
-    className: "font-['Barlow',sans-serif]",
-    use: 'Home copy, Legends: Z-A',
-  },
+  { name: 'Outfit', className: 'font-heading font-bold', use: 'Headings' },
+  { name: 'Barlow', className: 'font-sans', use: 'Body text and logo' },
   {
     name: 'Michroma',
     className: "font-['Michroma',sans-serif]",
@@ -101,11 +78,4 @@ export const textSizes = [
   'text-4xl',
 ];
 
-export const radii = [
-  'rounded-sm',
-  'rounded-md',
-  'rounded-lg',
-  'rounded-xl',
-  'rounded-2xl',
-  'rounded-full',
-];
+export const radii = ['rounded-sm', 'rounded-lg', 'rounded-full'];

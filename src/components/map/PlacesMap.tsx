@@ -35,7 +35,7 @@ export const PlacesMap = ({
     <RegionImage
       region={region}
       alt={label}
-      className={cn('overflow-hidden rounded-lg border', className)}
+      className={cn('overflow-hidden rounded-sm border', className)}
     >
       {hotspots.map((hotspot) =>
         hotspot.shape ? (

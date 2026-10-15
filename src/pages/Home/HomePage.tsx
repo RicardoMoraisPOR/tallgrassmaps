@@ -1,4 +1,3 @@
-import '@fontsource/barlow/400.css';
 import { useRef, useState } from 'react';
 
 import { ArrowRight, Award } from 'lucide-react';
@@ -25,10 +24,11 @@ export const HomePage = () => {
   );
 };
 
-const headlineLines = ['The', 'Definitive', 'Pokémon Atlas'];
+const headlineLines = ['The', 'Interactive', 'Pokémon Atlas'];
 const HEADLINE_SECONDS = 0.6;
 const HEADLINE_STAGGER_SECONDS = 0.08;
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
+const LAYOUT_TRANSITION = { duration: 0.8, ease: EASE_OUT_EXPO };
 
 const riseIn = (delay: number) => ({
   className: cn(ENTER, 'duration-600 will-change-[transform,opacity]'),
@@ -38,8 +38,8 @@ const riseIn = (delay: number) => ({
   },
 });
 
-const FADE_OUT =
-  'transition-opacity duration-500 group-data-[egg=true]/hero:pointer-events-none group-data-[egg=true]/hero:opacity-0';
+const LET_CLICKS_THROUGH =
+  'group-data-[egg=true]/hero:pointer-events-none group-data-[egg=true]/hero:[&_a]:pointer-events-auto group-data-[egg=true]/hero:[&_button]:pointer-events-auto';
 
 const Hero = () => {
   const reducedMotion = usePrefersReducedMotion();
@@ -80,10 +80,13 @@ const Hero = () => {
     >
       <Container
         size="full"
-        className="relative grid flex-1 content-center gap-x-12 gap-y-8 px-4 pt-10 pb-10 sm:px-8 sm:pt-14 sm:pb-12 lg:grid-cols-12 lg:gap-y-10 lg:px-12"
+        className={`relative z-10 grid flex-1 content-center gap-x-12 gap-y-8 px-4 pt-10 pb-10 group-data-[egg=true]/hero:mx-0 group-data-[egg=true]/hero:max-w-none group-data-[egg=true]/hero:content-start group-data-[egg=true]/hero:pl-10 sm:px-8 sm:pt-14 sm:pb-12 sm:group-data-[egg=true]/hero:pl-14 lg:grid-cols-12 lg:gap-y-10 lg:px-12 lg:group-data-[egg=true]/hero:pl-14 ${LET_CLICKS_THROUGH}`}
       >
-        <h1
-          className={`font-heading text-[clamp(2.75rem,11.5vw,5.5rem)] leading-[0.9] font-bold tracking-[-0.03em] lg:col-span-8 lg:self-center lg:text-[clamp(3.75rem,6.2vw,7.25rem)] ${FADE_OUT}`}
+        <m.h1
+          layout="position"
+          transition={LAYOUT_TRANSITION}
+          data-hero-obstacle="text"
+          className={`font-heading text-[clamp(2.75rem,11.5vw,5.5rem)] leading-[0.9] font-bold tracking-[-0.03em] transition-[font-size] duration-700 ease-out group-data-[egg=true]/hero:text-[clamp(2rem,9vw,3.25rem)] lg:col-span-8 lg:self-center lg:text-[clamp(3.75rem,6.2vw,7.25rem)] lg:group-data-[egg=true]/hero:text-[clamp(2.75rem,4.2vw,4.5rem)]`}
         >
           {headlineLines.map((line, index) => (
             <span
@@ -106,20 +109,26 @@ const Hero = () => {
               </m.span>
             </span>
           ))}
-        </h1>
+        </m.h1>
         <HeroDiorama onReveal={reveal} revealed={Boolean(egg)} />
-        <div
-          className={`col-span-full flex flex-col items-start gap-5 ${FADE_OUT}`}
+        <m.div
+          layout="position"
+          transition={LAYOUT_TRANSITION}
+          className="col-span-full flex flex-col items-start gap-5"
         >
           <m.p
-            className="max-w-[50ch] font-['Barlow',sans-serif] text-base leading-snug font-normal text-pretty text-muted-foreground sm:text-lg"
+            data-hero-obstacle="text"
+            className="max-w-[50ch] text-base leading-snug font-normal text-pretty text-muted-foreground sm:text-lg"
             {...rise(0.7, 16)}
           >
             Explore the Pokémon games on interactive maps, designed to give you
             an accurate and effortless way to explore, without feeling like you
             left the game.
           </m.p>
-          <div className="flex w-full max-w-sm flex-col gap-3">
+          <div
+            data-hero-obstacle="box"
+            className="flex w-full max-w-sm flex-col gap-3"
+          >
             <div {...riseIn(0.82)}>
               <Button size="lg" className="w-full" asChild>
                 <Link to="/maps">
@@ -132,7 +141,7 @@ const Hero = () => {
               <ChangelogCard />
             </div>
           </div>
-        </div>
+        </m.div>
       </Container>
       <AnimatePresence>
         {egg && (
@@ -152,7 +161,7 @@ const Hero = () => {
 const Footer = () => {
   return (
     <footer className="border-t">
-      <Container className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 pt-6 pb-8 text-xs leading-5 text-muted-foreground">
+      <Container className="flex items-start justify-between gap-4 pt-4 pb-5 text-[11px] leading-4 text-muted-foreground sm:items-center sm:gap-8 sm:pt-6 sm:pb-8 sm:text-xs sm:leading-5">
         <p className="max-w-160 text-pretty">
           This is a fan project. It isn&apos;t affiliated with Nintendo, Game
           Freak, Creatures Inc. or The Pokémon Company, who own Pokémon and
@@ -161,7 +170,7 @@ const Footer = () => {
         <Button
           variant="outline"
           size="sm"
-          className="group text-foreground"
+          className="group shrink-0 text-foreground"
           asChild
         >
           <Link to="/credits">
@@ -169,7 +178,7 @@ const Footer = () => {
             Credits
             <ArrowRight
               aria-hidden
-              className="transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none"
+              className="hidden transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none sm:block"
             />
           </Link>
         </Button>

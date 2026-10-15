@@ -11,7 +11,7 @@ export const MapIconSamples = () => {
             {Object.entries(mapIconArt).map(([kind, art]) => (
               <li
                 key={kind}
-                className="flex w-20 flex-col items-center gap-1 rounded-lg border p-2"
+                className="flex w-20 flex-col items-center gap-1 rounded-sm border p-2"
               >
                 <span
                   aria-hidden
@@ -23,7 +23,7 @@ export const MapIconSamples = () => {
                 </span>
               </li>
             ))}
-            <li className="flex w-20 flex-col items-center gap-1 rounded-lg border p-2">
+            <li className="flex w-20 flex-col items-center gap-1 rounded-sm border p-2">
               <span
                 aria-hidden
                 className="size-8 [--step-edge:var(--background)] [--step-ink:var(--foreground)] [&_svg]:size-full"

@@ -14,6 +14,7 @@ export type Credit = {
   by?: string;
   detail?: string;
   fontFamily?: string;
+  usedFor?: string;
   covers?: Array<string>;
   sprite?: { src: string; pixelated?: boolean };
 };
@@ -252,17 +253,20 @@ export const dataCredits: Array<DataCredit> = [
 
 export const fontCredits: Array<Credit> = [
   {
-    name: 'Geist',
-    url: 'https://vercel.com/font',
-    by: 'Vercel',
-    fontFamily: "'Geist Variable', sans-serif",
-    detail: 'SIL Open Font License 1.1',
-  },
-  {
     name: 'Press Start 2P',
     url: 'https://fonts.google.com/specimen/Press+Start+2P',
     by: 'CodeMan38',
     fontFamily: "'Press Start 2P', monospace",
+    usedFor:
+      'The Game theme: map labels, text boxes, trainer dialogs and the Game Boy Pokédex.',
+    detail: 'SIL Open Font License 1.1',
+  },
+  {
+    name: 'Outfit',
+    url: 'https://fonts.google.com/specimen/Outfit',
+    by: 'Outfit Project Authors',
+    fontFamily: "'Outfit Variable', sans-serif",
+    usedFor: 'Headings and page titles across the site.',
     detail: 'SIL Open Font License 1.1',
   },
   {
@@ -270,6 +274,7 @@ export const fontCredits: Array<Credit> = [
     url: 'https://fonts.google.com/specimen/Barlow',
     by: 'Jeremy Tribby',
     fontFamily: "'Barlow', sans-serif",
+    usedFor: 'Body text, the logo and the Legends: Z-A Pokédex and map labels.',
     detail: 'SIL Open Font License 1.1',
   },
   {
@@ -277,6 +282,7 @@ export const fontCredits: Array<Credit> = [
     url: 'https://fonts.google.com/specimen/Michroma',
     by: 'Vernon Adams',
     fontFamily: "'Michroma', sans-serif",
+    usedFor: 'Headings in the Legends: Z-A Pokédex.',
     detail: 'SIL Open Font License 1.1',
   },
 ];

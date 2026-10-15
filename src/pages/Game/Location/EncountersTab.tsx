@@ -333,7 +333,7 @@ const EncounterCard = ({
   return (
     <li
       {...highlightHandlersFor(highlightKeyFor?.(row), onHighlight)}
-      className="flex flex-col gap-2.5 rounded-xl border bg-muted/30 p-2.5 transition-colors hover:bg-muted/60"
+      className="flex flex-col gap-2.5 rounded-lg border bg-muted/30 p-2.5 transition-colors hover:bg-muted/60"
     >
       <div className="flex items-start gap-3">
         <img
@@ -343,7 +343,7 @@ const EncounterCard = ({
           height={96}
           loading="lazy"
           className={cn(
-            'size-14 flex-none rounded-lg bg-muted object-contain p-1',
+            'size-14 flex-none rounded-sm bg-muted object-contain p-1',
             sprite.pixelated && 'pixelated',
           )}
         />

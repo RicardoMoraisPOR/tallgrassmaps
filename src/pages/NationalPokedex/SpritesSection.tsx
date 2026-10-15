@@ -25,7 +25,7 @@ export const SpritesSection = ({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen((current) => !current)}
-          className="group flex w-full items-center justify-between gap-3 rounded-lg text-left text-xs font-medium tracking-wider text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          className="group flex w-full items-center justify-between gap-3 rounded-sm text-left text-xs font-medium tracking-wider text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
         >
           <span>
             Sprites

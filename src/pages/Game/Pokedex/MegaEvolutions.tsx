@@ -32,7 +32,7 @@ export const MegaEvolutions = ({
           <li
             key={stone}
             className={cn(
-              'flex items-center rounded-xl border bg-muted/40',
+              'flex items-center rounded-lg border bg-muted/40',
               compact ? 'gap-2 p-1 pr-2 text-xs' : 'gap-3 p-2 pr-3 text-sm',
             )}
           >
@@ -43,7 +43,7 @@ export const MegaEvolutions = ({
               height={64}
               loading="lazy"
               className={cn(
-                'flex-none rounded-lg object-contain',
+                'flex-none rounded-sm object-contain',
                 compact ? 'size-10' : 'size-16',
               )}
             />

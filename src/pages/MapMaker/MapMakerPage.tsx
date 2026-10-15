@@ -312,7 +312,7 @@ export const MapMakerPage = () => {
         ))}
       </MapContainer>
       <div className="pointer-events-none absolute right-3 bottom-3 left-16 z-[1000] flex flex-wrap items-center justify-end gap-2">
-        <p className="pointer-events-auto mr-auto rounded-lg bg-background/90 px-3 py-1.5 text-sm shadow ring-1 ring-foreground/10">
+        <p className="pointer-events-auto mr-auto rounded-sm bg-background/90 px-3 py-1.5 text-sm shadow ring-1 ring-foreground/10">
           {selecting
             ? 'Click an existing shape to copy it.'
             : mode === 'points'
@@ -423,7 +423,7 @@ export const MapMakerPage = () => {
             readOnly
             value={data}
             onFocus={(event) => event.currentTarget.select()}
-            className="h-64 w-full resize-none rounded-lg border bg-muted/40 p-2 font-mono text-xs"
+            className="h-64 w-full resize-none rounded-sm border bg-muted/40 p-2 font-mono text-xs"
           />
           <Button onClick={copy}>
             {copied ? <Check /> : <Copy />} {copied ? 'Copied' : 'Copy data'}

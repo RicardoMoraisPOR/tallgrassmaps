@@ -46,7 +46,7 @@ export const ZaDetails = ({
               {appearsIn.map((other) => (
                 <li
                   key={other.id}
-                  className="inline-flex h-6 items-center gap-1.5 rounded-md border border-white/25 px-2 text-sm font-bold"
+                  className="inline-flex h-6 items-center gap-1.5 rounded-sm border border-white/25 px-2 text-sm font-bold"
                 >
                   <ColorDot color={other.colors[0]} />
                   {other.shortName}
@@ -70,7 +70,7 @@ export const ZaDetails = ({
                 className="mx-auto w-full max-w-56"
               />
             )}
-            <ul className="flex flex-col divide-y divide-white/15 rounded-lg border border-white/20">
+            <ul className="flex flex-col divide-y divide-white/15 rounded-sm border border-white/20">
               <EncounterPlaces
                 encounters={encounters}
                 region={region}

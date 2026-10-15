@@ -63,7 +63,7 @@ export const MissionsExtra = ({ game, region }: ExtraContentProps) => {
             <h3 className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
               {group} · {entries.length}
             </h3>
-            <ul className="flex flex-col divide-y rounded-lg border">
+            <ul className="flex flex-col divide-y rounded-sm border">
               {entries.map((mission) => (
                 <MissionRow
                   key={mission.id}

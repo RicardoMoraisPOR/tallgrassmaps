@@ -1,4 +1,3 @@
-import '@fontsource/barlow/400.css';
 import '@fontsource/michroma';
 import '@fontsource/press-start-2p';
 import {
@@ -169,7 +168,7 @@ const MapCreditGroupSection = ({ group }: { group: MapCreditGroup }) => {
   );
 
   return (
-    <div className="overflow-hidden rounded-xl border bg-card">
+    <div className="overflow-hidden rounded-lg border bg-card">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b bg-muted/40 px-4 py-3">
         <div className="flex items-baseline gap-2">
           <h3 className="font-semibold tracking-tight">{group.title}</h3>
@@ -277,7 +276,7 @@ const CreditRows = ({ credits }: { credits: Array<DataCredit> }) => {
   );
 
   return (
-    <ul className="divide-y overflow-hidden rounded-xl border bg-card">
+    <ul className="divide-y overflow-hidden rounded-lg border bg-card">
       {byGameCount.map((credit) => (
         <DataCreditRow key={credit.name} credit={credit} />
       ))}
@@ -293,7 +292,7 @@ const GameTags = ({ games }: { games: Array<string> }) =>
       game && (
         <span
           key={id}
-          className="inline-flex h-6 items-center gap-1.5 rounded-full border bg-background px-2.5 text-xs font-medium"
+          className="inline-flex h-6 items-center gap-1.5 rounded-full border bg-background px-2.5 text-xs font-bold"
         >
           <ColorDot color={game.colors[0]} />
           {game.shortName}
@@ -315,7 +314,7 @@ const DataCreditRow = ({ credit }: { credit: DataCredit }) => {
       >
         <span className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <span className="flex min-w-0 flex-col">
-            <span className="font-medium">{credit.name}</span>
+            <span className="font-bold">{credit.name}</span>
             {credit.by && (
               <span className="text-xs text-muted-foreground">{credit.by}</span>
             )}
@@ -336,7 +335,7 @@ const DataCreditRow = ({ credit }: { credit: DataCredit }) => {
             <DialogDescription>{credit.by}</DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-2">
-            <h4 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            <h4 className="text-xs font-bold tracking-[-0.02em] text-muted-foreground uppercase">
               What we took from it
             </h4>
             <ul className="flex list-disc flex-col gap-1.5 pl-5 text-sm text-pretty marker:text-brand">
@@ -346,7 +345,7 @@ const DataCreditRow = ({ credit }: { credit: DataCredit }) => {
             </ul>
           </div>
           <div className="flex flex-col gap-2">
-            <h4 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            <h4 className="text-xs font-bold tracking-[-0.02em] text-muted-foreground uppercase">
               Used for
             </h4>
             <div className="flex flex-wrap gap-1.5">
@@ -439,7 +438,7 @@ const CreditList = ({
       {credits.map((credit) => (
         <li
           key={credit.name}
-          className={`relative flex flex-col gap-1 overflow-hidden rounded-xl border bg-card p-4 ${credit.sprite ? 'pr-24 sm:pr-28' : ''}`}
+          className={`relative flex flex-col gap-1 overflow-hidden rounded-lg border bg-card p-4 ${credit.sprite ? 'pr-24 sm:pr-28' : ''}`}
         >
           {credit.covers && <CoverFan covers={credit.covers} />}
           {credit.sprite && (
@@ -475,6 +474,11 @@ const CreditList = ({
           )}
           {listLabel && hasImageGroups(credit.name) && (
             <ImageListButton credit={credit} label={listLabel} />
+          )}
+          {credit.usedFor && (
+            <span className="relative text-xs text-pretty text-muted-foreground">
+              Used for: {credit.usedFor}
+            </span>
           )}
         </li>
       ))}

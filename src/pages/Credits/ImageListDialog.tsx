@@ -56,7 +56,7 @@ const ImageListDialog = ({
                   key={sprite.src}
                   title={sprite.label}
                   className={cn(
-                    'flex items-center justify-center rounded-lg border bg-muted/40 p-1',
+                    'flex items-center justify-center rounded-sm border bg-muted/40 p-1',
                     group.large ? 'aspect-4/5 p-2' : 'aspect-square',
                   )}
                 >

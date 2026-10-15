@@ -79,7 +79,7 @@ const MapIcons = ({ style }: { style: 'game' | 'tall-grass' }) => {
   const gameStyle = style === 'game';
 
   return (
-    <div className="flex max-w-3xl flex-wrap items-center gap-3 rounded-xl border bg-background p-6">
+    <div className="flex max-w-3xl flex-wrap items-center gap-3 rounded-lg border bg-background p-6">
       <h1 className="w-full text-xl">Map Icons</h1>
       <p className="w-full text-xs text-muted-foreground">
         Hover or focus an icon to preview its interaction animation.

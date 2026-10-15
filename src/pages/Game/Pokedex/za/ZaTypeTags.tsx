@@ -6,7 +6,7 @@ export const ZaTypeTags = ({ types }: { types: Array<string> }) => (
       <li
         key={type}
         style={{ backgroundColor: pokemonTypeColors[type]?.whiteThemeColor }}
-        className="inline-flex h-5 items-center rounded-md px-2 pb-px text-xs leading-none font-bold text-white capitalize lg:h-6 lg:px-2.5 lg:text-sm"
+        className="inline-flex h-5 items-center rounded-sm px-2 pb-px text-xs leading-none font-bold text-white capitalize lg:h-6 lg:px-2.5 lg:text-sm"
       >
         {type}
       </li>

@@ -14,7 +14,7 @@ const shortTitle = (entry: CatalogEntry) =>
   entryName(entry).replace(/^Pokémon /, '');
 
 const ROW_CLASS =
-  'flex h-11 items-center justify-between gap-2 rounded-lg border border-input bg-background px-3 text-sm font-medium transition-colors duration-200 sm:h-9 dark:bg-input/30';
+  'flex h-11 items-center justify-between gap-2 rounded-sm border border-input bg-background px-3 text-sm font-medium transition-colors duration-200 sm:h-9 dark:bg-input/30';
 
 const GameRow = ({ entry }: { entry: CatalogEntry }) => {
   if (entry.status === 'coming-soon')
@@ -68,7 +68,7 @@ export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
   return (
     <div
       className={cn(
-        'flex h-full flex-col overflow-hidden rounded-2xl border shadow-xs',
+        'flex h-full flex-col overflow-hidden rounded-lg border shadow-xs',
         upcoming ? 'border-dashed bg-muted/45' : 'bg-card',
       )}
     >

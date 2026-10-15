@@ -19,7 +19,13 @@ const SPARKLE_RADIUS = 46;
 const CAUGHT_LINGER_MS = 1000;
 const ESCAPED_LINGER_MS = 900;
 
-export type Throw = { key: number; x: number; y: number; id?: number };
+export type Throw = {
+  key: number;
+  x: number;
+  y: number;
+  id?: number;
+  from?: { x: number; y: number };
+};
 
 type BallProps = {
   bounds: Bounds;
@@ -72,8 +78,8 @@ const Ball = ({
   onDone,
   catchChance = CATCH_CHANCE,
 }: BallProps) => {
-  const startX = bounds.width / 2;
-  const startY = bounds.height + START_BELOW_PIXELS;
+  const startX = target.from?.x ?? bounds.width / 2;
+  const startY = target.from?.y ?? bounds.height + START_BELOW_PIXELS;
   const x = useMotionValue(startX);
   const y = useMotionValue(startY);
   const rotate = useMotionValue(0);

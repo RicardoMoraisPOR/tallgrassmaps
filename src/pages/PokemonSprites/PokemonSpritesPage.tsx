@@ -251,7 +251,7 @@ export const PokemonSpritesPage = () => {
               type="button"
               onClick={() => setSelected(tile)}
               className={cn(
-                'flex w-full flex-col items-center gap-1 rounded-lg border bg-card p-2 text-center outline-none hover:bg-muted/60 focus-visible:ring-[3px] focus-visible:ring-ring/50',
+                'flex w-full flex-col items-center gap-1 rounded-sm border bg-card p-2 text-center outline-none hover:bg-muted/60 focus-visible:ring-[3px] focus-visible:ring-ring/50',
                 !tile.sprite && 'border-dashed',
               )}
             >
@@ -283,7 +283,7 @@ export const PokemonSpritesPage = () => {
               {selected && !selected.sprite && ' · no sprite in this source'}
             </DialogDescription>
           </DialogHeader>
-          <div className="flex aspect-square w-full items-center justify-center rounded-lg bg-muted/40">
+          <div className="flex aspect-square w-full items-center justify-center rounded-sm bg-muted/40">
             {selected && <SpriteImage key={selected.key} tile={selected} />}
           </div>
         </DialogContent>

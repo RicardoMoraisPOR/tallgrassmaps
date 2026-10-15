@@ -19,7 +19,7 @@ export const TownMapCard = ({ region, path, href }: TownMapCardProps) => {
   return (
     <section
       aria-labelledby={headingId}
-      className="flex flex-col rounded-xl border bg-card"
+      className="flex flex-col rounded-lg border bg-card"
     >
       <h2
         id={headingId}

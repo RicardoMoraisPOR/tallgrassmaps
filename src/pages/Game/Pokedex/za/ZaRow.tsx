@@ -46,7 +46,7 @@ export const ZaRow = ({
         aria-label={`${entry.name}, number ${entry.id}`}
         onClick={onSelect}
         className={cn(
-          'flex w-full flex-col items-center gap-0.5 rounded-lg bg-(--za-tile) p-1.5 text-white transition-colors outline-none hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green)',
+          'flex w-full flex-col items-center gap-0.5 rounded-sm bg-(--za-tile) p-1.5 text-white transition-colors outline-none hover:bg-(--za-tile-hover) focus-visible:ring-2 focus-visible:ring-(--za-green)',
           selected && 'bg-white text-(--za-deep) hover:bg-white',
         )}
       >
@@ -58,7 +58,7 @@ export const ZaRow = ({
           loading="lazy"
           decoding="async"
           className={cn(
-            'aspect-square w-full rounded-md object-contain',
+            'aspect-square w-full rounded-sm object-contain',
             sprite.pixelated && 'pixelated',
           )}
         />

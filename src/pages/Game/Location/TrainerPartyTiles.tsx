@@ -13,7 +13,7 @@ type TrainerPartyTilesProps = {
 };
 
 const tileClassName =
-  'flex w-full flex-col items-center rounded-lg bg-muted pt-0.5 pb-1';
+  'flex w-full flex-col items-center rounded-sm bg-muted pt-0.5 pb-1';
 
 export const TrainerPartyTiles = ({
   party,

@@ -58,9 +58,9 @@ export const SiteHeader = () => {
           <Link
             to="/"
             aria-label={`${SITE_NAME} home`}
-            className="flex min-h-11 items-center rounded-lg outline-offset-2"
+            className="flex min-h-11 items-center rounded-sm outline-offset-2"
           >
-            <Logo className="font-heading text-lg tracking-tight" />
+            <Logo className="font-sans text-lg tracking-tight" />
           </Link>
           <nav
             aria-label="Main"
@@ -72,7 +72,7 @@ export const SiteHeader = () => {
                 to={to}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors hover:text-foreground',
+                    'rounded-sm px-3 py-1.5 text-sm font-medium transition-colors hover:text-foreground',
                     isActive ? 'text-foreground' : 'text-muted-foreground',
                   )
                 }

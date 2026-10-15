@@ -22,7 +22,7 @@ export const ZaSearch = ({ search }: PokedexSearchProps) => (
         </span>
         <span className="sr-only">Entries shown out of the total</span>
       </p>
-      <label className="flex h-10 min-w-0 flex-1 items-center gap-2 rounded-md border border-white/25 bg-black/20 px-3 focus-within:border-(--za-green) sm:max-w-xs">
+      <label className="flex h-10 min-w-0 flex-1 items-center gap-2 rounded-sm border border-white/25 bg-black/20 px-3 focus-within:border-(--za-green) sm:max-w-xs">
         <Search aria-hidden className="size-4 flex-none text-white/80" />
         <span className="sr-only">Search the Pokédex</span>
         <input
@@ -46,7 +46,7 @@ export const ZaSearch = ({ search }: PokedexSearchProps) => (
               aria-pressed={pressed}
               onClick={() => search.toggle(id)}
               className={cn(
-                'h-8 rounded-md border border-white/25 bg-white/10 px-3 text-sm font-bold whitespace-nowrap transition-colors outline-none hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-(--za-green)',
+                'h-8 rounded-sm border border-white/25 bg-white/10 px-3 text-sm font-bold whitespace-nowrap transition-colors outline-none hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-(--za-green)',
                 pressed &&
                   'border-white bg-white text-(--za-deep) hover:bg-white/90',
               )}

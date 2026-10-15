@@ -52,7 +52,7 @@ export const TrainerTooltip = ({
         </span>
       </div>
     ) : (
-      <div className="flex w-max flex-col gap-0.5 rounded-xl bg-popover px-3 py-2 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+      <div className="flex w-max flex-col gap-0.5 rounded-lg bg-popover px-3 py-2 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10">
         <span className="text-sm font-medium whitespace-nowrap">
           {battle.name}
         </span>
@@ -101,7 +101,7 @@ export const TrainerTooltip = ({
   return (
     <div
       className={cn(
-        'flex w-max flex-col gap-2 rounded-xl bg-popover p-3 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10',
+        'flex w-max flex-col gap-2 rounded-lg bg-popover p-3 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10',
         !byChoice && 'max-w-64',
       )}
     >

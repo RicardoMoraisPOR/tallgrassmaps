@@ -22,7 +22,7 @@ export const BackLink = ({ game, trail, href }: BackLinkProps) => {
     <Link
       to={back.href}
       aria-label={`Back to ${back.name}`}
-      className="flex min-h-9 w-fit max-w-full items-center gap-1 rounded-lg border bg-card py-1 pr-3 pl-2 text-xs font-medium outline-offset-2 hover:bg-muted sm:hidden"
+      className="flex min-h-9 w-fit max-w-full items-center gap-1 rounded-sm border bg-card py-1 pr-3 pl-2 text-xs font-medium outline-offset-2 hover:bg-muted sm:hidden"
     >
       <ChevronLeft aria-hidden className="size-4 flex-none" />
       <span className="truncate">{back.name}</span>

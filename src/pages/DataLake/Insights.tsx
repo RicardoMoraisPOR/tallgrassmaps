@@ -54,7 +54,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
       {groupBy && (
         <section
           aria-label="Group by"
-          className="flex flex-col gap-3 rounded-xl border bg-card p-4"
+          className="flex flex-col gap-3 rounded-lg border bg-card p-4"
         >
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-sm font-semibold">Most common</h3>
@@ -81,7 +81,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
                     type="button"
                     title={`Filter to ${name}`}
                     onClick={() => onFilter({ column: groupBy, equals: name })}
-                    className="group grid w-full grid-cols-[minmax(0,10rem)_1fr_auto] items-center gap-3 rounded-md px-1 py-0.5 text-left text-xs hover:bg-muted"
+                    className="group grid w-full grid-cols-[minmax(0,10rem)_1fr_auto] items-center gap-3 rounded-sm px-1 py-0.5 text-left text-xs hover:bg-muted"
                   >
                     <span className="truncate">{name}</span>
                     <span className="h-2 rounded-full bg-muted group-hover:bg-background">
@@ -125,7 +125,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
       {statColumn && (
         <section
           aria-label="Number summary"
-          className="flex flex-col gap-3 rounded-xl border bg-card p-4"
+          className="flex flex-col gap-3 rounded-lg border bg-card p-4"
         >
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-sm font-semibold">Number crunching</h3>
@@ -134,95 +134,95 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
               value={statColumn}
               onChange={(event) => setStatColumn(event.target.value)}
               className={`${fieldClass} h-8`}
-            >
-              {numbers.map(({ id, label }) => (
-                <option key={id} value={id}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </div>
-          {stats ? (
-            <dl className="grid grid-cols-3 gap-3 sm:grid-cols-5">
-              {(
-                [
-                  ['Rows', stats.count],
-                  ['Min', stats.min],
-                  ['Median', stats.median],
-                  ['Mean', stats.mean],
-                  ['Max', stats.max],
-                ] as const
-              ).map(([label, value]) => (
-                <div key={label} className="flex flex-col">
-                  <dt className="text-xs text-muted-foreground">{label}</dt>
-                  <dd className="font-heading text-xl font-bold tabular-nums">
-                    {number.format(value)}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          ) : (
-            <p className="text-sm text-muted-foreground">
-              No numbers in these rows.
-            </p>
-          )}
-        </section>
-      )}
-    </div>
-  );
+ >
+ {numbers.map(({ id, label }) => (
+ <option key={id} value={id}>
+ {label}
+ </option>
+ ))}
+ </select>
+ </div>
+ {stats ? (
+ <dl className="grid grid-cols-3 gap-3 sm:grid-cols-5">
+ {(
+ [
+ ['Rows', stats.count],
+ ['Min', stats.min],
+ ['Median', stats.median],
+ ['Mean', stats.mean],
+ ['Max', stats.max],
+ ] as const
+ ).map(([label, value]) => (
+ <div key={label} className="flex flex-col">
+ <dt className="text-xs text-muted-foreground">{label}</dt>
+ <dd className="font-heading text-xl font-bold tabular-nums">
+ {number.format(value)}
+ </dd>
+ </div>
+ ))}
+ </dl>
+ ) : (
+ <p className="text-sm text-muted-foreground">
+ No numbers in these rows.
+ </p>
+ )}
+ </section>
+ )}
+ </div>
+ );
 };
 
 const AllCountsDialog = ({
-  open,
-  onOpenChange,
-  title,
-  counts,
-  onPick,
+ open,
+ onOpenChange,
+ title,
+ counts,
+ onPick,
 }: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  title: string;
-  counts: Array<[string, number]>;
-  onPick: (name: string) => void;
+ open: boolean;
+ onOpenChange: (open: boolean) => void;
+ title: string;
+ counts: Array<[string, number]>;
+ onPick: (name: string) => void;
 }) => {
-  const [query, setQuery] = useState('');
-  const needle = query.trim().toLowerCase();
-  const shown = needle
-    ? counts.filter(([name]) => name.toLowerCase().includes(needle))
-    : counts;
-  const widest = counts[0]?.[1] ?? 1;
+ const [query, setQuery] = useState('');
+ const needle = query.trim().toLowerCase();
+ const shown = needle
+ ? counts.filter(([name]) => name.toLowerCase().includes(needle))
+ : counts;
+ const widest = counts[0]?.[1] ?? 1;
 
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex max-h-[85svh] flex-col gap-4 sm:max-w-lg">
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>
-            {counts.length} values in the rows you&apos;re looking at. Pick one
-            to filter by it.
-          </DialogDescription>
-        </DialogHeader>
-        <Input
-          type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search values…"
-          aria-label="Search values"
-          className="h-9"
-        />
-        <ul className="-mx-1 flex min-h-0 flex-col gap-1 overflow-y-auto px-1">
-          {shown.map(([name, count]) => (
-            <li key={name}>
-              <button
-                type="button"
-                onClick={() => onPick(name)}
-                className="group grid w-full grid-cols-[minmax(0,12rem)_1fr_auto] items-center gap-3 rounded-md px-1 py-0.5 text-left text-xs hover:bg-muted"
-              >
-                <span className="truncate">{name}</span>
-                <span className="h-2 rounded-full bg-muted group-hover:bg-background">
-                  <span
-                    className="block h-full rounded-full bg-brand"
-                    style={{ width: `${(count / widest) * 100}%` }}
+ return (
+ <Dialog open={open} onOpenChange={onOpenChange}>
+ <DialogContent className="flex max-h-[85svh] flex-col gap-4 sm:max-w-lg">
+ <DialogHeader>
+ <DialogTitle>{title}</DialogTitle>
+ <DialogDescription>
+ {counts.length} values in the rows you&apos;re looking at. Pick one
+ to filter by it.
+ </DialogDescription>
+ </DialogHeader>
+ <Input
+ type="search"
+ value={query}
+ onChange={(event) => setQuery(event.target.value)}
+ placeholder="Search values…"
+ aria-label="Search values"
+ className="h-9"
+ />
+ <ul className="-mx-1 flex min-h-0 flex-col gap-1 overflow-y-auto px-1">
+ {shown.map(([name, count]) => (
+ <li key={name}>
+ <button
+ type="button"
+ onClick={() => onPick(name)}
+ className="group grid w-full grid-cols-[minmax(0,12rem)_1fr_auto] items-center gap-3 rounded-sm px-1 py-0.5 text-left text-xs hover:bg-muted"
+ >
+ <span className="truncate">{name}</span>
+ <span className="h-2 rounded-full bg-muted group-hover:bg-background">
+ <span
+ className="block h-full rounded-full bg-brand"
+ style={{ width: `${(count / widest) * 100}%` }}
                   />
                 </span>
                 <span className="text-muted-foreground tabular-nums">

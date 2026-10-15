@@ -25,7 +25,7 @@ export const SpriteGallery = ({ name, sprites }: SpriteGalleryProps) => {
                 className="flex flex-col items-center gap-1.5"
               >
                 <span
-                  className="flex items-center justify-center overflow-hidden rounded-lg bg-muted/50"
+                  className="flex items-center justify-center overflow-hidden rounded-sm bg-muted/50"
                   style={{ width: PLATE_SIZE, height: PLATE_SIZE }}
                 >
                   <SpriteImage

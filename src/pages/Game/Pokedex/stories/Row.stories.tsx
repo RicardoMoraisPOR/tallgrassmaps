@@ -60,7 +60,7 @@ const RowStory = ({
     <div className="flex min-h-svh items-center justify-center bg-background p-8">
       <div
         className={cn(
-          'w-md max-w-[calc(100vw-2rem)] rounded-xl border bg-popover p-4 text-sm text-popover-foreground',
+          'w-md max-w-[calc(100vw-2rem)] rounded-lg border bg-popover p-4 text-sm text-popover-foreground',
           surfaceClassName,
         )}
         onClickCapture={(event) => {

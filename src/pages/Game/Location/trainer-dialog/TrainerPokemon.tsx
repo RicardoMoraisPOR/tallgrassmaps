@@ -54,7 +54,7 @@ export const TallGrassPokemon = ({
         {pokemon.moves.map((move) => (
           <li
             key={move}
-            className="truncate rounded-md bg-muted px-2 py-0.5 text-xs leading-5"
+            className="truncate rounded-sm bg-muted px-2 py-0.5 text-xs leading-5"
           >
             {move}
           </li>

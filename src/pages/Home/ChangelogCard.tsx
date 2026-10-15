@@ -21,7 +21,7 @@ export const ChangelogCard = () => {
       animate="rest"
       whileHover="hover"
       whileFocus="hover"
-      className="flex w-full items-center gap-3 rounded-lg border bg-card px-3 py-2 text-left transition-colors hover:border-ring"
+      className="flex w-full items-center gap-3 rounded-sm border bg-card px-3 py-2 text-left transition-colors hover:border-ring"
     >
       <span className="flex-1 text-sm font-medium">Changelog</span>
       <time

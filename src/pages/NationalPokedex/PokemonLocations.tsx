@@ -189,7 +189,7 @@ export const PokemonLocations = ({
           No places match these filters.
         </p>
       ) : (
-        <ul className="flex flex-col divide-y rounded-lg border">
+        <ul className="flex flex-col divide-y rounded-sm border">
           {visiblePlaces.map(
             ({ key, label, regionName, link, spots: rows }, index) => (
               <Fragment key={key}>
