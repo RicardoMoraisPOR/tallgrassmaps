@@ -34,7 +34,12 @@ import { EmptyTab, LocationPanel, type PanelTab } from './LocationPanel';
 import { MapInfoTab, MapLayerSettingsButton } from './MapInfoTab';
 import { useMapLayers } from './mapLayers';
 import { MapTextTooltip } from './MapTextTooltip';
-import { stackFloors, offsetLink, stackedHref } from './stackLayout';
+import {
+  floorLayouts,
+  offsetLink,
+  stackedHref,
+  stackFloors,
+} from './stackLayout';
 import { TownMapCard } from './TownMapCard';
 import { TownMapDialog } from './TownMapDialog';
 import { TrainerDialog } from './TrainerDialog';
@@ -241,6 +246,17 @@ export const LocationPage = () => {
   const pokemonCount = new Set(
     encounters.flatMap((group) => group.rows.map((row) => row.entry.number)),
   ).size;
+  const panelSections = stacked
+    ? layerSections.map((section) => ({
+        ...section,
+        groups: section.groups.map((group) => ({
+          ...group,
+          entries: group.entries.map((entry) =>
+            entry.replace ? { ...entry, href: stackedHref(entry.href) } : entry,
+          ),
+        })),
+      }))
+    : layerSections;
   const panelTabs: Array<PanelTab> = [
     {
       id: 'info',
@@ -248,7 +264,7 @@ export const LocationPage = () => {
       action: <MapLayerSettingsButton />,
       content: (
         <MapInfoTab
-          sections={layerSections}
+          sections={panelSections}
           onHighlight={highlightTo}
           onOpen={(key) => {
             const action = links.find(
@@ -329,7 +345,7 @@ export const LocationPage = () => {
   };
   const stackLayout =
     stacked && location.floors && floor
-      ? stackFloors(location.floors, imageFor)
+      ? stackFloors(location.floors, imageFor, floorLayouts[location.id])
       : undefined;
   const stackedData = stackLayout
     ? stackLayout.floors.map((placed) => {
@@ -340,8 +356,8 @@ export const LocationPage = () => {
 
         return {
           listedBattles: data.listedBattles,
-          links: data.links.map((link) =>
-            offsetLink(
+          links: data.links.map((link) => ({
+            ...offsetLink(
               {
                 ...link,
                 href: link.replace ? stackedHref(link.href) : link.href,
@@ -349,7 +365,8 @@ export const LocationPage = () => {
               placed.x,
               placed.y,
             ),
-          ),
+            floorId: placed.id,
+          })),
         };
       })
     : undefined;
@@ -380,6 +397,10 @@ export const LocationPage = () => {
       )}
     </>
   );
+  const panelTitle =
+    floor && location.floors && location.floors.length > 1
+      ? `${location.name} - ${floor.name}`
+      : location.name;
   const cards = (
     <>
       <AsideCard icon={MapIcon} label="Town Map">
@@ -392,7 +413,7 @@ export const LocationPage = () => {
       <AsideCard icon={Info} label="Location info" grow>
         <LocationPanel
           tabs={panelTabs}
-          title={location.name}
+          title={panelTitle}
           className="min-h-0 flex-1"
         />
       </AsideCard>

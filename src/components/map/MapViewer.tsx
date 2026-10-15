@@ -78,9 +78,15 @@ export const MapViewer = ({
     (link) => link.tooltip && linkKey(link) === cardKey,
   );
 
+  const onSelectedFloor = (link: MapLink) =>
+    !stack || link.floorId === stack.selected;
+
   const focusLink =
     focusKey &&
-    links.find((link) => [link.highlightKey].flat().includes(focusKey));
+    links.find(
+      (link) =>
+        onSelectedFloor(link) && [link.highlightKey].flat().includes(focusKey),
+    );
   const focusPoint = focusLink
     ? toLatLng(
         focusLink.x + focusLink.width / 2,
@@ -94,6 +100,7 @@ export const MapViewer = ({
 
   const isHighlighted = (link: MapLink) =>
     highlighted !== undefined &&
+    onSelectedFloor(link) &&
     [link.highlightKey ?? link.href].flat().includes(highlighted);
 
   const stackSpriteShapes = () =>
@@ -312,7 +319,7 @@ export const MapViewer = ({
       )}
       <PinOnRequest
         request={pinRequest}
-        links={links}
+        links={links.filter(onSelectedFloor)}
         onPin={(link) => {
           setPinnedAnchor(undefined);
           setPinnedCardKey(linkKey(link));

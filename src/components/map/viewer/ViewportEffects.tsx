@@ -15,7 +15,6 @@ import { MAP_ICON_SIZE, MAX_ZOOM } from './constants';
 
 const FOCUS_DELAY = 250;
 const FOCUS_DURATION = 0.6;
-const FOCUS_BELOW_ZOOM = 1;
 
 const TILE = 16;
 const MIN_ICON_SIZE = 16;
@@ -144,9 +143,7 @@ export const FitToViewport = ({
       );
 
     const focusTimer =
-      focusLat !== undefined &&
-      focusLng !== undefined &&
-      leafletMap.getMinZoom() < FOCUS_BELOW_ZOOM
+      focusLat !== undefined && focusLng !== undefined
         ? setTimeout(() => focusOn(focusLat, focusLng), FOCUS_DELAY)
         : undefined;
 

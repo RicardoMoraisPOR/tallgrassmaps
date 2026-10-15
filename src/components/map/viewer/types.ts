@@ -4,6 +4,7 @@ import type { Direction, Rect } from '@/data/maps';
 import type { SpriteFacing } from '@/data/trainers/types';
 
 export type MapLink = Rect & {
+  floorId?: string;
   href?: string;
   label: string;
   travel?: Direction;

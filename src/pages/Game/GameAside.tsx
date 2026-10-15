@@ -82,6 +82,7 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
   const [desktop] = useState(() => matchesQuery(DESKTOP_QUERY));
   const { pathname } = useLocation();
   const [wasPathname, setWasPathname] = useState(pathname);
+  const [wasTablet, setWasTablet] = useState(tablet);
 
   if (pathname !== wasPathname) {
     setWasPathname(pathname);
@@ -89,9 +90,15 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
     if (!tablet) setOverrides({});
   }
 
+  if (tablet !== wasTablet) {
+    setWasTablet(tablet);
+
+    if (!tablet) setOverrides({});
+  }
+
   const isOpen = useCallback(
-    (id: string) => overrides[id] ?? desktop,
-    [overrides, desktop],
+    (id: string) => overrides[id] ?? (desktop && tablet),
+    [overrides, desktop, tablet],
   );
   const close = useCallback(
     (id: string) => setOverrides((current) => ({ ...current, [id]: false })),

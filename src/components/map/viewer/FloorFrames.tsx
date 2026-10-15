@@ -55,7 +55,7 @@ export const FloorFrames = ({
     <Pane name={FRAME_PANE} style={{ zIndex: 320 }}>
       {frames.map((frame) => (
         <Rectangle
-          key={frame.id}
+          key={`${frame.id}:${frame.id === selected}`}
           bounds={[
             toLatLng(frame.x, frame.y + frame.height),
             toLatLng(frame.x + frame.width, frame.y),
