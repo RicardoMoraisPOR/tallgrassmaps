@@ -708,3 +708,40 @@ path.leaflet-interactive:focus {
 .nerd-scan {
   animation: nerd-scan 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
 }
+
+.floor-frame {
+  stroke: color-mix(in oklab, var(--foreground) 35%, transparent);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+  fill: transparent;
+  cursor: pointer;
+}
+
+.floor-frame-selected {
+  stroke: var(--brand);
+  stroke-width: 4;
+  stroke-dasharray: none;
+}
+
+.floor-label-anchor {
+  pointer-events: none;
+}
+
+.floor-label {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 1px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.floor-label-selected {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: oklch(0.2 0.03 160);
+}

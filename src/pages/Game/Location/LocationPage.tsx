@@ -6,7 +6,12 @@ import { useLocation, useNavigate } from 'react-router';
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
 import { itemsFor } from '@/data/items';
-import { inGame, locationInGame, type WildArea } from '@/data/maps';
+import {
+  inGame,
+  type LocationFloor,
+  locationInGame,
+  type WildArea,
+} from '@/data/maps';
 import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
 import { signsFor } from '@/data/signs';
@@ -29,6 +34,7 @@ import { EmptyTab, LocationPanel, type PanelTab } from './LocationPanel';
 import { MapInfoTab, MapLayerSettingsButton } from './MapInfoTab';
 import { useMapLayers } from './mapLayers';
 import { MapTextTooltip } from './MapTextTooltip';
+import { stackFloors, offsetLink, stackedHref } from './stackLayout';
 import { TownMapCard } from './TownMapCard';
 import { TownMapDialog } from './TownMapDialog';
 import { TrainerDialog } from './TrainerDialog';
@@ -48,7 +54,15 @@ export const LocationPage = () => {
 
   const trail = route?.trail;
   const location = trail?.at(-1);
-  const { floor, arrivedAt, from, selectFloor } = useFloor(location?.floors);
+  const {
+    floor,
+    floorRequested,
+    arrivedAt,
+    from,
+    stacked,
+    selectFloor,
+    setStacked,
+  } = useFloor(location?.floors);
   const { key: visitKey, state: navState } = useLocation();
   const [focusShown, setFocusShown] = useState<string>();
   const [arrivalShown, setArrivalShown] = useState<string>();
@@ -67,6 +81,7 @@ export const LocationPage = () => {
     scope,
   });
   const [townMapOpen, setTownMapOpen] = useState(false);
+  const [stackToggled, setStackToggled] = useState(false);
 
   useEffect(() => {
     if (!arrivedAt) return;
@@ -105,115 +120,123 @@ export const LocationPage = () => {
 
   const pokedex = pokedexFor(route.region.versionGroup);
   const trainers = trainersFor(route.region.versionGroup);
-  const trainerGroups = trainers
-    ? battleGroups(trainers, {
-        game: route.game,
-        path: dataPath,
-        floor: floor?.id,
-        onMapOnly: location.kind === 'town',
-      })
-    : [];
-  const listedBattles = trainerGroups.flatMap((group) => group.battles);
   const selectTrainer = (key: string | undefined) =>
     setSelected({ scope, key });
-  const onThisMap = (marker: {
-    path: string;
-    floor?: string;
-    games: Array<string>;
-  }) =>
-    marker.path === dataPath &&
-    marker.floor === floor?.id &&
-    marker.games.includes(route.game.id);
-  const wildAreas =
-    route.region.wildAreas?.filter(
-      (area) =>
-        area.path === dataPath &&
-        area.floor === floor?.id &&
-        inGame(area, route.game.id),
-    ) ?? [];
-  const encounters = pokedex
-    ? encounterGroups(pokedex, {
-        game: route.game,
-        path: dataPath,
-        floor: floor?.id,
-        hasWater: wildAreas.some((area) => area.method === 'water'),
-      })
-    : [];
-  const wildPopup = (area: WildArea['method'], note?: string) => {
-    const groups = encounters.filter(
-      ({ method }) => wildAreaFor(method) === area,
-    );
 
-    return (
-      groups.length > 0 && (
-        <WildPopup
-          game={route.game}
-          path={dataPath}
-          groups={groups}
-          note={note}
-        />
-      )
-    );
-  };
+  const floorData = (target: LocationFloor | undefined) => {
+    const trainerGroups = trainers
+      ? battleGroups(trainers, {
+          game: route.game,
+          path: dataPath,
+          floor: target?.id,
+          onMapOnly: location.kind === 'town',
+        })
+      : [];
+    const listedBattles = trainerGroups.flatMap((group) => group.battles);
+    const onThisMap = (marker: {
+      path: string;
+      floor?: string;
+      games: Array<string>;
+    }) =>
+      marker.path === dataPath &&
+      marker.floor === target?.id &&
+      marker.games.includes(route.game.id);
+    const wildAreas =
+      route.region.wildAreas?.filter(
+        (area) =>
+          area.path === dataPath &&
+          area.floor === target?.id &&
+          inGame(area, route.game.id),
+      ) ?? [];
+    const encounters = pokedex
+      ? encounterGroups(pokedex, {
+          game: route.game,
+          path: dataPath,
+          floor: target?.id,
+          hasWater: wildAreas.some((area) => area.method === 'water'),
+        })
+      : [];
+    const wildPopup = (area: WildArea['method'], note?: string) => {
+      const groups = encounters.filter(
+        ({ method }) => wildAreaFor(method) === area,
+      );
 
-  const { links, layerSections } = locationLinks(
-    route.region,
-    locationInGame(location, route.game.id),
-    trailPath(trail),
-    route.href,
-    route.game.tileSize,
-    floor,
-    {
-      from,
-      items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
-      itemTooltip: (item) => (
-        <MapTextTooltip
-          text={item.hidden ? `${item.item} (hidden)` : item.item}
-          presence={item.note}
-        />
-      ),
-      trainers: listedBattles,
-      onSelectTrainer: selectTrainer,
-      npcs: npcsFor(route.region.versionGroup)?.filter(onThisMap),
-      npcTooltip: (npc) => (
-        <MapTextTooltip
-          name={npc.name}
-          dialog={npc.dialog}
-          game={route.game}
-          presence={npc.presence}
-        />
-      ),
-      signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
-      signTooltip: (sign) => (
-        <MapTextTooltip
-          text={sign.opens ? openableNames[sign.opens] : sign.text}
-        />
-      ),
-      onOpen: (target) => {
-        if (target === 'pokedex')
-          navigate(pokedexLink.to, { state: pokedexLink.state });
-        else setTownMapOpen(true);
-      },
-      trainerTooltip: ([listed, ...others]) =>
-        pokedex && (
-          <TrainerTooltip
-            listed={listed}
-            encounters={others.length + 1}
+      return (
+        groups.length > 0 && (
+          <WildPopup
             game={route.game}
-            pokedex={pokedex}
+            path={dataPath}
+            groups={groups}
+            note={note}
+          />
+        )
+      );
+    };
+
+    const { links, layerSections } = locationLinks(
+      route.region,
+      locationInGame(location, route.game.id),
+      trailPath(trail),
+      route.href,
+      route.game.tileSize,
+      target,
+      {
+        from: target?.id === floor?.id ? from : undefined,
+        items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
+        itemTooltip: (item) => (
+          <MapTextTooltip
+            text={item.hidden ? `${item.item} (hidden)` : item.item}
+            presence={item.note}
           />
         ),
-      wildAreas,
-      wildPopup,
-      staticPokemon: staticPokemonFor(route.region.versionGroup)?.filter(
-        onThisMap,
-      ),
-      staticPopup: (marker) =>
-        pokedex && (
-          <StaticPopup game={route.game} marker={marker} pokedex={pokedex} />
+        trainers: listedBattles,
+        onSelectTrainer: selectTrainer,
+        npcs: npcsFor(route.region.versionGroup)?.filter(onThisMap),
+        npcTooltip: (npc) => (
+          <MapTextTooltip
+            name={npc.name}
+            dialog={npc.dialog}
+            game={route.game}
+            presence={npc.presence}
+          />
         ),
-    },
-  );
+        signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
+        signTooltip: (sign) => (
+          <MapTextTooltip
+            text={sign.opens ? openableNames[sign.opens] : sign.text}
+          />
+        ),
+        onOpen: (target) => {
+          if (target === 'pokedex')
+            navigate(pokedexLink.to, { state: pokedexLink.state });
+          else setTownMapOpen(true);
+        },
+        trainerTooltip: ([listed, ...others]) =>
+          pokedex && (
+            <TrainerTooltip
+              listed={listed}
+              encounters={others.length + 1}
+              game={route.game}
+              pokedex={pokedex}
+            />
+          ),
+        wildAreas,
+        wildPopup,
+        staticPokemon: staticPokemonFor(route.region.versionGroup)?.filter(
+          onThisMap,
+        ),
+        staticPopup: (marker) =>
+          pokedex && (
+            <StaticPopup game={route.game} marker={marker} pokedex={pokedex} />
+          ),
+      },
+    );
+
+    return { trainerGroups, listedBattles, encounters, links, layerSections };
+  };
+
+  const { trainerGroups, listedBattles, encounters, links, layerSections } =
+    floorData(floor);
   const highlightTo = (key: string | undefined) => setHighlight({ scope, key });
   const pokemonCount = new Set(
     encounters.flatMap((group) => group.rows.map((row) => row.entry.number)),
@@ -295,6 +318,45 @@ export const LocationPage = () => {
     image: variant?.image ?? imageSource.image,
   };
 
+  const imageFor = (target: LocationFloor) => {
+    const source =
+      target.event && eventState === 'after' ? target.event : target;
+    const match = source.variants?.find((entry) =>
+      entry.games.includes(route.game.id),
+    );
+
+    return match?.image ?? source.image;
+  };
+  const stackLayout =
+    stacked && location.floors && floor
+      ? stackFloors(location.floors, imageFor)
+      : undefined;
+  const stackedData = stackLayout
+    ? stackLayout.floors.map((placed) => {
+        const data =
+          placed.id === floor?.id
+            ? { links, listedBattles }
+            : floorData(location.floors?.find(({ id }) => id === placed.id));
+
+        return {
+          listedBattles: data.listedBattles,
+          links: data.links.map((link) =>
+            offsetLink(
+              {
+                ...link,
+                href: link.replace ? stackedHref(link.href) : link.href,
+              },
+              placed.x,
+              placed.y,
+            ),
+          ),
+        };
+      })
+    : undefined;
+  const viewLinks = stackedData?.flatMap((data) => data.links) ?? links;
+  const dialogBattles =
+    stackedData?.flatMap((data) => data.listedBattles) ?? listedBattles;
+
   const pickers = ((location.floors && floor) || event) && (
     <>
       {location.floors && floor && (
@@ -302,6 +364,11 @@ export const LocationPage = () => {
           floors={location.floors}
           selected={floor.id}
           onSelect={selectFloor}
+          stacked={stacked}
+          onStackedChange={(on) => {
+            setStackToggled(true);
+            setStacked(on);
+          }}
         />
       )}
       {event && (
@@ -333,9 +400,28 @@ export const LocationPage = () => {
   );
   const viewer = (
     <MapViewer
-      map={mapImage}
-      links={links.filter((link) => !hiddenLayers.has(link.layer))}
-      highlightable={links}
+      map={
+        stackLayout
+          ? {
+              ...mapImage,
+              image: `stack:${location.id}`,
+              width: stackLayout.width,
+              height: stackLayout.height,
+            }
+          : mapImage
+      }
+      stack={
+        stackLayout && floor
+          ? {
+              floors: stackLayout.floors,
+              selected: floor.id,
+              onSelect: selectFloor,
+              flyOnMount: floorRequested && !stackToggled,
+            }
+          : undefined
+      }
+      links={viewLinks.filter((link) => !hiddenLayers.has(link.layer))}
+      highlightable={viewLinks}
       highlighted={
         (highlight.scope === scope ? highlight.key : undefined) ??
         focusKey ??
@@ -373,10 +459,10 @@ export const LocationPage = () => {
         <TrainerDialog
           listed={
             selected.scope === scope
-              ? listedBattles.find((listed) => listed.key === selected.key)
+              ? dialogBattles.find((listed) => listed.key === selected.key)
               : undefined
           }
-          battles={listedBattles}
+          battles={dialogBattles}
           place={location.name}
           game={route.game}
           pokedex={pokedex}

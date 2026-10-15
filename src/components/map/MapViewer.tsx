@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { imageBounds, toLatLng } from './coordinates';
 import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
 import { MAX_ZOOM } from './viewer/constants';
+import { type FloorFrame, FloorFrames, FlyToFloor } from './viewer/FloorFrames';
 import { HoverCard } from './viewer/HoverCard';
 import { linkKey, spriteKey } from './viewer/links';
 import { LinkShape } from './viewer/LinkShape';
@@ -31,8 +32,16 @@ const BEHIND_PANE = 'behind-links';
 
 const stackedShapes = new WeakSet<LeafletPath>();
 
+export type FloorStack = {
+  floors: Array<FloorFrame & { image: string; pixelated: boolean }>;
+  selected: string;
+  onSelect: (id: string) => void;
+  flyOnMount?: boolean;
+};
+
 type MapViewerProps = {
   map: MapImage;
+  stack?: FloorStack;
   links?: Array<MapLink>;
   highlightable?: Array<MapLink>;
   highlighted?: string;
@@ -44,6 +53,7 @@ type MapViewerProps = {
 
 export const MapViewer = ({
   map,
+  stack,
   links = [],
   highlightable = links,
   highlighted,
@@ -126,8 +136,35 @@ export const MapViewer = ({
     >
       <MapZoomControls position={zoomPosition ?? 'topleft'} />
       <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
-        <ImageOverlay url={map.image} bounds={bounds} />
+        {stack ? (
+          stack.floors.map((floor) => (
+            <ImageOverlay
+              key={floor.id}
+              url={floor.image}
+              bounds={[
+                toLatLng(floor.x, floor.y + floor.height),
+                toLatLng(floor.x + floor.width, floor.y),
+              ]}
+            />
+          ))
+        ) : (
+          <ImageOverlay url={map.image} bounds={bounds} />
+        )}
       </Pane>
+      {stack && (
+        <FlyToFloor
+          frame={stack.floors.find(({ id }) => id === stack.selected)}
+          skip={focusPoint !== undefined}
+          flyOnMount={stack.flyOnMount ?? false}
+        />
+      )}
+      {stack && (
+        <FloorFrames
+          frames={stack.floors}
+          selected={stack.selected}
+          onSelect={stack.onSelect}
+        />
+      )}
       {links.map(
         (link) =>
           link.sprite && (
