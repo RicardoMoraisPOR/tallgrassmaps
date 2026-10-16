@@ -1,10 +1,11 @@
-import { Backpack, CircleDot, MapPin, Swords } from 'lucide-react';
+import { Backpack, CircleDot, MapPin, Swords, Users } from 'lucide-react';
 
 import { ColorStripe } from '@/components/GameCover';
 import { versionGroupNames } from '@/data/catalog/versionGroups';
 import type { Game } from '@/data/games';
 import type { MapItem } from '@/data/items/types';
 import type { Region } from '@/data/maps';
+import type { MapNpc } from '@/data/npcs/types';
 import type { PokedexEntry } from '@/data/pokedex/types';
 import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn, formatList } from '@/lib/utils';
@@ -21,6 +22,7 @@ const TAB_ICONS = {
   Pokémon: CircleDot,
   Trainers: Swords,
   Items: Backpack,
+  NPCs: Users,
 };
 
 type PlaceResultProps = {
@@ -83,6 +85,21 @@ export const ItemResult = ({ item, place }: ItemResultProps) => (
     <span className="min-w-0 flex-1 truncate">
       {item.item}
       {item.hidden && <span className="text-muted-foreground"> (hidden)</span>}
+      {place && <span className="text-muted-foreground"> · {place}</span>}
+    </span>
+  </>
+);
+
+type NpcResultProps = {
+  npc: MapNpc;
+  place: string;
+};
+
+export const NpcResult = ({ npc, place }: NpcResultProps) => (
+  <>
+    <TrainerSprite src={npc.sprite} />
+    <span className="min-w-0 flex-1 truncate">
+      {npc.name}
       {place && <span className="text-muted-foreground"> · {place}</span>}
     </span>
   </>

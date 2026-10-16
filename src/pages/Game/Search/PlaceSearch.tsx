@@ -21,6 +21,7 @@ import {
 } from './searchContext';
 import {
   ItemResult,
+  NpcResult,
   PlaceResult,
   PokemonResult,
   SearchScope,
@@ -226,6 +227,11 @@ const PlaceSearchDialog = ({
                       <ItemResult
                         item={result.item}
                         place={placeOf(result.item.path, result.item.floor)}
+                      />
+                    ) : result.type === 'npc' ? (
+                      <NpcResult
+                        npc={result.npc}
+                        place={placeOf(result.npc.path, result.npc.floor)}
                       />
                     ) : (
                       <PokemonResult entry={result.entry} game={game} />

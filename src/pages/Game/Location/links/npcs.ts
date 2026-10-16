@@ -3,11 +3,20 @@ import type { MapNpc } from '@/data/npcs/types';
 import { staticHighlightKey, tradeHighlightKey } from '../encounters';
 import { itemLayer, npcLayer } from '../mapLayers';
 import type { Gifts } from './gifts';
+import { itemKey } from './items';
 import { entryKey } from './keys';
 import { TILE_PIXELS } from './tiles';
 import type { LayeredMapLink, MarkerSources } from './types';
 
 const DEFAULT_SPRITE_OFFSET = [0, -4];
+
+export const npcKey = ({
+  path,
+  floor,
+  x,
+  y,
+}: Pick<MapNpc, 'path' | 'floor' | 'x' | 'y'>) =>
+  `npc:${path}:${floor ?? ''}:${x},${y}`;
 
 export const npcMarkers = (
   npcs: Array<MapNpc>,
@@ -41,6 +50,8 @@ export const npcMarkers = (
       className: layer.className,
       highlightKey: [
         entryKey(layer.id, label),
+        npcKey(npc),
+        ...(npc.dialog.some(({ gift }) => gift) ? [itemKey(npc)] : []),
         ...npc.dialog.flatMap(({ trade }) =>
           trade ? [tradeHighlightKey(trade.receive.number)] : [],
         ),

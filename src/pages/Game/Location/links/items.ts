@@ -5,7 +5,12 @@ import { entryKey } from './keys';
 import { dotBox, spriteBox } from './tiles';
 import type { LayeredMapLink, MarkerSources } from './types';
 
-export const itemKey = ({ path, floor, x, y }: MapItem) =>
+export const itemKey = ({
+  path,
+  floor,
+  x,
+  y,
+}: Pick<MapItem, 'path' | 'floor' | 'x' | 'y'>) =>
   `item:${path}:${floor ?? ''}:${x},${y}`;
 
 export const itemMarkers = (

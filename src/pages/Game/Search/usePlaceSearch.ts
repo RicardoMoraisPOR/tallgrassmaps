@@ -13,6 +13,8 @@ import type { Game } from '@/data/games';
 import { itemsFor } from '@/data/items';
 import type { MapItem } from '@/data/items/types';
 import { getLocation, type Region } from '@/data/maps';
+import { npcsFor } from '@/data/npcs';
+import type { MapNpc } from '@/data/npcs/types';
 import { pokedexFor } from '@/data/pokedex';
 import { entryKey } from '@/data/pokedex/master';
 import type { PokedexEntry } from '@/data/pokedex/types';
@@ -21,17 +23,26 @@ import { pathSegments } from '@/lib/paths';
 
 import { searchItems } from '../itemSearch';
 import { itemKey } from '../Location/links/items';
+import { npcKey } from '../Location/links/npcs';
 import { listBattles, type ListedBattle } from '../Location/trainerList';
+import { searchNpcs } from '../npcSearch';
 import { collectPlaces, groupOf, type Place, placeGroupsFor } from '../places';
 import { searchPlaces } from '../placeSearch';
 import { pokedexLink } from '../Pokedex/usePokedex';
 import { searchPokemon } from '../pokemonSearch';
 import { searchTrainers } from '../trainerSearch';
+import { giftItems } from './giftItems';
 
 export const MAX_QUERY_LENGTH = 60;
 const MIN_QUERY_LENGTH = 2;
 
-export const TABS = ['Locations', 'Pokémon', 'Trainers', 'Items'] as const;
+export const TABS = [
+  'Locations',
+  'Pokémon',
+  'Trainers',
+  'Items',
+  'NPCs',
+] as const;
 
 export type SearchTab = (typeof TABS)[number];
 
@@ -39,7 +50,8 @@ export type Result =
   | { type: 'place'; key: string; place: Place }
   | { type: 'pokemon'; key: string; entry: PokedexEntry }
   | { type: 'trainer'; key: string; listed: ListedBattle }
-  | { type: 'item'; key: string; item: MapItem };
+  | { type: 'item'; key: string; item: MapItem }
+  | { type: 'npc'; key: string; npc: MapNpc };
 
 type PlaceSearchOptions = {
   game: Game;
@@ -85,10 +97,17 @@ export const usePlaceSearch = ({
     () => listBattles(trainersFor(region.versionGroup) ?? [], game),
     [region.versionGroup, game],
   );
-  const items = useMemo(
+  const items = useMemo(() => {
+    const onMap = itemsFor(region.versionGroup) ?? [];
+    const gifts = giftItems(npcsFor(region.versionGroup) ?? [], onMap, game.id);
+
+    return [...onMap.filter(({ games }) => games.includes(game.id)), ...gifts];
+  }, [region.versionGroup, game.id]);
+  const npcs = useMemo(
     () =>
-      itemsFor(region.versionGroup)?.filter(({ games }) =>
-        games.includes(game.id),
+      npcsFor(region.versionGroup)?.filter(
+        ({ special, item, games }) =>
+          special && !item && games.includes(game.id),
       ) ?? [],
     [region.versionGroup, game.id],
   );
@@ -133,12 +152,19 @@ export const usePlaceSearch = ({
       }
     }
 
+    if (tab === null || tab === 'NPCs') {
+      for (const npc of searchNpcs(npcs, query)) {
+        found.push({ type: 'npc', key: npcKey(npc), npc });
+      }
+    }
+
     return found;
   }, [
     places,
     entries,
     battles,
     items,
+    npcs,
     query,
     tab,
     searching,
@@ -162,7 +188,9 @@ export const usePlaceSearch = ({
         ? 'Trainers'
         : result.type === 'item'
           ? 'Items'
-          : groupOf(placeGroups, result.place.location.kind).label;
+          : result.type === 'npc'
+            ? 'Special NPCs'
+            : groupOf(placeGroups, result.place.location.kind).label;
 
   useEffect(() => {
     listRef.current
@@ -184,6 +212,13 @@ export const usePlaceSearch = ({
       navigate(href(result.place.path));
     } else if (result.type === 'trainer') {
       setTrainerKey(result.listed.key);
+    } else if (result.type === 'npc') {
+      const { npc } = result;
+      const floor = npc.floor ? `?floor=${npc.floor}` : '';
+
+      navigate(`${href(npc.path)}${floor}`, {
+        state: { focusKey: npcKey(npc) },
+      });
     } else if (result.type === 'item') {
       const { item } = result;
       const floor = item.floor ? `?floor=${item.floor}` : '';
