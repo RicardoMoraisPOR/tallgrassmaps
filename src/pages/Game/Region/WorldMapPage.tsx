@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import { MapViewer } from '@/components/map/MapViewer';
 import type { MapLink } from '@/components/map/viewer/types';
 import { regionHref } from '@/data/maps';
+import type { Shop } from '@/data/shops/types';
 import type { GameRoute } from '@/hooks/useGameRoute';
 import { useSettingsStore } from '@/stores/settings';
 
@@ -15,6 +16,7 @@ import { LocationPanel } from '../Location/LocationPanel';
 import { locationPanelTabs } from '../Location/locationPanelTabs';
 import { buildLocationView } from '../Location/locationView';
 import { useMapLayers } from '../Location/mapLayers';
+import { ShopDialog } from '../Location/ShopDialog';
 import { offsetLink } from '../Location/stackLayout';
 import { TownMapCard } from '../Location/TownMapCard';
 import { TownMapDialog } from '../Location/TownMapDialog';
@@ -39,6 +41,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   };
   const [townMapOpen, setTownMapOpen] = useState(false);
   const openTownMap = useCallback(() => setTownMapOpen(true), [setTownMapOpen]);
+  const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
   const [trainerKey, setTrainerKey] = useState<string>();
   const [highlight, setHighlight] = useState<string>();
   const [pinRequest, setPinRequest] = useState<string>();
@@ -77,6 +80,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           navigate,
           pokedexLink,
           openTownMap: () => setTownMapOpen(true),
+          openShop: (shops, selected) => setShop({ shops, selected }),
           selectTrainer: setTrainerKey,
         },
         undefined,
@@ -186,6 +190,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           onClose={() => setTrainerKey(undefined)}
         />
       )}
+      <ShopDialog shop={shop} onClose={() => setShop(undefined)} />
       <TownMapDialog
         open={townMapOpen}
         region={region}

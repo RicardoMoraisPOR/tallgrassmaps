@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router';
 import { MapViewer } from '@/components/map/MapViewer';
 import { PageTransition } from '@/components/PageTransition';
 import type { LocationFloor } from '@/data/maps';
+import type { Shop } from '@/data/shops/types';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { trailPath } from '@/lib/paths';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
@@ -21,6 +22,7 @@ import { LocationPanel } from './LocationPanel';
 import { locationPanelTabs } from './locationPanelTabs';
 import { buildLocationView } from './locationView';
 import { useMapLayers } from './mapLayers';
+import { ShopDialog } from './ShopDialog';
 import {
   floorLayouts,
   offsetLink,
@@ -71,6 +73,11 @@ export const LocationPage = () => {
   });
   const [townMapOpen, setTownMapOpen] = useState(false);
   const openTownMap = useCallback(() => setTownMapOpen(true), [setTownMapOpen]);
+  const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
+  const openShop = useCallback(
+    (shops: Array<Shop>, selected: string) => setShop({ shops, selected }),
+    [],
+  );
   const [stackToggled, setStackToggled] = useState(false);
 
   useEffect(() => {
@@ -121,6 +128,7 @@ export const LocationPage = () => {
         navigate,
         pokedexLink,
         openTownMap,
+        openShop,
         selectTrainer,
       },
       target,
@@ -349,6 +357,7 @@ export const LocationPage = () => {
         href={route.href}
         onClose={() => setTownMapOpen(false)}
       />
+      <ShopDialog shop={shop} onClose={() => setShop(undefined)} />
       <Pokedex game={route.game} region={route.region} href={route.href} />
     </>
   );

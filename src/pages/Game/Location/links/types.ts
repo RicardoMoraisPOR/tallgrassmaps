@@ -4,6 +4,7 @@ import type { MapLink } from '@/components/map/viewer/types';
 import type { MapItem } from '@/data/items/types';
 import type { Direction, WildArea } from '@/data/maps';
 import type { MapNpc } from '@/data/npcs/types';
+import type { Shop } from '@/data/shops/types';
 import type { MapSign } from '@/data/signs/types';
 import type { StaticPokemon } from '@/data/static-pokemon/types';
 
@@ -55,6 +56,9 @@ export type MarkerSources = {
   signs?: Array<MapSign>;
   signTooltip?: (sign: MapSign) => ReactNode;
   onOpen?: (target: NonNullable<MapSign['opens']>) => void;
+  shops?: Array<Shop>;
+  entranceShops?: Array<Shop>;
+  onOpenShop?: (shops: Array<Shop>, selected: string) => void;
   wildAreas?: Array<WildArea>;
   wildPopup?: (method: WildArea['method'], note?: string) => ReactNode;
   staticPokemon?: Array<StaticPokemon>;

@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/dialog';
 import type { Game } from '@/data/games';
 import type { PokedexEntry } from '@/data/pokedex/types';
+import { prizeMoney } from '@/data/trainers/prizeMoney';
 import { usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
@@ -73,6 +74,7 @@ export const TrainerDialog = ({
           ({ battle }) =>
             battle.x === listed.battle.x && battle.y === listed.battle.y,
         );
+  const money = listed ? prizeMoney(listed.battle) : undefined;
   const parties = listed?.battle.parties ?? [];
   const choices = parties
     .flatMap((party) => party.choice ?? [])
@@ -228,6 +230,36 @@ export const TrainerDialog = ({
                 </ul>
               </section>
             ))}
+            {money !== undefined && (
+              <section
+                aria-label="Prize money"
+                className={cn(
+                  'flex flex-wrap items-center gap-x-3 gap-y-1',
+                  gameTheme && 'px-2',
+                )}
+              >
+                <h3
+                  className={cn(
+                    'text-muted-foreground',
+                    gameTheme
+                      ? 'text-[8px] leading-none'
+                      : 'text-xs font-medium tracking-wider uppercase',
+                  )}
+                >
+                  Prize money
+                </h3>
+                <span
+                  className={cn(
+                    'tabular-nums',
+                    gameTheme
+                      ? 'text-[8px] leading-none'
+                      : 'text-sm font-medium',
+                  )}
+                >
+                  ¥{money.toLocaleString('en')}
+                </span>
+              </section>
+            )}
             {gifts.length > 0 && (
               <section
                 aria-label="Gives you"

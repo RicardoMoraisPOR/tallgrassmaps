@@ -30,11 +30,13 @@ export const MapIcon = ({
   link,
   icon,
   active,
+  onFloorSwitch,
   onSelect,
 }: {
   link: MapLink;
   icon: MapIconKind;
   active: boolean;
+  onFloorSwitch?: () => void;
   onSelect?: () => void;
 }) => {
   const navigate = useNavigate();
@@ -77,6 +79,13 @@ export const MapIcon = ({
       title={link.label}
       eventHandlers={{
         click: (event) => {
+          if (onFloorSwitch) {
+            DomEvent.stopPropagation(event);
+            onFloorSwitch();
+
+            return;
+          }
+
           if (onSelect) {
             DomEvent.stopPropagation(event);
             onSelect();

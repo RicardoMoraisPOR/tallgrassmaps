@@ -82,6 +82,11 @@ export const MapViewer = ({
   const onSelectedFloor = (link: MapLink) =>
     !stack || link.floorId === stack.selected;
 
+  const otherFloorId = (link: MapLink) =>
+    stack && link.floorId && link.floorId !== stack.selected
+      ? link.floorId
+      : undefined;
+
   const focusLink =
     focusKey &&
     links.find(
@@ -201,6 +206,11 @@ export const MapViewer = ({
               link={link}
               icon={link.icon}
               active={isHighlighted(link) || pinnedCardKey === linkKey(link)}
+              onFloorSwitch={
+                otherFloorId(link)
+                  ? () => stack?.onSelect(otherFloorId(link)!)
+                  : undefined
+              }
               onSelect={
                 link.tooltip && link.tooltipOnClick
                   ? () =>
@@ -246,6 +256,15 @@ export const MapViewer = ({
                     setHoverCardKey(undefined);
                 },
                 click: (event) => {
+                  const floorId = otherFloorId(link);
+
+                  if (floorId) {
+                    DomEvent.stopPropagation(event);
+                    stack?.onSelect(floorId);
+
+                    return;
+                  }
+
                   link.onClick?.();
 
                   if (link.tooltip && link.tooltipOnClick) {

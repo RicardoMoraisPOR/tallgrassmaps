@@ -10,6 +10,8 @@ import {
 } from '@/data/maps';
 import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
+import { shopsFor } from '@/data/shops';
+import type { Shop } from '@/data/shops/types';
 import { signsFor } from '@/data/signs';
 import { staticPokemonFor } from '@/data/static-pokemon';
 import { trainersFor } from '@/data/trainers';
@@ -34,6 +36,7 @@ export type LocationViewContext = {
   navigate: NavigateFunction;
   pokedexLink: ReturnType<typeof usePokedexLink>;
   openTownMap: () => void;
+  openShop: (shops: Array<Shop>, selected: string) => void;
   selectTrainer: (key: string | undefined) => void;
 };
 
@@ -47,6 +50,7 @@ export const buildLocationView = (
     navigate,
     pokedexLink,
     openTownMap,
+    openShop,
     selectTrainer,
   }: LocationViewContext,
   target: LocationFloor | undefined,
@@ -103,6 +107,11 @@ export const buildLocationView = (
     );
   };
 
+  const gameShops =
+    shopsFor(route.region.versionGroup)?.filter(({ games }) =>
+      games.includes(route.game.id),
+    ) ?? [];
+
   const { links, layerSections } = locationLinks(
     route.region,
     locationInGame(location, route.game.id),
@@ -141,6 +150,9 @@ export const buildLocationView = (
           navigate(pokedexLink.to, { state: pokedexLink.state });
         else openTownMap();
       },
+      shops: gameShops.filter(onThisMap),
+      entranceShops: gameShops,
+      onOpenShop: openShop,
       trainerTooltip: ([listed, ...others]) =>
         pokedex && (
           <TrainerTooltip

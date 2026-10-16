@@ -32,4 +32,5 @@ export type MapIconKind =
   | { kind: 'exit' }
   | { kind: 'stairs' | 'ladder' | 'hole' | 'current'; step?: 'up' | 'down' }
   | { kind: 'teleport' }
-  | { kind: 'sign' };
+  | { kind: 'sign' }
+  | { kind: 'register' };

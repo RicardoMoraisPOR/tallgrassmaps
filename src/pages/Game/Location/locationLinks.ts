@@ -6,6 +6,7 @@ import { createGifts } from './links/gifts';
 import { itemMarkers } from './links/items';
 import { npcMarkers } from './links/npcs';
 import { layerSections } from './links/panel';
+import { entranceRegisters, registerMarkers } from './links/shops';
 import { prizeEntries, signMarkers } from './links/signs';
 import { staticMarkers } from './links/statics';
 import { trainerMarkers } from './links/trainers';
@@ -31,6 +32,9 @@ export const locationLinks = (
     signs = [],
     signTooltip,
     onOpen,
+    shops = [],
+    entranceShops = [],
+    onOpenShop,
     wildAreas = [],
     wildPopup,
     staticPokemon = [],
@@ -62,6 +66,10 @@ export const locationLinks = (
     ),
     ...connectionIcons(links, image),
     ...buildingIcons(links, markers),
+    ...entranceRegisters(location.markers, entranceShops, tileSize, {
+      onOpenShop,
+    }),
+    ...registerMarkers(shops, entranceShops, tileSize, { onOpenShop }),
     ...itemMarkers(items, tileSize, itemTooltip),
     ...staticMarkers(staticPokemon, npcs, tileSize, staticPopup),
     ...trainerLinks,
