@@ -1,3 +1,5 @@
+import { townMapGroups } from './catalog/townMaps';
+import { versionGroupNames } from './catalog/versionGroups';
 import { coverCount, coversFrom, coverSources } from './covers';
 import { getGame } from './games';
 import { type Location, type MapSource, regions } from './maps';
@@ -42,6 +44,22 @@ export type MapCreditGroup = {
 
 const groupTitles: Record<string, string> = {
   RBY: 'Red, Blue and Yellow',
+  GSC: 'Gold, Silver and Crystal',
+  RSE: 'Ruby, Sapphire and Emerald',
+  FRLG: 'FireRed and LeafGreen',
+  DPPt: 'Diamond, Pearl and Platinum',
+  HGSS: 'HeartGold and SoulSilver',
+  BW: 'Black and White',
+  B2W2: 'Black 2 and White 2',
+  XY: 'X and Y',
+  ORAS: 'Omega Ruby and Alpha Sapphire',
+  SM: 'Sun and Moon',
+  USUM: 'Ultra Sun and Ultra Moon',
+  LGPE: 'Let’s Go, Pikachu! and Let’s Go, Eevee!',
+  SwSh: 'Sword and Shield',
+  BDSP: 'Brilliant Diamond and Shining Pearl',
+  PLA: 'Legends: Arceus',
+  SV: 'Scarlet and Violet',
   ZA: 'Legends: Z-A',
 };
 
@@ -56,9 +74,29 @@ const collectLocations = (
     ...collectLocations(location.locations, location),
   ]);
 
+const townMapCredits = (): Array<MapCreditGroup> =>
+  townMapGroups.map(({ versionGroup, source, works }) => ({
+    id: versionGroup,
+    title:
+      groupTitles[versionGroup] ?? versionGroupNames(versionGroup).join(', '),
+    credits: [
+      {
+        credit: source.credit,
+        site: source.name,
+        note: source.note,
+        url: source.url,
+        works,
+      },
+    ],
+  }));
+
 export const mapCredits = (): Array<MapCreditGroup> => {
   const seen = new Set<string>();
 
+  return [...mapRegionCredits(seen), ...townMapCredits()];
+};
+
+const mapRegionCredits = (seen: Set<string>): Array<MapCreditGroup> => {
   return regions.map((region) => {
     const credits = new Map<string, MapCredit>();
     const add = (source: MapSource, image: string, label: string) => {

@@ -12,18 +12,19 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { entryVersionGroup } from '@/data/catalog/entries';
 import { mapSets } from '@/data/catalog/mapSets';
-import type { MapSet } from '@/data/catalog/types';
-import { type Game, getGame } from '@/data/games';
-import { getRegion } from '@/data/maps';
+import type { CatalogEntry, MapSet } from '@/data/catalog/types';
+import { getGame } from '@/data/games';
 import { useGameRoute } from '@/hooks/useGameRoute';
+import { gameHref } from '@/lib/paths';
 import { formatList } from '@/lib/utils';
 
 import { ColorDot } from './ColorDot';
 import { switchHref } from './switchHref';
 
 type MapSwitcherProps = {
-  game: Game;
+  game: CatalogEntry;
   path: string;
 };
 
@@ -32,14 +33,18 @@ export const MapSwitcher = ({ game, path }: MapSwitcherProps) => {
   const route = useGameRoute();
   const { search } = useLocation();
 
-  const current = getRegion(game.region)?.versionGroup;
+  const current = entryVersionGroup(game);
 
   const openGame = (gameId: string) => {
+    if (gameId === game.id) return;
+
     const target = getGame(gameId);
 
-    if (!target || target.id === game.id) return;
-
-    navigate(switchHref(target, path, search, route?.hub));
+    navigate(
+      target
+        ? switchHref(target, path, search, route ? route.hub : true)
+        : gameHref(gameId),
+    );
   };
 
   return (
@@ -56,40 +61,32 @@ export const MapSwitcher = ({ game, path }: MapSwitcherProps) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-64">
         <DropdownMenuLabel>Maps</DropdownMenuLabel>
-        {mapSets.map((set) =>
-          set.available ? (
-            <DropdownMenuSub key={set.versionGroup}>
-              <DropdownMenuSubTrigger>
-                <MapSetLabel set={set} />
-                {set.versionGroup === current && (
-                  <Check aria-label="Current map" className="size-3.5" />
-                )}
-              </DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent className="min-w-48">
-                  {set.games.map((option) => (
-                    <DropdownMenuItem
-                      key={option.id}
-                      disabled={!option.available}
-                      onSelect={() => openGame(option.id)}
-                    >
-                      <ColorDot color={option.color} />
-                      <span className="flex-1">{option.name}</span>
-                      {option.id === game.id && (
-                        <Check aria-label="Current game" className="size-3.5" />
-                      )}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-          ) : (
-            <DropdownMenuItem key={set.versionGroup} disabled>
+        {mapSets.map((set) => (
+          <DropdownMenuSub key={set.versionGroup}>
+            <DropdownMenuSubTrigger>
               <MapSetLabel set={set} />
-              <span className="text-xs">Soon</span>
-            </DropdownMenuItem>
-          ),
-        )}
+              {set.versionGroup === current && (
+                <Check aria-label="Current map" className="size-3.5" />
+              )}
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="min-w-48">
+                {set.games.map((option) => (
+                  <DropdownMenuItem
+                    key={option.id}
+                    onSelect={() => openGame(option.id)}
+                  >
+                    <ColorDot color={option.color} />
+                    <span className="flex-1">{option.name}</span>
+                    {option.id === game.id && (
+                      <Check aria-label="Current game" className="size-3.5" />
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

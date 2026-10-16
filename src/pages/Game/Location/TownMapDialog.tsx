@@ -1,26 +1,30 @@
 import '@fontsource/press-start-2p';
-import { RegionMap } from '@/components/map/RegionMap';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogTitle,
 } from '@/components/ui/dialog';
+import type { Game } from '@/data/games';
 import type { Region } from '@/data/maps';
+
+import { TownMapView } from './TownMapView';
 
 type TownMapDialogProps = {
   open: boolean;
+  game: Game;
   region: Region;
   path: string;
-  href: (path: string) => string;
+  initial?: string;
   onClose: () => void;
 };
 
 export const TownMapDialog = ({
   open,
+  game,
   region,
   path,
-  href,
+  initial,
   onClose,
 }: TownMapDialogProps) => (
   <Dialog
@@ -41,7 +45,12 @@ export const TownMapDialog = ({
           if ((event.target as Element).closest('a')) onClose();
         }}
       >
-        <RegionMap region={region} locationHref={href} focus={path} />
+        <TownMapView
+          game={game}
+          region={region}
+          path={path}
+          initial={initial}
+        />
       </div>
     </DialogContent>
   </Dialog>

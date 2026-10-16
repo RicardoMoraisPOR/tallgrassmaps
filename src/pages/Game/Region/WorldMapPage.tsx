@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import type { MapLink } from '@/components/map/viewer/types';
-import { regionHref } from '@/data/maps';
+import { regionHref, worldRegions } from '@/data/maps';
 import type { Shop } from '@/data/shops/types';
 import type { GameRoute } from '@/hooks/useGameRoute';
 import { useSettingsStore } from '@/stores/settings';
@@ -30,14 +30,20 @@ const WORLD_HREF = /^\/[^/]+\/[^/]+\/([^/?#]+)(?:[?#].*)?$/;
 
 export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const { game, region, href } = route;
+  const regions = worldRegions(route.regions, region);
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
   const hiddenLayers = useMapLayers();
   const setWorldPreferred = useSettingsStore((state) => state.setWorldView);
   const tile = route.trail?.[0]?.id;
+  const world = Object.assign({}, ...regions.map((entry) => entry.world));
+  const regionOfTile = (id: string | undefined) =>
+    regions.find(({ locations }) =>
+      locations.some((entry) => entry.id === id),
+    ) ?? region;
   const selectTile = (id: string | undefined) => {
     setWorldPreferred(true);
-    navigate(regionHref(game.id, region, id));
+    navigate(regionHref(game.id, regionOfTile(id), id));
   };
   const [townMapOpen, setTownMapOpen] = useState(false);
   const openTownMap = useCallback(() => setTownMapOpen(true), [setTownMapOpen]);
@@ -46,8 +52,9 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const [highlight, setHighlight] = useState<string>();
   const [pinRequest, setPinRequest] = useState<string>();
 
-  const world = region.world ?? {};
-  const placed = region.locations.filter(({ id }) => world[id]);
+  const placed = regions
+    .flatMap(({ locations }) => locations)
+    .filter(({ id }) => world[id]);
   const floors = placed.map((location) => {
     const variant = location.variants?.find((entry) =>
       entry.games.includes(game.id),
@@ -130,7 +137,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
         <div className="absolute inset-x-0 -top-[57px] bottom-0">
           <MapViewer
             map={{
-              image: `world:${region.id}`,
+              image: `world:${game.id}:${region.separateWorld ? region.id : 'shared'}`,
               width,
               height,
               pixelated: true,
@@ -163,9 +170,10 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
         <GameAside>
           <AsideCard icon={MapIcon} label="Town Map" onMobileOpen={openTownMap}>
             <TownMapCard
+              key={region.id}
+              game={game}
               region={region}
               path={selected?.id ?? ''}
-              href={href}
             />
           </AsideCard>
           <AsideCard icon={Gamepad2} label="Game info" drawer>
@@ -193,9 +201,9 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
       <ShopDialog shop={shop} onClose={() => setShop(undefined)} />
       <TownMapDialog
         open={townMapOpen}
+        game={game}
         region={region}
         path={selected?.id ?? ''}
-        href={href}
         onClose={() => setTownMapOpen(false)}
       />
       <Pokedex game={game} region={region} href={href} />

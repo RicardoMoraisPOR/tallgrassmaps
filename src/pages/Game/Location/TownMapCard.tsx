@@ -2,21 +2,23 @@ import { useId, useState } from 'react';
 
 import { MapPinned } from 'lucide-react';
 
-import { RegionMap } from '@/components/map/RegionMap';
 import { Button } from '@/components/ui/button';
-import type { Region } from '@/data/maps';
+import type { Game } from '@/data/games';
+import { getRegion, type Region } from '@/data/maps';
 
 import { TownMapDialog } from './TownMapDialog';
+import { TownMapView } from './TownMapView';
 
 type TownMapCardProps = {
+  game: Game;
   region: Region;
   path: string;
-  href: (path: string) => string;
 };
 
-export const TownMapCard = ({ region, path, href }: TownMapCardProps) => {
+export const TownMapCard = ({ game, region, path }: TownMapCardProps) => {
   const headingId = useId();
   const [open, setOpen] = useState(false);
+  const [viewed, setViewed] = useState(region.id);
 
   return (
     <section
@@ -30,11 +32,12 @@ export const TownMapCard = ({ region, path, href }: TownMapCardProps) => {
         Town Map
       </h2>
       <div className="flex flex-col gap-4 px-5 pb-5">
-        <RegionMap
+        <TownMapView
+          game={game}
           region={region}
-          locationHref={href}
-          focus={path}
+          path={path}
           miniMap
+          onChange={setViewed}
           className="gap-1"
         />
         <Button
@@ -43,14 +46,15 @@ export const TownMapCard = ({ region, path, href }: TownMapCardProps) => {
           onClick={() => setOpen(true)}
         >
           <MapPinned aria-hidden />
-          Open {region.name} Town Map
+          Open {getRegion(viewed)?.name ?? region.name} Town Map
         </Button>
       </div>
       <TownMapDialog
         open={open}
+        game={game}
         region={region}
         path={path}
-        href={href}
+        initial={viewed}
         onClose={() => setOpen(false)}
       />
     </section>

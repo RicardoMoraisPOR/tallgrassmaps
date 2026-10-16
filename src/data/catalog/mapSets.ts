@@ -1,4 +1,4 @@
-import { entryRegions, entryVersionGroup } from './entries';
+import { entryRegions, entryShortName, entryVersionGroup } from './entries';
 import { generations } from './generations';
 import type { MapSet } from './types';
 
@@ -12,7 +12,7 @@ export const mapSets = generations
     const available = entry.status !== 'coming-soon';
     const game = {
       id: entry.id,
-      name: entry.status !== 'coming-soon' ? entry.shortName : entry.title,
+      name: entryShortName(entry),
       color: entry.colors[0],
       available,
     };

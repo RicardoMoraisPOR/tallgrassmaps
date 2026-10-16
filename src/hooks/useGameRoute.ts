@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 
-import { type Game, getGame } from '@/data/games';
+import { type Game, getGame, regionIdsOf } from '@/data/games';
 import {
   getLocationTrail,
   getRegion,
@@ -15,6 +15,7 @@ import { useSettingsStore } from '@/stores/settings';
 export type GameRoute = {
   game: Game;
   region: Region;
+  regions: Array<Region>;
   trail: Array<Location> | undefined;
   hub: boolean;
   onMap: boolean;
@@ -28,11 +29,15 @@ export const useGameRoute = (): GameRoute | undefined => {
   const worldPreferred = useSettingsStore((state) => state.worldView);
 
   const game = getGame(gameId);
-  const region = game && getRegion(game.region);
+  const regions = game
+    ? regionIdsOf(game).flatMap((id) => getRegion(id) ?? [])
+    : [];
+  const [first, ...rest] = pathSegments(path);
+  const region =
+    regions.find((candidate) => regionSlug(candidate) === first) ?? regions[0];
 
   if (!game || !region) return undefined;
 
-  const [first, ...rest] = pathSegments(path);
   const hub = !first;
   const onMap = first === regionSlug(region);
   const placePath = onMap ? joinPath(...rest) : '';
@@ -49,6 +54,7 @@ export const useGameRoute = (): GameRoute | undefined => {
   return {
     game,
     region,
+    regions,
     trail,
     hub,
     onMap,

@@ -1,4 +1,4 @@
-import { ArrowRight, Lock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { ColorStripe } from '@/components/GameCover';
@@ -17,27 +17,10 @@ const ROW_CLASS =
   'flex h-11 items-center justify-between gap-2 rounded-sm border border-input bg-background px-3 text-sm font-medium transition-colors duration-200 sm:h-9 dark:bg-input/30';
 
 const GameRow = ({ entry }: { entry: CatalogEntry }) => {
-  if (entry.status === 'coming-soon')
-    return (
-      <span
-        aria-disabled="true"
-        className={cn(
-          ROW_CLASS,
-          'cursor-not-allowed border-dashed bg-transparent text-muted-foreground dark:bg-transparent',
-        )}
-      >
-        <span className="min-w-0">{shortTitle(entry)}</span>
-        <span className="inline-flex shrink-0 items-center gap-1 text-xs whitespace-nowrap">
-          <Lock aria-hidden className="size-3" />
-          Coming soon
-        </span>
-      </span>
-    );
-
   return (
     <Link
       to={`/${entry.id}`}
-      aria-label={`Open ${entry.fullName} map`}
+      aria-label={`Open ${entryName(entry)}`}
       className={cn(
         ROW_CLASS,
         'outline-none hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-3 focus-visible:ring-ring/55 dark:hover:bg-primary',
@@ -55,7 +38,6 @@ type MapCardProps = {
 };
 
 export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
-  const upcoming = entries.every((entry) => entry.status === 'coming-soon');
   const covers = entries.flatMap((entry) => {
     const cover = getCover(entry.id);
 
@@ -69,14 +51,13 @@ export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
     <div
       className={cn(
         'flex h-full flex-col overflow-hidden rounded-lg border shadow-xs',
-        upcoming ? 'border-dashed bg-muted/45' : 'bg-card',
+        'bg-card',
       )}
     >
-      <ColorStripe colors={colors} className={cn(upcoming && 'opacity-35')} />
+      <ColorStripe colors={colors} />
       <div
         className={cn(
           'relative aspect-16/10 shrink-0 overflow-hidden border-b bg-muted',
-          upcoming && 'border-dashed',
         )}
       >
         {covers[0] && (
@@ -91,7 +72,6 @@ export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
           className={cn(
             'relative flex size-full items-center justify-center py-3',
             sideBySide && 'gap-3',
-            upcoming && 'opacity-70',
           )}
         >
           {covers.map(({ id, cover }, index) => (
@@ -113,12 +93,7 @@ export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
       </div>
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="flex min-w-0 flex-col gap-1">
-          <span
-            className={cn(
-              'font-semibold tracking-tight text-pretty',
-              upcoming && 'font-medium text-muted-foreground',
-            )}
-          >
+          <span className="font-semibold tracking-tight text-pretty">
             {formatList(entries.map(shortTitle))}
           </span>
           <span className="text-xs leading-5 text-muted-foreground">

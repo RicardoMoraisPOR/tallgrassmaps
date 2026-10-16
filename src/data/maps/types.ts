@@ -167,6 +167,7 @@ export type Region = MapImage & {
   label?: RegionLabel;
   navigation?: 'nested' | 'seamless';
   world?: Record<string, { x: number; y: number }>;
+  separateWorld?: boolean;
   placeGroups?: PlaceGroups;
   wildAreas?: Array<WildArea>;
 };

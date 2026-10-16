@@ -92,7 +92,7 @@ export const PageHeader = ({
   );
 };
 
-const Separator = ({ className }: { className?: string }) => {
+export const Separator = ({ className }: { className?: string }) => {
   return (
     <ChevronRight
       aria-hidden

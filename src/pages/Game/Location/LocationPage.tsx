@@ -263,9 +263,10 @@ export const LocationPage = () => {
     <>
       <AsideCard icon={MapIcon} label="Town Map" onMobileOpen={openTownMap}>
         <TownMapCard
+          key={route.region.id}
+          game={route.game}
           region={route.region}
           path={trailPath(trail)}
-          href={route.href}
         />
       </AsideCard>
       <AsideCard icon={Info} label="Location info" grow>
@@ -352,9 +353,9 @@ export const LocationPage = () => {
       )}
       <TownMapDialog
         open={townMapOpen}
+        game={route.game}
         region={route.region}
         path={trailPath(trail)}
-        href={route.href}
         onClose={() => setTownMapOpen(false)}
       />
       <ShopDialog shop={shop} onClose={() => setShop(undefined)} />

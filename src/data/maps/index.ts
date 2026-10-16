@@ -31,6 +31,11 @@ export const getLocationTrail = (
   return trail.length > 0 ? trail : undefined;
 };
 
+export const worldRegions = (regions: Array<Region>, region: Region) =>
+  region.separateWorld
+    ? [region]
+    : regions.filter(({ separateWorld }) => !separateWorld);
+
 export const regionSlug = (region: Region) => slugify(region.name);
 
 export const regionHref = (gameId: string, region: Region, path = '') =>

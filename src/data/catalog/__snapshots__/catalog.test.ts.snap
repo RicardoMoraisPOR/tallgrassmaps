@@ -36,19 +36,19 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.76 0.12 85)",
         "id": "gold",
-        "name": "Pokémon Gold",
+        "name": "Gold",
       },
       {
         "available": false,
         "color": "oklch(0.78 0.01 250)",
         "id": "silver",
-        "name": "Pokémon Silver",
+        "name": "Silver",
       },
       {
         "available": false,
         "color": "oklch(0.78 0.09 220)",
         "id": "crystal",
-        "name": "Pokémon Crystal",
+        "name": "Crystal",
       },
     ],
     "regions": [
@@ -64,19 +64,19 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.52 0.2 20)",
         "id": "ruby",
-        "name": "Pokémon Ruby",
+        "name": "Ruby",
       },
       {
         "available": false,
         "color": "oklch(0.48 0.16 265)",
         "id": "sapphire",
-        "name": "Pokémon Sapphire",
+        "name": "Sapphire",
       },
       {
         "available": false,
         "color": "oklch(0.62 0.15 155)",
         "id": "emerald",
-        "name": "Pokémon Emerald",
+        "name": "Emerald",
       },
     ],
     "regions": [
@@ -91,17 +91,18 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.64 0.2 38)",
         "id": "firered",
-        "name": "Pokémon FireRed",
+        "name": "FireRed",
       },
       {
         "available": false,
         "color": "oklch(0.66 0.17 140)",
         "id": "leafgreen",
-        "name": "Pokémon LeafGreen",
+        "name": "LeafGreen",
       },
     ],
     "regions": [
       "Kanto",
+      "Sevii Islands",
     ],
     "versionGroup": "FRLG",
   },
@@ -112,23 +113,24 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.72 0.1 250)",
         "id": "diamond",
-        "name": "Pokémon Diamond",
+        "name": "Diamond",
       },
       {
         "available": false,
         "color": "oklch(0.8 0.07 350)",
         "id": "pearl",
-        "name": "Pokémon Pearl",
+        "name": "Pearl",
       },
       {
         "available": false,
         "color": "oklch(0.7 0.02 260)",
         "id": "platinum",
-        "name": "Pokémon Platinum",
+        "name": "Platinum",
       },
     ],
     "regions": [
       "Sinnoh",
+      "Underground",
     ],
     "versionGroup": "DPPt",
   },
@@ -139,13 +141,13 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.76 0.12 85)",
         "id": "heartgold",
-        "name": "Pokémon HeartGold",
+        "name": "HeartGold",
       },
       {
         "available": false,
         "color": "oklch(0.78 0.01 250)",
         "id": "soulsilver",
-        "name": "Pokémon SoulSilver",
+        "name": "SoulSilver",
       },
     ],
     "regions": [
@@ -159,15 +161,15 @@ exports[`catalog > groups games into map sets 1`] = `
     "games": [
       {
         "available": false,
-        "color": "oklch(0.25 0 0)",
+        "color": "oklch(0.55 0 0)",
         "id": "black",
-        "name": "Pokémon Black",
+        "name": "Black",
       },
       {
         "available": false,
-        "color": "oklch(0.95 0 0)",
+        "color": "oklch(0.62 0 0)",
         "id": "white",
-        "name": "Pokémon White",
+        "name": "White",
       },
     ],
     "regions": [
@@ -180,15 +182,15 @@ exports[`catalog > groups games into map sets 1`] = `
     "games": [
       {
         "available": false,
-        "color": "oklch(0.25 0 0)",
+        "color": "oklch(0.55 0 0)",
         "id": "black-2",
-        "name": "Pokémon Black 2",
+        "name": "Black 2",
       },
       {
         "available": false,
-        "color": "oklch(0.95 0 0)",
+        "color": "oklch(0.62 0 0)",
         "id": "white-2",
-        "name": "Pokémon White 2",
+        "name": "White 2",
       },
     ],
     "regions": [
@@ -203,13 +205,13 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.5 0.15 255)",
         "id": "x",
-        "name": "Pokémon X",
+        "name": "X",
       },
       {
         "available": false,
         "color": "oklch(0.55 0.2 25)",
         "id": "y",
-        "name": "Pokémon Y",
+        "name": "Y",
       },
     ],
     "regions": [
@@ -224,13 +226,13 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.52 0.2 20)",
         "id": "omega-ruby",
-        "name": "Pokémon Omega Ruby",
+        "name": "Omega Ruby",
       },
       {
         "available": false,
         "color": "oklch(0.48 0.16 265)",
         "id": "alpha-sapphire",
-        "name": "Pokémon Alpha Sapphire",
+        "name": "Alpha Sapphire",
       },
     ],
     "regions": [
@@ -245,13 +247,13 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.72 0.17 60)",
         "id": "sun",
-        "name": "Pokémon Sun",
+        "name": "Sun",
       },
       {
         "available": false,
         "color": "oklch(0.5 0.15 300)",
         "id": "moon",
-        "name": "Pokémon Moon",
+        "name": "Moon",
       },
     ],
     "regions": [
@@ -266,13 +268,13 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.7 0.18 50)",
         "id": "ultra-sun",
-        "name": "Pokémon Ultra Sun",
+        "name": "Ultra Sun",
       },
       {
         "available": false,
         "color": "oklch(0.45 0.18 290)",
         "id": "ultra-moon",
-        "name": "Pokémon Ultra Moon",
+        "name": "Ultra Moon",
       },
     ],
     "regions": [
@@ -287,13 +289,13 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.86 0.16 92)",
         "id": "lets-go-pikachu",
-        "name": "Pokémon Let's Go, Pikachu!",
+        "name": "Let's Go, Pikachu!",
       },
       {
         "available": false,
         "color": "oklch(0.65 0.1 60)",
         "id": "lets-go-eevee",
-        "name": "Pokémon Let's Go, Eevee!",
+        "name": "Let's Go, Eevee!",
       },
     ],
     "regions": [
@@ -308,13 +310,13 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.6 0.13 230)",
         "id": "sword",
-        "name": "Pokémon Sword",
+        "name": "Sword",
       },
       {
         "available": false,
         "color": "oklch(0.55 0.18 10)",
         "id": "shield",
-        "name": "Pokémon Shield",
+        "name": "Shield",
       },
     ],
     "regions": [
@@ -329,17 +331,18 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.72 0.1 250)",
         "id": "brilliant-diamond",
-        "name": "Pokémon Brilliant Diamond",
+        "name": "Brilliant Diamond",
       },
       {
         "available": false,
         "color": "oklch(0.8 0.07 350)",
         "id": "shining-pearl",
-        "name": "Pokémon Shining Pearl",
+        "name": "Shining Pearl",
       },
     ],
     "regions": [
       "Sinnoh",
+      "Grand Underground",
     ],
     "versionGroup": "BDSP",
   },
@@ -350,7 +353,7 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.75 0.08 90)",
         "id": "legends-arceus",
-        "name": "Pokémon Legends: Arceus",
+        "name": "Legends: Arceus",
       },
     ],
     "regions": [
@@ -365,17 +368,19 @@ exports[`catalog > groups games into map sets 1`] = `
         "available": false,
         "color": "oklch(0.6 0.22 25)",
         "id": "scarlet",
-        "name": "Pokémon Scarlet",
+        "name": "Scarlet",
       },
       {
         "available": false,
         "color": "oklch(0.5 0.2 305)",
         "id": "violet",
-        "name": "Pokémon Violet",
+        "name": "Violet",
       },
     ],
     "regions": [
       "Paldea",
+      "Kitakami",
+      "Blueberry Academy",
     ],
     "versionGroup": "SV",
   },
@@ -501,6 +506,7 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon FireRed",
         "regions": [
           "Kanto",
+          "Sevii Islands",
         ],
         "status": "coming-soon",
         "versionGroup": "FRLG",
@@ -510,6 +516,7 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon LeafGreen",
         "regions": [
           "Kanto",
+          "Sevii Islands",
         ],
         "status": "coming-soon",
         "versionGroup": "FRLG",
@@ -524,6 +531,7 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon Diamond",
         "regions": [
           "Sinnoh",
+          "Underground",
         ],
         "status": "coming-soon",
         "versionGroup": "DPPt",
@@ -533,6 +541,7 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon Pearl",
         "regions": [
           "Sinnoh",
+          "Underground",
         ],
         "status": "coming-soon",
         "versionGroup": "DPPt",
@@ -542,6 +551,7 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon Platinum",
         "regions": [
           "Sinnoh",
+          "Underground",
         ],
         "status": "coming-soon",
         "versionGroup": "DPPt",
@@ -735,6 +745,7 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon Brilliant Diamond",
         "regions": [
           "Sinnoh",
+          "Grand Underground",
         ],
         "status": "coming-soon",
         "versionGroup": "BDSP",
@@ -744,6 +755,7 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon Shining Pearl",
         "regions": [
           "Sinnoh",
+          "Grand Underground",
         ],
         "status": "coming-soon",
         "versionGroup": "BDSP",
@@ -767,6 +779,8 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon Scarlet",
         "regions": [
           "Paldea",
+          "Kitakami",
+          "Blueberry Academy",
         ],
         "status": "coming-soon",
         "versionGroup": "SV",
@@ -776,6 +790,8 @@ exports[`catalog > lists every entry per generation 1`] = `
         "name": "Pokémon Violet",
         "regions": [
           "Paldea",
+          "Kitakami",
+          "Blueberry Academy",
         ],
         "status": "coming-soon",
         "versionGroup": "SV",
@@ -926,11 +942,11 @@ exports[`catalog > names and labels each version group 1`] = `
     ],
     [
       {
-        "color": "oklch(0.25 0 0)",
+        "color": "oklch(0.55 0 0)",
         "text": "B",
       },
       {
-        "color": "oklch(0.95 0 0)",
+        "color": "oklch(0.62 0 0)",
         "text": "W",
       },
     ],
@@ -943,11 +959,11 @@ exports[`catalog > names and labels each version group 1`] = `
     ],
     [
       {
-        "color": "oklch(0.25 0 0)",
+        "color": "oklch(0.55 0 0)",
         "text": "B2",
       },
       {
-        "color": "oklch(0.95 0 0)",
+        "color": "oklch(0.62 0 0)",
         "text": "W2",
       },
     ],

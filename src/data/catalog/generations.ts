@@ -38,7 +38,7 @@ export const generations: Array<Generation> = [
       ...soon(
         'FRLG',
         'Game Boy Advance',
-        ['Kanto'],
+        ['Kanto', 'Sevii Islands'],
         [
           ['firered', 'Pokémon FireRed', catalogColors.fire],
           ['leafgreen', 'Pokémon LeafGreen', catalogColors.leaf],
@@ -53,7 +53,7 @@ export const generations: Array<Generation> = [
       ...soon(
         'DPPt',
         'Nintendo DS',
-        ['Sinnoh'],
+        ['Sinnoh', 'Underground'],
         [
           ['diamond', 'Pokémon Diamond', catalogColors.diamond],
           ['pearl', 'Pokémon Pearl', catalogColors.pearl],
@@ -172,7 +172,7 @@ export const generations: Array<Generation> = [
       ...soon(
         'BDSP',
         'Nintendo Switch',
-        ['Sinnoh'],
+        ['Sinnoh', 'Grand Underground'],
         [
           [
             'brilliant-diamond',
@@ -197,7 +197,7 @@ export const generations: Array<Generation> = [
       ...soon(
         'SV',
         'Nintendo Switch',
-        ['Paldea'],
+        ['Paldea', 'Kitakami', 'Blueberry Academy'],
         [
           ['scarlet', 'Pokémon Scarlet', catalogColors.scarlet],
           ['violet', 'Pokémon Violet', catalogColors.violet],

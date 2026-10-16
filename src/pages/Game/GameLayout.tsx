@@ -1,9 +1,14 @@
+import { useParams } from 'react-router';
+
 import { Container } from '@/components/Container';
 import { PageTransition } from '@/components/PageTransition';
+import { getUpcomingGame } from '@/data/catalog/entries';
 import { useGameRoute } from '@/hooks/useGameRoute';
 import { pathSegments } from '@/lib/paths';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
+import { UpcomingHeader } from './Hub/UpcomingHeader';
+import { UpcomingPage } from './Hub/UpcomingPage';
 import { PageHeader } from './PageHeader';
 import { PlaceSearchProvider } from './Search/PlaceSearch';
 
@@ -15,9 +20,18 @@ const pageKind = (pathname: string) => {
 
 export const GameLayout = () => {
   const route = useGameRoute();
+  const { gameId, '*': path } = useParams();
+  const upcoming = getUpcomingGame(gameId);
 
   if (!route) {
-    return <NotFoundPage />;
+    return upcoming && !path ? (
+      <div className="relative flex flex-1 flex-col">
+        <UpcomingHeader game={upcoming} />
+        <UpcomingPage game={upcoming} />
+      </div>
+    ) : (
+      <NotFoundPage />
+    );
   }
 
   return (
