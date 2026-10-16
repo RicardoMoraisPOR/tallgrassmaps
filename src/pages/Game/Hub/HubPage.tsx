@@ -111,6 +111,10 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
                           entry.pixelated && '[image-rendering:pixelated]',
                         )}
                       />
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-black/30 transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none"
+                      />
                     </span>
                     <span className="flex flex-wrap items-center gap-x-4 gap-y-2">
                       <span className="font-heading text-3xl font-bold tracking-tight">

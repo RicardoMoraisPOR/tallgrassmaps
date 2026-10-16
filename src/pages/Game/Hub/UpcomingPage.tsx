@@ -77,43 +77,52 @@ export const UpcomingPage = ({ game }: { game: UpcomingGame }) => {
             Maps
           </h2>
           <ul className="grid gap-6 sm:grid-cols-2">
-            {cards.map(({ region, townMap }) => {
-              return (
-                <li
-                  key={region}
-                  aria-disabled="true"
+            {cards.map(({ region, townMap }) => (
+              <li
+                key={region}
+                aria-disabled="true"
+                className="flex cursor-not-allowed flex-col gap-4"
+              >
+                <span
                   className={cn(
-                    'relative flex aspect-square cursor-not-allowed flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border bg-muted/45 text-muted-foreground',
+                    'relative flex aspect-square items-center justify-center overflow-hidden rounded-xl border bg-muted/45',
                     !townMap && 'border-dashed',
                   )}
                 >
-                  {townMap && (
-                    <img
-                      src={townMap.image}
-                      alt=""
-                      className={cn(
-                        'absolute inset-0 size-full object-cover',
-                        townMap.pixelated !== false &&
-                          '[image-rendering:pixelated]',
-                      )}
+                  {townMap ? (
+                    <>
+                      <img
+                        src={townMap.image}
+                        alt=""
+                        className={cn(
+                          'size-full object-cover',
+                          townMap.pixelated !== false &&
+                            '[image-rendering:pixelated]',
+                        )}
+                      />
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-black/30"
+                      />
+                    </>
+                  ) : (
+                    <Lock
+                      aria-hidden
+                      className="size-6 text-muted-foreground"
                     />
                   )}
-                  <div
-                    className={cn(
-                      'relative flex size-full flex-col items-center justify-center gap-3',
-                      townMap &&
-                        'bg-background/50 text-foreground [text-shadow:0_0_6px_var(--background),0_0_2px_var(--background)]',
-                    )}
-                  >
-                    <Lock aria-hidden className="size-6" />
-                    <span className="font-heading text-3xl font-bold tracking-tight">
-                      {region}
-                    </span>
-                    <span className="text-sm">Coming soon</span>
-                  </div>
-                </li>
-              );
-            })}
+                </span>
+                <span className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <span className="font-heading text-3xl font-bold tracking-tight">
+                    {region}
+                  </span>
+                  <span className="inline-flex h-6 items-center gap-1 rounded-full border bg-muted/50 px-2.5 text-xs font-medium text-muted-foreground">
+                    <Lock aria-hidden className="size-3" />
+                    Coming soon
+                  </span>
+                </span>
+              </li>
+            ))}
           </ul>
         </section>
         {hasRelated && (
