@@ -61,14 +61,13 @@ export const FloorFrames = ({
             toLatLng(frame.x + frame.width, frame.y),
           ]}
           pane={FRAME_PANE}
-          pathOptions={{
-            className:
-              frame.id === selected
-                ? 'floor-frame floor-frame-selected'
-                : 'floor-frame',
-            fill: true,
-            fillOpacity: 0,
-          }}
+          className={
+            frame.id === selected
+              ? 'floor-frame floor-frame-selected'
+              : 'floor-frame'
+          }
+          fill
+          fillOpacity={0}
           eventHandlers={{ click: () => onSelect(frame.id) }}
         />
       ))}
