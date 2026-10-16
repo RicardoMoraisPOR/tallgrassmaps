@@ -32,7 +32,6 @@ export type MapCredit = {
   credit: string;
   site: string;
   note?: string;
-  url?: string;
   works: Array<MapWork>;
 };
 
@@ -75,19 +74,11 @@ const collectLocations = (
   ]);
 
 const townMapCredits = (): Array<MapCreditGroup> =>
-  townMapGroups.map(({ versionGroup, source, works }) => ({
+  townMapGroups.map(({ versionGroup, credits }) => ({
     id: versionGroup,
     title:
       groupTitles[versionGroup] ?? versionGroupNames(versionGroup).join(', '),
-    credits: [
-      {
-        credit: source.credit,
-        site: source.name,
-        note: source.note,
-        url: source.url,
-        works,
-      },
-    ],
+    credits,
   }));
 
 export const mapCredits = (): Array<MapCreditGroup> => {
@@ -151,11 +142,7 @@ const mapRegionCredits = (seen: Set<string>): Array<MapCreditGroup> => {
     return {
       id: region.versionGroup,
       title: groupTitles[region.versionGroup] ?? region.name,
-      credits: [...credits.values()].map((credit) => {
-        const urls = new Set(credit.works.map((work) => work.url));
-
-        return urls.size === 1 ? { ...credit, url: [...urls][0] } : credit;
-      }),
+      credits: [...credits.values()],
     };
   });
 };
@@ -223,6 +210,8 @@ export const dataCredits: Array<DataCredit> = [
       'Signs',
       'Warps and map connections',
       'Town Map positions',
+      'Trainer prize money',
+      'Poké Mart stock and prices',
     ],
     games: ['red', 'blue'],
   },
@@ -234,6 +223,7 @@ export const dataCredits: Array<DataCredit> = [
       'Only what differs from Red and Blue',
       'Encounters, trainers and gifts',
       'Maps and sprites',
+      'Poké Mart stock that differs',
     ],
     games: ['yellow'],
   },

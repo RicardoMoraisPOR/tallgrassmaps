@@ -8,7 +8,7 @@ export type TownMapVariant = {
 };
 
 export type TownMap = {
-  url?: string;
+  source?: MapSource;
   regions?: Array<string>;
   pixelated?: boolean;
   image: string;
@@ -27,7 +27,7 @@ const townMaps: Record<string, TownMapSet> = {
     source: {
       name: 'pret/pokecrystal',
       url: 'https://github.com/pret/pokecrystal',
-      credit: 'the pret community',
+      credit: 'the pret team',
       note: 'The Johto and Kanto Pokégear maps, drawn from the game’s tile data and palettes',
     },
     maps: {
@@ -39,7 +39,7 @@ const townMaps: Record<string, TownMapSet> = {
     source: {
       name: 'pret/pokeemerald',
       url: 'https://github.com/pret/pokeemerald',
-      credit: 'the pret community',
+      credit: 'the pret team',
       note: 'The Hoenn Town Map, drawn from the game’s tile data and palette',
     },
     maps: {
@@ -50,7 +50,7 @@ const townMaps: Record<string, TownMapSet> = {
     source: {
       name: 'pret/pokefirered',
       url: 'https://github.com/pret/pokefirered',
-      credit: 'the pret community',
+      credit: 'the pret team',
       note: 'The Kanto Town Map and the three Sevii Islands pages, drawn from the game’s tile data and palette',
     },
     maps: {
@@ -71,7 +71,7 @@ const townMaps: Record<string, TownMapSet> = {
       name: 'Bulbagarden Archives',
       url: 'https://archives.bulbagarden.net/wiki/File:Sinnoh.png',
       credit: 'Abcboy',
-      note: 'The Sinnoh Town Map from Platinum and from Diamond and Pearl, and the Sinnoh Underground map',
+      note: 'The Sinnoh Town Map from Platinum and from Diamond and Pearl',
     },
     maps: {
       Sinnoh: {
@@ -88,7 +88,12 @@ const townMaps: Record<string, TownMapSet> = {
         ],
       },
       Underground: {
-        url: 'https://archives.bulbagarden.net/wiki/File:Sinnoh_Underground_Map_DPPt.png',
+        source: {
+          name: 'Bulbagarden Archives',
+          url: 'https://archives.bulbagarden.net/wiki/File:Sinnoh_Underground_Map_DPPt.png',
+          credit: 'Eridanus',
+          note: 'The Sinnoh Underground map from Diamond, Pearl and Platinum',
+        },
         image: '/maps/dppt/underground-town-map.png',
         width: 576,
         height: 534,
@@ -99,7 +104,7 @@ const townMaps: Record<string, TownMapSet> = {
     source: {
       name: 'pret/pokeheartgold',
       url: 'https://github.com/pret/pokeheartgold',
-      credit: 'the pret community',
+      credit: 'the pret team',
       note: 'The combined Johto and Kanto Pokégear map, drawn from the game’s tile data and palette',
     },
     maps: {
@@ -248,8 +253,8 @@ const townMaps: Record<string, TownMapSet> = {
     source: {
       name: 'Bulbagarden Archives',
       url: 'https://archives.bulbagarden.net/wiki/File:Sinnoh_BDSP.png',
-      credit: 'Rjd1922 and Serebii.net',
-      note: 'The Sinnoh Town Map and the Grand Underground map as they appear in Brilliant Diamond and Shining Pearl',
+      credit: 'Rjd1922',
+      note: 'The Sinnoh Town Map as it appears in Brilliant Diamond and Shining Pearl',
     },
     maps: {
       Sinnoh: {
@@ -259,7 +264,12 @@ const townMaps: Record<string, TownMapSet> = {
         height: 734,
       },
       'Grand Underground': {
-        url: 'https://www.serebii.net/brilliantdiamondshiningpearl/grandunderground.shtml',
+        source: {
+          name: 'Serebii.net',
+          url: 'https://www.serebii.net/brilliantdiamondshiningpearl/grandunderground.shtml',
+          credit: 'Serebii.net',
+          note: 'The Grand Underground map as it appears in Brilliant Diamond and Shining Pearl',
+        },
         image: '/maps/bdsp/grand-underground-town-map.webp',
         pixelated: false,
         width: 640,
@@ -287,8 +297,8 @@ const townMaps: Record<string, TownMapSet> = {
     source: {
       name: 'Bulbagarden Archives',
       url: 'https://archives.bulbagarden.net/wiki/File:Paldea.png',
-      credit: 'Minibug and Tiddlywinks',
-      note: 'The Paldea, Kitakami and Blueberry Academy maps as they appear in Scarlet and Violet',
+      credit: 'Minibug',
+      note: 'The Paldea map as it appears in Scarlet and Violet',
     },
     maps: {
       Paldea: {
@@ -298,14 +308,24 @@ const townMaps: Record<string, TownMapSet> = {
         height: 1000,
       },
       Kitakami: {
-        url: 'https://archives.bulbagarden.net/wiki/File:Kitakami.png',
+        source: {
+          name: 'Bulbagarden Archives',
+          url: 'https://archives.bulbagarden.net/wiki/File:Kitakami.png',
+          credit: 'Tiddlywinks',
+          note: 'The Kitakami map as it appears in Scarlet and Violet',
+        },
         image: '/maps/sv/kitakami-town-map.webp',
         pixelated: false,
         width: 1000,
         height: 1000,
       },
       'Blueberry Academy': {
-        url: 'https://archives.bulbagarden.net/wiki/File:Blueberry_Academy.png',
+        source: {
+          name: 'Bulbagarden Archives',
+          url: 'https://archives.bulbagarden.net/wiki/File:Blueberry_Academy.png',
+          credit: 'Tiddlywinks',
+          note: 'The Blueberry Academy map as it appears in Scarlet and Violet',
+        },
         image: '/maps/sv/blueberry-academy-town-map.webp',
         pixelated: false,
         width: 1000,
@@ -329,19 +349,41 @@ export const townMapFor = (
   return map && { ...map, image: variant?.image ?? map.image };
 };
 
+type TownMapCredit = {
+  credit: string;
+  site: string;
+  note?: string;
+  works: Array<{ label: string; url: string }>;
+};
+
 export const townMapGroups = Object.entries(townMaps).map(
-  ([versionGroup, { source, maps }]) => ({
-    versionGroup,
-    source,
-    works: Object.entries(maps).flatMap(([region, { url, variants = [] }]) => [
-      {
-        label: `${region} Town Map (${versionGroup})`,
-        url: url ?? source.url,
-      },
-      ...variants.map(({ label, url }) => ({
-        label: `${region} Town Map, ${label} (${versionGroup})`,
-        url,
-      })),
-    ]),
-  }),
+  ([versionGroup, set]) => {
+    const credits = new Map<string, TownMapCredit>();
+    const add = (source: MapSource, label: string, url: string) => {
+      const key = `${source.credit}|${source.name}`;
+      const entry = credits.get(key) ?? {
+        credit: source.credit,
+        site: source.name,
+        note: source.note,
+        works: [],
+      };
+
+      entry.works.push({ label, url });
+      credits.set(key, entry);
+    };
+
+    for (const [region, map] of Object.entries(set.maps)) {
+      const source = map.source ?? set.source;
+
+      add(source, `${region} Town Map (${versionGroup})`, source.url);
+
+      for (const { label, url } of map.variants ?? [])
+        add(source, `${region} Town Map, ${label} (${versionGroup})`, url);
+    }
+
+    return {
+      versionGroup,
+      credits: [...credits.values()],
+    };
+  },
 );

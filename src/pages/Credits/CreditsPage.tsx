@@ -201,11 +201,7 @@ const MapCreditGroupSection = ({ group }: { group: MapCreditGroup }) => {
               )}
             </div>
             <div className="flex items-baseline gap-3 text-xs text-muted-foreground">
-              {credit.url ? (
-                <ExternalLink href={credit.url}>{credit.site}</ExternalLink>
-              ) : (
-                <span>{credit.site}</span>
-              )}
+              <span>{credit.site}</span>
               <span className="w-24 text-right tabular-nums">
                 {credit.works.length}{' '}
                 {credit.works.length === 1 ? 'map tile' : 'map tiles'}
