@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 
+import { latLngBounds } from 'leaflet';
 import { useMap, useMapEvents } from 'react-leaflet';
 
 import { toLatLng } from '../coordinates';
@@ -25,6 +26,31 @@ export const UnpinOnDismiss = ({ onDismiss }: { onDismiss: () => void }) => {
       document.removeEventListener('pointerdown', dismissOutside, true);
     };
   }, [leafletMap, onDismiss]);
+
+  return null;
+};
+
+export const UnpinWhenOffscreen = ({
+  link,
+  anchor,
+  onDismiss,
+}: {
+  link: MapLink;
+  anchor?: { x: number; y: number };
+  onDismiss: () => void;
+}) => {
+  const leafletMap = useMap();
+  const target = anchor
+    ? latLngBounds([toLatLng(anchor.x, anchor.y)])
+    : latLngBounds(
+        toLatLng(link.x, link.y + link.height),
+        toLatLng(link.x + link.width, link.y),
+      );
+  const dismissIfHidden = () => {
+    if (!leafletMap.getBounds().intersects(target)) onDismiss();
+  };
+
+  useMapEvents({ drag: dismissIfHidden, moveend: dismissIfHidden });
 
   return null;
 };

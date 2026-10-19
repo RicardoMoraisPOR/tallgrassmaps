@@ -18,7 +18,11 @@ import { linkKey, spriteKey } from './viewer/links';
 import { LinkShape } from './viewer/LinkShape';
 import { MapIcon } from './viewer/MapIcon';
 import { MapSprite } from './viewer/MapSprite';
-import { PinOnRequest, UnpinOnDismiss } from './viewer/PinControls';
+import {
+  PinOnRequest,
+  UnpinOnDismiss,
+  UnpinWhenOffscreen,
+} from './viewer/PinControls';
 import type { MapLink } from './viewer/types';
 import { RememberView, RestoreHandedOffView } from './viewer/viewHandoff';
 import {
@@ -339,6 +343,13 @@ export const MapViewer = ({
           link={hoverCard}
           anchor={pinnedCardKey ? pinnedAnchor : undefined}
           interactive={pinnedCardKey !== undefined}
+        />
+      )}
+      {pinnedCardKey && hoverCard && (
+        <UnpinWhenOffscreen
+          link={hoverCard}
+          anchor={pinnedAnchor}
+          onDismiss={() => setPinnedCardKey(undefined)}
         />
       )}
       {pinnedCardKey && (
