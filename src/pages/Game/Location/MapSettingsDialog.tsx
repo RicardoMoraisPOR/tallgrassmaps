@@ -74,7 +74,7 @@ const SettingsBody = ({ view, onViewChange, withWorld }: SettingsBodyProps) => {
       )}
       {shown === 'world' && (
         <p className="text-xs text-muted-foreground">
-          Busy layers only appear on the world map once you zoom in.
+          When zoomed out, the world map groups markers into counts.
         </p>
       )}
       <div className="flex flex-col gap-4">

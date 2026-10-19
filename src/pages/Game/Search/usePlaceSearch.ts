@@ -10,28 +10,26 @@ import {
 import { useNavigate, useSearchParams } from 'react-router';
 
 import type { Game } from '@/data/games';
-import { itemsFor } from '@/data/items';
 import type { MapItem } from '@/data/items/types';
-import { getLocation, type Region } from '@/data/maps';
-import { npcsFor } from '@/data/npcs';
+import { getLocation, type Region, regionHref } from '@/data/maps';
 import type { MapNpc } from '@/data/npcs/types';
-import { pokedexFor } from '@/data/pokedex';
 import { entryKey } from '@/data/pokedex/master';
 import type { PokedexEntry } from '@/data/pokedex/types';
-import { trainersFor } from '@/data/trainers';
 import { pathSegments } from '@/lib/paths';
+import { useSettingsStore } from '@/stores/settings';
 
 import { searchItems } from '../itemSearch';
 import { itemKey } from '../Location/links/items';
 import { npcKey } from '../Location/links/npcs';
-import { listBattles, type ListedBattle } from '../Location/trainerList';
+import type { ListedBattle } from '../Location/trainerList';
 import { searchNpcs } from '../npcSearch';
 import { collectPlaces, groupOf, type Place, placeGroupsFor } from '../places';
 import { searchPlaces } from '../placeSearch';
 import { pokedexLink } from '../Pokedex/usePokedex';
 import { searchPokemon } from '../pokemonSearch';
 import { searchTrainers } from '../trainerSearch';
-import { giftItems } from './giftItems';
+import { findHref } from './mapFind';
+import { useSearchSources } from './useSearchSources';
 
 export const MAX_QUERY_LENGTH = 60;
 const MIN_QUERY_LENGTH = 2;
@@ -67,6 +65,7 @@ export const usePlaceSearch = ({
   onOpenChange,
 }: PlaceSearchOptions) => {
   const navigate = useNavigate();
+  const setWorldPreferred = useSettingsStore((state) => state.setWorldView);
   const [params] = useSearchParams();
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
@@ -89,28 +88,7 @@ export const usePlaceSearch = ({
     () => collectPlaces(region, game.id),
     [region, game.id],
   );
-  const entries = useMemo(
-    () => pokedexFor(region.versionGroup) ?? [],
-    [region.versionGroup],
-  );
-  const battles = useMemo(
-    () => listBattles(trainersFor(region.versionGroup) ?? [], game),
-    [region.versionGroup, game],
-  );
-  const items = useMemo(() => {
-    const onMap = itemsFor(region.versionGroup) ?? [];
-    const gifts = giftItems(npcsFor(region.versionGroup) ?? [], onMap, game.id);
-
-    return [...onMap.filter(({ games }) => games.includes(game.id)), ...gifts];
-  }, [region.versionGroup, game.id]);
-  const npcs = useMemo(
-    () =>
-      npcsFor(region.versionGroup)?.filter(
-        ({ special, item, games }) =>
-          special && !item && games.includes(game.id),
-      ) ?? [],
-    [region.versionGroup, game.id],
-  );
+  const { entries, battles, items, npcs } = useSearchSources(game, region);
   const results = useMemo(() => {
     if (!searching) return [];
 
@@ -239,6 +217,17 @@ export const usePlaceSearch = ({
     reset(false);
   };
 
+  const canShowOnMap =
+    Boolean(region.world) &&
+    results.some(({ type }) => type !== 'place') &&
+    query.trim().length >= MIN_QUERY_LENGTH;
+
+  const showOnMap = () => {
+    setWorldPreferred(true);
+    navigate(findHref(regionHref(game.id, region), query.trim()));
+    reset(false);
+  };
+
   const onKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
       event.preventDefault();
@@ -271,6 +260,8 @@ export const usePlaceSearch = ({
     headingOf,
     go,
     onKeyDown,
+    canShowOnMap,
+    showOnMap,
     reset,
     battles,
     entries,

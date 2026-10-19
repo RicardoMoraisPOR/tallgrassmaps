@@ -1,9 +1,11 @@
-import { memo, useMemo, useRef, useState } from 'react';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 
 import {
   CRS,
   DomEvent,
   type LatLngTuple,
+  type LeafletEventHandlerFnMap,
+  type LeafletMouseEvent,
   type Path as LeafletPath,
 } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -24,23 +26,34 @@ import { LinkShape } from './viewer/LinkShape';
 import { MapIcon } from './viewer/MapIcon';
 import { MapSprite } from './viewer/MapSprite';
 import {
+  DeselectOnEmptyClick,
   PinOnRequest,
   UnpinOnDismiss,
   UnpinWhenOffscreen,
 } from './viewer/PinControls';
+import { type TileCluster, TileClusters } from './viewer/TileClusters';
 import type { MapLink } from './viewer/types';
-import { RememberView, RestoreHandedOffView } from './viewer/viewHandoff';
+import {
+  type MapView,
+  RememberView,
+  RestoreHandedOffView,
+} from './viewer/viewHandoff';
 import {
   FitToViewport,
   IconSizeForZoom,
   PanBounds,
   PixelatedWhenZoomedIn,
+  FitToBounds,
+  type FitBounds,
   ReportViewBox,
   ReportZoom,
   type ViewBox,
   ResyncAfterInterruptedZoom,
 } from './viewer/ViewportEffects';
+import { badgeCenter, WildAreaPatterns, WildBadge } from './viewer/WildAreaArt';
 
+const CLUSTER_SELECT_MS = 800;
+const ICON_PRESS_MS = 150;
 const MAP_IMAGE_PANE = 'map-image';
 const BEHIND_PANE = 'behind-links';
 
@@ -53,7 +66,9 @@ export type FloorStack = {
   flyOnMount?: boolean;
   faded?: boolean;
   outlineSelected?: boolean;
+  dottedSelected?: boolean;
   actOnAnyFloor?: boolean;
+  dimmed?: Set<string>;
 };
 
 type MapViewerProps = {
@@ -65,6 +80,11 @@ type MapViewerProps = {
   pinRequest?: { key: string; initial?: boolean };
   focusKey?: string;
   onZoomChange?: (zoom: number) => void;
+  fitBounds?: FitBounds;
+  onViewChange?: (view: MapView) => void;
+  clusters?: Array<TileCluster>;
+  clusterZoom?: number;
+  onDeselect?: () => void;
   zoomPosition?: ZoomPosition;
   className?: string;
 };
@@ -76,10 +96,11 @@ type FloorImageProps = {
   width: number;
   height: number;
   hidden: boolean;
+  dimmed: boolean;
 };
 
 const FloorImage = memo(
-  ({ url, x, y, width, height, hidden }: FloorImageProps) => {
+  ({ url, x, y, width, height, hidden, dimmed }: FloorImageProps) => {
     const bounds = useMemo(
       () =>
         [toLatLng(x, y + height), toLatLng(x + width, y)] as [
@@ -93,9 +114,110 @@ const FloorImage = memo(
       <ImageOverlay
         url={url}
         className="map-tile-fade"
-        opacity={hidden ? 0 : 1}
+        opacity={hidden ? 0 : dimmed ? 0.25 : 1}
         bounds={bounds}
       />
+    );
+  },
+);
+
+type MapActions = {
+  hoverSprite: (link: MapLink | undefined) => void;
+  hoverCard: (link: MapLink | undefined) => void;
+  iconClick: (link: MapLink, event: LeafletMouseEvent) => void;
+  shapeClick: (link: MapLink, event: LeafletMouseEvent) => void;
+  spriteShapeRef: (link: MapLink) => (shape: LeafletPath | null) => void;
+  badgeClick: (link: MapLink, event: LeafletMouseEvent) => void;
+};
+
+const SpriteItem = memo(
+  ({ link, active }: { link: MapLink; active: boolean }) =>
+    link.sprite && (
+      <MapSprite
+        link={link}
+        sprite={link.sprite}
+        active={active}
+        revealed={active}
+      />
+    ),
+);
+
+const IconItem = memo(
+  ({
+    link,
+    active,
+    actions,
+  }: {
+    link: MapLink;
+    active: boolean;
+    actions: MapActions;
+  }) =>
+    link.icon && (
+      <MapIcon
+        link={link}
+        icon={link.icon}
+        active={active}
+        onClick={(event) => actions.iconClick(link, event)}
+      />
+    ),
+);
+
+const ShapeItem = memo(
+  ({
+    link,
+    actions,
+    selected = false,
+  }: {
+    link: MapLink;
+    actions: MapActions;
+    selected?: boolean;
+  }) => {
+    const handlers = useMemo<LeafletEventHandlerFnMap>(
+      () => ({
+        add: ({ target }) => {
+          if (link.behind) target.bringToBack();
+        },
+        mouseover: () => {
+          if (link.sprite) actions.hoverSprite(link);
+          if (link.tooltip && !link.tooltipOnClick) actions.hoverCard(link);
+        },
+        mouseout: () => {
+          if (link.sprite) actions.hoverSprite(undefined);
+          if (link.tooltip && !link.tooltipOnClick)
+            actions.hoverCard(undefined);
+        },
+        click: (event) => actions.shapeClick(link, event as LeafletMouseEvent),
+      }),
+      [link, actions],
+    );
+    const shapeRef = useMemo(
+      () => (link.sprite ? actions.spriteShapeRef(link) : undefined),
+      [link, actions],
+    );
+
+    return (
+      <LinkShape
+        link={link}
+        pane={link.behind ? BEHIND_PANE : undefined}
+        shapeRef={shapeRef}
+        className={cn(
+          'map-link',
+          !link.href &&
+            !link.onClick &&
+            !link.tooltipOnClick &&
+            'map-link-static',
+          link.sprite && 'map-link-sprite',
+          selected && 'map-link-selected',
+          link.className,
+        )}
+        eventHandlers={handlers}
+      >
+        {!link.tooltip && (
+          <Tooltip sticky pane="tooltipPane">
+            {link.label}
+          </Tooltip>
+        )}
+      </LinkShape>
     );
   },
 );
@@ -109,6 +231,11 @@ export const MapViewer = ({
   pinRequest,
   focusKey,
   onZoomChange,
+  fitBounds,
+  onViewChange,
+  clusters,
+  clusterZoom = 0,
+  onDeselect,
   zoomPosition,
   className,
 }: MapViewerProps) => {
@@ -122,12 +249,17 @@ export const MapViewer = ({
   const [hoverCardKey, setHoverCardKey] = useState<string>();
 
   const [pinnedCardKey, setPinnedCardKey] = useState<string>();
+  const [revealedArea, setRevealedArea] = useState<MapLink>();
   const [pinnedAnchor, setPinnedAnchor] = useState<{ x: number; y: number }>();
 
   const cardKey = pinnedCardKey ?? hoverCardKey;
-  const hoverCard = links.find(
+  const hoverCard = [...links, ...(revealedArea ? [revealedArea] : [])].find(
     (link) => link.tooltip && linkKey(link) === cardKey,
   );
+
+  useEffect(() => {
+    if (!pinnedCardKey) setRevealedArea(undefined);
+  }, [pinnedCardKey]);
 
   const inView = (x: number, y: number, width: number, height: number) =>
     viewBox !== undefined &&
@@ -141,19 +273,6 @@ export const MapViewer = ({
 
   const onSelectedFloor = (link: MapLink) =>
     !stack || link.floorId === stack.selected;
-
-  const otherFloorId = (link: MapLink) =>
-    stack &&
-    !stack.actOnAnyFloor &&
-    link.floorId &&
-    link.floorId !== stack.selected
-      ? link.floorId
-      : undefined;
-
-  const selectOwnFloor = (link: MapLink) => {
-    if (stack?.actOnAnyFloor && link.floorId && link.floorId !== stack.selected)
-      stack.onSelect(link.floorId);
-  };
 
   const focusLink =
     focusKey &&
@@ -208,240 +327,317 @@ export const MapViewer = ({
     }
   };
 
+  const clusterSelect = useRef(false);
+
+  const latest = useRef({ stack, navigate, spriteShapeRef });
+
+  latest.current = { stack, navigate, spriteShapeRef };
+
+  const actions = useMemo<MapActions>(() => {
+    const select = (link: MapLink) => {
+      const { stack: current } = latest.current;
+
+      if (
+        current?.actOnAnyFloor &&
+        link.floorId &&
+        link.floorId !== current.selected
+      )
+        current.onSelect(link.floorId);
+    };
+    const otherFloor = (link: MapLink) => {
+      const { stack: current } = latest.current;
+
+      return current &&
+        !current.actOnAnyFloor &&
+        link.floorId &&
+        link.floorId !== current.selected
+        ? link.floorId
+        : undefined;
+    };
+    const togglePin = (link: MapLink) =>
+      setPinnedCardKey((current) =>
+        current === linkKey(link) ? undefined : linkKey(link),
+      );
+    const open = (link: MapLink) => {
+      if (link.href)
+        latest.current.navigate(link.href, {
+          state: travelState(link.travel),
+          replace: link.replace,
+          preventScrollReset: link.replace,
+        });
+    };
+
+    return {
+      hoverSprite: (link) => setHoveredSprite(link && spriteKey(link)),
+      hoverCard: (link) => setHoverCardKey(link && linkKey(link)),
+      iconClick: (link, event) => {
+        const floorId = otherFloor(link);
+
+        if (floorId) {
+          DomEvent.stopPropagation(event);
+          latest.current.stack?.onSelect(floorId);
+
+          return;
+        }
+
+        select(link);
+
+        if (link.tooltip && link.tooltipOnClick) {
+          DomEvent.stopPropagation(event);
+          togglePin(link);
+        }
+
+        if (link.href) setTimeout(() => open(link), ICON_PRESS_MS);
+        else link.onClick?.();
+      },
+      shapeClick: (link, event) => {
+        const floorId = otherFloor(link);
+
+        if (floorId) {
+          DomEvent.stopPropagation(event);
+          latest.current.stack?.onSelect(floorId);
+
+          return;
+        }
+
+        select(link);
+        link.onClick?.();
+
+        if (link.tooltip && link.tooltipOnClick) {
+          DomEvent.stopPropagation(event);
+          setPinnedAnchor(
+            link.tooltipAtClick
+              ? { x: event.latlng.lng, y: -event.latlng.lat }
+              : undefined,
+          );
+          togglePin(link);
+        }
+
+        open(link);
+      },
+      spriteShapeRef: (link) => latest.current.spriteShapeRef(link),
+      badgeClick: (link, event) => {
+        const area = link.area;
+
+        if (!area) return;
+
+        DomEvent.stopPropagation(event);
+        select(link);
+
+        const key = linkKey(area);
+
+        setPinnedCardKey((current) => {
+          if (current === key) {
+            setRevealedArea(undefined);
+
+            return undefined;
+          }
+
+          setRevealedArea(area);
+          setPinnedAnchor(badgeCenter(link));
+
+          return key;
+        });
+      },
+    };
+  }, []);
+
   return (
-    <MapContainer
-      key={map.image}
-      crs={CRS.Simple}
-      bounds={bounds}
-      maxBounds={bounds}
-      maxBoundsViscosity={1}
-      zoomSnap={1}
-      minZoom={-8}
-      maxZoom={MAX_ZOOM}
-      attributionControl={false}
-      zoomControl={false}
-      className={cn('isolate', className)}
-      style={{ background: 'var(--muted)' }}
-    >
-      <MapZoomControls position={zoomPosition ?? 'topleft'} />
-      <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
-        {stack ? (
-          stack.floors.map((floor) => (
-            <FloorImage
-              key={floor.id}
-              url={floor.image}
-              x={floor.x}
-              y={floor.y}
-              width={floor.width}
-              height={floor.height}
-              hidden={Boolean(stack.faded) && floor.id !== stack.selected}
-            />
-          ))
-        ) : (
-          <ImageOverlay url={map.image} bounds={bounds} />
+    <>
+      <WildAreaPatterns />
+      <MapContainer
+        key={map.image}
+        crs={CRS.Simple}
+        bounds={bounds}
+        maxBounds={bounds}
+        maxBoundsViscosity={1}
+        zoomSnap={1}
+        minZoom={-8}
+        maxZoom={MAX_ZOOM}
+        attributionControl={false}
+        zoomControl={false}
+        className={cn('isolate', className)}
+        style={{ background: 'var(--muted)' }}
+      >
+        <MapZoomControls position={zoomPosition ?? 'topleft'} />
+        <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
+          {stack ? (
+            stack.floors.map((floor) => (
+              <FloorImage
+                key={floor.id}
+                url={floor.image}
+                x={floor.x}
+                y={floor.y}
+                width={floor.width}
+                height={floor.height}
+                hidden={Boolean(stack.faded) && floor.id !== stack.selected}
+                dimmed={stack.dimmed?.has(floor.id) ?? false}
+              />
+            ))
+          ) : (
+            <ImageOverlay url={map.image} bounds={bounds} />
+          )}
+        </Pane>
+        {stack && (
+          <FlyToFloor
+            frame={stack.floors.find(({ id }) => id === stack.selected)}
+            skip={focusPoint !== undefined || clusterSelect.current}
+            flyOnMount={stack.flyOnMount ?? false}
+          />
         )}
-      </Pane>
-      {stack && (
-        <FlyToFloor
-          frame={stack.floors.find(({ id }) => id === stack.selected)}
-          skip={focusPoint !== undefined}
-          flyOnMount={stack.flyOnMount ?? false}
-        />
-      )}
-      {stack && (
-        <FloorFrames
-          frames={stack.floors}
-          selected={stack.selected}
-          onSelect={stack.onSelect}
-          faded={stack.faded}
-          outlineSelected={stack.outlineSelected}
-        />
-      )}
-      {shownLinks.map(
-        (link) =>
-          link.sprite && (
-            <MapSprite
-              key={`sprite-${link.x},${link.y}`}
-              link={link}
-              sprite={link.sprite}
-              active={
-                hoveredSprite === spriteKey(link) ||
-                pinnedCardKey === linkKey(link) ||
-                isHighlighted(link)
-              }
-              revealed={
-                hoveredSprite === spriteKey(link) ||
-                pinnedCardKey === linkKey(link) ||
-                isHighlighted(link)
-              }
-            />
-          ),
-      )}
-      {shownLinks.map(
-        (link) =>
-          link.icon && (
-            <MapIcon
-              key={`icon-${linkKey(link)}`}
-              link={link}
-              icon={link.icon}
-              active={isHighlighted(link) || pinnedCardKey === linkKey(link)}
-              onActivate={() => selectOwnFloor(link)}
-              onFloorSwitch={
-                otherFloorId(link)
-                  ? () => stack?.onSelect(otherFloorId(link)!)
-                  : undefined
-              }
-              onSelect={
-                link.tooltip && link.tooltipOnClick
-                  ? () =>
-                      setPinnedCardKey((current) =>
-                        current === linkKey(link) ? undefined : linkKey(link),
-                      )
-                  : undefined
-              }
-            />
-          ),
-      )}
-      <Pane name={BEHIND_PANE} style={{ zIndex: 350 }} />
-      <Pane name="links" style={{ zIndex: 450 }}>
-        {shownLinks
-          .filter((link) => !link.icon)
-          .map((link) => (
-            <LinkShape
-              key={linkKey(link)}
-              link={link}
-              pane={link.behind ? BEHIND_PANE : undefined}
-              shapeRef={link.sprite ? spriteShapeRef(link) : undefined}
-              className={cn(
-                'map-link',
-                !link.href &&
-                  !link.onClick &&
-                  !link.tooltipOnClick &&
-                  'map-link-static',
-                link.sprite && 'map-link-sprite',
-                link.className,
-              )}
-              eventHandlers={{
-                add: ({ target }) => {
-                  if (link.behind) target.bringToBack();
-                },
-                mouseover: () => {
-                  if (link.sprite) setHoveredSprite(spriteKey(link));
-                  if (link.tooltip && !link.tooltipOnClick)
-                    setHoverCardKey(linkKey(link));
-                },
-                mouseout: () => {
-                  if (link.sprite) setHoveredSprite(undefined);
-                  if (link.tooltip && !link.tooltipOnClick)
-                    setHoverCardKey(undefined);
-                },
-                click: (event) => {
-                  const floorId = otherFloorId(link);
-
-                  if (floorId) {
-                    DomEvent.stopPropagation(event);
-                    stack?.onSelect(floorId);
-
-                    return;
-                  }
-
-                  selectOwnFloor(link);
-                  link.onClick?.();
-
-                  if (link.tooltip && link.tooltipOnClick) {
-                    DomEvent.stopPropagation(event);
-                    setPinnedAnchor(
-                      link.tooltipAtClick
-                        ? { x: event.latlng.lng, y: -event.latlng.lat }
-                        : undefined,
-                    );
-                    setPinnedCardKey((current) =>
-                      current === linkKey(link) ? undefined : linkKey(link),
-                    );
-                  }
-
-                  if (link.href)
-                    navigate(link.href, {
-                      state: travelState(link.travel),
-                      replace: link.replace,
-                      preventScrollReset: link.replace,
-                    });
-                },
-              }}
-            >
-              {!link.tooltip && (
-                <Tooltip sticky pane="tooltipPane">
-                  {link.label}
-                </Tooltip>
-              )}
-            </LinkShape>
-          ))}
-        {highlighted &&
-          highlightable
-            .filter(
-              (link) =>
-                !link.sprite &&
-                !link.icon &&
-                !(link.href && iconHrefs.has(link.href)) &&
-                isHighlighted(link),
-            )
-            .map((link) => (
-              <LinkShape
-                key={`highlight-${link.x},${link.y}`}
+        {stack && (
+          <FloorFrames
+            frames={stack.floors}
+            selected={stack.selected}
+            onSelect={stack.onSelect}
+            faded={stack.faded}
+            outlineSelected={stack.outlineSelected}
+            dottedSelected={stack.dottedSelected}
+          />
+        )}
+        {shownLinks.map(
+          (link) =>
+            link.sprite && (
+              <SpriteItem
+                key={`sprite-${link.x},${link.y}`}
                 link={link}
-                pane={link.behind ? BEHIND_PANE : undefined}
-                interactive={false}
-                className={cn('map-link-highlight', link.className)}
+                active={
+                  hoveredSprite === spriteKey(link) ||
+                  pinnedCardKey === linkKey(link) ||
+                  isHighlighted(link)
+                }
+              />
+            ),
+        )}
+        {shownLinks.map(
+          (link) =>
+            link.icon && (
+              <IconItem
+                key={`icon-${linkKey(link)}`}
+                link={link}
+                active={isHighlighted(link) || pinnedCardKey === linkKey(link)}
+                actions={actions}
+              />
+            ),
+        )}
+        {shownLinks.map(
+          (link) =>
+            Boolean(link.badge) && (
+              <WildBadge
+                key={`badge-${linkKey(link)}`}
+                link={link}
+                onClick={(event) => actions.badgeClick(link, event)}
+              />
+            ),
+        )}
+        {clusters?.map((cluster) => (
+          <TileClusters
+            key={cluster.tileId}
+            cluster={cluster}
+            zoomTo={clusterZoom}
+            onSelect={(tileId) => {
+              clusterSelect.current = true;
+              setTimeout(() => {
+                clusterSelect.current = false;
+              }, CLUSTER_SELECT_MS);
+              stack?.onSelect(tileId);
+            }}
+          />
+        ))}
+        <Pane name={BEHIND_PANE} style={{ zIndex: 350 }} />
+        <Pane name="links" style={{ zIndex: 450 }}>
+          {shownLinks
+            .filter((link) => !link.icon && !link.badge)
+            .map((link) => (
+              <ShapeItem
+                key={`${linkKey(link)}${pinnedCardKey === linkKey(link) ? ':selected' : ''}`}
+                link={link}
+                actions={actions}
+                selected={pinnedCardKey === linkKey(link)}
               />
             ))}
-        {hoverCard &&
-          pinnedCardKey === linkKey(hoverCard) &&
-          !hoverCard.sprite &&
-          !hoverCard.icon && (
-            <LinkShape
-              key={`pinned-${linkKey(hoverCard)}`}
-              link={hoverCard}
-              pane={hoverCard.behind ? BEHIND_PANE : undefined}
-              interactive={false}
-              className={cn('map-link-pinned', hoverCard.className)}
-            />
-          )}
-      </Pane>
-      {hoverCard && (
-        <HoverCard
-          key={`${linkKey(hoverCard)}@${pinnedAnchor?.x},${pinnedAnchor?.y}`}
-          link={hoverCard}
-          anchor={pinnedCardKey ? pinnedAnchor : undefined}
-          interactive={pinnedCardKey !== undefined}
+          {revealedArea &&
+            !shownLinks.some(
+              (link) => linkKey(link) === linkKey(revealedArea),
+            ) && (
+              <ShapeItem
+                key={`revealed-${linkKey(revealedArea)}`}
+                link={revealedArea}
+                actions={actions}
+                selected
+              />
+            )}
+          {highlighted &&
+            highlightable
+              .filter(
+                (link) =>
+                  !link.sprite &&
+                  !link.icon &&
+                  !(link.href && iconHrefs.has(link.href)) &&
+                  isHighlighted(link),
+              )
+              .map((link) => (
+                <LinkShape
+                  key={`highlight-${link.x},${link.y}`}
+                  link={link}
+                  pane={link.behind ? BEHIND_PANE : undefined}
+                  interactive={false}
+                  className={cn('map-link-highlight', link.className)}
+                />
+              ))}
+          {hoverCard &&
+            pinnedCardKey === linkKey(hoverCard) &&
+            !hoverCard.sprite &&
+            !hoverCard.icon && (
+              <LinkShape
+                key={`pinned-${linkKey(hoverCard)}`}
+                link={hoverCard}
+                pane={hoverCard.behind ? BEHIND_PANE : undefined}
+                interactive={false}
+                className={cn('map-link-pinned', hoverCard.className)}
+              />
+            )}
+        </Pane>
+        {hoverCard && (
+          <HoverCard
+            key={`${linkKey(hoverCard)}@${pinnedAnchor?.x},${pinnedAnchor?.y}`}
+            link={hoverCard}
+            anchor={pinnedCardKey ? pinnedAnchor : undefined}
+            interactive={pinnedCardKey !== undefined}
+          />
+        )}
+        {pinnedCardKey && hoverCard && (
+          <UnpinWhenOffscreen
+            link={hoverCard}
+            anchor={pinnedAnchor}
+            onDismiss={() => setPinnedCardKey(undefined)}
+          />
+        )}
+        {onDeselect && !pinnedCardKey && (
+          <DeselectOnEmptyClick onDeselect={onDeselect} />
+        )}
+        {pinnedCardKey && (
+          <UnpinOnDismiss onDismiss={() => setPinnedCardKey(undefined)} />
+        )}
+        <PinOnRequest
+          request={pinRequest}
+          links={links.filter(onSelectedFloor)}
+          onPin={(link) => {
+            setPinnedAnchor(undefined);
+            setPinnedCardKey(linkKey(link));
+          }}
         />
-      )}
-      {pinnedCardKey && hoverCard && (
-        <UnpinWhenOffscreen
-          link={hoverCard}
-          anchor={pinnedAnchor}
-          onDismiss={() => setPinnedCardKey(undefined)}
-        />
-      )}
-      {pinnedCardKey && (
-        <UnpinOnDismiss onDismiss={() => setPinnedCardKey(undefined)} />
-      )}
-      <PinOnRequest
-        request={pinRequest}
-        links={links.filter(onSelectedFloor)}
-        onPin={(link) => {
-          setPinnedAnchor(undefined);
-          setPinnedCardKey(linkKey(link));
-        }}
-      />
-      <PanBounds bounds={bounds} />
-      <FitToViewport map={map} focus={focusPoint} />
-      <RestoreHandedOffView />
-      <RememberView />
-      {map.pixelated && <PixelatedWhenZoomedIn />}
-      <IconSizeForZoom />
-      <ResyncAfterInterruptedZoom />
-      <ReportViewBox onChange={setViewBox} />
-      {onZoomChange && <ReportZoom onZoomChange={onZoomChange} />}
-    </MapContainer>
+        <PanBounds bounds={bounds} />
+        <FitToViewport map={map} focus={focusPoint} />
+        <RestoreHandedOffView />
+        <RememberView onChange={onViewChange} />
+        {map.pixelated && <PixelatedWhenZoomedIn />}
+        <IconSizeForZoom />
+        <ResyncAfterInterruptedZoom />
+        <ReportViewBox onChange={setViewBox} />
+        {onZoomChange && <ReportZoom onZoomChange={onZoomChange} />}
+        {fitBounds && <FitToBounds target={fitBounds} />}
+      </MapContainer>
+    </>
   );
 };

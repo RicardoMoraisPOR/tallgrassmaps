@@ -16,6 +16,8 @@ export type MapLink = Rect & {
   tooltipOnClick?: boolean;
   tooltipAtClick?: boolean;
   behind?: boolean;
+  badge?: number;
+  area?: MapLink;
   outline?: Array<Array<[number, number]>>;
   sprite?: {
     src: string;

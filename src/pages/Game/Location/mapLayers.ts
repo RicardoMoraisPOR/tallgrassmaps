@@ -10,6 +10,7 @@ export type MapLayerId =
   | 'trainers'
   | 'static-pokemon'
   | 'wild-pokemon'
+  | 'wild-badges'
   | 'npcs'
   | 'special-npcs'
   | 'signs';
@@ -66,9 +67,15 @@ export const mapLayers: Array<MapLayer> = [
   },
   {
     id: 'wild-pokemon',
-    label: 'Wild Pokémon',
+    label: 'Wild Pokémon Area',
     color: 'var(--map-wild-pokemon)',
     className: 'map-link-wild-pokemon',
+  },
+  {
+    id: 'wild-badges',
+    label: 'Wild Pokémon Badge',
+    color: 'var(--map-wild-pokemon)',
+    className: 'map-link-wild-badge',
   },
   {
     id: 'npcs',
@@ -120,6 +127,8 @@ export const signLayer = () => layer('signs');
 
 export const wildLayer = () => layer('wild-pokemon');
 
+export const wildBadgeLayer = () => layer('wild-badges');
+
 export const staticLayer = () => layer('static-pokemon');
 
 export type LayerView = 'focus' | 'world';
@@ -160,20 +169,23 @@ export const useMapLayers = (view: LayerView) => {
 };
 
 const MID_ZOOM = -1;
-const CLOSE_ZOOM = 0;
+export const CLOSE_ZOOM = 0;
 
 export const zoomTier = (zoom: number) =>
   zoom < MID_ZOOM ? 0 : zoom < CLOSE_ZOOM ? 1 : 2;
 
 const worldLayerTier: Partial<Record<MapLayerId, number>> = {
-  items: 1,
-  'static-pokemon': 1,
-  'special-npcs': 1,
   connections: 1,
+  buildings: 2,
+  services: 2,
+  items: 2,
+  'hidden-items': 2,
+  'static-pokemon': 2,
+  'special-npcs': 2,
   trainers: 2,
   npcs: 2,
-  'hidden-items': 2,
   'wild-pokemon': 2,
+  'wild-badges': 2,
   signs: 2,
 };
 

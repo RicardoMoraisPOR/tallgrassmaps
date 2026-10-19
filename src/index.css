@@ -326,22 +326,95 @@
   --map-link: var(--map-static-pokemon);
 }
 
-.map-link-wild-pokemon {
+.map-link-wild-pokemon,
+.map-link-wild-badge {
   --map-link: var(--map-wild-pokemon);
 }
 
 .leaflet-interactive.map-link.map-link-wild-pokemon {
-  stroke-opacity: 1;
-  fill-opacity: 0;
+  stroke-opacity: 0;
+  fill: url(#wild-grass);
+  fill-opacity: 1;
 }
 
 .leaflet-interactive.map-link.map-link-wild-pokemon:hover {
-  fill-opacity: 0;
+  fill-opacity: 1;
+}
+
+.leaflet-interactive.map-link.map-link-wild-water {
+  fill: url(#wild-water);
+}
+
+.leaflet-interactive.map-link.map-link-selected.map-link-wild-pokemon {
+  stroke-opacity: 1;
+  stroke-width: 3;
+  fill: url(#wild-grass-hover);
+}
+
+.leaflet-interactive.map-link.map-link-selected.map-link-wild-water {
+  fill: url(#wild-water-hover);
+}
+
+.leaflet-interactive.map-link.map-link-wild-whole,
+.leaflet-interactive.map-link.map-link-wild-whole:hover {
+  fill: none;
+}
+
+.leaflet-interactive.map-link.map-link-selected.map-link-wild-whole {
+  fill: none;
+}
+
+.map-wild-badge-anchor {
+  background: none;
+  border: 0;
+  pointer-events: none;
+}
+
+.map-wild-badge {
+  display: flex;
+  min-width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  border: 1.5px solid var(--map-link);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 11px;
+  font-weight: 700;
+  gap: 3px;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: scale 100ms ease-out;
+}
+
+.map-wild-badge:active {
+  scale: 0.9;
+}
+
+.map-wild-badge-sprite {
+  width: 14px;
+  height: 14px;
+  background-size: 100% 300%;
+  background-position: 0 0;
+  image-rendering: pixelated;
+}
+
+.map-wild-badge-game {
+  height: 22px;
+  border: 2px solid #292929;
+  border-radius: 0;
+  background: #f6f4f7;
+  color: #292929;
 }
 
 .map-link-highlight.map-link-wild-pokemon {
-  stroke-opacity: 0;
-  fill-opacity: 0.2;
+  stroke-opacity: 1;
+  stroke-width: 3;
+  fill-opacity: 0;
 }
 
 .leaflet-interactive.map-link-wild-whole {
@@ -352,6 +425,10 @@
   stroke-opacity: 0;
   fill: var(--map-link);
   fill-opacity: 0.2;
+}
+
+.map-link-pinned.map-link-wild-pokemon {
+  fill-opacity: 0;
 }
 
 @keyframes diorama-sway {
@@ -470,8 +547,28 @@
     0 4px 12px -4px oklch(0 0 0 / 0.35);
   cursor: pointer;
   transition:
-    scale 50ms,
+    scale 100ms ease-out,
     filter 50ms;
+}
+
+.map-icon:active {
+  scale: 0.9;
+}
+
+.map-icon-pressed {
+  animation: map-icon-press 240ms ease-out;
+}
+
+@keyframes map-icon-press {
+  40% {
+    scale: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-icon-pressed {
+    animation: none;
+  }
 }
 
 .map-icon-step {
@@ -566,7 +663,6 @@
 
 .map-icon:hover,
 .map-icon-active {
-  scale: 1.12;
   filter: drop-shadow(1.5px 0 0 var(--map-link))
     drop-shadow(-1.5px 0 0 var(--map-link))
     drop-shadow(0 1.5px 0 var(--map-link))
@@ -731,6 +827,134 @@ path.leaflet-interactive:focus {
   stroke: var(--brand);
   stroke-width: 4;
   stroke-dasharray: none;
+}
+
+.map-fading-connections .map-link-connection {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-buildings .map-link-entrance {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-services .map-link-service {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-items .map-link-item {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-hidden-items .map-link-hidden-item {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-trainers .map-link-trainer {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-static-pokemon .map-link-static-pokemon {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-wild-badges .map-link-wild-badge {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-wild-pokemon .map-link-wild-pokemon {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-npcs .map-link-npc {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-special-npcs .map-link-special-npc {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.map-fading-signs .map-link-sign {
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaflet-container [class*='map-link-'] {
+    transition: none;
+  }
+
+  .leaflet-container .map-sprite,
+  .leaflet-container .map-icon-anchor,
+  .leaflet-container path.map-link,
+  .map-cluster-row {
+    animation: none;
+  }
+}
+
+.leaflet-container .map-sprite,
+.leaflet-container .map-icon-anchor,
+.leaflet-container path.map-link {
+  animation: map-marker-in 150ms ease-out;
+}
+
+.map-cluster-compact .map-cluster {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  font-size: 10px;
+}
+
+.map-cluster-anchor {
+  background: none;
+  border: 0;
+}
+
+.map-cluster-row {
+  display: flex;
+  gap: 4px;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  animation: map-marker-in 150ms ease-out;
+}
+
+.map-cluster {
+  display: flex;
+  min-width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border: 2px solid var(--layer);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@keyframes map-marker-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.floor-frame-dotted {
+  stroke: var(--brand);
+  stroke-width: 2;
+  stroke-dasharray: 1 5;
+  stroke-linecap: round;
 }
 
 .floor-label-anchor {

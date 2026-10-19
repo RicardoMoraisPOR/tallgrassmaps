@@ -2,16 +2,14 @@ import { useEffect, useMemo, useRef } from 'react';
 
 import {
   divIcon,
-  DomEvent,
+  type LeafletMouseEvent,
   type Marker as LeafletMarker,
   type PointTuple,
 } from 'leaflet';
 import { Marker } from 'react-leaflet';
-import { useNavigate } from 'react-router';
 
 import { useThemeStyle } from '@/components/settings/themes';
 import type { Direction } from '@/data/maps';
-import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
 import { toLatLng } from '../coordinates';
@@ -30,20 +28,16 @@ export const MapIcon = ({
   link,
   icon,
   active,
-  onFloorSwitch,
-  onActivate,
-  onSelect,
+  onClick,
 }: {
   link: MapLink;
   icon: MapIconKind;
   active: boolean;
-  onFloorSwitch?: () => void;
-  onActivate?: () => void;
-  onSelect?: () => void;
+  onClick: (event: LeafletMouseEvent) => void;
 }) => {
-  const navigate = useNavigate();
   const style = useThemeStyle('mapIcons');
   const markerRef = useRef<LeafletMarker>(null);
+  const position = useMemo(() => toLatLng(link.x, link.y), [link.x, link.y]);
 
   const direction = icon.kind === 'arrow' ? icon.direction : undefined;
   const step = 'step' in icon ? icon.step : undefined;
@@ -76,28 +70,27 @@ export const MapIcon = ({
   return (
     <Marker
       ref={markerRef}
-      position={toLatLng(link.x, link.y)}
+      position={position}
       icon={marker}
       title={link.label}
       eventHandlers={{
         click: (event) => {
-          if (onFloorSwitch) {
-            DomEvent.stopPropagation(event);
-            onFloorSwitch();
+          const icon = markerRef.current
+            ?.getElement()
+            ?.querySelector<HTMLElement>('.map-icon');
 
-            return;
+          if (icon) {
+            icon.classList.remove('map-icon-pressed');
+            void icon.offsetWidth;
+            icon.classList.add('map-icon-pressed');
+            icon.addEventListener(
+              'animationend',
+              () => icon.classList.remove('map-icon-pressed'),
+              { once: true },
+            );
           }
 
-          onActivate?.();
-
-          if (onSelect) {
-            DomEvent.stopPropagation(event);
-            onSelect();
-          }
-
-          if (link.href)
-            navigate(link.href, { state: travelState(link.travel) });
-          else link.onClick?.();
+          onClick(event);
         },
       }}
     />

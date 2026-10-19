@@ -331,3 +331,35 @@ export const ReportViewBox = ({
 
   return null;
 };
+
+export type FitBounds = {
+  key: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+const FIT_DELAY_MS = 350;
+const FIT_PADDING = 64;
+const FIT_MAX_ZOOM = 1;
+
+export const FitToBounds = ({ target }: { target: FitBounds }) => {
+  const leafletMap = useMap();
+  const { key, x, y, width, height } = target;
+
+  useEffect(() => {
+    const timer = setTimeout(
+      () =>
+        leafletMap.flyToBounds(
+          [toLatLng(x, y + height), toLatLng(x + width, y)],
+          { padding: [FIT_PADDING, FIT_PADDING], maxZoom: FIT_MAX_ZOOM },
+        ),
+      FIT_DELAY_MS,
+    );
+
+    return () => clearTimeout(timer);
+  }, [leafletMap, key, x, y, width, height]);
+
+  return null;
+};

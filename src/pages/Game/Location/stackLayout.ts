@@ -256,6 +256,7 @@ export const offsetLink = <T extends MapLink>(
   outline: link.outline?.map((polygon) =>
     polygon.map(([x, y]): [number, number] => [x + dx, y + dy]),
   ),
+  ...(link.area && { area: offsetLink(link.area, dx, dy) }),
 });
 
 export const stackedHref = (href: string | undefined) =>

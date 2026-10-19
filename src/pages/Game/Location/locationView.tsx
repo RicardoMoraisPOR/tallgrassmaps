@@ -90,6 +90,12 @@ export const buildLocationView = (
         hasWater: wildAreas.some((area) => area.method === 'water'),
       })
     : [];
+  const wildCount = (area: WildArea['method']) =>
+    new Set(
+      encounters
+        .filter(({ method }) => wildAreaFor(method) === area)
+        .flatMap(({ rows }) => rows.map(({ entry }) => entry.number)),
+    ).size;
   const wildPopup = (area: WildArea['method'], note?: string) => {
     const groups = encounters.filter(
       ({ method }) => wildAreaFor(method) === area,
@@ -164,6 +170,7 @@ export const buildLocationView = (
         ),
       wildAreas,
       wildPopup,
+      wildCount,
       staticPokemon: staticPokemonFor(route.region.versionGroup)?.filter(
         onThisMap,
       ),

@@ -19,13 +19,21 @@ export type FloorFrame = {
   height: number;
 };
 
+type FrameStyle = 'plain' | 'selected' | 'dotted';
+
 type FrameOutlineProps = Omit<FloorFrame, 'name'> & {
-  highlighted: boolean;
+  frameStyle: FrameStyle;
   onSelect: (id: string) => void;
 };
 
+const frameClasses: Record<FrameStyle, string> = {
+  plain: 'floor-frame',
+  selected: 'floor-frame floor-frame-selected',
+  dotted: 'floor-frame floor-frame-dotted',
+};
+
 const FrameOutline = memo(
-  ({ id, x, y, width, height, highlighted, onSelect }: FrameOutlineProps) => {
+  ({ id, x, y, width, height, frameStyle, onSelect }: FrameOutlineProps) => {
     const bounds = useMemo(
       () =>
         [toLatLng(x, y + height), toLatLng(x + width, y)] as [
@@ -39,9 +47,7 @@ const FrameOutline = memo(
       <Rectangle
         bounds={bounds}
         pane={FRAME_PANE}
-        className={
-          highlighted ? 'floor-frame floor-frame-selected' : 'floor-frame'
-        }
+        className={frameClasses[frameStyle]}
         fill
         fillOpacity={0}
         eventHandlers={{ click: () => onSelect(id) }}
@@ -82,6 +88,7 @@ type FloorFramesProps = {
   onSelect: (id: string) => void;
   faded?: boolean;
   outlineSelected?: boolean;
+  dottedSelected?: boolean;
 };
 
 export const FloorFrames = ({
@@ -90,6 +97,7 @@ export const FloorFrames = ({
   onSelect,
   faded = false,
   outlineSelected = true,
+  dottedSelected = false,
 }: FloorFramesProps) => {
   const leafletMap = useMap();
   const latestSelect = useRef(onSelect);
@@ -137,7 +145,15 @@ export const FloorFrames = ({
           y={frame.y}
           width={frame.width}
           height={frame.height}
-          highlighted={outlineSelected && frame.id === selected}
+          frameStyle={
+            frame.id !== selected
+              ? 'plain'
+              : dottedSelected
+                ? 'dotted'
+                : outlineSelected
+                  ? 'selected'
+                  : 'plain'
+          }
           onSelect={selectFrame}
         />
       ))}

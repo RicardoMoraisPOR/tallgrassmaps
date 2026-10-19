@@ -55,6 +55,27 @@ export const UnpinWhenOffscreen = ({
   return null;
 };
 
+const INTERACTIVE =
+  '.leaflet-interactive, .leaflet-marker-icon, .leaflet-control, .map-card';
+
+export const DeselectOnEmptyClick = ({
+  onDeselect,
+}: {
+  onDeselect: () => void;
+}) => {
+  useMapEvents({
+    click: ({ originalEvent }) => {
+      const target = originalEvent.target;
+
+      if (target instanceof Element && target.closest(INTERACTIVE)) return;
+
+      onDeselect();
+    },
+  });
+
+  return null;
+};
+
 export const PinOnRequest = ({
   request,
   links,

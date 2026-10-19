@@ -1,7 +1,8 @@
 import { type ReactNode, useEffect, useState } from 'react';
 
-import { Search } from 'lucide-react';
+import { MapPin, Search } from 'lucide-react';
 
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -130,6 +131,8 @@ const PlaceSearchDialog = ({
     headingOf,
     go,
     onKeyDown,
+    canShowOnMap,
+    showOnMap,
     reset,
     battles,
     entries,
@@ -249,6 +252,18 @@ const PlaceSearchDialog = ({
               </li>
             )}
           </ul>
+          {canShowOnMap && (
+            <div className="border-t p-1.5">
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={showOnMap}
+              >
+                <MapPin aria-hidden />
+                Show these on the map
+              </Button>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
       <TrainerDialog

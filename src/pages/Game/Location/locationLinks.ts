@@ -37,6 +37,7 @@ export const locationLinks = (
     onOpenShop,
     wildAreas = [],
     wildPopup,
+    wildCount,
     staticPokemon = [],
     staticPopup,
   }: MarkerSources = {},
@@ -60,7 +61,7 @@ export const locationLinks = (
   const npcLinks = npcMarkers(npcs, tileSize, gifts, npcTooltip);
 
   const mapLinks = [
-    ...wildMarkers(wildAreas, image, tileSize, wildPopup),
+    ...wildMarkers(wildAreas, image, tileSize, wildPopup, wildCount),
     ...links.filter(
       (link) => link.layer !== 'connections' && link.layer !== 'buildings',
     ),

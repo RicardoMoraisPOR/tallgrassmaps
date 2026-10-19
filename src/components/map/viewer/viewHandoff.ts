@@ -4,7 +4,7 @@ import { useMap } from 'react-leaflet';
 
 import { toLatLng } from '../coordinates';
 
-type MapView = { x: number; y: number; zoom: number };
+export type MapView = { x: number; y: number; zoom: number };
 
 const HANDOFF_TTL_MS = 1500;
 
@@ -23,9 +23,17 @@ const pendingView = () =>
     ? handoff.view
     : undefined;
 
+export const seedView = (view: MapView) => {
+  handoff = { view, at: Date.now() };
+};
+
 export const hasHandedOffView = () => pendingView() !== undefined;
 
-export const RememberView = () => {
+export const RememberView = ({
+  onChange,
+}: {
+  onChange?: (view: MapView) => void;
+}) => {
   const leafletMap = useMap();
 
   useEffect(() => {
@@ -34,14 +42,19 @@ export const RememberView = () => {
 
       latest = { x: lng, y: -lat, zoom: leafletMap.getZoom() };
     };
+    const report = () => {
+      remember();
+
+      if (latest) onChange?.(latest);
+    };
 
     remember();
-    leafletMap.on('moveend', remember);
+    leafletMap.on('moveend', report);
 
     return () => {
-      leafletMap.off('moveend', remember);
+      leafletMap.off('moveend', report);
     };
-  }, [leafletMap]);
+  }, [leafletMap, onChange]);
 
   return null;
 };

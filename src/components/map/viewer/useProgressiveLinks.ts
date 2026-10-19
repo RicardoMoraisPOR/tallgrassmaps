@@ -5,7 +5,7 @@ import type { MapLink } from './types';
 
 const LINKS_PER_FRAME = 20;
 
-export const useProgressiveLinks = (links: Array<MapLink>) => {
+export const useProgressiveLinks = (links: Array<MapLink>, paused = false) => {
   const [admitted, setAdmitted] = useState(() => new Set<string>());
   const pending = links.filter((link) => !admitted.has(linkKey(link)));
 
@@ -13,11 +13,13 @@ export const useProgressiveLinks = (links: Array<MapLink>) => {
     const current = new Set(links.map(linkKey));
     const kept = [...admitted].filter((key) => current.has(key));
 
-    if (pending.length === 0 && kept.length === admitted.size) return;
+    const waiting = paused ? [] : pending;
+
+    if (waiting.length === 0 && kept.length === admitted.size) return;
 
     const frame = requestAnimationFrame(() =>
       setAdmitted(
-        new Set([...kept, ...pending.slice(0, LINKS_PER_FRAME).map(linkKey)]),
+        new Set([...kept, ...waiting.slice(0, LINKS_PER_FRAME).map(linkKey)]),
       ),
     );
 

@@ -61,6 +61,7 @@ export type MarkerSources = {
   onOpenShop?: (shops: Array<Shop>, selected: string) => void;
   wildAreas?: Array<WildArea>;
   wildPopup?: (method: WildArea['method'], note?: string) => ReactNode;
+  wildCount?: (method: WildArea['method']) => number;
   staticPokemon?: Array<StaticPokemon>;
   staticPopup?: (pokemon: StaticPokemon) => ReactNode;
 };

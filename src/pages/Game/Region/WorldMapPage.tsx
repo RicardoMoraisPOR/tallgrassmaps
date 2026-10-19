@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Gamepad2, Info, Map as MapIcon } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import type { MapLink } from '@/components/map/viewer/types';
@@ -13,6 +13,7 @@ import {
 import { regionHref, worldRegions } from '@/data/maps';
 import type { Shop } from '@/data/shops/types';
 import type { GameRoute } from '@/hooks/useGameRoute';
+import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import { AsideCard, GameAside } from '../GameAside';
@@ -21,7 +22,9 @@ import { LocationPanel } from '../Location/LocationPanel';
 import { locationPanelTabs } from '../Location/locationPanelTabs';
 import { buildLocationView } from '../Location/locationView';
 import {
+  CLOSE_ZOOM,
   layersHiddenAtTier,
+  type MapLayerId,
   useMapLayers,
   zoomTier,
 } from '../Location/mapLayers';
@@ -32,8 +35,40 @@ import { TownMapDialog } from '../Location/TownMapDialog';
 import { TrainerDialog } from '../Location/TrainerDialog';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
+import { findMatchKey, useMapFind } from '../Search/mapFind';
+import { FindBanner } from './FindBanner';
 import { GameInfoCard } from './GameInfoCard';
+import { useLayerFade } from './useLayerFade';
+import { useViewParam } from './useViewParam';
 import { WorldToggle } from './WorldToggle';
+
+const clusterGroups: Array<{
+  label: string;
+  color: string;
+  layers: Array<MapLayerId>;
+}> = [
+  {
+    label: 'Entrances',
+    color: 'var(--map-entrance)',
+    layers: ['buildings', 'services'],
+  },
+  { label: 'Trainers', color: 'var(--map-trainer)', layers: ['trainers'] },
+  {
+    label: 'NPCs',
+    color: 'var(--map-npc)',
+    layers: ['npcs', 'special-npcs'],
+  },
+  {
+    label: 'Items',
+    color: 'var(--map-item)',
+    layers: ['items', 'hidden-items'],
+  },
+  {
+    label: 'Static Pokémon',
+    color: 'var(--map-static-pokemon)',
+    layers: ['static-pokemon'],
+  },
+];
 
 const FADE_START_MS = 50;
 const FADE_OUT_MS = 150;
@@ -57,6 +92,10 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     setWorldPreferred(true);
     navigate(regionHref(game.id, regionOfTile(id), id));
   };
+  const sharedView = useViewParam();
+  const { search } = useLocation();
+  const deselect = () =>
+    navigate({ pathname: regionHref(game.id, region), search });
   const [handedOff] = useState(hasHandedOffView);
   const [faded, setFaded] = useState(handedOff);
 
@@ -98,7 +137,21 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const selected = placed.find(({ id }) => id === tile);
   const dataPath = selected ? (selected.dataPath ?? selected.id) : '';
   const placedKey = placed.map(({ id }) => id).join('|');
-  const pokedexSearch = pokedexLink.to.search;
+  const latestPokedexLink = useRef(pokedexLink);
+
+  latestPokedexLink.current = pokedexLink;
+
+  const stablePokedexLink = useMemo(
+    () => ({
+      get to() {
+        return latestPokedexLink.current.to;
+      },
+      get state() {
+        return latestPokedexLink.current.state;
+      },
+    }),
+    [],
+  );
   const tiles = useMemo(() => {
     const placeLink = (link: LayeredMapLink, tileId: string): MapLink => {
       const target = WORLD_HREF.exec(link.href ?? '')?.[1];
@@ -112,7 +165,11 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
         at.y,
       );
 
-      return { ...moved, floorId: tileId };
+      return {
+        ...moved,
+        floorId: tileId,
+        ...(moved.area && { area: { ...moved.area, floorId: tileId } }),
+      };
     };
 
     return new Map(
@@ -124,7 +181,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
             trail: [location],
             dataPath: location.dataPath ?? location.id,
             navigate,
-            pokedexLink,
+            pokedexLink: stablePokedexLink,
             openTownMap: () => setTownMapOpen(true),
             openShop: (shops, selected) => setShop({ shops, selected }),
             selectTrainer: setTrainerKey,
@@ -136,33 +193,118 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           location.id,
           {
             view: built,
+            dataPath: location.dataPath ?? location.id,
             links: built.links.map((link) => ({
               layer: link.layer,
+              keys: [link.highlightKey].flat().filter(Boolean) as Array<string>,
               placed: placeLink(link, location.id),
             })),
           },
         ];
       }),
     );
-  }, [game.id, region.id, placedKey, pokedexSearch, navigate]);
+  }, [game.id, region.id, placedKey, stablePokedexLink, navigate]);
   const view = selected ? tiles.get(selected.id)?.view : undefined;
   const links = selected
     ? (tiles.get(selected.id)?.links.map(({ placed: link }) => link) ?? [])
     : [];
+  const find = useMapFind(game, region);
   const [tier, setTier] = useState<number>();
-  const hiddenNow = new Set([...hiddenLayers, ...layersHiddenAtTier(tier)]);
+  const { hidden: hiddenNow, fading } = useLayerFade(
+    new Set([...hiddenLayers, ...layersHiddenAtTier(tier)]),
+  );
   const hiddenKey = [...hiddenNow].toSorted().join('|');
   const visibleLinks = useMemo(
     () =>
       [...tiles.values()].flatMap((tileData) =>
         tileData.links
-          .filter(({ layer }) => !hiddenNow.has(layer))
+          .filter(({ layer, keys }) =>
+            find.query
+              ? keys.some((key) =>
+                  find.matches.has(findMatchKey(tileData.dataPath, key)),
+                )
+              : !hiddenNow.has(layer),
+          )
           .map(({ placed: link }) => link),
       ),
-    [tiles, hiddenKey],
+    [tiles, hiddenKey, find.query, find.matches],
   );
+  const dimmed = useMemo(
+    () =>
+      find.query
+        ? new Set(
+            placed
+              .filter(({ id, dataPath: data }) => !find.tiles.has(data ?? id))
+              .map(({ id }) => id),
+          )
+        : undefined,
+    [find.query, find.tiles, placedKey],
+  );
+  const findBounds = useMemo(() => {
+    if (!find.query || sharedView.restored) return undefined;
 
-  const renderedLinks = useProgressiveLinks(visibleLinks);
+    const boxes = [
+      ...visibleLinks.map(({ x, y, width, height }) => ({
+        x,
+        y,
+        width,
+        height,
+      })),
+      ...floors.filter(({ id }) => !dimmed?.has(id)),
+    ];
+
+    if (boxes.length === 0) return undefined;
+
+    const minX = Math.min(...boxes.map(({ x }) => x));
+    const minY = Math.min(...boxes.map(({ y }) => y));
+    const maxX = Math.max(...boxes.map(({ x, width: w }) => x + w));
+    const maxY = Math.max(...boxes.map(({ y, height: h }) => y + h));
+
+    return {
+      key: find.query,
+      x: minX,
+      y: minY,
+      width: maxX - minX,
+      height: maxY - minY,
+    };
+  }, [find.query, visibleLinks, dimmed, sharedView.restored]);
+
+  const userHiddenKey = [...hiddenLayers].toSorted().join('|');
+  const clusters = useMemo(() => {
+    if (tier === undefined || tier >= 2 || find.query) return undefined;
+
+    return placed.flatMap((location) => {
+      const data = tiles.get(location.id);
+      const groups = clusterGroups.flatMap(({ label, color, layers }) => {
+        const count =
+          data?.links.filter(
+            (link) =>
+              layers.includes(link.layer) && !hiddenLayers.has(link.layer),
+          ).length ?? 0;
+
+        return count > 0 ? [{ label, color, count }] : [];
+      });
+      const total = groups.reduce((sum, { count }) => sum + count, 0);
+      const counts =
+        tier === 0
+          ? [{ label: 'Markers', color: 'var(--brand)', count: total }]
+          : groups;
+
+      return total > 0
+        ? [
+            {
+              tileId: location.id,
+              x: world[location.id].x + location.width / 2,
+              y: world[location.id].y + location.height / 2,
+              compact: tier === 0,
+              counts,
+            },
+          ]
+        : [];
+    });
+  }, [tier, find.query, tiles, userHiddenKey, placedKey]);
+
+  const renderedLinks = useProgressiveLinks(visibleLinks, fading.length > 0);
 
   const panel =
     view && selected ? (
@@ -198,19 +340,37 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               floors,
               selected: selected?.id ?? '',
               onSelect: selectTile,
-              flyOnMount: Boolean(selected) && !handedOff,
+              flyOnMount:
+                Boolean(selected) && !handedOff && !sharedView.restored,
               faded,
               outlineSelected: false,
+              dottedSelected: true,
               actOnAnyFloor: true,
+              dimmed,
             }}
             links={renderedLinks}
             highlightable={links}
             highlighted={highlight}
             pinRequest={pinRequest ? { key: pinRequest } : undefined}
+            fitBounds={findBounds}
+            onViewChange={sharedView.remember}
+            clusters={clusters}
+            clusterZoom={CLOSE_ZOOM}
+            onDeselect={selected ? deselect : undefined}
             onZoomChange={(zoom) => setTier(zoomTier(zoom))}
             zoomPosition="bottomleft"
-            className="size-full"
+            className={cn(
+              'size-full',
+              fading.map((id) => `map-fading-${id}`),
+            )}
           />
+          {find.query && (
+            <FindBanner
+              query={find.query}
+              count={find.count}
+              onClear={find.clear}
+            />
+          )}
           {selected && (
             <WorldToggle
               world
