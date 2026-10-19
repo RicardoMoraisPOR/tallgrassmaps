@@ -11,7 +11,7 @@ import { trainersFor } from '@/data/trainers';
 
 import { AsideCard } from '../GameAside';
 import { encounterGroups } from '../Location/encounters';
-import { EncountersTab, OpenPokedexButton } from '../Location/EncountersTab';
+import { EncountersTab } from '../Location/EncountersTab';
 import {
   EmptyTab,
   LocationPanel,
@@ -53,7 +53,6 @@ export const ZonePanel = ({ game, region, zone, href }: ZonePanelProps) => {
       id: 'pokemon',
       label: 'Pokémon',
       count: pokemonCount,
-      action: <OpenPokedexButton />,
       content:
         pokedex && pokemonCount > 0 ? (
           <EncountersTab
@@ -68,7 +67,7 @@ export const ZonePanel = ({ game, region, zone, href }: ZonePanelProps) => {
     },
     {
       id: 'trainers',
-      label: 'Trainers',
+      label: 'Battles',
       count: listedBattles.length,
       content:
         pokedex && listedBattles.length > 0 ? (

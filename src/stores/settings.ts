@@ -21,6 +21,7 @@ type SettingsState = {
   themePreset: ThemePreset;
   themes: Record<ThemeArea, ThemeStyle>;
   mapLayers: Partial<Record<string, boolean>>;
+  worldMapLayers: Partial<Record<string, boolean>>;
   locationTab: LocationTab;
   worldView: boolean;
   allFloors: boolean;
@@ -29,6 +30,7 @@ type SettingsState = {
   setThemePreset: (preset: ThemePreset) => void;
   setTheme: (area: ThemeArea, style: ThemeStyle) => void;
   setMapLayer: (layer: string, visible: boolean) => void;
+  setWorldMapLayer: (layer: string, visible: boolean) => void;
   setLocationTab: (tab: LocationTab) => void;
   setWorldView: (worldView: boolean) => void;
   setAllFloors: (allFloors: boolean) => void;
@@ -49,6 +51,7 @@ export const useSettingsStore = create<SettingsState>()(
         sprites: 'tall-grass',
       },
       mapLayers: {},
+      worldMapLayers: {},
       locationTab: 'info',
       worldView: false,
       allFloors: false,
@@ -60,6 +63,10 @@ export const useSettingsStore = create<SettingsState>()(
       setMapLayer: (layer, visible) =>
         set((state) => ({
           mapLayers: { ...state.mapLayers, [layer]: visible },
+        })),
+      setWorldMapLayer: (layer, visible) =>
+        set((state) => ({
+          worldMapLayers: { ...state.worldMapLayers, [layer]: visible },
         })),
       setLocationTab: (locationTab) => set({ locationTab }),
       setWorldView: (worldView) => set({ worldView }),
@@ -118,6 +125,7 @@ export const useSettingsStore = create<SettingsState>()(
         themePreset,
         themes,
         mapLayers,
+        worldMapLayers,
         locationTab,
         worldView,
         allFloors,
@@ -127,6 +135,7 @@ export const useSettingsStore = create<SettingsState>()(
         themePreset,
         themes,
         mapLayers,
+        worldMapLayers,
         locationTab,
         worldView,
         allFloors,

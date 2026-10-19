@@ -1,9 +1,7 @@
-import { type CSSProperties, useState } from 'react';
+import type { CSSProperties } from 'react';
 
-import { Settings2 } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { Button } from '@/components/ui/button';
 import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
@@ -11,7 +9,6 @@ import { useCloseCard } from '../GameAside';
 import type { LayerEntry, LayerSection } from './links/types';
 import { EmptyTab } from './LocationPanel';
 import type { MapLayerId } from './mapLayers';
-import { MapSettingsDialog } from './MapSettingsDialog';
 
 type MapInfoTabProps = {
   sections: Array<LayerSection>;
@@ -129,24 +126,5 @@ const EntryChip = ({
     >
       {name}
     </Link>
-  );
-};
-
-export const MapLayerSettingsButton = () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button
-        variant="outline"
-        className="w-full"
-        aria-haspopup="dialog"
-        onClick={() => setOpen(true)}
-      >
-        <Settings2 aria-hidden />
-        Map Layer Settings
-      </Button>
-      <MapSettingsDialog open={open} onOpenChange={setOpen} />
-    </>
   );
 };

@@ -20,6 +20,7 @@ import { MapIcon } from './viewer/MapIcon';
 import { MapSprite } from './viewer/MapSprite';
 import { PinOnRequest, UnpinOnDismiss } from './viewer/PinControls';
 import type { MapLink } from './viewer/types';
+import { RememberView, RestoreHandedOffView } from './viewer/viewHandoff';
 import {
   FitToViewport,
   IconSizeForZoom,
@@ -38,6 +39,8 @@ export type FloorStack = {
   selected: string;
   onSelect: (id: string) => void;
   flyOnMount?: boolean;
+  faded?: boolean;
+  outlineSelected?: boolean;
 };
 
 type MapViewerProps = {
@@ -154,6 +157,8 @@ export const MapViewer = ({
             <ImageOverlay
               key={floor.id}
               url={floor.image}
+              className="map-tile-fade"
+              opacity={stack.faded && floor.id !== stack.selected ? 0 : 1}
               bounds={[
                 toLatLng(floor.x, floor.y + floor.height),
                 toLatLng(floor.x + floor.width, floor.y),
@@ -176,6 +181,8 @@ export const MapViewer = ({
           frames={stack.floors}
           selected={stack.selected}
           onSelect={stack.onSelect}
+          faded={stack.faded}
+          outlineSelected={stack.outlineSelected}
         />
       )}
       {links.map(
@@ -347,6 +354,8 @@ export const MapViewer = ({
       />
       <PanBounds bounds={bounds} />
       <FitToViewport map={map} focus={focusPoint} />
+      <RestoreHandedOffView />
+      <RememberView />
       {map.pixelated && <PixelatedWhenZoomedIn />}
       <IconSizeForZoom />
       <ResyncAfterInterruptedZoom />

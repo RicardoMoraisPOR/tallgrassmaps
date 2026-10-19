@@ -25,6 +25,8 @@ import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
+import type { LayerView } from './Location/mapLayers';
+import { MapLayersButton } from './Location/MapLayersButton';
 import { PokedexButton } from './Pokedex/PokedexButton';
 import { PlaceSearchButton } from './Search/PlaceSearch';
 import { toolbarButtonClass } from './toolbarButton';
@@ -72,10 +74,15 @@ const EXIT = { duration: 0.2, ease: easeOutSoft };
 
 type GameAsideProps = {
   contentClassName?: string;
+  mapLayers?: LayerView;
   children: ReactNode;
 };
 
-export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
+export const GameAside = ({
+  contentClassName,
+  mapLayers,
+  children,
+}: GameAsideProps) => {
   const animations = useSettingsStore((state) => state.animations);
   const [cards, setCards] = useState<Array<CardInfo>>([]);
   const [overrides, setOverrides] = useState<Partial<Record<string, boolean>>>(
@@ -190,6 +197,7 @@ export const GameAside = ({ contentClassName, children }: GameAsideProps) => {
           {cards.filter(({ drawer }) => !drawer).map(renderCard)}
         </div>
         <div className="flex flex-col gap-2 md:absolute md:right-4 md:bottom-4 md:z-30 md:flex-row">
+          {mapLayers && <MapLayersButton view={mapLayers} />}
           <PokedexButton />
           {cards.filter(({ drawer }) => drawer).map(renderCard)}
         </div>

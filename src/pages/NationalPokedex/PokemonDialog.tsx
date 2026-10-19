@@ -1,8 +1,8 @@
-import { type ReactNode, useMemo } from 'react';
+import { type ReactNode, useMemo, useState } from 'react';
 
-import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router';
+import { Check, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
+import { Collapse } from '@/components/Collapse';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -10,10 +10,10 @@ import {
   DialogDescription,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { getCover } from '@/data/covers';
 import { getSpecies } from '@/data/pokedex/master';
 import type { Species } from '@/data/pokedex/types';
 import { pokeapiSprite } from '@/data/sprites';
-import { gameHref } from '@/lib/paths';
 
 import { bulbapediaUrl, dexNumber } from '../Game/Pokedex/format';
 import { PokemonTypeTags } from '../Game/Pokedex/PokemonTypeTags';
@@ -67,37 +67,43 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
   const parent = evolutionParent(number);
   const emptyNote = parent
     ? `Not found in the wild. Evolve ${nameOf(parent)}.`
- :'No locations mapped yet.';
- const games = appearances.flatMap((appearance) => appearance.games);
+    : 'No locations mapped yet.';
+  const games = appearances.flatMap((appearance) => appearance.games);
+  const [selectedId, setSelectedId] = useState<string>();
+  const [shownId, setShownId] = useState<string>();
+  const select = (id: string) => {
+    setSelectedId(id === selectedId ? undefined : id);
+    setShownId(id);
+  };
 
- return (
- <>
- <div className="flex items-center gap-4">
- <div className="flex size-32 flex-none items-center justify-center rounded-sm bg-muted/40">
- <PokemonImage number={number} name={name} size={HERO_SIZE} />
- </div>
- <div className="flex min-w-0 flex-col items-start gap-2">
- <div className="flex flex-col gap-0.5">
- <DialogTitle className="font-heading text-2xl leading-tight font-bold tracking-tight">
- {name}
- </DialogTitle>
- <DialogDescription>
- {dexNumber(number)} · {generation.label}
- </DialogDescription>
- </div>
- <PokemonTypeTags types={family.types} />
- <div className="flex flex-wrap gap-1.5">
- <Button variant="outline" size="sm" asChild>
- <a href={bulbapediaUrl(name)} target="_blank" rel="noreferrer">
- Bulbapedia
- <ExternalLink aria-hidden />
- </a>
- </Button>
- <Button
- variant="outline"
- size="icon-sm"
- disabled={!previous}
- aria-label={previous ? `Previous: ${previous.name}` : 'Previous'}
+  return (
+    <>
+      <div className="flex items-center gap-4">
+        <div className="flex size-32 flex-none items-center justify-center rounded-sm bg-muted/40">
+          <PokemonImage number={number} name={name} size={HERO_SIZE} />
+        </div>
+        <div className="flex min-w-0 flex-col items-start gap-2">
+          <div className="flex flex-col gap-0.5">
+            <DialogTitle className="font-heading text-2xl leading-tight font-bold tracking-tight">
+              {name}
+            </DialogTitle>
+            <DialogDescription>
+              {dexNumber(number)} · {generation.label}
+            </DialogDescription>
+          </div>
+          <PokemonTypeTags types={family.types} />
+          <div className="flex flex-wrap gap-1.5">
+            <Button variant="outline" size="sm" asChild>
+              <a href={bulbapediaUrl(name)} target="_blank" rel="noreferrer">
+                Bulbapedia
+                <ExternalLink aria-hidden />
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              size="icon-sm"
+              disabled={!previous}
+              aria-label={previous ? `Previous: ${previous.name}` : 'Previous'}
               title={previous?.name}
               onClick={() => previous && onSelect(previous.number)}
             >
@@ -158,23 +164,47 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
 
       <Section title="In the Pokédex of">
         {games.length > 0 ? (
-          <ul className="flex flex-wrap gap-2">
-            {games.map((game) => (
-              <li key={game.id}>
-                <Link
-                  to={`${gameHref(game.id)}?pokedex=${number}`}
-                  title={`Open ${name} in the ${game.fullName} Pokédex`}
-                  className="flex items-center gap-2 rounded-full border px-3 py-1 text-xs hover:bg-muted/60"
-                >
-                  <span
-                    aria-hidden
-                    className="size-2 rounded-full"
-                    style={{ background: game.colors[0] }}
-                  />
-                  {game.fullName}
-                </Link>
-              </li>
-            ))}
+          <ul className="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8 [&:has([aria-pressed=true])_button[aria-pressed=false]]:opacity-50 [&:has([aria-pressed=true])_button[aria-pressed=false]:hover]:opacity-100">
+            {games.map((game) => {
+              const cover = getCover(game.id);
+
+              return (
+                <li key={game.id}>
+                  <button
+                    type="button"
+                    aria-pressed={game.id === selectedId}
+                    onClick={() => select(game.id)}
+                    className="group flex w-full cursor-pointer flex-col gap-1.5 transition-opacity duration-200 outline-none motion-reduce:transition-none"
+                  >
+                    <span className="relative block aspect-square overflow-hidden rounded-sm border bg-muted shadow-sm transition-all duration-200 group-hover:border-foreground/40 group-focus-visible:ring-[3px] group-focus-visible:ring-ring/50 group-aria-pressed:-translate-y-1 group-aria-pressed:scale-105 group-aria-pressed:border-foreground group-aria-pressed:shadow-xl group-aria-pressed:ring-2 group-aria-pressed:ring-foreground motion-reduce:transition-none">
+                      {cover ? (
+                        <img
+                          src={cover}
+                          alt=""
+                          loading="lazy"
+                          className="size-full object-cover"
+                        />
+                      ) : (
+                        <span
+                          aria-hidden
+                          className="block size-full"
+                          style={{ background: game.colors[0] }}
+                        />
+                      )}
+                      <span
+                        aria-hidden
+                        className="absolute top-1 right-1 flex size-4 scale-90 items-center justify-center rounded-full bg-foreground text-background opacity-0 transition-[transform,opacity] duration-200 ease-out group-aria-pressed:scale-100 group-aria-pressed:opacity-100 motion-reduce:transition-none"
+                      >
+                        <Check className="size-3" strokeWidth={3} />
+                      </span>
+                    </span>
+                    <span className="text-center text-[10px] leading-tight transition-colors group-aria-pressed:font-semibold">
+                      {game.fullName}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         ) : (
           <p className="text-xs text-muted-foreground">
@@ -183,11 +213,15 @@ const PokemonDetails = ({ family, onSelect }: PokemonDetailsProps) => {
         )}
       </Section>
 
-      {appearances.length > 0 && (
+      <Collapse open={Boolean(selectedId)}>
         <Section title="Where to find it">
-          <PokemonLocations spots={spots} emptyNote={emptyNote} />
+          <PokemonLocations
+            spots={spots}
+            game={shownId ?? ''}
+            emptyNote={emptyNote}
+          />
         </Section>
-      )}
+      </Collapse>
 
       <SpritesSection name={name} sprites={sprites} />
     </>

@@ -122,11 +122,28 @@ export const wildLayer = () => layer('wild-pokemon');
 
 export const staticLayer = () => layer('static-pokemon');
 
-export const useSavedMapLayers = () => {
-  const saved = useSettingsStore((state) => state.mapLayers);
-  const setMapLayer = useSettingsStore((state) => state.setMapLayer);
+export type LayerView = 'focus' | 'world';
 
-  const isVisible = (id: MapLayerId) => saved[id] ?? true;
+export const layerViews: Array<{ id: LayerView; label: string }> = [
+  { id: 'world', label: 'World View' },
+  { id: 'focus', label: 'Focus View' },
+];
+
+const hiddenByDefault: Record<LayerView, Array<MapLayerId>> = {
+  focus: ['signs'],
+  world: ['signs', 'connections'],
+};
+
+export const useSavedMapLayers = (view: LayerView) => {
+  const saved = useSettingsStore((state) =>
+    view === 'world' ? state.worldMapLayers : state.mapLayers,
+  );
+  const setMapLayer = useSettingsStore((state) =>
+    view === 'world' ? state.setWorldMapLayer : state.setMapLayer,
+  );
+
+  const isVisible = (id: MapLayerId) =>
+    saved[id] ?? !hiddenByDefault[view].includes(id);
 
   const setVisible = (id: MapLayerId, visible: boolean) =>
     setMapLayer(id, visible);
@@ -134,8 +151,8 @@ export const useSavedMapLayers = () => {
   return { isVisible, setVisible };
 };
 
-export const useMapLayers = () => {
-  const { isVisible } = useSavedMapLayers();
+export const useMapLayers = (view: LayerView) => {
+  const { isVisible } = useSavedMapLayers(view);
 
   return new Set(
     mapLayers.filter(({ id }) => !isVisible(id)).map(({ id }) => id),

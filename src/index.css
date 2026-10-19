@@ -709,6 +709,16 @@ path.leaflet-interactive:focus {
   animation: nerd-scan 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
 }
 
+.map-tile-fade {
+  transition: opacity 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-tile-fade {
+    transition: none;
+  }
+}
+
 .floor-frame {
   stroke: color-mix(in oklab, var(--foreground) 35%, transparent);
   stroke-width: 1.5;

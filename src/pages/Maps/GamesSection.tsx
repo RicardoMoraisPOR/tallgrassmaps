@@ -30,7 +30,7 @@ type Section = {
   entries: Array<CatalogEntry>;
 };
 
-const exitTransition = { duration: 0.12, ease: 'easeIn' } as const;
+const exitTransition = { duration: 0.12, ease: 'easeOut' } as const;
 
 const results = {
   exit: { transition: { when: 'afterChildren' } },

@@ -4,6 +4,7 @@ import { Map as MapIcon, Info } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
+import { handOffView } from '@/components/map/viewer/viewHandoff';
 import { PageTransition } from '@/components/PageTransition';
 import type { LocationFloor } from '@/data/maps';
 import type { Shop } from '@/data/shops/types';
@@ -60,7 +61,7 @@ export const LocationPage = () => {
   const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
   const dataPath = location?.dataPath ?? scope;
-  const hiddenLayers = useMapLayers();
+  const hiddenLayers = useMapLayers('focus');
   const [pinRequest, setPinRequest] = useState<{
     scope: string;
     key: string;
@@ -229,6 +230,10 @@ export const LocationPage = () => {
           labels={['Focus View', 'World View']}
           worldFirst
           onChange={() => {
+            const at = route.region.world?.[worldTile];
+
+            if (at) handOffView(at.x, at.y);
+
             setWorldPreferred(true);
             navigate(route.href(worldTile));
           }}
@@ -333,7 +338,7 @@ export const LocationPage = () => {
             </PageTransition>
           </div>
         </div>
-        <GameAside>{cards}</GameAside>
+        <GameAside mapLayers="focus">{cards}</GameAside>
       </div>
       {pokedex && (
         <TrainerDialog

@@ -1,9 +1,7 @@
 import { useState } from 'react';
 
-import { BookOpen, Search } from 'lucide-react';
-import { Link } from 'react-router';
+import { Search } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import type { Game } from '@/data/games';
 import type { Encounter } from '@/data/pokedex/types';
@@ -17,7 +15,6 @@ import {
   methodLabel,
 } from '../Pokedex/format';
 import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
-import { usePokedexLink } from '../Pokedex/usePokedex';
 import { searchPokemon } from '../pokemonSearch';
 import {
   type EncounterGroup,
@@ -114,19 +111,6 @@ type EncounterRowProps = Omit<EncounterListProps, 'game' | 'rows'> & {
   row: EncounterRowData;
   encounters: Array<Encounter>;
   sprite: PokemonSprite;
-};
-
-export const OpenPokedexButton = () => {
-  const pokedexLink = usePokedexLink();
-
-  return (
-    <Button variant="outline" className="w-full" asChild>
-      <Link {...pokedexLink}>
-        <BookOpen aria-hidden />
-        Open Pokédex
-      </Link>
-    </Button>
-  );
 };
 
 export const EncounterList = ({

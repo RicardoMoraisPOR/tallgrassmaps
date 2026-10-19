@@ -8,7 +8,7 @@ import { ENTER, enterDelay } from '@/lib/enter';
 import { cn } from '@/lib/utils';
 
 const PAGE_SIZE = 3;
-const STAGGER_SECONDS = 0.07;
+const STAGGER_SECONDS = 0.05;
 
 const dateFormat = new Intl.DateTimeFormat('en', { dateStyle: 'long' });
 

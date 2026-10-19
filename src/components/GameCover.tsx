@@ -59,7 +59,7 @@ export const Cover = ({
             className={cn(
               'relative mx-auto h-full object-contain py-3 drop-shadow-[0_6px_14px_oklch(0_0_0/0.35)]',
               interactive &&
-                'transition-transform duration-420 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:scale-106 group-focus-visible/card:scale-106',
+                'transition-transform duration-200 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:scale-106 group-focus-visible/card:scale-106',
             )}
           />
         </div>

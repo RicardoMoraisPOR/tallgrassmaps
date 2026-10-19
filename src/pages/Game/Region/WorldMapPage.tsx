@@ -1,10 +1,14 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Gamepad2, Info, Map as MapIcon } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import type { MapLink } from '@/components/map/viewer/types';
+import {
+  handOffView,
+  hasHandedOffView,
+} from '@/components/map/viewer/viewHandoff';
 import { regionHref, worldRegions } from '@/data/maps';
 import type { Shop } from '@/data/shops/types';
 import type { GameRoute } from '@/hooks/useGameRoute';
@@ -26,6 +30,9 @@ import { usePokedexLink } from '../Pokedex/usePokedex';
 import { GameInfoCard } from './GameInfoCard';
 import { WorldToggle } from './WorldToggle';
 
+const FADE_START_MS = 50;
+const FADE_OUT_MS = 150;
+
 const WORLD_HREF = /^\/[^/]+\/[^/]+\/([^/?#]+)(?:[?#].*)?$/;
 
 export const WorldMapPage = ({ route }: { route: GameRoute }) => {
@@ -33,7 +40,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const regions = worldRegions(route.regions, region);
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
-  const hiddenLayers = useMapLayers();
+  const hiddenLayers = useMapLayers('world');
   const setWorldPreferred = useSettingsStore((state) => state.setWorldView);
   const tile = route.trail?.[0]?.id;
   const world = Object.assign({}, ...regions.map((entry) => entry.world));
@@ -45,6 +52,15 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     setWorldPreferred(true);
     navigate(regionHref(game.id, regionOfTile(id), id));
   };
+  const [handedOff] = useState(hasHandedOffView);
+  const [faded, setFaded] = useState(handedOff);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFaded(false), FADE_START_MS);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const [townMapOpen, setTownMapOpen] = useState(false);
   const openTownMap = useCallback(() => setTownMapOpen(true), [setTownMapOpen]);
   const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
@@ -147,7 +163,9 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               floors,
               selected: selected?.id ?? '',
               onSelect: selectTile,
-              flyOnMount: Boolean(selected),
+              flyOnMount: Boolean(selected) && !handedOff,
+              faded,
+              outlineSelected: false,
             }}
             links={visibleLinks}
             highlightable={links}
@@ -162,12 +180,19 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               labels={['Focus View', 'World View']}
               worldFirst
               onChange={(next) => {
-                if (!next) setWorldPreferred(false);
+                if (next) return;
+
+                setFaded(true);
+                setTimeout(() => {
+                  if (at) handOffView(-at.x, -at.y);
+
+                  setWorldPreferred(false);
+                }, FADE_OUT_MS);
               }}
             />
           )}
         </div>
-        <GameAside>
+        <GameAside mapLayers="world">
           <AsideCard icon={MapIcon} label="Town Map" onMobileOpen={openTownMap}>
             <TownMapCard
               key={region.id}

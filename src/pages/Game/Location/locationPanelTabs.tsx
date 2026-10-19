@@ -1,11 +1,11 @@
 import type { MapLink } from '@/components/map/viewer/types';
 import type { GameRoute } from '@/hooks/useGameRoute';
 
-import { EncountersTab, OpenPokedexButton } from './EncountersTab';
+import { EncountersTab } from './EncountersTab';
 import type { LayerSection } from './links/types';
 import { EmptyTab, type PanelTab } from './LocationPanel';
 import type { buildLocationView } from './locationView';
-import { MapInfoTab, MapLayerSettingsButton } from './MapInfoTab';
+import { MapInfoTab } from './MapInfoTab';
 import type { MapLayerId } from './mapLayers';
 import { TrainersTab } from './TrainersTab';
 
@@ -43,8 +43,12 @@ export const locationPanelTabs = ({
   return [
     {
       id: 'info',
-      label: 'Map info',
-      action: <MapLayerSettingsButton />,
+      label: 'Map',
+      count: sections.reduce(
+        (total, { groups }) =>
+          total + groups.reduce((sum, { entries }) => sum + entries.length, 0),
+        0,
+      ),
       content: (
         <MapInfoTab
           sections={sections}
@@ -74,7 +78,6 @@ export const locationPanelTabs = ({
       id: 'pokemon',
       label: 'Pokémon',
       count: pokemonCount,
-      action: <OpenPokedexButton />,
       content:
         pokedex && pokemonCount > 0 ? (
           <EncountersTab
@@ -89,7 +92,7 @@ export const locationPanelTabs = ({
     },
     {
       id: 'trainers',
-      label: 'Trainers',
+      label: 'Battles',
       count: listedBattles.length,
       content:
         pokedex && listedBattles.length > 0 ? (

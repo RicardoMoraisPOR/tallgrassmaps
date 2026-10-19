@@ -148,7 +148,11 @@ export const usePlaceSearch = ({
 
     if (tab === null || tab === 'Items') {
       for (const item of searchItems(items, query)) {
-        found.push({ type: 'item', key: itemKey(item), item });
+        found.push({
+          type: 'item',
+          key: `${itemKey(item)}:${item.item}`,
+          item,
+        });
       }
     }
 

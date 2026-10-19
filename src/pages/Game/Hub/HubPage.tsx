@@ -26,7 +26,7 @@ import { HubHeader } from './HubHeader';
 import { MapTag } from './MapTag';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
-const STAGGER_SECONDS = 0.08;
+const STAGGER_SECONDS = 0.05;
 
 const dateFormat = new Intl.DateTimeFormat('en', { dateStyle: 'long' });
 
@@ -133,6 +133,18 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
 
           <div className="flex flex-col gap-8">
             <Block title="Find what you want" index={3}>
+              {hasPokedex(region) && (
+                <Link
+                  {...pokedexLink}
+                  className="flex h-11 shrink-0 items-center justify-between gap-3 rounded-lg border bg-card px-3.5 text-sm transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
+                >
+                  <span className="font-medium">Pokédex</span>
+                  <span className="truncate text-muted-foreground">
+                    Where to find every Pokémon
+                  </span>
+                </Link>
+              )}
+              <DataLakeLink region={region} />
               <button
                 type="button"
                 onClick={() => openSearch()}
@@ -194,22 +206,10 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
 
             <Block title="Pokémon in this game" index={4}>
               <StatGrid stats={pokemonStats(game, stats)} />
-              {hasPokedex(region) && (
-                <Link
-                  {...pokedexLink}
-                  className="flex h-11 shrink-0 items-center justify-between gap-3 rounded-lg border bg-card px-3.5 text-sm transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
-                >
-                  <span className="font-medium">Pokédex</span>
-                  <span className="truncate text-muted-foreground">
-                    Where to find every Pokémon
-                  </span>
-                </Link>
-              )}
             </Block>
 
             <Block title="About this game" index={5}>
               <StatGrid stats={worldStats(stats)} />
-              <DataLakeLink region={region} />
             </Block>
 
             <Block title="Related" index={6}>

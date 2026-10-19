@@ -23,14 +23,26 @@ type FloorFramesProps = {
   frames: Array<FloorFrame>;
   selected: string;
   onSelect: (id: string) => void;
+  faded?: boolean;
+  outlineSelected?: boolean;
 };
 
 export const FloorFrames = ({
   frames,
   selected,
   onSelect,
+  faded = false,
+  outlineSelected = true,
 }: FloorFramesProps) => {
+  const leafletMap = useMap();
   const frameKey = frames.map(({ id, name }) => `${id}:${name}`).join('|');
+
+  useEffect(() => {
+    const pane = leafletMap.getPane(FRAME_PANE);
+
+    if (pane) pane.style.opacity = faded ? '0' : '1';
+  }, [leafletMap, faded]);
+
   const icons = useMemo(
     () =>
       new Map(
@@ -52,7 +64,7 @@ export const FloorFrames = ({
   );
 
   return (
-    <Pane name={FRAME_PANE} style={{ zIndex: 320 }}>
+    <Pane name={FRAME_PANE} className="map-tile-fade" style={{ zIndex: 320 }}>
       {frames.map((frame) => (
         <Rectangle
           key={`${frame.id}:${frame.id === selected}`}
@@ -62,7 +74,7 @@ export const FloorFrames = ({
           ]}
           pane={FRAME_PANE}
           className={
-            frame.id === selected
+            outlineSelected && frame.id === selected
               ? 'floor-frame floor-frame-selected'
               : 'floor-frame'
           }
