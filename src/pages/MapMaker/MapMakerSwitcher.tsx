@@ -12,7 +12,7 @@ export const MapMakerSwitcher = ({ className }: { className?: string }) => {
     <nav
       aria-label="Map maker"
       className={cn(
-        'pointer-events-auto flex gap-1 rounded-lg border bg-card/95 p-1 shadow-sm',
+        'pointer-events-auto flex gap-1 rounded-sm border bg-card/95 p-1 shadow-sm',
         className,
       )}
     >

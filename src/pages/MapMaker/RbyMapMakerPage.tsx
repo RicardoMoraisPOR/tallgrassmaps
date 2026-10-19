@@ -808,7 +808,7 @@ export const RbyMapMakerPage = () => {
         <div
           role="group"
           aria-label="Mode"
-          className="pointer-events-auto flex gap-1 rounded-lg border bg-card/95 p-1 shadow-sm"
+          className="pointer-events-auto flex gap-1 rounded-sm border bg-card/95 p-1 shadow-sm"
         >
           <Button
             size="sm"
@@ -831,7 +831,7 @@ export const RbyMapMakerPage = () => {
           aria-label="Location"
           value={group}
           onChange={(event) => setGroup(event.target.value)}
-          className="pointer-events-auto h-9 rounded-lg border bg-card/95 px-2 text-sm shadow-sm"
+          className="pointer-events-auto h-9 rounded-sm border bg-card/95 px-2 text-sm shadow-sm"
         >
           {sections.map((section) => (
             <optgroup key={section} label={section || 'World'}>

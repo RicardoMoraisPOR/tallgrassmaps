@@ -2,15 +2,12 @@ import type { ReactNode } from 'react';
 
 import { Container } from '@/components/Container';
 import { PageTitle } from '@/components/PageTitle';
-import { themeAreas, themeStyles } from '@/components/settings/themes';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { ToggleChip } from '@/components/ToggleChip';
 import { games } from '@/data/games';
 import { pokemonTypeColors } from '@/pages/Game/Pokedex/pokemonTypeColors';
-import { useSettingsStore } from '@/stores/settings';
 
 import { ComponentSamples } from './ComponentSamples';
 import { MapIconSamples } from './MapIconSamples';
+import { MapPopupSamples } from './MapPopupSamples';
 import {
   coreTokens,
   fonts,
@@ -37,32 +34,17 @@ const Section = ({
   );
 };
 
-const Preferences = () => {
-  const themes = useSettingsStore((state) => state.themes);
-  const setTheme = useSettingsStore((state) => state.setTheme);
-
+const SkinGroup = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) => {
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center gap-3 text-sm">
-        <ThemeToggle />
-        Light or dark mode.
-      </div>
-      <ul className="flex flex-col gap-2">
-        {themeAreas.map(({ area, label, styleLabels }) => (
-          <li key={area} className="flex flex-wrap items-center gap-2">
-            <span className="w-36 text-sm">{label}</span>
-            {themeStyles.map(({ style, label: styleLabel }) => (
-              <ToggleChip
-                key={style}
-                pressed={themes[area] === style}
-                onClick={() => setTheme(area, style)}
-              >
-                {styleLabels?.[style] ?? styleLabel}
-              </ToggleChip>
-            ))}
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col gap-2">
+      <h3 className="text-sm font-medium">{title}</h3>
+      {children}
     </div>
   );
 };
@@ -77,9 +59,6 @@ export const ThemePage = () => {
           uses, read from the live styles.
         </p>
       </header>
-      <Section title="Preferences">
-        <Preferences />
-      </Section>
       <Section title="Colour tokens">
         <TokenSwatches tokens={coreTokens} />
       </Section>
@@ -129,24 +108,26 @@ export const ThemePage = () => {
         </ul>
       </Section>
       <Section title="Typography">
-        <ul className="flex flex-col gap-1">
-          {fonts.map(({ name, className, use }) => (
-            <li key={name} className="flex flex-wrap items-baseline gap-3">
-              <span className={`${className} text-2xl`}>{name}</span>
-              <span className="text-xs text-muted-foreground">{use}</span>
-            </li>
-          ))}
-        </ul>
-        <ul className="flex flex-col gap-1">
-          {textSizes.map((size) => (
-            <li key={size} className="flex items-baseline gap-3">
-              <span className="w-20 font-mono text-xs text-muted-foreground">
-                {size}
-              </span>
-              <span className={size}>Tall grass hides everything</span>
-            </li>
-          ))}
-        </ul>
+        <div className="grid gap-x-10 gap-y-6 md:grid-cols-2">
+          <ul className="flex flex-col gap-3">
+            {fonts.map(({ name, className, use }) => (
+              <li key={name} className="flex flex-col gap-0.5">
+                <span className={`${className} text-2xl`}>{name}</span>
+                <span className="text-xs text-muted-foreground">{use}</span>
+              </li>
+            ))}
+          </ul>
+          <ul className="flex flex-col gap-1">
+            {textSizes.map((size) => (
+              <li key={size} className="flex items-baseline gap-3">
+                <span className="w-20 shrink-0 font-mono text-xs text-muted-foreground">
+                  {size}
+                </span>
+                <span className={size}>Tall grass hides everything</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </Section>
       <Section title="Radius">
         <ul className="flex flex-wrap gap-3">
@@ -163,19 +144,40 @@ export const ThemePage = () => {
       <Section title="Components">
         <ComponentSamples />
       </Section>
-      <Section title="Map icons">
-        <MapIconSamples />
+      <Section title="Tall Grass skin">
+        <div className="flex flex-col gap-4 rounded-sm border p-4">
+          <ComponentSamples />
+          <SkinGroup title="Map icons">
+            <MapIconSamples style="tall-grass" />
+          </SkinGroup>
+          <SkinGroup title="Map popups">
+            <MapPopupSamples style="tall-grass" />
+          </SkinGroup>
+        </div>
       </Section>
       <Section title="Game Boy skin">
         <div className="pokedex-game flex flex-col gap-4 border-2 p-4">
           <TokenSwatches tokens={gameBoyTokens} />
           <ComponentSamples />
+          <SkinGroup title="Map icons">
+            <MapIconSamples style="game" />
+          </SkinGroup>
+          <SkinGroup title="Map popups">
+            <MapPopupSamples style="game" />
+          </SkinGroup>
         </div>
       </Section>
       <Section title="Legends: Z-A skin">
-        <div className="pokedex-za za-screen flex flex-col gap-4 rounded-lg p-4">
+        <div className="pokedex-za za-screen flex flex-col gap-4 rounded-sm p-4">
           <TokenSwatches tokens={legendsZaTokens} />
           <ComponentSamples />
+          <SkinGroup title="Map icons">
+            <MapIconSamples style="game" />
+          </SkinGroup>
+          <p className="text-xs text-muted-foreground">
+            Z-A has no popup skin of its own; its map popups use the Tall Grass
+            skin above.
+          </p>
         </div>
       </Section>
     </Container>

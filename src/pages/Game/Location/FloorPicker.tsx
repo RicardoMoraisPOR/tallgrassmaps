@@ -20,7 +20,7 @@ export const FloorPicker = ({
   onStackedChange,
 }: FloorPickerProps) => {
   return (
-    <div className="pointer-events-auto flex flex-wrap items-center justify-end gap-1 rounded-lg border bg-card/90 p-1 shadow-sm">
+    <div className="pointer-events-auto flex flex-wrap items-center justify-end gap-1 rounded-sm border bg-card/90 p-1 shadow-sm">
       {floors.length > 1 && (
         <Toggle
           size="sm"

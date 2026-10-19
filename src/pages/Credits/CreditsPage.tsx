@@ -168,7 +168,7 @@ const MapCreditGroupSection = ({ group }: { group: MapCreditGroup }) => {
   );
 
   return (
-    <div className="overflow-hidden rounded-lg border bg-card">
+    <div className="overflow-hidden rounded-sm border bg-card">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b bg-muted/40 px-4 py-3">
         <div className="flex items-baseline gap-2">
           <h3 className="font-semibold tracking-tight">{group.title}</h3>
@@ -272,7 +272,7 @@ const CreditRows = ({ credits }: { credits: Array<DataCredit> }) => {
   );
 
   return (
-    <ul className="divide-y overflow-hidden rounded-lg border bg-card">
+    <ul className="divide-y overflow-hidden rounded-sm border bg-card">
       {byGameCount.map((credit) => (
         <DataCreditRow key={credit.name} credit={credit} />
       ))}
@@ -434,7 +434,7 @@ const CreditList = ({
       {credits.map((credit) => (
         <li
           key={credit.name}
-          className={`relative flex flex-col gap-1 overflow-hidden rounded-lg border bg-card p-4 ${credit.sprite ? 'pr-24 sm:pr-28' : ''}`}
+          className={`relative flex flex-col gap-1 overflow-hidden rounded-sm border bg-card p-4 ${credit.sprite ? 'pr-24 sm:pr-28' : ''}`}
         >
           {credit.covers && <CoverFan covers={credit.covers} />}
           {credit.sprite && (

@@ -27,15 +27,15 @@ export const GameCard = ({ entry }: GameCardProps) => {
 
   return (
     <div
-      className="group/card relative isolate block h-full rounded-lg"
+      className="group/card relative isolate block h-full rounded-sm"
       style={{ '--card-accent': accent } as CSSProperties}
     >
       <Link
         to={`/${entry.id}`}
         aria-label={`Open ${entryName(entry)}`}
-        className="absolute inset-0 z-0 rounded-lg outline-none focus-visible:ring-3 focus-visible:ring-ring/55"
+        className="absolute inset-0 z-0 rounded-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/55"
       />
-      <div className="pointer-events-none relative z-10 flex h-full flex-col overflow-hidden rounded-lg border bg-card shadow-xs transition-colors duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:border-[var(--card-accent)] group-has-[:focus-visible]/card:border-ring">
+      <div className="pointer-events-none relative z-10 flex h-full flex-col overflow-hidden rounded-sm border bg-card shadow-xs transition-colors duration-260 ease-[cubic-bezier(.2,.8,.2,1)] group-hover/card:border-[var(--card-accent)] group-has-[:focus-visible]/card:border-ring">
         <ColorStripe colors={entry.colors} />
         <Cover gameId={entry.id} accent={accent} interactive>
           <MapTag versionGroup={versionGroup} />

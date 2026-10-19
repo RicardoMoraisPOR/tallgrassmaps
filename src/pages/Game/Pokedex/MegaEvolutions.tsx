@@ -32,7 +32,7 @@ export const MegaEvolutions = ({
           <li
             key={stone}
             className={cn(
-              'flex items-center rounded-lg border bg-muted/40',
+              'flex items-center rounded-sm border bg-muted/40',
               compact ? 'gap-2 p-1 pr-2 text-xs' : 'gap-3 p-2 pr-3 text-sm',
             )}
           >

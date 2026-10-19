@@ -212,6 +212,9 @@ export const badgeCenter = (link: MapLink) => {
 
 const MONSTER_SPRITE = '/sprites/rby/overworld/monster.png';
 
+const BALL_ICON =
+  '<svg class="map-wild-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 18 0z" fill="currentColor" fill-opacity="0.35" stroke="none"/><circle cx="12" cy="12" r="9"/><path d="M3 12h5.5M15.5 12H21"/><circle cx="12" cy="12" r="3.25" fill="var(--card)"/></svg>';
+
 export const WildBadge = memo(
   ({
     link,
@@ -227,7 +230,10 @@ export const WildBadge = memo(
       () =>
         divIcon({
           className: 'map-wild-badge-anchor',
-          html: `<span class="map-wild-badge map-link-wild-badge ${style === 'game' ? 'map-wild-badge-game' : ''}"><span class="map-wild-badge-sprite" style="background-image:url(${MONSTER_SPRITE})"></span>${count}</span>`,
+          html:
+            style === 'game'
+              ? `<span class="map-wild-badge map-link-wild-badge map-wild-badge-game"><span class="map-wild-badge-sprite" style="background-image:url(${MONSTER_SPRITE})"></span>${count}</span>`
+              : `<span class="map-wild-badge map-link-wild-badge">${BALL_ICON}${count}</span>`,
           iconSize: [0, 0],
         }),
       [count, style],

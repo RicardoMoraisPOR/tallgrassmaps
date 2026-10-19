@@ -60,7 +60,7 @@ export const ZaPokedex = ({
         ) : (
           <ZaEmptyPreview />
         )}
-        <div className="mx-0 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-lg bg-(--za-panel)/90 lg:mr-8 lg:mb-6 lg:rounded-lg">
+        <div className="mx-0 flex min-h-0 flex-1 flex-col overflow-hidden rounded-t-sm bg-(--za-panel)/90 lg:mr-8 lg:mb-6 lg:rounded-sm">
           <ZaSearch search={search} />
           <div data-vaul-no-drag className="min-h-0 flex-1 overflow-y-auto">
             <ZaList

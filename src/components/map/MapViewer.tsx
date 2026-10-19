@@ -64,6 +64,7 @@ export type FloorStack = {
   selected: string;
   onSelect: (id: string) => void;
   flyOnMount?: boolean;
+  stayOnMapSelect?: boolean;
   faded?: boolean;
   outlineSelected?: boolean;
   dottedSelected?: boolean;
@@ -327,11 +328,21 @@ export const MapViewer = ({
     }
   };
 
-  const clusterSelect = useRef(false);
+  const mapSelect = useRef(false);
+  const selectFromMap = (id: string) => {
+    if (stack?.stayOnMapSelect) {
+      mapSelect.current = true;
+      setTimeout(() => {
+        mapSelect.current = false;
+      }, CLUSTER_SELECT_MS);
+    }
 
-  const latest = useRef({ stack, navigate, spriteShapeRef });
+    stack?.onSelect(id);
+  };
 
-  latest.current = { stack, navigate, spriteShapeRef };
+  const latest = useRef({ stack, navigate, spriteShapeRef, selectFromMap });
+
+  latest.current = { stack, navigate, spriteShapeRef, selectFromMap };
 
   const actions = useMemo<MapActions>(() => {
     const select = (link: MapLink) => {
@@ -342,7 +353,7 @@ export const MapViewer = ({
         link.floorId &&
         link.floorId !== current.selected
       )
-        current.onSelect(link.floorId);
+        latest.current.selectFromMap(link.floorId);
     };
     const otherFloor = (link: MapLink) => {
       const { stack: current } = latest.current;
@@ -375,7 +386,7 @@ export const MapViewer = ({
 
         if (floorId) {
           DomEvent.stopPropagation(event);
-          latest.current.stack?.onSelect(floorId);
+          latest.current.selectFromMap(floorId);
 
           return;
         }
@@ -395,7 +406,7 @@ export const MapViewer = ({
 
         if (floorId) {
           DomEvent.stopPropagation(event);
-          latest.current.stack?.onSelect(floorId);
+          latest.current.selectFromMap(floorId);
 
           return;
         }
@@ -481,7 +492,7 @@ export const MapViewer = ({
         {stack && (
           <FlyToFloor
             frame={stack.floors.find(({ id }) => id === stack.selected)}
-            skip={focusPoint !== undefined || clusterSelect.current}
+            skip={focusPoint !== undefined || mapSelect.current}
             flyOnMount={stack.flyOnMount ?? false}
           />
         )}
@@ -489,7 +500,7 @@ export const MapViewer = ({
           <FloorFrames
             frames={stack.floors}
             selected={stack.selected}
-            onSelect={stack.onSelect}
+            onSelect={selectFromMap}
             faded={stack.faded}
             outlineSelected={stack.outlineSelected}
             dottedSelected={stack.dottedSelected}
@@ -536,9 +547,9 @@ export const MapViewer = ({
             cluster={cluster}
             zoomTo={clusterZoom}
             onSelect={(tileId) => {
-              clusterSelect.current = true;
+              mapSelect.current = true;
               setTimeout(() => {
-                clusterSelect.current = false;
+                mapSelect.current = false;
               }, CLUSTER_SELECT_MS);
               stack?.onSelect(tileId);
             }}

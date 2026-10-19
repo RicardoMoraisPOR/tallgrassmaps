@@ -1,6 +1,19 @@
 import '@fontsource/press-start-2p';
+import type { ComponentType } from 'react';
+
+import {
+  Building2,
+  FishingRod,
+  Gift,
+  Leaf,
+  Mountain,
+  Sparkles,
+  Waves,
+} from 'lucide-react';
+
 import { useThemeStyle } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
+import type { WildTerrain } from '@/data/maps';
 import type { Encounter, PokedexEntry } from '@/data/pokedex/types';
 import type { StaticPokemon } from '@/data/static-pokemon/types';
 import { usePokemonSprite } from '@/hooks/usePokemonSprite';
@@ -17,7 +30,46 @@ type WildPopupProps = {
   path: string;
   groups: Array<EncounterGroup>;
   note?: string;
+  terrain?: WildTerrain;
 };
+
+const terrainLabels: Record<WildTerrain, string> = {
+  grass: 'Grass',
+  cavern: 'Cavern',
+  indoors: 'Indoors',
+};
+
+const methodIcons: Partial<Record<Encounter['method'], ComponentType>> = {
+  surf: Waves,
+  'old-rod': FishingRod,
+  'good-rod': FishingRod,
+  'super-rod': FishingRod,
+};
+
+const terrainIcons: Record<WildTerrain, ComponentType> = {
+  grass: Leaf,
+  cavern: Mountain,
+  indoors: Building2,
+};
+
+const AccentTile = ({
+  accent,
+  icon: Icon,
+}: {
+  accent: string;
+  icon: ComponentType<{ className?: string }>;
+}) => (
+  <span
+    aria-hidden
+    className="grid size-7 flex-none place-items-center rounded-sm"
+    style={{
+      background: `color-mix(in oklch, var(${accent}) 22%, transparent)`,
+      color: `var(${accent})`,
+    }}
+  >
+    <Icon className="size-4" />
+  </span>
+);
 
 const gameLevelLabel = ({ levels }: Encounter) => {
   if (!levels) return undefined;
@@ -27,26 +79,50 @@ const gameLevelLabel = ({ levels }: Encounter) => {
   return min === max ? `:L${min}` : `:L${min}-${max}`;
 };
 
-export const WildPopup = ({ game, path, groups, note }: WildPopupProps) => {
+export const WildPopup = ({
+  game,
+  path,
+  groups,
+  note,
+  terrain = 'grass',
+}: WildPopupProps) => {
   const gameTheme = useThemeStyle('pokemonPopups') === 'game';
 
   const titleOf = (group: EncounterGroup) =>
     methodLabel({ method: group.method, path, games: [] });
 
+  const waterGroups = groups.filter(({ method }) => method !== 'walk');
+  const titleFor = ({ method }: EncounterGroup) => {
+    if (method === 'walk') return terrainLabels[terrain];
+    if (method === 'surf' || waterGroups.length === 1) return 'Water';
+
+    return `Water (${methodLabel({ method, path, games: [] })})`;
+  };
+
   return gameTheme ? (
     <GameWildPopup game={game} groups={groups} titleOf={titleOf} note={note} />
   ) : (
-    <div className="w-68 rounded-lg bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+    <div className="w-68 rounded-sm bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
       <div className="flex max-h-56 flex-col gap-3 overflow-y-auto pr-2">
         {groups.map((group) => (
-          <section key={group.method} className="flex flex-col gap-1">
-            <h3 className="text-xs text-muted-foreground">{titleOf(group)}</h3>
+          <section key={group.method} className="flex flex-col gap-1.5">
+            <div className="flex items-center gap-2.5">
+              <AccentTile
+                accent="--map-wild-pokemon"
+                icon={methodIcons[group.method] ?? terrainIcons[terrain]}
+              />
+              <h3 className="text-sm leading-snug font-medium">
+                {titleFor(group)}
+              </h3>
+            </div>
             <EncounterList game={game} rows={group.rows} compact linked />
           </section>
         ))}
       </div>
       {note && (
-        <p className="pt-2 pr-1.5 text-xs text-muted-foreground">{note}</p>
+        <p className="mt-2 mr-1.5 border-t pt-2 text-xs text-muted-foreground italic">
+          {note}
+        </p>
       )}
     </div>
   );
@@ -135,6 +211,7 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
   const typesOf = (number: number) =>
     pokedex.find((entry) => entry.number === number)?.types ?? [];
   const note = staticNote(marker);
+  const isGift = marker.kind !== 'static';
 
   return gameTheme ? (
     <div className="pokedex-game gb-frame m-2 flex w-52 flex-col gap-3 px-4 py-3.5">
@@ -163,7 +240,7 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
       <span className="text-[8px] leading-[12px]">{note}</span>
     </div>
   ) : (
-    <div className="flex w-52 flex-col gap-2">
+    <div className="flex w-60 flex-col gap-2.5 rounded-sm bg-popover p-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
       {marker.pokemon.map(({ number, level }) => {
         const sprite = spriteFor(number);
 
@@ -191,13 +268,25 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
                 <span className="shrink-0 text-xs text-muted-foreground">
                   Lv. {level}
                 </span>
+                <span className="ml-auto flex shrink-0 items-center gap-1 rounded-sm bg-muted px-1.5 py-0.5 text-[10px] leading-none font-medium tracking-wide text-muted-foreground uppercase">
+                  {isGift ? (
+                    <Gift className="size-2.5" />
+                  ) : (
+                    <Sparkles className="size-2.5" />
+                  )}
+                  {isGift ? 'Gift' : 'Static'}
+                </span>
               </div>
               <PokemonTypeTags types={typesOf(number)} />
             </div>
           </div>
         );
       })}
-      <span className="text-xs text-muted-foreground">{note}</span>
+      {note !== 'Gift' && (
+        <span className="border-t pt-2 text-xs text-muted-foreground italic">
+          {note}
+        </span>
+      )}
     </div>
   );
 };

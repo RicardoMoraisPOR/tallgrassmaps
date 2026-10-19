@@ -13,7 +13,7 @@ export const FindBanner = ({ query, count, onClear }: FindBannerProps) => (
     <div
       role="status"
       className={cn(
-        'pointer-events-auto flex max-w-full items-center gap-2 rounded-lg border bg-card/90 py-1 pr-1 pl-3 text-xs shadow-sm',
+        'pointer-events-auto flex max-w-full items-center gap-2 rounded-sm border bg-card/90 py-1 pr-1 pl-3 text-xs shadow-sm',
       )}
     >
       <Search

@@ -1,6 +1,8 @@
 import '@fontsource/press-start-2p';
 import { useState } from 'react';
 
+import { Store } from 'lucide-react';
+
 import { useThemeStyle } from '@/components/settings/themes';
 import {
   Dialog,
@@ -50,7 +52,20 @@ export const ShopDialog = ({ shop, onClose }: ShopDialogProps) => {
               gameTheme && 'p-6',
             )}
           >
-            <DialogHeader>
+            <DialogHeader className="flex-row items-center gap-2.5">
+              {!gameTheme && (
+                <span
+                  aria-hidden
+                  className="grid size-7 flex-none place-items-center rounded-sm"
+                  style={{
+                    background:
+                      'color-mix(in oklch, var(--map-service) 22%, transparent)',
+                    color: 'var(--map-service)',
+                  }}
+                >
+                  <Store className="size-4" />
+                </span>
+              )}
               <DialogTitle>{current.building}</DialogTitle>
               <DialogDescription className="sr-only">
                 Items for sale

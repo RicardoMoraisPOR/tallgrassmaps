@@ -28,7 +28,7 @@ export const WorldSwitch = ({
       onValueChange={(value) => {
         if (value) onChange(value === 'world');
       }}
-      className="pointer-events-auto rounded-lg border bg-card/90 p-1 shadow-sm"
+      className="pointer-events-auto rounded-sm border bg-card/90 p-1 shadow-sm"
     >
       {(worldFirst ? items.toReversed() : items).map(({ value, label }) => (
         <ToggleGroupItem

@@ -110,7 +110,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
   const [trainerKey, setTrainerKey] = useState<string>();
   const [highlight, setHighlight] = useState<string>();
-  const [pinRequest, setPinRequest] = useState<string>();
+  const [pinRequest, setPinRequest] = useState<{ key: string }>();
 
   const placed = regions
     .flatMap(({ locations }) => locations)
@@ -317,7 +317,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           hiddenLayers: hiddenNow,
           onHighlight: setHighlight,
           onSelectTrainer: setTrainerKey,
-          onPin: setPinRequest,
+          onPin: (key) => setPinRequest({ key }),
         })}
         title={selected.name}
         className="min-h-0 flex-1"
@@ -340,6 +340,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               floors,
               selected: selected?.id ?? '',
               onSelect: selectTile,
+              stayOnMapSelect: true,
               flyOnMount:
                 Boolean(selected) && !handedOff && !sharedView.restored,
               faded,
@@ -351,7 +352,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
             links={renderedLinks}
             highlightable={links}
             highlighted={highlight}
-            pinRequest={pinRequest ? { key: pinRequest } : undefined}
+            pinRequest={pinRequest}
             fitBounds={findBounds}
             onViewChange={sharedView.remember}
             clusters={clusters}

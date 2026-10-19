@@ -54,7 +54,7 @@ export const LocationPanel = ({
     <section
       aria-label="Location details"
       className={cn(
-        'flex min-h-0 flex-col rounded-lg border bg-card',
+        'flex min-h-0 flex-col rounded-sm border bg-card',
         className,
       )}
     >
@@ -67,7 +67,7 @@ export const LocationPanel = ({
         <div
           role="tablist"
           aria-label="Location details"
-          className="flex gap-1 rounded-lg border p-1"
+          className="flex gap-1 rounded-sm border p-1"
         >
           {tabs.map((tab, index) => {
             const selected = tab.id === active.id;

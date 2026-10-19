@@ -51,7 +51,7 @@ const Block = ({
 };
 
 const linkCard =
-  'group flex flex-col justify-between gap-6 rounded-xl border bg-card p-5 outline-none transition-colors hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none';
+  'group flex flex-col justify-between gap-6 rounded-sm border bg-card p-5 outline-none transition-colors hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none';
 
 export const HubPage = ({ route }: { route: GameRoute }) => {
   const { game, region, regions, href } = route;
@@ -102,7 +102,7 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
                     to={regionHref(game.id, entry)}
                     className="group flex flex-col gap-4 outline-none"
                   >
-                    <span className="rounded-xl relative block aspect-square overflow-hidden border bg-muted transition-colors group-hover:border-foreground/40 group-focus-visible:ring-[3px] group-focus-visible:ring-ring/50 motion-reduce:transition-none">
+                    <span className="rounded-sm relative block aspect-square overflow-hidden border bg-muted transition-colors group-hover:border-foreground/40 group-focus-visible:ring-[3px] group-focus-visible:ring-ring/50 motion-reduce:transition-none">
                       <img
                         src={entry.image}
                         alt=""
@@ -136,7 +136,7 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
               {hasPokedex(region) && (
                 <Link
                   {...pokedexLink}
-                  className="flex h-11 shrink-0 items-center justify-between gap-3 rounded-lg border bg-card px-3.5 text-sm transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
+                  className="flex h-11 shrink-0 items-center justify-between gap-3 rounded-sm border bg-card px-3.5 text-sm transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
                 >
                   <span className="font-medium">Pokédex</span>
                   <span className="truncate text-muted-foreground">
@@ -148,7 +148,7 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
               <button
                 type="button"
                 onClick={() => openSearch()}
-                className="flex h-12 w-full items-center gap-3 rounded-lg border bg-card px-4 text-left text-sm text-muted-foreground transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
+                className="flex h-12 w-full items-center gap-3 rounded-sm border bg-card px-4 text-left text-sm text-muted-foreground transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
               >
                 <Search aria-hidden className="size-4 flex-none" />
                 <span className="min-w-0 flex-1 truncate">
@@ -168,7 +168,7 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
                       <li key={path}>
                         <Link
                           to={href(path)}
-                          className="inline-flex h-8 items-center gap-2 rounded-lg border px-3 text-sm font-medium transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
+                          className="inline-flex h-8 items-center gap-2 rounded-sm border px-3 text-sm font-medium transition-colors outline-none hover:border-foreground/40 focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-reduce:transition-none"
                         >
                           {trail[trail.length - 1].name}
                           {trail.length > 1 && (

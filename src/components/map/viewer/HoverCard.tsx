@@ -73,6 +73,7 @@ export const HoverCard = ({
   return createPortal(
     <div
       ref={card}
+      data-pinned={interactive || undefined}
       className={cn(
         'map-card absolute z-1000 w-max animate-in duration-50 fade-in-0 zoom-in-95',
         !interactive && 'pointer-events-none',

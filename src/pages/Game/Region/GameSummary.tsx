@@ -41,7 +41,7 @@ export const StatGrid = ({ stats }: { stats: Array<Stat> }) => (
 export const DataLakeLink = ({ region }: { region: Region }) => (
   <Link
     to={dataLakeHref(region.versionGroup)}
-    className={`flex h-11 shrink-0 items-center justify-between gap-3 rounded-lg border bg-card px-3.5 text-sm ${outlineRow}`}
+    className={`flex h-11 shrink-0 items-center justify-between gap-3 rounded-sm border bg-card px-3.5 text-sm ${outlineRow}`}
   >
     <span className="font-medium">Data Lake</span>
     <span className="truncate text-muted-foreground">
@@ -64,7 +64,7 @@ const GameLinks = ({
         <li key={other.id}>
           <Link
             to={gameHref(other.id)}
-            className={`inline-flex h-8 items-center gap-2 rounded-lg border px-3 text-sm font-medium ${outlineRow}`}
+            className={`inline-flex h-8 items-center gap-2 rounded-sm border px-3 text-sm font-medium ${outlineRow}`}
           >
             <ColorDot color={other.colors[0]} />
             {entryName(other)}

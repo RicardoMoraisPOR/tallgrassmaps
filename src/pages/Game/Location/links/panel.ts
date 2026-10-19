@@ -51,6 +51,7 @@ export const layerSections = ({
         travel: link.travel,
         replace: link.replace,
         opens: Boolean(link.tooltip),
+        sprite: link.sprite?.src,
       });
     }
 

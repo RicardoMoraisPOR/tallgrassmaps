@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { MapLink } from '@/components/map/viewer/types';
 import type { MapItem } from '@/data/items/types';
-import type { Direction, WildArea } from '@/data/maps';
+import type { Direction, WildArea, WildTerrain } from '@/data/maps';
 import type { MapNpc } from '@/data/npcs/types';
 import type { Shop } from '@/data/shops/types';
 import type { MapSign } from '@/data/signs/types';
@@ -20,6 +20,7 @@ export type LayerEntry = {
   travel?: Direction;
   replace?: boolean;
   opens?: boolean;
+  sprite?: string;
 };
 
 export type LayerGroup = {
@@ -60,7 +61,11 @@ export type MarkerSources = {
   entranceShops?: Array<Shop>;
   onOpenShop?: (shops: Array<Shop>, selected: string) => void;
   wildAreas?: Array<WildArea>;
-  wildPopup?: (method: WildArea['method'], note?: string) => ReactNode;
+  wildPopup?: (
+    method: WildArea['method'],
+    note?: string,
+    terrain?: WildTerrain,
+  ) => ReactNode;
   wildCount?: (method: WildArea['method']) => number;
   staticPokemon?: Array<StaticPokemon>;
   staticPopup?: (pokemon: StaticPokemon) => ReactNode;

@@ -459,6 +459,7 @@
     "y": 35,
     "item": "TM16 Pay Day",
     "hidden": false,
+    "requires": ["Surf"],
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -467,6 +468,7 @@
     "y": 89,
     "item": "Iron",
     "hidden": false,
+    "requires": ["Cut"],
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -475,6 +477,7 @@
     "y": 5,
     "item": "TM20 Rage",
     "hidden": false,
+    "requires": ["Cut"],
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -586,6 +589,7 @@
     "y": 10,
     "item": "Nugget",
     "hidden": false,
+    "requires": ["Surf"],
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1229,6 +1233,7 @@
     "y": 3,
     "item": "Ultra Ball",
     "hidden": true,
+    "requires": ["Surf"],
     "games": ["red", "blue"]
   },
   {
@@ -1263,6 +1268,7 @@
     "y": 17,
     "item": "Ultra Ball",
     "hidden": true,
+    "requires": ["Surf"],
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1314,6 +1320,7 @@
     "y": 90,
     "item": "Max Ether",
     "hidden": true,
+    "requires": ["Surf"],
     "games": ["red", "blue", "yellow"]
   },
   {
@@ -1453,6 +1460,7 @@
     "y": 11,
     "item": "Max Ether",
     "hidden": true,
+    "requires": ["Surf"],
     "games": ["red", "blue", "yellow"]
   },
   {

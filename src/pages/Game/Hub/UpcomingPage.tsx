@@ -85,7 +85,7 @@ export const UpcomingPage = ({ game }: { game: UpcomingGame }) => {
               >
                 <span
                   className={cn(
-                    'relative flex aspect-square items-center justify-center overflow-hidden rounded-xl border bg-muted/45',
+                    'relative flex aspect-square items-center justify-center overflow-hidden rounded-sm border bg-muted/45',
                     !townMap && 'border-dashed',
                   )}
                 >

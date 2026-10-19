@@ -6,6 +6,8 @@ import {
   ChevronLeft,
   ChevronRight,
   CircleHelp,
+  Signpost,
+  UserRound,
 } from 'lucide-react';
 import { Link } from 'react-router';
 
@@ -174,19 +176,23 @@ const PokemonSquare = ({
 );
 
 type MapTextTooltipProps = {
+  sign?: boolean;
   name?: string;
   text?: string;
   dialog?: Array<NpcDialog>;
   game?: Game;
   presence?: string;
+  sprite?: string;
 };
 
 export const MapTextTooltip = ({
+  sign,
   name,
   text,
   dialog = [],
   game,
   presence,
+  sprite,
 }: MapTextTooltipProps) => {
   const gameTheme = useThemeStyle('dialogBoxes') === 'game';
   const [page, setPage] = useState(0);
@@ -305,12 +311,94 @@ export const MapTextTooltip = ({
         'text-muted-foreground',
         gameTheme
           ? 'border-t-2 border-dashed border-(--gb-ink) pt-2 text-[8px] leading-[12px]'
-          : 'border-t border-border pt-1.5 text-xs italic',
+          : 'border-t border-border pt-2 text-xs italic',
       )}
     >
       {presence}
     </p>
   );
+
+  if (!gameTheme && sign && !name && dialog.length === 0) {
+    return (
+      <div className="flex w-max max-w-64 items-start gap-2.5 rounded-sm bg-popover py-2 pr-3.5 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+        <span
+          aria-hidden
+          className="mt-0.5 grid size-7 flex-none place-items-center rounded-sm"
+          style={{
+            background: 'color-mix(in oklch, var(--map-sign) 22%, transparent)',
+            color: 'var(--map-sign)',
+          }}
+        >
+          <Signpost className="size-4" />
+        </span>
+        <div className="flex min-w-0 flex-col gap-1.5">
+          <p className="text-sm leading-snug whitespace-pre-line">
+            {shownText}
+          </p>
+          {presenceNote}
+        </div>
+      </div>
+    );
+  }
+
+  if (!gameTheme && name) {
+    return (
+      <div
+        className={cn(
+          'flex items-start gap-2.5 rounded-sm bg-popover py-2 pr-3 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10',
+          paged ? 'w-64' : 'w-max max-w-64',
+        )}
+      >
+        <span
+          aria-hidden
+          className="mt-0.5 grid size-7 flex-none place-items-center rounded-sm"
+          style={{
+            background: 'color-mix(in oklch, var(--map-npc) 22%, transparent)',
+            color: 'var(--map-npc)',
+          }}
+        >
+          {sprite ? (
+            <img
+              src={sprite}
+              alt=""
+              className="size-6 object-cover object-top pixelated"
+            />
+          ) : (
+            <UserRound className="size-4" />
+          )}
+        </span>
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+          <div className="flex flex-col">
+            {disclaimer}
+            <div className="flex items-center gap-2">
+              <span className="flex-1 text-sm leading-snug font-medium">
+                {name}
+              </span>
+              {toggle}
+            </div>
+          </div>
+          {shownText && (
+            <p
+              key={page}
+              className={cn(
+                'text-xs leading-relaxed whitespace-pre-line text-foreground/80',
+                (paged || presence) && 'max-h-40 overflow-y-auto pr-1',
+              )}
+            >
+              {shownText}
+            </p>
+          )}
+          {giftSquare}
+          {tradeSquare}
+          {pokemonSquare}
+          {pager && (
+            <div className="border-t pt-2 [&>div]:justify-end">{pager}</div>
+          )}
+          {presenceNote}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

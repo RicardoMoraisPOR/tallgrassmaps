@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import { useParams } from 'react-router';
 
 import { getGame } from '@/data/games';
@@ -8,6 +10,8 @@ import {
   type ThemeStyle,
   useSettingsStore,
 } from '@/stores/settings';
+
+import { ThemeOverrideContext } from './themeOverride';
 
 export const themeAreas: Array<{
   area: ThemeArea;
@@ -101,9 +105,12 @@ export const resolveTheme = (
 };
 
 export const useThemeStyle = (area: ThemeArea) => {
+  const override = useContext(ThemeOverrideContext);
   const { gameId } = useParams();
   const game = getGame(gameId);
   const versionGroup = game && getRegion(game.region)?.versionGroup;
 
-  return useSettingsStore((state) => resolveTheme(area, state, versionGroup));
+  return useSettingsStore(
+    (state) => override ?? resolveTheme(area, state, versionGroup),
+  );
 };

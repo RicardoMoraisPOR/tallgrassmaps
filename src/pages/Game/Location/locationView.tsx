@@ -7,6 +7,7 @@ import {
   type LocationFloor,
   locationInGame,
   type WildArea,
+  type WildTerrain,
 } from '@/data/maps';
 import { npcsFor } from '@/data/npcs';
 import { pokedexFor } from '@/data/pokedex';
@@ -20,6 +21,7 @@ import { trailPath } from '@/lib/paths';
 
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { encounterGroups, wildAreaFor } from './encounters';
+import { ItemPopup } from './ItemPopup';
 import { openableNames } from './links/signs';
 import { locationLinks } from './locationLinks';
 import { MapTextTooltip } from './MapTextTooltip';
@@ -96,7 +98,11 @@ export const buildLocationView = (
         .filter(({ method }) => wildAreaFor(method) === area)
         .flatMap(({ rows }) => rows.map(({ entry }) => entry.number)),
     ).size;
-  const wildPopup = (area: WildArea['method'], note?: string) => {
+  const wildPopup = (
+    area: WildArea['method'],
+    note?: string,
+    terrain?: WildTerrain,
+  ) => {
     const groups = encounters.filter(
       ({ method }) => wildAreaFor(method) === area,
     );
@@ -108,6 +114,7 @@ export const buildLocationView = (
           path={dataPath}
           groups={groups}
           note={note}
+          terrain={terrain}
         />
       )
     );
@@ -129,9 +136,12 @@ export const buildLocationView = (
       from,
       items: itemsFor(route.region.versionGroup)?.filter(onThisMap),
       itemTooltip: (item) => (
-        <MapTextTooltip
-          text={item.hidden ? `${item.item} (hidden)` : item.item}
-          presence={item.note}
+        <ItemPopup
+          name={item.item}
+          hidden={item.hidden}
+          requires={item.requires}
+          note={item.note}
+          sprite={item.sprite}
         />
       ),
       trainers: listedBattles,
@@ -143,11 +153,13 @@ export const buildLocationView = (
           dialog={npc.dialog}
           game={route.game}
           presence={npc.presence}
+          sprite={npc.sprite}
         />
       ),
       signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
       signTooltip: (sign) => (
         <MapTextTooltip
+          sign
           text={sign.opens ? openableNames[sign.opens] : sign.text}
         />
       ),

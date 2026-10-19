@@ -33,7 +33,6 @@
   --color-background: var(--background);
   --radius-*: initial;
   --radius-sm: calc(var(--radius) * 0.5);
-  --radius-lg: var(--radius);
 }
 
 :root {
@@ -372,15 +371,17 @@
 
 .map-wild-badge {
   display: flex;
-  min-width: 18px;
-  height: 18px;
+  min-width: 22px;
+  height: 22px;
   align-items: center;
   justify-content: center;
-  padding: 0 5px;
-  border: 1.5px solid var(--map-link);
-  border-radius: 999px;
-  background: var(--card);
-  color: var(--foreground);
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: oklch(from var(--map-link) 0.94 calc(c * 0.3) h);
+  color: oklch(0.2 0 0);
+  box-shadow:
+    0 0 0 1.5px color-mix(in oklch, var(--map-link) 35%, transparent),
+    0 4px 12px -4px oklch(0 0 0 / 0.35);
   font-size: 11px;
   font-weight: 700;
   gap: 3px;
@@ -389,6 +390,16 @@
   pointer-events: auto;
   cursor: pointer;
   transition: scale 100ms ease-out;
+}
+
+.dark .map-wild-badge:not(.map-wild-badge-game) {
+  background: oklch(from var(--map-link) 0.3 calc(c * 0.5) h);
+  color: oklch(0.98 0 0);
+}
+
+.map-wild-badge-icon {
+  width: 14px;
+  height: 14px;
 }
 
 .map-wild-badge:active {
@@ -404,10 +415,10 @@
 }
 
 .map-wild-badge-game {
-  height: 22px;
   border: 2px solid #292929;
   border-radius: 0;
   background: #f6f4f7;
+  box-shadow: none;
   color: #292929;
 }
 
@@ -472,6 +483,10 @@
 
 .leaflet-container .map-card a {
   color: inherit;
+}
+
+.map-card[data-pinned] > :not(.pokedex-game) {
+  --tw-ring-color: color-mix(in oklch, var(--foreground) 40%, transparent);
 }
 
 .map-link-npc {
@@ -539,11 +554,11 @@
   place-items: center;
   width: var(--icon-size);
   height: var(--icon-size);
-  border-radius: calc(var(--icon-size) * 0.28);
-  background: var(--popover);
-  color: var(--map-link);
+  border-radius: var(--radius-sm);
+  background: oklch(from var(--map-link) 0.94 calc(c * 0.3) h);
+  color: oklch(0.2 0 0);
   box-shadow:
-    0 0 0 1px color-mix(in oklch, var(--foreground) 12%, transparent),
+    0 0 0 1.5px color-mix(in oklch, var(--map-link) 35%, transparent),
     0 4px 12px -4px oklch(0 0 0 / 0.35);
   cursor: pointer;
   transition:
@@ -569,6 +584,11 @@
   .map-icon-pressed {
     animation: none;
   }
+}
+
+.dark .map-icon:not(.map-icon-game) {
+  background: oklch(from var(--map-link) 0.3 calc(c * 0.5) h);
+  color: oklch(0.98 0 0);
 }
 
 .map-icon-step {
@@ -667,6 +687,14 @@
     drop-shadow(-1.5px 0 0 var(--map-link))
     drop-shadow(0 1.5px 0 var(--map-link))
     drop-shadow(0 -1.5px 0 var(--map-link)) drop-shadow(0 0 4px var(--map-link));
+}
+
+.map-icon:not(.map-icon-game):hover,
+.map-icon:not(.map-icon-game).map-icon-active {
+  filter: drop-shadow(
+      0 0 3px color-mix(in oklch, var(--map-link) 75%, transparent)
+    )
+    drop-shadow(0 0 8px color-mix(in oklch, var(--map-link) 55%, transparent));
 }
 
 .map-icon svg {

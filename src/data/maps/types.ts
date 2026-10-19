@@ -143,10 +143,13 @@ export type RegionLabel = {
   uppercase: boolean;
 };
 
+export type WildTerrain = 'grass' | 'cavern' | 'indoors';
+
 export type WildArea = {
   path: string;
   floor?: string;
   method: 'walk' | 'water';
+  terrain?: WildTerrain;
   whole?: boolean;
   outline?: Array<Array<[number, number]>>;
   badgeAt?: [number, number];

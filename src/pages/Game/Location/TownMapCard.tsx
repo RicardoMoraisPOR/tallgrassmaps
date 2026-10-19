@@ -23,7 +23,7 @@ export const TownMapCard = ({ game, region, path }: TownMapCardProps) => {
   return (
     <section
       aria-labelledby={headingId}
-      className="flex flex-col rounded-lg border bg-card"
+      className="flex flex-col rounded-sm border bg-card"
     >
       <h2
         id={headingId}

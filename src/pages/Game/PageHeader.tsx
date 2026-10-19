@@ -44,7 +44,7 @@ export const PageHeader = ({
         'absolute top-4 left-4 z-20 flex max-w-[calc(100%-6rem)] flex-col items-start gap-2 lg:max-w-[min(48rem,calc(100%-26rem))]',
       )}
     >
-      <header className="flex max-w-full items-center gap-3 rounded-lg border bg-card p-3 sm:gap-4">
+      <header className="flex max-w-full items-center gap-3 rounded-sm border bg-card p-3 sm:gap-4">
         <div className="flex min-w-0 flex-col gap-2">
           <nav aria-label="Breadcrumb" className="hidden sm:block">
             <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-muted-foreground">

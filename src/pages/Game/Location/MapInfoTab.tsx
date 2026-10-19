@@ -75,7 +75,7 @@ export const MapInfoTab = ({
 };
 
 const chipClassName =
-  'flex h-7 max-w-full items-center rounded-full border px-2.5 text-xs transition-colors';
+  'flex h-7 max-w-full items-center gap-1 rounded-full border px-2.5 text-xs transition-colors';
 
 const EntryChip = ({
   entry,
@@ -93,7 +93,18 @@ const EntryChip = ({
     onFocus: () => onHighlight(target),
     onBlur: () => onHighlight(undefined),
   };
-  const name = <span className="truncate">{entry.name}</span>;
+  const name = (
+    <>
+      {entry.sprite && (
+        <img
+          src={entry.sprite}
+          alt=""
+          className="-ml-1.5 size-6 flex-none object-cover object-top pixelated"
+        />
+      )}
+      <span className="truncate">{entry.name}</span>
+    </>
+  );
 
   if (!entry.href && entry.opens && onOpen)
     return (

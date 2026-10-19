@@ -54,7 +54,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
       {groupBy && (
         <section
           aria-label="Group by"
-          className="flex flex-col gap-3 rounded-lg border bg-card p-4"
+          className="flex flex-col gap-3 rounded-sm border bg-card p-4"
         >
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-sm font-semibold">Most common</h3>
@@ -125,7 +125,7 @@ export const Insights = ({ columns, rows, onFilter }: InsightsProps) => {
       {statColumn && (
         <section
           aria-label="Number summary"
-          className="flex flex-col gap-3 rounded-lg border bg-card p-4"
+          className="flex flex-col gap-3 rounded-sm border bg-card p-4"
         >
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-sm font-semibold">Number crunching</h3>

@@ -44,7 +44,7 @@ export const MapZoomControls = ({ position }: MapZoomControlsProps) => {
     <div
       ref={container}
       style={{ top: TOPS[position], left: EDGE_GAP }}
-      className="absolute z-1000 flex flex-col divide-y overflow-hidden rounded-lg border bg-card transition-[top] duration-250 ease-out"
+      className="absolute z-1000 flex flex-col divide-y overflow-hidden rounded-sm border bg-card transition-[top] duration-250 ease-out"
     >
       <button
         type="button"

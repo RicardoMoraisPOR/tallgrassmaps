@@ -78,4 +78,4 @@ export const textSizes = [
   'text-4xl',
 ];
 
-export const radii = ['rounded-sm', 'rounded-lg', 'rounded-full'];
+export const radii = ['rounded-sm', 'rounded-full'];

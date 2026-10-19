@@ -22,7 +22,7 @@ export const DataTable = ({
   footer,
 }: DataTableProps) => {
   return (
-    <div className="@container max-h-[70svh] overflow-auto rounded-lg border bg-card">
+    <div className="@container max-h-[70svh] overflow-auto rounded-sm border bg-card">
       <table className="w-full border-separate border-spacing-0 text-left text-xs">
         <thead className="sticky top-0 z-10 bg-card">
           <tr>

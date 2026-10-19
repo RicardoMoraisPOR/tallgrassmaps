@@ -108,9 +108,21 @@ export const TrainerDialog = ({
           >
             <div className="flex flex-col">
               <div className="flex items-center gap-3">
-                {listed.battle.sprite && (
-                  <TrainerSprite src={listed.battle.sprite} />
-                )}
+                {listed.battle.sprite &&
+                  (gameTheme ? (
+                    <TrainerSprite src={listed.battle.sprite} />
+                  ) : (
+                    <span
+                      aria-hidden
+                      className="grid size-10 flex-none place-items-center rounded-sm"
+                      style={{
+                        background:
+                          'color-mix(in oklch, var(--map-trainer) 22%, transparent)',
+                      }}
+                    >
+                      <TrainerSprite src={listed.battle.sprite} />
+                    </span>
+                  ))}
                 <DialogHeader className="min-w-0 flex-1">
                   <DialogTitle>
                     {href && listed.battle.x !== undefined ? (

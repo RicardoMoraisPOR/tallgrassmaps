@@ -11,6 +11,8 @@ import {
   read,
   siteLocation,
 } from '../rby/disassembly.mjs';
+import { createReach } from '../rby/reach.mjs';
+import { gameTiles } from '../rby/tiles.mjs';
 
 const OUTPUT = new URL('../../src/data/items/rby.json', import.meta.url);
 
@@ -43,11 +45,42 @@ const machineNames = (game) => {
   return names;
 };
 
+const requirementsFor = (game) => {
+  const { headers, mapTiles } = gameTiles(game.dir);
+  const reach = createReach({ dir: game.dir, headers, mapTiles });
+  const levels = [
+    { requires: [], steps: reach({ cut: false, surf: false }) },
+    { requires: ['Cut'], steps: reach({ cut: true, surf: false }) },
+    { requires: ['Surf'], steps: reach({ cut: false, surf: true }) },
+    { requires: ['Cut', 'Surf'], steps: reach() },
+  ];
+
+  return (map, x, y) => {
+    if (!headers[map]) return undefined;
+
+    const tiles = mapTiles(map);
+    const around = [
+      [0, 0],
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ];
+
+    return levels.find(({ steps }) => {
+      const reachable = steps(map, tiles);
+
+      return around.some(([dx, dy]) => reachable(x + dx, y + dy));
+    })?.requires;
+  };
+};
+
 const items = [];
 const skipped = new Set();
 
 for (const game of games) {
   const machines = machineNames(game);
+  const requirementsOf = requirementsFor(game);
   const itemName = (constant) => machines.get(constant) ?? titleCase(constant);
   const addItem = (map, x, y, item, hidden) => {
     const path = siteLocation(map);
@@ -68,6 +101,9 @@ for (const game of games) {
 
     const [columns, rows] = mapSteps(game.dir, map);
     const outside = x >= columns || y >= rows;
+    const requires = outside
+      ? []
+      : (requirementsOf(map, Number(x), Number(y)) ?? []);
 
     items.push({
       game: game.id,
@@ -77,6 +113,7 @@ for (const game of games) {
       y: Math.min(Number(y), rows - 1),
       item: itemName(item),
       hidden,
+      ...(requires.length > 0 && { requires }),
       ...(outside && {
         note: `In the game files but outside the map, so it can't be obtained.`,
       }),

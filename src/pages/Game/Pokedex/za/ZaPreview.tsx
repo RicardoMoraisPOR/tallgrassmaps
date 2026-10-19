@@ -103,7 +103,7 @@ export const ZaPreview = ({
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={transition(0, 0.3)}
-            className="relative size-full overflow-hidden rounded-lg border border-white/20 bg-(--za-tile) shadow-lg shadow-black/25"
+            className="relative size-full overflow-hidden rounded-sm border border-white/20 bg-(--za-tile) shadow-lg shadow-black/25"
           >
             {sprites.map((form, index) => {
               const active = index === spriteIndex;
@@ -207,7 +207,7 @@ export const ZaPreview = ({
         transition={transition(0.28, 0.5)}
         data-vaul-no-drag
         className={cn(
-          'min-h-0 flex-1 flex-col gap-3 overflow-y-auto rounded-lg border border-white/20 bg-black/25 p-3 lg:flex lg:gap-4 lg:p-4',
+          'min-h-0 flex-1 flex-col gap-3 overflow-y-auto rounded-sm border border-white/20 bg-black/25 p-3 lg:flex lg:gap-4 lg:p-4',
           detailsOpen ? 'flex' : 'hidden',
         )}
       >

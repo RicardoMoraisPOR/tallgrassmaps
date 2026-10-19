@@ -1,41 +1,66 @@
 import { mapIconArt, mapStepArt } from '@/components/map/viewer/iconArt';
-import { themeStyles } from '@/components/settings/themes';
+import type { MapIconKind } from '@/components/map/viewer/types';
+import { cn } from '@/lib/utils';
+import type { ThemeStyle } from '@/stores/settings';
 
-export const MapIconSamples = () => {
+type Sample = {
+  kind: MapIconKind['kind'];
+  layer: string;
+  direction?: 'north' | 'east' | 'south' | 'west';
+  step?: 'up' | 'down';
+};
+
+const SAMPLES: Array<Sample> = [
+  { kind: 'arrow', layer: 'connection', direction: 'north' },
+  { kind: 'arrow', layer: 'connection', direction: 'east' },
+  { kind: 'exit', layer: 'connection' },
+  { kind: 'stairs', layer: 'connection', step: 'up' },
+  { kind: 'stairs', layer: 'connection', step: 'down' },
+  { kind: 'ladder', layer: 'connection', step: 'up' },
+  { kind: 'hole', layer: 'connection' },
+  { kind: 'teleport', layer: 'connection' },
+  { kind: 'current', layer: 'connection' },
+  { kind: 'door', layer: 'entrance' },
+  { kind: 'register', layer: 'service' },
+  { kind: 'sign', layer: 'sign' },
+];
+
+const ICON_PIXELS = 32;
+
+export const MapIconSamples = ({ style }: { style: ThemeStyle }) => {
   return (
-    <div className="flex flex-col gap-3">
-      {themeStyles.map(({ style, label }) => (
-        <div key={style} className="flex flex-col gap-2">
-          <h3 className="text-sm font-medium">{label}</h3>
-          <ul className="flex flex-wrap gap-2">
-            {Object.entries(mapIconArt).map(([kind, art]) => (
-              <li
-                key={kind}
-                className="flex w-20 flex-col items-center gap-1 rounded-sm border p-2"
-              >
-                <span
-                  aria-hidden
-                  className="size-8 text-foreground [&_svg]:size-full"
-                  dangerouslySetInnerHTML={{ __html: art[style] }}
-                />
-                <span className="font-mono text-[10px] text-muted-foreground">
-                  {kind}
-                </span>
-              </li>
-            ))}
-            <li className="flex w-20 flex-col items-center gap-1 rounded-sm border p-2">
+    <ul className="flex flex-wrap gap-3">
+      {SAMPLES.map(({ kind, layer, direction, step }) => (
+        <li
+          key={`${kind}-${direction ?? step ?? ''}`}
+          className="flex w-24 flex-col items-center gap-2 rounded-sm border bg-muted/40 p-3"
+        >
+          <span
+            className="relative flex size-9 items-center justify-center"
+            style={{ ['--map-icon-size' as string]: `${ICON_PIXELS}px` }}
+          >
+            <span
+              data-direction={direction}
+              className={cn(
+                'map-icon',
+                `map-link-${layer}`,
+                style === 'game' && 'map-icon-game',
+              )}
+              dangerouslySetInnerHTML={{ __html: mapIconArt[kind][style] }}
+            />
+            {step && (
               <span
-                aria-hidden
-                className="size-8 [--step-edge:var(--background)] [--step-ink:var(--foreground)] [&_svg]:size-full"
+                data-step={step}
+                className="map-icon-step"
                 dangerouslySetInnerHTML={{ __html: mapStepArt[style] }}
               />
-              <span className="font-mono text-[10px] text-muted-foreground">
-                step
-              </span>
-            </li>
-          </ul>
-        </div>
+            )}
+          </span>
+          <span className="text-center font-mono text-[10px] text-muted-foreground">
+            {[kind, direction ?? step].filter(Boolean).join(' ')}
+          </span>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };

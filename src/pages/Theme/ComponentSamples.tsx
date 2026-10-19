@@ -23,7 +23,7 @@ export const ComponentSamples = () => {
   const [choice, setChoice] = useState('one');
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg border bg-background p-4 text-foreground">
+    <div className="flex flex-col gap-4 rounded-sm border bg-background p-4 text-foreground">
       {sizes.map((size) => (
         <div key={size} className="flex flex-wrap items-center gap-2">
           {variants.map((variant) => (
@@ -56,12 +56,12 @@ export const ComponentSamples = () => {
         />
       </div>
       <div className="grid gap-2 sm:grid-cols-3">
-        <div className="rounded-lg border bg-card p-3 text-card-foreground">
+        <div className="rounded-sm border bg-card p-3 text-card-foreground">
           Card
           <p className="text-sm text-muted-foreground">Muted text</p>
         </div>
-        <div className="rounded-lg bg-muted p-3">Muted surface</div>
-        <div className="rounded-lg border border-ring p-3">Ring border</div>
+        <div className="rounded-sm bg-muted p-3">Muted surface</div>
+        <div className="rounded-sm border border-ring p-3">Ring border</div>
       </div>
     </div>
   );

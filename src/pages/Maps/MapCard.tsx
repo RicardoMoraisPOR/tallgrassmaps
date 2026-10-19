@@ -50,7 +50,7 @@ export const MapCard = ({ versionGroup, entries }: MapCardProps) => {
   return (
     <div
       className={cn(
-        'flex h-full flex-col overflow-hidden rounded-lg border shadow-xs',
+        'flex h-full flex-col overflow-hidden rounded-sm border shadow-xs',
         'bg-card',
       )}
     >

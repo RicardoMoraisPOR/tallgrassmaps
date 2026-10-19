@@ -37,7 +37,7 @@ export const GameInfoCard = ({
   return (
     <section
       aria-labelledby="game-heading"
-      className="flex min-h-0 flex-1 flex-col overflow-hidden overflow-y-auto rounded-lg border bg-card"
+      className="flex min-h-0 flex-1 flex-col overflow-hidden overflow-y-auto rounded-sm border bg-card"
     >
       <Cover gameId={game.id} accent={game.colors[0]} aspect="aspect-16/7" />
       <div className="flex flex-none flex-col gap-6 p-5">

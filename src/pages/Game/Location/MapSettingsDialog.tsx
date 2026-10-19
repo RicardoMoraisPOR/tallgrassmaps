@@ -59,7 +59,7 @@ const SettingsBody = ({ view, onViewChange, withWorld }: SettingsBodyProps) => {
           onValueChange={(value) => {
             if (value) onViewChange(value as LayerView);
           }}
-          className="w-full rounded-lg border bg-card p-1"
+          className="w-full rounded-sm border bg-card p-1"
         >
           {layerViews.map(({ id, label }) => (
             <ToggleGroupItem

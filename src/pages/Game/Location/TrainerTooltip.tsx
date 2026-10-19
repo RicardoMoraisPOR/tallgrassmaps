@@ -1,6 +1,8 @@
 import '@fontsource/press-start-2p';
 import { Fragment } from 'react';
 
+import { Swords } from 'lucide-react';
+
 import { useThemeStyle } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
 import type { PokedexEntry } from '@/data/pokedex/types';
@@ -52,13 +54,16 @@ export const TrainerTooltip = ({
         </span>
       </div>
     ) : (
-      <div className="flex w-max flex-col gap-0.5 rounded-lg bg-popover px-3 py-2 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10">
-        <span className="text-sm font-medium whitespace-nowrap">
-          {battle.name}
-        </span>
-        <span className="text-xs whitespace-nowrap text-muted-foreground">
-          {note}
-        </span>
+      <div className="flex w-max items-center gap-2.5 rounded-sm bg-popover py-2 pr-3 pl-2.5 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+        <TrainerTile sprite={battle.sprite} />
+        <div className="flex flex-col gap-0.5">
+          <span className="text-sm leading-snug font-medium whitespace-nowrap">
+            {battle.name}
+          </span>
+          <span className="text-xs whitespace-nowrap text-muted-foreground">
+            {note}
+          </span>
+        </div>
       </div>
     );
   }
@@ -101,20 +106,22 @@ export const TrainerTooltip = ({
   return (
     <div
       className={cn(
-        'flex w-max flex-col gap-2 rounded-lg bg-popover p-3 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10',
+        'flex w-max flex-col gap-2.5 rounded-sm bg-popover py-2.5 pr-3 pl-2.5 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10',
         !byChoice && 'max-w-64',
       )}
     >
-      <span className="text-sm font-medium whitespace-nowrap">
-        {battle.name}
-        {number && (
-          <span className="font-normal text-muted-foreground/80">
-            {' '}
-            #{number}
-          </span>
-        )}
-      </span>
-      <hr className="border-border" />
+      <div className="flex items-center gap-2.5">
+        <TrainerTile sprite={battle.sprite} />
+        <span className="text-sm leading-snug font-medium whitespace-nowrap">
+          {battle.name}
+          {number && (
+            <span className="font-normal text-muted-foreground/80">
+              {' '}
+              #{number}
+            </span>
+          )}
+        </span>
+      </div>
       <div className={cn('flex gap-2', byChoice ? 'gap-3' : 'flex-col')}>
         {parties.map((party, index) => (
           <Fragment key={party.label ?? ''}>
@@ -132,11 +139,34 @@ export const TrainerTooltip = ({
         ))}
       </div>
       {battle.presence && (
-        <span className="text-xs text-muted-foreground">{battle.presence}</span>
+        <span className="border-t pt-2 text-xs text-muted-foreground italic">
+          {battle.presence}
+        </span>
       )}
     </div>
   );
 };
+
+const TrainerTile = ({ sprite }: { sprite?: string }) => (
+  <span
+    aria-hidden
+    className="grid size-7 flex-none place-items-center rounded-sm"
+    style={{
+      background: 'color-mix(in oklch, var(--map-trainer) 22%, transparent)',
+      color: 'var(--map-trainer)',
+    }}
+  >
+    {sprite ? (
+      <img
+        src={sprite}
+        alt=""
+        className="size-6 object-cover object-top pixelated"
+      />
+    ) : (
+      <Swords className="size-4" />
+    )}
+  </span>
+);
 
 const GameParty = ({
   party,

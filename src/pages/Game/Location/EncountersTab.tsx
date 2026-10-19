@@ -317,7 +317,7 @@ const EncounterCard = ({
   return (
     <li
       {...highlightHandlersFor(highlightKeyFor?.(row), onHighlight)}
-      className="flex flex-col gap-2.5 rounded-lg border bg-muted/30 p-2.5 transition-colors hover:bg-muted/60"
+      className="flex flex-col gap-2.5 rounded-sm border bg-muted/30 p-2.5 transition-colors hover:bg-muted/60"
     >
       <div className="flex items-start gap-3">
         <img

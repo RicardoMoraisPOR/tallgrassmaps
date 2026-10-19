@@ -6,6 +6,7 @@ export type MapItem = {
   item: string;
   hidden: boolean;
   sprite?: string;
+  requires?: Array<'Cut' | 'Surf'>;
   note?: string;
   games: Array<string>;
 };

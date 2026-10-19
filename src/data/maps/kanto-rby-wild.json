@@ -15,6 +15,7 @@
     "path": "cerulean-city/cerulean-cave",
     "floor": "1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true,
     "outline": [
       [
@@ -72,12 +73,14 @@
     "path": "cerulean-city/cerulean-cave",
     "floor": "2f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "cerulean-city/cerulean-cave",
     "floor": "b1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true,
     "outline": [
       [
@@ -223,6 +226,7 @@
   {
     "path": "route-11/digletts-cave",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
@@ -241,18 +245,21 @@
     "path": "route-4/mt-moon",
     "floor": "1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-4/mt-moon",
     "floor": "b1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-4/mt-moon",
     "floor": "b2f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
@@ -271,76 +278,89 @@
     "path": "cinnabar-island/pokemon-mansion",
     "floor": "1f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "cinnabar-island/pokemon-mansion",
     "floor": "2f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "cinnabar-island/pokemon-mansion",
     "floor": "3f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "cinnabar-island/pokemon-mansion",
     "floor": "b1f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "lavender-town/pokemon-tower",
     "floor": "3f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "lavender-town/pokemon-tower",
     "floor": "4f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "lavender-town/pokemon-tower",
     "floor": "5f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "lavender-town/pokemon-tower",
     "floor": "6f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "lavender-town/pokemon-tower",
     "floor": "7f",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "route-10/power-plant",
     "method": "walk",
+    "terrain": "indoors",
     "whole": true
   },
   {
     "path": "route-10/rock-tunnel",
     "floor": "1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-10/rock-tunnel",
     "floor": "b1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-1",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [10, 6],
@@ -391,6 +411,7 @@
   {
     "path": "route-10",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [4, 6],
@@ -419,6 +440,7 @@
   {
     "path": "route-11",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [24, 0],
@@ -489,6 +511,7 @@
   {
     "path": "route-12",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [4, 100],
@@ -665,6 +688,7 @@
   {
     "path": "route-13",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [38, 4],
@@ -691,6 +715,7 @@
   {
     "path": "route-14",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [4, 18],
@@ -703,6 +728,7 @@
   {
     "path": "route-15",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [18, 8],
@@ -733,6 +759,7 @@
   {
     "path": "route-16",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [28, 2],
@@ -745,6 +772,7 @@
   {
     "path": "route-17",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [12, 8],
@@ -795,6 +823,7 @@
   {
     "path": "route-18",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [36, 12],
@@ -848,6 +877,7 @@
   {
     "path": "route-2",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [0, 2],
@@ -916,6 +946,7 @@
   {
     "path": "route-21",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [8, 4],
@@ -966,6 +997,7 @@
   {
     "path": "route-22",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [16, 8],
@@ -996,6 +1028,7 @@
   {
     "path": "route-23",
     "method": "walk",
+    "terrain": "cavern",
     "outline": [
       [
         [10, 44],
@@ -1104,6 +1137,7 @@
   {
     "path": "route-24",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [4, 18],
@@ -1130,6 +1164,7 @@
   {
     "path": "route-25",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [2, 4],
@@ -1160,6 +1195,7 @@
   {
     "path": "route-3",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [60, 8],
@@ -1180,6 +1216,7 @@
   {
     "path": "route-4",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [64, 10],
@@ -1204,6 +1241,7 @@
   {
     "path": "route-5",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [6, 4],
@@ -1228,6 +1266,7 @@
   {
     "path": "route-6",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [0, 14],
@@ -1268,6 +1307,7 @@
   {
     "path": "route-7",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [8, 2],
@@ -1282,6 +1322,7 @@
   {
     "path": "route-8",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [32, 8],
@@ -1294,6 +1335,7 @@
   {
     "path": "route-9",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [6, 2],
@@ -1313,6 +1355,7 @@
     "path": "fuchsia-city/safari-zone",
     "floor": "center",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [5, 2],
@@ -1474,6 +1517,7 @@
     "path": "fuchsia-city/safari-zone",
     "floor": "east",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [8, 1],
@@ -1613,6 +1657,7 @@
     "path": "fuchsia-city/safari-zone",
     "floor": "north",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [30, 1],
@@ -1784,6 +1829,7 @@
     "path": "fuchsia-city/safari-zone",
     "floor": "west",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [3, 18],
@@ -1827,24 +1873,28 @@
     "path": "route-20/seafoam-islands",
     "floor": "1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-20/seafoam-islands",
     "floor": "b1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-20/seafoam-islands",
     "floor": "b2f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-20/seafoam-islands",
     "floor": "b3f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true,
     "outline": [
       [
@@ -1906,6 +1956,7 @@
     "path": "route-20/seafoam-islands",
     "floor": "b4f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true,
     "outline": [
       [
@@ -2064,18 +2115,21 @@
     "path": "route-23/victory-road",
     "floor": "1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-23/victory-road",
     "floor": "2f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
     "path": "route-23/victory-road",
     "floor": "3f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true
   },
   {
@@ -2093,6 +2147,7 @@
   {
     "path": "route-2/viridian-forest",
     "method": "walk",
+    "terrain": "grass",
     "outline": [
       [
         [1, 6],
@@ -2179,6 +2234,7 @@
     "path": "cerulean-city/cerulean-cave",
     "floor": "1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true,
     "outline": [
       [
@@ -2232,6 +2288,7 @@
     "path": "cerulean-city/cerulean-cave",
     "floor": "b1f",
     "method": "walk",
+    "terrain": "cavern",
     "whole": true,
     "outline": [
       [
