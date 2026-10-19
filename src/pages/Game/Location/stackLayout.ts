@@ -34,6 +34,7 @@ type Side = 'left' | 'right' | 'above' | 'below';
 export type FloorLayout = {
   grid: Array<Array<string | undefined>>;
   attach?: Array<{ floor: string; side: Side; of: string }>;
+  positions?: Record<string, { x: number; y: number }>;
 };
 
 const asGrid = (
@@ -42,20 +43,22 @@ const asGrid = (
 ): FloorLayout => ({ grid: rows, attach });
 
 export const floorLayouts: Record<string, FloorLayout> = {
-  'ss-anne': asGrid(
-    [
-      ['3F', undefined],
-      ['2F', '2F Cabins'],
-      ['1F', '1F Cabins'],
-      ['B1F', 'B1F Cabins'],
-      ['Dock', undefined],
-    ],
-    [
-      { floor: 'Bow', side: 'left', of: '3F' },
-      { floor: "Captain's Room", side: 'right', of: '3F' },
-      { floor: 'Kitchen', side: 'left', of: '1F' },
-    ],
-  ),
+  'ss-anne': {
+    grid: [],
+    positions: {
+      '1f': { x: 464, y: 544 },
+      '1f-cabins': { x: 1120, y: 544 },
+      '2f': { x: 464, y: 240 },
+      '2f-cabins': { x: 1120, y: 240 },
+      '3f': { x: 464, y: 64 },
+      b1f: { x: 624, y: 848 },
+      'b1f-cabins': { x: 1120, y: 848 },
+      bow: { x: 128, y: 0 },
+      'captains-room': { x: 1008, y: 96 },
+      dock: { x: 0, y: 544 },
+      kitchen: { x: 304, y: 848 },
+    },
+  },
   'rocket-game-corner': asGrid([
     ['Game Corner', undefined],
     ['B1F', 'Elevator'],
@@ -90,17 +93,20 @@ export const floorLayouts: Record<string, FloorLayout> = {
     ['2F', undefined],
     ['1F', 'Elevator'],
   ]),
-  'safari-zone': asGrid(
-    [
-      [undefined, undefined, 'North', undefined, undefined],
-      ['West Rest House', 'West', 'Center', 'East', 'East Rest House'],
-      [undefined, undefined, 'Center Rest House', undefined, undefined],
-    ],
-    [
-      { floor: 'Secret House', side: 'left', of: 'North' },
-      { floor: 'North Rest House', side: 'right', of: 'North' },
-    ],
-  ),
+  'safari-zone': {
+    grid: [],
+    positions: {
+      center: { x: 640, y: 592 },
+      'center-rest-house': { x: 912, y: 1024 },
+      east: { x: 1136, y: 400 },
+      'east-rest-house': { x: 1632, y: 480 },
+      north: { x: 432, y: 0 },
+      'north-rest-house': { x: 1088, y: 0 },
+      'secret-house': { x: 144, y: 448 },
+      west: { x: 144, y: 592 },
+      'west-rest-house': { x: 0, y: 720 },
+    },
+  },
   'cinnabar-lab': asGrid(
     [['Meeting Room', 'R&D Room', 'Testing Room']],
     [{ floor: 'Lobby', side: 'below', of: 'R&D Room' }],
@@ -130,6 +136,38 @@ const place = (
   width: floor.width,
   height: floor.height,
 });
+
+const positionedLayout = (
+  floors: Array<LocationFloor>,
+  imageOf: (floor: LocationFloor) => string,
+  positions: NonNullable<FloorLayout['positions']>,
+) => {
+  const placed = floors.flatMap((floor) =>
+    positions[floor.id]
+      ? [place(floor, imageOf, positions[floor.id].x, positions[floor.id].y)]
+      : [],
+  );
+  let bottom = Math.max(0, ...placed.map((entry) => entry.y + entry.height));
+
+  for (const floor of floors.filter(({ id }) => !positions[id])) {
+    placed.push(place(floor, imageOf, 0, bottom + GAP_PIXELS));
+    bottom += floor.height + GAP_PIXELS;
+  }
+
+  const left = Math.min(...placed.map((entry) => entry.x));
+  const top = Math.min(...placed.map((entry) => entry.y));
+  const shifted = placed.map((entry) => ({
+    ...entry,
+    x: entry.x - left,
+    y: entry.y - top,
+  }));
+
+  return {
+    floors: shifted,
+    width: Math.max(...shifted.map((entry) => entry.x + entry.width)),
+    height: Math.max(...shifted.map((entry) => entry.y + entry.height)),
+  };
+};
 
 const gridLayout = (
   floors: Array<LocationFloor>,
@@ -228,6 +266,8 @@ export const stackFloors = (
   imageOf: (floor: LocationFloor) => string,
   layout?: FloorLayout,
 ) => {
+  if (layout?.positions)
+    return positionedLayout(floors, imageOf, layout.positions);
   if (layout) return gridLayout(floors, imageOf, layout);
 
   const ordered = stackOrder(floors);

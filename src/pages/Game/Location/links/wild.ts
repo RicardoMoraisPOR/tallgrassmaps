@@ -12,7 +12,7 @@ export const wildMarkers = (
   wildPopup: MarkerSources['wildPopup'],
   wildCount: MarkerSources['wildCount'],
 ): Array<LayeredMapLink> =>
-  wildAreas.flatMap(({ method, whole, outline = [], note }) => {
+  wildAreas.flatMap(({ method, whole, outline = [], badgeAt, note }) => {
     const layer = wildLayer();
     const badgeLayer = wildBadgeLayer();
     const scaled = outline.map((ring) =>
@@ -52,8 +52,17 @@ export const wildMarkers = (
       ? [
           area,
           {
-            ...bounds,
-            ...(scaled.length > 0 && { outline: scaled }),
+            ...(badgeAt
+              ? {
+                  x: badgeAt[0] * tileSize - tileSize / 2,
+                  y: badgeAt[1] * tileSize - tileSize / 2,
+                  width: tileSize,
+                  height: tileSize,
+                }
+              : {
+                  ...bounds,
+                  ...(scaled.length > 0 && { outline: scaled }),
+                }),
             label: 'Wild Pokémon count',
             layer: badgeLayer.id,
             className: badgeLayer.className,

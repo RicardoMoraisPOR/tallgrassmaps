@@ -149,6 +149,7 @@ export type WildArea = {
   method: 'walk' | 'water';
   whole?: boolean;
   outline?: Array<Array<[number, number]>>;
+  badgeAt?: [number, number];
   note?: string;
   games?: Array<string>;
 };

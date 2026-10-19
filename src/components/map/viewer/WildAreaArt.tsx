@@ -87,12 +87,24 @@ export const WildAreaPatterns = () => (
   </svg>
 );
 
-export const badgeCenter = ({ x, y, width, height, outline }: MapLink) => {
-  const ring = outline?.[0];
+type Point = [number, number];
+type Ring = Array<Point>;
 
-  if (!ring || ring.length < 3) return { x: x + width / 2, y: y + height / 2 };
+const GAME_SQUARE = 16;
+const SEARCH_STEP = 4;
 
-  let area = 0;
+const ringArea = (ring: Ring) =>
+  ring.reduce((sum, [x1, y1], index) => {
+    const [x2, y2] = ring[(index + 1) % ring.length];
+
+    return sum + (x1 * y2 - x2 * y1) / 2;
+  }, 0);
+
+const ringCentroid = (ring: Ring): Point | undefined => {
+  const area = ringArea(ring);
+
+  if (area === 0) return undefined;
+
   let cx = 0;
   let cy = 0;
 
@@ -100,14 +112,102 @@ export const badgeCenter = ({ x, y, width, height, outline }: MapLink) => {
     const [x2, y2] = ring[(index + 1) % ring.length];
     const cross = x1 * y2 - x2 * y1;
 
-    area += cross;
     cx += (x1 + x2) * cross;
     cy += (y1 + y2) * cross;
   });
 
-  return area === 0
-    ? { x: x + width / 2, y: y + height / 2 }
-    : { x: cx / (3 * area), y: cy / (3 * area) };
+  return [cx / (6 * area), cy / (6 * area)];
+};
+
+const insideRings = (rings: Array<Ring>, x: number, y: number) => {
+  let inside = false;
+
+  for (const ring of rings) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i];
+      const [xj, yj] = ring[j];
+
+      if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi)
+        inside = !inside;
+    }
+  }
+
+  return inside;
+};
+
+const edgeDistance = (rings: Array<Ring>, x: number, y: number) => {
+  let best = Infinity;
+
+  for (const ring of rings) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [ax, ay] = ring[j];
+      const [bx, by] = ring[i];
+      const dx = bx - ax;
+      const dy = by - ay;
+      const lengthSquared = dx * dx + dy * dy;
+      const t =
+        lengthSquared === 0
+          ? 0
+          : Math.max(
+              0,
+              Math.min(1, ((x - ax) * dx + (y - ay) * dy) / lengthSquared),
+            );
+
+      best = Math.min(best, Math.hypot(x - (ax + t * dx), y - (ay + t * dy)));
+    }
+  }
+
+  return best;
+};
+
+const centers = new WeakMap<MapLink, { x: number; y: number }>();
+
+const computeCenter = ({ x, y, width, height, outline }: MapLink) => {
+  const fallback = { x: x + width / 2, y: y + height / 2 };
+  const rings = (outline ?? []).filter((ring) => ring.length >= 3);
+
+  if (rings.length === 0) return fallback;
+
+  const largest = rings.reduce((best, ring) =>
+    Math.abs(ringArea(ring)) > Math.abs(ringArea(best)) ? ring : best,
+  );
+  const [cx, cy] = ringCentroid(largest) ?? [fallback.x, fallback.y];
+
+  if (insideRings(rings, cx, cy) && edgeDistance(rings, cx, cy) >= GAME_SQUARE)
+    return { x: cx, y: cy };
+
+  const xs = rings.flat().map(([px]) => px);
+  const ys = rings.flat().map(([, py]) => py);
+  let nearest: { x: number; y: number; gap: number } | undefined;
+  let roomiest: { x: number; y: number; room: number } | undefined;
+
+  for (let px = Math.min(...xs); px <= Math.max(...xs); px += SEARCH_STEP) {
+    for (let py = Math.min(...ys); py <= Math.max(...ys); py += SEARCH_STEP) {
+      if (!insideRings(rings, px, py)) continue;
+
+      const room = edgeDistance(rings, px, py);
+      const gap = Math.hypot(px - cx, py - cy);
+
+      if (!roomiest || room > roomiest.room) roomiest = { x: px, y: py, room };
+
+      if (room >= GAME_SQUARE && (!nearest || gap < nearest.gap))
+        nearest = { x: px, y: py, gap };
+    }
+  }
+
+  return nearest ?? roomiest ?? { x: cx, y: cy };
+};
+
+export const badgeCenter = (link: MapLink) => {
+  const known = centers.get(link);
+
+  if (known) return known;
+
+  const center = computeCenter(link);
+
+  centers.set(link, center);
+
+  return center;
 };
 
 const MONSTER_SPRITE = '/sprites/rby/overworld/monster.png';
