@@ -158,3 +158,30 @@ export const useMapLayers = (view: LayerView) => {
     mapLayers.filter(({ id }) => !isVisible(id)).map(({ id }) => id),
   );
 };
+
+const MID_ZOOM = -1;
+const CLOSE_ZOOM = 0;
+
+export const zoomTier = (zoom: number) =>
+  zoom < MID_ZOOM ? 0 : zoom < CLOSE_ZOOM ? 1 : 2;
+
+const worldLayerTier: Partial<Record<MapLayerId, number>> = {
+  items: 1,
+  'static-pokemon': 1,
+  'special-npcs': 1,
+  connections: 1,
+  trainers: 2,
+  npcs: 2,
+  'hidden-items': 2,
+  'wild-pokemon': 2,
+  signs: 2,
+};
+
+export const layersHiddenAtTier = (tier: number | undefined) =>
+  new Set(
+    mapLayers
+      .filter(
+        ({ id }) => tier === undefined || tier < (worldLayerTier[id] ?? 0),
+      )
+      .map(({ id }) => id),
+  );

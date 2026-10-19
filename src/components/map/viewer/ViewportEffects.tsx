@@ -243,3 +243,86 @@ export const ResyncAfterInterruptedZoom = () => {
 
   return null;
 };
+
+export const ReportZoom = ({
+  onZoomChange,
+}: {
+  onZoomChange: (zoom: number) => void;
+}) => {
+  const leafletMap = useMapEvents({
+    zoomend: () => onZoomChange(leafletMap.getZoom()),
+    moveend: () => onZoomChange(leafletMap.getZoom()),
+  });
+
+  useEffect(() => {
+    onZoomChange(leafletMap.getZoom());
+  }, [leafletMap, onZoomChange]);
+
+  return null;
+};
+
+export type ViewBox = {
+  minX: number;
+  minY: number;
+  maxX: number;
+  maxY: number;
+};
+
+const VIEW_BOX_SNAP = 256;
+const VIEW_BOX_MARGIN = 0.5;
+const VIEW_BOX_MAX_RATIO = 9;
+
+const viewBoxOf = (leafletMap: LeafletMap): ViewBox => {
+  const visible = leafletMap.getBounds();
+  const width = visible.getEast() - visible.getWest();
+  const height = visible.getNorth() - visible.getSouth();
+  const snapDown = (value: number) =>
+    Math.floor(value / VIEW_BOX_SNAP) * VIEW_BOX_SNAP;
+  const snapUp = (value: number) =>
+    Math.ceil(value / VIEW_BOX_SNAP) * VIEW_BOX_SNAP;
+
+  return {
+    minX: snapDown(visible.getWest() - width * VIEW_BOX_MARGIN),
+    maxX: snapUp(visible.getEast() + width * VIEW_BOX_MARGIN),
+    minY: snapDown(-visible.getNorth() - height * VIEW_BOX_MARGIN),
+    maxY: snapUp(-visible.getSouth() + height * VIEW_BOX_MARGIN),
+  };
+};
+
+const area = ({ minX, minY, maxX, maxY }: ViewBox) =>
+  (maxX - minX) * (maxY - minY);
+
+export const ReportViewBox = ({
+  onChange,
+}: {
+  onChange: (box: ViewBox) => void;
+}) => {
+  const current = useRef<ViewBox>(undefined);
+  const leafletMap = useMap();
+
+  const update = useCallback(() => {
+    const next = viewBoxOf(leafletMap);
+    const visible = leafletMap.getBounds();
+    const last = current.current;
+    const stillCovers =
+      last !== undefined &&
+      last.minX <= visible.getWest() &&
+      last.maxX >= visible.getEast() &&
+      last.minY <= -visible.getNorth() &&
+      last.maxY >= -visible.getSouth() &&
+      area(last) <= area(next) * VIEW_BOX_MAX_RATIO;
+
+    if (stillCovers) return;
+
+    current.current = next;
+    onChange(next);
+  }, [leafletMap, onChange]);
+
+  useMapEvents({ moveend: update, zoomend: update, resize: update });
+
+  useEffect(() => {
+    update();
+  }, [update]);
+
+  return null;
+};

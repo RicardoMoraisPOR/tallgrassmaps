@@ -72,6 +72,11 @@ const SettingsBody = ({ view, onViewChange, withWorld }: SettingsBodyProps) => {
           ))}
         </ToggleGroup>
       )}
+      {shown === 'world' && (
+        <p className="text-xs text-muted-foreground">
+          Busy layers only appear on the world map once you zoom in.
+        </p>
+      )}
       <div className="flex flex-col gap-4">
         {mapLayers.map((layer) => (
           <LayerRow

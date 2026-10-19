@@ -1,6 +1,11 @@
-import { useMemo, useRef, useState } from 'react';
+import { memo, useMemo, useRef, useState } from 'react';
 
-import { CRS, DomEvent, type Path as LeafletPath } from 'leaflet';
+import {
+  CRS,
+  DomEvent,
+  type LatLngTuple,
+  type Path as LeafletPath,
+} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { ImageOverlay, MapContainer, Pane, Tooltip } from 'react-leaflet';
 import { useNavigate } from 'react-router';
@@ -30,6 +35,9 @@ import {
   IconSizeForZoom,
   PanBounds,
   PixelatedWhenZoomedIn,
+  ReportViewBox,
+  ReportZoom,
+  type ViewBox,
   ResyncAfterInterruptedZoom,
 } from './viewer/ViewportEffects';
 
@@ -55,9 +63,41 @@ type MapViewerProps = {
   highlighted?: string;
   pinRequest?: { key: string; initial?: boolean };
   focusKey?: string;
+  onZoomChange?: (zoom: number) => void;
   zoomPosition?: ZoomPosition;
   className?: string;
 };
+
+type FloorImageProps = {
+  url: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  hidden: boolean;
+};
+
+const FloorImage = memo(
+  ({ url, x, y, width, height, hidden }: FloorImageProps) => {
+    const bounds = useMemo(
+      () =>
+        [toLatLng(x, y + height), toLatLng(x + width, y)] as [
+          LatLngTuple,
+          LatLngTuple,
+        ],
+      [x, y, width, height],
+    );
+
+    return (
+      <ImageOverlay
+        url={url}
+        className="map-tile-fade"
+        opacity={hidden ? 0 : 1}
+        bounds={bounds}
+      />
+    );
+  },
+);
 
 export const MapViewer = ({
   map,
@@ -67,6 +107,7 @@ export const MapViewer = ({
   highlighted,
   pinRequest,
   focusKey,
+  onZoomChange,
   zoomPosition,
   className,
 }: MapViewerProps) => {
@@ -76,6 +117,7 @@ export const MapViewer = ({
   const spriteShapes = useRef(
     new Map<string, { shape: LeafletPath; bottom: number }>(),
   );
+  const [viewBox, setViewBox] = useState<ViewBox>();
   const [hoverCardKey, setHoverCardKey] = useState<string>();
 
   const [pinnedCardKey, setPinnedCardKey] = useState<string>();
@@ -84,6 +126,16 @@ export const MapViewer = ({
   const cardKey = pinnedCardKey ?? hoverCardKey;
   const hoverCard = links.find(
     (link) => link.tooltip && linkKey(link) === cardKey,
+  );
+
+  const inView = (x: number, y: number, width: number, height: number) =>
+    viewBox !== undefined &&
+    x <= viewBox.maxX &&
+    x + width >= viewBox.minX &&
+    y <= viewBox.maxY &&
+    y + height >= viewBox.minY;
+  const shownLinks = links.filter(({ x, y, width, height }) =>
+    inView(x, y, width, height),
   );
 
   const onSelectedFloor = (link: MapLink) =>
@@ -116,10 +168,18 @@ export const MapViewer = ({
     onSelectedFloor(link) &&
     [link.highlightKey ?? link.href].flat().includes(highlighted);
 
-  const stackSpriteShapes = () =>
-    [...spriteShapes.current.values()]
-      .toSorted((a, b) => a.bottom - b.bottom)
-      .forEach(({ shape }) => shape.bringToFront());
+  const stackQueued = useRef(false);
+  const stackSpriteShapes = () => {
+    if (stackQueued.current) return;
+
+    stackQueued.current = true;
+    queueMicrotask(() => {
+      stackQueued.current = false;
+      [...spriteShapes.current.values()]
+        .toSorted((a, b) => a.bottom - b.bottom)
+        .forEach(({ shape }) => shape.bringToFront());
+    });
+  };
 
   const spriteShapeRef = (link: MapLink) => (shape: LeafletPath | null) => {
     if (!shape) {
@@ -157,18 +217,19 @@ export const MapViewer = ({
       <MapZoomControls position={zoomPosition ?? 'topleft'} />
       <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
         {stack ? (
-          stack.floors.map((floor) => (
-            <ImageOverlay
-              key={floor.id}
-              url={floor.image}
-              className="map-tile-fade"
-              opacity={stack.faded && floor.id !== stack.selected ? 0 : 1}
-              bounds={[
-                toLatLng(floor.x, floor.y + floor.height),
-                toLatLng(floor.x + floor.width, floor.y),
-              ]}
-            />
-          ))
+          stack.floors
+            .filter(({ x, y, width, height }) => inView(x, y, width, height))
+            .map((floor) => (
+              <FloorImage
+                key={floor.id}
+                url={floor.image}
+                x={floor.x}
+                y={floor.y}
+                width={floor.width}
+                height={floor.height}
+                hidden={Boolean(stack.faded) && floor.id !== stack.selected}
+              />
+            ))
         ) : (
           <ImageOverlay url={map.image} bounds={bounds} />
         )}
@@ -189,7 +250,7 @@ export const MapViewer = ({
           outlineSelected={stack.outlineSelected}
         />
       )}
-      {links.map(
+      {shownLinks.map(
         (link) =>
           link.sprite && (
             <MapSprite
@@ -209,7 +270,7 @@ export const MapViewer = ({
             />
           ),
       )}
-      {links.map(
+      {shownLinks.map(
         (link) =>
           link.icon && (
             <MapIcon
@@ -235,7 +296,7 @@ export const MapViewer = ({
       )}
       <Pane name={BEHIND_PANE} style={{ zIndex: 350 }} />
       <Pane name="links" style={{ zIndex: 450 }}>
-        {links
+        {shownLinks
           .filter((link) => !link.icon)
           .map((link) => (
             <LinkShape
@@ -370,6 +431,8 @@ export const MapViewer = ({
       {map.pixelated && <PixelatedWhenZoomedIn />}
       <IconSizeForZoom />
       <ResyncAfterInterruptedZoom />
+      <ReportViewBox onChange={setViewBox} />
+      {onZoomChange && <ReportZoom onZoomChange={onZoomChange} />}
     </MapContainer>
   );
 };

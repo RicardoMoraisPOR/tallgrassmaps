@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 
-import { divIcon } from 'leaflet';
+import { type DivIcon, type LatLngTuple, divIcon } from 'leaflet';
 import { Marker, Pane, Rectangle, useMap } from 'react-leaflet';
 
 import { toLatLng } from '../coordinates';
@@ -19,6 +19,45 @@ export type FloorFrame = {
   height: number;
 };
 
+type FrameOutlineProps = Omit<FloorFrame, 'name'> & {
+  highlighted: boolean;
+  onSelect: (id: string) => void;
+};
+
+const FrameOutline = memo(
+  ({ id, x, y, width, height, highlighted, onSelect }: FrameOutlineProps) => {
+    const bounds = useMemo(
+      () =>
+        [toLatLng(x, y + height), toLatLng(x + width, y)] as [
+          LatLngTuple,
+          LatLngTuple,
+        ],
+      [x, y, width, height],
+    );
+
+    return (
+      <Rectangle
+        bounds={bounds}
+        pane={FRAME_PANE}
+        className={
+          highlighted ? 'floor-frame floor-frame-selected' : 'floor-frame'
+        }
+        fill
+        fillOpacity={0}
+        eventHandlers={{ click: () => onSelect(id) }}
+      />
+    );
+  },
+);
+
+const FrameLabel = memo(
+  ({ x, y, icon }: { x: number; y: number; icon: DivIcon | undefined }) => {
+    const position = useMemo(() => toLatLng(x, y), [x, y]);
+
+    return <Marker position={position} interactive={false} icon={icon} />;
+  },
+);
+
 type FloorFramesProps = {
   frames: Array<FloorFrame>;
   selected: string;
@@ -35,6 +74,13 @@ export const FloorFrames = ({
   outlineSelected = true,
 }: FloorFramesProps) => {
   const leafletMap = useMap();
+  const latestSelect = useRef(onSelect);
+  const selectFrame = useCallback((id: string) => latestSelect.current(id), []);
+
+  useEffect(() => {
+    latestSelect.current = onSelect;
+  });
+
   const frameKey = frames.map(({ id, name }) => `${id}:${name}`).join('|');
 
   useEffect(() => {
@@ -66,28 +112,22 @@ export const FloorFrames = ({
   return (
     <Pane name={FRAME_PANE} className="map-tile-fade" style={{ zIndex: 320 }}>
       {frames.map((frame) => (
-        <Rectangle
+        <FrameOutline
           key={`${frame.id}:${frame.id === selected}`}
-          bounds={[
-            toLatLng(frame.x, frame.y + frame.height),
-            toLatLng(frame.x + frame.width, frame.y),
-          ]}
-          pane={FRAME_PANE}
-          className={
-            outlineSelected && frame.id === selected
-              ? 'floor-frame floor-frame-selected'
-              : 'floor-frame'
-          }
-          fill
-          fillOpacity={0}
-          eventHandlers={{ click: () => onSelect(frame.id) }}
+          id={frame.id}
+          x={frame.x}
+          y={frame.y}
+          width={frame.width}
+          height={frame.height}
+          highlighted={outlineSelected && frame.id === selected}
+          onSelect={selectFrame}
         />
       ))}
       {frames.map((frame) => (
-        <Marker
+        <FrameLabel
           key={`label-${frame.id}`}
-          position={toLatLng(frame.x, frame.y)}
-          interactive={false}
+          x={frame.x}
+          y={frame.y}
           icon={icons.get(frame.id)}
         />
       ))}

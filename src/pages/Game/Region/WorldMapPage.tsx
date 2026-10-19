@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Gamepad2, Info, Map as MapIcon } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import type { MapLink } from '@/components/map/viewer/types';
+import { useProgressiveLinks } from '@/components/map/viewer/useProgressiveLinks';
 import {
   handOffView,
   hasHandedOffView,
@@ -19,7 +20,11 @@ import type { LayeredMapLink } from '../Location/links/types';
 import { LocationPanel } from '../Location/LocationPanel';
 import { locationPanelTabs } from '../Location/locationPanelTabs';
 import { buildLocationView } from '../Location/locationView';
-import { useMapLayers } from '../Location/mapLayers';
+import {
+  layersHiddenAtTier,
+  useMapLayers,
+  zoomTier,
+} from '../Location/mapLayers';
 import { ShopDialog } from '../Location/ShopDialog';
 import { offsetLink } from '../Location/stackLayout';
 import { TownMapCard } from '../Location/TownMapCard';
@@ -91,43 +96,73 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const height = Math.max(...floors.map(({ y, height: h }) => y + h));
 
   const selected = placed.find(({ id }) => id === tile);
-  const at = selected ? world[selected.id] : undefined;
   const dataPath = selected ? (selected.dataPath ?? selected.id) : '';
-  const view = selected
-    ? buildLocationView(
-        {
-          route,
-          location: selected,
-          trail: [selected],
-          dataPath,
-          navigate,
-          pokedexLink,
-          openTownMap: () => setTownMapOpen(true),
-          openShop: (shops, selected) => setShop({ shops, selected }),
-          selectTrainer: setTrainerKey,
-        },
-        undefined,
-      )
-    : undefined;
+  const placedKey = placed.map(({ id }) => id).join('|');
+  const pokedexSearch = pokedexLink.to.search;
+  const tiles = useMemo(() => {
+    const placeLink = (link: LayeredMapLink, tileId: string): MapLink => {
+      const target = WORLD_HREF.exec(link.href ?? '')?.[1];
+      const toTile = target && world[target] ? target : undefined;
+      const at = world[tileId];
+      const moved = offsetLink(
+        toTile
+          ? { ...link, href: undefined, onClick: () => selectTile(toTile) }
+          : link,
+        at.x,
+        at.y,
+      );
 
-  const placeLink = (link: LayeredMapLink): MapLink => {
-    const target = WORLD_HREF.exec(link.href ?? '')?.[1];
-    const toTile = target && world[target] ? target : undefined;
-    const moved = offsetLink(
-      toTile
-        ? { ...link, href: undefined, onClick: () => selectTile(toTile) }
-        : link,
-      at?.x ?? 0,
-      at?.y ?? 0,
+      return { ...moved, floorId: tileId };
+    };
+
+    return new Map(
+      placed.map((location) => {
+        const built = buildLocationView(
+          {
+            route,
+            location,
+            trail: [location],
+            dataPath: location.dataPath ?? location.id,
+            navigate,
+            pokedexLink,
+            openTownMap: () => setTownMapOpen(true),
+            openShop: (shops, selected) => setShop({ shops, selected }),
+            selectTrainer: setTrainerKey,
+          },
+          undefined,
+        );
+
+        return [
+          location.id,
+          {
+            view: built,
+            links: built.links.map((link) => ({
+              layer: link.layer,
+              placed: placeLink(link, location.id),
+            })),
+          },
+        ];
+      }),
     );
+  }, [game.id, region.id, placedKey, pokedexSearch, navigate]);
+  const view = selected ? tiles.get(selected.id)?.view : undefined;
+  const links = selected
+    ? (tiles.get(selected.id)?.links.map(({ placed: link }) => link) ?? [])
+    : [];
+  const [tier, setTier] = useState<number>();
+  const hiddenNow = new Set([...hiddenLayers, ...layersHiddenAtTier(tier)]);
+  const hiddenKey = [...hiddenNow].toSorted().join('|');
+  const visibleLinks = useMemo(
+    () =>
+      [...tiles.values()].flatMap((tileData) =>
+        tileData.links
+          .filter(({ layer }) => !hiddenNow.has(layer))
+          .map(({ placed: link }) => link),
+      ),
+    [tiles, hiddenKey],
+  );
 
-    return { ...moved, floorId: selected?.id };
-  };
-  const links = view?.links.map(placeLink) ?? [];
-  const visibleLinks =
-    view?.links
-      .filter((link) => !hiddenLayers.has(link.layer))
-      .map(placeLink) ?? [];
+  const renderedLinks = useProgressiveLinks(visibleLinks);
 
   const panel =
     view && selected ? (
@@ -137,7 +172,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           dataPath,
           view,
           sections: view.layerSections,
-          hiddenLayers,
+          hiddenLayers: hiddenNow,
           onHighlight: setHighlight,
           onSelectTrainer: setTrainerKey,
           onPin: setPinRequest,
@@ -167,10 +202,11 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               faded,
               outlineSelected: false,
             }}
-            links={visibleLinks}
+            links={renderedLinks}
             highlightable={links}
             highlighted={highlight}
             pinRequest={pinRequest ? { key: pinRequest } : undefined}
+            onZoomChange={(zoom) => setTier(zoomTier(zoom))}
             zoomPosition="bottomleft"
             className="size-full"
           />
@@ -181,6 +217,8 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               worldFirst
               onChange={(next) => {
                 if (next) return;
+
+                const at = selected ? world[selected.id] : undefined;
 
                 setFaded(true);
                 setTimeout(() => {
