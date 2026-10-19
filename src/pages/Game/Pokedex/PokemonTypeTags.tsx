@@ -28,7 +28,7 @@ export const PokemonTypeTags = ({
               : undefined
           }
           className={cn(
-            'pokemon-type-tag rounded-full border border-(--pokemon-type-white-theme-color) px-1.5 pt-0.5 pb-px text-[11px] leading-none text-(--pokemon-type-white-theme-color) capitalize dark:border-(--pokemon-type-dark-theme-color) dark:text-(--pokemon-type-dark-theme-color) pokedex-game:rounded-none pokedex-game:border-2 pokedex-game:px-1 pokedex-game:py-[3px] pokedex-game:text-[8px]',
+            'pokemon-type-tag rounded-full border border-(--pokemon-type-white-theme-color) px-1.5 pt-0.5 pb-px text-[11px] leading-none text-(--pokemon-type-white-theme-color) capitalize dark:border-(--pokemon-type-dark-theme-color) dark:text-(--pokemon-type-dark-theme-color) pokedex-game:rounded-none pokedex-game:border-2 pokedex-game:px-1 pokedex-game:py-[3px] pokedex-game:text-[8px] pokedex-za:rounded-sm pokedex-za:border-transparent! pokedex-za:bg-(--pokemon-type-white-theme-color)! pokedex-za:font-bold pokedex-za:text-white!',
             large && 'px-2 text-xs',
           )}
         >

@@ -63,3 +63,6 @@ export const mapStepArt: Record<ThemeStyle, string> = {
     '<svg viewBox="-3 -3 30 30" aria-hidden="true"><path d="M12 1.5 23 13h-6.5v9.5h-9V13H1z" fill="var(--step-ink)" stroke="var(--step-edge)" stroke-width="4.5" stroke-linejoin="round" paint-order="stroke"/></svg>',
   game: '<svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="var(--step-edge)" d="M3 0h3v1h-3zM2 1h5v1h-5zM1 2h7v1h-7zM0 3h9v3h-9zM2 6h5v3h-5z"/><path fill="var(--step-ink)" d="M4 1h1v1h-1zM3 2h3v1h-3zM2 3h5v1h-5zM1 4h7v1h-7zM3 5h3v3h-3z"/></svg>',
 };
+
+export const zaDoorArt =
+  '<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="za-marker" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d8bd0"/><stop offset="1" stop-color="#0a3566"/></linearGradient></defs><path d="M10 1.5h12L30.5 10v12L22 30.5H10L1.5 22V10z" fill="url(#za-marker)" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M11 23V10a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 23h15" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="18.5" cy="16.5" r="1.3" fill="#a6e22e"/></svg>';

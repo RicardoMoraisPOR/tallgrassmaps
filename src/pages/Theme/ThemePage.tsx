@@ -6,7 +6,7 @@ import { games } from '@/data/games';
 import { pokemonTypeColors } from '@/pages/Game/Pokedex/pokemonTypeColors';
 
 import { ComponentSamples } from './ComponentSamples';
-import { MapIconSamples } from './MapIconSamples';
+import { MapIconSamples, ZaIconSamples } from './MapIconSamples';
 import { MapPopupSamples } from './MapPopupSamples';
 import {
   coreTokens,
@@ -151,7 +151,7 @@ export const ThemePage = () => {
             <MapIconSamples style="tall-grass" />
           </SkinGroup>
           <SkinGroup title="Map popups">
-            <MapPopupSamples style="tall-grass" />
+            <MapPopupSamples skin="tall-grass" />
           </SkinGroup>
         </div>
       </Section>
@@ -163,7 +163,7 @@ export const ThemePage = () => {
             <MapIconSamples style="game" />
           </SkinGroup>
           <SkinGroup title="Map popups">
-            <MapPopupSamples style="game" />
+            <MapPopupSamples skin="rby" />
           </SkinGroup>
         </div>
       </Section>
@@ -172,12 +172,11 @@ export const ThemePage = () => {
           <TokenSwatches tokens={legendsZaTokens} />
           <ComponentSamples />
           <SkinGroup title="Map icons">
-            <MapIconSamples style="game" wildBadge={false} />
+            <ZaIconSamples />
           </SkinGroup>
-          <p className="text-xs text-muted-foreground">
-            Z-A has no popup skin of its own; its map popups use the Tall Grass
-            skin above.
-          </p>
+          <SkinGroup title="Map popups">
+            <MapPopupSamples skin="za" />
+          </SkinGroup>
         </div>
       </Section>
     </Container>

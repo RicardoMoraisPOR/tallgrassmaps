@@ -26,12 +26,12 @@ import { useSettingsStore } from '@/stores/settings';
 
 import { hotspotBorder, imageBounds, toLatLng } from './coordinates';
 import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
-import { mapIconArt } from './viewer/iconArt';
+import { mapIconArt, zaDoorArt } from './viewer/iconArt';
 import { zoneLayerOf, zoneLayersOf } from './zoneLayers';
 import { ZoneLayerToggle } from './ZoneLayerToggle';
 
 const MIN_ZOOM = -8;
-const DOOR_SIZE = 26;
+const DOOR_SIZE = 30;
 const INTERACTION_MS = 1500;
 const NO_BOUNDS = latLngBounds([]);
 const MAX_ZOOM = 3;
@@ -262,9 +262,6 @@ const ZoneCamera = ({ zone, full, rightInset }: ZoneCameraProps) => {
   return null;
 };
 
-const zaDoorArt =
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v16"/><path d="M3 21h18"/><circle cx="14.5" cy="12.5" r="0.9" fill="currentColor"/></svg>';
-
 const DoorMarker = ({ x, y }: { x: number; y: number }) => {
   const style = useThemeStyle('mapIcons');
   const icon = useMemo(
@@ -432,7 +429,12 @@ export const SeamlessMap = ({
             }}
           >
             {!isSelected && (
-              <Tooltip sticky direction="top" className="zone-tooltip">
+              <Tooltip
+                sticky
+                direction="top"
+                opacity={1}
+                className="zone-tooltip"
+              >
                 <ZoneName name={zone.name} />
               </Tooltip>
             )}

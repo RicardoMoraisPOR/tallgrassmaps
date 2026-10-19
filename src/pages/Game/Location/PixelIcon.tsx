@@ -37,15 +37,6 @@ const bitmaps = {
     'X.X.X.X',
     'XXXXXXX',
   ],
-  sign: [
-    'XXXXXXX',
-    'XXXXXXX',
-    'XXXXXXX',
-    '...X...',
-    '...X...',
-    '...X...',
-    '...X...',
-  ],
   gift: [
     '.XX.XX.',
     'X..X..X',

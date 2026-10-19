@@ -159,7 +159,6 @@ export const buildLocationView = (
       signs: signsFor(route.region.versionGroup)?.filter(onThisMap),
       signTooltip: (sign) => (
         <MapTextTooltip
-          sign
           text={sign.opens ? openableNames[sign.opens] : sign.text}
         />
       ),

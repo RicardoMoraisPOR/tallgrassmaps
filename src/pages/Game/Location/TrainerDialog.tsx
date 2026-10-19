@@ -5,7 +5,7 @@ import { MessageSquare } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
 import { Collapse } from '@/components/Collapse';
-import { useThemeStyle } from '@/components/settings/themes';
+import { useThemeSkin } from '@/components/settings/themes';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -50,7 +50,8 @@ export const TrainerDialog = ({
 }: TrainerDialogProps) => {
   const navigate = useNavigate();
   const spriteFor = usePokemonSprite(game);
-  const gameTheme = useThemeStyle('trainers') === 'game';
+  const skin = useThemeSkin('trainers');
+  const gameTheme = skin === 'rby';
   const [showingDialog, setShowingDialog] = useState(false);
   const [picked, setPicked] = useState<number>();
 
@@ -97,6 +98,7 @@ export const TrainerDialog = ({
         className={cn(
           'flex max-h-[85svh] flex-col p-0 sm:max-w-3xl',
           gameTheme && 'pokedex-game gb-frame rounded-none ring-0 sm:max-w-2xl',
+          skin === 'za' && 'pokedex-za za-dialog ring-0',
         )}
       >
         {listed && (

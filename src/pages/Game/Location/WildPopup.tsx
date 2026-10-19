@@ -1,5 +1,5 @@
 import '@fontsource/press-start-2p';
-import type { ComponentType } from 'react';
+import type { ComponentType, ComponentProps } from 'react';
 
 import {
   Building2,
@@ -11,7 +11,7 @@ import {
   Waves,
 } from 'lucide-react';
 
-import { useThemeStyle } from '@/components/settings/themes';
+import { useThemeSkin } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
 import type { WildTerrain } from '@/data/maps';
 import type { Encounter, PokedexEntry } from '@/data/pokedex/types';
@@ -25,6 +25,7 @@ import type { EncounterGroup } from './encounters';
 import { EncounterList } from './EncountersTab';
 import { PixelIcon, type PixelIconName } from './PixelIcon';
 import { PokedexEntryLink } from './PokedexEntryLink';
+import { ZaFrame } from './ZaFrame';
 
 type WildPopupProps = {
   game: Game;
@@ -93,14 +94,14 @@ const gameLevelLabel = ({ levels }: Encounter) => {
   return min === max ? `:L${min}` : `:L${min}-${max}`;
 };
 
-export const WildPopup = ({
+const WildPopupBody = ({
   game,
   path,
   groups,
   note,
   terrain = 'grass',
 }: WildPopupProps) => {
-  const gameTheme = useThemeStyle('pokemonPopups') === 'game';
+  const gameTheme = useThemeSkin('pokemonPopups') === 'rby';
 
   const waterGroups = groups.filter(({ method }) => method !== 'walk');
   const titleFor = ({ method }: EncounterGroup) => {
@@ -226,8 +227,8 @@ const staticNote = ({ kind, note, pokemon }: StaticPokemon) => {
   return pokemon.length > 1 ? 'Gift, choose one' : 'Gift';
 };
 
-export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
-  const gameTheme = useThemeStyle('pokemonPopups') === 'game';
+const StaticPopupBody = ({ game, marker, pokedex }: StaticPopupProps) => {
+  const gameTheme = useThemeSkin('pokemonPopups') === 'rby';
   const spriteFor = usePokemonSprite(game);
 
   const nameOf = (number: number) =>
@@ -327,3 +328,15 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
     </div>
   );
 };
+
+export const WildPopup = (props: ComponentProps<typeof WildPopupBody>) => (
+  <ZaFrame active={useThemeSkin('pokemonPopups') === 'za'}>
+    <WildPopupBody {...props} />
+  </ZaFrame>
+);
+
+export const StaticPopup = (props: ComponentProps<typeof StaticPopupBody>) => (
+  <ZaFrame active={useThemeSkin('pokemonPopups') === 'za'}>
+    <StaticPopupBody {...props} />
+  </ZaFrame>
+);

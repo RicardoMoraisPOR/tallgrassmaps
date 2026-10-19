@@ -11,7 +11,10 @@ import {
   useSettingsStore,
 } from '@/stores/settings';
 
-import { ThemeOverrideContext } from './themeOverride';
+import {
+  ThemeOverrideContext,
+  ThemeVersionGroupContext,
+} from './themeOverride';
 
 export const themeAreas: Array<{
   area: ThemeArea;
@@ -80,7 +83,14 @@ const gameThemes: Partial<Record<string, ReadonlyArray<ThemeArea>>> = {
     'pokemonPopups',
     'sprites',
   ],
-  ZA: ['pokedex', 'mapIcons', 'sprites'],
+  ZA: [
+    'pokedex',
+    'mapIcons',
+    'dialogBoxes',
+    'trainers',
+    'pokemonPopups',
+    'sprites',
+  ],
 };
 
 const hasGameTheme = (area: ThemeArea, versionGroup: string | undefined) =>
@@ -104,13 +114,30 @@ export const resolveTheme = (
     : style;
 };
 
-export const useThemeStyle = (area: ThemeArea) => {
-  const override = useContext(ThemeOverrideContext);
+const useVersionGroup = () => {
+  const override = useContext(ThemeVersionGroupContext);
   const { gameId } = useParams();
   const game = getGame(gameId);
-  const versionGroup = game && getRegion(game.region)?.versionGroup;
+
+  return override ?? (game && getRegion(game.region)?.versionGroup);
+};
+
+export const useThemeStyle = (area: ThemeArea) => {
+  const override = useContext(ThemeOverrideContext);
+  const versionGroup = useVersionGroup();
 
   return useSettingsStore(
     (state) => override ?? resolveTheme(area, state, versionGroup),
   );
+};
+
+export type ThemeSkin = 'tall-grass' | 'rby' | 'za';
+
+export const useThemeSkin = (area: ThemeArea): ThemeSkin => {
+  const style = useThemeStyle(area);
+  const versionGroup = useVersionGroup();
+
+  if (style !== 'game') return 'tall-grass';
+
+  return versionGroup === 'ZA' ? 'za' : 'rby';
 };

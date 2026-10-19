@@ -1,9 +1,9 @@
 import '@fontsource/press-start-2p';
-import { Fragment } from 'react';
+import { Fragment, type ComponentProps } from 'react';
 
 import { Swords } from 'lucide-react';
 
-import { useThemeStyle } from '@/components/settings/themes';
+import { useThemeSkin } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
 import type { PokedexEntry } from '@/data/pokedex/types';
 import type { TrainerParty } from '@/data/trainers/types';
@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { GameTrainerAvatar } from './GameTrainerAvatar';
 import type { ListedBattle } from './trainerList';
 import { TrainerPartyTiles } from './TrainerPartyTiles';
+import { ZaFrame } from './ZaFrame';
 
 type TrainerTooltipProps = {
   listed: ListedBattle;
@@ -21,13 +22,13 @@ type TrainerTooltipProps = {
   pokedex: Array<PokedexEntry>;
 };
 
-export const TrainerTooltip = ({
+const TrainerTooltipBody = ({
   listed: { battle, number },
   encounters = 1,
   game,
   pokedex,
 }: TrainerTooltipProps) => {
-  const gameTheme = useThemeStyle('trainers') === 'game';
+  const gameTheme = useThemeSkin('trainers') === 'rby';
   const spriteFor = usePokemonSprite(game);
 
   const byChoice = battle.choicePrompt !== undefined;
@@ -208,4 +209,12 @@ const GameParty = ({
       ))}
     </ul>
   </div>
+);
+
+export const TrainerTooltip = (
+  props: ComponentProps<typeof TrainerTooltipBody>,
+) => (
+  <ZaFrame active={useThemeSkin('trainers') === 'za'}>
+    <TrainerTooltipBody {...props} />
+  </ZaFrame>
 );

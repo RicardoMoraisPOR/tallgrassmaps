@@ -1,18 +1,17 @@
 import '@fontsource/press-start-2p';
-import { type ReactNode, useState } from 'react';
+import { type ReactNode, useState, type ComponentProps } from 'react';
 
 import {
   ArrowLeftRight,
   ChevronLeft,
   ChevronRight,
   CircleHelp,
-  Signpost,
   UserRound,
 } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { Collapse } from '@/components/Collapse';
-import { useThemeStyle } from '@/components/settings/themes';
+import { useThemeSkin } from '@/components/settings/themes';
 import type { Game } from '@/data/games';
 import type { NpcDialog, NpcTrade, NpcPokemon } from '@/data/npcs/types';
 import { usePokemonSprite } from '@/hooks/usePokemonSprite';
@@ -20,7 +19,7 @@ import { cn } from '@/lib/utils';
 
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { GiftBox } from './GiftBox';
-import { PixelIcon } from './PixelIcon';
+import { ZaFrame } from './ZaFrame';
 
 const LONG_TEXT = 60;
 
@@ -180,7 +179,6 @@ const PokemonSquare = ({
 );
 
 type MapTextTooltipProps = {
-  sign?: boolean;
   name?: string;
   text?: string;
   dialog?: Array<NpcDialog>;
@@ -189,8 +187,7 @@ type MapTextTooltipProps = {
   sprite?: string;
 };
 
-export const MapTextTooltip = ({
-  sign,
+const MapTextTooltipBody = ({
   name,
   text,
   dialog = [],
@@ -198,7 +195,7 @@ export const MapTextTooltip = ({
   presence,
   sprite,
 }: MapTextTooltipProps) => {
-  const gameTheme = useThemeStyle('dialogBoxes') === 'game';
+  const gameTheme = useThemeSkin('dialogBoxes') === 'rby';
   const [page, setPage] = useState(0);
   const [showingTriggers, setShowingTriggers] = useState(false);
 
@@ -256,8 +253,6 @@ export const MapTextTooltip = ({
       {toggle}
     </div>
   );
-
-  const signBody = gameTheme && sign && !name && dialog.length === 0;
 
   const body = shownText && (
     <p
@@ -330,29 +325,6 @@ export const MapTextTooltip = ({
       {presence}
     </p>
   );
-
-  if (!gameTheme && sign && !name && dialog.length === 0) {
-    return (
-      <div className="flex w-max max-w-80 items-start gap-2.5 rounded-sm bg-popover py-2 pr-3.5 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
-        <span
-          aria-hidden
-          className="mt-0.5 grid size-9 flex-none place-items-center rounded-sm"
-          style={{
-            background: 'color-mix(in oklch, var(--map-sign) 22%, transparent)',
-            color: 'var(--map-sign)',
-          }}
-        >
-          <Signpost className="size-5" />
-        </span>
-        <div className="flex min-w-0 flex-col gap-1.5">
-          <p className="text-base leading-snug whitespace-pre-line">
-            {shownText}
-          </p>
-          {presenceNote}
-        </div>
-      </div>
-    );
-  }
 
   if (!gameTheme && name) {
     return (
@@ -431,14 +403,7 @@ export const MapTextTooltip = ({
           {header}
         </div>
       )}
-      {signBody ? (
-        <div className="flex items-start gap-2.5">
-          <PixelIcon name="sign" className="mt-0.5 size-3.5 flex-none" />
-          {body}
-        </div>
-      ) : (
-        body
-      )}
+      {body}
       {giftSquare}
       {tradeSquare}
       {pokemonSquare}
@@ -447,3 +412,11 @@ export const MapTextTooltip = ({
     </div>
   );
 };
+
+export const MapTextTooltip = (
+  props: ComponentProps<typeof MapTextTooltipBody>,
+) => (
+  <ZaFrame active={useThemeSkin('dialogBoxes') === 'za'}>
+    <MapTextTooltipBody {...props} />
+  </ZaFrame>
+);

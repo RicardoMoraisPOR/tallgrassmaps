@@ -1,8 +1,11 @@
 import '@fontsource/press-start-2p';
-import { useThemeStyle } from '@/components/settings/themes';
+import type { ComponentProps } from 'react';
+
+import { useThemeSkin } from '@/components/settings/themes';
 import { itemDetails } from '@/data/items/details';
 
 import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
+import { ZaFrame } from './ZaFrame';
 
 const BALL_SPRITE = '/sprites/rby/overworld/poke_ball.png';
 
@@ -14,14 +17,14 @@ type ItemPopupProps = {
   sprite?: string;
 };
 
-export const ItemPopup = ({
+const ItemPopupBody = ({
   name,
   hidden = false,
   requires = [],
   note,
   sprite = BALL_SPRITE,
 }: ItemPopupProps) => {
-  const gameTheme = useThemeStyle('dialogBoxes') === 'game';
+  const gameTheme = useThemeSkin('dialogBoxes') === 'rby';
   const { effect, moveType } = itemDetails(name);
   const needs = requires.length > 0 && `Needs ${requires.join(' and ')}`;
   const accent = hidden ? '--map-hidden-item' : '--map-item';
@@ -98,3 +101,9 @@ export const ItemPopup = ({
     </div>
   );
 };
+
+export const ItemPopup = (props: ComponentProps<typeof ItemPopupBody>) => (
+  <ZaFrame active={useThemeSkin('dialogBoxes') === 'za'}>
+    <ItemPopupBody {...props} />
+  </ZaFrame>
+);

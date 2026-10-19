@@ -1,4 +1,8 @@
-import { mapIconArt, mapStepArt } from '@/components/map/viewer/iconArt';
+import {
+  mapIconArt,
+  mapStepArt,
+  zaDoorArt,
+} from '@/components/map/viewer/iconArt';
 import type { MapIconKind } from '@/components/map/viewer/types';
 import { wildBadgeHtml } from '@/components/map/viewer/WildAreaArt';
 import { cn } from '@/lib/utils';
@@ -82,3 +86,26 @@ export const MapIconSamples = ({
     </ul>
   );
 };
+
+export const ZaIconSamples = () => (
+  <ul className="flex flex-wrap gap-3">
+    <li className="flex w-24 flex-col items-center gap-2 rounded-sm border bg-muted/40 p-3">
+      <span
+        className="map-icon map-icon-za"
+        dangerouslySetInnerHTML={{ __html: zaDoorArt }}
+      />
+      <span className="text-center font-mono text-[10px] text-muted-foreground">
+        door
+      </span>
+    </li>
+    <li className="flex w-40 flex-col items-center gap-2 rounded-sm border bg-muted/40 p-3">
+      <span className="zone-tooltip">
+        Wild Zone
+        <span className="zone-tooltip-number">6</span>
+      </span>
+      <span className="text-center font-mono text-[10px] text-muted-foreground">
+        zone tooltip
+      </span>
+    </li>
+  </ul>
+);

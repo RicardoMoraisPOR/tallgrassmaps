@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { Store } from 'lucide-react';
 
-import { useThemeStyle } from '@/components/settings/themes';
+import { useThemeSkin } from '@/components/settings/themes';
 import {
   Dialog,
   DialogContent,
@@ -25,7 +25,8 @@ const tabLabel = ({ floor, name }: Shop) =>
   [floor?.toUpperCase(), name].filter(Boolean).join(' · ');
 
 export const ShopDialog = ({ shop, onClose }: ShopDialogProps) => {
-  const gameTheme = useThemeStyle('trainers') === 'game';
+  const skin = useThemeSkin('trainers');
+  const gameTheme = skin === 'rby';
   const [picked, setPicked] = useState<string>();
 
   if (!shop && picked !== undefined) setPicked(undefined);
@@ -45,6 +46,7 @@ export const ShopDialog = ({ shop, onClose }: ShopDialogProps) => {
         className={cn(
           'flex max-h-[85svh] flex-col gap-0 p-0 sm:max-w-lg',
           gameTheme && 'pokedex-game gb-frame rounded-none ring-0 sm:max-w-md',
+          skin === 'za' && 'pokedex-za za-dialog ring-0',
         )}
       >
         {current && (
