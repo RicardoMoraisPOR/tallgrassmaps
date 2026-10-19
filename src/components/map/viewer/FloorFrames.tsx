@@ -51,10 +51,28 @@ const FrameOutline = memo(
 );
 
 const FrameLabel = memo(
-  ({ x, y, icon }: { x: number; y: number; icon: DivIcon | undefined }) => {
+  ({
+    id,
+    x,
+    y,
+    icon,
+    onSelect,
+  }: {
+    id: string;
+    x: number;
+    y: number;
+    icon: DivIcon | undefined;
+    onSelect: (id: string) => void;
+  }) => {
     const position = useMemo(() => toLatLng(x, y), [x, y]);
 
-    return <Marker position={position} interactive={false} icon={icon} />;
+    return (
+      <Marker
+        position={position}
+        icon={icon}
+        eventHandlers={{ click: () => onSelect(id) }}
+      />
+    );
   },
 );
 
@@ -126,6 +144,8 @@ export const FloorFrames = ({
       {frames.map((frame) => (
         <FrameLabel
           key={`label-${frame.id}`}
+          id={frame.id}
+          onSelect={selectFrame}
           x={frame.x}
           y={frame.y}
           icon={icons.get(frame.id)}

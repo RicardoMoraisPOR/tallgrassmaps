@@ -269,7 +269,7 @@ export type ViewBox = {
 };
 
 const VIEW_BOX_SNAP = 256;
-const VIEW_BOX_MARGIN = 0.5;
+const VIEW_BOX_MARGIN = 1;
 const VIEW_BOX_MAX_RATIO = 9;
 
 const viewBoxOf = (leafletMap: LeafletMap): ViewBox => {
@@ -318,7 +318,12 @@ export const ReportViewBox = ({
     onChange(next);
   }, [leafletMap, onChange]);
 
-  useMapEvents({ moveend: update, zoomend: update, resize: update });
+  useMapEvents({
+    move: update,
+    moveend: update,
+    zoomend: update,
+    resize: update,
+  });
 
   useEffect(() => {
     update();

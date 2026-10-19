@@ -53,6 +53,7 @@ export type FloorStack = {
   flyOnMount?: boolean;
   faded?: boolean;
   outlineSelected?: boolean;
+  actOnAnyFloor?: boolean;
 };
 
 type MapViewerProps = {
@@ -142,9 +143,17 @@ export const MapViewer = ({
     !stack || link.floorId === stack.selected;
 
   const otherFloorId = (link: MapLink) =>
-    stack && link.floorId && link.floorId !== stack.selected
+    stack &&
+    !stack.actOnAnyFloor &&
+    link.floorId &&
+    link.floorId !== stack.selected
       ? link.floorId
       : undefined;
+
+  const selectOwnFloor = (link: MapLink) => {
+    if (stack?.actOnAnyFloor && link.floorId && link.floorId !== stack.selected)
+      stack.onSelect(link.floorId);
+  };
 
   const focusLink =
     focusKey &&
@@ -217,19 +226,17 @@ export const MapViewer = ({
       <MapZoomControls position={zoomPosition ?? 'topleft'} />
       <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
         {stack ? (
-          stack.floors
-            .filter(({ x, y, width, height }) => inView(x, y, width, height))
-            .map((floor) => (
-              <FloorImage
-                key={floor.id}
-                url={floor.image}
-                x={floor.x}
-                y={floor.y}
-                width={floor.width}
-                height={floor.height}
-                hidden={Boolean(stack.faded) && floor.id !== stack.selected}
-              />
-            ))
+          stack.floors.map((floor) => (
+            <FloorImage
+              key={floor.id}
+              url={floor.image}
+              x={floor.x}
+              y={floor.y}
+              width={floor.width}
+              height={floor.height}
+              hidden={Boolean(stack.faded) && floor.id !== stack.selected}
+            />
+          ))
         ) : (
           <ImageOverlay url={map.image} bounds={bounds} />
         )}
@@ -278,6 +285,7 @@ export const MapViewer = ({
               link={link}
               icon={link.icon}
               active={isHighlighted(link) || pinnedCardKey === linkKey(link)}
+              onActivate={() => selectOwnFloor(link)}
               onFloorSwitch={
                 otherFloorId(link)
                   ? () => stack?.onSelect(otherFloorId(link)!)
@@ -337,6 +345,7 @@ export const MapViewer = ({
                     return;
                   }
 
+                  selectOwnFloor(link);
                   link.onClick?.();
 
                   if (link.tooltip && link.tooltipOnClick) {

@@ -201,6 +201,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               flyOnMount: Boolean(selected) && !handedOff,
               faded,
               outlineSelected: false,
+              actOnAnyFloor: true,
             }}
             links={renderedLinks}
             highlightable={links}

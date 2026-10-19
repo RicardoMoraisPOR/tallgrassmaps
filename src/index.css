@@ -738,6 +738,8 @@ path.leaflet-interactive:focus {
 }
 
 .floor-label {
+  pointer-events: auto;
+  cursor: pointer;
   display: inline-block;
   white-space: nowrap;
   padding: 1px 8px;

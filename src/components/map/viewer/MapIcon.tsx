@@ -31,12 +31,14 @@ export const MapIcon = ({
   icon,
   active,
   onFloorSwitch,
+  onActivate,
   onSelect,
 }: {
   link: MapLink;
   icon: MapIconKind;
   active: boolean;
   onFloorSwitch?: () => void;
+  onActivate?: () => void;
   onSelect?: () => void;
 }) => {
   const navigate = useNavigate();
@@ -85,6 +87,8 @@ export const MapIcon = ({
 
             return;
           }
+
+          onActivate?.();
 
           if (onSelect) {
             DomEvent.stopPropagation(event);
