@@ -247,10 +247,10 @@ const EncounterRow = ({
     highlightKeyFor?.(row),
     onHighlight,
   );
-  const nameClassName = 'truncate text-xs font-medium';
+  const nameClassName = 'truncate text-sm font-medium';
 
   return (
-    <li className="flex items-center gap-2 pt-1 pb-2">
+    <li className="flex items-center gap-2.5 pt-1.5 pb-2.5">
       <img
         src={sprite.src}
         alt=""
@@ -258,7 +258,7 @@ const EncounterRow = ({
         height={96}
         loading="lazy"
         className={cn(
-          'size-9 flex-none object-contain',
+          'size-11 flex-none object-contain',
           sprite.pixelated && 'pixelated',
         )}
       />
@@ -278,20 +278,20 @@ const EncounterRow = ({
             </span>
           )}
           {levels && (
-            <span className="shrink-0 text-xs text-muted-foreground">
+            <span className="shrink-0 text-sm text-muted-foreground">
               {levels}
             </span>
           )}
         </div>
-        <PokemonTypeTags types={entry.types} />
+        <PokemonTypeTags types={entry.types} large />
         {details.length > 0 && (
-          <p className="text-xs text-muted-foreground">{details.join(' · ')}</p>
+          <p className="text-sm text-muted-foreground">{details.join(' · ')}</p>
         )}
       </div>
       {chance && (
         <span
           title="Chance to appear here"
-          className="text-xs font-medium tabular-nums"
+          className="text-sm font-medium tabular-nums"
         >
           {chance}
           <span className="sr-only"> chance to appear</span>

@@ -1,5 +1,6 @@
 import { mapIconArt, mapStepArt } from '@/components/map/viewer/iconArt';
 import type { MapIconKind } from '@/components/map/viewer/types';
+import { wildBadgeHtml } from '@/components/map/viewer/WildAreaArt';
 import { cn } from '@/lib/utils';
 import type { ThemeStyle } from '@/stores/settings';
 
@@ -27,7 +28,13 @@ const SAMPLES: Array<Sample> = [
 
 const ICON_PIXELS = 32;
 
-export const MapIconSamples = ({ style }: { style: ThemeStyle }) => {
+export const MapIconSamples = ({
+  style,
+  wildBadge = true,
+}: {
+  style: ThemeStyle;
+  wildBadge?: boolean;
+}) => {
   return (
     <ul className="flex flex-wrap gap-3">
       {SAMPLES.map(({ kind, layer, direction, step }) => (
@@ -61,6 +68,17 @@ export const MapIconSamples = ({ style }: { style: ThemeStyle }) => {
           </span>
         </li>
       ))}
+      {wildBadge && (
+        <li className="flex w-24 flex-col items-center gap-2 rounded-sm border bg-muted/40 p-3">
+          <span
+            className="flex size-9 items-center justify-center [&>span]:transform-none!"
+            dangerouslySetInnerHTML={{ __html: wildBadgeHtml(style, 3) }}
+          />
+          <span className="text-center font-mono text-[10px] text-muted-foreground">
+            wild badge
+          </span>
+        </li>
+      )}
     </ul>
   );
 };

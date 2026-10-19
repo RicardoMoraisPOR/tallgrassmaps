@@ -172,7 +172,7 @@ export const ThemePage = () => {
           <TokenSwatches tokens={legendsZaTokens} />
           <ComponentSamples />
           <SkinGroup title="Map icons">
-            <MapIconSamples style="game" />
+            <MapIconSamples style="game" wildBadge={false} />
           </SkinGroup>
           <p className="text-xs text-muted-foreground">
             Z-A has no popup skin of its own; its map popups use the Tall Grass

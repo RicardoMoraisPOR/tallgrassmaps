@@ -95,8 +95,8 @@ export const TrainerDialog = ({
     >
       <DialogContent
         className={cn(
-          'flex max-h-[85svh] flex-col p-0 sm:max-w-2xl',
-          gameTheme && 'pokedex-game gb-frame rounded-none ring-0',
+          'flex max-h-[85svh] flex-col p-0 sm:max-w-3xl',
+          gameTheme && 'pokedex-game gb-frame rounded-none ring-0 sm:max-w-2xl',
         )}
       >
         {listed && (
@@ -114,7 +114,7 @@ export const TrainerDialog = ({
                   ) : (
                     <span
                       aria-hidden
-                      className="grid size-10 flex-none place-items-center rounded-sm"
+                      className="grid size-12 flex-none place-items-center rounded-sm"
                       style={{
                         background:
                           'color-mix(in oklch, var(--map-trainer) 22%, transparent)',
@@ -219,7 +219,7 @@ export const TrainerDialog = ({
                 className="flex flex-col gap-2"
               >
                 {party.label && choice === undefined && (
-                  <h3 className="text-xs font-medium tracking-wider text-muted-foreground uppercase pokedex-game:text-[10px] pokedex-game:font-normal pokedex-game:text-foreground">
+                  <h3 className="text-sm font-medium tracking-wider text-muted-foreground uppercase pokedex-game:text-[10px] pokedex-game:font-normal pokedex-game:text-foreground">
                     {party.label}
                   </h3>
                 )}
@@ -255,7 +255,7 @@ export const TrainerDialog = ({
                     'text-muted-foreground',
                     gameTheme
                       ? 'text-[8px] leading-none'
-                      : 'text-xs font-medium tracking-wider uppercase',
+                      : 'text-sm font-medium tracking-wider uppercase',
                   )}
                 >
                   Prize money
@@ -265,7 +265,7 @@ export const TrainerDialog = ({
                     'tabular-nums',
                     gameTheme
                       ? 'text-[8px] leading-none'
-                      : 'text-sm font-medium',
+                      : 'text-base font-medium',
                   )}
                 >
                   ¥{money.toLocaleString('en')}
@@ -285,7 +285,7 @@ export const TrainerDialog = ({
                     'text-muted-foreground',
                     gameTheme
                       ? 'text-[8px] leading-none'
-                      : 'text-xs font-medium tracking-wider uppercase',
+                      : 'text-sm font-medium tracking-wider uppercase',
                   )}
                 >
                   Gives you
@@ -305,7 +305,7 @@ export const TrainerDialog = ({
                   'text-muted-foreground',
                   gameTheme
                     ? 'mx-2 border-t-2 border-dashed border-(--gb-ink) pt-3 text-[8px] leading-[12px]'
-                    : 'border-t border-border pt-3 text-sm italic',
+                    : 'border-t border-border pt-3 text-base italic',
                 )}
               >
                 {presence}

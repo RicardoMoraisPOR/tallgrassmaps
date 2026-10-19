@@ -24,7 +24,11 @@ export const TrainerPartyTiles = ({
 }: TrainerPartyTilesProps) => (
   <div className="flex flex-col gap-1">
     {party.label && (
-      <span className="text-xs text-muted-foreground">{party.label}</span>
+      <span
+        className={cn('text-muted-foreground', columns ? 'text-sm' : 'text-xs')}
+      >
+        {party.label}
+      </span>
     )}
     <ul
       aria-label={party.label ?? 'Party'}
@@ -45,18 +49,23 @@ export const TrainerPartyTiles = ({
               height={96}
               loading="lazy"
               className={cn(
-                'size-9 object-contain',
+                columns ? 'size-11 object-contain' : 'size-9 object-contain',
                 sprite.pixelated && 'pixelated',
               )}
             />
-            <span className="text-[11px] leading-none text-muted-foreground tabular-nums">
+            <span
+              className={cn(
+                'leading-none text-muted-foreground tabular-nums',
+                columns ? 'text-xs' : 'text-[11px]',
+              )}
+            >
               Lv. {pokemon.level}
             </span>
           </>
         );
 
         return (
-          <li key={index} className="w-11">
+          <li key={index} className={columns ? 'w-14' : 'w-11'}>
             {linked ? (
               <PokedexEntryLink
                 number={pokemon.number}

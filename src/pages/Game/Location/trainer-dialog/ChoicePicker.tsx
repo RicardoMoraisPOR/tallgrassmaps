@@ -31,7 +31,7 @@ export const ChoicePicker = ({
     <div className="flex flex-col gap-2">
       <h3
         id={labelId}
-        className="text-xs font-medium tracking-wider text-muted-foreground uppercase pokedex-game:text-[10px] pokedex-game:font-normal pokedex-game:text-foreground"
+        className="text-sm font-medium tracking-wider text-muted-foreground uppercase pokedex-game:text-[10px] pokedex-game:font-normal pokedex-game:text-foreground"
       >
         {prompt}:
       </h3>
@@ -65,7 +65,7 @@ export const ChoicePicker = ({
                 width={96}
                 height={96}
                 className={cn(
-                  'size-7 object-contain',
+                  'size-9 object-contain',
                   (gameTheme || sprite.pixelated) && 'pixelated',
                 )}
               />

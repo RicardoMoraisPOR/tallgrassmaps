@@ -20,7 +20,7 @@ export const GiftBadge = ({
       aria-label={`Gives you ${label}`}
       className={cn(
         'inline-flex shrink-0 items-center gap-1 whitespace-nowrap',
-        gameTheme ? 'text-[8px] leading-none' : 'text-xs font-medium',
+        gameTheme ? 'text-[8px] leading-none' : 'text-sm font-medium',
       )}
     >
       {!gameTheme && (

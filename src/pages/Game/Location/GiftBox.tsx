@@ -26,7 +26,7 @@ export const GiftBox = ({
       <img
         src={gift.sprite}
         alt=""
-        className="size-6 object-cover object-top pixelated"
+        className="size-8 object-cover object-top pixelated"
       />
       {label}
       {expandable &&
@@ -42,7 +42,7 @@ export const GiftBox = ({
           <ChevronDown
             aria-hidden
             className={cn(
-              'ml-0.5 size-3.5 text-muted-foreground transition-transform duration-150 motion-reduce:transition-none',
+              'ml-0.5 size-4 text-muted-foreground transition-transform duration-150 motion-reduce:transition-none',
               open && 'rotate-180',
             )}
           />
@@ -54,7 +54,7 @@ export const GiftBox = ({
     'flex items-center gap-1 py-0.5 pr-2 pl-0.5',
     gameTheme
       ? 'border-2 border-(--gb-ink) text-[8px] leading-none'
-      : 'rounded-sm border border-border bg-muted/60 text-xs font-medium',
+      : 'rounded-sm border border-border bg-muted/60 text-sm font-medium',
   );
 
   return (
@@ -85,7 +85,7 @@ export const GiftBox = ({
               'flex flex-col items-start gap-1.5',
               gameTheme
                 ? 'border-2 border-dashed border-(--gb-ink) px-2 py-1.5 text-[8px] leading-[12px]'
-                : 'rounded-sm bg-muted px-2.5 py-2 text-xs',
+                : 'rounded-sm bg-muted px-2.5 py-2 text-sm',
             )}
           >
             {moveName && (
@@ -97,7 +97,7 @@ export const GiftBox = ({
                 {moveName}
               </span>
             )}
-            {moveType && <PokemonTypeTags types={[moveType]} />}
+            {moveType && <PokemonTypeTags types={[moveType]} large />}
             {effect && (
               <p className={cn(!gameTheme && 'text-muted-foreground')}>
                 {effect}

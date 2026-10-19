@@ -23,7 +23,7 @@ export const BattleDialogList = ({
             'text-muted-foreground',
             gameTheme
               ? 'text-[8px] leading-[12px]'
-              : 'text-xs font-medium tracking-wider uppercase',
+              : 'text-sm font-medium tracking-wider uppercase',
           )}
         >
           {label}
@@ -31,7 +31,7 @@ export const BattleDialogList = ({
         <dd
           className={cn(
             'whitespace-pre-line',
-            gameTheme ? 'text-[8px] leading-[14px]' : 'text-sm',
+            gameTheme ? 'text-[8px] leading-[14px]' : 'text-base',
           )}
         >
           {text}

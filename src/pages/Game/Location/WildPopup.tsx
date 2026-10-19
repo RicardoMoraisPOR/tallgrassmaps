@@ -23,6 +23,7 @@ import { chanceLabel, methodLabel } from '../Pokedex/format';
 import { PokemonTypeTags } from '../Pokedex/PokemonTypeTags';
 import type { EncounterGroup } from './encounters';
 import { EncounterList } from './EncountersTab';
+import { PixelIcon, type PixelIconName } from './PixelIcon';
 import { PokedexEntryLink } from './PokedexEntryLink';
 
 type WildPopupProps = {
@@ -52,6 +53,19 @@ const terrainIcons: Record<WildTerrain, ComponentType> = {
   indoors: Building2,
 };
 
+const pixelMethodIcons: Partial<Record<Encounter['method'], PixelIconName>> = {
+  surf: 'water',
+  'old-rod': 'rod',
+  'good-rod': 'rod',
+  'super-rod': 'rod',
+};
+
+const pixelTerrainIcons: Record<WildTerrain, PixelIconName> = {
+  grass: 'leaf',
+  cavern: 'cavern',
+  indoors: 'indoors',
+};
+
 const AccentTile = ({
   accent,
   icon: Icon,
@@ -61,13 +75,13 @@ const AccentTile = ({
 }) => (
   <span
     aria-hidden
-    className="grid size-7 flex-none place-items-center rounded-sm"
+    className="grid size-9 flex-none place-items-center rounded-sm"
     style={{
       background: `color-mix(in oklch, var(${accent}) 22%, transparent)`,
       color: `var(${accent})`,
     }}
   >
-    <Icon className="size-4" />
+    <Icon className="size-5" />
   </span>
 );
 
@@ -88,9 +102,6 @@ export const WildPopup = ({
 }: WildPopupProps) => {
   const gameTheme = useThemeStyle('pokemonPopups') === 'game';
 
-  const titleOf = (group: EncounterGroup) =>
-    methodLabel({ method: group.method, path, games: [] });
-
   const waterGroups = groups.filter(({ method }) => method !== 'walk');
   const titleFor = ({ method }: EncounterGroup) => {
     if (method === 'walk') return terrainLabels[terrain];
@@ -100,10 +111,18 @@ export const WildPopup = ({
   };
 
   return gameTheme ? (
-    <GameWildPopup game={game} groups={groups} titleOf={titleOf} note={note} />
+    <GameWildPopup
+      game={game}
+      groups={groups}
+      titleOf={titleFor}
+      iconOf={({ method }) =>
+        pixelMethodIcons[method] ?? pixelTerrainIcons[terrain]
+      }
+      note={note}
+    />
   ) : (
-    <div className="w-68 rounded-sm bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
-      <div className="flex max-h-56 flex-col gap-3 overflow-y-auto pr-2">
+    <div className="w-80 rounded-sm bg-popover py-3 pr-1.5 pl-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+      <div className="flex max-h-80 flex-col gap-3 overflow-y-auto pr-2">
         {groups.map((group) => (
           <section key={group.method} className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2.5">
@@ -111,7 +130,7 @@ export const WildPopup = ({
                 accent="--map-wild-pokemon"
                 icon={methodIcons[group.method] ?? terrainIcons[terrain]}
               />
-              <h3 className="text-sm leading-snug font-medium">
+              <h3 className="text-base leading-snug font-medium">
                 {titleFor(group)}
               </h3>
             </div>
@@ -120,7 +139,7 @@ export const WildPopup = ({
         ))}
       </div>
       {note && (
-        <p className="mt-2 mr-1.5 border-t pt-2 text-xs text-muted-foreground italic">
+        <p className="mt-2 mr-1.5 border-t pt-2 text-sm text-muted-foreground italic">
           {note}
         </p>
       )}
@@ -132,21 +151,26 @@ const GameWildPopup = ({
   game,
   groups,
   titleOf,
+  iconOf,
   note,
 }: {
   game: Game;
   groups: Array<EncounterGroup>;
   titleOf: (group: EncounterGroup) => string;
+  iconOf: (group: EncounterGroup) => PixelIconName;
   note?: string;
 }) => {
   const spriteFor = usePokemonSprite(game);
 
   return (
     <div className="pokedex-game gb-frame w-72 px-4 py-3.5">
-      <div className="flex max-h-52 flex-col gap-4 overflow-y-auto pr-2">
+      <div className="flex max-h-80 flex-col gap-4 overflow-y-auto pr-2">
         {groups.map((group) => (
           <section key={group.method} className="flex flex-col gap-3">
-            <h3 className="text-[10px] leading-none">{titleOf(group)}</h3>
+            <h3 className="flex items-center gap-2 text-[10px] leading-none">
+              <PixelIcon name={iconOf(group)} className="size-3.5 flex-none" />
+              {titleOf(group)}
+            </h3>
             <ul className="flex flex-col divide-y divide-current/20">
               {group.rows.map(({ entry, encounter }) => (
                 <li
@@ -173,7 +197,7 @@ const GameWildPopup = ({
                         {gameLevelLabel(encounter)}
                       </span>
                     </div>
-                    <PokemonTypeTags types={entry.types} />
+                    <PokemonTypeTags types={entry.types} large />
                   </div>
                   <span className="text-[8px] leading-none">
                     {chanceLabel(encounter)}
@@ -214,7 +238,7 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
   const isGift = marker.kind !== 'static';
 
   return gameTheme ? (
-    <div className="pokedex-game gb-frame m-2 flex w-52 flex-col gap-3 px-4 py-3.5">
+    <div className="pokedex-game gb-frame m-2 flex w-72 flex-col gap-3 px-4 py-3.5">
       {marker.pokemon.map(({ number, level }) => (
         <div key={number} className="flex items-center gap-3">
           <img
@@ -226,21 +250,34 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
             className="size-10 flex-none object-contain"
           />
           <div className="flex min-w-0 flex-1 flex-col gap-2 leading-none">
-            <PokedexEntryLink
-              number={number}
-              className="truncate text-[10px] leading-[14px]"
-            >
-              {nameOf(number)}
-            </PokedexEntryLink>
-            <span className="text-[8px]">:L{level}</span>
-            <PokemonTypeTags types={typesOf(number)} />
+            <div className="flex min-w-0 items-center gap-1.5">
+              <PokedexEntryLink
+                number={number}
+                className="truncate text-[10px] leading-[14px]"
+              >
+                {nameOf(number)}
+              </PokedexEntryLink>
+              <span className="shrink-0 text-[8px]">:L{level}</span>
+              <span className="ml-auto flex shrink-0 items-center gap-1 bg-(--gb-ink) px-1 py-0.5 text-[8px] leading-none text-(--gb-screen)">
+                <PixelIcon
+                  name={isGift ? 'gift' : 'static'}
+                  className="size-2"
+                />
+                {isGift ? 'Gift' : 'Static'}
+              </span>
+            </div>
+            <PokemonTypeTags types={typesOf(number)} large />
           </div>
         </div>
       ))}
-      <span className="text-[8px] leading-[12px]">{note}</span>
+      {note !== 'Gift' && (
+        <span className="border-t-2 border-dashed border-(--gb-ink) pt-2 text-[8px] leading-[12px]">
+          {note}
+        </span>
+      )}
     </div>
   ) : (
-    <div className="flex w-60 flex-col gap-2.5 rounded-sm bg-popover p-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+    <div className="flex w-72 flex-col gap-2.5 rounded-sm bg-popover p-3 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
       {marker.pokemon.map(({ number, level }) => {
         const sprite = spriteFor(number);
 
@@ -261,14 +298,14 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
               <div className="flex min-w-0 items-center gap-2">
                 <PokedexEntryLink
                   number={number}
-                  className="truncate text-sm font-medium"
+                  className="truncate text-base font-medium"
                 >
                   {nameOf(number)}
                 </PokedexEntryLink>
-                <span className="shrink-0 text-xs text-muted-foreground">
+                <span className="shrink-0 text-sm text-muted-foreground">
                   Lv. {level}
                 </span>
-                <span className="ml-auto flex shrink-0 items-center gap-1 rounded-sm bg-muted px-1.5 py-0.5 text-[10px] leading-none font-medium tracking-wide text-muted-foreground uppercase">
+                <span className="ml-auto flex shrink-0 items-center gap-1 rounded-sm bg-muted px-1.5 py-0.5 text-xs leading-none font-medium tracking-wide text-muted-foreground uppercase">
                   {isGift ? (
                     <Gift className="size-2.5" />
                   ) : (
@@ -277,13 +314,13 @@ export const StaticPopup = ({ game, marker, pokedex }: StaticPopupProps) => {
                   {isGift ? 'Gift' : 'Static'}
                 </span>
               </div>
-              <PokemonTypeTags types={typesOf(number)} />
+              <PokemonTypeTags types={typesOf(number)} large />
             </div>
           </div>
         );
       })}
       {note !== 'Gift' && (
-        <span className="border-t pt-2 text-xs text-muted-foreground italic">
+        <span className="border-t pt-2 text-sm text-muted-foreground italic">
           {note}
         </span>
       )}

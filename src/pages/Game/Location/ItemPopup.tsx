@@ -45,7 +45,7 @@ export const ItemPopup = ({
         )}
       </div>
       {effect && <p className="text-[8px] leading-[12px]">{effect}</p>}
-      {moveType && <PokemonTypeTags types={[moveType]} />}
+      {moveType && <PokemonTypeTags types={[moveType]} large />}
       {(needs || note) && (
         <div className="flex flex-col gap-1.5 border-t-2 border-dashed border-(--gb-ink) pt-2 text-[8px] leading-[12px]">
           {needs && <p>{needs}</p>}
@@ -54,10 +54,10 @@ export const ItemPopup = ({
       )}
     </div>
   ) : (
-    <div className="flex w-max max-w-64 items-start gap-2.5 rounded-sm bg-popover py-2 pr-3.5 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+    <div className="flex w-max max-w-80 items-start gap-2.5 rounded-sm bg-popover py-2 pr-3.5 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
       <span
         aria-hidden
-        className="mt-0.5 grid size-7 flex-none place-items-center rounded-sm"
+        className="mt-0.5 grid size-9 flex-none place-items-center rounded-sm"
         style={{
           background: `color-mix(in oklch, var(${accent}) 22%, transparent)`,
           color: `var(${accent})`,
@@ -66,31 +66,31 @@ export const ItemPopup = ({
         <img
           src={sprite}
           alt=""
-          className="size-6 object-cover object-top pixelated"
+          className="size-8 object-cover object-top pixelated"
         />
       </span>
       <div className="flex min-w-0 flex-col gap-1.5">
         <div className="flex items-center gap-2">
-          <span className="text-sm leading-snug font-medium">{name}</span>
+          <span className="text-base leading-snug font-medium">{name}</span>
           {hidden && (
-            <span className="rounded-sm bg-muted px-1.5 py-0.5 text-[10px] leading-none font-medium tracking-wide text-muted-foreground uppercase">
+            <span className="rounded-sm bg-muted px-1.5 py-0.5 text-xs leading-none font-medium tracking-wide text-muted-foreground uppercase">
               Hidden
             </span>
           )}
         </div>
         {effect && (
-          <p className="text-xs leading-snug text-muted-foreground">{effect}</p>
+          <p className="text-sm leading-snug text-muted-foreground">{effect}</p>
         )}
-        {moveType && <PokemonTypeTags types={[moveType]} />}
+        {moveType && <PokemonTypeTags types={[moveType]} large />}
         {(needs || note) && (
           <div className="flex flex-col gap-1 border-t pt-2">
             {needs && (
-              <span className="w-fit rounded-sm bg-muted px-1.5 py-0.5 text-[11px] leading-none font-medium">
+              <span className="w-fit rounded-sm bg-muted px-1.5 py-0.5 text-[13px] leading-none font-medium">
                 {needs}
               </span>
             )}
             {note && (
-              <p className="text-xs text-muted-foreground italic">{note}</p>
+              <p className="text-sm text-muted-foreground italic">{note}</p>
             )}
           </div>
         )}

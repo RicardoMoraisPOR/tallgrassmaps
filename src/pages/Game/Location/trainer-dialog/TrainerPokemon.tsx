@@ -32,7 +32,7 @@ export const TallGrassPokemon = ({
           height={96}
           loading="lazy"
           className={cn(
-            'size-10 flex-none object-contain',
+            'size-12 flex-none object-contain',
             sprite.pixelated && 'pixelated',
           )}
         />
@@ -40,13 +40,13 @@ export const TallGrassPokemon = ({
           <PokedexEntryLink
             number={pokemon.number}
             onClick={onOpenPokedex}
-            className="max-w-full truncate text-sm font-medium"
+            className="max-w-full truncate text-base font-medium"
           >
             {name}
           </PokedexEntryLink>
           <PokemonTypeTags types={types} />
         </div>
-        <span className="text-xs text-muted-foreground tabular-nums">
+        <span className="text-sm text-muted-foreground tabular-nums">
           Lv. {pokemon.level}
         </span>
       </div>
@@ -54,7 +54,7 @@ export const TallGrassPokemon = ({
         {pokemon.moves.map((move) => (
           <li
             key={move}
-            className="truncate rounded-sm bg-muted px-2 py-0.5 text-xs leading-5"
+            className="truncate rounded-sm bg-muted px-2 py-0.5 text-sm leading-6"
           >
             {move}
           </li>

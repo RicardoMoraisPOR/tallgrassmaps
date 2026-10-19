@@ -10,6 +10,7 @@ import type { TrainerParty } from '@/data/trainers/types';
 import { type PokemonSprite, usePokemonSprite } from '@/hooks/usePokemonSprite';
 import { cn } from '@/lib/utils';
 
+import { GameTrainerAvatar } from './GameTrainerAvatar';
 import type { ListedBattle } from './trainerList';
 import { TrainerPartyTiles } from './TrainerPartyTiles';
 
@@ -45,22 +46,25 @@ export const TrainerTooltip = ({
     const note = `${encounters} encounters here · click to see all`;
 
     return gameTheme ? (
-      <div className="pokedex-game gb-frame flex w-max flex-col gap-2 px-4 py-3.5 text-left">
-        <span className="text-[10px] leading-[14px] whitespace-nowrap">
-          {battle.name}
-        </span>
-        <span className="text-[8px] leading-[12px] whitespace-nowrap text-muted-foreground">
-          {note}
-        </span>
+      <div className="pokedex-game gb-frame flex w-max items-center gap-3 px-4 py-3.5 text-left">
+        <GameTrainerAvatar sprite={battle.sprite} />
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] leading-[14px] whitespace-nowrap">
+            {battle.name}
+          </span>
+          <span className="text-[8px] leading-[12px] whitespace-nowrap text-muted-foreground">
+            {note}
+          </span>
+        </div>
       </div>
     ) : (
       <div className="flex w-max items-center gap-2.5 rounded-sm bg-popover py-2 pr-3 pl-2.5 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10">
         <TrainerTile sprite={battle.sprite} />
         <div className="flex flex-col gap-0.5">
-          <span className="text-sm leading-snug font-medium whitespace-nowrap">
+          <span className="text-base leading-snug font-medium whitespace-nowrap">
             {battle.name}
           </span>
-          <span className="text-xs whitespace-nowrap text-muted-foreground">
+          <span className="text-sm whitespace-nowrap text-muted-foreground">
             {note}
           </span>
         </div>
@@ -73,13 +77,16 @@ export const TrainerTooltip = ({
       <div
         className={cn(
           'pokedex-game gb-frame flex w-max flex-col gap-3 px-4 py-3.5 text-left',
-          !byChoice && 'max-w-64',
+          !byChoice && 'max-w-80',
         )}
       >
-        <span className="text-[10px] leading-[14px] whitespace-nowrap">
-          {battle.name}
-          {number && ` #${number}`}
-        </span>
+        <div className="flex items-center gap-3">
+          <GameTrainerAvatar sprite={battle.sprite} />
+          <span className="text-[10px] leading-[14px] whitespace-nowrap">
+            {battle.name}
+            {number && ` #${number}`}
+          </span>
+        </div>
         <hr className="border-t-2 border-foreground" />
         <div className={cn('flex gap-3', !byChoice && 'flex-col')}>
           {parties.map((party, index) => (
@@ -95,7 +102,7 @@ export const TrainerTooltip = ({
           ))}
         </div>
         {battle.presence && (
-          <span className="text-[8px] leading-[12px] text-muted-foreground">
+          <span className="border-t-2 border-dashed border-(--gb-ink) pt-2 text-[8px] leading-[12px] text-muted-foreground">
             {battle.presence}
           </span>
         )}
@@ -106,13 +113,13 @@ export const TrainerTooltip = ({
   return (
     <div
       className={cn(
-        'flex w-max flex-col gap-2.5 rounded-sm bg-popover py-2.5 pr-3 pl-2.5 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10',
-        !byChoice && 'max-w-64',
+        'flex w-max flex-col gap-2.5 rounded-sm bg-popover py-3 pr-3 pl-2.5 text-left text-popover-foreground shadow-lg ring-1 ring-foreground/10',
+        !byChoice && 'max-w-80',
       )}
     >
       <div className="flex items-center gap-2.5">
         <TrainerTile sprite={battle.sprite} />
-        <span className="text-sm leading-snug font-medium whitespace-nowrap">
+        <span className="text-base leading-snug font-medium whitespace-nowrap">
           {battle.name}
           {number && (
             <span className="font-normal text-muted-foreground/80">
@@ -139,7 +146,7 @@ export const TrainerTooltip = ({
         ))}
       </div>
       {battle.presence && (
-        <span className="border-t pt-2 text-xs text-muted-foreground italic">
+        <span className="border-t pt-2 text-sm text-muted-foreground italic">
           {battle.presence}
         </span>
       )}
@@ -150,7 +157,7 @@ export const TrainerTooltip = ({
 const TrainerTile = ({ sprite }: { sprite?: string }) => (
   <span
     aria-hidden
-    className="grid size-7 flex-none place-items-center rounded-sm"
+    className="grid size-9 flex-none place-items-center rounded-sm"
     style={{
       background: 'color-mix(in oklch, var(--map-trainer) 22%, transparent)',
       color: 'var(--map-trainer)',
@@ -160,10 +167,10 @@ const TrainerTile = ({ sprite }: { sprite?: string }) => (
       <img
         src={sprite}
         alt=""
-        className="size-6 object-cover object-top pixelated"
+        className="size-8 object-cover object-top pixelated"
       />
     ) : (
-      <Swords className="size-4" />
+      <Swords className="size-5" />
     )}
   </span>
 );
@@ -181,10 +188,13 @@ const GameParty = ({
     )}
     <ul
       aria-label={party.label ?? 'Party'}
-      className="grid w-max grid-cols-2 gap-x-4 gap-y-1"
+      className="grid w-max grid-cols-2 gap-1.5"
     >
       {party.pokemon.map((pokemon, index) => (
-        <li key={index} className="flex items-center gap-1">
+        <li
+          key={index}
+          className="flex w-14 flex-col items-center gap-1 border-2 border-(--gb-ink) px-1 pt-0.5 pb-1"
+        >
           <img
             src={spriteFor(pokemon.number).src}
             alt=""

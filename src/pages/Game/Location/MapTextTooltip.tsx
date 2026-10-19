@@ -20,6 +20,7 @@ import { cn } from '@/lib/utils';
 
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { GiftBox } from './GiftBox';
+import { PixelIcon } from './PixelIcon';
 
 const LONG_TEXT = 60;
 
@@ -59,7 +60,7 @@ const Icon = ({ name, gameTheme }: { name: IconName; gameTheme: boolean }) => {
   if (!gameTheme) {
     const LucideIcon = lucideIcons[name];
 
-    return <LucideIcon className="size-3.5" />;
+    return <LucideIcon className="size-4" />;
   }
 
   const { viewBox, size, path } = pixelIcons[name];
@@ -102,7 +103,7 @@ const CardButton = ({
       'flex shrink-0 cursor-pointer items-center justify-center transition-colors disabled:cursor-default disabled:opacity-30',
       gameTheme
         ? 'size-[22px] border-2 border-(--gb-ink) text-(--gb-ink) enabled:hover:bg-(--gb-ink) enabled:hover:text-(--gb-screen) aria-pressed:bg-(--gb-ink) aria-pressed:text-(--gb-screen)'
-        : 'size-6 rounded-sm border border-border bg-muted/60 text-foreground enabled:hover:bg-muted aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background aria-pressed:hover:bg-foreground/85',
+        : 'size-8 rounded-sm border border-border bg-muted/60 text-foreground enabled:hover:bg-muted aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background aria-pressed:hover:bg-foreground/85',
     )}
   >
     {children}
@@ -136,7 +137,10 @@ const PokemonTile = ({
       <img
         src={sprite.src}
         alt=""
-        className={cn('size-8 object-contain', sprite.pixelated && 'pixelated')}
+        className={cn(
+          gameTheme ? 'size-8 object-contain' : 'size-10 object-contain',
+          sprite.pixelated && 'pixelated',
+        )}
       />
     </Link>
   );
@@ -222,7 +226,7 @@ export const MapTextTooltip = ({
           'whitespace-pre-line text-muted-foreground',
           gameTheme
             ? 'border-2 border-dashed border-(--gb-ink) px-2 py-1.5 text-[8px] leading-[12px]'
-            : 'rounded-sm bg-muted px-2 py-1 text-xs italic',
+            : 'rounded-sm bg-muted px-2 py-1 text-sm italic',
         )}
       >
         {trigger}
@@ -232,11 +236,18 @@ export const MapTextTooltip = ({
 
   const header = (name || toggle) && (
     <div className="flex items-center gap-2">
+      {gameTheme && sprite && (
+        <img
+          src={sprite}
+          alt=""
+          className="size-8 flex-none object-cover object-top pixelated"
+        />
+      )}
       {name && (
         <span
           className={cn(
             'mr-1 flex-1 whitespace-nowrap',
-            gameTheme ? 'text-[10px] leading-[14px]' : 'text-sm font-medium',
+            gameTheme ? 'text-[10px] leading-[14px]' : 'text-base font-medium',
           )}
         >
           {name}
@@ -246,14 +257,16 @@ export const MapTextTooltip = ({
     </div>
   );
 
+  const signBody = gameTheme && sign && !name && dialog.length === 0;
+
   const body = shownText && (
     <p
       key={page}
       className={cn(
         'whitespace-pre-line',
-        gameTheme ? 'text-[8px] leading-[14px]' : 'text-xs',
+        gameTheme ? 'text-[8px] leading-[14px]' : 'text-sm',
         muted && 'text-muted-foreground',
-        (paged || presence) && 'max-h-40 overflow-y-auto pr-1',
+        (paged || presence) && 'max-h-52 overflow-y-auto pr-1',
       )}
     >
       {shownText}
@@ -289,7 +302,7 @@ export const MapTextTooltip = ({
       <span
         className={cn(
           'min-w-8 text-center tabular-nums',
-          gameTheme ? 'text-[8px] leading-[14px]' : 'text-xs',
+          gameTheme ? 'text-[8px] leading-[14px]' : 'text-sm',
         )}
       >
         {page + 1}/{dialog.length}
@@ -311,7 +324,7 @@ export const MapTextTooltip = ({
         'text-muted-foreground',
         gameTheme
           ? 'border-t-2 border-dashed border-(--gb-ink) pt-2 text-[8px] leading-[12px]'
-          : 'border-t border-border pt-2 text-xs italic',
+          : 'border-t border-border pt-2 text-sm italic',
       )}
     >
       {presence}
@@ -320,19 +333,19 @@ export const MapTextTooltip = ({
 
   if (!gameTheme && sign && !name && dialog.length === 0) {
     return (
-      <div className="flex w-max max-w-64 items-start gap-2.5 rounded-sm bg-popover py-2 pr-3.5 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
+      <div className="flex w-max max-w-80 items-start gap-2.5 rounded-sm bg-popover py-2 pr-3.5 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10">
         <span
           aria-hidden
-          className="mt-0.5 grid size-7 flex-none place-items-center rounded-sm"
+          className="mt-0.5 grid size-9 flex-none place-items-center rounded-sm"
           style={{
             background: 'color-mix(in oklch, var(--map-sign) 22%, transparent)',
             color: 'var(--map-sign)',
           }}
         >
-          <Signpost className="size-4" />
+          <Signpost className="size-5" />
         </span>
         <div className="flex min-w-0 flex-col gap-1.5">
-          <p className="text-sm leading-snug whitespace-pre-line">
+          <p className="text-base leading-snug whitespace-pre-line">
             {shownText}
           </p>
           {presenceNote}
@@ -346,12 +359,12 @@ export const MapTextTooltip = ({
       <div
         className={cn(
           'flex items-start gap-2.5 rounded-sm bg-popover py-2 pr-3 pl-2.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10',
-          paged ? 'w-64' : 'w-max max-w-64',
+          paged ? 'w-80' : 'w-max max-w-80',
         )}
       >
         <span
           aria-hidden
-          className="mt-0.5 grid size-7 flex-none place-items-center rounded-sm"
+          className="mt-0.5 grid size-9 flex-none place-items-center rounded-sm"
           style={{
             background: 'color-mix(in oklch, var(--map-npc) 22%, transparent)',
             color: 'var(--map-npc)',
@@ -361,17 +374,17 @@ export const MapTextTooltip = ({
             <img
               src={sprite}
               alt=""
-              className="size-6 object-cover object-top pixelated"
+              className="size-8 object-cover object-top pixelated"
             />
           ) : (
-            <UserRound className="size-4" />
+            <UserRound className="size-5" />
           )}
         </span>
         <div className="flex min-w-0 flex-1 flex-col gap-1.5">
           <div className="flex flex-col">
             {disclaimer}
             <div className="flex items-center gap-2">
-              <span className="flex-1 text-sm leading-snug font-medium">
+              <span className="flex-1 text-base leading-snug font-medium">
                 {name}
               </span>
               {toggle}
@@ -381,8 +394,8 @@ export const MapTextTooltip = ({
             <p
               key={page}
               className={cn(
-                'text-xs leading-relaxed whitespace-pre-line text-foreground/80',
-                (paged || presence) && 'max-h-40 overflow-y-auto pr-1',
+                'text-sm leading-relaxed whitespace-pre-line text-foreground/80',
+                (paged || presence) && 'max-h-52 overflow-y-auto pr-1',
               )}
             >
               {shownText}
@@ -408,8 +421,8 @@ export const MapTextTooltip = ({
           ? 'pokedex-game gb-frame gap-2 px-3.5 py-2.5'
           : 'gap-1.5 rounded-sm bg-popover px-2.5 py-1.5 text-popover-foreground shadow-lg ring-1 ring-foreground/10',
         paged
-          ? { 'w-64': gameTheme, 'w-60': !gameTheme }
-          : { 'w-max': true, 'max-w-64': gameTheme, 'max-w-60': !gameTheme },
+          ? { 'w-64': gameTheme, 'w-72': !gameTheme }
+          : { 'w-max': true, 'max-w-64': gameTheme, 'max-w-72': !gameTheme },
       )}
     >
       {header && (
@@ -418,7 +431,14 @@ export const MapTextTooltip = ({
           {header}
         </div>
       )}
-      {body}
+      {signBody ? (
+        <div className="flex items-start gap-2.5">
+          <PixelIcon name="sign" className="mt-0.5 size-3.5 flex-none" />
+          {body}
+        </div>
+      ) : (
+        body
+      )}
       {giftSquare}
       {tradeSquare}
       {pokemonSquare}

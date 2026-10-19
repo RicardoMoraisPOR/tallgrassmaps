@@ -14,6 +14,8 @@ import {
 import type { Shop } from '@/data/shops/types';
 import { cn } from '@/lib/utils';
 
+import { PixelIcon } from './PixelIcon';
+
 type ShopDialogProps = {
   shop: { shops: Array<Shop>; selected: string } | undefined;
   onClose: () => void;
@@ -41,8 +43,8 @@ export const ShopDialog = ({ shop, onClose }: ShopDialogProps) => {
     >
       <DialogContent
         className={cn(
-          'flex max-h-[85svh] flex-col gap-0 p-0 sm:max-w-md',
-          gameTheme && 'pokedex-game gb-frame rounded-none ring-0',
+          'flex max-h-[85svh] flex-col gap-0 p-0 sm:max-w-lg',
+          gameTheme && 'pokedex-game gb-frame rounded-none ring-0 sm:max-w-md',
         )}
       >
         {current && (
@@ -56,15 +58,18 @@ export const ShopDialog = ({ shop, onClose }: ShopDialogProps) => {
               {!gameTheme && (
                 <span
                   aria-hidden
-                  className="grid size-7 flex-none place-items-center rounded-sm"
+                  className="grid size-9 flex-none place-items-center rounded-sm"
                   style={{
                     background:
                       'color-mix(in oklch, var(--map-service) 22%, transparent)',
                     color: 'var(--map-service)',
                   }}
                 >
-                  <Store className="size-4" />
+                  <Store className="size-5" />
                 </span>
+              )}
+              {gameTheme && (
+                <PixelIcon name="store" className="size-4 flex-none" />
               )}
               <DialogTitle>{current.building}</DialogTitle>
               <DialogDescription className="sr-only">
@@ -88,7 +93,7 @@ export const ShopDialog = ({ shop, onClose }: ShopDialogProps) => {
                       aria-selected={selected}
                       onClick={() => setPicked(entry.id)}
                       className={cn(
-                        'cursor-pointer rounded-sm border px-2.5 py-1.5 text-xs font-medium',
+                        'cursor-pointer rounded-sm border px-2.5 py-1.5 text-sm font-medium',
                         selected
                           ? 'border-border bg-muted text-foreground'
                           : 'border-transparent text-muted-foreground hover:bg-muted/60 hover:text-foreground',
@@ -105,15 +110,17 @@ export const ShopDialog = ({ shop, onClose }: ShopDialogProps) => {
             <ul
               role="tabpanel"
               aria-label={tabLabel(current)}
-              className={cn('flex flex-col', gameTheme && 'gap-3 p-2')}
+              className={cn('flex flex-col', gameTheme && 'px-2')}
             >
               {current.stock.map(({ name, price }) => (
                 <li
                   key={name}
                   className={cn(
-                    'flex items-baseline justify-between gap-4 py-2 text-sm',
-                    !gameTheme && 'border-b border-border last:border-b-0',
-                    gameTheme && 'py-0 text-[8px] leading-[12px]',
+                    'flex items-baseline justify-between gap-4 py-2 text-base',
+                    'border-b last:border-b-0',
+                    !gameTheme && 'border-border',
+                    gameTheme &&
+                      'border-dashed border-(--gb-ink) py-3 text-[8px] leading-[12px]',
                   )}
                 >
                   <span>{name}</span>
