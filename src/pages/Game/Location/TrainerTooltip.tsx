@@ -194,7 +194,7 @@ const GameParty = ({
       {party.pokemon.map((pokemon, index) => (
         <li
           key={index}
-          className="flex w-14 flex-col items-center gap-1 border-2 border-(--gb-ink) px-1 pt-0.5 pb-1"
+          className="flex w-16 flex-col items-center gap-1 border-2 border-(--gb-ink) px-1 pt-0.5 pb-1"
         >
           <img
             src={spriteFor(pokemon.number).src}
@@ -202,7 +202,7 @@ const GameParty = ({
             width={96}
             height={96}
             loading="lazy"
-            className="size-8 flex-none object-contain"
+            className="size-12 flex-none object-contain"
           />
           <span className="text-[8px] leading-none">:L{pokemon.level}</span>
         </li>

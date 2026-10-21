@@ -16,7 +16,6 @@ import { useSettingsStore } from '@/stores/settings';
 import { AsideCard, GameAside } from '../GameAside';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
-import { WorldSwitch } from '../Region/WorldToggle';
 import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
 import { LocationPanel } from './LocationPanel';
@@ -61,7 +60,7 @@ export const LocationPage = () => {
   const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
   const dataPath = location?.dataPath ?? scope;
-  const hiddenLayers = useMapLayers('focus');
+  const hiddenLayers = useMapLayers();
   const [pinRequest, setPinRequest] = useState<{
     scope: string;
     key: string;
@@ -222,23 +221,8 @@ export const LocationPage = () => {
     trail.length === 1 && route.region.world?.[trail[0].id]
       ? trail[0].id
       : undefined;
-  const pickers = ((location.floors && floor) || event || worldTile) && (
+  const pickers = ((location.floors && floor) || event) && (
     <>
-      {worldTile && (
-        <WorldSwitch
-          world={false}
-          labels={['Focus View', 'World View']}
-          worldFirst
-          onChange={() => {
-            const at = route.region.world?.[worldTile];
-
-            if (at) handOffView(at.x, at.y);
-
-            setWorldPreferred(true);
-            navigate(route.href(worldTile));
-          }}
-        />
-      )}
       {location.floors && floor && (
         <FloorPicker
           floors={location.floors}
@@ -317,6 +301,21 @@ export const LocationPage = () => {
         focusRequest ?? (pinRequest?.scope === scope ? pinRequest : undefined)
       }
       zoomPosition="bottomleft"
+      worldView={
+        worldTile
+          ? {
+              on: true,
+              onToggle: () => {
+                const at = route.region.world?.[worldTile];
+
+                if (at) handOffView(at.x, at.y);
+
+                setWorldPreferred(true);
+                navigate(route.href(worldTile));
+              },
+            }
+          : undefined
+      }
       className="size-full"
     />
   );
@@ -338,7 +337,7 @@ export const LocationPage = () => {
             </PageTransition>
           </div>
         </div>
-        <GameAside mapLayers="focus">{cards}</GameAside>
+        <GameAside mapLayers>{cards}</GameAside>
       </div>
       {pokedex && (
         <TrainerDialog

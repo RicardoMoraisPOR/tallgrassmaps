@@ -4,7 +4,9 @@ import { latLngBounds } from 'leaflet';
 import { useMap, useMapEvents } from 'react-leaflet';
 
 import { toLatLng } from '../coordinates';
+import { FLIGHT_SECONDS } from './FloorFrames';
 import type { MapLink } from './types';
+import { whenFitSettled } from './ViewportEffects';
 
 export const UnpinOnDismiss = ({ onDismiss }: { onDismiss: () => void }) => {
   const leafletMap = useMapEvents({ click: onDismiss });
@@ -79,10 +81,12 @@ export const DeselectOnEmptyClick = ({
 export const PinOnRequest = ({
   request,
   links,
+  minZoom,
   onPin,
 }: {
   request?: { key: string; initial?: boolean };
   links: Array<MapLink>;
+  minZoom?: number;
   onPin: (link: MapLink) => void;
 }) => {
   const leafletMap = useMap();
@@ -91,21 +95,37 @@ export const PinOnRequest = ({
   useEffect(() => {
     if (!request || handled.current === request) return;
 
-    handled.current = request;
+    return whenFitSettled(leafletMap, () => {
+      const link = links.find(
+        (entry) =>
+          entry.tooltip && [entry.highlightKey].flat().includes(request.key),
+      );
 
-    const link = links.find(
-      (entry) =>
-        entry.tooltip && [entry.highlightKey].flat().includes(request.key),
-    );
+      if (!link || handled.current === request) return;
 
-    if (!link) return;
+      handled.current = request;
 
-    leafletMap.panInside(
-      toLatLng(link.x + link.width / 2, link.y + link.height / 2),
-      { padding: [96, 96] },
-    );
-    onPin(link);
-  }, [leafletMap, request, links, onPin]);
+      const center = toLatLng(
+        link.x + link.width / 2,
+        link.y + link.height / 2,
+      );
+      const current = leafletMap.getZoom();
+      const zoom =
+        minZoom === undefined
+          ? current
+          : Math.min(Math.max(current, minZoom), leafletMap.getMaxZoom());
+
+      if (zoom === current) {
+        leafletMap.panInside(center, { padding: [96, 96] });
+        onPin(link);
+
+        return;
+      }
+
+      leafletMap.once('moveend', () => onPin(link));
+      leafletMap.flyTo(center, zoom, { duration: FLIGHT_SECONDS });
+    });
+  }, [leafletMap, request, links, minZoom, onPin]);
 
   return null;
 };

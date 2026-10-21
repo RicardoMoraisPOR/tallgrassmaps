@@ -22,7 +22,6 @@ import { LocationPanel } from '../Location/LocationPanel';
 import { locationPanelTabs } from '../Location/locationPanelTabs';
 import { buildLocationView } from '../Location/locationView';
 import {
-  CLOSE_ZOOM,
   layersHiddenAtTier,
   type MapLayerId,
   useMapLayers,
@@ -40,7 +39,6 @@ import { FindBanner } from './FindBanner';
 import { GameInfoCard } from './GameInfoCard';
 import { useLayerFade } from './useLayerFade';
 import { useViewParam } from './useViewParam';
-import { WorldToggle } from './WorldToggle';
 
 const clusterGroups: Array<{
   label: string;
@@ -80,7 +78,8 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const regions = worldRegions(route.regions, region);
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
-  const hiddenLayers = useMapLayers('world');
+  const hiddenLayers = useMapLayers();
+  const clusterZoom = useSettingsStore((state) => state.clusterZoom);
   const setWorldPreferred = useSettingsStore((state) => state.setWorldView);
   const tile = route.trail?.[0]?.id;
   const world = Object.assign({}, ...regions.map((entry) => entry.world));
@@ -93,7 +92,8 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     navigate(regionHref(game.id, regionOfTile(id), id));
   };
   const sharedView = useViewParam();
-  const { search } = useLocation();
+  const { search, state: navState, key: locationKey } = useLocation();
+  const requestedFocus = (navState as { focusKey?: string } | null)?.focusKey;
   const deselect = () =>
     navigate({ pathname: regionHref(game.id, region), search });
   const [handedOff] = useState(hasHandedOffView);
@@ -110,7 +110,14 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
   const [trainerKey, setTrainerKey] = useState<string>();
   const [highlight, setHighlight] = useState<string>();
-  const [pinRequest, setPinRequest] = useState<{ key: string }>();
+  const [pinRequest, setPinRequest] = useState<{
+    key: string;
+    initial?: boolean;
+  }>();
+
+  useEffect(() => {
+    if (requestedFocus) setPinRequest({ key: requestedFocus, initial: true });
+  }, [locationKey, requestedFocus]);
 
   const placed = regions
     .flatMap(({ locations }) => locations)
@@ -314,7 +321,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           dataPath,
           view,
           sections: view.layerSections,
-          hiddenLayers: hiddenNow,
+          hiddenLayers,
           onHighlight: setHighlight,
           onSelectTrainer: setTrainerKey,
           onPin: (key) => setPinRequest({ key }),
@@ -342,7 +349,10 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               onSelect: selectTile,
               stayOnMapSelect: true,
               flyOnMount:
-                Boolean(selected) && !handedOff && !sharedView.restored,
+                Boolean(selected) &&
+                !handedOff &&
+                !sharedView.restored &&
+                !requestedFocus,
               faded,
               outlineSelected: false,
               dottedSelected: true,
@@ -356,10 +366,27 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
             fitBounds={findBounds}
             onViewChange={sharedView.remember}
             clusters={clusters}
-            clusterZoom={CLOSE_ZOOM}
+            clusterZoom={clusterZoom}
             onDeselect={selected ? deselect : undefined}
-            onZoomChange={(zoom) => setTier(zoomTier(zoom))}
+            onZoomChange={(zoom) => setTier(zoomTier(zoom, clusterZoom))}
             zoomPosition="bottomleft"
+            worldView={
+              selected
+                ? {
+                    on: false,
+                    onToggle: () => {
+                      const at = world[selected.id];
+
+                      setFaded(true);
+                      setTimeout(() => {
+                        if (at) handOffView(-at.x, -at.y);
+
+                        setWorldPreferred(false);
+                      }, FADE_OUT_MS);
+                    },
+                  }
+                : undefined
+            }
             className={cn(
               'size-full',
               fading.map((id) => `map-fading-${id}`),
@@ -372,27 +399,8 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               onClear={find.clear}
             />
           )}
-          {selected && (
-            <WorldToggle
-              world
-              labels={['Focus View', 'World View']}
-              worldFirst
-              onChange={(next) => {
-                if (next) return;
-
-                const at = selected ? world[selected.id] : undefined;
-
-                setFaded(true);
-                setTimeout(() => {
-                  if (at) handOffView(-at.x, -at.y);
-
-                  setWorldPreferred(false);
-                }, FADE_OUT_MS);
-              }}
-            />
-          )}
         </div>
-        <GameAside mapLayers="world">
+        <GameAside mapLayers>
           <AsideCard icon={MapIcon} label="Town Map" onMobileOpen={openTownMap}>
             <TownMapCard
               key={region.id}

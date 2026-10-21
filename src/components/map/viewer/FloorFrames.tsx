@@ -6,8 +6,8 @@ import { Marker, Pane, Rectangle, useMap } from 'react-leaflet';
 import { toLatLng } from '../coordinates';
 
 const FRAME_PANE = 'floor-frames';
-const FLIGHT_PADDING_PIXELS = 24;
-const FLIGHT_SECONDS = 0.7;
+export const FLIGHT_PADDING_PIXELS = 24;
+export const FLIGHT_SECONDS = 0.7;
 const FIRST_FLIGHT_DELAY_MS = 350;
 
 export type FloorFrame = {

@@ -65,6 +65,27 @@ export const PanBounds = ({ bounds }: { bounds: LatLngBoundsLiteral }) => {
 
 const FIT_PADDING_PIXELS = 48;
 
+const settledMaps = new WeakSet<LeafletMap>();
+
+const markFitSettled = (leafletMap: LeafletMap) => {
+  settledMaps.add(leafletMap);
+  leafletMap.fire('fitsettled');
+};
+
+export const whenFitSettled = (leafletMap: LeafletMap, run: () => void) => {
+  if (settledMaps.has(leafletMap)) {
+    run();
+
+    return undefined;
+  }
+
+  leafletMap.once('fitsettled', run);
+
+  return () => {
+    leafletMap.off('fitsettled', run);
+  };
+};
+
 type ZoomLimiter = { _limitZoom: (zoom: number) => number };
 
 export const FitToViewport = ({
@@ -131,9 +152,10 @@ export const FitToViewport = ({
 
     leafletMap.on('resize', onResize);
 
-    const observer = new ResizeObserver(() =>
-      leafletMap.invalidateSize({ pan: false }),
-    );
+    const observer = new ResizeObserver(() => {
+      leafletMap.invalidateSize({ pan: false });
+      markFitSettled(leafletMap);
+    });
 
     observer.observe(leafletMap.getContainer());
 

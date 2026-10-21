@@ -15,25 +15,30 @@ export type ThemePreset = ThemeStyle | 'custom';
 
 export type LocationTab = 'info' | 'pokemon' | 'trainers';
 
+export const DEFAULT_CLUSTER_ZOOM = 0;
+
 type SettingsState = {
   animations: boolean;
   gamePointer: boolean;
   themePreset: ThemePreset;
   themes: Record<ThemeArea, ThemeStyle>;
   mapLayers: Partial<Record<string, boolean>>;
-  worldMapLayers: Partial<Record<string, boolean>>;
+  clusterZoom: number;
   locationTab: LocationTab;
   worldView: boolean;
   allFloors: boolean;
+  tilted: boolean;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
   setThemePreset: (preset: ThemePreset) => void;
   setTheme: (area: ThemeArea, style: ThemeStyle) => void;
   setMapLayer: (layer: string, visible: boolean) => void;
-  setWorldMapLayer: (layer: string, visible: boolean) => void;
+  setClusterZoom: (clusterZoom: number) => void;
+  resetMapSettings: () => void;
   setLocationTab: (tab: LocationTab) => void;
   setWorldView: (worldView: boolean) => void;
   setAllFloors: (allFloors: boolean) => void;
+  setTilted: (tilted: boolean) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -51,10 +56,11 @@ export const useSettingsStore = create<SettingsState>()(
         sprites: 'tall-grass',
       },
       mapLayers: {},
-      worldMapLayers: {},
+      clusterZoom: DEFAULT_CLUSTER_ZOOM,
       locationTab: 'info',
       worldView: false,
       allFloors: false,
+      tilted: false,
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
       setThemePreset: (themePreset) => set({ themePreset }),
@@ -64,23 +70,24 @@ export const useSettingsStore = create<SettingsState>()(
         set((state) => ({
           mapLayers: { ...state.mapLayers, [layer]: visible },
         })),
-      setWorldMapLayer: (layer, visible) =>
-        set((state) => ({
-          worldMapLayers: { ...state.worldMapLayers, [layer]: visible },
-        })),
+      setClusterZoom: (clusterZoom) => set({ clusterZoom }),
+      resetMapSettings: () =>
+        set({ mapLayers: {}, clusterZoom: DEFAULT_CLUSTER_ZOOM }),
       setLocationTab: (locationTab) => set({ locationTab }),
       setWorldView: (worldView) => set({ worldView }),
       setAllFloors: (allFloors) => set({ allFloors }),
+      setTilted: (tilted) => set({ tilted }),
     }),
     {
       name: 'tallgrass-settings',
-      version: 4,
+      version: 5,
       storage: createJSONStorage(() => localStorage),
       migrate: (persisted, version) => {
         let state = persisted as {
           themes?: Partial<Record<string, ThemeStyle>>;
           layout?: unknown;
           layouts?: unknown;
+          worldMapLayers?: unknown;
         };
 
         if (version < 2 && state.themes) {
@@ -98,6 +105,7 @@ export const useSettingsStore = create<SettingsState>()(
           } as typeof state;
         }
 
+        delete state.worldMapLayers;
         delete state.layout;
         delete state.layouts;
 
@@ -125,20 +133,22 @@ export const useSettingsStore = create<SettingsState>()(
         themePreset,
         themes,
         mapLayers,
-        worldMapLayers,
+        clusterZoom,
         locationTab,
         worldView,
         allFloors,
+        tilted,
       }) => ({
         animations,
         gamePointer,
         themePreset,
         themes,
         mapLayers,
-        worldMapLayers,
+        clusterZoom,
         locationTab,
         worldView,
         allFloors,
+        tilted,
       }),
     },
   ),

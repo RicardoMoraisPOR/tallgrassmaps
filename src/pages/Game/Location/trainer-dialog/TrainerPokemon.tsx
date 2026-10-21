@@ -32,7 +32,7 @@ export const TallGrassPokemon = ({
           height={96}
           loading="lazy"
           className={cn(
-            'size-12 flex-none object-contain',
+            'size-16 flex-none object-contain',
             sprite.pixelated && 'pixelated',
           )}
         />
@@ -82,7 +82,7 @@ export const GamePokemon = ({
           width={96}
           height={96}
           loading="lazy"
-          className="size-10 flex-none object-contain"
+          className="size-14 flex-none object-contain"
         />
         <div className="gb-status flex min-w-0 flex-1 flex-col gap-1 pr-2 pb-2 text-[10px] leading-none">
           <div className="flex min-w-0 items-end justify-between gap-2">

@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router';
 import type { MapImage } from '@/data/maps';
 import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
+import { useSettingsStore } from '@/stores/settings';
 
 import { imageBounds, toLatLng } from './coordinates';
 import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
@@ -93,6 +94,7 @@ type MapViewerProps = {
   clusterZoom?: number;
   onDeselect?: () => void;
   zoomPosition?: ZoomPosition;
+  worldView?: { on: boolean; onToggle: () => void };
   className?: string;
 };
 
@@ -241,9 +243,10 @@ export const MapViewer = ({
   fitBounds,
   onViewChange,
   clusters,
-  clusterZoom = 0,
+  clusterZoom,
   onDeselect,
   zoomPosition,
+  worldView,
   className,
 }: MapViewerProps) => {
   const navigate = useNavigate();
@@ -460,9 +463,13 @@ export const MapViewer = ({
     };
   }, []);
 
-  const [tilted, setTilted] = useState(
-    () => tiltFromSearch(window.location.search) !== undefined,
-  );
+  const tilted = useSettingsStore((state) => state.tilted);
+  const setTilted = useSettingsStore((state) => state.setTilted);
+
+  useEffect(() => {
+    if (tiltFromSearch(window.location.search) !== undefined) setTilted(true);
+  }, [setTilted]);
+
   const tiltDegrees =
     tiltFromSearch(window.location.search) ?? DEFAULT_TILT_DEGREES;
 
@@ -485,7 +492,9 @@ export const MapViewer = ({
       >
         <MapZoomControls
           position={zoomPosition ?? 'topleft'}
-          tilt={{ on: tilted, onToggle: () => setTilted((on) => !on) }}
+          worldView={worldView}
+          recenterOn={stack?.floors.find(({ id }) => id === stack.selected)}
+          tilt={{ on: tilted, onToggle: () => setTilted(!tilted) }}
         />
         <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
           {stack ? (
@@ -561,7 +570,7 @@ export const MapViewer = ({
           <TileClusters
             key={cluster.tileId}
             cluster={cluster}
-            zoomTo={clusterZoom}
+            zoomTo={clusterZoom ?? 0}
             onSelect={(tileId) => {
               mapSelect.current = true;
               setTimeout(() => {
@@ -648,7 +657,10 @@ export const MapViewer = ({
         )}
         <PinOnRequest
           request={pinRequest}
-          links={links.filter(onSelectedFloor)}
+          links={highlightable.filter(onSelectedFloor)}
+          minZoom={
+            clusterZoom === undefined ? undefined : Math.max(clusterZoom + 1, 0)
+          }
           onPin={(link) => {
             setPinnedAnchor(undefined);
             setPinnedCardKey(linkKey(link));

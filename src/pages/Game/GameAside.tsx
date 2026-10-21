@@ -25,7 +25,6 @@ import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
-import type { LayerView } from './Location/mapLayers';
 import { MapLayersButton } from './Location/MapLayersButton';
 import { PokedexButton } from './Pokedex/PokedexButton';
 import { PlaceSearchButton } from './Search/PlaceSearch';
@@ -74,7 +73,7 @@ const EXIT = { duration: 0.2, ease: easeOutSoft };
 
 type GameAsideProps = {
   contentClassName?: string;
-  mapLayers?: LayerView;
+  mapLayers?: boolean;
   children: ReactNode;
 };
 
@@ -197,7 +196,7 @@ export const GameAside = ({
           {cards.filter(({ drawer }) => !drawer).map(renderCard)}
         </div>
         <div className="flex flex-col gap-2 md:absolute md:right-4 md:bottom-4 md:z-30 md:flex-row">
-          {mapLayers && <MapLayersButton view={mapLayers} />}
+          {mapLayers && <MapLayersButton />}
           <PokedexButton />
           {cards.filter(({ drawer }) => drawer).map(renderCard)}
         </div>

@@ -131,51 +131,60 @@ export const wildBadgeLayer = () => layer('wild-badges');
 
 export const staticLayer = () => layer('static-pokemon');
 
-export type LayerView = 'focus' | 'world';
+const hiddenByDefault: Array<MapLayerId> = ['signs', 'wild-pokemon'];
 
-export const layerViews: Array<{ id: LayerView; label: string }> = [
-  { id: 'world', label: 'World View' },
-  { id: 'focus', label: 'Focus View' },
-];
+export const isLayerVisible = (
+  saved: Partial<Record<string, boolean>>,
+  id: MapLayerId,
+) => saved[id] ?? !hiddenByDefault.includes(id);
 
-const hiddenByDefault: Record<LayerView, Array<MapLayerId>> = {
-  focus: ['signs'],
-  world: ['signs', 'connections'],
-};
-
-export const useSavedMapLayers = (view: LayerView) => {
-  const saved = useSettingsStore((state) =>
-    view === 'world' ? state.worldMapLayers : state.mapLayers,
-  );
-  const setMapLayer = useSettingsStore((state) =>
-    view === 'world' ? state.setWorldMapLayer : state.setMapLayer,
-  );
-
-  const isVisible = (id: MapLayerId) =>
-    saved[id] ?? !hiddenByDefault[view].includes(id);
-
-  const setVisible = (id: MapLayerId, visible: boolean) =>
-    setMapLayer(id, visible);
-
-  return { isVisible, setVisible };
-};
-
-export const useMapLayers = (view: LayerView) => {
-  const { isVisible } = useSavedMapLayers(view);
+export const useMapLayers = () => {
+  const saved = useSettingsStore((state) => state.mapLayers);
 
   return new Set(
-    mapLayers.filter(({ id }) => !isVisible(id)).map(({ id }) => id),
+    mapLayers
+      .filter(({ id }) => !isLayerVisible(saved, id))
+      .map(({ id }) => id),
   );
 };
 
-const MID_ZOOM = -1;
-export const CLOSE_ZOOM = 0;
+export const groupingLevels: Array<{
+  label: string;
+  hint: string;
+  clusterZoom: number;
+}> = [
+  { label: 'Off', hint: 'Markers always show individually.', clusterZoom: -8 },
+  {
+    label: 'Low',
+    hint: 'One count per area when zoomed out, then counts by category, gone after two steps in.',
+    clusterZoom: -1,
+  },
+  {
+    label: 'Medium',
+    hint: 'Markers group into counts until you zoom in a few steps.',
+    clusterZoom: 0,
+  },
+  {
+    label: 'High',
+    hint: 'Markers stay grouped until you zoom in close.',
+    clusterZoom: 1,
+  },
+];
 
-export const zoomTier = (zoom: number) =>
-  zoom < MID_ZOOM ? 0 : zoom < CLOSE_ZOOM ? 1 : 2;
+export const nearestGroupingLevel = (clusterZoom: number) =>
+  groupingLevels.reduce((nearest, level) =>
+    Math.abs(level.clusterZoom - clusterZoom) <
+    Math.abs(nearest.clusterZoom - clusterZoom)
+      ? level
+      : nearest,
+  );
+
+export const zoomTier = (zoom: number, clusterZoom: number) =>
+  zoom < clusterZoom - 1 ? 0 : zoom < clusterZoom ? 1 : 2;
+
+const focusOnlyLayer: MapLayerId = 'connections';
 
 const worldLayerTier: Partial<Record<MapLayerId, number>> = {
-  connections: 1,
   buildings: 2,
   services: 2,
   items: 2,
@@ -193,7 +202,10 @@ export const layersHiddenAtTier = (tier: number | undefined) =>
   new Set(
     mapLayers
       .filter(
-        ({ id }) => tier === undefined || tier < (worldLayerTier[id] ?? 0),
+        ({ id }) =>
+          id === focusOnlyLayer ||
+          tier === undefined ||
+          tier < (worldLayerTier[id] ?? 0),
       )
       .map(({ id }) => id),
   );
