@@ -4,6 +4,7 @@ import {
   type LatLngBoundsLiteral,
   type LatLngTuple,
   type Map as LeafletMap,
+  type ZoomAnimEvent,
   Util,
 } from 'leaflet';
 import { useMap, useMapEvents } from 'react-leaflet';
@@ -185,6 +186,32 @@ export const IconSizeForZoom = () => {
 
     return () => {
       leafletMap.off('zoomend resize', update);
+    };
+  }, [leafletMap]);
+
+  return null;
+};
+
+export const UnitSizeForZoom = () => {
+  const leafletMap = useMap();
+
+  useEffect(() => {
+    const container = leafletMap.getContainer();
+    const set = (zoom: number) =>
+      container.style.setProperty(
+        '--map-unit',
+        `${leafletMap.options.crs?.scale(zoom)}px`,
+      );
+    const update = () => set(leafletMap.getZoom());
+    const animate = ({ zoom }: ZoomAnimEvent) => set(zoom);
+
+    update();
+    leafletMap.on('zoom zoomend resize', update);
+    leafletMap.on('zoomanim', animate);
+
+    return () => {
+      leafletMap.off('zoom zoomend resize', update);
+      leafletMap.off('zoomanim', animate);
     };
   }, [leafletMap]);
 

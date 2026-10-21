@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { DomEvent } from 'leaflet';
-import { Minus, Plus } from 'lucide-react';
+import { Box, Minus, Plus } from 'lucide-react';
 import { useMap, useMapEvents } from 'react-leaflet';
+
+import { cn } from '@/lib/utils';
 
 export type ZoomPosition = 'topleft' | 'bottomleft';
 
-const CONTROLS_HEIGHT = '75px';
+const BUTTON_HEIGHT = 37;
 const EDGE_GAP = '0.75rem';
 
-const TOPS: Record<ZoomPosition, string> = {
-  topleft: EDGE_GAP,
-  bottomleft: `calc(100% - ${CONTROLS_HEIGHT} - ${EDGE_GAP})`,
-};
+const topFor = (position: ZoomPosition, buttons: number) =>
+  position === 'topleft'
+    ? EDGE_GAP
+    : `calc(100% - ${buttons * BUTTON_HEIGHT + 1}px - ${EDGE_GAP})`;
 
 const SHIFT_ZOOM_DELTA = 3;
 
@@ -21,9 +23,10 @@ const buttonClass =
 
 type MapZoomControlsProps = {
   position: ZoomPosition;
+  tilt?: { on: boolean; onToggle: () => void };
 };
 
-export const MapZoomControls = ({ position }: MapZoomControlsProps) => {
+export const MapZoomControls = ({ position, tilt }: MapZoomControlsProps) => {
   const map = useMap();
   const container = useRef<HTMLDivElement>(null);
   const [limits, setLimits] = useState(() => zoomLimits(map));
@@ -43,7 +46,7 @@ export const MapZoomControls = ({ position }: MapZoomControlsProps) => {
   return (
     <div
       ref={container}
-      style={{ top: TOPS[position], left: EDGE_GAP }}
+      style={{ top: topFor(position, tilt ? 3 : 2), left: EDGE_GAP }}
       className="absolute z-1000 flex flex-col divide-y overflow-hidden rounded-sm border bg-card transition-[top] duration-250 ease-out"
     >
       <button
@@ -66,6 +69,18 @@ export const MapZoomControls = ({ position }: MapZoomControlsProps) => {
       >
         <Minus aria-hidden className="size-4" />
       </button>
+      {tilt && (
+        <button
+          type="button"
+          aria-label="Tilt map"
+          aria-pressed={tilt.on}
+          title="Tilt map"
+          onClick={tilt.onToggle}
+          className={cn(buttonClass, tilt.on && 'bg-muted text-foreground')}
+        >
+          <Box aria-hidden className="size-4" />
+        </button>
+      )}
     </div>
   );
 };

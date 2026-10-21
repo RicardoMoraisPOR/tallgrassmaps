@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 
 import { toLatLng } from '../coordinates';
 import { MAP_ICON_SIZE } from './constants';
+import { tiltedPoint } from './TiltView';
 import type { MapLink } from './types';
 
 const HOVER_CARD_GAP = 10;
@@ -68,11 +69,15 @@ export const HoverCard = ({
   }, [interactive]);
 
   const centerX = anchor?.x ?? link.x + link.width / 2;
-  const top = leafletMap.latLngToContainerPoint(
-    toLatLng(centerX, anchor?.y ?? link.y),
+  const top = tiltedPoint(
+    leafletMap,
+    leafletMap.latLngToContainerPoint(toLatLng(centerX, anchor?.y ?? link.y)),
   );
-  const bottom = leafletMap.latLngToContainerPoint(
-    toLatLng(centerX, anchor?.y ?? link.y + link.height),
+  const bottom = tiltedPoint(
+    leafletMap,
+    leafletMap.latLngToContainerPoint(
+      toLatLng(centerX, anchor?.y ?? link.y + link.height),
+    ),
   );
   const container = leafletMap.getSize();
   const gap =

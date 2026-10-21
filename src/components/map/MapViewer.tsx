@@ -32,6 +32,11 @@ import {
   UnpinWhenOffscreen,
 } from './viewer/PinControls';
 import { type TileCluster, TileClusters } from './viewer/TileClusters';
+import {
+  DEFAULT_TILT_DEGREES,
+  TiltView,
+  tiltFromSearch,
+} from './viewer/TiltView';
 import type { MapLink } from './viewer/types';
 import {
   type MapView,
@@ -43,6 +48,7 @@ import {
   IconSizeForZoom,
   PanBounds,
   PixelatedWhenZoomedIn,
+  UnitSizeForZoom,
   FitToBounds,
   type FitBounds,
   ReportViewBox,
@@ -214,8 +220,8 @@ const ShapeItem = memo(
         eventHandlers={handlers}
       >
         {!link.tooltip && (
-          <Tooltip sticky pane="tooltipPane">
-            {link.label}
+          <Tooltip sticky pane="tooltipPane" className="map-tooltip">
+            <span className="map-tooltip-label">{link.label}</span>
           </Tooltip>
         )}
       </LinkShape>
@@ -395,6 +401,7 @@ export const MapViewer = ({
 
         if (link.tooltip && link.tooltipOnClick) {
           DomEvent.stopPropagation(event);
+          setPinnedAnchor(undefined);
           togglePin(link);
         }
 
@@ -453,6 +460,12 @@ export const MapViewer = ({
     };
   }, []);
 
+  const [tilted, setTilted] = useState(
+    () => tiltFromSearch(window.location.search) !== undefined,
+  );
+  const tiltDegrees =
+    tiltFromSearch(window.location.search) ?? DEFAULT_TILT_DEGREES;
+
   return (
     <>
       <WildAreaPatterns />
@@ -470,7 +483,10 @@ export const MapViewer = ({
         className={cn('isolate', className)}
         style={{ background: 'var(--muted)' }}
       >
-        <MapZoomControls position={zoomPosition ?? 'topleft'} />
+        <MapZoomControls
+          position={zoomPosition ?? 'topleft'}
+          tilt={{ on: tilted, onToggle: () => setTilted((on) => !on) }}
+        />
         <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
           {stack ? (
             stack.floors.map((floor) => (
@@ -638,12 +654,14 @@ export const MapViewer = ({
             setPinnedCardKey(linkKey(link));
           }}
         />
+        <TiltView degrees={tilted ? tiltDegrees : 0} />
         <PanBounds bounds={bounds} />
         <FitToViewport map={map} focus={focusPoint} />
         <RestoreHandedOffView />
         <RememberView onChange={onViewChange} />
         {map.pixelated && <PixelatedWhenZoomedIn />}
         <IconSizeForZoom />
+        <UnitSizeForZoom />
         <ResyncAfterInterruptedZoom />
         <ReportViewBox onChange={setViewBox} />
         {onZoomChange && <ReportZoom onZoomChange={onZoomChange} />}
