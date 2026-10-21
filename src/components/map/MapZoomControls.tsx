@@ -17,7 +17,7 @@ const TOPS: Record<ZoomPosition, string> = {
 const SHIFT_ZOOM_DELTA = 3;
 
 const buttonClass =
-  'flex size-9 items-center justify-center text-muted-foreground outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-40';
+  'flex size-9 items-center justify-center text-muted-foreground transition-[color,scale] outline-none active:scale-97 hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-40';
 
 type MapZoomControlsProps = {
   position: ZoomPosition;

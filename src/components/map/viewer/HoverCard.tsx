@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { DomEvent } from 'leaflet';
 import { createPortal } from 'react-dom';
@@ -12,6 +12,9 @@ import type { MapLink } from './types';
 
 const HOVER_CARD_GAP = 10;
 const HOVER_CARD_EDGE = 8;
+const SEQUENTIAL_WINDOW_MS = 150;
+
+let lastClosedAt = 0;
 
 export const HoverCard = ({
   link,
@@ -26,6 +29,16 @@ export const HoverCard = ({
   const card = useRef<HTMLDivElement>(null);
   const [, setViewChanges] = useState(0);
   const [size, setSize] = useState({ width: 0, height: 0 });
+  const [sequential] = useState(
+    () => performance.now() - lastClosedAt < SEQUENTIAL_WINDOW_MS,
+  );
+
+  useEffect(
+    () => () => {
+      lastClosedAt = performance.now();
+    },
+    [],
+  );
 
   useMapEvents({
     move: () => setViewChanges((count) => count + 1),
@@ -75,12 +88,14 @@ export const HoverCard = ({
       ref={card}
       data-pinned={interactive || undefined}
       className={cn(
-        'map-card absolute z-1000 w-max animate-in duration-50 fade-in-0 zoom-in-95',
+        'map-card absolute z-1000 w-max',
+        !sequential && 'animate-in duration-120 fade-in-0 zoom-in-95',
         !interactive && 'pointer-events-none',
       )}
       style={{
         left,
         top: below ? bottom.y + gap : top.y - gap - size.height,
+        transformOrigin: `${top.x - left}px ${below ? '0' : '100%'}`,
         visibility: size.height === 0 ? 'hidden' : undefined,
       }}
     >

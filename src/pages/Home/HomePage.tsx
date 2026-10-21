@@ -86,7 +86,7 @@ const Hero = () => {
           layout="position"
           transition={LAYOUT_TRANSITION}
           data-hero-obstacle="text"
-          className={`font-heading text-[clamp(2.75rem,11.5vw,5.5rem)] leading-[0.9] font-bold tracking-[-0.03em] transition-[font-size] duration-700 ease-out group-data-[egg=true]/hero:text-[clamp(2rem,9vw,3.25rem)] lg:col-span-8 lg:self-center lg:text-[clamp(3.75rem,6.2vw,7.25rem)] lg:group-data-[egg=true]/hero:text-[clamp(2.75rem,4.2vw,4.5rem)]`}
+          className={`font-heading text-[clamp(2.75rem,11.5vw,5.5rem)] leading-[0.9] font-bold tracking-[-0.03em] transition-[font-size] duration-300 ease-out group-data-[egg=true]/hero:text-[clamp(2rem,9vw,3.25rem)] lg:col-span-8 lg:self-center lg:text-[clamp(3.75rem,6.2vw,7.25rem)] lg:group-data-[egg=true]/hero:text-[clamp(2.75rem,4.2vw,4.5rem)]`}
         >
           {headlineLines.map((line, index) => (
             <span
