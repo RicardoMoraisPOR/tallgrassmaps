@@ -34,6 +34,7 @@ import { TownMapDialog } from './TownMapDialog';
 import { TrainerDialog } from './TrainerDialog';
 import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
+import { useMapPalette } from './useMapPalette';
 
 const ARRIVAL_HIGHLIGHT_MS = 1500;
 
@@ -61,6 +62,10 @@ export const LocationPage = () => {
   const scope = trail ? trailPath(trail) : '';
   const dataPath = location?.dataPath ?? scope;
   const hiddenLayers = useMapLayers();
+  const palette = useMapPalette(route?.game.id ?? '', (floorId) => ({
+    path: scope,
+    floor: floorId ?? floor?.id,
+  }));
   const [pinRequest, setPinRequest] = useState<{
     scope: string;
     key: string;
@@ -301,6 +306,7 @@ export const LocationPage = () => {
         focusRequest ?? (pinRequest?.scope === scope ? pinRequest : undefined)
       }
       zoomPosition="bottomleft"
+      palette={palette}
       worldView={
         worldTile
           ? {

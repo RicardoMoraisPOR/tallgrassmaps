@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { DomEvent, type LatLngBoundsLiteral, latLngBounds } from 'leaflet';
-import { Box, Focus, LocateFixed, Minus, Plus } from 'lucide-react';
+import { Box, Focus, LocateFixed, Minus, Palette, Plus } from 'lucide-react';
 import { useMap, useMapEvents } from 'react-leaflet';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -38,6 +38,7 @@ type MapZoomControlsProps = {
   worldView?: Toggle;
   recenterOn?: Area;
   tilt?: Toggle;
+  colors?: Toggle;
 };
 
 export const MapZoomControls = ({
@@ -45,6 +46,7 @@ export const MapZoomControls = ({
   recenterOn,
   worldView,
   tilt,
+  colors,
 }: MapZoomControlsProps) => {
   const map = useMap();
   const vertical = useMediaQuery(TABLET_QUERY);
@@ -69,7 +71,12 @@ export const MapZoomControls = ({
       style={{
         top: topFor(
           position,
-          vertical ? 3 + Number(Boolean(worldView)) + Number(Boolean(tilt)) : 1,
+          vertical
+            ? 3 +
+                Number(Boolean(worldView)) +
+                Number(Boolean(tilt)) +
+                Number(Boolean(colors))
+            : 1,
         ),
         left: EDGE_GAP,
       }}
@@ -117,6 +124,18 @@ export const MapZoomControls = ({
           className={cn(buttonClass, worldView.on && activeClass)}
         >
           <Focus aria-hidden className="size-4" />
+        </button>
+      )}
+      {colors && (
+        <button
+          type="button"
+          aria-label="Game Boy Color colours"
+          aria-pressed={colors.on}
+          title="Game Boy Color colours"
+          onClick={colors.onToggle}
+          className={cn(buttonClass, colors.on && activeClass)}
+        >
+          <Palette aria-hidden className="size-4" />
         </button>
       )}
       {tilt && (

@@ -5,6 +5,7 @@ import {
   DomEvent,
   type LatLngTuple,
   type LeafletEventHandlerFnMap,
+  type ImageOverlay as LeafletImageOverlay,
   type LeafletMouseEvent,
   type Path as LeafletPath,
 } from 'leaflet';
@@ -13,6 +14,7 @@ import { ImageOverlay, MapContainer, Pane, Tooltip } from 'react-leaflet';
 import { useNavigate } from 'react-router';
 
 import type { MapImage } from '@/data/maps';
+import type { GbcPaletteId } from '@/data/maps/gbcPalettes';
 import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
@@ -26,6 +28,13 @@ import { linkKey, spriteKey } from './viewer/links';
 import { LinkShape } from './viewer/LinkShape';
 import { MapIcon } from './viewer/MapIcon';
 import { MapSprite } from './viewer/MapSprite';
+import {
+  type MapPalette,
+  PaletteFilters,
+  paletteClass,
+  setPaletteClass,
+  usePaletteApplied,
+} from './viewer/PaletteFilters';
 import {
   DeselectOnEmptyClick,
   PinOnRequest,
@@ -95,6 +104,7 @@ type MapViewerProps = {
   onDeselect?: () => void;
   zoomPosition?: ZoomPosition;
   worldView?: { on: boolean; onToggle: () => void };
+  palette?: MapPalette;
   className?: string;
 };
 
@@ -106,10 +116,11 @@ type FloorImageProps = {
   height: number;
   hidden: boolean;
   dimmed: boolean;
+  palette: string;
 };
 
 const FloorImage = memo(
-  ({ url, x, y, width, height, hidden, dimmed }: FloorImageProps) => {
+  ({ url, x, y, width, height, hidden, dimmed, palette }: FloorImageProps) => {
     const bounds = useMemo(
       () =>
         [toLatLng(x, y + height), toLatLng(x + width, y)] as [
@@ -118,9 +129,23 @@ const FloorImage = memo(
         ],
       [x, y, width, height],
     );
+    const overlay = useRef<LeafletImageOverlay>(null);
+
+    useEffect(() => {
+      const element = overlay.current?.getElement();
+
+      if (element) setPaletteClass(element, palette);
+    }, [palette, url]);
+
+    useEffect(() => {
+      const element = overlay.current?.getElement();
+
+      if (element) element.decoding = 'async';
+    }, [url]);
 
     return (
       <ImageOverlay
+        ref={overlay}
         url={url}
         className="map-tile-fade"
         opacity={hidden ? 0 : dimmed ? 0.25 : 1}
@@ -140,13 +165,22 @@ type MapActions = {
 };
 
 const SpriteItem = memo(
-  ({ link, active }: { link: MapLink; active: boolean }) =>
+  ({
+    link,
+    active,
+    palette,
+  }: {
+    link: MapLink;
+    active: boolean;
+    palette?: GbcPaletteId;
+  }) =>
     link.sprite && (
       <MapSprite
         link={link}
         sprite={link.sprite}
         active={active}
         revealed={active}
+        palette={palette}
       />
     ),
 );
@@ -247,6 +281,7 @@ export const MapViewer = ({
   onDeselect,
   zoomPosition,
   worldView,
+  palette,
   className,
 }: MapViewerProps) => {
   const navigate = useNavigate();
@@ -470,12 +505,25 @@ export const MapViewer = ({
     if (tiltFromSearch(window.location.search) !== undefined) setTilted(true);
   }, [setTilted]);
 
+  const paletteApplied = usePaletteApplied(palette?.on ?? false);
+  const floorPalette = (floorId: string | undefined) =>
+    paletteApplied && palette ? paletteClass(palette.of(floorId)) : '';
+  const baseOverlay = useRef<LeafletImageOverlay>(null);
+  const basePalette = floorPalette(undefined);
+
+  useEffect(() => {
+    const element = baseOverlay.current?.getElement();
+
+    if (element) setPaletteClass(element, basePalette);
+  }, [basePalette, map.image]);
+
   const tiltDegrees =
     tiltFromSearch(window.location.search) ?? DEFAULT_TILT_DEGREES;
 
   return (
     <>
       <WildAreaPatterns />
+      <PaletteFilters on={palette?.on ?? false} />
       <MapContainer
         key={map.image}
         crs={CRS.Simple}
@@ -495,23 +543,31 @@ export const MapViewer = ({
           worldView={worldView}
           recenterOn={stack?.floors.find(({ id }) => id === stack.selected)}
           tilt={{ on: tilted, onToggle: () => setTilted(!tilted) }}
+          colors={palette}
         />
         <Pane name={MAP_IMAGE_PANE} style={{ zIndex: 300 }}>
           {stack ? (
-            stack.floors.map((floor) => (
-              <FloorImage
-                key={floor.id}
-                url={floor.image}
-                x={floor.x}
-                y={floor.y}
-                width={floor.width}
-                height={floor.height}
-                hidden={Boolean(stack.faded) && floor.id !== stack.selected}
-                dimmed={stack.dimmed?.has(floor.id) ?? false}
-              />
-            ))
+            stack.floors
+              .filter(
+                (floor) =>
+                  floor.id === stack.selected ||
+                  inView(floor.x, floor.y, floor.width, floor.height),
+              )
+              .map((floor) => (
+                <FloorImage
+                  key={floor.id}
+                  url={floor.image}
+                  x={floor.x}
+                  y={floor.y}
+                  width={floor.width}
+                  height={floor.height}
+                  hidden={Boolean(stack.faded) && floor.id !== stack.selected}
+                  dimmed={stack.dimmed?.has(floor.id) ?? false}
+                  palette={floorPalette(floor.id)}
+                />
+              ))
           ) : (
-            <ImageOverlay url={map.image} bounds={bounds} />
+            <ImageOverlay ref={baseOverlay} url={map.image} bounds={bounds} />
           )}
         </Pane>
         {stack && (
@@ -537,6 +593,9 @@ export const MapViewer = ({
               <SpriteItem
                 key={`sprite-${link.x},${link.y}`}
                 link={link}
+                palette={
+                  palette?.on ? palette.objectsOf(link.floorId) : undefined
+                }
                 active={
                   hoveredSprite === spriteKey(link) ||
                   pinnedCardKey === linkKey(link) ||
@@ -566,20 +625,22 @@ export const MapViewer = ({
               />
             ),
         )}
-        {clusters?.map((cluster) => (
-          <TileClusters
-            key={cluster.tileId}
-            cluster={cluster}
-            zoomTo={clusterZoom ?? 0}
-            onSelect={(tileId) => {
-              mapSelect.current = true;
-              setTimeout(() => {
-                mapSelect.current = false;
-              }, CLUSTER_SELECT_MS);
-              stack?.onSelect(tileId);
-            }}
-          />
-        ))}
+        {clusters
+          ?.filter(({ x, y }) => inView(x, y, 0, 0))
+          .map((cluster) => (
+            <TileClusters
+              key={cluster.tileId}
+              cluster={cluster}
+              zoomTo={clusterZoom ?? 0}
+              onSelect={(tileId) => {
+                mapSelect.current = true;
+                setTimeout(() => {
+                  mapSelect.current = false;
+                }, CLUSTER_SELECT_MS);
+                stack?.onSelect(tileId);
+              }}
+            />
+          ))}
         <Pane name={BEHIND_PANE} style={{ zIndex: 350 }} />
         <Pane name="links" style={{ zIndex: 450 }}>
           {shownLinks

@@ -32,6 +32,7 @@ import { offsetLink } from '../Location/stackLayout';
 import { TownMapCard } from '../Location/TownMapCard';
 import { TownMapDialog } from '../Location/TownMapDialog';
 import { TrainerDialog } from '../Location/TrainerDialog';
+import { useMapPalette } from '../Location/useMapPalette';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
 import { findMatchKey, useMapFind } from '../Search/mapFind';
@@ -79,6 +80,9 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
   const hiddenLayers = useMapLayers();
+  const palette = useMapPalette(game.id, (floorId) => ({
+    path: floorId ?? '',
+  }));
   const clusterZoom = useSettingsStore((state) => state.clusterZoom);
   const setWorldPreferred = useSettingsStore((state) => state.setWorldView);
   const tile = route.trail?.[0]?.id;
@@ -370,6 +374,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
             onDeselect={selected ? deselect : undefined}
             onZoomChange={(zoom) => setTier(zoomTier(zoom, clusterZoom))}
             zoomPosition="bottomleft"
+            palette={palette}
             worldView={
               selected
                 ? {

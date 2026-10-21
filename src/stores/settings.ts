@@ -28,6 +28,7 @@ type SettingsState = {
   worldView: boolean;
   allFloors: boolean;
   tilted: boolean;
+  mapColor: boolean;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
   setThemePreset: (preset: ThemePreset) => void;
@@ -39,6 +40,7 @@ type SettingsState = {
   setWorldView: (worldView: boolean) => void;
   setAllFloors: (allFloors: boolean) => void;
   setTilted: (tilted: boolean) => void;
+  setMapColor: (mapColor: boolean) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -61,6 +63,7 @@ export const useSettingsStore = create<SettingsState>()(
       worldView: false,
       allFloors: false,
       tilted: false,
+      mapColor: false,
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
       setThemePreset: (themePreset) => set({ themePreset }),
@@ -77,6 +80,7 @@ export const useSettingsStore = create<SettingsState>()(
       setWorldView: (worldView) => set({ worldView }),
       setAllFloors: (allFloors) => set({ allFloors }),
       setTilted: (tilted) => set({ tilted }),
+      setMapColor: (mapColor) => set({ mapColor }),
     }),
     {
       name: 'tallgrass-settings',
@@ -138,6 +142,7 @@ export const useSettingsStore = create<SettingsState>()(
         worldView,
         allFloors,
         tilted,
+        mapColor,
       }) => ({
         animations,
         gamePointer,
@@ -149,6 +154,7 @@ export const useSettingsStore = create<SettingsState>()(
         worldView,
         allFloors,
         tilted,
+        mapColor,
       }),
     },
   ),
