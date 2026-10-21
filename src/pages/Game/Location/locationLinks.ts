@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import type { Location, LocationFloor, Region } from '@/data/maps';
 
 import { buildingIcons, markerLinks } from './links/buildings';
@@ -12,6 +14,16 @@ import { staticMarkers } from './links/statics';
 import { trainerMarkers } from './links/trainers';
 import type { MarkerSources } from './links/types';
 import { wildMarkers } from './links/wild';
+
+const withDoorTooltips = <T extends { label: string; tooltip?: ReactNode }>(
+  links: Array<T>,
+  doorTooltip: MarkerSources['doorTooltip'],
+) =>
+  doorTooltip
+    ? links.map((link) =>
+        link.tooltip ? link : { ...link, tooltip: doorTooltip(link.label) },
+      )
+    : links;
 
 export const locationLinks = (
   region: Region,
@@ -31,6 +43,7 @@ export const locationLinks = (
     npcTooltip,
     signs = [],
     signTooltip,
+    doorTooltip,
     onOpen,
     shops = [],
     entranceShops = [],
@@ -65,8 +78,8 @@ export const locationLinks = (
     ...links.filter(
       (link) => link.layer !== 'connections' && link.layer !== 'buildings',
     ),
-    ...connectionIcons(links, image),
-    ...buildingIcons(links, markers),
+    ...withDoorTooltips(connectionIcons(links, image), doorTooltip),
+    ...withDoorTooltips(buildingIcons(links, markers), doorTooltip),
     ...entranceRegisters(location.markers, entranceShops, tileSize, {
       onOpenShop,
     }),

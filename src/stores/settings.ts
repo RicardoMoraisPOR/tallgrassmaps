@@ -13,6 +13,8 @@ export type ThemeStyle = 'game' | 'tall-grass';
 
 export type ThemePreset = ThemeStyle | 'custom';
 
+export type MapRenderer = 'webgl' | 'classic';
+
 export type LocationTab = 'info' | 'pokemon' | 'trainers';
 
 export const DEFAULT_CLUSTER_ZOOM = 0;
@@ -29,6 +31,7 @@ type SettingsState = {
   allFloors: boolean;
   tilted: boolean;
   mapColor: boolean;
+  mapRenderer: MapRenderer;
   setAnimations: (animations: boolean) => void;
   setGamePointer: (gamePointer: boolean) => void;
   setThemePreset: (preset: ThemePreset) => void;
@@ -41,6 +44,7 @@ type SettingsState = {
   setAllFloors: (allFloors: boolean) => void;
   setTilted: (tilted: boolean) => void;
   setMapColor: (mapColor: boolean) => void;
+  setMapRenderer: (mapRenderer: MapRenderer) => void;
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -64,6 +68,7 @@ export const useSettingsStore = create<SettingsState>()(
       allFloors: false,
       tilted: false,
       mapColor: false,
+      mapRenderer: 'webgl',
       setAnimations: (animations) => set({ animations }),
       setGamePointer: (gamePointer) => set({ gamePointer }),
       setThemePreset: (themePreset) => set({ themePreset }),
@@ -81,6 +86,7 @@ export const useSettingsStore = create<SettingsState>()(
       setAllFloors: (allFloors) => set({ allFloors }),
       setTilted: (tilted) => set({ tilted }),
       setMapColor: (mapColor) => set({ mapColor }),
+      setMapRenderer: (mapRenderer) => set({ mapRenderer }),
     }),
     {
       name: 'tallgrass-settings',
@@ -143,6 +149,7 @@ export const useSettingsStore = create<SettingsState>()(
         allFloors,
         tilted,
         mapColor,
+        mapRenderer,
       }) => ({
         animations,
         gamePointer,
@@ -155,6 +162,7 @@ export const useSettingsStore = create<SettingsState>()(
         allFloors,
         tilted,
         mapColor,
+        mapRenderer,
       }),
     },
   ),

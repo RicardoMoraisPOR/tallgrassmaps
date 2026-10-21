@@ -1,0 +1,275 @@
+import { useEffect, useRef } from 'react';
+
+import type { LngLatBoundsLike, Map as MapLibreMap } from 'maplibre-gl';
+
+import type { MapImage } from '@/data/maps';
+
+import type { FloorStack } from '../MapViewer';
+import {
+  rememberView,
+  takePendingView,
+  type MapView,
+} from '../viewer/viewHandoff';
+import type { FitBounds } from '../viewer/ViewportEffects';
+import {
+  BASE_ZOOM,
+  fromGlZoom,
+  fromLngLat,
+  rectBounds,
+  toGlZoom,
+  toLngLat,
+} from './glCoordinates';
+
+const FIT_PADDING_PIXELS = 48;
+const FLIGHT_PADDING_PIXELS = 24;
+const FLIGHT_MS = 700;
+const FIRST_FLIGHT_DELAY_MS = 350;
+const FIT_BOUNDS_DELAY_MS = 350;
+const FIT_BOUNDS_PADDING = 64;
+const FIT_BOUNDS_MAX_ZOOM = 1;
+const FOCUS_BELOW_ZOOM = 2;
+const FOCUS_DELAY_MS = 250;
+const FOCUS_FLIGHT_MS = 600;
+const TILT_MS = 500;
+const TILT_CURVE = [0.77, 0, 0.175, 1] as const;
+
+export const MAX_ZOOM = 3;
+
+const bezierEase = ([x1, y1, x2, y2]: typeof TILT_CURVE) => {
+  const at = (t: number, a: number, b: number) =>
+    3 * a * (1 - t) ** 2 * t + 3 * b * (1 - t) * t ** 2 + t ** 3;
+
+  return (progress: number) => {
+    let low = 0;
+    let high = 1;
+
+    for (let step = 0; step < 24; step += 1) {
+      const mid = (low + high) / 2;
+
+      if (at(mid, x1, x2) < progress) low = mid;
+      else high = mid;
+    }
+
+    return at((low + high) / 2, y1, y2);
+  };
+};
+
+const tiltEase = bezierEase(TILT_CURVE);
+
+type GlCameraProps = {
+  map: MapLibreMap;
+  image: MapImage;
+  stack?: FloorStack;
+  skipFlight: boolean;
+  focusPoint?: { x: number; y: number };
+  fitBounds?: FitBounds;
+  tiltDegrees: number;
+  onZoomChange?: (zoom: number) => void;
+  onViewChange?: (view: MapView) => void;
+};
+
+export const GlCamera = ({
+  map,
+  image,
+  stack,
+  skipFlight,
+  focusPoint,
+  fitBounds,
+  tiltDegrees,
+  onZoomChange,
+  onViewChange,
+}: GlCameraProps) => {
+  const { width, height } = image;
+  const latest = useRef({ onZoomChange, onViewChange });
+
+  const pitch = useRef(tiltDegrees);
+
+  latest.current = { onZoomChange, onViewChange };
+  pitch.current = tiltDegrees;
+
+  useEffect(() => {
+    const fitZoom = () => {
+      const { clientWidth, clientHeight } = map.getContainer();
+      const zoom = Math.log2(
+        Math.min(
+          (clientWidth - FIT_PADDING_PIXELS * 2) / width,
+          (clientHeight - FIT_PADDING_PIXELS * 2) / height,
+        ),
+      );
+
+      return zoom < 0 ? zoom : Math.floor(zoom);
+    };
+
+    const applyLimits = () => {
+      const zoom = toGlZoom(fitZoom());
+      const { clientWidth, clientHeight } = map.getContainer();
+      const scale = 2 ** (map.getZoom() - BASE_ZOOM);
+      const padX = clientWidth / scale / 2;
+      const padY = clientHeight / scale / 2;
+
+      map.setMinZoom(zoom);
+      map.setMaxBounds([
+        toLngLat(-padX, height + padY),
+        toLngLat(width + padX, -padY),
+      ] satisfies LngLatBoundsLike);
+    };
+
+    const fitView = () => {
+      map.setMaxBounds(null);
+      map.setMinZoom(0);
+      map.jumpTo({
+        center: toLngLat(width / 2, height / 2),
+        zoom: toGlZoom(fitZoom()),
+      });
+      applyLimits();
+    };
+
+    fitView();
+
+    const pending = takePendingView();
+
+    if (pending && toGlZoom(pending.zoom) >= map.getMinZoom())
+      map.jumpTo({
+        center: toLngLat(pending.x, pending.y),
+        zoom: toGlZoom(pending.zoom),
+      });
+
+    const onResize = () => {
+      if (map.isMoving()) {
+        applyLimits();
+
+        return;
+      }
+
+      const zoom = toGlZoom(fitZoom());
+
+      if (map.getZoom() <= map.getMinZoom() || map.getZoom() < zoom) fitView();
+      else applyLimits();
+    };
+
+    const remember = () => {
+      const { x, y } = fromLngLat(map.getCenter());
+      const view = { x, y, zoom: fromGlZoom(map.getZoom()) };
+
+      rememberView(view);
+      latest.current.onViewChange?.(view);
+    };
+
+    const reportZoom = () =>
+      latest.current.onZoomChange?.(fromGlZoom(map.getZoom()));
+
+    map.on('resize', onResize);
+    map.on('zoomend', applyLimits);
+    map.on('moveend', remember);
+    map.on('zoomend', reportZoom);
+    map.on('moveend', reportZoom);
+    reportZoom();
+    remember();
+
+    return () => {
+      map.off('resize', onResize);
+      map.off('zoomend', applyLimits);
+      map.off('moveend', remember);
+      map.off('zoomend', reportZoom);
+      map.off('moveend', reportZoom);
+    };
+  }, [map, width, height]);
+
+  const selected = stack?.floors.find(({ id }) => id === stack.selected);
+  const flown = useRef<string | undefined>(
+    stack?.flyOnMount ? undefined : selected?.id,
+  );
+
+  useEffect(() => {
+    if (!selected || flown.current === selected.id) return undefined;
+
+    if (skipFlight) {
+      flown.current = selected.id;
+
+      return undefined;
+    }
+
+    const timer = setTimeout(
+      () => {
+        flown.current = selected.id;
+        map.fitBounds(
+          rectBounds(selected.x, selected.y, selected.width, selected.height),
+          {
+            padding: FLIGHT_PADDING_PIXELS,
+            duration: FLIGHT_MS,
+            pitch: pitch.current,
+          },
+        );
+      },
+      flown.current === undefined ? FIRST_FLIGHT_DELAY_MS : 0,
+    );
+
+    return () => clearTimeout(timer);
+  }, [
+    map,
+    selected?.id,
+    selected?.x,
+    selected?.y,
+    selected?.width,
+    selected?.height,
+    skipFlight,
+  ]);
+
+  useEffect(() => {
+    if (!focusPoint || fromGlZoom(map.getMinZoom()) >= FOCUS_BELOW_ZOOM)
+      return undefined;
+
+    const timer = setTimeout(
+      () =>
+        map.flyTo({
+          center: toLngLat(focusPoint.x, focusPoint.y),
+          zoom: toGlZoom(
+            Math.min(Math.floor(fromGlZoom(map.getMinZoom())) + 1, MAX_ZOOM),
+          ),
+          pitch: pitch.current,
+          duration: FOCUS_FLIGHT_MS,
+        }),
+      FOCUS_DELAY_MS,
+    );
+
+    return () => clearTimeout(timer);
+  }, [map, focusPoint?.x, focusPoint?.y]);
+
+  const fit = fitBounds;
+
+  useEffect(() => {
+    if (!fit) return undefined;
+
+    const timer = setTimeout(
+      () =>
+        map.fitBounds(rectBounds(fit.x, fit.y, fit.width, fit.height), {
+          padding: FIT_BOUNDS_PADDING,
+          maxZoom: toGlZoom(FIT_BOUNDS_MAX_ZOOM),
+          pitch: pitch.current,
+          duration: FLIGHT_MS,
+        }),
+      FIT_BOUNDS_DELAY_MS,
+    );
+
+    return () => clearTimeout(timer);
+  }, [map, fit?.key, fit?.x, fit?.y, fit?.width, fit?.height]);
+
+  useEffect(() => {
+    const ease = () =>
+      map.easeTo({ pitch: tiltDegrees, duration: TILT_MS, easing: tiltEase });
+
+    if (!map.isMoving()) {
+      ease();
+
+      return undefined;
+    }
+
+    map.once('moveend', ease);
+
+    return () => {
+      map.off('moveend', ease);
+    };
+  }, [map, tiltDegrees]);
+
+  return null;
+};

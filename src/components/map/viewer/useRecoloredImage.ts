@@ -58,7 +58,7 @@ const recolor = async (src: string, id: GbcPaletteId) => {
   return blob ? URL.createObjectURL(blob) : src;
 };
 
-const recolored = (src: string, id: GbcPaletteId) => {
+export const recolored = (src: string, id: GbcPaletteId) => {
   const key = `${id}|${src}`;
   const cached = cache.get(key) ?? recolor(src, id).catch(() => src);
 

@@ -26,48 +26,47 @@ const SHIFT_ZOOM_DELTA = 3;
 const buttonClass =
   'flex size-9 items-center justify-center text-muted-foreground transition-[color,scale] outline-none active:scale-97 hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-40';
 
-type Area = { x: number; y: number; width: number; height: number };
+export type ZoomArea = { x: number; y: number; width: number; height: number };
+
+type Area = ZoomArea;
 
 type Toggle = { on: boolean; onToggle: () => void };
 
 const activeClass =
   'bg-brand text-[oklch(0.2_0.03_160)] hover:text-[oklch(0.2_0.03_160)]';
 
-type MapZoomControlsProps = {
+export type ZoomToggle = Toggle;
+
+export type ZoomLimits = { canZoomIn: boolean; canZoomOut: boolean };
+
+type ZoomControlsViewProps = {
   position: ZoomPosition;
+  limits: ZoomLimits;
+  onZoomIn: (delta: number) => void;
+  onZoomOut: (delta: number) => void;
+  onRecenter: () => void;
   worldView?: Toggle;
-  recenterOn?: Area;
   tilt?: Toggle;
   colors?: Toggle;
+  containerRef?: React.Ref<HTMLDivElement>;
 };
 
-export const MapZoomControls = ({
+export const ZoomControlsView = ({
   position,
-  recenterOn,
+  limits,
+  onZoomIn,
+  onZoomOut,
+  onRecenter,
   worldView,
   tilt,
   colors,
-}: MapZoomControlsProps) => {
-  const map = useMap();
+  containerRef,
+}: ZoomControlsViewProps) => {
   const vertical = useMediaQuery(TABLET_QUERY);
-  const container = useRef<HTMLDivElement>(null);
-  const [limits, setLimits] = useState(() => zoomLimits(map));
-
-  useMapEvents({
-    zoomend: () => setLimits(zoomLimits(map)),
-    zoomlevelschange: () => setLimits(zoomLimits(map)),
-  });
-
-  useEffect(() => {
-    if (!container.current) return;
-
-    DomEvent.disableClickPropagation(container.current);
-    DomEvent.disableScrollPropagation(container.current);
-  }, []);
 
   return (
     <div
-      ref={container}
+      ref={containerRef}
       style={{
         top: topFor(
           position,
@@ -90,7 +89,7 @@ export const MapZoomControls = ({
         aria-label="Zoom in"
         title="Zoom in"
         disabled={!limits.canZoomIn}
-        onClick={(event) => map.zoomIn(event.shiftKey ? SHIFT_ZOOM_DELTA : 1)}
+        onClick={(event) => onZoomIn(event.shiftKey ? SHIFT_ZOOM_DELTA : 1)}
         className={buttonClass}
       >
         <Plus aria-hidden className="size-4" />
@@ -100,7 +99,7 @@ export const MapZoomControls = ({
         aria-label="Zoom out"
         title="Zoom out"
         disabled={!limits.canZoomOut}
-        onClick={(event) => map.zoomOut(event.shiftKey ? SHIFT_ZOOM_DELTA : 1)}
+        onClick={(event) => onZoomOut(event.shiftKey ? SHIFT_ZOOM_DELTA : 1)}
         className={buttonClass}
       >
         <Minus aria-hidden className="size-4" />
@@ -109,7 +108,7 @@ export const MapZoomControls = ({
         type="button"
         aria-label="Recenter map"
         title="Recenter map"
-        onClick={() => recenter(map, recenterOn)}
+        onClick={onRecenter}
         className={buttonClass}
       >
         <LocateFixed aria-hidden className="size-4" />
@@ -151,6 +150,52 @@ export const MapZoomControls = ({
         </button>
       )}
     </div>
+  );
+};
+
+type MapZoomControlsProps = {
+  position: ZoomPosition;
+  worldView?: Toggle;
+  recenterOn?: Area;
+  tilt?: Toggle;
+  colors?: Toggle;
+};
+
+export const MapZoomControls = ({
+  position,
+  recenterOn,
+  worldView,
+  tilt,
+  colors,
+}: MapZoomControlsProps) => {
+  const map = useMap();
+  const container = useRef<HTMLDivElement>(null);
+  const [limits, setLimits] = useState(() => zoomLimits(map));
+
+  useMapEvents({
+    zoomend: () => setLimits(zoomLimits(map)),
+    zoomlevelschange: () => setLimits(zoomLimits(map)),
+  });
+
+  useEffect(() => {
+    if (!container.current) return;
+
+    DomEvent.disableClickPropagation(container.current);
+    DomEvent.disableScrollPropagation(container.current);
+  }, []);
+
+  return (
+    <ZoomControlsView
+      containerRef={container}
+      position={position}
+      limits={limits}
+      onZoomIn={(delta) => map.zoomIn(delta)}
+      onZoomOut={(delta) => map.zoomOut(delta)}
+      onRecenter={() => recenter(map, recenterOn)}
+      worldView={worldView}
+      tilt={tilt}
+      colors={colors}
+    />
   );
 };
 

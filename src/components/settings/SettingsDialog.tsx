@@ -11,6 +11,7 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import {
+  type MapRenderer,
   type ThemePreset,
   type ThemeStyle,
   useSettingsStore,
@@ -50,6 +51,31 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
             checked={settings.animations}
             onCheckedChange={settings.setAnimations}
           />
+        </Section>
+
+        <Section title="Maps">
+          <p className="text-xs text-pretty text-muted-foreground">
+            Choose how maps are drawn. If maps look wrong or run slowly on your
+            device, try the other one.
+          </p>
+          <ToggleGroup
+            type="single"
+            variant="outline"
+            size="sm"
+            aria-label="Map style"
+            value={settings.mapRenderer}
+            onValueChange={(renderer) => {
+              if (renderer) settings.setMapRenderer(renderer as MapRenderer);
+            }}
+            className="w-full"
+          >
+            <ToggleGroupItem value="webgl" className={toggleItemClass}>
+              Smooth
+            </ToggleGroupItem>
+            <ToggleGroupItem value="classic" className={toggleItemClass}>
+              Classic
+            </ToggleGroupItem>
+          </ToggleGroup>
         </Section>
 
         <Section title="Mouse pointer">

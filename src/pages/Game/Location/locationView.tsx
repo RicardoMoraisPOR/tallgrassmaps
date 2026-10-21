@@ -162,6 +162,7 @@ export const buildLocationView = (
           text={sign.opens ? openableNames[sign.opens] : sign.text}
         />
       ),
+      doorTooltip: (label) => <MapTextTooltip text={label} />,
       onOpen: (target) => {
         if (target === 'pokedex')
           navigate(pokedexLink.to, { state: pokedexLink.state });

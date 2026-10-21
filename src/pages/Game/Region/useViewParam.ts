@@ -14,7 +14,7 @@ const parseView = (value: string | null): MapView | undefined => {
 };
 
 export const useViewParam = () => {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const [initial] = useState(() => {
     const view = parseView(params.get(VIEW_PARAM));
 
@@ -26,31 +26,18 @@ export const useViewParam = () => {
 
   useEffect(() => () => clearTimeout(timer.current), []);
 
-  const remember = useCallback(
-    ({ x, y, zoom }: MapView) => {
-      clearTimeout(timer.current);
-      timer.current = setTimeout(
-        () =>
-          setParams(
-            (current) => {
-              const next = new URLSearchParams(current);
+  const remember = useCallback(({ x, y, zoom }: MapView) => {
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      const url = new URL(window.location.href);
 
-              next.set(
-                VIEW_PARAM,
-                [Math.round(x), Math.round(y), Math.round(zoom * 10) / 10].join(
-                  ',',
-                ),
-              );
-
-              return next;
-            },
-            { replace: true },
-          ),
-        WRITE_DELAY_MS,
+      url.searchParams.set(
+        VIEW_PARAM,
+        [Math.round(x), Math.round(y), Math.round(zoom * 10) / 10].join(','),
       );
-    },
-    [setParams],
-  );
+      window.history.replaceState(window.history.state, '', url);
+    }, WRITE_DELAY_MS);
+  }, []);
 
   return { restored: initial !== undefined, remember };
 };

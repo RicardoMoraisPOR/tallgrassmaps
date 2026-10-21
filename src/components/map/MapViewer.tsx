@@ -20,6 +20,7 @@ import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import { imageBounds, toLatLng } from './coordinates';
+import { GlMapViewer } from './gl/GlMapViewer';
 import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
 import { MAX_ZOOM } from './viewer/constants';
 import { type FloorFrame, FloorFrames, FlyToFloor } from './viewer/FloorFrames';
@@ -88,7 +89,7 @@ export type FloorStack = {
   dimmed?: Set<string>;
 };
 
-type MapViewerProps = {
+export type MapViewerProps = {
   map: MapImage;
   stack?: FloorStack;
   links?: Array<MapLink>;
@@ -265,7 +266,7 @@ const ShapeItem = memo(
   },
 );
 
-export const MapViewer = ({
+const LeafletMapViewer = ({
   map,
   stack,
   links = [],
@@ -306,6 +307,15 @@ export const MapViewer = ({
     if (!pinnedCardKey) setRevealedArea(undefined);
   }, [pinnedCardKey]);
 
+  const off = useMemo(
+    () =>
+      new Set(
+        (new URLSearchParams(window.location.search).get('off') ?? '').split(
+          ',',
+        ),
+      ),
+    [],
+  );
   const inView = (x: number, y: number, width: number, height: number) =>
     viewBox !== undefined &&
     x <= viewBox.maxX &&
@@ -589,6 +599,7 @@ export const MapViewer = ({
         )}
         {shownLinks.map(
           (link) =>
+            !off.has('sprites') &&
             link.sprite && (
               <SpriteItem
                 key={`sprite-${link.x},${link.y}`}
@@ -606,6 +617,7 @@ export const MapViewer = ({
         )}
         {shownLinks.map(
           (link) =>
+            !off.has('icons') &&
             link.icon && (
               <IconItem
                 key={`icon-${linkKey(link)}`}
@@ -617,6 +629,7 @@ export const MapViewer = ({
         )}
         {shownLinks.map(
           (link) =>
+            !off.has('badges') &&
             Boolean(link.badge) && (
               <WildBadge
                 key={`badge-${linkKey(link)}`}
@@ -626,7 +639,7 @@ export const MapViewer = ({
             ),
         )}
         {clusters
-          ?.filter(({ x, y }) => inView(x, y, 0, 0))
+          ?.filter(({ x, y }) => !off.has('clusters') && inView(x, y, 0, 0))
           .map((cluster) => (
             <TileClusters
               key={cluster.tileId}
@@ -644,7 +657,7 @@ export const MapViewer = ({
         <Pane name={BEHIND_PANE} style={{ zIndex: 350 }} />
         <Pane name="links" style={{ zIndex: 450 }}>
           {shownLinks
-            .filter((link) => !link.icon && !link.badge)
+            .filter((link) => !off.has('shapes') && !link.icon && !link.badge)
             .map((link) => (
               <ShapeItem
                 key={`${linkKey(link)}${pinnedCardKey === linkKey(link) ? ':selected' : ''}`}
@@ -741,5 +754,39 @@ export const MapViewer = ({
         {fitBounds && <FitToBounds target={fitBounds} />}
       </MapContainer>
     </>
+  );
+};
+
+let webglChecked: boolean | undefined;
+
+const webglSupported = () => {
+  if (webglChecked !== undefined) return webglChecked;
+
+  try {
+    webglChecked = Boolean(
+      document.createElement('canvas').getContext('webgl2'),
+    );
+  } catch {
+    webglChecked = false;
+  }
+
+  return webglChecked;
+};
+
+export const MapViewer = (props: MapViewerProps) => {
+  const renderer = useSettingsStore((state) => state.mapRenderer);
+  const setRenderer = useSettingsStore((state) => state.setMapRenderer);
+  const param = new URLSearchParams(window.location.search).get('gl');
+
+  useEffect(() => {
+    if (param === '0') setRenderer('classic');
+
+    if (param === '1') setRenderer('webgl');
+  }, [param, setRenderer]);
+
+  return renderer === 'webgl' && webglSupported() ? (
+    <GlMapViewer key={props.map.image} {...props} />
+  ) : (
+    <LeafletMapViewer {...props} />
   );
 };

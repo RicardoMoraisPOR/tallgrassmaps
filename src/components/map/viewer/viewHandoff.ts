@@ -29,6 +29,12 @@ export const seedView = (view: MapView) => {
 
 export const hasHandedOffView = () => pendingView() !== undefined;
 
+export const takePendingView = pendingView;
+
+export const rememberView = (view: MapView) => {
+  latest = view;
+};
+
 export const RememberView = ({
   onChange,
 }: {

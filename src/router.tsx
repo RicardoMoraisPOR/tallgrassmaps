@@ -44,6 +44,14 @@ export const router = createBrowserRouter([
                   }),
                 },
                 {
+                  path: 'maplibre',
+                  lazy: async () => ({
+                    Component: (
+                      await import('@/pages/MapLibreDev/MapLibreDevPage')
+                    ).MapLibreDevPage,
+                  }),
+                },
+                {
                   path: 'rby/map-maker',
                   lazy: async () => ({
                     Component: (

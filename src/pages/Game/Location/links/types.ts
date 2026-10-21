@@ -56,6 +56,7 @@ export type MarkerSources = {
   npcTooltip?: (npc: MapNpc) => ReactNode;
   signs?: Array<MapSign>;
   signTooltip?: (sign: MapSign) => ReactNode;
+  doorTooltip?: (label: string) => ReactNode;
   onOpen?: (target: NonNullable<MapSign['opens']>) => void;
   shops?: Array<Shop>;
   entranceShops?: Array<Shop>;
