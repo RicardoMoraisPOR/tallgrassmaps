@@ -2,6 +2,7 @@
   {
     "name": "Erika",
     "trainerClass": "erika",
+    "title": "Gym Leader",
     "path": "celadon-city/celadon-gym",
     "x": 4,
     "y": 3,
@@ -60,6 +61,7 @@
   {
     "name": "Erika",
     "trainerClass": "erika",
+    "title": "Gym Leader",
     "path": "celadon-city/celadon-gym",
     "x": 4,
     "y": 3,
@@ -872,6 +874,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
+    "title": "Team Rocket Boss",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
     "floor": "b4f",
@@ -920,6 +923,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
+    "title": "Team Rocket Boss",
     "path": "celadon-city/rocket-game-corner",
     "area": "Rocket Hideout B4F",
     "floor": "b4f",
@@ -1144,8 +1148,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival1",
+    "title": "Rival",
     "path": "cerulean-city",
     "x": 20,
     "y": 2,
@@ -1255,8 +1260,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival1",
+    "title": "Rival",
     "path": "cerulean-city",
     "x": 20,
     "y": 2,
@@ -1362,6 +1368,7 @@
   {
     "name": "Misty",
     "trainerClass": "misty",
+    "title": "Gym Leader",
     "path": "cerulean-city/cerulean-gym",
     "x": 4,
     "y": 2,
@@ -1410,6 +1417,7 @@
   {
     "name": "Misty",
     "trainerClass": "misty",
+    "title": "Gym Leader",
     "path": "cerulean-city/cerulean-gym",
     "x": 4,
     "y": 2,
@@ -1533,6 +1541,7 @@
   {
     "name": "Blaine",
     "trainerClass": "blaine",
+    "title": "Gym Leader",
     "path": "cinnabar-island/cinnabar-gym",
     "x": 3,
     "y": 3,
@@ -1591,6 +1600,7 @@
   {
     "name": "Blaine",
     "trainerClass": "blaine",
+    "title": "Gym Leader",
     "path": "cinnabar-island/cinnabar-gym",
     "x": 3,
     "y": 3,
@@ -2191,6 +2201,7 @@
   {
     "name": "Koga",
     "trainerClass": "koga",
+    "title": "Gym Leader",
     "path": "fuchsia-city/fuchsia-gym",
     "x": 4,
     "y": 10,
@@ -2249,6 +2260,7 @@
   {
     "name": "Koga",
     "trainerClass": "koga",
+    "title": "Gym Leader",
     "path": "fuchsia-city/fuchsia-gym",
     "x": 4,
     "y": 10,
@@ -2557,6 +2569,7 @@
   {
     "name": "Agatha",
     "trainerClass": "agatha",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Agatha's Room",
     "floor": "agathas-room",
@@ -2618,6 +2631,7 @@
   {
     "name": "Agatha",
     "trainerClass": "agatha",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Agatha's Room",
     "floor": "agathas-room",
@@ -2679,6 +2693,7 @@
   {
     "name": "Bruno",
     "trainerClass": "bruno",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Bruno's Room",
     "floor": "brunos-room",
@@ -2740,6 +2755,7 @@
   {
     "name": "Bruno",
     "trainerClass": "bruno",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Bruno's Room",
     "floor": "brunos-room",
@@ -2799,8 +2815,9 @@
     "games": ["yellow"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival3",
+    "title": "Champion",
     "path": "indigo-plateau/pokemon-league",
     "area": "Champion's Room",
     "floor": "champions-room",
@@ -2940,8 +2957,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival3",
+    "title": "Champion",
     "path": "indigo-plateau/pokemon-league",
     "area": "Champion's Room",
     "floor": "champions-room",
@@ -3083,6 +3101,7 @@
   {
     "name": "Lance",
     "trainerClass": "lance",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Lance's Room",
     "floor": "lances-room",
@@ -3140,6 +3159,7 @@
   {
     "name": "Lance",
     "trainerClass": "lance",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Lance's Room",
     "floor": "lances-room",
@@ -3197,6 +3217,7 @@
   {
     "name": "Lorelei",
     "trainerClass": "lorelei",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Lorelei's Room",
     "floor": "loreleis-room",
@@ -3258,6 +3279,7 @@
   {
     "name": "Lorelei",
     "trainerClass": "lorelei",
+    "title": "Elite Four",
     "path": "indigo-plateau/pokemon-league",
     "area": "Lorelei's Room",
     "floor": "loreleis-room",
@@ -3317,8 +3339,9 @@
     "games": ["yellow"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
     "floor": "2f",
@@ -3444,8 +3467,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "lavender-town/pokemon-tower",
     "area": "2F",
     "floor": "2f",
@@ -4269,8 +4293,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival1",
+    "title": "Rival",
     "path": "pallet-town/oaks-lab",
     "x": 4,
     "y": 3,
@@ -4334,8 +4359,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival1",
+    "title": "Rival",
     "path": "pallet-town/oaks-lab",
     "x": 4,
     "y": 3,
@@ -4376,6 +4402,7 @@
   {
     "name": "Brock",
     "trainerClass": "brock",
+    "title": "Gym Leader",
     "path": "pewter-city/pewter-gym",
     "x": 4,
     "y": 1,
@@ -4424,6 +4451,7 @@
   {
     "name": "Brock",
     "trainerClass": "brock",
+    "title": "Gym Leader",
     "path": "pewter-city/pewter-gym",
     "x": 4,
     "y": 1,
@@ -13228,8 +13256,9 @@
     "games": ["red", "blue", "yellow"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival1",
+    "title": "Rival",
     "path": "route-22",
     "x": 25,
     "y": 5,
@@ -13309,8 +13338,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "route-22",
     "x": 25,
     "y": 5,
@@ -13450,8 +13480,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival1",
+    "title": "Rival",
     "path": "route-22",
     "x": 25,
     "y": 5,
@@ -13496,8 +13527,9 @@
     "games": ["yellow"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "route-22",
     "x": 25,
     "y": 5,
@@ -15292,6 +15324,7 @@
   {
     "name": "Sabrina",
     "trainerClass": "sabrina",
+    "title": "Gym Leader",
     "path": "saffron-city/saffron-gym",
     "x": 9,
     "y": 8,
@@ -15350,6 +15383,7 @@
   {
     "name": "Sabrina",
     "trainerClass": "sabrina",
+    "title": "Gym Leader",
     "path": "saffron-city/saffron-gym",
     "x": 9,
     "y": 8,
@@ -16618,8 +16652,9 @@
     "games": ["red", "blue", "yellow"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "saffron-city/silph-co",
     "area": "7F",
     "floor": "7f",
@@ -16745,8 +16780,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "saffron-city/silph-co",
     "area": "7F",
     "floor": "7f",
@@ -17580,6 +17616,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
+    "title": "Team Rocket Boss",
     "path": "saffron-city/silph-co",
     "area": "11F",
     "floor": "11f",
@@ -17638,6 +17675,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
+    "title": "Team Rocket Boss",
     "path": "saffron-city/silph-co",
     "area": "11F",
     "floor": "11f",
@@ -18142,8 +18180,9 @@
     "games": ["yellow"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "vermilion-city/ss-anne",
     "area": "2F",
     "floor": "2f",
@@ -18255,8 +18294,9 @@
     "games": ["red", "blue"]
   },
   {
-    "name": "Rival",
+    "name": "Blue",
     "trainerClass": "rival2",
+    "title": "Rival",
     "path": "vermilion-city/ss-anne",
     "area": "2F",
     "floor": "2f",
@@ -18903,6 +18943,7 @@
   {
     "name": "Lt. Surge",
     "trainerClass": "lt-surge",
+    "title": "Gym Leader",
     "path": "vermilion-city/vermilion-gym",
     "x": 5,
     "y": 1,
@@ -18956,6 +18997,7 @@
   {
     "name": "Lt. Surge",
     "trainerClass": "lt-surge",
+    "title": "Gym Leader",
     "path": "vermilion-city/vermilion-gym",
     "x": 5,
     "y": 1,
@@ -19239,6 +19281,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
+    "title": "Gym Leader",
     "path": "viridian-city/viridian-gym",
     "x": 2,
     "y": 1,
@@ -19303,6 +19346,7 @@
   {
     "name": "Giovanni",
     "trainerClass": "giovanni",
+    "title": "Gym Leader",
     "path": "viridian-city/viridian-gym",
     "x": 2,
     "y": 1,

@@ -27,9 +27,9 @@ const dexNumbers = new Map(
 );
 
 const specialTrainerNames = {
-  RIVAL1: 'Rival',
-  RIVAL2: 'Rival',
-  RIVAL3: 'Rival',
+  RIVAL1: 'Blue',
+  RIVAL2: 'Blue',
+  RIVAL3: 'Blue',
   POKEMANIAC: 'PokéManiac',
 };
 
@@ -43,6 +43,31 @@ const trainerName = (constant, raw) =>
       /(^|\s)(\p{L})/gu,
       (_, space, letter) => space + letter.toUpperCase(),
     );
+
+const gymLeaders = new Set([
+  'BROCK',
+  'MISTY',
+  'LT_SURGE',
+  'ERIKA',
+  'KOGA',
+  'SABRINA',
+  'BLAINE',
+]);
+
+const eliteFour = new Set(['LORELEI', 'BRUNO', 'AGATHA', 'LANCE']);
+
+const titleFor = (trainer, path) => {
+  if (gymLeaders.has(trainer)) return 'Gym Leader';
+  if (trainer === 'GIOVANNI')
+    return path === 'viridian-city/viridian-gym'
+      ? 'Gym Leader'
+      : 'Team Rocket Boss';
+  if (eliteFour.has(trainer)) return 'Elite Four';
+  if (trainer === 'RIVAL3') return 'Champion';
+  if (trainer.startsWith('RIVAL')) return 'Rival';
+
+  return undefined;
+};
 
 const specialAreaNames = {
   LoreleisRoom: "Lorelei's Room",
@@ -842,6 +867,7 @@ for (const game of games) {
       slot,
       name: name ?? trainers.get(trainer).name,
       trainerClass: trainer.toLowerCase().replaceAll('_', '-'),
+      ...(titleFor(trainer, path) && { title: titleFor(trainer, path) }),
       path,
       area: areaFor(file, path),
       ...(floor && { floor }),

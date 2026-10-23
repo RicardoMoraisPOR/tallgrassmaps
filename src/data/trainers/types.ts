@@ -30,6 +30,7 @@ export type TrainerPartner = {
 export type TrainerBattle = {
   name: string;
   trainerClass: string;
+  title?: string;
   path: string;
   area?: string;
   floor?: string;

@@ -65,6 +65,7 @@ export const TrainerDialog = ({
     pokedexByNumber.get(number)?.name ?? `#${number}`;
   const Pokemon = gameTheme ? GamePokemon : TallGrassPokemon;
   const area = listed?.battle.floor ? undefined : listed?.battle.area;
+  const subtitle = area ?? listed?.battle.title;
   const battleDialog = listed?.battle.dialog ?? [];
   const presence = listed?.battle.presence;
   const gifts = battleDialog.flatMap(({ gift }) => gift ?? []);
@@ -149,8 +150,8 @@ export const TrainerDialog = ({
                       listed.label
                     )}
                   </DialogTitle>
-                  <DialogDescription className={cn(!area && 'sr-only')}>
-                    {area ?? place}
+                  <DialogDescription className={cn(!subtitle && 'sr-only')}>
+                    {subtitle ?? place}
                   </DialogDescription>
                 </DialogHeader>
                 {battleDialog.length > 0 && (

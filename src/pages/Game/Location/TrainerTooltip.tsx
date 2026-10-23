@@ -83,10 +83,17 @@ const TrainerTooltipBody = ({
       >
         <div className="flex items-center gap-3">
           <GameTrainerAvatar sprite={battle.sprite} />
-          <span className="text-[10px] leading-[14px] whitespace-nowrap">
-            {battle.name}
-            {number && ` #${number}`}
-          </span>
+          <div className="flex flex-col gap-1.5">
+            <span className="text-[10px] leading-[14px] whitespace-nowrap">
+              {battle.name}
+              {number && ` #${number}`}
+            </span>
+            {battle.title && (
+              <span className="text-[8px] leading-[12px] whitespace-nowrap text-muted-foreground">
+                {battle.title}
+              </span>
+            )}
+          </div>
         </div>
         <hr className="border-t-2 border-foreground" />
         <div className={cn('flex gap-3', !byChoice && 'flex-col')}>
@@ -120,15 +127,22 @@ const TrainerTooltipBody = ({
     >
       <div className="flex items-center gap-2.5">
         <TrainerTile sprite={battle.sprite} />
-        <span className="text-base leading-snug font-medium whitespace-nowrap">
-          {battle.name}
-          {number && (
-            <span className="font-normal text-muted-foreground/80">
-              {' '}
-              #{number}
+        <div className="flex flex-col">
+          <span className="text-base leading-snug font-medium whitespace-nowrap">
+            {battle.name}
+            {number && (
+              <span className="font-normal text-muted-foreground/80">
+                {' '}
+                #{number}
+              </span>
+            )}
+          </span>
+          {battle.title && (
+            <span className="text-sm whitespace-nowrap text-muted-foreground">
+              {battle.title}
             </span>
           )}
-        </span>
+        </div>
       </div>
       <div className={cn('flex gap-2', byChoice ? 'gap-3' : 'flex-col')}>
         {parties.map((party, index) => (

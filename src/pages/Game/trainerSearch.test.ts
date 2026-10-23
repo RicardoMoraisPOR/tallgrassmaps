@@ -20,6 +20,20 @@ describe('searchTrainers', () => {
     expect(found.every(({ battle }) => battle.name === 'Erika')).toBe(true);
   });
 
+  it('matches trainer titles', () => {
+    const rivals = searchTrainers(battles, 'rival');
+    const elite = searchTrainers(battles, 'elite four');
+
+    expect(rivals.length).toBeGreaterThan(0);
+    expect(rivals.every(({ battle }) => battle.title === 'Rival')).toBe(true);
+    expect(elite.map(({ battle }) => battle.name).toSorted()).toEqual([
+      'Agatha',
+      'Bruno',
+      'Lance',
+      'Lorelei',
+    ]);
+  });
+
   it('numbers repeated names within the same place and floor', () => {
     const lasses = searchTrainers(battles, 'lass').filter(
       ({ battle }) => battle.path === 'celadon-city/celadon-gym',

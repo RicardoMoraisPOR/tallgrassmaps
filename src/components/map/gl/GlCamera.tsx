@@ -155,6 +155,7 @@ export const GlCamera = ({
     map.on('resize', onResize);
     map.on('zoomend', applyLimits);
     map.on('moveend', remember);
+    map.on('zoom', reportZoom);
     map.on('zoomend', reportZoom);
     map.on('moveend', reportZoom);
     reportZoom();
@@ -164,6 +165,7 @@ export const GlCamera = ({
       map.off('resize', onResize);
       map.off('zoomend', applyLimits);
       map.off('moveend', remember);
+      map.off('zoom', reportZoom);
       map.off('zoomend', reportZoom);
       map.off('moveend', reportZoom);
     };

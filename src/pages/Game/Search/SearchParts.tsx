@@ -62,6 +62,9 @@ export const TrainerResult = ({ listed, place }: TrainerResultProps) => (
     )}
     <span className="min-w-0 flex-1 truncate">
       {listed.label}
+      {listed.battle.title && (
+        <span className="text-muted-foreground"> · {listed.battle.title}</span>
+      )}
       {place && <span className="text-muted-foreground"> · {place}</span>}
     </span>
   </>

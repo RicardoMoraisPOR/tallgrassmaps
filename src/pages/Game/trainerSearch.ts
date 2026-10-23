@@ -16,9 +16,20 @@ export const searchTrainers = (battles: Array<ListedBattle>, query: string) => {
 
   const tokens = search.split(/\s+/);
 
+  const matches = (text: string) =>
+    tokens.every((token) => text.includes(token));
+
   return battles
-    .map((listed) => ({ listed, name: normalize(listed.battle.name) }))
-    .filter(({ name }) => tokens.every((token) => name.includes(token)))
-    .toSorted((a, b) => rank(a.name, search) - rank(b.name, search))
+    .map((listed) => ({
+      listed,
+      name: normalize(listed.battle.name),
+      title: normalize(listed.battle.title ?? ''),
+    }))
+    .filter(({ name, title }) => matches(`${name} ${title}`))
+    .toSorted(
+      (a, b) =>
+        (matches(a.name) ? rank(a.name, search) : 4) -
+        (matches(b.name) ? rank(b.name, search) : 4),
+    )
     .map(({ listed }) => listed);
 };

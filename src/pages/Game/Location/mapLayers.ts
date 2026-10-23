@@ -156,7 +156,7 @@ export const groupingLevels: Array<{
   { label: 'Off', hint: 'Markers always show individually.', clusterZoom: -8 },
   {
     label: 'Low',
-    hint: 'One count per area when zoomed out, then counts by category, gone after two steps in.',
+    hint: 'Markers group into counts only while zoomed far out.',
     clusterZoom: -1,
   },
   {
