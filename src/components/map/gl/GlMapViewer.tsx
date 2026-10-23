@@ -251,7 +251,6 @@ const GlLayers = ({
         map={map}
         links={links}
         activeKeys={interactions.activeIcons}
-        pressedKey={interactions.pressedIcon}
         hoveredKey={interactions.hoveredIcon}
       />
       <GlCamera

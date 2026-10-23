@@ -20,13 +20,7 @@ import {
 
 const ICONS = 'icons';
 const ACTIVE = 'icons-active';
-const PRESSED = 'icons-pressed';
 const STEPS = 'icon-steps';
-const PRESS_MS = 240;
-const PRESS_SCALE = 0.8;
-const PRESS_DIP_AT = 0.4;
-const PRESS_LEVELS = [0.8, 0.84, 0.88, 0.92, 0.96, 1];
-const pressLayer = (index: number) => `${PRESSED}-${index}`;
 const STEP_GAP_PX = 7;
 const STEP_BOB_MS = 1000;
 const MIN_ICON_PX = 16;
@@ -76,7 +70,6 @@ type GlIconsProps = {
   map: MapLibreMap;
   links: Array<MapLink>;
   activeKeys: Set<string>;
-  pressedKey?: string;
   hoveredKey?: string;
 };
 
@@ -84,7 +77,6 @@ export const GlIcons = ({
   map,
   links,
   activeKeys,
-  pressedKey,
   hoveredKey,
 }: GlIconsProps) => {
   const style = useThemeStyle('mapIcons');
@@ -106,41 +98,30 @@ export const GlIcons = ({
   }, []);
 
   useEffect(() => {
-    [ACTIVE, ICONS, PRESSED, STEPS].forEach((source) => {
+    [ACTIVE, ICONS, STEPS].forEach((source) => {
       map.addSource(source, {
         type: 'geojson',
         data: { type: 'FeatureCollection', features: [] },
       });
 
-      const layers =
-        source === PRESSED
-          ? PRESS_LEVELS.map((factor, index) => ({
-              id: pressLayer(index),
-              factor,
-              opacity: 0,
-            }))
-          : [{ id: source, factor: 1, opacity: 1 }];
-
-      layers.forEach(({ id, factor, opacity }) =>
-        map.addLayer(
-          {
-            id,
-            type: 'symbol',
-            source,
-            layout: {
-              'icon-image': ['get', 'image'],
-              'icon-anchor': 'center',
-              'icon-offset': ['get', 'offset'],
-              'icon-allow-overlap': true,
-              'icon-ignore-placement': true,
-              'icon-pitch-alignment': 'viewport',
-              'icon-rotation-alignment': 'viewport',
-              'icon-size': sizeStops(factor) as never,
-            },
-            paint: { 'icon-opacity': opacity },
+      map.addLayer(
+        {
+          id: source,
+          type: 'symbol',
+          source,
+          layout: {
+            'icon-image': ['get', 'image'],
+            'icon-anchor': 'center',
+            'icon-offset': ['get', 'offset'],
+            'icon-allow-overlap': true,
+            'icon-ignore-placement': true,
+            'icon-pitch-alignment': 'viewport',
+            'icon-rotation-alignment': 'viewport',
+            'icon-size': sizeStops() as never,
           },
-          'z-badges',
-        ),
+          paint: { 'icon-opacity': 1 },
+        },
+        'z-badges',
       );
     });
 
@@ -148,10 +129,7 @@ export const GlIcons = ({
       [STEPS, ACTIVE, ICONS].forEach((id) => {
         if (map.getLayer(id)) map.removeLayer(id);
       });
-      PRESS_LEVELS.forEach((_, index) => {
-        if (map.getLayer(pressLayer(index))) map.removeLayer(pressLayer(index));
-      });
-      [STEPS, PRESSED, ACTIVE, ICONS].forEach((id) => {
+      [STEPS, ACTIVE, ICONS].forEach((id) => {
         if (map.getSource(id)) map.removeSource(id);
       });
     };
@@ -221,104 +199,6 @@ export const GlIcons = ({
       cancelled = true;
     };
   }, [map, links, style, dark, activeKeys]);
-
-  useEffect(() => {
-    if (!pressedKey) return undefined;
-
-    const target = iconLinks.find(({ link }) => linkKey(link) === pressedKey);
-
-    if (!target) return undefined;
-
-    let frame = 0;
-    let cancelled = false;
-    let shown = -1;
-    const hide = ['case', ['==', ['get', 'key'], pressedKey], 0, 1] as never;
-
-    const show = (index: number) => {
-      if (index === shown) return;
-
-      if (shown >= 0)
-        map.setPaintProperty(pressLayer(shown), 'icon-opacity', 0);
-
-      map.setPaintProperty(pressLayer(index), 'icon-opacity', 1);
-      shown = index;
-    };
-
-    const levelFor = (scale: number) =>
-      PRESS_LEVELS.reduce(
-        (best, level, index) =>
-          Math.abs(level - scale) < Math.abs(PRESS_LEVELS[best] - scale)
-            ? index
-            : best,
-        0,
-      );
-
-    const begin = () => {
-      const start = performance.now();
-      const reduced = window.matchMedia(
-        '(prefers-reduced-motion: reduce)',
-      ).matches;
-      const easeOut = (progress: number) => 1 - (1 - progress) ** 2;
-
-      show(PRESS_LEVELS.length - 1);
-      [ICONS, ACTIVE].forEach((id) =>
-        map.setPaintProperty(id, 'icon-opacity', hide),
-      );
-
-      const step = (now: number) => {
-        const t = Math.min((now - start) / PRESS_MS, 1);
-        const scale =
-          t < PRESS_DIP_AT
-            ? 1 - (1 - PRESS_SCALE) * easeOut(t / PRESS_DIP_AT)
-            : PRESS_SCALE +
-              (1 - PRESS_SCALE) *
-                easeOut((t - PRESS_DIP_AT) / (1 - PRESS_DIP_AT));
-
-        show(levelFor(scale));
-
-        if (t < 1 && !reduced) frame = requestAnimationFrame(step);
-      };
-
-      frame = requestAnimationFrame(step);
-    };
-
-    const onSourceData = (event: {
-      sourceId?: string;
-      isSourceLoaded?: boolean;
-    }) => {
-      if (event.sourceId !== PRESSED || !event.isSourceLoaded) return;
-
-      map.off('sourcedata', onSourceData);
-      begin();
-    };
-
-    ensureIconImages(map, [target.spec]).then(() => {
-      if (cancelled) return;
-
-      map.on('sourcedata', onSourceData);
-      (map.getSource(PRESSED) as GeoJSONSource | undefined)?.setData({
-        type: 'FeatureCollection',
-        features: [featureOf(target, true)],
-      });
-    });
-
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(frame);
-      map.off('sourcedata', onSourceData);
-      [ICONS, ACTIVE].forEach((id) => {
-        if (map.getLayer(id)) map.setPaintProperty(id, 'icon-opacity', 1);
-      });
-      PRESS_LEVELS.forEach((_, index) => {
-        if (map.getLayer(pressLayer(index)))
-          map.setPaintProperty(pressLayer(index), 'icon-opacity', 0);
-      });
-      (map.getSource(PRESSED) as GeoJSONSource | undefined)?.setData({
-        type: 'FeatureCollection',
-        features: [],
-      });
-    };
-  }, [map, pressedKey, style, dark]);
 
   useEffect(() => {
     const hovered = hoveredKey

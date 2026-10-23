@@ -13,8 +13,6 @@ import { fromLngLat, toGlZoom, toLngLat } from './glCoordinates';
 import { isShape, type ShapeMode } from './GlShapes';
 
 const CLUSTER_SELECT_MS = 800;
-const ICON_PRESS_MS = 150;
-const PRESS_ANIMATION_MS = 260;
 const HIT_PRIORITY: Record<string, number> = {
   'icons-active': 3,
   icons: 3,
@@ -63,7 +61,6 @@ export const useGlInteractions = ({
   const [hoveredSprite, setHoveredSprite] = useState<string>();
   const [hoveredIcon, setHoveredIcon] = useState<string>();
   const [hoveredShape, setHoveredShape] = useState<string>();
-  const [pressedIcon, setPressedIcon] = useState<string>();
   const [labelLink, setLabelLink] = useState<MapLink>();
   const [hoverCardKey, setHoverCardKey] = useState<string>();
   const [pinnedCardKey, setPinnedCardKey] = useState<string>();
@@ -343,15 +340,12 @@ export const useGlInteractions = ({
       }
 
       if (link.icon) {
-        setPressedIcon(linkKey(link));
-        setTimeout(() => setPressedIcon(undefined), PRESS_ANIMATION_MS);
-
         if (link.tooltip && link.tooltipOnClick) {
           setPinnedAnchor(undefined);
           togglePin(link);
         }
 
-        if (link.href) setTimeout(() => open(link), ICON_PRESS_MS);
+        if (link.href) open(link);
         else link.onClick?.();
 
         return;
@@ -470,7 +464,6 @@ export const useGlInteractions = ({
   }, [hoveredShape, highlightLinks, pinnedCardKey, hoverCard]);
 
   return {
-    pressedIcon,
     hoveredIcon,
     revealedArea,
     labelLink,
