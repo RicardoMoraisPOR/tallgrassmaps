@@ -184,7 +184,7 @@ const GameWildPopup = ({
                     width={96}
                     height={96}
                     loading="lazy"
-                    className="size-8 flex-none object-contain"
+                    className="size-14 flex-none object-contain"
                   />
                   <div className="flex min-w-0 flex-1 flex-col gap-1 leading-none">
                     <div className="flex min-w-0 items-center gap-1.5">
@@ -248,7 +248,7 @@ const StaticPopupBody = ({ game, marker, pokedex }: StaticPopupProps) => {
             width={96}
             height={96}
             loading="lazy"
-            className="size-10 flex-none object-contain"
+            className="size-14 flex-none object-contain"
           />
           <div className="flex min-w-0 flex-1 flex-col gap-2 leading-none">
             <div className="flex min-w-0 items-center gap-1.5">
@@ -291,7 +291,7 @@ const StaticPopupBody = ({ game, marker, pokedex }: StaticPopupProps) => {
               height={96}
               loading="lazy"
               className={cn(
-                'size-10 flex-none object-contain',
+                'size-16 flex-none object-contain',
                 sprite.pixelated && 'pixelated',
               )}
             />

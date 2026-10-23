@@ -57,7 +57,7 @@ export const TallGrassRow = ({
         <span className="w-10 flex-none font-mono text-xs text-muted-foreground tabular-nums">
           #{String(entry.id).padStart(3, '0')}
         </span>
-        <span className="flex size-12 flex-none items-center justify-center rounded-sm bg-muted">
+        <span className="flex size-16 flex-none items-center justify-center rounded-sm bg-muted">
           <img
             src={sprite.src}
             alt=""
@@ -65,7 +65,7 @@ export const TallGrassRow = ({
             height={96}
             loading="lazy"
             className={cn(
-              'size-12 object-contain',
+              'size-16 object-contain',
               sprite.pixelated && 'pixelated',
             )}
           />

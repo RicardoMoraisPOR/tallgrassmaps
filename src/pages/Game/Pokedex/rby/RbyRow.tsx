@@ -61,7 +61,7 @@ export const RbyRow = ({
         >
           ▶
         </span>
-        <span className="col-start-2 row-span-2 row-start-1 flex size-12 items-center justify-center">
+        <span className="col-start-2 row-span-2 row-start-1 flex size-14 items-center justify-center">
           <img
             src={sprite.src}
             alt=""
@@ -69,7 +69,7 @@ export const RbyRow = ({
             height={96}
             loading="lazy"
             className={cn(
-              'size-12 object-contain',
+              'size-14 object-contain',
               sprite.pixelated && 'pixelated',
             )}
           />

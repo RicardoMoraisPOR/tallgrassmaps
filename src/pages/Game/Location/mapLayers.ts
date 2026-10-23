@@ -131,7 +131,7 @@ export const wildBadgeLayer = () => layer('wild-badges');
 
 export const staticLayer = () => layer('static-pokemon');
 
-const hiddenByDefault: Array<MapLayerId> = ['signs', 'wild-pokemon'];
+const hiddenByDefault: Array<MapLayerId> = ['signs'];
 
 export const isLayerVisible = (
   saved: Partial<Record<string, boolean>>,

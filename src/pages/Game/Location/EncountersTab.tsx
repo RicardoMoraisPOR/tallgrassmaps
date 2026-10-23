@@ -258,7 +258,7 @@ const EncounterRow = ({
         height={96}
         loading="lazy"
         className={cn(
-          'size-11 flex-none object-contain',
+          'size-16 flex-none object-contain',
           sprite.pixelated && 'pixelated',
         )}
       />
@@ -317,7 +317,10 @@ const EncounterCard = ({
   return (
     <li
       {...highlightHandlersFor(highlightKeyFor?.(row), onHighlight)}
-      className="flex flex-col gap-2.5 rounded-sm border bg-muted/30 p-2.5 transition-colors hover:bg-muted/60"
+      className={cn(
+        'group/card relative flex flex-col gap-2.5 rounded-sm border bg-muted/30 p-2.5 transition-colors hover:bg-muted/60',
+        linked && 'cursor-pointer',
+      )}
     >
       <div className="flex items-start gap-3">
         <img
@@ -327,7 +330,7 @@ const EncounterCard = ({
           height={96}
           loading="lazy"
           className={cn(
-            'size-14 flex-none rounded-sm bg-muted object-contain p-1',
+            'size-16 flex-none rounded-sm bg-muted object-contain p-1',
             sprite.pixelated && 'pixelated',
           )}
         />
@@ -336,7 +339,7 @@ const EncounterCard = ({
             {linked ? (
               <PokedexEntryLink
                 number={entry.number}
-                className="truncate text-sm font-medium"
+                className="truncate text-sm font-medium group-hover/card:underline after:absolute after:inset-0 after:rounded-sm after:content-[''] focus-visible:after:ring-[3px] focus-visible:after:ring-ring/50"
               >
                 {entry.name}
               </PokedexEntryLink>

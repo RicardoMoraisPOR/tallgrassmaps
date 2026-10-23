@@ -49,7 +49,7 @@ export const TrainerPartyTiles = ({
               height={96}
               loading="lazy"
               className={cn(
-                columns ? 'size-14 object-contain' : 'size-12 object-contain',
+                'size-16 object-contain',
                 sprite.pixelated && 'pixelated',
               )}
             />
@@ -65,7 +65,7 @@ export const TrainerPartyTiles = ({
         );
 
         return (
-          <li key={index} className={columns ? 'w-[4.5rem]' : 'w-14'}>
+          <li key={index} className="w-[4.5rem]">
             {linked ? (
               <PokedexEntryLink
                 number={pokemon.number}
