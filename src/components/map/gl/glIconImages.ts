@@ -169,6 +169,35 @@ const draw = async (spec: IconSpec, active: boolean) => {
   return context.getImageData(0, 0, canvas.width, canvas.height);
 };
 
+export const iconImageData = (spec: IconSpec) => draw(spec, false);
+
+const CLUSTER_GAP = 4;
+
+export const iconRowImageName = (specs: Array<IconSpec>) =>
+  `icon-row|${specs.map((spec) => iconImageName(spec, false)).join('+')}`;
+
+export const iconRowImageData = async (specs: Array<IconSpec>) => {
+  const parts = await Promise.all(specs.map(iconImageData));
+  const gap = CLUSTER_GAP * ICON_RATIO;
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d', { willReadFrequently: true });
+
+  if (!context) throw new Error('No 2d context');
+
+  canvas.width =
+    parts.reduce((sum, part) => sum + part.width, 0) + gap * (parts.length - 1);
+  canvas.height = Math.max(...parts.map((part) => part.height));
+
+  let left = 0;
+
+  parts.forEach((part) => {
+    context.putImageData(part, left, (canvas.height - part.height) / 2);
+    left += part.width + gap;
+  });
+
+  return context.getImageData(0, 0, canvas.width, canvas.height);
+};
+
 const requested = new WeakMap<MapLibreMap, Map<string, Promise<void>>>();
 
 export const ensureIconImages = async (

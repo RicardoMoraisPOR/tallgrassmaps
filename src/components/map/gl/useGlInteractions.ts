@@ -31,7 +31,7 @@ const HIT_LAYERS = Object.keys(HIT_PRIORITY);
 
 type Anchor = { x: number; y: number };
 
-type ClusterHit = { tileId: string; x: number; y: number };
+type ClusterHit = { tileId: string; x: number; y: number; label: string };
 
 type Hit =
   | { frame: string; link?: undefined; cluster?: undefined }
@@ -127,6 +127,7 @@ export const useGlInteractions = ({
               tileId: String(cluster),
               x: Number(feature.properties?.x),
               y: Number(feature.properties?.y),
+              label: String(feature.properties?.label ?? ''),
             },
           };
 
@@ -203,6 +204,12 @@ export const useGlInteractions = ({
       if (hit && !hit.link) {
         map.getCanvas().style.cursor = 'pointer';
         clearHover();
+
+        if (hit.cluster?.label) {
+          const { x, y, label } = hit.cluster;
+
+          setLabelLink({ x, y, width: 0, height: 0, label });
+        }
 
         return;
       }

@@ -27,6 +27,24 @@ export const kantoRby: Region = {
   locations,
   wildAreas: wildAreaData as Array<WildArea>,
   world: worldData,
+  overview: {
+    'pallet-town': [{ kind: 'start', label: 'Starting point' }],
+    'indigo-plateau': [{ kind: 'league', label: 'Pokémon League' }],
+    'route-4': [{ kind: 'cave', label: 'Mt. Moon' }],
+    'route-10': [
+      { kind: 'cave', label: 'Rock Tunnel' },
+      { kind: 'legendary', label: 'Zapdos' },
+    ],
+    'route-20': [
+      { kind: 'cave', label: 'Seafoam Islands' },
+      { kind: 'legendary', label: 'Articuno' },
+    ],
+    'route-23': [
+      { kind: 'cave', label: 'Victory Road' },
+      { kind: 'legendary', label: 'Moltres' },
+    ],
+    'cerulean-city': [{ kind: 'legendary', label: 'Mewtwo' }],
+  },
   label: {
     x: 8,
     y: 0.5,

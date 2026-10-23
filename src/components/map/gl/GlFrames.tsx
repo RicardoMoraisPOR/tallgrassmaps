@@ -191,7 +191,7 @@ export const GlFrames = ({
     const looks = {
       plain: { color: plain, width: 1.5, dash: [5, 5] },
       selected: { color: brand, width: 4, dash: [1, 0] },
-      dotted: { color: brand, width: 2, dash: [1, 5] },
+      dotted: { color: brand, width: 3, dash: [1, 0] },
     };
 
     (map.getSource(SOURCE) as GeoJSONSource | undefined)?.setData({

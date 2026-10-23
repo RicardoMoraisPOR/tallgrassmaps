@@ -8,9 +8,6 @@ export const BADGE_RATIO = 2;
 const MONSTER_SPRITE = '/sprites/rby/overworld/monster.png';
 const SPRITE_FRAMES = 3;
 const BADGE_FONT_PX = 14;
-const CLUSTER_GAP = 4;
-
-type Pill = { text: string; color: string };
 
 const loadImage = (src: string) =>
   new Promise<HTMLImageElement>((resolve, reject) => {
@@ -44,78 +41,6 @@ const newCanvas = (width: number, height: number) => {
   context.scale(BADGE_RATIO, BADGE_RATIO);
 
   return { canvas, context };
-};
-
-export const clusterImageName = (pills: Array<Pill>, compact: boolean) =>
-  `cluster|${isDark() ? 'dark' : 'light'}|${compact ? 'compact' : 'full'}|${pills.map(({ text, color }) => `${text}:${color}`).join(',')}`;
-
-export const clusterImage = (pills: Array<Pill>, compact: boolean) => {
-  const measured = pills.map(({ text, color }) =>
-    probeHtml(
-      `<span class="map-cluster-row ${compact ? 'map-cluster-compact' : ''}"><span class="map-cluster" style="--layer:${color}">${text}</span></span>`,
-      (root) => {
-        const pill = root.querySelector<HTMLElement>('.map-cluster');
-
-        if (!pill) throw new Error('No cluster pill');
-
-        const computed = getComputedStyle(pill);
-        const border = parseFloat(computed.borderTopWidth) || 2;
-        const padding = parseFloat(computed.paddingLeft) || 0;
-        const height = parseFloat(computed.height) || 26;
-        const minWidth = parseFloat(computed.minWidth) || height;
-
-        return {
-          text,
-          font: computed.font,
-          background: toRgba(computed.backgroundColor),
-          color: toRgba(computed.color),
-          border,
-          borderColor: toRgba(computed.borderTopColor),
-          height,
-          width: Math.max(
-            minWidth,
-            measure(computed.font, text) + padding * 2 + border * 2,
-          ),
-        };
-      },
-    ),
-  );
-  const width =
-    measured.reduce((sum, pill) => sum + pill.width, 0) +
-    CLUSTER_GAP * (measured.length - 1);
-  const height = Math.max(...measured.map((pill) => pill.height));
-  const { canvas, context } = newCanvas(width, height);
-  let left = 0;
-
-  measured.forEach((pill) => {
-    const top = (height - pill.height) / 2;
-
-    context.fillStyle = pill.background;
-    context.strokeStyle = pill.borderColor;
-    context.lineWidth = pill.border;
-    context.beginPath();
-    context.roundRect(
-      left + pill.border / 2,
-      top + pill.border / 2,
-      pill.width - pill.border,
-      pill.height - pill.border,
-      pill.height,
-    );
-    context.fill();
-    context.stroke();
-    context.fillStyle = pill.color;
-    context.font = pill.font;
-    context.textAlign = 'center';
-    context.textBaseline = 'middle';
-    context.fillText(
-      pill.text,
-      left + pill.width / 2,
-      top + pill.height / 2 + 0.5,
-    );
-    left += pill.width + CLUSTER_GAP;
-  });
-
-  return context.getImageData(0, 0, canvas.width, canvas.height);
 };
 
 const BALL_SVG =

@@ -40,6 +40,9 @@ export type MapIconKind =
   | { kind: 'register' }
   | { kind: 'cave' }
   | { kind: 'gym' }
+  | { kind: 'start' }
+  | { kind: 'league' }
+  | { kind: 'legendary' }
   | { kind: 'mart' }
   | { kind: 'center' };
 
@@ -64,8 +67,8 @@ export type TileCluster = {
   tileId: string;
   x: number;
   y: number;
-  compact?: boolean;
-  counts: Array<{ label: string; color: string; count: number }>;
+  kinds: Array<MapIconKind['kind']>;
+  label: string;
 };
 
 export type MapPalette = {

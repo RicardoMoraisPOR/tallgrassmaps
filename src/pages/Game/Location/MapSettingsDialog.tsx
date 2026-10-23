@@ -43,7 +43,7 @@ const SettingsBody = () => {
       <div className="flex min-h-0 flex-1 [scrollbar-gutter:stable] flex-col gap-6 overflow-x-hidden overflow-y-auto overscroll-contain py-2 pr-3">
         <div className="flex flex-col gap-2">
           <h3 id={groupingId} className="text-sm font-medium">
-            Marker grouping
+            Overview icons zoom
           </h3>
           <ToggleGroup
             type="single"

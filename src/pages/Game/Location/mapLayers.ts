@@ -153,20 +153,20 @@ export const groupingLevels: Array<{
   hint: string;
   clusterZoom: number;
 }> = [
-  { label: 'Off', hint: 'Markers always show individually.', clusterZoom: -8 },
+  { label: 'Off', hint: 'Every marker shows at any zoom.', clusterZoom: -8 },
   {
     label: 'Low',
-    hint: 'Markers group into counts only while zoomed far out.',
+    hint: 'Place icons replace markers only while zoomed far out.',
     clusterZoom: -1,
   },
   {
     label: 'Medium',
-    hint: 'Markers group into counts until you zoom in a few steps.',
+    hint: 'Place icons replace markers until you zoom in a few steps.',
     clusterZoom: 0,
   },
   {
     label: 'High',
-    hint: 'Markers stay grouped until you zoom in close.',
+    hint: 'Place icons replace markers until you zoom in close.',
     clusterZoom: 1,
   },
 ];
@@ -180,22 +180,22 @@ export const nearestGroupingLevel = (clusterZoom: number) =>
   );
 
 export const zoomTier = (zoom: number, clusterZoom: number) =>
-  zoom < clusterZoom - 1 ? 0 : zoom < clusterZoom ? 1 : 2;
+  zoom < clusterZoom ? 0 : 1;
 
 const focusOnlyLayer: MapLayerId = 'connections';
 
 const worldLayerTier: Partial<Record<MapLayerId, number>> = {
-  buildings: 2,
-  services: 2,
-  items: 2,
-  'hidden-items': 2,
-  'static-pokemon': 2,
-  'special-npcs': 2,
-  trainers: 2,
-  npcs: 2,
-  'wild-pokemon': 2,
-  'wild-badges': 2,
-  signs: 2,
+  buildings: 1,
+  services: 1,
+  items: 1,
+  'hidden-items': 1,
+  'static-pokemon': 1,
+  'special-npcs': 1,
+  trainers: 1,
+  npcs: 1,
+  'wild-pokemon': 1,
+  'wild-badges': 1,
+  signs: 1,
 };
 
 export const layersHiddenAtTier = (tier: number | undefined) =>

@@ -7,18 +7,18 @@ import { useThemeStyle } from '@/components/settings/themes';
 import { linkKey } from '../viewer/links';
 import type { MapLink, TileCluster } from '../viewer/types';
 import { badgeCenter } from '../viewer/WildAreaArt';
-import {
-  badgeImage,
-  badgeImageName,
-  clusterImage,
-  clusterImageName,
-  ensureImage,
-} from './glBadgeImages';
+import { badgeImage, badgeImageName, ensureImage } from './glBadgeImages';
 import { toLngLat } from './glCoordinates';
+import {
+  iconRowImageData,
+  iconRowImageName,
+  type IconSpec,
+} from './glIconImages';
 import { iconScaleStops } from './glLayers';
 
 const BADGES = 'badges';
 const CLUSTERS = 'clusters';
+const CLUSTER_ICON_CLASS = 'map-link-entrance';
 
 type GlBadgesProps = {
   map: MapLibreMap;
@@ -119,18 +119,13 @@ export const GlBadges = ({ map, links, clusters }: GlBadgesProps) => {
   useEffect(() => {
     let cancelled = false;
     const list = clusters ?? [];
-    const pillsOf = (cluster: TileCluster) =>
-      cluster.counts.map(({ count, color }) => ({
-        text: String(count),
-        color,
-      }));
+    const specsOf = ({ kinds }: TileCluster): Array<IconSpec> =>
+      kinds.map((kind) => ({ kind, style, className: CLUSTER_ICON_CLASS }));
 
     Promise.all(
       list.map((cluster) =>
-        ensureImage(
-          map,
-          clusterImageName(pillsOf(cluster), Boolean(cluster.compact)),
-          () => clusterImage(pillsOf(cluster), Boolean(cluster.compact)),
+        ensureImage(map, iconRowImageName(specsOf(cluster)), () =>
+          iconRowImageData(specsOf(cluster)),
         ),
       ),
     ).then(() => {
@@ -144,7 +139,8 @@ export const GlBadges = ({ map, links, clusters }: GlBadgesProps) => {
             cluster: cluster.tileId,
             x: cluster.x,
             y: cluster.y,
-            image: clusterImageName(pillsOf(cluster), Boolean(cluster.compact)),
+            label: cluster.label,
+            image: iconRowImageName(specsOf(cluster)),
           },
           geometry: {
             type: 'Point',
@@ -157,7 +153,7 @@ export const GlBadges = ({ map, links, clusters }: GlBadgesProps) => {
     return () => {
       cancelled = true;
     };
-  }, [map, clusters, dark]);
+  }, [map, clusters, style, dark]);
 
   return null;
 };

@@ -18,7 +18,6 @@ import { locationPanelTabs } from '../Location/locationPanelTabs';
 import { buildLocationView } from '../Location/locationView';
 import {
   layersHiddenAtTier,
-  type MapLayerId,
   useMapLayers,
   zoomTier,
 } from '../Location/mapLayers';
@@ -35,34 +34,6 @@ import { FindBanner } from './FindBanner';
 import { GameInfoCard } from './GameInfoCard';
 import { useLayerFade } from './useLayerFade';
 import { useViewParam } from './useViewParam';
-
-const clusterGroups: Array<{
-  label: string;
-  color: string;
-  layers: Array<MapLayerId>;
-}> = [
-  {
-    label: 'Entrances',
-    color: 'var(--map-entrance)',
-    layers: ['buildings', 'services'],
-  },
-  { label: 'Trainers', color: 'var(--map-trainer)', layers: ['trainers'] },
-  {
-    label: 'NPCs',
-    color: 'var(--map-npc)',
-    layers: ['npcs', 'special-npcs'],
-  },
-  {
-    label: 'Items',
-    color: 'var(--map-item)',
-    layers: ['items', 'hidden-items'],
-  },
-  {
-    label: 'Static Pokémon',
-    color: 'var(--map-static-pokemon)',
-    layers: ['static-pokemon'],
-  },
-];
 
 const WORLD_HREF = /^\/[^/]+\/[^/]+\/([^/?#]+)(?:[?#].*)?$/;
 
@@ -265,33 +236,30 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
 
   const userHiddenKey = [...hiddenLayers].toSorted().join('|');
   const clusters = useMemo(() => {
-    if (tier === undefined || tier >= 2 || find.query) return undefined;
+    if (tier !== 0 || find.query) return undefined;
 
     return placed.flatMap((location) => {
-      const data = tiles.get(location.id);
-      const groups = clusterGroups.flatMap(({ label, color, layers }) => {
-        const count =
-          data?.links.filter(
-            (link) =>
-              layers.includes(link.layer) && !hiddenLayers.has(link.layer),
-          ).length ?? 0;
+      const gymLink = hiddenLayers.has('buildings')
+        ? undefined
+        : tiles
+            .get(location.id)
+            ?.links.find(({ placed: link }) => link.icon?.kind === 'gym');
+      const entries = [
+        ...(gymLink
+          ? [{ kind: 'gym' as const, label: gymLink.placed.label }]
+          : []),
+        ...regions.flatMap(({ overview }) => overview?.[location.id] ?? []),
+      ].slice(0, 2);
+      const kinds = entries.map(({ kind }) => kind);
 
-        return count > 0 ? [{ label, color, count }] : [];
-      });
-      const total = groups.reduce((sum, { count }) => sum + count, 0);
-      const counts =
-        tier === 0
-          ? [{ label: 'Markers', color: 'var(--brand)', count: total }]
-          : groups;
-
-      return total > 0
+      return kinds.length > 0
         ? [
             {
               tileId: location.id,
               x: world[location.id].x + location.width / 2,
               y: world[location.id].y + location.height / 2,
-              compact: tier === 0,
-              counts,
+              kinds,
+              label: entries.map(({ label }) => label).join(' · '),
             },
           ]
         : [];

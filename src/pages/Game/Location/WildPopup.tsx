@@ -251,10 +251,10 @@ const StaticPopupBody = ({ game, marker, pokedex }: StaticPopupProps) => {
             className="size-14 flex-none object-contain"
           />
           <div className="flex min-w-0 flex-1 flex-col gap-2 leading-none">
-            <div className="flex min-w-0 items-center gap-1.5">
+            <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1">
               <PokedexEntryLink
                 number={number}
-                className="truncate text-[10px] leading-[14px]"
+                className="text-[10px] leading-[14px]"
               >
                 {nameOf(number)}
               </PokedexEntryLink>

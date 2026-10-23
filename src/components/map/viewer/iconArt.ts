@@ -59,12 +59,27 @@ export const mapIconArt: Record<
   cave: {
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20v-7a8 8 0 0 1 16 0v7"/><path d="M9 20v-3.5a3 3 0 0 1 6 0V20"/></svg>',
-    game: '<svg viewBox="0 0 9 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M2 0h5v1h-5zM1 1h7v1h-7zM0 2h3v1h-3zM6 2h3v1h-3zM0 3h2v1h-2zM7 3h2v1h-2zM0 4h2v1h-2zM7 4h2v1h-2zM0 5h2v1h-2zM7 5h2v1h-2zM0 6h2v1h-2zM7 6h2v1h-2z"/></svg>',
+    game: '<svg data-wide="" viewBox="0 0 11 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M4 0h3v1h-3zM3 1h5v1h-5zM2 2h7v1h-7zM1 3h9v1h-9zM0 4h11v1h-11zM0 5h4v1h-4zM7 5h4v1h-4zM0 6h3v2h-3zM8 6h3v2h-3z"/></svg>',
   },
   gym: {
     'tall-grass':
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/></svg>',
-    game: '<svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v1h-2zM2 1h4v1h-4zM1 2h2v1h-2zM5 2h2v1h-2zM0 3h2v1h-2zM3 3h2v1h-2zM6 3h2v1h-2zM0 4h2v1h-2zM3 4h2v1h-2zM6 4h2v1h-2zM1 5h2v1h-2zM5 5h2v1h-2zM2 6h4v1h-4zM3 7h2v1h-2z"/></svg>',
+    game: '<svg data-wide="" viewBox="0 0 11 5" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 0h3v1h-3zM4 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM10 0h1v1h-1zM0 1h1v1h-1zM4 1h1v1h-1zM6 1h1v1h-1zM8 1h3v1h-3zM0 2h1v1h-1zM2 2h1v1h-1zM5 2h1v1h-1zM8 2h3v1h-3zM0 3h1v1h-1zM2 3h1v1h-1zM5 3h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM0 4h3v1h-3zM5 4h1v1h-1zM8 4h1v1h-1zM10 4h1v1h-1z"/></svg>',
+  },
+  start: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
+    game: '<svg data-wide="" viewBox="0 0 11 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M5 0h1v1h-1zM4 1h3v1h-3zM8 1h2v2h-2zM3 2h5v1h-5zM2 3h7v1h-7zM1 4h9v1h-9zM0 5h11v1h-11zM1 6h3v3h-3zM7 6h3v3h-3z"/></svg>',
+  },
+  league: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
+    game: '<svg data-wide="" viewBox="0 0 11 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M1 0h9v1h-9zM0 1h11v1h-11zM0 2h1v1h-1zM2 2h7v1h-7zM10 2h1v1h-1zM0 3h2v1h-2zM3 3h5v1h-5zM9 3h2v1h-2zM4 4h3v1h-3zM4 5h3v1h-3zM3 6h5v1h-5zM2 7h7v1h-7zM2 8h7v1h-7z"/></svg>',
+  },
+  legendary: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    game: '<svg data-wide="" viewBox="0 0 11 9" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M5 0h1v1h-1zM4 1h3v1h-3zM4 2h3v1h-3zM0 3h11v1h-11zM1 4h9v1h-9zM2 5h7v1h-7zM2 6h7v1h-7zM1 7h3v1h-3zM7 7h3v1h-3zM1 8h2v1h-2zM8 8h2v1h-2z"/></svg>',
   },
   mart: {
     'tall-grass':

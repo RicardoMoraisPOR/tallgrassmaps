@@ -733,6 +733,10 @@
   height: calc(var(--icon-size) * 0.57);
 }
 
+.map-icon-game svg[data-wide] {
+  width: calc(var(--icon-size) * 0.79);
+}
+
 .map-sprite {
   display: block;
   width: calc(var(--sprite-w) * var(--map-unit, 1px));
@@ -953,54 +957,6 @@
   transition: opacity 150ms ease-out;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .map-cluster-row {
-    animation: none;
-  }
-}
-
-.map-cluster-compact .map-cluster {
-  min-width: 20px;
-  height: 20px;
-  padding: 0 4px;
-  font-size: 10px;
-}
-
-.map-cluster-anchor {
-  background: none;
-  border: 0;
-}
-
-.map-cluster-row {
-  display: flex;
-  gap: 4px;
-  transform: translate(-50%, -50%);
-  width: max-content;
-  animation: map-marker-in 150ms ease-out;
-}
-
-.map-cluster {
-  display: flex;
-  min-width: 26px;
-  height: 26px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  border: 2px solid var(--layer);
-  border-radius: 999px;
-  background: var(--card);
-  color: var(--foreground);
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-@keyframes map-marker-in {
-  from {
-    opacity: 0;
-  }
-}
-
 .floor-frame-dotted {
   stroke: var(--brand);
   stroke-width: 2;
@@ -1100,8 +1056,7 @@
   transition: opacity 500ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.map-tilted .map-wild-badge,
-.map-tilted .map-cluster-row {
+.map-tilted .map-wild-badge {
   --lift: 8px;
 
   transform: translate(-50%, -50%) translateZ(var(--lift))
@@ -1112,8 +1067,7 @@
     scale 100ms ease-out;
 }
 
-.map-tilted .map-wild-badge-anchor::before,
-.map-tilted .map-cluster-anchor::before {
+.map-tilted .map-wild-badge-anchor::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1130,8 +1084,7 @@
 }
 
 .map-tilt-active .map-sprite-shadow,
-.map-tilt-active .map-wild-badge-anchor::before,
-.map-tilt-active .map-cluster-anchor::before {
+.map-tilt-active .map-wild-badge-anchor::before {
   opacity: 1;
 }
 
@@ -1178,11 +1131,9 @@
   .map-tilted .map-sprite,
   .map-tilted .map-sprite-shadow,
   .map-tilted .map-wild-badge,
-  .map-tilted .map-cluster-row,
   .map-tilted .map-tooltip-label,
   .map-tilted .floor-label,
   .map-tilted .map-wild-badge-anchor::before,
-  .map-tilted .map-cluster-anchor::before,
   .map-tilted::after {
     transition: none;
   }

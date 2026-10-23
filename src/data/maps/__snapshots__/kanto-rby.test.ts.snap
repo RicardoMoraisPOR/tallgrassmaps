@@ -149,6 +149,6 @@ exports[`kantoRby > keeps every location unchanged 1`] = `
     "viridian-city/viridian-pokemon-center": "d09aea5ddff9",
     "viridian-city/viridian-school-house": "e3c44585b49b",
   },
-  "region": "b4f6ffc7b9a2",
+  "region": "42d193817e64",
 }
 `;

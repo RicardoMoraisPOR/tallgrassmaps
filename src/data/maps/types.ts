@@ -160,6 +160,11 @@ export type WildArea = {
   games?: Array<string>;
 };
 
+export type OverviewIcon = {
+  kind: 'start' | 'league' | 'cave' | 'legendary';
+  label: string;
+};
+
 export type Region = MapImage & {
   id: string;
   name: string;
@@ -175,6 +180,7 @@ export type Region = MapImage & {
   navigation?: 'nested' | 'seamless';
   world?: Record<string, { x: number; y: number }>;
   separateWorld?: boolean;
+  overview?: Record<string, Array<OverviewIcon>>;
   placeGroups?: PlaceGroups;
   wildAreas?: Array<WildArea>;
 };
