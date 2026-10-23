@@ -104,27 +104,29 @@ export const GlMapViewer = ({
       className={cn('relative isolate overflow-hidden', className)}
       style={{ background: 'var(--muted)' }}
     >
-      <div ref={container} style={{ position: 'absolute', inset: 0 }} />
-      {map && (
-        <GlLayers
-          map={map}
-          image={image}
-          stack={stack}
-          links={links}
-          highlightable={highlightable}
-          highlighted={highlighted}
-          pinRequest={pinRequest}
-          focusKey={focusKey}
-          fitBounds={fitBounds}
-          clusters={clusters}
-          clusterZoom={clusterZoom}
-          onZoomChange={onZoomChange}
-          onViewChange={onViewChange}
-          onDeselect={onDeselect}
-          palette={palette}
-          tiltDegrees={tilted ? tiltDegrees : 0}
-        />
-      )}
+      <div data-page-transition-target className="absolute inset-0">
+        <div ref={container} style={{ position: 'absolute', inset: 0 }} />
+        {map && (
+          <GlLayers
+            map={map}
+            image={image}
+            stack={stack}
+            links={links}
+            highlightable={highlightable}
+            highlighted={highlighted}
+            pinRequest={pinRequest}
+            focusKey={focusKey}
+            fitBounds={fitBounds}
+            clusters={clusters}
+            clusterZoom={clusterZoom}
+            onZoomChange={onZoomChange}
+            onViewChange={onViewChange}
+            onDeselect={onDeselect}
+            palette={palette}
+            tiltDegrees={tilted ? tiltDegrees : 0}
+          />
+        )}
+      </div>
       {map && (
         <GlZoomControls
           map={map}
@@ -211,6 +213,7 @@ const GlLayers = ({
     ? {
         x: focusLink.x + focusLink.width / 2,
         y: focusLink.y + focusLink.height / 2,
+        zoom: focusLink.zoom,
       }
     : undefined;
 
@@ -257,7 +260,11 @@ const GlLayers = ({
         map={map}
         image={image}
         stack={stack}
-        skipFlight={focusPoint !== undefined || interactions.mapSelect.current}
+        skipFlight={
+          focusPoint !== undefined ||
+          pinRequest?.initial === true ||
+          interactions.mapSelect.current
+        }
         focusPoint={focusPoint}
         fitBounds={fitBounds}
         tiltDegrees={tiltDegrees}

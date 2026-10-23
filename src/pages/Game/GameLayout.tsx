@@ -58,7 +58,8 @@ export const GameLayout = () => {
               keyFor={
                 route.region.navigation === 'seamless'
                   ? (pathname) => `/${pathSegments(pathname)[0]}`
-                  : pageKind
+                  : (pathname) =>
+                      `${pageKind(pathname)}${route.worldShown ? ':world' : ''}`
               }
             />
           </div>

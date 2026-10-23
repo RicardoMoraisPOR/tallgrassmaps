@@ -315,7 +315,11 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     });
   }, [tier, find.query, tiles, userHiddenKey, placedKey]);
 
-  const renderedLinks = useProgressiveLinks(visibleLinks, fading.length > 0);
+  const renderedLinks = useProgressiveLinks(
+    visibleLinks,
+    fading.length > 0,
+    selected?.id,
+  );
 
   const panel =
     view && selected ? (

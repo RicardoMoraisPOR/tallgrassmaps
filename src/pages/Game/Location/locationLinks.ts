@@ -14,6 +14,7 @@ import { staticMarkers } from './links/statics';
 import { trainerMarkers } from './links/trainers';
 import type { MarkerSources } from './links/types';
 import { wildMarkers } from './links/wild';
+import { focusZoom } from './links/zoom';
 
 const withDoorTooltips = <T extends { label: string; tooltip?: ReactNode }>(
   links: Array<T>,
@@ -73,6 +74,8 @@ export const locationLinks = (
   });
   const npcLinks = npcMarkers(npcs, tileSize, gifts, npcTooltip);
 
+  const zoom = focusZoom(image, tileSize);
+
   const mapLinks = [
     ...wildMarkers(wildAreas, image, tileSize, wildPopup, wildCount),
     ...links.filter(
@@ -89,7 +92,7 @@ export const locationLinks = (
     ...trainerLinks,
     ...npcLinks,
     ...signMarkers(signs, tileSize, { signTooltip, onOpen }),
-  ];
+  ].map((link) => ({ ...link, zoom }));
 
   return {
     links: mapLinks,

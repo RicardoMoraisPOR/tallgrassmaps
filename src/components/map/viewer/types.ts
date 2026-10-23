@@ -26,6 +26,7 @@ export type MapLink = Rect & {
     size?: [width: number, height: number];
   };
   icon?: MapIconKind;
+  zoom?: number;
 };
 
 export type MapIconKind =

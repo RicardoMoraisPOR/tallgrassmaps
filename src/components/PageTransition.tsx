@@ -67,6 +67,12 @@ const motionFor = (
   return slideMotion;
 };
 
+const TARGET_SELECTOR = '[data-page-transition-target]';
+const LOADING_SELECTOR = '[data-page-loading]';
+
+const transitionTarget = (node: HTMLElement | null) =>
+  node?.querySelector<HTMLElement>(TARGET_SELECTOR) ?? node;
+
 const play = (
   element: HTMLElement | null,
   keyframes: Array<Keyframe>,
@@ -104,6 +110,7 @@ export const PageTransition = ({
   const outlet = useOutlet();
   const node = useRef<HTMLDivElement>(null);
   const motion = useRef<Motion>(slideMotion);
+  const shownPath = useRef(pathname);
 
   const keyOf = keyFor ?? ((path: string) => pageKey(path, depth));
   const key = keyOf(pathname);
@@ -127,14 +134,18 @@ export const PageTransition = ({
   }, [key, content]);
 
   useEffect(() => {
+    if (!leaving) shownPath.current = pathname;
+  }, [leaving, pathname]);
+
+  useEffect(() => {
     if (!leaving) return;
 
     let cancelled = false;
 
-    motion.current = motionFor(frame.key, key, travel, mapMotion);
+    motion.current = motionFor(shownPath.current, pathname, travel, mapMotion);
 
     const exit = play(
-      node.current,
+      transitionTarget(node.current),
       [
         { transform: 'none', opacity: 1 },
         { transform: motion.current.exitTo, opacity: 0 },
@@ -143,7 +154,10 @@ export const PageTransition = ({
       easeSineIn,
     );
     const swap = () => {
-      if (!cancelled) setFrame({ ...latest.current, entering: true });
+      if (cancelled) return;
+
+      shownPath.current = pathname;
+      setFrame({ ...latest.current, entering: true });
     };
 
     if (exit) exit.finished.then(swap, () => {});
@@ -153,36 +167,58 @@ export const PageTransition = ({
       cancelled = true;
       exit?.cancel();
     };
-  }, [leaving, key, frame.key, travel, mapMotion]);
+  }, [leaving, key, frame.key, pathname, travel, mapMotion]);
 
   useLayoutEffect(() => {
-    if (!frame.entering) return;
+    if (!frame.entering) return undefined;
 
     window.scrollTo(0, 0);
 
-    const enter = play(
-      node.current,
-      [
-        { transform: motion.current.enterFrom, opacity: 0 },
-        { transform: 'none', opacity: 1 },
-      ],
-      ENTER_MS,
-      easeSineOut,
-    );
+    const enterOn = (element: HTMLElement | null) => {
+      const enter = play(
+        element,
+        [
+          { transform: motion.current.enterFrom, opacity: 0 },
+          { transform: 'none', opacity: 1 },
+        ],
+        ENTER_MS,
+        easeSineOut,
+      );
 
-    void enter?.finished.then(
-      () => {
-        enter.cancel();
+      void enter?.finished.then(
+        () => {
+          enter.cancel();
 
-        const { hash } = window.location;
+          const { hash } = window.location;
 
-        if (hash)
-          document
-            .getElementById(decodeURIComponent(hash.slice(1)))
-            ?.scrollIntoView();
-      },
-      () => {},
-    );
+          if (hash)
+            document
+              .getElementById(decodeURIComponent(hash.slice(1)))
+              ?.scrollIntoView();
+        },
+        () => {},
+      );
+    };
+
+    const root = node.current;
+    const loading = () => root?.querySelector(LOADING_SELECTOR) != null;
+
+    if (!root || !loading() || root.querySelector(TARGET_SELECTOR)) {
+      enterOn(transitionTarget(root));
+
+      return undefined;
+    }
+
+    const observer = new MutationObserver(() => {
+      if (loading() && !root.querySelector(TARGET_SELECTOR)) return;
+
+      observer.disconnect();
+      enterOn(transitionTarget(root));
+    });
+
+    observer.observe(root, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
   }, [frame.key, frame.entering]);
 
   return (

@@ -341,6 +341,7 @@ const LeafletMapViewer = ({
         focusLink.y + focusLink.height / 2,
       )
     : undefined;
+  const focusZoom = focusLink ? focusLink.zoom : undefined;
 
   const iconHrefs = new Set(
     links.flatMap((link) => (link.icon && link.href ? [link.href] : [])),
@@ -583,7 +584,11 @@ const LeafletMapViewer = ({
         {stack && (
           <FlyToFloor
             frame={stack.floors.find(({ id }) => id === stack.selected)}
-            skip={focusPoint !== undefined || mapSelect.current}
+            skip={
+              focusPoint !== undefined ||
+              pinRequest?.initial === true ||
+              mapSelect.current
+            }
             flyOnMount={stack.flyOnMount ?? false}
           />
         )}
@@ -742,7 +747,7 @@ const LeafletMapViewer = ({
         />
         <TiltView degrees={tilted ? tiltDegrees : 0} />
         <PanBounds bounds={bounds} />
-        <FitToViewport map={map} focus={focusPoint} />
+        <FitToViewport map={map} focus={focusPoint} focusZoom={focusZoom} />
         <RestoreHandedOffView />
         <RememberView onChange={onViewChange} />
         {map.pixelated && <PixelatedWhenZoomedIn />}

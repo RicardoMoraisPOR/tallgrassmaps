@@ -38,12 +38,15 @@ export const GlPinOnRequest = ({
 
     handled.current = request;
 
+    const flightMs = request.initial ? 0 : FLIGHT_MS;
     const center = toLngLat(link.x + link.width / 2, link.y + link.height / 2);
     const current = fromGlZoom(map.getZoom());
     const zoom =
-      minZoom === undefined
-        ? current
-        : Math.min(Math.max(current, minZoom), MAX_ZOOM);
+      link.zoom !== undefined
+        ? Math.min(link.zoom, MAX_ZOOM)
+        : minZoom === undefined
+          ? current
+          : Math.min(Math.max(current, minZoom), MAX_ZOOM);
 
     if (Math.abs(zoom - current) < 0.01) {
       const point = map.project(center);
@@ -61,13 +64,13 @@ export const GlPinOnRequest = ({
       }
 
       map.once('moveend', () => onPin(link));
-      map.easeTo({ center, duration: FLIGHT_MS });
+      map.easeTo({ center, duration: flightMs });
 
       return;
     }
 
     map.once('moveend', () => onPin(link));
-    map.flyTo({ center, zoom: toGlZoom(zoom), duration: FLIGHT_MS });
+    map.flyTo({ center, zoom: toGlZoom(zoom), duration: flightMs });
   }, [map, request, links, minZoom, onPin]);
 
   return null;

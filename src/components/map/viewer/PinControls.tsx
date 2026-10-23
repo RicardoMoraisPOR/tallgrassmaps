@@ -111,9 +111,11 @@ export const PinOnRequest = ({
       );
       const current = leafletMap.getZoom();
       const zoom =
-        minZoom === undefined
-          ? current
-          : Math.min(Math.max(current, minZoom), leafletMap.getMaxZoom());
+        link.zoom !== undefined
+          ? Math.min(link.zoom, leafletMap.getMaxZoom())
+          : minZoom === undefined
+            ? current
+            : Math.min(Math.max(current, minZoom), leafletMap.getMaxZoom());
 
       if (zoom === current) {
         leafletMap.panInside(center, { padding: [96, 96] });

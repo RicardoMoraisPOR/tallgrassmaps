@@ -23,12 +23,10 @@ import {
 const FIT_PADDING_PIXELS = 48;
 const FLIGHT_PADDING_PIXELS = 24;
 const FLIGHT_MS = 700;
-const FIRST_FLIGHT_DELAY_MS = 350;
 const FIT_BOUNDS_DELAY_MS = 350;
 const FIT_BOUNDS_PADDING = 64;
 const FIT_BOUNDS_MAX_ZOOM = 1;
 const FOCUS_BELOW_ZOOM = 2;
-const FOCUS_DELAY_MS = 250;
 const FOCUS_FLIGHT_MS = 600;
 const TILT_MS = 500;
 const TILT_CURVE = [0.77, 0, 0.175, 1] as const;
@@ -61,7 +59,7 @@ type GlCameraProps = {
   image: MapImage;
   stack?: FloorStack;
   skipFlight: boolean;
-  focusPoint?: { x: number; y: number };
+  focusPoint?: { x: number; y: number; zoom?: number };
   fitBounds?: FitBounds;
   tiltDegrees: number;
   onZoomChange?: (zoom: number) => void;
@@ -189,20 +187,19 @@ export const GlCamera = ({
       return undefined;
     }
 
-    const timer = setTimeout(
-      () => {
-        flown.current = selected.id;
-        map.fitBounds(
-          rectBounds(selected.x, selected.y, selected.width, selected.height),
-          {
-            padding: FLIGHT_PADDING_PIXELS,
-            duration: FLIGHT_MS,
-            pitch: pitch.current,
-          },
-        );
-      },
-      flown.current === undefined ? FIRST_FLIGHT_DELAY_MS : 0,
-    );
+    const arriving = flown.current === undefined;
+    const timer = setTimeout(() => {
+      flown.current = selected.id;
+
+      map.fitBounds(
+        rectBounds(selected.x, selected.y, selected.width, selected.height),
+        {
+          padding: FLIGHT_PADDING_PIXELS,
+          duration: arriving ? 0 : FLIGHT_MS,
+          pitch: pitch.current,
+        },
+      );
+    }, 0);
 
     return () => clearTimeout(timer);
   }, [
@@ -215,25 +212,33 @@ export const GlCamera = ({
     skipFlight,
   ]);
 
+  const focused = useRef(false);
+
   useEffect(() => {
-    if (!focusPoint || fromGlZoom(map.getMinZoom()) >= FOCUS_BELOW_ZOOM)
+    if (!focusPoint) return undefined;
+
+    if (
+      focusPoint.zoom === undefined &&
+      fromGlZoom(map.getMinZoom()) >= FOCUS_BELOW_ZOOM
+    )
       return undefined;
 
-    const timer = setTimeout(
-      () =>
-        map.flyTo({
-          center: toLngLat(focusPoint.x, focusPoint.y),
-          zoom: toGlZoom(
+    const arriving = !focused.current;
+    const timer = setTimeout(() => {
+      focused.current = true;
+      map.flyTo({
+        center: toLngLat(focusPoint.x, focusPoint.y),
+        zoom: toGlZoom(
+          focusPoint.zoom ??
             Math.min(Math.floor(fromGlZoom(map.getMinZoom())) + 1, MAX_ZOOM),
-          ),
-          pitch: pitch.current,
-          duration: FOCUS_FLIGHT_MS,
-        }),
-      FOCUS_DELAY_MS,
-    );
+        ),
+        pitch: pitch.current,
+        duration: arriving ? 0 : FOCUS_FLIGHT_MS,
+      });
+    }, 0);
 
     return () => clearTimeout(timer);
-  }, [map, focusPoint?.x, focusPoint?.y]);
+  }, [map, focusPoint?.x, focusPoint?.y, focusPoint?.zoom]);
 
   const fit = fitBounds;
 

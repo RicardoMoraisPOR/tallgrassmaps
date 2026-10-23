@@ -91,9 +91,11 @@ type ZoomLimiter = { _limitZoom: (zoom: number) => number };
 export const FitToViewport = ({
   map,
   focus,
+  focusZoom,
 }: {
   map: MapImage;
   focus?: LatLngTuple;
+  focusZoom?: number;
 }) => {
   const leafletMap = useMap();
   const { width, height } = map;
@@ -169,19 +171,20 @@ export const FitToViewport = ({
     const focusOn = (lat: number, lng: number) =>
       leafletMap.flyTo(
         [lat, lng],
-        Math.min(Math.floor(leafletMap.getMinZoom()) + 1, MAX_ZOOM),
+        focusZoom ??
+          Math.min(Math.floor(leafletMap.getMinZoom()) + 1, MAX_ZOOM),
         { duration: FOCUS_DURATION },
       );
 
     const focusTimer =
       focusLat !== undefined &&
       focusLng !== undefined &&
-      leafletMap.getMinZoom() < FOCUS_BELOW_ZOOM
+      (focusZoom !== undefined || leafletMap.getMinZoom() < FOCUS_BELOW_ZOOM)
         ? setTimeout(() => focusOn(focusLat, focusLng), FOCUS_DELAY)
         : undefined;
 
     return () => clearTimeout(focusTimer);
-  }, [leafletMap, focusLat, focusLng]);
+  }, [leafletMap, focusLat, focusLng, focusZoom]);
 
   return null;
 };

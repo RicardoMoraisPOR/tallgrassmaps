@@ -1,6 +1,7 @@
 export const PageSkeleton = () => {
   return (
     <div
+      data-page-loading
       role="status"
       aria-label="Loading"
       className="flex flex-1 animate-pulse flex-col gap-4 p-4 motion-reduce:animate-none"
