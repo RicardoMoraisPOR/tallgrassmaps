@@ -1,5 +1,4 @@
 import {
-  createContext,
   type ReactNode,
   useCallback,
   useContext,
@@ -25,47 +24,11 @@ import { easeOutSoft } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
+import { AsideContext, type CardInfo, CardContext } from './asideContext';
 import { MapLayersButton } from './Location/MapLayersButton';
 import { PokedexButton } from './Pokedex/PokedexButton';
 import { PlaceSearchButton } from './Search/PlaceSearch';
 import { toolbarButtonClass } from './toolbarButton';
-
-type CardInfo = {
-  id: string;
-  label: string;
-  icon: LucideIcon;
-  to?: string;
-  defaultOpen?: boolean;
-  drawer?: boolean;
-  onMobileOpen?: () => void;
-};
-
-type AsideState = {
-  modal: boolean;
-  isOpen: (id: string, fallback?: boolean) => boolean;
-  close: (id: string) => void;
-  register: (card: CardInfo) => () => void;
-};
-
-const AsideContext = createContext<AsideState>({
-  modal: false,
-  isOpen: () => true,
-  close: () => {},
-  register: () => () => {},
-});
-
-const CardContext = createContext<string | undefined>(undefined);
-
-export const useCloseCard = () => {
-  const { modal, close } = useContext(AsideContext);
-  const label = useContext(CardContext);
-
-  return useCallback(() => {
-    if (modal && label) close(label);
-  }, [modal, label, close]);
-};
-
-export const useModalCard = () => useContext(AsideContext).modal;
 
 const OFFSCREEN = { x: '115%', opacity: 0 };
 const ENTER = { duration: 0.3, ease: easeOutSoft };

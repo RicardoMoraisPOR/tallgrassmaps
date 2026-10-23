@@ -2,7 +2,7 @@ import { m } from 'motion/react';
 
 import { cn } from '@/lib/utils';
 
-import type { CityMap, HeroCity } from './heroCities';
+import type { CityPin } from './cityPin';
 
 const HOLD_SECONDS = 3.4;
 const FADE_IN_SHARE = 0.14;
@@ -11,40 +11,6 @@ const GRID_CELL_PIXELS = 24;
 const GRID_RADIUS_PIXELS = 105;
 const MAP_WIDTH_PIXELS = 230;
 const MAP_OPACITY = 0.2;
-const LABEL_CHARACTER_PIXELS = 8.4;
-const LABEL_EDGE_PIXELS = 12;
-
-export type CityPin = {
-  id: number;
-  name: string;
-  map?: CityMap;
-  x: number;
-  y: number;
-  labelShift: number;
-};
-
-export const createCityPin = (
-  id: number,
-  city: HeroCity,
-  point: { x: number; y: number },
-  containerWidth: number,
-): CityPin => {
-  const halfLabel = (city.name.length * LABEL_CHARACTER_PIXELS) / 2;
-  const center = Math.min(
-    Math.max(point.x, halfLabel + LABEL_EDGE_PIXELS),
-    containerWidth - halfLabel - LABEL_EDGE_PIXELS,
-  );
-
-  return {
-    id,
-    name: city.name,
-    map: city.map,
-    x: point.x,
-    y: point.y,
-    labelShift: center - point.x,
-  };
-};
-
 type HeroCityPinProps = {
   pin: CityPin;
   onDone: (id: number) => void;

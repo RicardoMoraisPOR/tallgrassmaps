@@ -1,8 +1,4 @@
-import { rbyNpcs } from './rby';
-import type { MapNpc } from './types';
+import { gameDataFor } from '../gameData';
 
-const npcs: Partial<Record<string, Array<MapNpc>>> = {
-  RBY: rbyNpcs,
-};
-
-export const npcsFor = (versionGroup: string) => npcs[versionGroup];
+export const npcsFor = (versionGroup: string) =>
+  gameDataFor(versionGroup)?.npcs;

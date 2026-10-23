@@ -7,6 +7,7 @@ import type { MapLink } from '../viewer/types';
 import { linkColor } from './glColors';
 import { toLngLat } from './glCoordinates';
 import { addWildPatterns } from './glPatterns';
+import { isShape } from './glShapeLinks';
 
 const IDLE = 'shapes';
 const ACTIVE = 'shapes-active';
@@ -15,9 +16,6 @@ const HIGHLIGHT_FILL = 0.35;
 const PINNED_FILL = 0.2;
 
 export type ShapeMode = 'hover' | 'selected' | 'highlight' | 'pinned';
-
-export const isShape = (link: MapLink) =>
-  !link.icon && !link.sprite && !link.badge;
 
 type Kind = 'plain' | 'grass' | 'water' | 'whole';
 

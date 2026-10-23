@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import type { LocationHotspot, MarkerKind } from '@/data/maps';
 import { useSettingsStore } from '@/stores/settings';
 
@@ -142,10 +144,14 @@ export const isLayerVisible = (
 export const useMapLayers = () => {
   const saved = useSettingsStore((state) => state.mapLayers);
 
-  return new Set(
-    mapLayers
-      .filter(({ id }) => !isLayerVisible(saved, id))
-      .map(({ id }) => id),
+  return useMemo(
+    () =>
+      new Set(
+        mapLayers
+          .filter(({ id }) => !isLayerVisible(saved, id))
+          .map(({ id }) => id),
+      ),
+    [saved],
   );
 };
 

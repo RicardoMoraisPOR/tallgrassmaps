@@ -1,8 +1,4 @@
-import { rbyShops } from './rby';
-import type { Shop } from './types';
+import { gameDataFor } from '../gameData';
 
-const shops: Partial<Record<string, Array<Shop>>> = {
-  RBY: rbyShops,
-};
-
-export const shopsFor = (versionGroup: string) => shops[versionGroup];
+export const shopsFor = (versionGroup: string) =>
+  gameDataFor(versionGroup)?.shops;

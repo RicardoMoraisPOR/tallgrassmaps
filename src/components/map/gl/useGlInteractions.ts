@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import type { Map as MapLibreMap, MapMouseEvent } from 'maplibre-gl';
 import { useNavigate } from 'react-router';
@@ -10,7 +17,8 @@ import { linkKey, spriteKey } from '../viewer/links';
 import type { MapLink } from '../viewer/types';
 import { badgeCenter } from '../viewer/WildAreaArt';
 import { fromLngLat, toGlZoom, toLngLat } from './glCoordinates';
-import { isShape, type ShapeMode } from './GlShapes';
+import { isShape } from './glShapeLinks';
+import type { ShapeMode } from './GlShapes';
 
 const CLUSTER_SELECT_MS = 800;
 const HIT_PRIORITY: Record<string, number> = {
@@ -64,17 +72,25 @@ export const useGlInteractions = ({
   const [labelLink, setLabelLink] = useState<MapLink>();
   const [hoverCardKey, setHoverCardKey] = useState<string>();
   const [pinnedCardKey, setPinnedCardKey] = useState<string>();
-  const [revealedArea, setRevealedArea] = useState<MapLink>();
+  const [revealed, setRevealedArea] = useState<MapLink>();
   const [pinnedAnchor, setPinnedAnchor] = useState<Anchor>();
   const mapSelect = useRef(false);
 
-  const onSelectedFloor = (link: MapLink) =>
-    !stack || link.floorId === stack.selected;
+  const hasStack = Boolean(stack);
+  const selectedFloor = stack?.selected;
 
-  const isHighlighted = (link: MapLink) =>
-    highlighted !== undefined &&
-    onSelectedFloor(link) &&
-    [link.highlightKey ?? link.href].flat().includes(highlighted);
+  const onSelectedFloor = useCallback(
+    (link: MapLink) => !hasStack || link.floorId === selectedFloor,
+    [hasStack, selectedFloor],
+  );
+
+  const isHighlighted = useCallback(
+    (link: MapLink) =>
+      highlighted !== undefined &&
+      onSelectedFloor(link) &&
+      [link.highlightKey ?? link.href].flat().includes(highlighted),
+    [highlighted, onSelectedFloor],
+  );
 
   const latest = useRef({
     links,
@@ -85,23 +101,23 @@ export const useGlInteractions = ({
     clusterZoom,
   });
 
-  latest.current = {
-    links,
-    stack,
-    navigate,
-    onDeselect,
-    pinnedCardKey,
-    clusterZoom,
-  };
+  useLayoutEffect(() => {
+    latest.current = {
+      links,
+      stack,
+      navigate,
+      onDeselect,
+      pinnedCardKey,
+      clusterZoom,
+    };
+  });
 
+  const revealedArea =
+    revealed && pinnedCardKey === linkKey(revealed) ? revealed : undefined;
   const cardKey = pinnedCardKey ?? hoverCardKey;
   const hoverCard = [...links, ...(revealedArea ? [revealedArea] : [])].find(
     (link) => link.tooltip && linkKey(link) === cardKey,
   );
-
-  useEffect(() => {
-    if (!pinnedCardKey) setRevealedArea(undefined);
-  }, [pinnedCardKey]);
 
   useEffect(() => {
     const byKey = () =>
@@ -412,7 +428,7 @@ export const useGlInteractions = ({
             : [],
         ),
       ),
-    [links, hoveredSprite, pinnedCardKey, highlighted, stack?.selected],
+    [links, hoveredSprite, pinnedCardKey, isHighlighted],
   );
 
   const activeIcons = useMemo(
@@ -427,7 +443,7 @@ export const useGlInteractions = ({
             : [],
         ),
       ),
-    [links, hoveredIcon, pinnedCardKey, highlighted, stack?.selected],
+    [links, hoveredIcon, pinnedCardKey, isHighlighted],
   );
 
   const iconHrefs = useMemo(
@@ -448,7 +464,7 @@ export const useGlInteractions = ({
               !(link.href && iconHrefs.has(link.href)) &&
               isHighlighted(link),
           ),
-    [highlightable, highlighted, iconHrefs, stack?.selected],
+    [highlightable, highlighted, iconHrefs, isHighlighted],
   );
 
   const shapeModes = useMemo(() => {

@@ -1,9 +1,4 @@
-import { rbyStaticPokemon } from './rby';
-import type { StaticPokemon } from './types';
-
-const staticPokemon: Partial<Record<string, Array<StaticPokemon>>> = {
-  RBY: rbyStaticPokemon,
-};
+import { gameDataFor } from '../gameData';
 
 export const staticPokemonFor = (versionGroup: string) =>
-  staticPokemon[versionGroup];
+  gameDataFor(versionGroup)?.staticPokemon;

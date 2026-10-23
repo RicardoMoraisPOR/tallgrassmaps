@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useState } from 'react';
 
 import { linkKey } from '../viewer/links';
 import type { MapLink } from '../viewer/types';
@@ -13,6 +13,9 @@ const signatureOf = (links: Array<MapLink>) =>
 
 export const useStableLinks = (links: Array<MapLink>) => {
   const signature = signatureOf(links);
+  const [stable, setStable] = useState({ signature, links });
 
-  return useMemo(() => links, [signature]);
+  if (stable.signature !== signature) setStable({ signature, links });
+
+  return stable.signature === signature ? stable.links : links;
 };

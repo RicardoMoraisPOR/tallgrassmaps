@@ -1,8 +1,4 @@
-import { rbySigns } from './rby';
-import type { MapSign } from './types';
+import { gameDataFor } from '../gameData';
 
-const signs: Partial<Record<string, Array<MapSign>>> = {
-  RBY: rbySigns,
-};
-
-export const signsFor = (versionGroup: string) => signs[versionGroup];
+export const signsFor = (versionGroup: string) =>
+  gameDataFor(versionGroup)?.signs;

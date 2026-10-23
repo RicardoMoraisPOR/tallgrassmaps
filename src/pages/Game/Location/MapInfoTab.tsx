@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { travelState } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
-import { useCloseCard } from '../GameAside';
+import { useCloseCard } from '../asideContext';
 import type { LayerEntry, LayerSection } from './links/types';
 import { EmptyTab } from './LocationPanel';
 import type { MapLayerId } from './mapLayers';

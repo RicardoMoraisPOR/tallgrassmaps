@@ -1,8 +1,4 @@
-import { rbyItems } from './rby';
-import type { MapItem } from './types';
+import { gameDataFor } from '../gameData';
 
-const items: Partial<Record<string, Array<MapItem>>> = {
-  RBY: rbyItems,
-};
-
-export const itemsFor = (versionGroup: string) => items[versionGroup];
+export const itemsFor = (versionGroup: string) =>
+  gameDataFor(versionGroup)?.items;

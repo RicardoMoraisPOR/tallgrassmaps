@@ -1,82 +1,158 @@
-import { createBrowserRouter } from 'react-router';
+import type { ComponentType } from 'react';
 
-import { ChangelogPage } from '@/pages/Changelog/ChangelogPage';
-import { CreditsPage } from '@/pages/Credits/CreditsPage';
-import { DataLakePage } from '@/pages/DataLake/DataLakePage';
-import { GameLayout } from '@/pages/Game/GameLayout';
-import { GamePage } from '@/pages/Game/GamePage';
+import { createBrowserRouter, type LoaderFunctionArgs } from 'react-router';
+
+import { PageSkeleton } from '@/components/PageSkeleton';
+import { loadAllGameData, loadGameData } from '@/data/gameData';
+import { getGame, regionIdsOf } from '@/data/games';
+import { getRegion } from '@/data/maps';
 import { HomePage } from '@/pages/Home/HomePage';
-import { MapsPage } from '@/pages/Maps/MapsPage';
-import { NationalPokedexPage } from '@/pages/NationalPokedex/NationalPokedexPage';
-import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 import { RootLayout } from '@/pages/RootLayout/RootLayout';
 import { RouteErrorPage } from '@/pages/RouteError/RouteErrorPage';
+
+const lazyPage = <Name extends string>(
+  load: () => Promise<Record<Name, ComponentType>>,
+  name: Name,
+  loadData?: (args: LoaderFunctionArgs) => Promise<void>,
+) => ({
+  lazy: async () => ({
+    Component: (await load())[name],
+    loader:
+      loadData &&
+      (async (args: LoaderFunctionArgs) => {
+        await loadData(args);
+
+        return null;
+      }),
+  }),
+});
+
+const loadAll = () => loadAllGameData();
+
+const loadGameOfRoute = ({ params }: LoaderFunctionArgs) => {
+  const game = getGame(params.gameId);
+
+  return loadGameData(
+    ...(game ? regionIdsOf(game) : []).flatMap(
+      (id) => getRegion(id)?.versionGroup ?? [],
+    ),
+  );
+};
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    HydrateFallback: PageSkeleton,
     children: [
       {
         errorElement: <RouteErrorPage />,
         children: [
           { index: true, element: <HomePage /> },
-          { path: 'maps', element: <MapsPage /> },
-          { path: 'pokedex', element: <NationalPokedexPage /> },
-          { path: 'data-lake', element: <DataLakePage /> },
-          { path: 'changelog', element: <ChangelogPage /> },
-          { path: 'credits', element: <CreditsPage /> },
+          {
+            path: 'maps',
+            ...lazyPage(() => import('@/pages/Maps/MapsPage'), 'MapsPage'),
+          },
+          {
+            path: 'pokedex',
+            ...lazyPage(
+              () => import('@/pages/NationalPokedex/NationalPokedexPage'),
+              'NationalPokedexPage',
+              loadAll,
+            ),
+          },
+          {
+            path: 'data-lake',
+            ...lazyPage(
+              () => import('@/pages/DataLake/DataLakePage'),
+              'DataLakePage',
+              loadAll,
+            ),
+          },
+          {
+            path: 'changelog',
+            ...lazyPage(
+              () => import('@/pages/Changelog/ChangelogPage'),
+              'ChangelogPage',
+            ),
+          },
+          {
+            path: 'credits',
+            ...lazyPage(
+              () => import('@/pages/Credits/CreditsPage'),
+              'CreditsPage',
+              loadAll,
+            ),
+          },
           ...(import.meta.env.DEV
             ? [
                 {
                   path: 'pokemon-sprites',
-                  lazy: async () => ({
-                    Component: (
-                      await import('@/pages/PokemonSprites/PokemonSpritesPage')
-                    ).PokemonSpritesPage,
-                  }),
+                  ...lazyPage(
+                    () => import('@/pages/PokemonSprites/PokemonSpritesPage'),
+                    'PokemonSpritesPage',
+                    loadAll,
+                  ),
                 },
                 {
                   path: 'theme',
-                  lazy: async () => ({
-                    Component: (await import('@/pages/Theme/ThemePage'))
-                      .ThemePage,
-                  }),
+                  ...lazyPage(
+                    () => import('@/pages/Theme/ThemePage'),
+                    'ThemePage',
+                    loadAll,
+                  ),
                 },
                 {
                   path: 'maplibre',
-                  lazy: async () => ({
-                    Component: (
-                      await import('@/pages/MapLibreDev/MapLibreDevPage')
-                    ).MapLibreDevPage,
-                  }),
+                  ...lazyPage(
+                    () => import('@/pages/MapLibreDev/MapLibreDevPage'),
+                    'MapLibreDevPage',
+                    loadAll,
+                  ),
                 },
                 {
                   path: 'rby/map-maker',
-                  lazy: async () => ({
-                    Component: (
-                      await import('@/pages/MapMaker/RbyMapMakerPage')
-                    ).RbyMapMakerPage,
-                  }),
+                  ...lazyPage(
+                    () => import('@/pages/MapMaker/RbyMapMakerPage'),
+                    'RbyMapMakerPage',
+                    loadAll,
+                  ),
                 },
                 {
                   path: 'legends-za/map-maker',
-                  lazy: async () => ({
-                    Component: (await import('@/pages/MapMaker/MapMakerPage'))
-                      .MapMakerPage,
-                  }),
+                  ...lazyPage(
+                    () => import('@/pages/MapMaker/MapMakerPage'),
+                    'MapMakerPage',
+                    loadAll,
+                  ),
                 },
               ]
             : []),
           {
             path: ':gameId',
-            element: <GameLayout />,
+            ...lazyPage(
+              () => import('@/pages/Game/GameLayout'),
+              'GameLayout',
+              loadGameOfRoute,
+            ),
             children: [
-              { index: true, element: <GamePage /> },
-              { path: '*', element: <GamePage /> },
+              {
+                index: true,
+                ...lazyPage(() => import('@/pages/Game/GamePage'), 'GamePage'),
+              },
+              {
+                path: '*',
+                ...lazyPage(() => import('@/pages/Game/GamePage'), 'GamePage'),
+              },
             ],
           },
-          { path: '*', element: <NotFoundPage /> },
+          {
+            path: '*',
+            ...lazyPage(
+              () => import('@/pages/NotFound/NotFoundPage'),
+              'NotFoundPage',
+            ),
+          },
         ],
       },
     ],

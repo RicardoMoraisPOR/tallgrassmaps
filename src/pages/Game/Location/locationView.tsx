@@ -30,7 +30,7 @@ import { TrainerTooltip } from './TrainerTooltip';
 import { StaticPopup, WildPopup } from './WildPopup';
 
 export type LocationViewContext = {
-  route: GameRoute;
+  route: Pick<GameRoute, 'game' | 'region' | 'href'>;
   location: Location;
   trail: Array<Location>;
   dataPath: string;

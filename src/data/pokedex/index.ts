@@ -1,10 +1,4 @@
-import { rbyPokedex } from './rby';
-import type { PokedexEntry } from './types';
-import { zaPokedex } from './za';
+import { gameDataFor } from '../gameData';
 
-const pokedexes: Partial<Record<string, Array<PokedexEntry>>> = {
-  RBY: rbyPokedex,
-  ZA: zaPokedex,
-};
-
-export const pokedexFor = (versionGroup: string) => pokedexes[versionGroup];
+export const pokedexFor = (versionGroup: string) =>
+  gameDataFor(versionGroup)?.pokedex;

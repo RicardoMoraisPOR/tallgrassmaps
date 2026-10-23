@@ -5,7 +5,8 @@ import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import type { MapLink } from '@/components/map/viewer/types';
-import { regionHref, worldRegions } from '@/data/maps';
+import { regionIdsOf } from '@/data/games';
+import { getRegion, regionHref, worldRegions } from '@/data/maps';
 import type { Shop } from '@/data/shops/types';
 import type { GameRoute } from '@/hooks/useGameRoute';
 import { cn } from '@/lib/utils';
@@ -42,7 +43,14 @@ const WORLD_HREF = /^\/[^/]+\/[^/]+\/([^/?#]+)(?:[?#].*)?$/;
 
 export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const { game, region, href } = route;
-  const regions = worldRegions(route.regions, region);
+  const regions = useMemo(
+    () =>
+      worldRegions(
+        regionIdsOf(game).flatMap((id) => getRegion(id) ?? []),
+        region,
+      ),
+    [game, region],
+  );
   const navigate = useNavigate();
   const pokedexLink = usePokedexLink();
   const hiddenLayers = useMapLayers();
@@ -52,15 +60,22 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const clusterZoom = useSettingsStore((state) => state.clusterZoom);
   const setWorldPreferred = useSettingsStore((state) => state.setWorldView);
   const tile = route.trail?.[0]?.id;
-  const world = Object.assign({}, ...regions.map((entry) => entry.world));
-  const regionOfTile = (id: string | undefined) =>
-    regions.find(({ locations }) =>
-      locations.some((entry) => entry.id === id),
-    ) ?? region;
-  const selectTile = (id: string | undefined) => {
-    setWorldPreferred(true);
-    navigate(regionHref(game.id, regionOfTile(id), id));
-  };
+  const world = useMemo(
+    () => Object.assign({}, ...regions.map((entry) => entry.world)),
+    [regions],
+  );
+  const selectTile = useCallback(
+    (id: string | undefined) => {
+      const target =
+        regions.find(({ locations }) =>
+          locations.some((entry) => entry.id === id),
+        ) ?? region;
+
+      setWorldPreferred(true);
+      navigate(regionHref(game.id, target, id));
+    },
+    [regions, region, game.id, navigate, setWorldPreferred],
+  );
   const sharedView = useViewParam();
   const { search, state: navState, key: locationKey } = useLocation();
   const [arrivalShown, setArrivalShown] = useState<string>();
@@ -75,10 +90,18 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
   const [trainerKey, setTrainerKey] = useState<string>();
   const [highlight, setHighlight] = useState<string>();
-  const [pinRequest, setPinRequest] = useState<{
-    key: string;
-    initial?: boolean;
-  }>();
+  const [pinRequest, setPinRequest] = useState<
+    { key: string; initial?: boolean } | undefined
+  >(() =>
+    requestedFocus ? { key: requestedFocus, initial: true } : undefined,
+  );
+  const [pinnedFor, setPinnedFor] = useState(locationKey);
+
+  if (pinnedFor !== locationKey) {
+    setPinnedFor(locationKey);
+
+    if (requestedFocus) setPinRequest({ key: requestedFocus, initial: true });
+  }
 
   useEffect(() => {
     if (!arrivedAt) return undefined;
@@ -91,38 +114,43 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     return () => clearTimeout(timer);
   }, [arrivedAt, locationKey]);
 
-  useEffect(() => {
-    if (requestedFocus) setPinRequest({ key: requestedFocus, initial: true });
-  }, [locationKey, requestedFocus]);
+  const placed = useMemo(
+    () =>
+      regions
+        .flatMap(({ locations }) => locations)
+        .filter(({ id }) => world[id]),
+    [regions, world],
+  );
+  const floors = useMemo(
+    () =>
+      placed.map((location) => {
+        const variant = location.variants?.find((entry) =>
+          entry.games.includes(game.id),
+        );
 
-  const placed = regions
-    .flatMap(({ locations }) => locations)
-    .filter(({ id }) => world[id]);
-  const floors = placed.map((location) => {
-    const variant = location.variants?.find((entry) =>
-      entry.games.includes(game.id),
-    );
-
-    return {
-      id: location.id,
-      name: location.name,
-      image: variant?.image ?? location.image,
-      pixelated: location.pixelated,
-      x: world[location.id].x,
-      y: world[location.id].y,
-      width: location.width,
-      height: location.height,
-    };
-  });
+        return {
+          id: location.id,
+          name: location.name,
+          image: variant?.image ?? location.image,
+          pixelated: location.pixelated,
+          x: world[location.id].x,
+          y: world[location.id].y,
+          width: location.width,
+          height: location.height,
+        };
+      }),
+    [placed, world, game.id],
+  );
   const width = Math.max(...floors.map(({ x, width: w }) => x + w));
   const height = Math.max(...floors.map(({ y, height: h }) => y + h));
 
   const selected = placed.find(({ id }) => id === tile);
   const dataPath = selected ? (selected.dataPath ?? selected.id) : '';
-  const placedKey = placed.map(({ id }) => id).join('|');
   const latestPokedexLink = useRef(pokedexLink);
 
-  latestPokedexLink.current = pokedexLink;
+  useEffect(() => {
+    latestPokedexLink.current = pokedexLink;
+  }, [pokedexLink]);
 
   const stablePokedexLink = useMemo(
     () => ({
@@ -134,6 +162,14 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
       },
     }),
     [],
+  );
+  const tileRoute = useMemo(
+    () => ({
+      game,
+      region,
+      href: (path: string) => regionHref(game.id, region, path),
+    }),
+    [game, region],
   );
   const tiles = useMemo(() => {
     const placeLink = (link: LayeredMapLink, tileId: string): MapLink => {
@@ -159,7 +195,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
       placed.map((location) => {
         const built = buildLocationView(
           {
-            route,
+            route: tileRoute,
             location,
             trail: [location],
             dataPath: location.dataPath ?? location.id,
@@ -186,7 +222,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
         ];
       }),
     );
-  }, [game.id, region.id, placedKey, stablePokedexLink, navigate]);
+  }, [placed, world, selectTile, tileRoute, stablePokedexLink, navigate]);
   const view = selected ? tiles.get(selected.id)?.view : undefined;
   const links = selected
     ? (tiles.get(selected.id)?.links.map(({ placed: link }) => link) ?? [])
@@ -194,9 +230,11 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const find = useMapFind(game, region);
   const [tier, setTier] = useState<number>();
   const { hidden: hiddenNow, fading } = useLayerFade(
-    new Set([...hiddenLayers, ...layersHiddenAtTier(tier)]),
+    useMemo(
+      () => new Set([...hiddenLayers, ...layersHiddenAtTier(tier)]),
+      [hiddenLayers, tier],
+    ),
   );
-  const hiddenKey = [...hiddenNow].toSorted().join('|');
   const visibleLinks = useMemo(
     () =>
       [...tiles.values()].flatMap((tileData) =>
@@ -210,7 +248,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           )
           .map(({ placed: link }) => link),
       ),
-    [tiles, hiddenKey, find.query, find.matches],
+    [tiles, hiddenNow, find.query, find.matches],
   );
   const dimmed = useMemo(
     () =>
@@ -221,7 +259,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               .map(({ id }) => id),
           )
         : undefined,
-    [find.query, find.tiles, placedKey],
+    [find.query, find.tiles, placed],
   );
   const findBounds = useMemo(() => {
     if (!find.query || sharedView.restored) return undefined;
@@ -250,9 +288,8 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
       width: maxX - minX,
       height: maxY - minY,
     };
-  }, [find.query, visibleLinks, dimmed, sharedView.restored]);
+  }, [find.query, visibleLinks, dimmed, floors, sharedView.restored]);
 
-  const userHiddenKey = [...hiddenLayers].toSorted().join('|');
   const clusters = useMemo(() => {
     if (tier !== 0 || find.query) return undefined;
 
@@ -282,7 +319,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
           ]
         : [];
     });
-  }, [tier, find.query, tiles, userHiddenKey, placedKey]);
+  }, [tier, find.query, tiles, hiddenLayers, placed, regions, world]);
 
   const panel =
     view && selected ? (

@@ -2,14 +2,9 @@ import { type RefObject, useEffect, useRef, useState } from 'react';
 
 import { m, useMotionValue, useTransform } from 'motion/react';
 
+import { type CityPin, createCityPin } from './cityPin';
 import { createCityPicker } from './heroCities';
-import {
-  type CityPin,
-  createCityPin,
-  HeroCityGrid,
-  HeroCityMap,
-  HeroCityPin,
-} from './HeroCityPin';
+import { HeroCityGrid, HeroCityMap, HeroCityPin } from './HeroCityPin';
 
 const LAUNCH_DELAY_MS = 250;
 const CRUISE_PIXELS_PER_SECOND = 230;

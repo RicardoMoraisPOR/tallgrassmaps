@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 
@@ -124,7 +124,9 @@ export const GlSprites = ({
 
   const latestWants = useRef<ReturnType<typeof wantsOf>>([]);
 
-  latestWants.current = wantsOf();
+  useLayoutEffect(() => {
+    latestWants.current = wantsOf();
+  });
 
   useEffect(() => {
     let cancelled = false;
