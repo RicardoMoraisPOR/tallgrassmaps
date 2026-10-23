@@ -37,7 +37,11 @@ export type MapIconKind =
   | { kind: 'stairs' | 'ladder' | 'hole' | 'current'; step?: 'up' | 'down' }
   | { kind: 'teleport' }
   | { kind: 'sign' }
-  | { kind: 'register' };
+  | { kind: 'register' }
+  | { kind: 'cave' }
+  | { kind: 'gym' }
+  | { kind: 'mart' }
+  | { kind: 'center' };
 
 export type FloorFrame = {
   id: string;

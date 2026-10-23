@@ -24,6 +24,7 @@ export const markerLinks = (
 
     return {
       ...area,
+      ...(kind !== 'house' && { buildingIcon: { kind } }),
       href: target && withQuery(href(target), { via }),
       ...(target && arrival && { highlightKey: [href(target), arrival] }),
       label: name,
@@ -44,6 +45,10 @@ export const buildingIcons = (
       y: link.y + link.height / 2,
       width: 0,
       height: 0,
-      icon: { kind: 'door' as const },
+      icon:
+        link.buildingIcon ??
+        (link.entranceIcon
+          ? { kind: link.entranceIcon }
+          : { kind: 'door' as const }),
     }),
   );

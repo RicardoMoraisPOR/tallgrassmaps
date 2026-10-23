@@ -25,6 +25,18 @@ const groups: Array<{
         className: 'map-link-connection',
       },
       { label: 'Door', icon: { kind: 'door' }, className: 'map-link-entrance' },
+      { label: 'Cave', icon: { kind: 'cave' }, className: 'map-link-entrance' },
+      { label: 'Gym', icon: { kind: 'gym' }, className: 'map-link-entrance' },
+      {
+        label: 'Poké Mart',
+        icon: { kind: 'mart' },
+        className: 'map-link-service',
+      },
+      {
+        label: 'Pokémon Center',
+        icon: { kind: 'center' },
+        className: 'map-link-service',
+      },
       { label: 'Sign', icon: { kind: 'sign' }, className: 'map-link-sign' },
     ],
   },

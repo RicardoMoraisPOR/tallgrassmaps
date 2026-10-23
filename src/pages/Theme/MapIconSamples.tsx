@@ -26,6 +26,10 @@ const SAMPLES: Array<Sample> = [
   { kind: 'teleport', layer: 'connection' },
   { kind: 'current', layer: 'connection' },
   { kind: 'door', layer: 'entrance' },
+  { kind: 'cave', layer: 'entrance' },
+  { kind: 'gym', layer: 'entrance' },
+  { kind: 'mart', layer: 'service' },
+  { kind: 'center', layer: 'service' },
   { kind: 'register', layer: 'service' },
   { kind: 'sign', layer: 'sign' },
 ];

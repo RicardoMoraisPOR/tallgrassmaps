@@ -1,5 +1,6 @@
 import type {
   Direction,
+  EntranceIcon,
   LocationKind,
   MapVariant,
   MarkerKind,
@@ -65,5 +66,6 @@ export type InsideEntry = {
   floors?: Array<FloorEntry>;
   variants?: Array<MapVariant>;
   marker?: MarkerKind;
+  entranceIcon?: EntranceIcon;
   games?: Array<string>;
 };

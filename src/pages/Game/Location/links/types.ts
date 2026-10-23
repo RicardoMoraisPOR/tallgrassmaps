@@ -1,8 +1,13 @@
 import type { ReactNode } from 'react';
 
-import type { MapLink } from '@/components/map/viewer/types';
+import type { MapIconKind, MapLink } from '@/components/map/viewer/types';
 import type { MapItem } from '@/data/items/types';
-import type { Direction, WildArea, WildTerrain } from '@/data/maps';
+import type {
+  Direction,
+  EntranceIcon,
+  WildArea,
+  WildTerrain,
+} from '@/data/maps';
 import type { MapNpc } from '@/data/npcs/types';
 import type { Shop } from '@/data/shops/types';
 import type { MapSign } from '@/data/signs/types';
@@ -43,6 +48,8 @@ export type LayeredMapLink = MapLink & {
   teleport?: boolean;
   step?: FloorStep;
   unlisted?: boolean;
+  entranceIcon?: EntranceIcon;
+  buildingIcon?: MapIconKind;
 };
 
 export type MarkerSources = {

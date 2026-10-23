@@ -53,8 +53,11 @@ export type Hotspot = Rect & {
   back?: boolean;
 };
 
+export type EntranceIcon = 'gym' | 'cave';
+
 export type LocationHotspot = Hotspot & {
   kind: 'exit' | 'entrance';
+  entranceIcon?: EntranceIcon;
 };
 
 export type MarkerKind = 'house' | 'mart' | 'center';

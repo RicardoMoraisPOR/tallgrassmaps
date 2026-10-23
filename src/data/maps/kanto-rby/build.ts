@@ -165,19 +165,22 @@ const toInsideLocation = ({
 const buildings = [...inside, ...services];
 
 const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
-  ...inside.flatMap(({ id, parent, entrances, otherEntrances, games }) => {
-    const rects =
-      mapId === parent ? entrances : (otherEntrances?.[mapId] ?? []);
+  ...inside.flatMap(
+    ({ id, parent, entrances, otherEntrances, games, entranceIcon }) => {
+      const rects =
+        mapId === parent ? entrances : (otherEntrances?.[mapId] ?? []);
 
-    return rects.map((entry) => ({
-      ...('floor' in entry
-        ? { ...entry.area, floor: floorId(entry.floor) }
-        : entry),
-      kind: 'entrance' as const,
-      target: `${parent}/${id}`,
-      ...(games && { games }),
-    }));
-  }),
+      return rects.map((entry) => ({
+        ...('floor' in entry
+          ? { ...entry.area, floor: floorId(entry.floor) }
+          : entry),
+        kind: 'entrance' as const,
+        target: `${parent}/${id}`,
+        ...(games && { games }),
+        ...(entranceIcon && { entranceIcon }),
+      }));
+    },
+  ),
   ...(connections[mapId] ?? []).map(({ to, direction, area }) => ({
     ...area,
     kind: 'exit' as const,

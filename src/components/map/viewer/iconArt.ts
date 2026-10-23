@@ -56,6 +56,26 @@ export const mapIconArt: Record<
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20H2"/><path d="M11 4.562v16.157a1 1 0 0 0 1.242.97L19 20V5.562a2 2 0 0 0-1.515-1.94l-4-1A2 2 0 0 0 11 4.561z"/><path d="M11 4H8a2 2 0 0 0-2 2v14"/><path d="M14 12h.01"/><path d="M22 20h-3"/></svg>',
     game: '<svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1 0h5v7h-5zM4 3h1v1h-1z"/><path fill="currentColor" d="M0 7h7v1h-7z"/></svg>',
   },
+  cave: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20v-7a8 8 0 0 1 16 0v7"/><path d="M9 20v-3.5a3 3 0 0 1 6 0V20"/></svg>',
+    game: '<svg viewBox="0 0 9 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M2 0h5v1h-5zM1 1h7v1h-7zM0 2h3v1h-3zM6 2h3v1h-3zM0 3h2v1h-2zM7 3h2v1h-2zM0 4h2v1h-2zM7 4h2v1h-2zM0 5h2v1h-2zM7 5h2v1h-2zM0 6h2v1h-2zM7 6h2v1h-2z"/></svg>',
+  },
+  gym: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/></svg>',
+    game: '<svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M3 0h2v1h-2zM2 1h4v1h-4zM1 2h2v1h-2zM5 2h2v1h-2zM0 3h2v1h-2zM3 3h2v1h-2zM6 3h2v1h-2zM0 4h2v1h-2zM3 4h2v1h-2zM6 4h2v1h-2zM1 5h2v1h-2zM5 5h2v1h-2zM2 6h4v1h-4zM3 7h2v1h-2z"/></svg>',
+  },
+  mart: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',
+    game: '<svg viewBox="0 0 7 8" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M2 0h3v1h-3zM1 1h1v1h-1zM5 1h1v1h-1zM0 2h7v1h-7zM0 3h7v1h-7zM0 4h7v1h-7zM0 5h7v1h-7zM0 6h7v1h-7zM0 7h7v1h-7z"/></svg>',
+  },
+  center: {
+    'tall-grass':
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>',
+    game: '<svg viewBox="0 0 8 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M1 0h2v1h-2zM5 0h2v1h-2zM0 1h8v1h-8zM0 2h8v1h-8zM0 3h8v1h-8zM1 4h6v1h-6zM2 5h4v1h-4zM3 6h2v1h-2z"/></svg>',
+  },
 };
 
 export const mapStepArt: Record<ThemeStyle, string> = {
