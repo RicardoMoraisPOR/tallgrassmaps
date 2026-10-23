@@ -61,7 +61,9 @@ export type InsideEntry = {
   otherParents?: Array<string>;
   entrances: Array<Rect | { area: Rect; floor: string }>;
   otherEntrances?: Record<string, Array<Rect>>;
-  exits?: Array<Rect | { area: Rect; to: string } | Teleporter>;
+  exits?: Array<
+    Rect | { area: Rect; to: string; ladder?: 'up' | 'down' } | Teleporter
+  >;
   cell?: [x: number, y: number];
   floors?: Array<FloorEntry>;
   variants?: Array<MapVariant>;

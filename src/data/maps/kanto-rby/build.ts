@@ -111,6 +111,8 @@ const toInsideLocation = ({
       kind: 'exit' as const,
       target:
         'to' in exit ? exit.to : 'pad' in exit ? `${parent}/${id}` : parent,
+      ...('ladder' in exit &&
+        exit.ladder && { ladder: true, step: exit.ladder }),
       ...('pad' in exit && padFields(exit)),
     })),
   };

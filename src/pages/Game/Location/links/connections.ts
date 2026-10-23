@@ -210,7 +210,12 @@ export const buildConnections = ({
     };
 
     if (!hotspot.floor || hotspot.target !== path)
-      return { ...base, label: placeName(hotspot.target, target.name) };
+      return {
+        ...base,
+        label: placeName(hotspot.target, target.name),
+        ...(hotspot.ladder &&
+          hotspot.step && { ladder: true, step: hotspot.step, stairs: true }),
+      };
 
     return {
       ...base,

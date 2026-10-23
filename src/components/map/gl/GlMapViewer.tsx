@@ -28,6 +28,7 @@ import { useGlInteractions } from './useGlInteractions';
 import { useStableLinks } from './useStableLinks';
 
 const MAX_PITCH = 60;
+const SMALL_TILE = { width: 480, height: 288 };
 const READY_TIMEOUT_MS = 1500;
 const crispZoomFor = (clusterZoom?: number) =>
   clusterZoom === undefined ? 0 : Math.min(clusterZoom, 0);
@@ -235,17 +236,32 @@ const GlLayers = ({
 
   const focusLink =
     focusKey &&
-    links.find(
+    highlightable.find(
       (link) =>
         interactions.isOnSelectedFloor(link) &&
         [link.highlightKey].flat().includes(focusKey),
     );
+  const focusTile = stack?.floors.find(({ id }) => id === stack.selected) ?? {
+    x: 0,
+    y: 0,
+    width: image.width,
+    height: image.height,
+  };
+  const smallTile =
+    focusTile.width <= SMALL_TILE.width &&
+    focusTile.height <= SMALL_TILE.height;
   const focusPoint = focusLink
-    ? {
-        x: focusLink.x + focusLink.width / 2,
-        y: focusLink.y + focusLink.height / 2,
-        zoom: focusLink.zoom,
-      }
+    ? smallTile
+      ? {
+          x: focusTile.x + focusTile.width / 2,
+          y: focusTile.y + focusTile.height / 2,
+          bounds: focusTile,
+        }
+      : {
+          x: focusLink.x + focusLink.width / 2,
+          y: focusLink.y + focusLink.height / 2,
+          zoom: focusLink.zoom,
+        }
     : undefined;
 
   return (

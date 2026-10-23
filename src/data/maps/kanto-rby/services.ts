@@ -259,9 +259,9 @@ export const services: Array<InsideEntry> = [
     entrances: [warp(12, 9)],
     exits: [
       rect(32, 112, 32, 16),
-      { area: warp(4, 4), to: 'route-2/digletts-cave' },
+      { area: warp(4, 4), to: 'route-2/digletts-cave', ladder: 'down' },
     ],
-    marker: 'house',
+    marker: 'cave',
   },
   {
     id: 'digletts-cave-route-11',
@@ -272,9 +272,9 @@ export const services: Array<InsideEntry> = [
     entrances: [warp(4, 5)],
     exits: [
       rect(32, 112, 32, 16),
-      { area: warp(4, 4), to: 'route-11/digletts-cave' },
+      { area: warp(4, 4), to: 'route-11/digletts-cave', ladder: 'down' },
     ],
-    marker: 'house',
+    marker: 'cave',
   },
   {
     id: 'route-11-gate',

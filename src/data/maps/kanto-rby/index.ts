@@ -30,7 +30,9 @@ export const kantoRby: Region = {
   overview: {
     'pallet-town': [{ kind: 'start', label: 'Starting point' }],
     'indigo-plateau': [{ kind: 'league', label: 'Pokémon League' }],
+    'route-2': [{ kind: 'cave', label: "Diglett's Cave" }],
     'route-4': [{ kind: 'cave', label: 'Mt. Moon' }],
+    'route-11': [{ kind: 'cave', label: "Diglett's Cave" }],
     'route-10': [
       { kind: 'cave', label: 'Rock Tunnel' },
       { kind: 'legendary', label: 'Zapdos' },

@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import { AsideCard, GameAside } from '../GameAside';
+import { arrivalKey } from '../Location/links/arrivals';
 import type { LayeredMapLink } from '../Location/links/types';
 import { LocationPanel } from '../Location/LocationPanel';
 import { locationPanelTabs } from '../Location/locationPanelTabs';
@@ -34,6 +35,8 @@ import { FindBanner } from './FindBanner';
 import { GameInfoCard } from './GameInfoCard';
 import { useLayerFade } from './useLayerFade';
 import { useViewParam } from './useViewParam';
+
+const ARRIVAL_HIGHLIGHT_MS = 1500;
 
 const WORLD_HREF = /^\/[^/]+\/[^/]+\/([^/?#]+)(?:[?#].*)?$/;
 
@@ -60,7 +63,11 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   };
   const sharedView = useViewParam();
   const { search, state: navState, key: locationKey } = useLocation();
+  const [arrivalShown, setArrivalShown] = useState<string>();
   const requestedFocus = (navState as { focusKey?: string } | null)?.focusKey;
+  const via = new URLSearchParams(search).get('via');
+  const arrivedAt = via && !requestedFocus ? arrivalKey(via) : undefined;
+  const arrival = arrivalShown === locationKey ? undefined : arrivedAt;
   const deselect = () =>
     navigate({ pathname: regionHref(game.id, region), search });
   const [townMapOpen, setTownMapOpen] = useState(false);
@@ -72,6 +79,17 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     key: string;
     initial?: boolean;
   }>();
+
+  useEffect(() => {
+    if (!arrivedAt) return undefined;
+
+    const timer = setTimeout(
+      () => setArrivalShown(locationKey),
+      ARRIVAL_HIGHLIGHT_MS,
+    );
+
+    return () => clearTimeout(timer);
+  }, [arrivedAt, locationKey]);
 
   useEffect(() => {
     if (requestedFocus) setPinRequest({ key: requestedFocus, initial: true });
@@ -310,7 +328,8 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
             }}
             links={visibleLinks}
             highlightable={links}
-            highlighted={highlight}
+            highlighted={highlight ?? arrival}
+            focusKey={arrivedAt}
             pinRequest={pinRequest}
             fitBounds={findBounds}
             onViewChange={sharedView.remember}

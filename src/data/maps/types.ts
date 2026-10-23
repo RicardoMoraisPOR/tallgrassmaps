@@ -45,6 +45,7 @@ export type Hotspot = Rect & {
   travel?: Direction;
   floor?: string;
   ladder?: boolean;
+  step?: 'up' | 'down';
   hole?: boolean;
   current?: boolean;
   door?: boolean;
@@ -60,7 +61,7 @@ export type LocationHotspot = Hotspot & {
   entranceIcon?: EntranceIcon;
 };
 
-export type MarkerKind = 'house' | 'mart' | 'center';
+export type MarkerKind = 'house' | 'cave' | 'mart' | 'center';
 
 export type MapMarker = Rect & {
   kind: MarkerKind;

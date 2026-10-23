@@ -402,8 +402,12 @@ export const inside: Array<InsideEntry> = [
     otherParents: ['route-2'],
     entrances: [],
     exits: [
-      { area: warp(5, 5), to: 'route-2/digletts-cave-route-2' },
-      { area: warp(37, 31), to: 'route-11/digletts-cave-route-11' },
+      { area: warp(5, 5), to: 'route-2/digletts-cave-route-2', ladder: 'up' },
+      {
+        area: warp(37, 31),
+        to: 'route-11/digletts-cave-route-11',
+        ladder: 'up',
+      },
     ],
   },
   {

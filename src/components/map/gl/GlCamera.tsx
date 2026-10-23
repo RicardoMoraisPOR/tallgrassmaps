@@ -18,6 +18,18 @@ import {
 } from './glCoordinates';
 
 const FIT_PADDING_PIXELS = 48;
+
+const fitZoomFor = (map: MapLibreMap, width: number, height: number) => {
+  const { clientWidth, clientHeight } = map.getContainer();
+  const zoom = Math.log2(
+    Math.min(
+      (clientWidth - FIT_PADDING_PIXELS * 2) / width,
+      (clientHeight - FIT_PADDING_PIXELS * 2) / height,
+    ),
+  );
+
+  return zoom < 0 ? zoom : Math.floor(zoom);
+};
 const FLIGHT_PADDING_PIXELS = 24;
 const FLIGHT_MS = 700;
 const FIT_BOUNDS_DELAY_MS = 350;
@@ -56,7 +68,12 @@ type GlCameraProps = {
   image: MapImage;
   stack?: FloorStack;
   skipFlight: boolean;
-  focusPoint?: { x: number; y: number; zoom?: number };
+  focusPoint?: {
+    x: number;
+    y: number;
+    zoom?: number;
+    bounds?: { x: number; y: number; width: number; height: number };
+  };
   fitBounds?: FitBounds;
   tiltDegrees: number;
   onZoomChange?: (zoom: number) => void;
@@ -83,17 +100,7 @@ export const GlCamera = ({
   pitch.current = tiltDegrees;
 
   useEffect(() => {
-    const fitZoom = () => {
-      const { clientWidth, clientHeight } = map.getContainer();
-      const zoom = Math.log2(
-        Math.min(
-          (clientWidth - FIT_PADDING_PIXELS * 2) / width,
-          (clientHeight - FIT_PADDING_PIXELS * 2) / height,
-        ),
-      );
-
-      return zoom < 0 ? zoom : Math.floor(zoom);
-    };
+    const fitZoom = () => fitZoomFor(map, width, height);
 
     const applyLimits = () => {
       const zoom = toGlZoom(fitZoom());
@@ -213,7 +220,10 @@ export const GlCamera = ({
   useEffect(() => {
     if (!focusPoint) return undefined;
 
+    const { bounds } = focusPoint;
+
     if (
+      !bounds &&
       focusPoint.zoom === undefined &&
       fromGlZoom(map.getMinZoom()) >= FOCUS_BELOW_ZOOM
     )
@@ -221,6 +231,17 @@ export const GlCamera = ({
 
     const arriving = isArriving(map);
     const timer = setTimeout(() => {
+      if (bounds) {
+        map.flyTo({
+          center: toLngLat(focusPoint.x, focusPoint.y),
+          zoom: toGlZoom(fitZoomFor(map, bounds.width, bounds.height)),
+          pitch: pitch.current,
+          duration: arriving ? 0 : FLIGHT_MS,
+        });
+
+        return;
+      }
+
       map.flyTo({
         center: toLngLat(focusPoint.x, focusPoint.y),
         zoom: toGlZoom(
@@ -233,7 +254,14 @@ export const GlCamera = ({
     }, 0);
 
     return () => clearTimeout(timer);
-  }, [map, focusPoint?.x, focusPoint?.y, focusPoint?.zoom]);
+  }, [
+    map,
+    focusPoint?.x,
+    focusPoint?.y,
+    focusPoint?.zoom,
+    focusPoint?.bounds?.width,
+    focusPoint?.bounds?.height,
+  ]);
 
   const fit = fitBounds;
 

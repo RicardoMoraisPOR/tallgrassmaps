@@ -104,6 +104,7 @@ const hotspotLayers: Record<LocationHotspot['kind'], MapLayerId> = {
 
 const markerLayers: Record<MarkerKind, MapLayerId> = {
   house: 'buildings',
+  cave: 'buildings',
   mart: 'services',
   center: 'services',
 };
