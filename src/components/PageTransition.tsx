@@ -6,6 +6,7 @@ import {
   useState,
 } from 'react';
 
+import { LoaderCircle } from 'lucide-react';
 import { useLocation, useNavigationType, useOutlet } from 'react-router';
 
 import type { Direction } from '@/data/maps';
@@ -14,7 +15,7 @@ import { easeSineIn, easeSineOut, type TravelState } from '@/lib/motion';
 import { pathSegments } from '@/lib/paths';
 
 const EXIT_MS = 200;
-const ENTER_MS = 300;
+const ENTER_MS = 150;
 const DISTANCE = 40;
 
 const VECTORS: Record<Direction, [x: number, y: number]> = {
@@ -69,6 +70,9 @@ const motionFor = (
 
 const TARGET_SELECTOR = '[data-page-transition-target]';
 const LOADING_SELECTOR = '[data-page-loading]';
+const PENDING_ATTRIBUTE = 'data-page-transition-pending';
+const READY_TIMEOUT_MS = 2000;
+const LOADING_DELAY_MS = 250;
 
 const transitionTarget = (node: HTMLElement | null) =>
   node?.querySelector<HTMLElement>(TARGET_SELECTOR) ?? node;
@@ -88,6 +92,7 @@ const play = (
 type PageTransitionProps = {
   depth?: number;
   mapMotion?: boolean;
+  holdForReady?: boolean;
   keyFor?: (pathname: string) => string;
   children?: ReactNode;
 };
@@ -102,6 +107,7 @@ const pageKey = (pathname: string, depth: number | undefined) =>
 export const PageTransition = ({
   depth,
   mapMotion = false,
+  holdForReady = true,
   keyFor,
   children,
 }: PageTransitionProps) => {
@@ -120,6 +126,8 @@ export const PageTransition = ({
     content,
     entering: false,
   });
+  const [holding, setHolding] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
   const latest = useRef({ key, content });
   const leaving = frame.key !== key;
   const travel =
@@ -201,29 +209,95 @@ export const PageTransition = ({
     };
 
     const root = node.current;
-    const loading = () => root?.querySelector(LOADING_SELECTOR) != null;
+    const targetOf = () =>
+      root?.querySelector<HTMLElement>(TARGET_SELECTOR) ?? null;
+    const skeleton = () => root?.querySelector(LOADING_SELECTOR) != null;
+    const waiting = () => {
+      const target = targetOf();
 
-    if (!root || !loading() || root.querySelector(TARGET_SELECTOR)) {
+      return target
+        ? holdForReady && target.hasAttribute(PENDING_ATTRIBUTE)
+        : skeleton();
+    };
+    const hold = () => {
+      const target = targetOf();
+
+      if (holdForReady && target?.hasAttribute(PENDING_ATTRIBUTE))
+        target.style.opacity = '0';
+    };
+    const start = () => {
+      const target = targetOf();
+
+      setHolding(false);
+
+      if (target) target.style.opacity = '';
+
       enterOn(transitionTarget(root));
+    };
+
+    if (!root || !waiting()) {
+      start();
 
       return undefined;
     }
 
+    hold();
+    setHolding(true);
+
     const observer = new MutationObserver(() => {
-      if (loading() && !root.querySelector(TARGET_SELECTOR)) return;
+      if (waiting()) {
+        hold();
+
+        return;
+      }
 
       observer.disconnect();
-      enterOn(transitionTarget(root));
+      clearTimeout(timer);
+      start();
+    });
+    const timer = setTimeout(() => {
+      observer.disconnect();
+      start();
+    }, READY_TIMEOUT_MS);
+
+    observer.observe(root, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: [PENDING_ATTRIBUTE],
     });
 
-    observer.observe(root, { childList: true, subtree: true });
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+      setHolding(false);
+    };
+  }, [frame.key, frame.entering, holdForReady]);
 
-    return () => observer.disconnect();
-  }, [frame.key, frame.entering]);
+  useEffect(() => {
+    if (!holding) {
+      setShowLoading(false);
+
+      return undefined;
+    }
+
+    const timer = setTimeout(() => setShowLoading(true), LOADING_DELAY_MS);
+
+    return () => clearTimeout(timer);
+  }, [holding]);
 
   return (
-    <div key={frame.key} ref={node} className="flex flex-1 flex-col">
+    <div key={frame.key} ref={node} className="relative flex flex-1 flex-col">
       {frame.content}
+      {showLoading && (
+        <div
+          role="status"
+          aria-label="Loading"
+          className="pointer-events-none absolute inset-0 z-10 grid place-items-center"
+        >
+          <LoaderCircle className="size-6 animate-spin text-muted-foreground motion-reduce:animate-none" />
+        </div>
+      )}
     </div>
   );
 };

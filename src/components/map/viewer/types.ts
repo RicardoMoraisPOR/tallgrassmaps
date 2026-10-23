@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 
 import type { Direction, Rect } from '@/data/maps';
+import type { GbcPaletteId } from '@/data/maps/gbcPalettes';
 import type { SpriteFacing } from '@/data/trainers/types';
 
 export type MapLink = Rect & {
@@ -37,3 +38,35 @@ export type MapIconKind =
   | { kind: 'teleport' }
   | { kind: 'sign' }
   | { kind: 'register' };
+
+export type FloorFrame = {
+  id: string;
+  name: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+export type FitBounds = {
+  key: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+export type TileCluster = {
+  tileId: string;
+  x: number;
+  y: number;
+  compact?: boolean;
+  counts: Array<{ label: string; color: string; count: number }>;
+};
+
+export type MapPalette = {
+  on: boolean;
+  onToggle: () => void;
+  of: (floorId?: string) => GbcPaletteId | undefined;
+  objectsOf: (floorId?: string) => GbcPaletteId | undefined;
+};

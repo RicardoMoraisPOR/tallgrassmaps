@@ -5,11 +5,6 @@ import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
 import type { MapLink } from '@/components/map/viewer/types';
-import { useProgressiveLinks } from '@/components/map/viewer/useProgressiveLinks';
-import {
-  handOffView,
-  hasHandedOffView,
-} from '@/components/map/viewer/viewHandoff';
 import { regionHref, worldRegions } from '@/data/maps';
 import type { Shop } from '@/data/shops/types';
 import type { GameRoute } from '@/hooks/useGameRoute';
@@ -69,9 +64,6 @@ const clusterGroups: Array<{
   },
 ];
 
-const FADE_START_MS = 50;
-const FADE_OUT_MS = 150;
-
 const WORLD_HREF = /^\/[^/]+\/[^/]+\/([^/?#]+)(?:[?#].*)?$/;
 
 export const WorldMapPage = ({ route }: { route: GameRoute }) => {
@@ -100,15 +92,6 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
   const requestedFocus = (navState as { focusKey?: string } | null)?.focusKey;
   const deselect = () =>
     navigate({ pathname: regionHref(game.id, region), search });
-  const [handedOff] = useState(hasHandedOffView);
-  const [faded, setFaded] = useState(handedOff);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setFaded(false), FADE_START_MS);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const [townMapOpen, setTownMapOpen] = useState(false);
   const openTownMap = useCallback(() => setTownMapOpen(true), [setTownMapOpen]);
   const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
@@ -315,12 +298,6 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
     });
   }, [tier, find.query, tiles, userHiddenKey, placedKey]);
 
-  const renderedLinks = useProgressiveLinks(
-    visibleLinks,
-    fading.length > 0,
-    selected?.id,
-  );
-
   const panel =
     view && selected ? (
       <LocationPanel
@@ -357,17 +334,13 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               onSelect: selectTile,
               stayOnMapSelect: true,
               flyOnMount:
-                Boolean(selected) &&
-                !handedOff &&
-                !sharedView.restored &&
-                !requestedFocus,
-              faded,
+                Boolean(selected) && !sharedView.restored && !requestedFocus,
               outlineSelected: false,
               dottedSelected: true,
               actOnAnyFloor: true,
               dimmed,
             }}
-            links={renderedLinks}
+            links={visibleLinks}
             highlightable={links}
             highlighted={highlight}
             pinRequest={pinRequest}
@@ -383,16 +356,7 @@ export const WorldMapPage = ({ route }: { route: GameRoute }) => {
               selected
                 ? {
                     on: false,
-                    onToggle: () => {
-                      const at = world[selected.id];
-
-                      setFaded(true);
-                      setTimeout(() => {
-                        if (at) handOffView(-at.x, -at.y);
-
-                        setWorldPreferred(false);
-                      }, FADE_OUT_MS);
-                    },
+                    onToggle: () => setWorldPreferred(false),
                   }
                 : undefined
             }

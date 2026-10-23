@@ -1,7 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
-import { CRS, divIcon } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import {
   Check,
   Circle,
@@ -16,16 +14,24 @@ import {
   Undo2,
 } from 'lucide-react';
 import {
-  ImageOverlay,
-  MapContainer,
+  type GeoJSONSource,
+  Map as MapLibreMap,
+  type MapMouseEvent,
   Marker,
-  Polygon,
-  Polyline,
-  useMapEvents,
-} from 'react-leaflet';
+} from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
 
-import { imageBounds, toLatLng } from '@/components/map/coordinates';
-import { MapZoomControls } from '@/components/map/MapZoomControls';
+import {
+  BASE_ZOOM,
+  fromLngLat,
+  rectBounds,
+  toGlZoom,
+  toLngLat,
+} from '@/components/map/gl/glCoordinates';
+import { GlFloorImages } from '@/components/map/gl/GlFloorImages';
+import { addAnchors } from '@/components/map/gl/glLayers';
+import '@/components/map/gl/glWorker';
+import { GlZoomControls } from '@/components/map/gl/GlZoomControls';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -45,6 +51,7 @@ type PointStyle = 'free' | 'snap';
 const REGION_ID = 'lumiose-za';
 const START_CENTER: Point = [2450, 3820];
 const START_ZOOM = 0;
+const MIN_ZOOM = -3;
 const MAX_ZOOM = 4;
 const SHAPE_COLOR = '#07b85e';
 const ANCHOR_TOLERANCE_PX = 14;
@@ -53,12 +60,15 @@ const toolbarButton =
 const activeToolbarButton = 'pointer-events-auto hover:bg-primary';
 const CIRCLE_STEPS = 48;
 
-const pointIcon = divIcon({
-  className: '',
-  html: '<span style="display:block;width:12px;height:12px;border-radius:9999px;background:#fff;border:2px solid #07b85e;box-shadow:0 0 0 1px #0004"></span>',
-  iconSize: [12, 12],
-  iconAnchor: [6, 6],
-});
+const pointElement = () => {
+  const element = document.createElement('span');
+
+  element.className = 'map-maker-point';
+  element.style.cssText =
+    'display:block;width:12px;height:12px;border-radius:9999px;background:#fff;border:2px solid #07b85e;box-shadow:0 0 0 1px #0004;cursor:grab';
+
+  return element;
+};
 
 const MODES: Array<{ id: Mode; label: string; Icon: typeof Hexagon }> = [
   { id: 'polygon', label: 'Polygon', Icon: Hexagon },
@@ -129,20 +139,263 @@ const nearestBorder = (shapes: Array<Array<Point>>, point: Point) =>
       undefined,
     );
 
-const ClickToAdd = ({
-  onAdd,
-}: {
+type MakerMapProps = {
+  region: NonNullable<ReturnType<typeof getRegion>>;
+  points: Array<Point>;
+  shape: Array<Point>;
+  references: Array<{ target: string; outline: Array<Point> }>;
+  showReference: boolean;
+  selecting: boolean;
   onAdd: (point: Point, unitsPerPixel: number) => void;
-}) => {
-  const map = useMapEvents({
-    click: ({ latlng }) =>
-      onAdd(
-        [Math.round(latlng.lng), Math.round(-latlng.lat)],
-        1 / 2 ** map.getZoom(),
-      ),
+  onCopy: (outline: Array<Point>) => void;
+  onMove: (index: number, point: Point) => void;
+  onRemove: (index: number) => void;
+};
+
+const lineOf = (outline: Array<Point>) =>
+  outline.map(([x, y]) => toLngLat(x, y));
+
+const ringOf = (outline: Array<Point>) => [
+  ...lineOf(outline),
+  toLngLat(...outline[0]),
+];
+
+const MakerMap = ({
+  region,
+  points,
+  shape,
+  references,
+  showReference,
+  selecting,
+  onAdd,
+  onCopy,
+  onMove,
+  onRemove,
+}: MakerMapProps) => {
+  const container = useRef<HTMLDivElement>(null);
+  const [map, setMap] = useState<MapLibreMap>();
+  const latest = useRef({
+    selecting,
+    references,
+    onAdd,
+    onCopy,
+    onMove,
+    onRemove,
   });
 
-  return null;
+  latest.current = { selecting, references, onAdd, onCopy, onMove, onRemove };
+
+  useEffect(() => {
+    const element = container.current;
+
+    if (!element) return undefined;
+
+    const instance = new MapLibreMap({
+      container: element,
+      style: { version: 8, sources: {}, layers: [] },
+      center: toLngLat(...START_CENTER),
+      zoom: toGlZoom(START_ZOOM),
+      minZoom: toGlZoom(MIN_ZOOM),
+      maxZoom: toGlZoom(MAX_ZOOM),
+      maxBounds: rectBounds(0, 0, region.width, region.height),
+      pitch: 0,
+      dragRotate: false,
+      pitchWithRotate: false,
+      touchPitch: false,
+      doubleClickZoom: false,
+      renderWorldCopies: false,
+      attributionControl: false,
+      fadeDuration: 0,
+    });
+
+    instance.touchZoomRotate.disableRotation();
+    instance.getCanvas().style.cursor = 'crosshair';
+    instance.on('load', () => {
+      addAnchors(instance);
+      instance.addSource('references', {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features: [] },
+      });
+      instance.addSource('shape', {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features: [] },
+      });
+      instance.addLayer(
+        {
+          id: 'references-fill',
+          type: 'fill',
+          source: 'references',
+          paint: { 'fill-color': '#e11d48', 'fill-opacity': 0 },
+        },
+        'z-shapes',
+      );
+      instance.addLayer(
+        {
+          id: 'references-line',
+          type: 'line',
+          source: 'references',
+          paint: {
+            'line-color': '#e11d48',
+            'line-width': 2,
+            'line-dasharray': [3, 3],
+          },
+        },
+        'z-shapes',
+      );
+      instance.addLayer(
+        {
+          id: 'shape-fill',
+          type: 'fill',
+          source: 'shape',
+          filter: ['==', ['geometry-type'], 'Polygon'],
+          paint: { 'fill-color': SHAPE_COLOR, 'fill-opacity': 0.3 },
+        },
+        'z-shapes',
+      );
+      instance.addLayer(
+        {
+          id: 'shape-line',
+          type: 'line',
+          source: 'shape',
+          paint: { 'line-color': SHAPE_COLOR, 'line-width': 2 },
+        },
+        'z-shapes',
+      );
+      instance.on('click', (event: MapMouseEvent) => {
+        if (
+          (event.originalEvent.target as HTMLElement | null)?.closest(
+            '.map-maker-point',
+          )
+        )
+          return;
+
+        const current = latest.current;
+
+        if (current.selecting) {
+          const feature = instance.queryRenderedFeatures(event.point, {
+            layers: ['references-fill'],
+          })[0];
+          const outline =
+            feature && current.references[Number(feature.properties?.index)];
+
+          if (outline) current.onCopy(outline.outline);
+
+          return;
+        }
+
+        const { x, y } = fromLngLat(event.lngLat);
+
+        current.onAdd(
+          [Math.round(x), Math.round(y)],
+          1 / 2 ** (instance.getZoom() - BASE_ZOOM),
+        );
+      });
+      setMap(instance);
+    });
+
+    return () => {
+      setMap(undefined);
+      instance.remove();
+    };
+  }, [region.id, region.width, region.height]);
+
+  useEffect(() => {
+    if (!map) return;
+
+    (map.getSource('references') as GeoJSONSource).setData({
+      type: 'FeatureCollection',
+      features: references.map(({ outline }, index) => ({
+        type: 'Feature',
+        properties: { index },
+        geometry: { type: 'Polygon', coordinates: [ringOf(outline)] },
+      })),
+    });
+  }, [map, references]);
+
+  useEffect(() => {
+    if (!map) return;
+
+    const visibility = showReference ? 'visible' : 'none';
+
+    map.setLayoutProperty('references-line', 'visibility', visibility);
+    map.setLayoutProperty('references-fill', 'visibility', visibility);
+  }, [map, showReference]);
+
+  useEffect(() => {
+    if (!map) return;
+
+    const lines =
+      shape.length > 2
+        ? [
+            {
+              type: 'Feature' as const,
+              properties: {},
+              geometry: {
+                type: 'Polygon' as const,
+                coordinates: [ringOf(shape)],
+              },
+            },
+          ]
+        : shape.length > 1
+          ? [
+              {
+                type: 'Feature' as const,
+                properties: {},
+                geometry: {
+                  type: 'LineString' as const,
+                  coordinates: lineOf(shape),
+                },
+              },
+            ]
+          : [];
+
+    (map.getSource('shape') as GeoJSONSource).setData({
+      type: 'FeatureCollection',
+      features: lines,
+    });
+  }, [map, shape]);
+
+  useEffect(() => {
+    if (!map) return undefined;
+
+    const markers = points.map(([x, y], index) => {
+      const element = pointElement();
+      const marker = new Marker({ element, draggable: true })
+        .setLngLat(toLngLat(x, y))
+        .addTo(map);
+
+      marker.on('dragend', () => {
+        const { x: dx, y: dy } = fromLngLat(marker.getLngLat());
+
+        latest.current.onMove(index, [Math.round(dx), Math.round(dy)]);
+      });
+      element.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+        latest.current.onRemove(index);
+      });
+
+      return marker;
+    });
+
+    return () => markers.forEach((marker) => marker.remove());
+  }, [map, points]);
+
+  return (
+    <>
+      <div ref={container} style={{ position: 'absolute', inset: 0 }} />
+      {map && (
+        <>
+          <GlFloorImages map={map} image={region} />
+          <GlZoomControls
+            map={map}
+            width={region.width}
+            height={region.height}
+            position="bottomleft"
+          />
+        </>
+      )}
+    </>
+  );
 };
 
 export const MapMakerPage = () => {
@@ -156,24 +409,29 @@ export const MapMakerPage = () => {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const bounds = useMemo(() => region && imageBounds(region), [region]);
-
-  if (!region || !bounds) return null;
-
-  const references = region.hotspots.flatMap(({ target, shape }) =>
-    shape ? [{ target, outline: shape }] : [],
+  const references = useMemo(
+    () =>
+      region?.hotspots.flatMap(({ target, shape: outline }) =>
+        outline ? [{ target, outline }] : [],
+      ) ?? [],
+    [region],
   );
+  const shape = useMemo(
+    () =>
+      mode === 'points'
+        ? []
+        : mode === 'circle' && points.length === 2
+          ? circleOutline(points[0], radiusOf(points[0], points[1]))
+          : points,
+    [mode, points],
+  );
+
+  if (!region) return null;
+
   const circle =
     mode === 'circle' && points.length === 2
       ? { center: points[0], radius: radiusOf(points[0], points[1]) }
       : undefined;
-  const shape =
-    mode === 'points'
-      ? []
-      : circle
-        ? circleOutline(circle.center, circle.radius)
-        : points;
-  const positions = shape.map(([x, y]) => toLatLng(x, y));
   const anchoring = anchorMode && mode === 'polygon' && points.length >= 2;
   const complete = circle
     ? true
@@ -245,74 +503,22 @@ export const MapMakerPage = () => {
 
   return (
     <div className="fixed inset-0 z-40 bg-background">
-      <MapContainer
-        crs={CRS.Simple}
-        center={toLatLng(...START_CENTER)}
-        zoom={START_ZOOM}
-        maxBounds={bounds}
-        maxBoundsViscosity={1}
-        zoomSnap={0.5}
-        minZoom={-3}
-        maxZoom={MAX_ZOOM}
-        attributionControl={false}
-        zoomControl={false}
-        className="size-full cursor-crosshair"
-        style={{ background: 'var(--muted)' }}
-      >
-        <MapZoomControls position="bottomleft" />
-        <ImageOverlay url={region.image} bounds={bounds} />
-        <ClickToAdd onAdd={addPoint} />
-        {showReference &&
-          references.map(({ target, outline }) => (
-            <Polygon
-              key={`${target}-${selecting}`}
-              positions={outline.map(([x, y]) => toLatLng(x, y))}
-              interactive={selecting}
-              eventHandlers={{ click: () => copyShape(outline) }}
-              pathOptions={{
-                color: '#e11d48',
-                weight: 2,
-                dashArray: '6 6',
-                fillOpacity: 0,
-              }}
-            />
-          ))}
-        {shape.length > 2 ? (
-          <Polygon
-            positions={positions}
-            interactive={false}
-            pathOptions={{
-              color: SHAPE_COLOR,
-              weight: 2,
-              fillColor: SHAPE_COLOR,
-              fillOpacity: 0.3,
-            }}
-          />
-        ) : (
-          <Polyline
-            positions={positions}
-            interactive={false}
-            pathOptions={{ color: SHAPE_COLOR, weight: 2 }}
-          />
-        )}
-        {points.map(([x, y], index) => (
-          <Marker
-            key={index}
-            position={toLatLng(x, y)}
-            icon={pointIcon}
-            draggable
-            eventHandlers={{
-              dragend: ({ target }) => {
-                const { lat, lng } = target.getLatLng();
-
-                movePoint(index, [Math.round(lng), Math.round(-lat)]);
-              },
-              contextmenu: () =>
-                setPoints((current) => current.filter((_, i) => i !== index)),
-            }}
-          />
-        ))}
-      </MapContainer>
+      <div className="absolute inset-0 isolate overflow-hidden bg-muted">
+        <MakerMap
+          region={region}
+          points={points}
+          shape={shape}
+          references={references}
+          showReference={showReference}
+          selecting={selecting}
+          onAdd={addPoint}
+          onCopy={copyShape}
+          onMove={movePoint}
+          onRemove={(index) =>
+            setPoints((current) => current.filter((_, i) => i !== index))
+          }
+        />
+      </div>
       <MapMakerSwitcher className="absolute top-3 right-3 z-[1100]" />
       <div className="pointer-events-none absolute right-3 bottom-3 left-16 z-[1000] flex flex-wrap items-center justify-end gap-2">
         <p className="pointer-events-auto mr-auto rounded-sm bg-background/90 px-3 py-1.5 text-sm shadow ring-1 ring-foreground/10">

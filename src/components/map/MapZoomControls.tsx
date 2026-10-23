@@ -1,15 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
-
-import { DomEvent, type LatLngBoundsLiteral, latLngBounds } from 'leaflet';
 import { Box, Focus, LocateFixed, Minus, Palette, Plus } from 'lucide-react';
-import { useMap, useMapEvents } from 'react-leaflet';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { TABLET_QUERY } from '@/lib/breakpoints';
 import { cn } from '@/lib/utils';
-
-import { toLatLng } from './coordinates';
-import { FLIGHT_PADDING_PIXELS, FLIGHT_SECONDS } from './viewer/FloorFrames';
 
 export type ZoomPosition = 'topleft' | 'bottomleft';
 
@@ -27,8 +20,6 @@ const buttonClass =
   'flex size-9 items-center justify-center text-muted-foreground transition-[color,scale] outline-none active:scale-97 hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-40';
 
 export type ZoomArea = { x: number; y: number; width: number; height: number };
-
-type Area = ZoomArea;
 
 type Toggle = { on: boolean; onToggle: () => void };
 
@@ -152,81 +143,3 @@ export const ZoomControlsView = ({
     </div>
   );
 };
-
-type MapZoomControlsProps = {
-  position: ZoomPosition;
-  worldView?: Toggle;
-  recenterOn?: Area;
-  tilt?: Toggle;
-  colors?: Toggle;
-};
-
-export const MapZoomControls = ({
-  position,
-  recenterOn,
-  worldView,
-  tilt,
-  colors,
-}: MapZoomControlsProps) => {
-  const map = useMap();
-  const container = useRef<HTMLDivElement>(null);
-  const [limits, setLimits] = useState(() => zoomLimits(map));
-
-  useMapEvents({
-    zoomend: () => setLimits(zoomLimits(map)),
-    zoomlevelschange: () => setLimits(zoomLimits(map)),
-  });
-
-  useEffect(() => {
-    if (!container.current) return;
-
-    DomEvent.disableClickPropagation(container.current);
-    DomEvent.disableScrollPropagation(container.current);
-  }, []);
-
-  return (
-    <ZoomControlsView
-      containerRef={container}
-      position={position}
-      limits={limits}
-      onZoomIn={(delta) => map.zoomIn(delta)}
-      onZoomOut={(delta) => map.zoomOut(delta)}
-      onRecenter={() => recenter(map, recenterOn)}
-      worldView={worldView}
-      tilt={tilt}
-      colors={colors}
-    />
-  );
-};
-
-const recenter = (map: ReturnType<typeof useMap>, area?: Area) => {
-  if (area) {
-    map.flyToBounds(
-      [
-        toLatLng(area.x, area.y + area.height),
-        toLatLng(area.x + area.width, area.y),
-      ],
-      {
-        padding: [FLIGHT_PADDING_PIXELS, FLIGHT_PADDING_PIXELS],
-        duration: FLIGHT_SECONDS,
-      },
-    );
-
-    return;
-  }
-
-  const { maxBounds } = map.options;
-
-  map.flyTo(
-    maxBounds
-      ? latLngBounds(maxBounds as LatLngBoundsLiteral).getCenter()
-      : map.getCenter(),
-    map.getMinZoom(),
-    { duration: FLIGHT_SECONDS },
-  );
-};
-
-const zoomLimits = (map: ReturnType<typeof useMap>) => ({
-  canZoomIn: map.getZoom() < map.getMaxZoom(),
-  canZoomOut: map.getZoom() > map.getMinZoom(),
-});

@@ -19,7 +19,6 @@ type GlFramesProps = {
   map: MapLibreMap;
   frames: Array<Frame>;
   selected: string;
-  faded?: boolean;
   outlineSelected?: boolean;
   dottedSelected?: boolean;
 };
@@ -100,7 +99,6 @@ export const GlFrames = ({
   map,
   frames,
   selected,
-  faded = false,
   outlineSelected = true,
   dottedSelected = false,
 }: GlFramesProps) => {
@@ -251,11 +249,6 @@ export const GlFrames = ({
       })),
     });
   }, [map, frameKey, selected, dark]);
-
-  useEffect(() => {
-    map.setPaintProperty('frames-line', 'line-opacity', faded ? 0 : 1);
-    map.setPaintProperty('frames-labels', 'icon-opacity', faded ? 0 : 1);
-  }, [map, faded]);
 
   return null;
 };

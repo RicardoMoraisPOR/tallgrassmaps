@@ -5,7 +5,7 @@ import type { Map as MapLibreMap } from 'maplibre-gl';
 import type { MapImage } from '@/data/maps';
 
 import type { FloorStack } from '../MapViewer';
-import type { MapPalette } from '../viewer/PaletteFilters';
+import type { MapPalette } from '../viewer/types';
 import { recolored } from '../viewer/useRecoloredImage';
 import { BASE_ZOOM, rectCorners } from './glCoordinates';
 import { addMippedImage } from './glMipLayers';
@@ -79,11 +79,7 @@ export const GlFloorImages = ({
   threshold.current = BASE_ZOOM + Math.min(crispZoom, 0);
 
   const opacityOf = (id: string) =>
-    stack?.faded && id !== stack.selected
-      ? 0
-      : stack?.dimmed?.has(id)
-        ? DIMMED_OPACITY
-        : 1;
+    stack?.dimmed?.has(id) ? DIMMED_OPACITY : 1;
 
   const apply = (group: string) =>
     registry.current.get(group)?.forEach((layer) => {
@@ -160,14 +156,7 @@ export const GlFloorImages = ({
         apply(colorGroup(floor.id));
       }
     });
-  }, [
-    map,
-    floorKey,
-    stack?.faded,
-    stack?.selected,
-    stack?.dimmed,
-    palette?.on,
-  ]);
+  }, [map, floorKey, stack?.selected, stack?.dimmed, palette?.on]);
 
   useEffect(() => {
     if (!palette?.on) return undefined;

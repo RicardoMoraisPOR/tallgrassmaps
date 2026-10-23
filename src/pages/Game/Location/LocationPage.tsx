@@ -4,7 +4,6 @@ import { Map as MapIcon, Info } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
 
 import { MapViewer } from '@/components/map/MapViewer';
-import { handOffView } from '@/components/map/viewer/viewHandoff';
 import { PageTransition } from '@/components/PageTransition';
 import type { LocationFloor } from '@/data/maps';
 import type { Shop } from '@/data/shops/types';
@@ -312,10 +311,6 @@ export const LocationPage = () => {
           ? {
               on: true,
               onToggle: () => {
-                const at = route.region.world?.[worldTile];
-
-                if (at) handOffView(at.x, at.y);
-
                 setWorldPreferred(true);
                 navigate(route.href(worldTile));
               },
@@ -331,7 +326,7 @@ export const LocationPage = () => {
       <div className="relative h-[max(30rem,calc(100svh-3.5rem-1px))] overflow-x-clip">
         <div className="absolute inset-x-0 -top-[57px] bottom-0">
           <div className="absolute inset-0 flex flex-col overflow-hidden">
-            <PageTransition mapMotion>
+            <PageTransition mapMotion holdForReady={false}>
               <div className="relative flex min-h-0 flex-1 flex-col">
                 <div className="min-h-0 flex-1">{viewer}</div>
                 {pickers && (

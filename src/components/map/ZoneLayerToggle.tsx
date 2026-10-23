@@ -1,7 +1,3 @@
-import { useEffect, useRef } from 'react';
-
-import { DomEvent } from 'leaflet';
-
 import { cn } from '@/lib/utils';
 
 import type { ZoneLayer } from './zoneLayers';
@@ -17,18 +13,8 @@ export const ZoneLayerToggle = ({
   active,
   onChange,
 }: ZoneLayerToggleProps) => {
-  const container = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!container.current) return;
-
-    DomEvent.disableClickPropagation(container.current);
-    DomEvent.disableScrollPropagation(container.current);
-  }, []);
-
   return (
     <div
-      ref={container}
       role="group"
       aria-label="Map layer"
       className="absolute bottom-3 left-1/2 z-1000 flex -translate-x-1/2 gap-0.5 rounded-sm border bg-card p-1"

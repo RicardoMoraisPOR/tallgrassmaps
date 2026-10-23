@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
 import type { MapViewerProps } from '../MapViewer';
-import { DEFAULT_TILT_DEGREES, tiltFromSearch } from '../viewer/TiltView';
+import { DEFAULT_TILT_DEGREES, tiltFromSearch } from '../viewer/tilt';
 import { GlBadges } from './GlBadges';
 import { GlCamera, MAX_ZOOM } from './GlCamera';
 import { toGlZoom, toLngLat } from './glCoordinates';
@@ -27,6 +27,7 @@ import { useGlInteractions } from './useGlInteractions';
 import { useStableLinks } from './useStableLinks';
 
 const MAX_PITCH = 60;
+const READY_TIMEOUT_MS = 1500;
 const crispZoomFor = (clusterZoom?: number) =>
   clusterZoom === undefined ? 0 : Math.min(clusterZoom, 0);
 
@@ -51,6 +52,7 @@ export const GlMapViewer = ({
 }: MapViewerProps) => {
   const container = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<MapLibreMap>();
+  const [ready, setReady] = useState(false);
   const tilted = useSettingsStore((state) => state.tilted);
   const setTilted = useSettingsStore((state) => state.setTilted);
   const tiltDegrees =
@@ -97,6 +99,29 @@ export const GlMapViewer = ({
     };
   }, [image.width, image.height]);
 
+  useEffect(() => {
+    if (!map) return undefined;
+
+    let cancelled = false;
+    const done = () => {
+      if (!cancelled) setReady(true);
+    };
+    const timer = setTimeout(done, READY_TIMEOUT_MS);
+    const frame = requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        if (map.loaded()) done();
+        else map.once('idle', done);
+      }),
+    );
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+      cancelAnimationFrame(frame);
+      map.off('idle', done);
+    };
+  }, [map]);
+
   const recenterOn = stack?.floors.find(({ id }) => id === stack.selected);
 
   return (
@@ -104,7 +129,11 @@ export const GlMapViewer = ({
       className={cn('relative isolate overflow-hidden', className)}
       style={{ background: 'var(--muted)' }}
     >
-      <div data-page-transition-target className="absolute inset-0">
+      <div
+        data-page-transition-target
+        data-page-transition-pending={ready ? undefined : ''}
+        className="absolute inset-0"
+      >
         <div ref={container} style={{ position: 'absolute', inset: 0 }} />
         {map && (
           <GlLayers
@@ -231,7 +260,6 @@ const GlLayers = ({
           map={map}
           frames={stack.floors}
           selected={stack.selected}
-          faded={stack.faded}
           outlineSelected={stack.outlineSelected}
           dottedSelected={stack.dottedSelected}
         />

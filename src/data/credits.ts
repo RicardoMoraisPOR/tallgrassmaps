@@ -318,11 +318,10 @@ export const fontCredits: Array<Credit> = [
 export const softwareCredits: Array<Credit> = [
   { name: 'React', url: 'https://react.dev/', detail: 'MIT' },
   { name: 'React Router', url: 'https://reactrouter.com/', detail: 'MIT' },
-  { name: 'Leaflet', url: 'https://leafletjs.com/', detail: 'BSD-2-Clause' },
   {
-    name: 'React Leaflet',
-    url: 'https://react-leaflet.js.org/',
-    detail: 'Hippocratic License 2.1',
+    name: 'MapLibre GL JS',
+    url: 'https://maplibre.org/',
+    detail: 'BSD-3-Clause',
   },
   { name: 'Motion', url: 'https://motion.dev/', detail: 'MIT' },
   { name: 'Radix UI', url: 'https://www.radix-ui.com/', detail: 'MIT' },

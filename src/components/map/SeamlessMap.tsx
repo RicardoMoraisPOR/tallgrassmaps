@@ -1,133 +1,122 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import {
-  CRS,
-  divIcon,
-  latLngBounds,
-  type LatLngBounds,
-  type Map as LeafletMap,
-  type Path,
-  point,
-} from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import {
-  ImageOverlay,
-  MapContainer,
-  Marker,
-  Polygon,
-  Tooltip,
-  useMap,
-} from 'react-leaflet';
+import { type GeoJSONSource, Map as MapLibreMap, Marker } from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
 
 import { useThemeStyle } from '@/components/settings/themes';
 import { getLocation, type Hotspot, type Region } from '@/data/maps';
 import { cn } from '@/lib/utils';
 import { useSettingsStore } from '@/stores/settings';
 
-import { hotspotBorder, imageBounds, toLatLng } from './coordinates';
-import { MapZoomControls, type ZoomPosition } from './MapZoomControls';
+import { hotspotBorder } from './coordinates';
+import {
+  fromGlZoom,
+  fromLngLat,
+  rectBounds,
+  toGlZoom,
+  toLngLat,
+} from './gl/glCoordinates';
+import { GlFloorImages } from './gl/GlFloorImages';
+import { addAnchors } from './gl/glLayers';
+import './gl/glWorker';
+import { GlZoomControls } from './gl/GlZoomControls';
+import type { ZoomPosition } from './MapZoomControls';
 import { mapIconArt, zaDoorArt } from './viewer/iconArt';
 import { zoneLayerOf, zoneLayersOf } from './zoneLayers';
 import { ZoneLayerToggle } from './ZoneLayerToggle';
 
-const MIN_ZOOM = -8;
 const DOOR_SIZE = 30;
-const INTERACTION_MS = 1500;
-const NO_BOUNDS = latLngBounds([]);
 const MAX_ZOOM = 3;
+const EXTRA_ZOOM_OUT = 0.5;
+const CLAMP_MS = 200;
 const SURROUNDING_SHARE = 0.75;
-const FLY_SECONDS = 0.5;
+const FLY_MS = 500;
 const BORDER_WEIGHT = 2;
 const SELECTED_WEIGHT = BORDER_WEIGHT * 1.5;
-const DOTTED = '0.1 6';
+const DOT_GAP = 3;
 const GLOW_BLUR = 6;
+const GLOW_WIDTH = 10;
 const GLOW_STRENGTH = 0.7;
 const SELECTED_OPACITY = 0.2;
 const IDLE_OPACITY = 0.5;
 const HOVER_OPACITY = 0.85;
 const DEFAULT_COLOR = '#49ea82';
+const ZONES = 'zones';
+const TOOLTIP_GAP = 14;
+
+type Rect = { x: number; y: number; width: number; height: number };
 
 type Zone = {
+  index: number;
   target: string;
   layer?: string;
   name: string;
   hotspot: Hotspot & { shape: Array<[number, number]> };
-  focus: LatLngBounds;
+  focus: Rect;
 };
 
-const focusBounds = (
+const focusRect = (
   { x, y, width, height }: Hotspot,
   { width: mapWidth, height: mapHeight }: Region,
-) => {
+): Rect => {
   const side = Math.max(width, height) * (1 + SURROUNDING_SHARE * 2);
   const w = Math.min(side, mapWidth);
   const h = Math.min(side, mapHeight);
-  const left = Math.min(Math.max(0, x + width / 2 - w / 2), mapWidth - w);
-  const top = Math.min(Math.max(0, y + height / 2 - h / 2), mapHeight - h);
-
-  return latLngBounds(toLatLng(left, top + h), toLatLng(left + w, top));
-};
-
-const withInset = (
-  map: LeafletMap,
-  full: LatLngBounds,
-  inset: number,
-  zoom = map.getZoom(),
-) =>
-  latLngBounds(full.getSouthWest(), [
-    full.getNorth(),
-    full.getEast() + inset / map.getZoomScale(zoom, 0),
-  ]);
-
-const frameFor = (
-  map: LeafletMap,
-  bounds: LatLngBounds,
-  full: LatLngBounds,
-  inset: number,
-) => {
-  const size = map.getSize();
-  const usable = Math.min(inset, size.x / 2);
-  const zoom = map.getBoundsZoom(bounds, false, point(usable, 0));
-  const scale = map.getZoomScale(zoom, 0);
-  const center = map
-    .project(bounds.getCenter(), zoom)
-    .add(point(usable / 2, 0));
-  const imageWidth = full.getEast() * scale + usable;
-  const imageHeight = -full.getSouth() * scale;
-  const keepInside = (value: number, half: number, total: number) =>
-    total <= half * 2
-      ? total / 2
-      : Math.min(Math.max(value, half), total - half);
 
   return {
-    zoom,
-    center: map.unproject(
-      point(
-        keepInside(center.x, size.x / 2, imageWidth),
-        keepInside(center.y, size.y / 2, imageHeight),
-      ),
-      zoom,
-    ),
+    x: Math.min(Math.max(0, x + width / 2 - w / 2), mapWidth - w),
+    y: Math.min(Math.max(0, y + height / 2 - h / 2), mapHeight - h),
+    width: w,
+    height: h,
+  };
+};
+
+const boundsOf = ({ x, y, width, height }: Rect) =>
+  rectBounds(x, y, width, height);
+
+const fitZoom = (map: MapLibreMap, region: Region) =>
+  map.cameraForBounds(boundsOf({ x: 0, y: 0, ...region }))?.zoom ?? 0;
+
+const frameFor = (
+  map: MapLibreMap,
+  target: Rect,
+  inset: number,
+  zoomOut = 0,
+) => {
+  const usable = Math.min(inset, map.getContainer().clientWidth / 2);
+  const camera = map.cameraForBounds(boundsOf(target), {
+    padding: { top: 0, bottom: 0, left: 0, right: usable },
+  });
+
+  return {
+    center: camera?.center ?? map.getCenter(),
+    zoom: (camera?.zoom ?? map.getZoom()) - zoomOut,
   };
 };
 
 type ZoneCameraProps = {
+  map: MapLibreMap;
+  region: Region;
   zone: Zone | undefined;
-  full: LatLngBounds;
   rightInset: number;
+  onMinZoom: (zoom: number) => void;
 };
 
-const ZoneCamera = ({ zone, full, rightInset }: ZoneCameraProps) => {
-  const map = useMap();
+const ZoneCamera = ({
+  map,
+  region,
+  zone,
+  rightInset,
+  onMinZoom,
+}: ZoneCameraProps) => {
   const animations = useSettingsStore((state) => state.animations);
   const arrived = useRef(false);
   const previous = useRef<Zone | null>(null);
   const flying = useRef(false);
   const silent = useRef(false);
   const moved = useRef(false);
-  const interacting = useRef(false);
 
-  const silently = useCallback((action: () => void) => {
+  const silently = (action: () => void) => {
     silent.current = true;
 
     try {
@@ -135,7 +124,19 @@ const ZoneCamera = ({ zone, full, rightInset }: ZoneCameraProps) => {
     } finally {
       silent.current = false;
     }
-  }, []);
+  };
+
+  const target = zone?.focus ?? { x: 0, y: 0, ...region };
+
+  const constrain = () =>
+    silently(() => {
+      map.setMaxBounds(null);
+      map.setMinZoom(0);
+      const minZoom = fitZoom(map, region) - EXTRA_ZOOM_OUT;
+
+      map.setMinZoom(minZoom);
+      onMinZoom(fromGlZoom(minZoom));
+    });
 
   useEffect(() => {
     const animate =
@@ -143,149 +144,323 @@ const ZoneCamera = ({ zone, full, rightInset }: ZoneCameraProps) => {
 
     arrived.current = true;
     previous.current = zone ?? null;
+    constrain();
 
-    silently(() => {
-      map.invalidateSize({ animate: false });
-      map.setMinZoom(MIN_ZOOM);
-      map.setMinZoom(map.getBoundsZoom(full));
-      map.setMaxBounds(NO_BOUNDS);
-    });
-
-    const { zoom, center } = frameFor(
+    const { center, zoom } = frameFor(
       map,
-      zone?.focus ?? full,
-      full,
+      target,
       rightInset,
+      zone ? 0 : EXTRA_ZOOM_OUT,
     );
 
     const settle = () => {
       flying.current = false;
       moved.current = false;
-      silently(() => map.setMaxBounds(withInset(map, full, rightInset)));
     };
 
     flying.current = animate;
     map.once('moveend', settle);
 
-    if (animate) {
-      map.flyTo(center, zoom, { animate, duration: FLY_SECONDS });
-    } else {
-      silently(() => map.setView(center, zoom, { animate: false }));
-    }
+    if (animate) map.flyTo({ center, zoom, duration: FLY_MS });
+    else silently(() => map.jumpTo({ center, zoom }));
 
     return () => {
       map.off('moveend', settle);
     };
-  }, [zone, full, map, animations, rightInset, silently]);
+  }, [zone, region, map, animations, rightInset]);
 
   useEffect(() => {
-    const container = map.getContainer();
-    let timer: ReturnType<typeof setTimeout> | undefined;
-
-    const touch = () => {
-      interacting.current = true;
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        interacting.current = false;
-      }, INTERACTION_MS);
-    };
-    const track = () => {
-      if (interacting.current && !flying.current && !silent.current) {
+    const onStart = (event: { originalEvent?: unknown }) => {
+      if (event.originalEvent && !flying.current && !silent.current)
         moved.current = true;
-      }
     };
-    const inputs = ['pointerdown', 'wheel', 'keydown', 'touchstart'] as const;
+    const clamp = () => {
+      if (flying.current || silent.current) return;
 
-    inputs.forEach((input) =>
-      container.addEventListener(input, touch, {
-        capture: true,
-        passive: true,
-      }),
-    );
-    map.on('moveend', track);
+      const { x, y } = fromLngLat(map.getCenter());
+      const inside = {
+        x: Math.min(Math.max(x, 0), region.width),
+        y: Math.min(Math.max(y, 0), region.height),
+      };
+
+      if (inside.x !== x || inside.y !== y)
+        map.easeTo({
+          center: toLngLat(inside.x, inside.y),
+          duration: CLAMP_MS,
+        });
+    };
+
+    map.on('movestart', onStart);
+    map.on('moveend', clamp);
 
     return () => {
-      clearTimeout(timer);
-      inputs.forEach((input) =>
-        container.removeEventListener(input, touch, { capture: true }),
-      );
-      map.off('moveend', track);
+      map.off('movestart', onStart);
+      map.off('moveend', clamp);
     };
-  }, [map]);
+  }, [map, region, rightInset]);
 
   useEffect(() => {
-    const refresh = () => {
-      if (!flying.current) {
-        silently(() => map.setMaxBounds(withInset(map, full, rightInset)));
-      }
-    };
-
-    map.on('zoomend', refresh);
-
-    return () => {
-      map.off('zoomend', refresh);
-    };
-  }, [full, map, rightInset, silently]);
-
-  useEffect(() => {
-    let initial = true;
-    const observer = new ResizeObserver(() => {
-      if (initial) {
-        initial = false;
-
-        return;
-      }
-
+    const onResize = () => {
       if (flying.current) return;
 
       silently(() => {
-        map.setMaxBounds(NO_BOUNDS);
-        map.invalidateSize({ animate: false });
-        map.setMinZoom(MIN_ZOOM);
-        map.setMinZoom(map.getBoundsZoom(full));
+        constrain();
 
         if (!moved.current) {
-          const frame = frameFor(map, zone?.focus ?? full, full, rightInset);
+          const frame = frameFor(
+            map,
+            target,
+            rightInset,
+            zone ? 0 : EXTRA_ZOOM_OUT,
+          );
 
-          map.setView(frame.center, frame.zoom, { animate: false });
+          map.jumpTo(frame);
         }
-
-        map.setMaxBounds(withInset(map, full, rightInset));
       });
-    });
+    };
 
-    observer.observe(map.getContainer());
+    map.on('resize', onResize);
 
-    return () => observer.disconnect();
-  }, [zone, full, map, rightInset, silently]);
+    return () => {
+      map.off('resize', onResize);
+    };
+  }, [zone, region, map, rightInset]);
 
   return null;
 };
 
-const DoorMarker = ({ x, y }: { x: number; y: number }) => {
+const DoorMarkers = ({
+  map,
+  doors,
+}: {
+  map: MapLibreMap;
+  doors: Array<[number, number]>;
+}) => {
   const style = useThemeStyle('mapIcons');
-  const icon = useMemo(
-    () =>
-      divIcon({
-        className: 'map-icon-anchor',
-        html:
-          style === 'game'
-            ? `<span class="map-icon map-icon-za">${zaDoorArt}</span>`
-            : `<span class="map-icon map-link-entrance">${mapIconArt.door['tall-grass']}</span>`,
-        iconSize: [DOOR_SIZE, DOOR_SIZE],
-        iconAnchor: [DOOR_SIZE / 2, DOOR_SIZE / 2],
-      }),
-    [style],
-  );
+  const doorsKey = doors.map(([x, y]) => `${x},${y}`).join('|');
 
-  return (
-    <Marker
-      position={toLatLng(x, y)}
-      icon={icon}
-      interactive={false}
-      keyboard={false}
-    />
-  );
+  useEffect(() => {
+    const markers = doors.map(([x, y]) => {
+      const element = document.createElement('div');
+
+      element.className = 'map-icon-anchor';
+      element.style.cssText = `display:grid;width:${DOOR_SIZE}px;height:${DOOR_SIZE}px;pointer-events:none`;
+      element.innerHTML =
+        style === 'game'
+          ? `<span class="map-icon map-icon-za">${zaDoorArt}</span>`
+          : `<span class="map-icon map-link-entrance">${mapIconArt.door['tall-grass']}</span>`;
+
+      return new Marker({ element, anchor: 'center' })
+        .setLngLat(toLngLat(x, y))
+        .addTo(map);
+    });
+
+    return () => markers.forEach((marker) => marker.remove());
+  }, [map, style, doorsKey]);
+
+  return null;
+};
+
+type ZoneShapesProps = {
+  map: MapLibreMap;
+  zones: Array<Zone>;
+  selected?: string;
+  onSelect: (target: string) => void;
+  onHover: (hover?: { name: string; x: number; y: number }) => void;
+};
+
+const ZoneShapes = ({
+  map,
+  zones,
+  selected,
+  onSelect,
+  onHover,
+}: ZoneShapesProps) => {
+  const handlers = useRef({ onSelect, onHover });
+
+  handlers.current = { onSelect, onHover };
+
+  useEffect(() => {
+    map.addSource(ZONES, {
+      type: 'geojson',
+      data: { type: 'FeatureCollection', features: [] },
+    });
+
+    map.addLayer(
+      {
+        id: 'zones-glow',
+        type: 'line',
+        source: ZONES,
+        filter: ['==', ['get', 'selected'], true],
+        layout: { 'line-join': 'round' },
+        paint: {
+          'line-color': ['get', 'color'],
+          'line-width': GLOW_WIDTH,
+          'line-blur': GLOW_BLUR,
+          'line-opacity': GLOW_STRENGTH,
+        },
+      },
+      'z-shapes',
+    );
+    map.addLayer(
+      {
+        id: 'zones-fill',
+        type: 'fill',
+        source: ZONES,
+        paint: {
+          'fill-color': ['get', 'color'],
+          'fill-opacity': [
+            'case',
+            ['get', 'selected'],
+            SELECTED_OPACITY,
+            ['boolean', ['feature-state', 'hover'], false],
+            HOVER_OPACITY,
+            ['get', 'dimmed'],
+            0,
+            IDLE_OPACITY,
+          ],
+        },
+      },
+      'z-shapes',
+    );
+    map.addLayer(
+      {
+        id: 'zones-line',
+        type: 'line',
+        source: ZONES,
+        filter: ['!', ['get', 'dimmed']],
+        layout: { 'line-join': 'round', 'line-cap': 'butt' },
+        paint: {
+          'line-color': ['get', 'border'],
+          'line-width': [
+            'case',
+            ['get', 'selected'],
+            SELECTED_WEIGHT,
+            BORDER_WEIGHT,
+          ],
+        },
+      },
+      'z-shapes',
+    );
+    map.addLayer(
+      {
+        id: 'zones-line-dotted',
+        type: 'line',
+        source: ZONES,
+        filter: ['get', 'dimmed'],
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: {
+          'line-color': ['get', 'border'],
+          'line-width': BORDER_WEIGHT,
+          'line-dasharray': [0.05, DOT_GAP],
+        },
+      },
+      'z-shapes',
+    );
+
+    let hovered: number | undefined;
+
+    const clear = () => {
+      if (hovered !== undefined)
+        map.setFeatureState({ source: ZONES, id: hovered }, { hover: false });
+
+      hovered = undefined;
+      map.getCanvas().style.cursor = '';
+      handlers.current.onHover(undefined);
+    };
+
+    const onMove = (event: {
+      point: { x: number; y: number };
+      features?: Array<{
+        id?: string | number;
+        properties: Record<string, unknown>;
+      }>;
+    }) => {
+      const feature = event.features?.[0];
+
+      if (!feature || feature.properties.selected === true) {
+        clear();
+
+        return;
+      }
+
+      const id = Number(feature.id);
+
+      if (hovered !== id) {
+        if (hovered !== undefined)
+          map.setFeatureState({ source: ZONES, id: hovered }, { hover: false });
+
+        map.setFeatureState({ source: ZONES, id }, { hover: true });
+        hovered = id;
+      }
+
+      map.getCanvas().style.cursor = 'pointer';
+      handlers.current.onHover({
+        name: String(feature.properties.name),
+        x: event.point.x,
+        y: event.point.y,
+      });
+    };
+
+    const onClick = (event: {
+      features?: Array<{ properties: Record<string, unknown> }>;
+    }) => {
+      const feature = event.features?.[0];
+
+      if (feature && feature.properties.selected !== true)
+        handlers.current.onSelect(String(feature.properties.target));
+    };
+
+    map.on('mousemove', 'zones-fill', onMove);
+    map.on('mouseleave', 'zones-fill', clear);
+    map.on('click', 'zones-fill', onClick);
+
+    return () => {
+      map.off('mousemove', 'zones-fill', onMove);
+      map.off('mouseleave', 'zones-fill', clear);
+      map.off('click', 'zones-fill', onClick);
+      ['zones-line-dotted', 'zones-line', 'zones-fill', 'zones-glow'].forEach(
+        (id) => {
+          if (map.getLayer(id)) map.removeLayer(id);
+        },
+      );
+
+      if (map.getSource(ZONES)) map.removeSource(ZONES);
+    };
+  }, [map]);
+
+  useEffect(() => {
+    (map.getSource(ZONES) as GeoJSONSource | undefined)?.setData({
+      type: 'FeatureCollection',
+      features: zones.map((zone) => {
+        const color = zone.hotspot.color ?? DEFAULT_COLOR;
+        const isSelected = zone.target === selected;
+
+        return {
+          type: 'Feature' as const,
+          id: zone.index,
+          properties: {
+            target: zone.target,
+            name: zone.name,
+            color,
+            border: hotspotBorder(color),
+            selected: isSelected,
+            dimmed: selected !== undefined && !isSelected,
+          },
+          geometry: {
+            type: 'Polygon' as const,
+            coordinates: [
+              [...zone.hotspot.shape, zone.hotspot.shape[0]].map(([x, y]) =>
+                toLngLat(x, y),
+              ),
+            ],
+          },
+        };
+      }),
+    });
+  }, [map, zones, selected]);
+
+  return null;
 };
 
 type SeamlessMapProps = {
@@ -305,23 +480,68 @@ export const SeamlessMap = ({
   zoomPosition,
   className,
 }: SeamlessMapProps) => {
-  const [hovered, setHovered] = useState<string>();
+  const container = useRef<HTMLDivElement>(null);
+  const [map, setMap] = useState<MapLibreMap>();
+  const [crispZoom, setCrispZoom] = useState<number>();
+  const [hover, setHover] = useState<{ name: string; x: number; y: number }>();
   const [seen, setSeen] = useState(selected);
   const [chosenLayer, setChosenLayer] = useState<string>();
 
-  const full = useMemo(() => latLngBounds(imageBounds(region)), [region]);
+  useEffect(() => {
+    const element = container.current;
+
+    if (!element) return undefined;
+
+    const instance = new MapLibreMap({
+      container: element,
+      style: { version: 8, sources: {}, layers: [] },
+      center: toLngLat(region.width / 2, region.height / 2),
+      zoom: toGlZoom(0),
+      maxZoom: toGlZoom(MAX_ZOOM),
+      pitch: 0,
+      dragRotate: false,
+      pitchWithRotate: false,
+      touchPitch: false,
+      renderWorldCopies: false,
+      attributionControl: false,
+      fadeDuration: 0,
+    });
+
+    instance.touchZoomRotate.disableRotation();
+    instance.on('load', () => {
+      addAnchors(instance);
+      setMap(instance);
+    });
+
+    return () => {
+      setMap(undefined);
+      instance.remove();
+    };
+  }, [region.id, region.width, region.height]);
+
+  const onMinZoom = useCallback(
+    (zoom: number) =>
+      setCrispZoom((current) =>
+        current !== undefined && Math.abs(current - zoom) < 0.01
+          ? current
+          : zoom,
+      ),
+    [],
+  );
+
   const zones = useMemo(
     () =>
-      region.hotspots.flatMap((hotspot): Array<Zone> =>
+      region.hotspots.flatMap((hotspot, index): Array<Zone> =>
         hotspot.shape
           ? [
               {
+                index,
                 target: hotspot.target,
                 layer: zoneLayerOf(region, hotspot.target),
                 name:
                   getLocation(region, hotspot.target)?.name ?? hotspot.target,
                 hotspot: { ...hotspot, shape: hotspot.shape },
-                focus: focusBounds(hotspot, region),
+                focus: focusRect(hotspot, region),
               },
             ]
           : [],
@@ -340,40 +560,72 @@ export const SeamlessMap = ({
 
   if (seen !== selected) {
     setSeen(selected);
-    setHovered(undefined);
+    setHover(undefined);
 
     if (current?.layer) setChosenLayer(current.layer);
   }
 
   const activeLayer =
     chosenLayer ?? (layers.find(({ count }) => count > 0) ?? layers[0])?.id;
-  const visibleZones = zones.filter(
-    (zone) =>
-      !zone.layer || zone.layer === activeLayer || zone.target === selected,
+  const visibleZones = useMemo(
+    () =>
+      zones.filter(
+        (zone) =>
+          !zone.layer || zone.layer === activeLayer || zone.target === selected,
+      ),
+    [zones, activeLayer, selected],
+  );
+  const doors = useMemo(
+    () => getLocation(region, selected ?? '')?.doors ?? [],
+    [region, selected],
   );
 
   return (
-    <MapContainer
-      key={region.id}
-      crs={CRS.Simple}
-      bounds={current?.focus ?? full}
-      maxBounds={full}
-      maxBoundsViscosity={1}
-      zoomSnap={0}
-      zoomDelta={0.5}
-      minZoom={MIN_ZOOM}
-      maxZoom={MAX_ZOOM}
-      attributionControl={false}
-      zoomControl={false}
-      className={cn('isolate', className)}
+    <div
+      className={cn('relative isolate overflow-hidden', className)}
       style={{ background: 'var(--muted)' }}
     >
-      <MapZoomControls position={zoomPosition ?? 'topleft'} />
-      <ImageOverlay url={region.image} bounds={full} />
-      <ZoneCamera zone={current} full={full} rightInset={rightInset} />
-      {(getLocation(region, selected ?? '')?.doors ?? []).map(([x, y]) => (
-        <DoorMarker key={`${selected}-${x}-${y}`} x={x} y={y} />
-      ))}
+      <div ref={container} style={{ position: 'absolute', inset: 0 }} />
+      {map && (
+        <>
+          {crispZoom !== undefined && (
+            <GlFloorImages map={map} image={region} crispZoom={crispZoom} />
+          )}
+          <ZoneCamera
+            map={map}
+            region={region}
+            zone={current}
+            rightInset={rightInset}
+            onMinZoom={onMinZoom}
+          />
+          <ZoneShapes
+            map={map}
+            zones={visibleZones}
+            selected={selected}
+            onSelect={onSelect}
+            onHover={setHover}
+          />
+          <DoorMarkers map={map} doors={doors} />
+          <GlZoomControls
+            map={map}
+            width={region.width}
+            height={region.height}
+            position={zoomPosition ?? 'topleft'}
+          />
+        </>
+      )}
+      {hover && (
+        <div
+          className="zone-tooltip pointer-events-none absolute z-1000"
+          style={{
+            left: hover.x,
+            top: hover.y - TOOLTIP_GAP,
+            transform: 'translate(-50%, -100%)',
+          }}
+        >
+          <ZoneName name={hover.name} />
+        </div>
+      )}
       {layers.length > 1 && (
         <ZoneLayerToggle
           layers={layers}
@@ -381,67 +633,7 @@ export const SeamlessMap = ({
           onChange={setChosenLayer}
         />
       )}
-      {visibleZones.map((zone) => {
-        const color = zone.hotspot.color ?? DEFAULT_COLOR;
-        const isSelected = zone.target === selected;
-        const dimmed = selected !== undefined && !isSelected;
-        const isHovered = hovered === zone.target;
-
-        return (
-          <Polygon
-            key={`${zone.target}-${isSelected}`}
-            positions={zone.hotspot.shape.map(([x, y]) => toLatLng(x, y))}
-            interactive={!isSelected}
-            pathOptions={{
-              color: hotspotBorder(color),
-              weight: isSelected ? SELECTED_WEIGHT : BORDER_WEIGHT,
-              lineJoin: 'round',
-              lineCap: dimmed ? 'round' : 'butt',
-              dashArray: dimmed ? DOTTED : undefined,
-              fill: true,
-              fillColor: color,
-              fillOpacity: isSelected
-                ? SELECTED_OPACITY
-                : isHovered
-                  ? HOVER_OPACITY
-                  : dimmed
-                    ? 0
-                    : IDLE_OPACITY,
-            }}
-            eventHandlers={{
-              click: () => onSelect(zone.target),
-              add: ({ target }) => {
-                if (!isSelected) return;
-
-                const glow = `color-mix(in srgb, ${color} ${GLOW_STRENGTH * 100}%, transparent)`;
-
-                const element = (target as Path).getElement() as
-                  | SVGElement
-                  | undefined;
-
-                element?.style.setProperty(
-                  'filter',
-                  `drop-shadow(0 0 ${GLOW_BLUR}px ${glow})`,
-                );
-              },
-              mouseover: () => setHovered(zone.target),
-              mouseout: () => setHovered(undefined),
-            }}
-          >
-            {!isSelected && (
-              <Tooltip
-                sticky
-                direction="top"
-                opacity={1}
-                className="zone-tooltip"
-              >
-                <ZoneName name={zone.name} />
-              </Tooltip>
-            )}
-          </Polygon>
-        );
-      })}
-    </MapContainer>
+    </div>
   );
 };
 

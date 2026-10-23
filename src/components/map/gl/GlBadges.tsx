@@ -5,8 +5,7 @@ import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 import { useThemeStyle } from '@/components/settings/themes';
 
 import { linkKey } from '../viewer/links';
-import type { TileCluster } from '../viewer/TileClusters';
-import type { MapLink } from '../viewer/types';
+import type { MapLink, TileCluster } from '../viewer/types';
 import { badgeCenter } from '../viewer/WildAreaArt';
 import {
   badgeImage,

@@ -1,4 +1,4 @@
-import type { MapPalette } from '@/components/map/viewer/PaletteFilters';
+import type { MapPalette } from '@/components/map/viewer/types';
 import { gbcPaletteFor, hasGbcPalette } from '@/data/maps/gbcPalettes';
 import { useSettingsStore } from '@/stores/settings';
 

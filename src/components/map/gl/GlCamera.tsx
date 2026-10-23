@@ -5,12 +5,8 @@ import type { LngLatBoundsLike, Map as MapLibreMap } from 'maplibre-gl';
 import type { MapImage } from '@/data/maps';
 
 import type { FloorStack } from '../MapViewer';
-import {
-  rememberView,
-  takePendingView,
-  type MapView,
-} from '../viewer/viewHandoff';
-import type { FitBounds } from '../viewer/ViewportEffects';
+import type { FitBounds } from '../viewer/types';
+import { takePendingView, type MapView } from '../viewer/viewHandoff';
 import {
   BASE_ZOOM,
   fromGlZoom,
@@ -149,7 +145,6 @@ export const GlCamera = ({
       const { x, y } = fromLngLat(map.getCenter());
       const view = { x, y, zoom: fromGlZoom(map.getZoom()) };
 
-      rememberView(view);
       latest.current.onViewChange?.(view);
     };
 

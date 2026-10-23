@@ -3,8 +3,7 @@ import { useEffect, useRef } from 'react';
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 
 import { linkKey } from '../viewer/links';
-import type { MapPalette } from '../viewer/PaletteFilters';
-import type { MapLink } from '../viewer/types';
+import type { MapLink, MapPalette } from '../viewer/types';
 import { linkColor } from './glColors';
 import { BASE_ZOOM, fromGlZoom, toLngLat } from './glCoordinates';
 import { FEATURE_ZOOM_SCALE } from './glLayers';

@@ -338,10 +338,6 @@
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
-.map-pixelated .leaflet-image-layer {
-  image-rendering: pixelated;
-}
-
 :root {
   --map-link: oklch(0.65 0.2 145);
   --map-connection: var(--map-link);
@@ -360,15 +356,6 @@
 
 @theme inline {
   --color-brand: var(--brand);
-}
-
-.leaflet-interactive.map-link {
-  stroke: var(--map-link);
-  stroke-opacity: 0.9;
-  stroke-width: 2;
-  fill: var(--map-link);
-  fill-opacity: 0.15;
-  transition: fill-opacity 150ms;
 }
 
 .map-link-connection {
@@ -402,39 +389,6 @@
 .map-link-wild-pokemon,
 .map-link-wild-badge {
   --map-link: var(--map-wild-pokemon);
-}
-
-.leaflet-interactive.map-link.map-link-wild-pokemon {
-  stroke-opacity: 0;
-  fill: url(#wild-grass);
-  fill-opacity: 1;
-}
-
-.leaflet-interactive.map-link.map-link-wild-pokemon:hover {
-  fill-opacity: 1;
-}
-
-.leaflet-interactive.map-link.map-link-wild-water {
-  fill: url(#wild-water);
-}
-
-.leaflet-interactive.map-link.map-link-selected.map-link-wild-pokemon {
-  stroke-opacity: 1;
-  stroke-width: 3;
-  fill: url(#wild-grass-hover);
-}
-
-.leaflet-interactive.map-link.map-link-selected.map-link-wild-water {
-  fill: url(#wild-water-hover);
-}
-
-.leaflet-interactive.map-link.map-link-wild-whole,
-.leaflet-interactive.map-link.map-link-wild-whole:hover {
-  fill: none;
-}
-
-.leaflet-interactive.map-link.map-link-selected.map-link-wild-whole {
-  fill: none;
 }
 
 .map-wild-badge-anchor {
@@ -506,10 +460,6 @@
   fill-opacity: 0;
 }
 
-.leaflet-interactive.map-link-wild-whole {
-  stroke-dasharray: 6 4;
-}
-
 .map-link-pinned {
   stroke-opacity: 0;
   fill: var(--map-link);
@@ -559,10 +509,6 @@
   }
 }
 
-.leaflet-container .map-card a {
-  color: inherit;
-}
-
 .map-card[data-pinned] > :not(.pokedex-game) {
   --tw-ring-color: color-mix(in oklch, var(--foreground) 40%, transparent);
 }
@@ -579,14 +525,6 @@
   --map-link: var(--map-sign);
 }
 
-.leaflet-interactive.map-link-static {
-  cursor: default;
-}
-
-.leaflet-interactive.map-link:hover {
-  fill-opacity: 0.35;
-}
-
 .map-link-highlight {
   stroke: var(--map-link);
   stroke-opacity: 1;
@@ -595,18 +533,8 @@
   fill-opacity: 0.45;
 }
 
-.leaflet-interactive.map-link-sprite,
-.leaflet-interactive.map-link-sprite:hover {
-  stroke-opacity: 0;
-  fill-opacity: 0;
-}
-
 .map-icon-anchor {
   place-items: center;
-}
-
-.leaflet-marker-icon.map-icon-anchor {
-  display: grid;
 }
 
 .map-icon-anchor-north {
@@ -700,10 +628,6 @@
 
 .map-icon:hover + .map-icon-step {
   display: grid;
-}
-
-.leaflet-marker-icon.map-icon-anchor:has(.map-icon:hover) {
-  z-index: 100000 !important;
 }
 
 .map-icon-game + .map-icon-step {
@@ -843,12 +767,6 @@
   }
 }
 
-.leaflet-zoom-anim .map-sprite {
-  transition:
-    width 250ms cubic-bezier(0, 0, 0.25, 1),
-    height 250ms cubic-bezier(0, 0, 0.25, 1);
-}
-
 .map-sprite-faded {
   opacity: 0.5;
 }
@@ -895,10 +813,6 @@
   box-shadow: 0 6px 16px rgb(0 0 0 / 0.25);
 }
 
-.leaflet-tooltip.zone-tooltip {
-  border-radius: 2px 0.9em 2px 0.9em;
-}
-
 .zone-tooltip::before {
   display: none;
 }
@@ -906,10 +820,6 @@
 .zone-tooltip-number {
   margin-left: 0.35em;
   font-size: 1.5em;
-}
-
-path.leaflet-interactive:focus {
-  outline: none;
 }
 
 .map-icon.map-icon-za,
@@ -1044,22 +954,9 @@ path.leaflet-interactive:focus {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .leaflet-container [class*='map-link-'] {
-    transition: none;
-  }
-
-  .leaflet-container .map-sprite,
-  .leaflet-container .map-icon-anchor,
-  .leaflet-container path.map-link,
   .map-cluster-row {
     animation: none;
   }
-}
-
-.leaflet-container .map-sprite,
-.leaflet-container .map-icon-anchor,
-.leaflet-container path.map-link {
-  animation: map-marker-in 150ms ease-out;
 }
 
 .map-cluster-compact .map-cluster {
@@ -1136,25 +1033,7 @@ path.leaflet-interactive:focus {
   color: oklch(0.2 0.03 160);
 }
 
-.leaflet-container.map-tilted {
-  perspective: var(--tilt-perspective, 1400px);
-  perspective-origin: 50% var(--tilt-perspective-y, 40%);
-}
-
-.map-tilted .leaflet-map-pane,
-.map-tilted .leaflet-marker-pane,
-.map-tilted .leaflet-tooltip-pane,
 .map-tilted .map-tile-fade {
-  transform-style: preserve-3d;
-}
-
-.map-tilted .leaflet-map-pane {
-  transform-origin: var(--tilt-origin);
-  rotate: x var(--tilt);
-  transition: rotate 500ms cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.map-tilted .leaflet-marker-icon.map-icon-anchor {
   transform-style: preserve-3d;
 }
 
@@ -1201,10 +1080,6 @@ path.leaflet-interactive:focus {
     opacity 50ms;
 }
 
-.map-tilted .leaflet-marker-icon.map-sprite-anchor {
-  transform-style: preserve-3d;
-}
-
 .map-sprite-shadow {
   display: none;
 }
@@ -1237,11 +1112,6 @@ path.leaflet-interactive:focus {
     scale 100ms ease-out;
 }
 
-.map-tilted
-  .leaflet-marker-icon:is(.map-wild-badge-anchor, .map-cluster-anchor) {
-  transform-style: preserve-3d;
-}
-
 .map-tilted .map-wild-badge-anchor::before,
 .map-tilted .map-cluster-anchor::before {
   content: '';
@@ -1263,18 +1133,6 @@ path.leaflet-interactive:focus {
 .map-tilt-active .map-wild-badge-anchor::before,
 .map-tilt-active .map-cluster-anchor::before {
   opacity: 1;
-}
-
-.map-tilted .leaflet-tooltip.map-tooltip {
-  transform-style: preserve-3d;
-  padding: 0;
-  border: 0;
-  background: none;
-  box-shadow: none;
-}
-
-.map-tilted .leaflet-marker-icon.floor-label-anchor {
-  transform-style: preserve-3d;
 }
 
 .map-tilted .floor-label {
@@ -1315,7 +1173,6 @@ path.leaflet-interactive:focus {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .map-tilted .leaflet-map-pane,
   .map-tilted .map-icon,
   .map-tilted .map-icon-anchor::before,
   .map-tilted .map-sprite,
