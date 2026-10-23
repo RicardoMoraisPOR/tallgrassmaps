@@ -315,11 +315,7 @@ export const useGlInteractions = ({
       const { link } = hit;
       const floorId = otherFloor(link);
 
-      if (floorId) {
-        selectFromMap(floorId);
-
-        return;
-      }
+      if (floorId && !link.href) selectFromMap(floorId);
 
       select(link);
 
