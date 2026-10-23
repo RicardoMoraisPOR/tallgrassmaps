@@ -7,6 +7,7 @@ import type { MapImage } from '@/data/maps';
 import type { FloorStack } from '../MapViewer';
 import type { FitBounds } from '../viewer/types';
 import { takePendingView, type MapView } from '../viewer/viewHandoff';
+import { isArriving } from './glArrival';
 import {
   BASE_ZOOM,
   fromGlZoom,
@@ -207,8 +208,6 @@ export const GlCamera = ({
     skipFlight,
   ]);
 
-  const focused = useRef(false);
-
   useEffect(() => {
     if (!focusPoint) return undefined;
 
@@ -218,9 +217,8 @@ export const GlCamera = ({
     )
       return undefined;
 
-    const arriving = !focused.current;
+    const arriving = isArriving(map);
     const timer = setTimeout(() => {
-      focused.current = true;
       map.flyTo({
         center: toLngLat(focusPoint.x, focusPoint.y),
         zoom: toGlZoom(

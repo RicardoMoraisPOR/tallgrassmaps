@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import type { Map as MapLibreMap } from 'maplibre-gl';
 
 import type { MapLink } from '../viewer/types';
+import { isArriving } from './glArrival';
 import { MAX_ZOOM } from './GlCamera';
 import { fromGlZoom, toGlZoom, toLngLat } from './glCoordinates';
 
@@ -38,7 +39,7 @@ export const GlPinOnRequest = ({
 
     handled.current = request;
 
-    const flightMs = request.initial ? 0 : FLIGHT_MS;
+    const flightMs = request.initial && isArriving(map) ? 0 : FLIGHT_MS;
     const center = toLngLat(link.x + link.width / 2, link.y + link.height / 2);
     const current = fromGlZoom(map.getZoom());
     const zoom =

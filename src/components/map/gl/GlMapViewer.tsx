@@ -8,6 +8,7 @@ import { useSettingsStore } from '@/stores/settings';
 
 import type { MapViewerProps } from '../MapViewer';
 import { DEFAULT_TILT_DEGREES, tiltFromSearch } from '../viewer/tilt';
+import { markCreated } from './glArrival';
 import { GlBadges } from './GlBadges';
 import { GlCamera, MAX_ZOOM } from './GlCamera';
 import { toGlZoom, toLngLat } from './glCoordinates';
@@ -83,6 +84,7 @@ export const GlMapViewer = ({
       fadeDuration: 0,
     });
 
+    markCreated(instance);
     instance.touchZoomRotate.disableRotation();
 
     if (import.meta.env.DEV)
