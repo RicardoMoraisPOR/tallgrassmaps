@@ -15,14 +15,10 @@ import type { EncounterGroup } from '../Game/Location/encounters';
 import { ItemPopup } from '../Game/Location/ItemPopup';
 import { MapTextTooltip } from '../Game/Location/MapTextTooltip';
 import { ShopDialog } from '../Game/Location/ShopDialog';
-import { findBattle } from '../Game/Location/stories/trainerStoryData';
 import { TrainerDialog } from '../Game/Location/TrainerDialog';
 import { TrainerTooltip } from '../Game/Location/TrainerTooltip';
 import { StaticPopup, WildPopup } from '../Game/Location/WildPopup';
-import {
-  storyEntries,
-  storyEntry,
-} from '../Game/Pokedex/stories/pokedexStoryData';
+import { findBattle, sampleEntries, sampleEntry } from './popupSampleData';
 
 type Skin = 'rby' | 'za';
 
@@ -65,7 +61,7 @@ const wildGroups = (
       };
 
       return {
-        entry: storyEntry(gameId, number, { encounters: [encounter] })!,
+        entry: sampleEntry(gameId, number, { encounters: [encounter] })!,
         encounter,
       };
     }),
@@ -107,7 +103,7 @@ export const MapPopupSamples = ({ skin }: { skin: Skin | 'tall-grass' }) => {
   const { gameId, versionGroup, count, trainer, place, npcSprite } =
     skins[skin === 'za' ? 'za' : 'rby'];
   const game = getGame(gameId)!;
-  const pokedex = storyEntries(gameId, count);
+  const pokedex = sampleEntries(gameId, count);
   const { walking, surfing, fishing } = wildSamples(gameId);
   const listed = {
     battle: trainer,

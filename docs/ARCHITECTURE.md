@@ -8,12 +8,12 @@ A static, client-only React app: an interactive atlas of Pokémon games. Each ga
 
 There is no backend. All content is committed under `src/data` and generated offline by the scripts in `scripts/`. It deploys on Vercel (`vercel.json` rewrites every path to `/` for SPA routing).
 
-**Stack:** React 19, React Router 8 (`createBrowserRouter`), Vite 8, Tailwind 4, Radix/shadcn primitives, Leaflet + react-leaflet, `motion`, zustand (persisted settings), Storybook, Vitest, oxlint/oxfmt.
+**Stack:** React 19, React Router 8 (`createBrowserRouter`), Vite 8, Tailwind 4, Radix/shadcn primitives, MapLibre GL JS, `motion`, zustand (persisted settings), Vitest, oxlint/oxfmt.
 
 | Game              | Version group / region id | Navigation                                         | State                        |
 | ----------------- | ------------------------- | -------------------------------------------------- | ---------------------------- |
 | Red, Blue, Yellow | `RBY` / `kanto-rby`       | nested (region → location → sub-location → floors) | complete                     |
-| Legends: Z-A      | `ZA` / `lumiose-za`       | seamless (one Leaflet map, zones fly to)           | missing content, in progress |
+| Legends: Z-A      | `ZA` / `lumiose-za`       | seamless (one MapLibre map, zones fly to)          | missing content, in progress |
 
 ## 2. Repository layout
 
@@ -30,7 +30,6 @@ src/
 scripts/                   offline data and asset generators (§9)
 public/                    covers, map images, sprites
 vendor/                    gitignored pret checkouts used by the scripts
-.storybook/                Storybook config and decorators
 docs/                      this file and the cleanup audit
 ```
 
@@ -78,12 +77,12 @@ For a location, `LocationPage` reads every `XFor(versionGroup)` and filters by `
 
 ## 5. Map stack (`components/map`)
 
-Leaflet runs in `CRS.Simple` (pixel coordinates, no tiles) with the map image as an `ImageOverlay`.
+MapLibre GL JS renders every map with no tiles: image pixels are mapped to lng/lat (`gl/glCoordinates.ts`) and the map image is added as raster layers (`gl/GlFloorImages`).
 
-- `MapViewer`: the interactive map for a location. Its parts live in `viewer/`: `MapIcon`, `HoverCard`, `MapSprite`, `LinkShape`, `PinControls`, `ViewportEffects`, plus `iconArt`, `links`, `constants` and the `MapLink` types.
+- `MapViewer` wraps `gl/GlMapViewer`, the interactive map for a location. Its layers and interactions live in `gl/` (`GlIcons`, `GlSprites`, `GlBadges`, `GlShapes`, `GlCamera`, `useGlInteractions`, …). Shared pieces live in `viewer/`: `iconArt`, `links`, `constants`, `tilt`, `viewHandoff` and the `MapLink` types.
 - `SeamlessMap`: the single large Lumiose map. Zones are polygons that fly to on selection.
 - `RegionMap`, `RegionImage`, `PlacesMap`: region overview rendering with pointer, cursor and label sprites.
-- `coordinates.ts` converts image pixels to lat/lng. `MapZoomControls`, `HotspotOutline`, `LocationCursor`, `LocationLabel` and `AnimatedSprite` are small pieces.
+- `coordinates.ts` holds the hotspot colour helpers. `MapZoomControls`, `HotspotOutline`, `LocationCursor`, `LocationLabel` and `AnimatedSprite` are small pieces.
 - `pages/Game/mapFrame.ts`: `useMapFrame()` animates the map frame between the old and new size when the layout toggle is pressed. The toggle captures the frame's rect just before the layout changes.
 - `pages/MapMaker` is a dev-only tool for clicking polygons on the Z-A map and copying coordinates into `lumiose-za.ts`.
 
@@ -142,4 +141,3 @@ Plain `node scripts/…mjs`, run through `pnpm` scripts. None run at build time 
 
   After an intended data or code change, review the mismatch and update with `pnpm vitest run -u`.
 
-- Storybook covers the Pokédex views, trainer dialog and tooltip, wild popup and map icons. Story-only helpers live in `stories/` subfolders next to the feature (`Pokedex/stories`, `Location/stories`).

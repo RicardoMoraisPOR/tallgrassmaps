@@ -2,7 +2,7 @@
 
 An interactive atlas of the main Pokémon games. Every town, route, cave and building is mapped with its wild encounters, trainer battles, items, NPCs, signs and static or gift Pokémon at their exact position.
 
-A static client-only React app (Vite, React Router, Tailwind, Leaflet). All content is committed under `src/data` and generated offline by the scripts in `scripts/`.
+A static client-only React app (Vite, React Router, Tailwind, MapLibre). All content is committed under `src/data` and generated offline by the scripts in `scripts/`.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how the pieces fit together.
 
@@ -19,7 +19,6 @@ pnpm dev
 | `pnpm build`     | Typecheck and build for production                                                   |
 | `pnpm check`     | Typecheck, lint, format check and tests in one go                                    |
 | `pnpm test`      | Run the Vitest suite                                                                 |
-| `pnpm storybook` | Run Storybook for the Pokédex, trainer and popup components                          |
 
 ## Regenerating data
 
