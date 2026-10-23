@@ -11,7 +11,7 @@ import { DEFAULT_TILT_DEGREES, tiltFromSearch } from '../viewer/tilt';
 import { markCreated } from './glArrival';
 import { GlBadges } from './GlBadges';
 import { GlCamera, MAX_ZOOM } from './GlCamera';
-import { toGlZoom, toLngLat } from './glCoordinates';
+import { BASE_ZOOM, toGlZoom, toLngLat } from './glCoordinates';
 import { GlFloorImages } from './GlFloorImages';
 import { GlFrames } from './GlFrames';
 import { GlHoverCard } from './GlHoverCard';
@@ -30,8 +30,12 @@ import { useStableLinks } from './useStableLinks';
 const MAX_PITCH = 60;
 const SMALL_TILE = { width: 480, height: 288 };
 const READY_TIMEOUT_MS = 1500;
-const crispZoomFor = (clusterZoom?: number) =>
-  clusterZoom === undefined ? 0 : Math.min(clusterZoom, 0);
+const FULL_QUALITY_ZOOM = -BASE_ZOOM;
+
+const crispZoomFor = (clusterZoom?: number, floorCount = 0) =>
+  clusterZoom === undefined && floorCount <= 1
+    ? FULL_QUALITY_ZOOM
+    : Math.min(clusterZoom ?? 0, 0);
 
 export const GlMapViewer = ({
   map: image,
@@ -271,7 +275,7 @@ const GlLayers = ({
         image={image}
         stack={stack}
         palette={palette}
-        crispZoom={crispZoomFor(clusterZoom)}
+        crispZoom={crispZoomFor(clusterZoom, stack?.floors.length)}
       />
       {stack && (
         <GlFrames

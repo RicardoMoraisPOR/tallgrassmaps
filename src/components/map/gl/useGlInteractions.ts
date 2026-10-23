@@ -17,6 +17,7 @@ import { linkKey, spriteKey } from '../viewer/links';
 import type { MapLink } from '../viewer/types';
 import { badgeCenter } from '../viewer/WildAreaArt';
 import { fromLngLat, toGlZoom, toLngLat } from './glCoordinates';
+import { hitsVisibleSprite } from './glHitBox';
 import { isShape } from './glShapeLinks';
 import type { ShapeMode } from './GlShapes';
 
@@ -151,7 +152,8 @@ export const useGlInteractions = ({
 
         const link = lookup.get(String(feature.properties?.key));
 
-        if (link) return { link, layer: feature.layer.id };
+        if (link && hitsVisibleSprite(map, feature.layer.id, link, event.point))
+          return { link, layer: feature.layer.id };
       }
 
       return undefined;

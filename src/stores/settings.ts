@@ -15,7 +15,7 @@ export type ThemePreset = ThemeStyle | 'custom';
 
 export type LocationTab = 'info' | 'pokemon' | 'trainers';
 
-export const DEFAULT_CLUSTER_ZOOM = 0;
+export const DEFAULT_CLUSTER_ZOOM = -1;
 
 type SettingsState = {
   animations: boolean;

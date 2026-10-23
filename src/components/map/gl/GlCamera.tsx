@@ -106,8 +106,15 @@ export const GlCamera = ({
       const zoom = toGlZoom(fitZoom());
       const { clientWidth, clientHeight } = map.getContainer();
       const scale = 2 ** (map.getZoom() - BASE_ZOOM);
-      const padX = clientWidth / scale / 2;
-      const padY = clientHeight / scale / 2;
+      const fitScale = 2 ** (zoom - BASE_ZOOM);
+      const padX = Math.max(
+        clientWidth / scale / 2,
+        (clientWidth / fitScale - width) / 2 + 1,
+      );
+      const padY = Math.max(
+        clientHeight / scale / 2,
+        (clientHeight / fitScale - height) / 2 + 1,
+      );
 
       map.setMinZoom(zoom);
       map.setMaxBounds([

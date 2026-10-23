@@ -135,7 +135,7 @@ export const GlFrames = ({
         source: SOURCE,
         paint: { 'fill-color': '#000', 'fill-opacity': 0 },
       },
-      'z-frames',
+      'z-areas',
     );
     map.addLayer(
       {
@@ -150,7 +150,7 @@ export const GlFrames = ({
           'line-opacity-transition': { duration: FADE_MS },
         },
       },
-      'z-frames',
+      'z-areas',
     );
     map.addLayer(
       {

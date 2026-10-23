@@ -7,6 +7,7 @@ import type { MapLink } from '../viewer/types';
 import { linkColor } from './glColors';
 import { toLngLat } from './glCoordinates';
 import { addWildPatterns } from './glPatterns';
+import { polygonsOf } from './glPolygons';
 import { isShape } from './glShapeLinks';
 
 const IDLE = 'shapes';
@@ -52,9 +53,9 @@ const featureOf = (link: MapLink, mode?: ShapeMode) => ({
   },
   geometry: {
     type: 'MultiPolygon' as const,
-    coordinates: ringsOf(link).map((ring) => [
-      [...ring, ring[0]].map(([x, y]) => toLngLat(x, y)),
-    ]),
+    coordinates: polygonsOf(ringsOf(link)).map((polygon) =>
+      polygon.map((ring) => [...ring, ring[0]].map(([x, y]) => toLngLat(x, y))),
+    ),
   },
 });
 
