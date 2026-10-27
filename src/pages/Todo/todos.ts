@@ -33,12 +33,6 @@ export const todoGroups: Array<TodoGroup> = [
         text: 'Clear the 35 lint warnings: 20 exhaustive-deps, 7 refs read during render, 5 setState in effect, 2 only-export-components, 1 preserve-manual-memoization',
       },
       {
-        id: 'review-mip-layers',
-        priority: 'high',
-        owner: 'ai',
-        text: 'Review the floor image layer ordering in GlFloorImages and glMipLayers (greyscale levels must sit under the coloured ones)',
-      },
-      {
         id: 'review-unused-events',
         priority: 'low',
         owner: 'human',
@@ -74,22 +68,28 @@ export const todoGroups: Array<TodoGroup> = [
     title: 'RBY',
     items: [
       {
+        id: 'rby-hidden-items',
+        priority: 'medium',
+        owner: 'ai',
+        text: 'Check the Yellow hidden items: pokeyellow lists 12 hidden Game Corner coins and the data only has them for Red and Blue',
+      },
+      {
         id: 'rby-no-encounter',
         priority: 'medium',
         owner: 'ai',
         text: 'Confirm the Pokémon with no direct encounter are all evolutions, version exclusives, trades or Mew: 45 in Red, 45 in Blue, 44 in Yellow',
       },
       {
-        id: 'rby-yellow-differences',
-        priority: 'medium',
-        owner: 'ai',
-        text: 'Spot-check items, trainers, people and shop stock that differ in Yellow against pokeyellow',
-      },
-      {
         id: 'rby-changelog',
         priority: 'low',
         owner: 'ai',
         text: 'Write the changelog entry for the RBY release',
+      },
+      {
+        id: 'rby-remove-source-tests',
+        priority: 'low',
+        owner: 'human',
+        text: 'Delete src/data/rbySource.test.ts once RBY is done: it is a temporary check of the data against the pret sources in vendor/',
       },
     ],
   },
@@ -354,13 +354,13 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'review-mip-layers',
-  'rby-yellow-differences',
+  'rby-hidden-items',
   'rby-no-encounter',
   'review-lint-warnings',
   'review-clean-scripts',
   'review-browser-walk',
   'rby-changelog',
+  'rby-remove-source-tests',
   'ui-game-page-map-list',
   'review-audit-doc',
   'review-unused-events',

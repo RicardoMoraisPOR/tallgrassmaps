@@ -126,7 +126,7 @@
       }
     ],
     "cutscene": true,
-    "presence": "Only appears after you run the Cell Separation System",
+    "presence": "Only appears after you run the Cell Separation System, and moves to his PC once you get the S.S. Ticket and leave the house",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -163,6 +163,7 @@
         "trigger": "Once you come back later, she gets up and walks around"
       }
     ],
+    "presence": "Gets up from the table and walks around the room once you have the Town Map and leave the house",
     "special": true,
     "games": ["red", "blue"]
   },
@@ -1206,7 +1207,7 @@
       }
     ],
     "cutscene": true,
-    "presence": "Leaves after you beat the Team Rocket thief",
+    "presence": "Moves one tile to the right, away from the door, after you get the S.S. Ticket from Bill or beat the Team Rocket thief",
     "special": true,
     "games": ["red", "blue"]
   },
@@ -3709,6 +3710,7 @@
         "trigger": "If you say no, he walks you to the Museum"
       }
     ],
+    "presence": "Walks you to the Museum, then reappears here",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -3749,6 +3751,7 @@
       }
     ],
     "cutscene": true,
+    "presence": "Walks you to the Gym, then reappears here, and is gone for good once you beat Brock",
     "special": true,
     "games": ["red", "blue", "yellow"]
   },
@@ -7633,6 +7636,7 @@
         "trigger": "Once you come back later, she gets up and walks around"
       }
     ],
+    "presence": "Gets up from the table and walks around the room once you have the Town Map and leave the house",
     "special": true,
     "games": ["yellow"]
   },
@@ -7996,7 +8000,7 @@
       }
     ],
     "cutscene": true,
-    "presence": "Leaves after you beat the Team Rocket thief",
+    "presence": "Moves one tile to the right, away from the door, after you get the S.S. Ticket from Bill or beat the Team Rocket thief",
     "special": true,
     "games": ["yellow"]
   },

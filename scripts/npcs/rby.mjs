@@ -513,6 +513,8 @@ const SCRIPTED_NPCS = {
     ],
   },
   BLUESHOUSE_DAISY1: {
+    presence:
+      'Gets up from the table and walks around the room once you have the Town Map and leave the house',
     dialog: [
       {
         trigger: 'Before you get the Pokédex',
@@ -1028,6 +1030,7 @@ const SCRIPTED_NPCS = {
     ],
   },
   PEWTERCITY_SUPER_NERD1: {
+    presence: 'Walks you to the Museum, then reappears here',
     special: true,
     dialog: [
       {
@@ -1064,6 +1067,8 @@ const SCRIPTED_NPCS = {
     ],
   },
   PEWTERCITY_YOUNGSTER: {
+    presence:
+      'Walks you to the Gym, then reappears here, and is gone for good once you beat Brock',
     cutscene: true,
     dialog: [
       {
@@ -1245,7 +1250,8 @@ const SCRIPTED_NPCS = {
     ],
   },
   CERULEANCITY_GUARD2: {
-    presence: 'Leaves after you beat the Team Rocket thief',
+    presence:
+      'Moves one tile to the right, away from the door, after you get the S.S. Ticket from Bill or beat the Team Rocket thief',
     cutscene: true,
     dialog: [
       {
@@ -1515,7 +1521,8 @@ const SCRIPTED_NPCS = {
     ],
   },
   BILLSHOUSE_BILL1: {
-    presence: 'Only appears after you run the Cell Separation System',
+    presence:
+      'Only appears after you run the Cell Separation System, and moves to his PC once you get the S.S. Ticket and leave the house',
     name: 'Bill',
     cutscene: true,
     dialog: [
