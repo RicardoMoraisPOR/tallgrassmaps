@@ -8,10 +8,6 @@ export const todoGroups: Array<TodoGroup> = [
     title: 'Maps',
     items: [
       {
-        id: 'maps-delete-stacked',
-        text: 'Delete the unused stacked originals: mt-moon.png, silph-co.png, pokemon-tower.png (nothing references them)',
-      },
-      {
         id: 'maps-credits-line',
         text: 'Credit the map tiles rendered from pret game data (credits only mention sprites, people, trainers and items)',
       },
