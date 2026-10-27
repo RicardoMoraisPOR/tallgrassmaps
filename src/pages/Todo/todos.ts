@@ -68,12 +68,6 @@ export const todoGroups: Array<TodoGroup> = [
     title: 'RBY',
     items: [
       {
-        id: 'rby-no-encounter',
-        priority: 'medium',
-        owner: 'ai',
-        text: 'Confirm the Pokémon with no direct encounter are all evolutions, version exclusives, trades or Mew: 45 in Red, 45 in Blue, 44 in Yellow',
-      },
-      {
         id: 'rby-changelog',
         priority: 'low',
         owner: 'ai',
@@ -348,7 +342,6 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'rby-no-encounter',
   'review-lint-warnings',
   'review-clean-scripts',
   'review-browser-walk',
