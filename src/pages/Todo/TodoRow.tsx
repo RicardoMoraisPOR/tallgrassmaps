@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 
+import { type Owner, ownerLabels } from './owners';
 import { type Priority, priorityLabels } from './priorities';
 
 const priorityStyles: Record<Priority, string> = {
@@ -8,9 +9,15 @@ const priorityStyles: Record<Priority, string> = {
   low: 'text-muted-foreground',
 };
 
+const ownerStyles: Record<Owner, string> = {
+  ai: 'text-foreground',
+  human: 'border-foreground bg-foreground text-background',
+};
+
 type TodoRowProps = {
   text: string;
   priority: Priority;
+  owner: Owner;
   done: boolean;
   onToggle: () => void;
   leading?: string;
@@ -20,6 +27,7 @@ type TodoRowProps = {
 export const TodoRow = ({
   text,
   priority,
+  owner,
   done,
   onToggle,
   leading,
@@ -53,13 +61,23 @@ export const TodoRow = ({
           )}
         </span>
       </label>
-      <span
-        className={cn(
-          'shrink-0 rounded-sm border px-1.5 py-0.5 text-xs',
-          priorityStyles[priority],
-        )}
-      >
-        {priorityLabels[priority]}
+      <span className="flex shrink-0 items-center gap-1.5">
+        <span
+          className={cn(
+            'rounded-sm border px-1.5 py-0.5 text-xs',
+            ownerStyles[owner],
+          )}
+        >
+          {ownerLabels[owner]}
+        </span>
+        <span
+          className={cn(
+            'rounded-sm border px-1.5 py-0.5 text-xs',
+            priorityStyles[priority],
+          )}
+        >
+          {priorityLabels[priority]}
+        </span>
       </span>
     </li>
   );

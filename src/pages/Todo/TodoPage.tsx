@@ -60,11 +60,12 @@ export const TodoPage = () => {
       {view === 'next' ? (
         <ol className="flex flex-col gap-3">
           {[...pending, ...finished].map(
-            ({ id, text, priority, section }, index) => (
+            ({ id, text, priority, owner, section }, index) => (
               <TodoRow
                 key={id}
                 text={text}
                 priority={priority}
+                owner={owner}
                 done={done.has(id)}
                 onToggle={() => toggle(id)}
                 leading={`${index + 1}`}
@@ -84,11 +85,12 @@ export const TodoPage = () => {
                 .toSorted(
                   (a, b) => priorityRank(a.priority) - priorityRank(b.priority),
                 )
-                .map(({ id, text, priority }) => (
+                .map(({ id, text, priority, owner }) => (
                   <TodoRow
                     key={id}
                     text={text}
                     priority={priority}
+                    owner={owner}
                     done={done.has(id)}
                     onToggle={() => toggle(id)}
                   />
