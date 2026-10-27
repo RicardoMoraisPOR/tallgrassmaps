@@ -2,22 +2,34 @@ import { useState } from 'react';
 
 import { Container } from '@/components/Container';
 import { PageTitle } from '@/components/PageTitle';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
-import { todoGroups } from './todos';
+import { priorityRank } from './priorities';
+import { TodoRow } from './TodoRow';
+import { nextUpOrder, todoGroups } from './todos';
 import { useTodoState } from './useTodoState';
 
-const total = todoGroups.reduce((sum, { items }) => sum + items.length, 0);
+type View = 'sections' | 'next';
+
+const allItems = todoGroups.flatMap(({ title, items }) =>
+  items.map((item) => ({ ...item, section: title })),
+);
+
+const total = allItems.length;
+
+const nextUp = nextUpOrder.flatMap((id) => {
+  const item = allItems.find((candidate) => candidate.id === id);
+
+  return item ? [item] : [];
+});
 
 export const TodoPage = () => {
   const { done, toggle } = useTodoState();
-  const [hideDone, setHideDone] = useState(false);
+  const [view, setView] = useState<View>('sections');
 
-  const doneCount = todoGroups.reduce(
-    (sum, { items }) => sum + items.filter(({ id }) => done.has(id)).length,
-    0,
-  );
+  const doneCount = allItems.filter(({ id }) => done.has(id)).length;
+  const pending = nextUp.filter(({ id }) => !done.has(id));
+  const finished = nextUp.filter(({ id }) => done.has(id));
 
   return (
     <Container
@@ -30,54 +42,61 @@ export const TodoPage = () => {
         <p className="text-lg text-pretty text-muted-foreground">
           {doneCount} of {total} done. Checked items are saved in this browser.
         </p>
-        <div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setHideDone((hidden) => !hidden)}
-          >
-            {hideDone ? 'Show done' : 'Hide done'}
-          </Button>
-        </div>
+        <ToggleGroup
+          type="single"
+          variant="outline"
+          size="sm"
+          aria-label="View"
+          value={view}
+          onValueChange={(value) => {
+            if (value) setView(value as View);
+          }}
+        >
+          <ToggleGroupItem value="sections">By section</ToggleGroupItem>
+          <ToggleGroupItem value="next">What&apos;s next</ToggleGroupItem>
+        </ToggleGroup>
       </header>
 
-      {todoGroups.map(({ title, items }) => {
-        const visible = hideDone
-          ? items.filter(({ id }) => !done.has(id))
-          : items;
-
-        if (visible.length === 0) return null;
-
-        return (
+      {view === 'next' ? (
+        <ol className="flex flex-col gap-3">
+          {[...pending, ...finished].map(
+            ({ id, text, priority, section }, index) => (
+              <TodoRow
+                key={id}
+                text={text}
+                priority={priority}
+                done={done.has(id)}
+                onToggle={() => toggle(id)}
+                leading={`${index + 1}`}
+                section={section}
+              />
+            ),
+          )}
+        </ol>
+      ) : (
+        todoGroups.map(({ title, items }) => (
           <section key={title} className="flex flex-col gap-3">
             <h2 className="font-heading text-xl font-bold tracking-tight">
               {title}
             </h2>
             <ul className="flex flex-col gap-2">
-              {visible.map(({ id, text }) => (
-                <li key={id}>
-                  <label className="flex cursor-pointer items-start gap-3">
-                    <input
-                      type="checkbox"
-                      checked={done.has(id)}
-                      onChange={() => toggle(id)}
-                      className="mt-1 size-4 shrink-0 accent-brand"
-                    />
-                    <span
-                      className={cn(
-                        'text-pretty',
-                        done.has(id) && 'text-muted-foreground line-through',
-                      )}
-                    >
-                      {text}
-                    </span>
-                  </label>
-                </li>
-              ))}
+              {items
+                .toSorted(
+                  (a, b) => priorityRank(a.priority) - priorityRank(b.priority),
+                )
+                .map(({ id, text, priority }) => (
+                  <TodoRow
+                    key={id}
+                    text={text}
+                    priority={priority}
+                    done={done.has(id)}
+                    onToggle={() => toggle(id)}
+                  />
+                ))}
             </ul>
           </section>
-        );
-      })}
+        ))
+      )}
     </Container>
   );
 };
