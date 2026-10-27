@@ -14,6 +14,7 @@ const DIMMED_OPACITY = 0.25;
 const FADE_MS = 150;
 const COLOR_FADE_MS = 200;
 const BASE_ID = 'base';
+const FRAMES_LAYER = 'z-frames';
 
 type Floor = {
   id: string;
@@ -81,6 +82,12 @@ export const GlFloorImages = ({
   const opacityOf = (id: string) =>
     stack?.dimmed?.has(id) ? DIMMED_OPACITY : 1;
 
+  const layerBefore = (group: string) => () => {
+    const [first] = registry.current.get(group) ?? [];
+
+    return first && map.getLayer(first) ? first : FRAMES_LAYER;
+  };
+
   const apply = (group: string) =>
     registry.current.get(group)?.forEach((layer) => {
       if (map.getLayer(layer))
@@ -120,7 +127,7 @@ export const GlFloorImages = ({
           'raster-opacity-transition': { duration: FADE_MS },
           'raster-opacity': opacities.current.get(group) ?? 1,
         },
-        before: 'z-frames',
+        before: layerBefore(colorGroup(floor.id)),
         threshold: () => threshold.current,
         minZoom: () => map.getMinZoom(),
         isCurrent,
@@ -190,7 +197,7 @@ export const GlFloorImages = ({
           'raster-opacity-transition': { duration: COLOR_FADE_MS },
           'raster-opacity': 0,
         },
-        before: 'z-frames',
+        before: () => FRAMES_LAYER,
         threshold: () => threshold.current,
         minZoom: () => map.getMinZoom(),
         isCurrent: () => generation.current === current,

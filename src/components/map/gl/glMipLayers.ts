@@ -64,7 +64,7 @@ type Options = {
   coordinates: [GlPoint, GlPoint, GlPoint, GlPoint];
   pixelated: boolean;
   paint: PaintProperties;
-  before: string;
+  before: () => string;
   threshold: () => number;
   minZoom: () => number;
   isCurrent: () => boolean;
@@ -95,7 +95,7 @@ export const addMippedImage = async ({
         'raster-resampling': pixelated ? 'nearest' : 'linear',
       },
     } as never,
-    before,
+    before(),
   );
   onLayer(key);
 
@@ -143,7 +143,7 @@ export const addMippedImage = async ({
         source: id,
         paint: { ...paint, 'raster-resampling': 'linear' },
       } as never,
-      before,
+      before(),
     );
     onLayer(id);
     levels.push(id);
@@ -158,7 +158,7 @@ export const addMippedImage = async ({
       source: key,
       paint: { ...paint, 'raster-resampling': 'linear' },
     } as never,
-    before,
+    before(),
   );
   onLayer(linear);
 
