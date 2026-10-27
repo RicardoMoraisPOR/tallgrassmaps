@@ -7,7 +7,6 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { priorityRank } from './priorities';
 import { TodoRow } from './TodoRow';
 import { nextUpOrder, todoGroups } from './todos';
-import { useTodoState } from './useTodoState';
 
 type View = 'sections' | 'next';
 
@@ -24,12 +23,7 @@ const nextUp = nextUpOrder.flatMap((id) => {
 });
 
 export const TodoPage = () => {
-  const { done, toggle } = useTodoState();
   const [view, setView] = useState<View>('sections');
-
-  const doneCount = allItems.filter(({ id }) => done.has(id)).length;
-  const pending = nextUp.filter(({ id }) => !done.has(id));
-  const finished = nextUp.filter(({ id }) => done.has(id));
 
   return (
     <Container
@@ -40,7 +34,7 @@ export const TodoPage = () => {
       <header className="flex flex-col gap-3">
         <PageTitle>Todo</PageTitle>
         <p className="text-lg text-pretty text-muted-foreground">
-          {doneCount} of {total} done. Checked items are saved in this browser.
+          {total} open items. Update todos.ts as things get done.
         </p>
         <ToggleGroup
           type="single"
@@ -59,20 +53,16 @@ export const TodoPage = () => {
 
       {view === 'next' ? (
         <ol className="flex flex-col gap-3">
-          {[...pending, ...finished].map(
-            ({ id, text, priority, owner, section }, index) => (
-              <TodoRow
-                key={id}
-                text={text}
-                priority={priority}
-                owner={owner}
-                done={done.has(id)}
-                onToggle={() => toggle(id)}
-                leading={`${index + 1}`}
-                section={section}
-              />
-            ),
-          )}
+          {nextUp.map(({ id, text, priority, owner, section }, index) => (
+            <TodoRow
+              key={id}
+              text={text}
+              priority={priority}
+              owner={owner}
+              leading={`${index + 1}`}
+              section={section}
+            />
+          ))}
         </ol>
       ) : (
         todoGroups.map(({ title, items }) => (
@@ -91,8 +81,6 @@ export const TodoPage = () => {
                     text={text}
                     priority={priority}
                     owner={owner}
-                    done={done.has(id)}
-                    onToggle={() => toggle(id)}
                   />
                 ))}
             </ul>

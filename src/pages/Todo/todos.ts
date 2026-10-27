@@ -74,18 +74,6 @@ export const todoGroups: Array<TodoGroup> = [
     title: 'RBY',
     items: [
       {
-        id: 'rby-walk-locations',
-        priority: 'high',
-        owner: 'human',
-        text: 'Walk every location in Red, Blue and Yellow in the browser: map image, entrances, floor exits and arrival highlights (only snapshot tests cover this today)',
-      },
-      {
-        id: 'rby-yellow-outdoor',
-        priority: 'high',
-        owner: 'ai',
-        text: 'Check the new Yellow outdoor maps in the browser, zoomed in and out, with and without Game Boy Color colours',
-      },
-      {
         id: 'rby-no-encounter',
         priority: 'medium',
         owner: 'ai',
@@ -366,8 +354,6 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'rby-walk-locations',
-  'rby-yellow-outdoor',
   'review-mip-layers',
   'rby-yellow-differences',
   'rby-no-encounter',

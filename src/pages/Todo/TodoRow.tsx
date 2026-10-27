@@ -18,8 +18,6 @@ type TodoRowProps = {
   text: string;
   priority: Priority;
   owner: Owner;
-  done: boolean;
-  onToggle: () => void;
   leading?: string;
   section?: string;
 };
@@ -28,8 +26,6 @@ export const TodoRow = ({
   text,
   priority,
   owner,
-  done,
-  onToggle,
   leading,
   section,
 }: TodoRowProps) => {
@@ -40,27 +36,12 @@ export const TodoRow = ({
           {leading}
         </span>
       )}
-      <label className="flex flex-1 cursor-pointer items-start gap-3">
-        <input
-          type="checkbox"
-          checked={done}
-          onChange={onToggle}
-          className="mt-1 size-4 shrink-0 accent-brand"
-        />
-        <span className="flex flex-col gap-0.5">
-          <span
-            className={cn(
-              'text-pretty',
-              done && 'text-muted-foreground line-through',
-            )}
-          >
-            {text}
-          </span>
-          {section && (
-            <span className="text-xs text-muted-foreground">{section}</span>
-          )}
-        </span>
-      </label>
+      <span className="flex flex-1 flex-col gap-0.5">
+        <span className="text-pretty">{text}</span>
+        {section && (
+          <span className="text-xs text-muted-foreground">{section}</span>
+        )}
+      </span>
       <span className="flex shrink-0 items-center gap-1.5">
         <span
           className={cn(
