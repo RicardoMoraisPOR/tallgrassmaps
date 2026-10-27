@@ -16,6 +16,7 @@ const games = [
 
 const SHIFTED_TRAINERS = ['36,4'];
 const SCRIPTED_FIGHTERS = ['Blue', 'Jessie & James'];
+const HIDDEN_ITEMS_ON_UNUSED_MAPS = 1;
 
 const forGame = (text: string, define: string) => {
   const kept: Array<string> = [];
@@ -160,6 +161,23 @@ describe.skipIf(!existsSync(join(VENDOR, 'pokeyellow')))(
 
         expect(missingFrom(source, data)).toEqual([]);
         expect(missingFrom(data, source)).toEqual([]);
+      });
+
+      it('lists every hidden item and coin', () => {
+        const source = sourceLines(
+          game,
+          'data/events/hidden_events.asm',
+        ).filter(
+          (line) =>
+            /^hidden_event\s+\d+,\s*\d+,\s*HiddenItems,/.test(line) ||
+            /^hidden_event\s+\d+,\s*\d+,\s*HiddenCoins,/.test(line),
+        );
+        const data = rbyItems.filter(
+          ({ hidden, games: itemGames }) =>
+            hidden && itemGames.includes(game.id),
+        );
+
+        expect(data.length).toBe(source.length - HIDDEN_ITEMS_ON_UNUSED_MAPS);
       });
 
       it('lists every trainer on the map', () => {

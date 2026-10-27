@@ -68,12 +68,6 @@ export const todoGroups: Array<TodoGroup> = [
     title: 'RBY',
     items: [
       {
-        id: 'rby-hidden-items',
-        priority: 'medium',
-        owner: 'ai',
-        text: 'Check the Yellow hidden items: pokeyellow lists 12 hidden Game Corner coins and the data only has them for Red and Blue',
-      },
-      {
         id: 'rby-no-encounter',
         priority: 'medium',
         owner: 'ai',
@@ -354,7 +348,6 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'rby-hidden-items',
   'rby-no-encounter',
   'review-lint-warnings',
   'review-clean-scripts',

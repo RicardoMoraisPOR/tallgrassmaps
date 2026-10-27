@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RBY datasets > keeps the items data unchanged 1`] = `"1e721e75fd52"`;
+exports[`RBY datasets > keeps the items data unchanged 1`] = `"052696dbf2d2"`;
 
 exports[`RBY datasets > keeps the npcs data unchanged 1`] = `"2e60807b6b92"`;
 

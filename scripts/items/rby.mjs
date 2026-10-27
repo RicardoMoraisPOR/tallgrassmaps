@@ -145,7 +145,7 @@ for (const game of games) {
     );
 
     const coins = line.match(
-      /^hidden_event\s+(\d+),\s*(\d+), HiddenCoins, COIN \+ (\d+)$/,
+      /^hidden_event\s+(\d+),\s*(\d+), HiddenCoins, COIN\s*\+\s*(\d+)$/,
     );
 
     if (header) map = header[1];

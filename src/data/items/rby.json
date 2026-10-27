@@ -927,7 +927,7 @@
     "y": 8,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -936,7 +936,7 @@
     "y": 16,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -945,7 +945,7 @@
     "y": 11,
     "item": "20 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -954,7 +954,7 @@
     "y": 14,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -963,7 +963,7 @@
     "y": 12,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -972,7 +972,7 @@
     "y": 12,
     "item": "20 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -981,7 +981,7 @@
     "y": 15,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -990,7 +990,7 @@
     "y": 14,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -999,7 +999,7 @@
     "y": 16,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -1008,7 +1008,7 @@
     "y": 7,
     "item": "40 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -1017,7 +1017,7 @@
     "y": 8,
     "item": "100 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "celadon-city/rocket-game-corner",
@@ -1026,7 +1026,7 @@
     "y": 15,
     "item": "10 Coins",
     "hidden": true,
-    "games": ["red", "blue"]
+    "games": ["red", "blue", "yellow"]
   },
   {
     "path": "route-2/viridian-forest",
