@@ -157,6 +157,26 @@ const maps = [
   { name: 'SummerBeachHouse', out: 'summer-beach-house.png', yellowOnly: true },
 ];
 
+const outdoorMaps = [
+  ...[
+    ['PalletTown', 'pallet-town'],
+    ['ViridianCity', 'viridian-city'],
+    ['PewterCity', 'pewter-city'],
+    ['CeruleanCity', 'cerulean-city'],
+    ['VermilionCity', 'vermilion-city'],
+    ['LavenderTown', 'lavender-town'],
+    ['CeladonCity', 'celadon-city'],
+    ['SaffronCity', 'saffron-city'],
+    ['FuchsiaCity', 'fuchsia-city'],
+    ['CinnabarIsland', 'cinnabar-island'],
+    ['IndigoPlateau', 'indigo-plateau'],
+  ],
+  ...Array.from({ length: 25 }, (_, index) => [
+    `Route${index + 1}`,
+    `route-${index + 1}`,
+  ]),
+].map(([name, id]) => ({ name, out: `variants/yellow/${id}.png` }));
+
 const games = [
   { dir: pokeredDir, outDir: OUTPUT },
   { dir: pokeyellowDir, outDir: join(OUTPUT, 'variants/yellow') },
@@ -235,6 +255,15 @@ for (const { name, yellowName = name, out, yellowOnly } of maps) {
   written.push(
     `${out} ${red.width}x${red.height}${variant ? ' (+ Yellow)' : ''}`,
   );
+}
+
+for (const { name, out } of outdoorMaps) {
+  const yellow = render(pokeyellowDir, name);
+
+  mkdirSync(dirname(join(OUTPUT, out)), { recursive: true });
+  writePng(join(OUTPUT, out), yellow.width, yellow.height, yellow.rgba);
+  rendered.push(out);
+  written.push(`${out} ${yellow.width}x${yellow.height}`);
 }
 
 writeFileSync(MANIFEST, `${JSON.stringify(rendered.toSorted(), null, 2)}\n`);

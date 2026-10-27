@@ -7,7 +7,7 @@ import type {
   Rect,
 } from '../types';
 import { type FloorExit, type InsideEntry, padFields } from './entries';
-import { IMAGE_DIR, rect, type Size, sourceFor } from './helpers';
+import { IMAGE_DIR, rect, type Size, sourceFor, variant } from './helpers';
 import { inside } from './inside';
 import { outdoor } from './outdoor';
 import { services } from './services';
@@ -192,7 +192,7 @@ const hotspotsFor = (mapId: string): Array<LocationHotspot> => [
 ];
 
 export const locations: Array<Location> = outdoor.map(
-  ({ id, name, kind, size, variants }) => ({
+  ({ id, name, kind, size }) => ({
     ...toLocation(id, name, kind, size),
     markers: services.flatMap((building) =>
       (building.parent === id
@@ -206,7 +206,7 @@ export const locations: Array<Location> = outdoor.map(
         ...(building.games && { games: building.games }),
       })),
     ),
-    variants,
+    variants: [variant('yellow', `${id}.png`)],
     locations: buildings
       .filter(
         ({ parent, otherParents = [] }) =>

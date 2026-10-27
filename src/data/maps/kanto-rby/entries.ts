@@ -14,7 +14,6 @@ export type OutdoorEntry = {
   kind: 'town' | 'route';
   size: Size;
   cell: [x: number, y: number];
-  variants?: Array<MapVariant>;
 };
 
 export type Tile = [x: number, y: number];

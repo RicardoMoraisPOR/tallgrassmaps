@@ -1,5 +1,4 @@
 import type { OutdoorEntry } from './entries';
-import { variant } from './helpers';
 
 export const outdoor: Array<OutdoorEntry> = [
   {
@@ -106,7 +105,6 @@ export const outdoor: Array<OutdoorEntry> = [
     kind: 'route',
     size: [1440, 288],
     cell: [8, 2],
-    variants: [variant('yellow', 'route-4.png')],
   },
   {
     id: 'route-5',
@@ -212,7 +210,6 @@ export const outdoor: Array<OutdoorEntry> = [
     kind: 'route',
     size: [320, 864],
     cell: [6, 15],
-    variants: [variant('yellow', 'route-19.png')],
   },
   {
     id: 'route-20',
