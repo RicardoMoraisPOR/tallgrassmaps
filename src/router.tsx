@@ -103,11 +103,10 @@ export const router = createBrowserRouter([
                   ),
                 },
                 {
-                  path: 'maplibre',
+                  path: 'todo',
                   ...lazyPage(
-                    () => import('@/pages/MapLibreDev/MapLibreDevPage'),
-                    'MapLibreDevPage',
-                    loadAll,
+                    () => import('@/pages/Todo/TodoPage'),
+                    'TodoPage',
                   ),
                 },
                 {
