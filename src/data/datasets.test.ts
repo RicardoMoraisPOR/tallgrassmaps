@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { rbyItems } from './items/rby';
+import { getRegion } from './maps';
 import { rbyNpcs } from './npcs/rby';
 import { rbyPokedex } from './pokedex/rby';
 import { zaPokedex } from './pokedex/za';
@@ -25,6 +26,14 @@ describe('RBY datasets', () => {
   ])('keeps the %s data unchanged', (_name, data) => {
     expect(data.length).toBeGreaterThan(0);
     expect(hash(data)).toMatchSnapshot();
+  });
+});
+
+describe('RBY pokedex size', () => {
+  it('matches the Pokédex size of the region', () => {
+    const species = new Set(rbyPokedex.map((entry) => entry.id));
+
+    expect(getRegion('kanto-rby')?.pokedexSize).toBe(species.size);
   });
 });
 
@@ -70,6 +79,12 @@ describe('RBY dataset shape', () => {
 });
 
 describe('Legends Z-A pokedex', () => {
+  it('matches the Pokédex size of the region', () => {
+    const species = new Set(zaPokedex.map((entry) => entry.id));
+
+    expect(getRegion('lumiose-za')?.pokedexSize).toBe(species.size);
+  });
+
   it('explains how to get every Pokémon', () => {
     const unexplained = zaPokedex
       .filter((entry) => entry.encounters.length === 0 && !entry.evolvesFrom)

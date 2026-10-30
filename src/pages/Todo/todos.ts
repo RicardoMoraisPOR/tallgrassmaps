@@ -75,12 +75,6 @@ export const todoGroups: Array<TodoGroup> = [
         text: 'Recompute the 226 obtainable-without-trading count from the site data (it was derived from Bulbapedia by hand)',
       },
       {
-        id: 'za-dex-size',
-        priority: 'high',
-        owner: 'ai',
-        text: 'Reconcile the Pokédex size: the region in lumiose-za/index.ts says 364, but za.json holds 380 entries (240 base, 140 DLC)',
-      },
-      {
         id: 'za-dex-mystery-gift',
         priority: 'low',
         owner: 'human',
@@ -233,12 +227,6 @@ export const todoGroups: Array<TodoGroup> = [
     title: 'ZA · Site & data',
     items: [
       {
-        id: 'za-script',
-        priority: 'high',
-        owner: 'ai',
-        text: 'Add scripts under scripts/ that regenerate the ZA data, like the RBY ones (there is none for the Pokédex, trainers or missions)',
-      },
-      {
         id: 'za-credits',
         priority: 'medium',
         owner: 'ai',
@@ -273,8 +261,6 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'za-dex-size',
-  'za-script',
   'za-dex-levels',
   'za-dex-gifts',
   'za-dex-static',
