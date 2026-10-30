@@ -275,15 +275,14 @@ export const PageTransition = ({
   }, [frame.key, frame.entering, holdForReady]);
 
   useEffect(() => {
-    if (!holding) {
-      setShowLoading(false);
-
-      return undefined;
-    }
+    if (!holding) return undefined;
 
     const timer = setTimeout(() => setShowLoading(true), LOADING_DELAY_MS);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      setShowLoading(false);
+    };
   }, [holding]);
 
   return (

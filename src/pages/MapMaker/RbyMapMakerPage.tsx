@@ -1,4 +1,11 @@
-import { type PointerEvent, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  type PointerEvent,
+  useEffect,
+  useEffectEvent,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import {
   Check,
@@ -358,18 +365,20 @@ export const RbyMapMakerPage = () => {
     });
   };
 
-  useEffect(() => {
-    setSelected(undefined);
-    setSelectedIcon(undefined);
-    setConfirmReset(false);
-    fit();
-  }, [group]);
+  const fitOnGroupChange = useEffectEvent(fit);
 
   useEffect(() => {
+    fitOnGroupChange();
+  }, [group]);
+
+  const [resetKey, setResetKey] = useState({ group, mode });
+
+  if (resetKey.group !== group || resetKey.mode !== mode) {
+    setResetKey({ group, mode });
     setSelected(undefined);
     setSelectedIcon(undefined);
     setConfirmReset(false);
-  }, [mode]);
+  }
 
   useEffect(() => {
     if (!confirmReset) return;

@@ -112,6 +112,7 @@ type CritterProps = {
   index: number;
   fresh: boolean;
   initialBounds: Bounds;
+  initialObstacles: Array<Rect>;
   boundsRef: RefObject<Bounds>;
   obstaclesRef: RefObject<Array<Rect>>;
   registry: RefObject<Registry>;
@@ -124,6 +125,7 @@ const Critter = ({
   index,
   fresh,
   initialBounds,
+  initialObstacles,
   boundsRef,
   obstaclesRef,
   registry,
@@ -132,9 +134,7 @@ const Critter = ({
 }: CritterProps) => {
   const [species] = useState(randomSpecies);
   const [size] = useState(() => Math.round(random(MIN_SIZE, MAX_SIZE)));
-  const [start] = useState(() =>
-    randomPoint(initialBounds, obstaclesRef.current),
-  );
+  const [start] = useState(() => randomPoint(initialBounds, initialObstacles));
   const x = useMotionValue(start.x);
   const y = useMotionValue(start.y);
   const [facing, setFacing] = useState(1);
@@ -327,11 +327,13 @@ type Slot = { id: number; fresh: boolean };
 
 export const Swarm = ({
   bounds,
+  obstacles,
   obstaclesRef,
   registry,
   still,
 }: {
   bounds: Bounds;
+  obstacles: Array<Rect>;
   obstaclesRef: RefObject<Array<Rect>>;
   registry: RefObject<Registry>;
   still: boolean;
@@ -385,6 +387,7 @@ export const Swarm = ({
           index={index}
           fresh={fresh}
           initialBounds={bounds}
+          initialObstacles={obstacles}
           boundsRef={boundsRef}
           obstaclesRef={obstaclesRef}
           registry={registry}

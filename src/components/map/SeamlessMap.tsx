@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useEffectEvent,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { type GeoJSONSource, Map as MapLibreMap, Marker } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -138,7 +145,7 @@ const ZoneCamera = ({
       onMinZoom(fromGlZoom(minZoom));
     });
 
-  useEffect(() => {
+  const frameZone = useEffectEvent(() => {
     const animate =
       arrived.current && animations && previous.current !== (zone ?? null);
 
@@ -167,7 +174,9 @@ const ZoneCamera = ({
     return () => {
       map.off('moveend', settle);
     };
-  }, [zone, region, map, animations, rightInset]);
+  });
+
+  useEffect(() => frameZone(), [zone, region, map, animations, rightInset]);
 
   useEffect(() => {
     const onStart = (event: { originalEvent?: unknown }) => {
@@ -199,25 +208,27 @@ const ZoneCamera = ({
     };
   }, [map, region, rightInset]);
 
+  const refit = useEffectEvent(() => {
+    if (flying.current) return;
+
+    silently(() => {
+      constrain();
+
+      if (!moved.current) {
+        const frame = frameFor(
+          map,
+          target,
+          rightInset,
+          zone ? 0 : EXTRA_ZOOM_OUT,
+        );
+
+        map.jumpTo(frame);
+      }
+    });
+  });
+
   useEffect(() => {
-    const onResize = () => {
-      if (flying.current) return;
-
-      silently(() => {
-        constrain();
-
-        if (!moved.current) {
-          const frame = frameFor(
-            map,
-            target,
-            rightInset,
-            zone ? 0 : EXTRA_ZOOM_OUT,
-          );
-
-          map.jumpTo(frame);
-        }
-      });
-    };
+    const onResize = () => refit();
 
     map.on('resize', onResize);
 
@@ -239,7 +250,7 @@ const DoorMarkers = ({
   const style = useThemeStyle('mapIcons');
   const doorsKey = doors.map(([x, y]) => `${x},${y}`).join('|');
 
-  useEffect(() => {
+  const placeDoors = useEffectEvent(() => {
     const markers = doors.map(([x, y]) => {
       const element = document.createElement('div');
 
@@ -256,7 +267,9 @@ const DoorMarkers = ({
     });
 
     return () => markers.forEach((marker) => marker.remove());
-  }, [map, style, doorsKey]);
+  });
+
+  useEffect(() => placeDoors(), [map, style, doorsKey]);
 
   return null;
 };
@@ -276,9 +289,10 @@ const ZoneShapes = ({
   onSelect,
   onHover,
 }: ZoneShapesProps) => {
-  const handlers = useRef({ onSelect, onHover });
-
-  handlers.current = { onSelect, onHover };
+  const select = useEffectEvent((target: string) => onSelect(target));
+  const hover = useEffectEvent(
+    (value?: { name: string; x: number; y: number }) => onHover(value),
+  );
 
   useEffect(() => {
     map.addSource(ZONES, {
@@ -366,7 +380,7 @@ const ZoneShapes = ({
 
       hovered = undefined;
       map.getCanvas().style.cursor = '';
-      handlers.current.onHover(undefined);
+      hover(undefined);
     };
 
     const onMove = (event: {
@@ -395,7 +409,7 @@ const ZoneShapes = ({
       }
 
       map.getCanvas().style.cursor = 'pointer';
-      handlers.current.onHover({
+      hover({
         name: String(feature.properties.name),
         x: event.point.x,
         y: event.point.y,
@@ -408,7 +422,7 @@ const ZoneShapes = ({
       const feature = event.features?.[0];
 
       if (feature && feature.properties.selected !== true)
-        handlers.current.onSelect(String(feature.properties.target));
+        select(String(feature.properties.target));
     };
 
     map.on('mousemove', 'zones-fill', onMove);

@@ -135,7 +135,8 @@ const Walker = ({ sighting, map, registry, still, onDone }: WalkerProps) => {
   const y = useMotionValue(start.y);
   const [facing, setFacing] = useState(1);
   const [moving, setMoving] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [walkVisible, setVisible] = useState(false);
+  const visible = walkVisible || still;
   const shadowShown = visible && !map;
 
   useEffect(() => {
@@ -187,11 +188,7 @@ const Walker = ({ sighting, map, registry, still, onDone }: WalkerProps) => {
   }, [registry, sighting.key, x, y]);
 
   useEffect(() => {
-    if (still) {
-      setVisible(true);
-
-      return;
-    }
+    if (still) return;
 
     let cancelled = false;
     const interrupted = () => cancelled || halted.current;
@@ -319,16 +316,13 @@ export const Walkers = ({ map, registry, still = false }: WalkersProps) => {
   useEffect(() => {
     if (still) return;
 
-    const timer = setTimeout(() => setStarted(true), FIRST_SPAWN_MS);
+    const timer = setTimeout(() => {
+      setStarted(true);
+      setWalkers((current) => fillTo(current, MAX_WALKERS));
+    }, FIRST_SPAWN_MS);
 
     return () => clearTimeout(timer);
   }, [still]);
-
-  useEffect(() => {
-    if (still || !started) return;
-
-    setWalkers((current) => fillTo(current, MAX_WALKERS));
-  }, [still, started, walkers.length]);
 
   return (
     <>
@@ -340,9 +334,15 @@ export const Walkers = ({ map, registry, still = false }: WalkersProps) => {
           registry={registry}
           still={still}
           onDone={() =>
-            setWalkers((current) =>
-              current.filter((item) => item.key !== sighting.key),
-            )
+            setWalkers((current) => {
+              const remaining = current.filter(
+                (item) => item.key !== sighting.key,
+              );
+
+              return still || !started
+                ? remaining
+                : fillTo(remaining, MAX_WALKERS);
+            })
           }
         />
       ))}

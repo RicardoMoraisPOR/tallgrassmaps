@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useEffectEvent, useState } from 'react';
 
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 
@@ -157,7 +157,7 @@ export const GlIcons = ({
     },
   });
 
-  useEffect(() => {
+  const syncIcons = useEffectEvent(() => {
     let cancelled = false;
 
     ensureIconImages(
@@ -175,9 +175,11 @@ export const GlIcons = ({
     return () => {
       cancelled = true;
     };
-  }, [map, links, style, dark]);
+  });
 
-  useEffect(() => {
+  useEffect(() => syncIcons(), [map, links, style, dark]);
+
+  const syncActive = useEffectEvent(() => {
     let cancelled = false;
     const active = iconLinks.filter(({ link }) =>
       activeKeys.has(linkKey(link)),
@@ -198,9 +200,11 @@ export const GlIcons = ({
     return () => {
       cancelled = true;
     };
-  }, [map, links, style, dark, activeKeys]);
+  });
 
-  useEffect(() => {
+  useEffect(() => syncActive(), [map, links, style, dark, activeKeys]);
+
+  const syncSteps = useEffectEvent(() => {
     const hovered = hoveredKey
       ? iconLinks.find(({ link }) => linkKey(link) === hoveredKey)
       : undefined;
@@ -264,7 +268,9 @@ export const GlIcons = ({
       cancelled = true;
       cancelAnimationFrame(frame);
     };
-  }, [map, hoveredKey, links, style, dark]);
+  });
+
+  useEffect(() => syncSteps(), [map, hoveredKey, links, style, dark]);
 
   return null;
 };

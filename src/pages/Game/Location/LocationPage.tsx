@@ -80,7 +80,7 @@ export const LocationPage = () => {
   const [shop, setShop] = useState<{ shops: Array<Shop>; selected: string }>();
   const openShop = useCallback(
     (shops: Array<Shop>, selected: string) => setShop({ shops, selected }),
-    [],
+    [setShop],
   );
   const [stackToggled, setStackToggled] = useState(false);
 

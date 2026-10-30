@@ -80,23 +80,29 @@ export const HeroEgg = ({
   const root = useRef<HTMLDivElement>(null);
   const throwCount = useRef(0);
   const registry = useRef<Registry>(new Map());
-  const [obstacles] = useState(() => ({
-    current: measureObstacles(sectionRef.current),
-  }));
+  const [obstacles, setObstacles] = useState<Array<Rect>>([]);
+  const obstaclesRef = useRef<Array<Rect>>(obstacles);
 
   useEffect(() => {
     const element = sectionRef.current;
 
     if (!element) return;
 
+    const remeasure = () => {
+      const measured = measureObstacles(element);
+
+      obstaclesRef.current = measured;
+      setObstacles(measured);
+    };
+
     const observer = new ResizeObserver(() => {
-      obstacles.current = measureObstacles(element);
+      remeasure();
       setBounds(measure(element));
     });
 
     const settle = setTimeout(
       () => {
-        obstacles.current = measureObstacles(element);
+        remeasure();
         setSettled(true);
       },
       reducedMotion ? 0 : SWARM_AFTER_MS,
@@ -108,7 +114,7 @@ export const HeroEgg = ({
       observer.disconnect();
       clearTimeout(settle);
     };
-  }, [sectionRef, obstacles, reducedMotion]);
+  }, [sectionRef, reducedMotion]);
 
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
@@ -229,7 +235,8 @@ export const HeroEgg = ({
       {settled && (
         <Swarm
           bounds={bounds}
-          obstaclesRef={obstacles}
+          obstacles={obstacles}
+          obstaclesRef={obstaclesRef}
           registry={registry}
           still={reducedMotion}
         />

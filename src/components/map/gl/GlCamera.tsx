@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useEffectEvent, useRef } from 'react';
 
 import type { LngLatBoundsLike, Map as MapLibreMap } from 'maplibre-gl';
 
@@ -92,12 +92,13 @@ export const GlCamera = ({
   onViewChange,
 }: GlCameraProps) => {
   const { width, height } = image;
-  const latest = useRef({ onZoomChange, onViewChange });
-
-  const pitch = useRef(tiltDegrees);
-
-  latest.current = { onZoomChange, onViewChange };
-  pitch.current = tiltDegrees;
+  const reportViewChange = useEffectEvent((view: MapView) =>
+    onViewChange?.(view),
+  );
+  const reportZoomChange = useEffectEvent((zoom: number) =>
+    onZoomChange?.(zoom),
+  );
+  const currentPitch = useEffectEvent(() => tiltDegrees);
 
   useEffect(() => {
     const fitZoom = () => fitZoomFor(map, width, height);
@@ -160,11 +161,10 @@ export const GlCamera = ({
       const { x, y } = fromLngLat(map.getCenter());
       const view = { x, y, zoom: fromGlZoom(map.getZoom()) };
 
-      latest.current.onViewChange?.(view);
+      reportViewChange(view);
     };
 
-    const reportZoom = () =>
-      latest.current.onZoomChange?.(fromGlZoom(map.getZoom()));
+    const reportZoom = () => reportZoomChange(fromGlZoom(map.getZoom()));
 
     map.on('resize', onResize);
     map.on('zoomend', applyLimits);
@@ -190,25 +190,39 @@ export const GlCamera = ({
     stack?.flyOnMount ? undefined : selected?.id,
   );
 
+  const selectedId = selected?.id;
+  const selectedX = selected?.x;
+  const selectedY = selected?.y;
+  const selectedWidth = selected?.width;
+  const selectedHeight = selected?.height;
+
   useEffect(() => {
-    if (!selected || flown.current === selected.id) return undefined;
+    if (
+      selectedId === undefined ||
+      selectedX === undefined ||
+      selectedY === undefined ||
+      selectedWidth === undefined ||
+      selectedHeight === undefined ||
+      flown.current === selectedId
+    )
+      return undefined;
 
     if (skipFlight) {
-      flown.current = selected.id;
+      flown.current = selectedId;
 
       return undefined;
     }
 
     const arriving = flown.current === undefined;
     const timer = setTimeout(() => {
-      flown.current = selected.id;
+      flown.current = selectedId;
 
       map.fitBounds(
-        rectBounds(selected.x, selected.y, selected.width, selected.height),
+        rectBounds(selectedX, selectedY, selectedWidth, selectedHeight),
         {
           padding: FLIGHT_PADDING_PIXELS,
           duration: arriving ? 0 : FLIGHT_MS,
-          pitch: pitch.current,
+          pitch: currentPitch(),
         },
       );
     }, 0);
@@ -216,33 +230,39 @@ export const GlCamera = ({
     return () => clearTimeout(timer);
   }, [
     map,
-    selected?.id,
-    selected?.x,
-    selected?.y,
-    selected?.width,
-    selected?.height,
+    selectedId,
+    selectedX,
+    selectedY,
+    selectedWidth,
+    selectedHeight,
     skipFlight,
   ]);
 
-  useEffect(() => {
-    if (!focusPoint) return undefined;
+  const focusX = focusPoint?.x;
+  const focusY = focusPoint?.y;
+  const focusZoom = focusPoint?.zoom;
+  const focusWidth = focusPoint?.bounds?.width;
+  const focusHeight = focusPoint?.bounds?.height;
 
-    const { bounds } = focusPoint;
+  useEffect(() => {
+    if (focusX === undefined || focusY === undefined) return undefined;
+
+    const bounded = focusWidth !== undefined && focusHeight !== undefined;
 
     if (
-      !bounds &&
-      focusPoint.zoom === undefined &&
+      !bounded &&
+      focusZoom === undefined &&
       fromGlZoom(map.getMinZoom()) >= FOCUS_BELOW_ZOOM
     )
       return undefined;
 
     const arriving = isArriving(map);
     const timer = setTimeout(() => {
-      if (bounds) {
+      if (bounded) {
         map.flyTo({
-          center: toLngLat(focusPoint.x, focusPoint.y),
-          zoom: toGlZoom(fitZoomFor(map, bounds.width, bounds.height)),
-          pitch: pitch.current,
+          center: toLngLat(focusX, focusY),
+          zoom: toGlZoom(fitZoomFor(map, focusWidth, focusHeight)),
+          pitch: currentPitch(),
           duration: arriving ? 0 : FLIGHT_MS,
         });
 
@@ -250,44 +270,47 @@ export const GlCamera = ({
       }
 
       map.flyTo({
-        center: toLngLat(focusPoint.x, focusPoint.y),
+        center: toLngLat(focusX, focusY),
         zoom: toGlZoom(
-          focusPoint.zoom ??
+          focusZoom ??
             Math.min(Math.floor(fromGlZoom(map.getMinZoom())) + 1, MAX_ZOOM),
         ),
-        pitch: pitch.current,
+        pitch: currentPitch(),
         duration: arriving ? 0 : FOCUS_FLIGHT_MS,
       });
     }, 0);
 
     return () => clearTimeout(timer);
-  }, [
-    map,
-    focusPoint?.x,
-    focusPoint?.y,
-    focusPoint?.zoom,
-    focusPoint?.bounds?.width,
-    focusPoint?.bounds?.height,
-  ]);
+  }, [map, focusX, focusY, focusZoom, focusWidth, focusHeight]);
 
-  const fit = fitBounds;
+  const fitKey = fitBounds?.key;
+  const fitX = fitBounds?.x;
+  const fitY = fitBounds?.y;
+  const fitWidth = fitBounds?.width;
+  const fitHeight = fitBounds?.height;
 
   useEffect(() => {
-    if (!fit) return undefined;
+    if (
+      fitX === undefined ||
+      fitY === undefined ||
+      fitWidth === undefined ||
+      fitHeight === undefined
+    )
+      return undefined;
 
     const timer = setTimeout(
       () =>
-        map.fitBounds(rectBounds(fit.x, fit.y, fit.width, fit.height), {
+        map.fitBounds(rectBounds(fitX, fitY, fitWidth, fitHeight), {
           padding: FIT_BOUNDS_PADDING,
           maxZoom: toGlZoom(FIT_BOUNDS_MAX_ZOOM),
-          pitch: pitch.current,
+          pitch: currentPitch(),
           duration: FLIGHT_MS,
         }),
       FIT_BOUNDS_DELAY_MS,
     );
 
     return () => clearTimeout(timer);
-  }, [map, fit?.key, fit?.x, fit?.y, fit?.width, fit?.height]);
+  }, [map, fitKey, fitX, fitY, fitWidth, fitHeight]);
 
   useEffect(() => {
     const ease = () =>

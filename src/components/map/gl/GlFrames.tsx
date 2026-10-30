@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useEffectEvent, useState } from 'react';
 
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl';
 
@@ -183,7 +183,7 @@ export const GlFrames = ({
 
   const frameKey = frames.map(({ id, name }) => `${id}:${name}`).join('|');
 
-  useEffect(() => {
+  const syncLines = useEffectEvent(() => {
     const brand = cssColor('var(--brand)');
     const plain = cssColor(
       'color-mix(in oklab, var(--foreground) 35%, transparent)',
@@ -215,9 +215,14 @@ export const GlFrames = ({
         };
       }),
     });
-  }, [map, frameKey, selected, outlineSelected, dottedSelected, dark]);
+  });
 
-  useEffect(() => {
+  useEffect(
+    () => syncLines(),
+    [map, frameKey, selected, outlineSelected, dottedSelected, dark],
+  );
+
+  const syncLabels = useEffectEvent(() => {
     frames.forEach((frame) => {
       const isSelected = frame.id === selected;
       const name = labelName(frame.name, isSelected, dark);
@@ -248,7 +253,9 @@ export const GlFrames = ({
         },
       })),
     });
-  }, [map, frameKey, selected, dark]);
+  });
+
+  useEffect(() => syncLabels(), [map, frameKey, selected, dark]);
 
   return null;
 };

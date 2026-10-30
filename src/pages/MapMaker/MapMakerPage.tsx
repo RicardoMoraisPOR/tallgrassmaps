@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 
 import {
   Check,
@@ -174,16 +174,33 @@ const MakerMap = ({
 }: MakerMapProps) => {
   const container = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<MapLibreMap>();
-  const latest = useRef({
-    selecting,
-    references,
-    onAdd,
-    onCopy,
-    onMove,
-    onRemove,
-  });
 
-  latest.current = { selecting, references, onAdd, onCopy, onMove, onRemove };
+  const clickMap = useEffectEvent(
+    (instance: MapLibreMap, event: MapMouseEvent) => {
+      if (selecting) {
+        const feature = instance.queryRenderedFeatures(event.point, {
+          layers: ['references-fill'],
+        })[0];
+        const outline =
+          feature && references[Number(feature.properties?.index)];
+
+        if (outline) onCopy(outline.outline);
+
+        return;
+      }
+
+      const { x, y } = fromLngLat(event.lngLat);
+
+      onAdd(
+        [Math.round(x), Math.round(y)],
+        1 / 2 ** (instance.getZoom() - BASE_ZOOM),
+      );
+    },
+  );
+  const moveMarker = useEffectEvent((index: number, point: Point) =>
+    onMove(index, point),
+  );
+  const removeMarker = useEffectEvent((index: number) => onRemove(index));
 
   useEffect(() => {
     const element = container.current;
@@ -269,26 +286,7 @@ const MakerMap = ({
         )
           return;
 
-        const current = latest.current;
-
-        if (current.selecting) {
-          const feature = instance.queryRenderedFeatures(event.point, {
-            layers: ['references-fill'],
-          })[0];
-          const outline =
-            feature && current.references[Number(feature.properties?.index)];
-
-          if (outline) current.onCopy(outline.outline);
-
-          return;
-        }
-
-        const { x, y } = fromLngLat(event.lngLat);
-
-        current.onAdd(
-          [Math.round(x), Math.round(y)],
-          1 / 2 ** (instance.getZoom() - BASE_ZOOM),
-        );
+        clickMap(instance, event);
       });
       setMap(instance);
     });
@@ -367,11 +365,11 @@ const MakerMap = ({
       marker.on('dragend', () => {
         const { x: dx, y: dy } = fromLngLat(marker.getLngLat());
 
-        latest.current.onMove(index, [Math.round(dx), Math.round(dy)]);
+        moveMarker(index, [Math.round(dx), Math.round(dy)]);
       });
       element.addEventListener('contextmenu', (event) => {
         event.preventDefault();
-        latest.current.onRemove(index);
+        removeMarker(index);
       });
 
       return marker;

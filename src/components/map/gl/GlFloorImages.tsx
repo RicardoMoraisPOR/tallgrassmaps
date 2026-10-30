@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useEffectEvent, useRef } from 'react';
 
 import type { Map as MapLibreMap } from 'maplibre-gl';
 
@@ -77,7 +77,9 @@ export const GlFloorImages = ({
   const generation = useRef(0);
   const threshold = useRef(BASE_ZOOM + Math.min(crispZoom, 0));
 
-  threshold.current = BASE_ZOOM + Math.min(crispZoom, 0);
+  useEffect(() => {
+    threshold.current = BASE_ZOOM + Math.min(crispZoom, 0);
+  }, [crispZoom]);
 
   const opacityOf = (id: string) =>
     stack?.dimmed?.has(id) ? DIMMED_OPACITY : 1;
@@ -106,7 +108,7 @@ export const GlFloorImages = ({
     apply(group);
   };
 
-  useEffect(() => {
+  const addFloors = useEffectEvent(() => {
     generation.current += 1;
 
     const current = generation.current;
@@ -149,9 +151,11 @@ export const GlFloorImages = ({
       opacities.current.clear();
       colored.current.clear();
     };
-  }, [map, floorKey, crispZoom]);
+  });
 
-  useEffect(() => {
+  useEffect(() => addFloors(), [map, floorKey, crispZoom]);
+
+  const fadeFloors = useEffectEvent(() => {
     floors.forEach((floor) => {
       const opacity = opacityOf(floor.id);
 
@@ -163,9 +167,14 @@ export const GlFloorImages = ({
         apply(colorGroup(floor.id));
       }
     });
-  }, [map, floorKey, stack?.selected, stack?.dimmed, palette?.on]);
+  });
 
-  useEffect(() => {
+  useEffect(
+    () => fadeFloors(),
+    [map, floorKey, stack?.selected, stack?.dimmed, palette?.on],
+  );
+
+  const colorFloors = useEffectEvent(() => {
     if (!palette?.on) return undefined;
 
     let cancelled = false;
@@ -213,7 +222,9 @@ export const GlFloorImages = ({
     return () => {
       cancelled = true;
     };
-  }, [map, floorKey, palette?.on, crispZoom]);
+  });
+
+  useEffect(() => colorFloors(), [map, floorKey, palette?.on, crispZoom]);
 
   return null;
 };

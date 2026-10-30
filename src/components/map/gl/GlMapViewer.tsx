@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 
 import { Map as MapLibreMap } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -68,6 +68,8 @@ export const GlMapViewer = ({
     if (tiltFromSearch(window.location.search) !== undefined) setTilted(true);
   }, [setTilted]);
 
+  const initialPitch = useEffectEvent(() => (tilted ? tiltDegrees : 0));
+
   useEffect(() => {
     const element = container.current;
 
@@ -78,7 +80,7 @@ export const GlMapViewer = ({
       style: { version: 8, sources: {}, layers: [] },
       center: toLngLat(image.width / 2, image.height / 2),
       zoom: toGlZoom(0),
-      pitch: tilted ? tiltDegrees : 0,
+      pitch: initialPitch(),
       maxPitch: MAX_PITCH,
       maxZoom: toGlZoom(MAX_ZOOM),
       dragRotate: false,
