@@ -31,7 +31,7 @@ export const todoGroups: Array<TodoGroup> = [
         id: 'review-audit-doc',
         priority: 'low',
         owner: 'ai',
-        text: 'Update docs/CLEANUP-AUDIT.md: it still mentions Leaflet and lists items that are done',
+        text: 'Update .local/docs/CLEANUP-AUDIT.md: it still mentions Leaflet and lists items that are done',
       },
     ],
   },

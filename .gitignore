@@ -28,7 +28,7 @@ dist-ssr
 # Pinned pret sources downloaded by scripts/pokedex
 vendor/
 
-# Local design specs
-docs/superpowers/
+# Local-only notes and docs
+.local/
 
 skills-lock.json
