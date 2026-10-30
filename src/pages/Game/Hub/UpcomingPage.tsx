@@ -1,5 +1,3 @@
-import { Lock } from 'lucide-react';
-
 import { Container } from '@/components/Container';
 import {
   entriesSharingMap,
@@ -11,12 +9,13 @@ import { townMapFor } from '@/data/catalog/townMaps';
 import type { UpcomingGame } from '@/data/catalog/types';
 import { getCover } from '@/data/covers';
 import { platformParts } from '@/data/games';
-import { ENTER } from '@/lib/enter';
+import { ENTER, enterDelay } from '@/lib/enter';
 import { cn, formatList } from '@/lib/utils';
 
 import { RelatedGames } from '../Region/GameSummary';
 import { HubHeader } from './HubHeader';
 import { MapTag } from './MapTag';
+import { MapTile } from './MapTile';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
 
@@ -76,51 +75,18 @@ export const UpcomingPage = ({ game }: { game: UpcomingGame }) => {
           <h2 className="font-heading text-xl font-bold tracking-tight">
             Maps
           </h2>
-          <ul className="grid gap-6 sm:grid-cols-2">
-            {cards.map(({ region, townMap }) => (
+          <ul className="flex flex-col gap-4">
+            {cards.map(({ region, townMap }, index) => (
               <li
                 key={region}
-                aria-disabled="true"
-                className="flex cursor-not-allowed flex-col gap-4"
+                className={ENTER}
+                style={enterDelay(0.3 + index * 0.05)}
               >
-                <span
-                  className={cn(
-                    'relative flex aspect-square items-center justify-center overflow-hidden rounded-sm border bg-muted/45',
-                    !townMap && 'border-dashed',
-                  )}
-                >
-                  {townMap ? (
-                    <>
-                      <img
-                        src={townMap.image}
-                        alt=""
-                        className={cn(
-                          'size-full object-cover',
-                          townMap.pixelated !== false &&
-                            '[image-rendering:pixelated]',
-                        )}
-                      />
-                      <span
-                        aria-hidden
-                        className="absolute inset-0 bg-black/30"
-                      />
-                    </>
-                  ) : (
-                    <Lock
-                      aria-hidden
-                      className="size-6 text-muted-foreground"
-                    />
-                  )}
-                </span>
-                <span className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                  <span className="font-heading text-3xl font-bold tracking-tight">
-                    {region}
-                  </span>
-                  <span className="inline-flex h-6 items-center gap-1 rounded-full border bg-muted/50 px-2.5 text-xs font-medium text-muted-foreground">
-                    <Lock aria-hidden className="size-3" />
-                    Coming soon
-                  </span>
-                </span>
+                <MapTile
+                  name={region}
+                  image={townMap?.image}
+                  pixelated={townMap && townMap.pixelated !== false}
+                />
               </li>
             ))}
           </ul>

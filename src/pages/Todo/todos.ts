@@ -13,25 +13,8 @@ export type TodoGroup = {
 
 export const todoGroups: Array<TodoGroup> = [
   {
-    title: 'Website UI/UX',
-    items: [
-      {
-        id: 'ui-game-page-map-list',
-        priority: 'medium',
-        owner: 'human',
-        text: "Change the Game page's map list",
-      },
-    ],
-  },
-  {
     title: 'Code Review',
     items: [
-      {
-        id: 'review-lint-warnings',
-        priority: 'medium',
-        owner: 'ai',
-        text: 'Clear the 35 lint warnings: 20 exhaustive-deps, 7 refs read during render, 5 setState in effect, 2 only-export-components, 1 preserve-manual-memoization',
-      },
       {
         id: 'review-unused-events',
         priority: 'low',
@@ -49,35 +32,6 @@ export const todoGroups: Array<TodoGroup> = [
         priority: 'low',
         owner: 'ai',
         text: 'Update docs/CLEANUP-AUDIT.md: it still mentions Leaflet and lists items that are done',
-      },
-      {
-        id: 'review-browser-walk',
-        priority: 'medium',
-        owner: 'ai',
-        text: 'Walk the site in dark mode and at 375px width, and check route transitions (never verified in a browser)',
-      },
-      {
-        id: 'review-clean-scripts',
-        priority: 'medium',
-        owner: 'ai',
-        text: 'Run the pnpm data and map scripts from a clean checkout (they download pinned pret commits into vendor/)',
-      },
-    ],
-  },
-  {
-    title: 'RBY',
-    items: [
-      {
-        id: 'rby-changelog',
-        priority: 'low',
-        owner: 'ai',
-        text: 'Write the changelog entry for the RBY release',
-      },
-      {
-        id: 'rby-remove-source-tests',
-        priority: 'low',
-        owner: 'human',
-        text: 'Delete src/data/rbySource.test.ts once RBY is done: it is a temporary check of the data against the pret sources in vendor/',
       },
     ],
   },
@@ -342,12 +296,6 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'review-lint-warnings',
-  'review-clean-scripts',
-  'review-browser-walk',
-  'rby-changelog',
-  'rby-remove-source-tests',
-  'ui-game-page-map-list',
   'review-audit-doc',
   'review-unused-events',
   'review-large-files',

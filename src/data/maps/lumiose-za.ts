@@ -803,6 +803,7 @@ export const lumioseZa: Region = {
   id: 'lumiose-za',
   name: 'Lumiose City',
   partOf: 'Kalos',
+  titleFont: "'Michroma', sans-serif",
   versionGroup: 'ZA',
   pokedexSize: 364,
   navigation: 'seamless',

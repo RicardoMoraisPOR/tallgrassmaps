@@ -12,6 +12,7 @@ const cellRect = ([x, y]: [number, number]): Rect =>
 export const kantoRby: Region = {
   id: 'kanto-rby',
   name: 'Kanto',
+  titleFont: "'Press Start 2P', monospace",
   versionGroup: 'RBY',
   pokedexSize: 151,
   image: `${IMAGE_DIR}/town-map.png`,

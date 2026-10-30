@@ -1,6 +1,6 @@
 import { type ReactNode, useMemo, useState } from 'react';
 
-import { ArrowUpRight, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { Container } from '@/components/Container';
@@ -24,6 +24,7 @@ import { DataLakeLink, RelatedGames, StatGrid } from '../Region/GameSummary';
 import { searchShortcut, useOpenPlaceSearch } from '../Search/searchContext';
 import { HubHeader } from './HubHeader';
 import { MapTag } from './MapTag';
+import { MapTile } from './MapTile';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
 const STAGGER_SECONDS = 0.05;
@@ -95,37 +96,21 @@ export const HubPage = ({ route }: { route: GameRoute }) => {
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12">
           <Block title="Maps" index={2}>
-            <ul className="grid gap-6 sm:grid-cols-2">
-              {regions.map((entry) => (
-                <li key={entry.id}>
-                  <Link
+            <ul className="flex flex-col gap-4">
+              {regions.map((entry, index) => (
+                <li
+                  key={entry.id}
+                  className={ENTER}
+                  style={enterDelay(0.3 + index * STAGGER_SECONDS)}
+                >
+                  <MapTile
+                    name={entry.name}
+                    font={entry.titleFont}
+                    versionGroup={entry.versionGroup}
+                    image={entry.image}
+                    pixelated={entry.pixelated}
                     to={regionHref(game.id, entry)}
-                    className="group flex flex-col gap-4 outline-none"
-                  >
-                    <span className="rounded-sm relative block aspect-square overflow-hidden border bg-muted transition-colors group-hover:border-foreground/40 group-focus-visible:ring-[3px] group-focus-visible:ring-ring/50 motion-reduce:transition-none">
-                      <img
-                        src={entry.image}
-                        alt=""
-                        className={cn(
-                          'size-full object-cover',
-                          entry.pixelated && '[image-rendering:pixelated]',
-                        )}
-                      />
-                      <span
-                        aria-hidden
-                        className="absolute inset-0 bg-black/30 transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0 motion-reduce:transition-none"
-                      />
-                    </span>
-                    <span className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                      <span className="font-heading text-3xl font-bold tracking-tight">
-                        {entry.name}
-                        <ArrowUpRight
-                          aria-hidden
-                          className="ml-1 inline size-6 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-                        />
-                      </span>
-                    </span>
-                  </Link>
+                  />
                 </li>
               ))}
             </ul>
