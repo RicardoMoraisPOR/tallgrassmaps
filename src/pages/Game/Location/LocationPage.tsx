@@ -15,7 +15,6 @@ import { useSettingsStore } from '@/stores/settings';
 import { AsideCard, GameAside } from '../GameAside';
 import { Pokedex } from '../Pokedex/Pokedex';
 import { usePokedexLink } from '../Pokedex/usePokedex';
-import { EventPicker } from './EventPicker';
 import { FloorPicker } from './FloorPicker';
 import { LocationPanel } from './LocationPanel';
 import { locationPanelTabs } from './locationPanelTabs';
@@ -31,7 +30,6 @@ import {
 import { TownMapCard } from './TownMapCard';
 import { TownMapDialog } from './TownMapDialog';
 import { TrainerDialog } from './TrainerDialog';
-import { useEventState } from './useEventState';
 import { useFloor } from './useFloor';
 import { useMapPalette } from './useMapPalette';
 
@@ -57,7 +55,6 @@ export const LocationPage = () => {
   const { key: visitKey, state: navState } = useLocation();
   const [focusShown, setFocusShown] = useState<string>();
   const [arrivalShown, setArrivalShown] = useState<string>();
-  const { state: eventState, selectState: selectEventState } = useEventState();
   const scope = trail ? trailPath(trail) : '';
   const dataPath = location?.dataPath ?? scope;
   const hiddenLayers = useMapLayers();
@@ -171,24 +168,20 @@ export const LocationPage = () => {
   });
 
   const baseImage = floor ?? location;
-  const event = baseImage.event;
-  const imageSource = event && eventState === 'after' ? event : baseImage;
-  const variant = imageSource.variants?.find((entry) =>
+  const variant = baseImage.variants?.find((entry) =>
     entry.games.includes(route.game.id),
   );
   const mapImage = {
     ...baseImage,
-    image: variant?.image ?? imageSource.image,
+    image: variant?.image ?? baseImage.image,
   };
 
   const imageFor = (target: LocationFloor) => {
-    const source =
-      target.event && eventState === 'after' ? target.event : target;
-    const match = source.variants?.find((entry) =>
+    const match = target.variants?.find((entry) =>
       entry.games.includes(route.game.id),
     );
 
-    return match?.image ?? source.image;
+    return match?.image ?? target.image;
   };
   const stackLayout =
     stacked && location.floors && floor
@@ -225,28 +218,17 @@ export const LocationPage = () => {
     trail.length === 1 && route.region.world?.[trail[0].id]
       ? trail[0].id
       : undefined;
-  const pickers = ((location.floors && floor) || event) && (
-    <>
-      {location.floors && floor && (
-        <FloorPicker
-          floors={location.floors}
-          selected={floor.id}
-          onSelect={selectFloor}
-          stacked={stacked}
-          onStackedChange={(on) => {
-            setStackToggled(true);
-            setStacked(on);
-          }}
-        />
-      )}
-      {event && (
-        <EventPicker
-          event={event}
-          selected={eventState}
-          onSelect={selectEventState}
-        />
-      )}
-    </>
+  const pickers = location.floors && floor && (
+    <FloorPicker
+      floors={location.floors}
+      selected={floor.id}
+      onSelect={selectFloor}
+      stacked={stacked}
+      onStackedChange={(on) => {
+        setStackToggled(true);
+        setStacked(on);
+      }}
+    />
   );
   const panelTitle =
     floor && location.floors && location.floors.length > 1

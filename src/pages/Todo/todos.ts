@@ -16,22 +16,10 @@ export const todoGroups: Array<TodoGroup> = [
     title: 'Code Review',
     items: [
       {
-        id: 'review-unused-events',
-        priority: 'low',
-        owner: 'human',
-        text: 'Decide whether to keep EventPicker, useEventState and MapEvent, since no map has a before/after event any more',
-      },
-      {
         id: 'review-large-files',
         priority: 'low',
         owner: 'ai',
         text: 'Look at the largest files for splitting: kanto-rby/inside.ts (1122 lines), RbyMapMakerPage (959), lumiose-za.ts (843), kanto-rby/services.ts (795), SeamlessMap (651)',
-      },
-      {
-        id: 'review-audit-doc',
-        priority: 'low',
-        owner: 'ai',
-        text: 'Update .local/docs/CLEANUP-AUDIT.md: it still mentions Leaflet and lists items that are done',
       },
     ],
   },
@@ -296,8 +284,6 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'review-audit-doc',
-  'review-unused-events',
   'review-large-files',
   'za-dex-size',
   'za-script',

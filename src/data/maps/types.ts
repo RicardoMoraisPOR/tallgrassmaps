@@ -11,12 +11,6 @@ export type MapVariant = {
   source: MapSource;
 };
 
-export type MapEvent = {
-  name: string;
-  image: string;
-  variants?: Array<MapVariant>;
-};
-
 export type MapImage = {
   image: string;
   width: number;
@@ -24,7 +18,6 @@ export type MapImage = {
   pixelated: boolean;
   source: MapSource;
   variants?: Array<MapVariant>;
-  event?: MapEvent;
 };
 
 export type Rect = {
