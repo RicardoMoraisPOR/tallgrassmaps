@@ -13,24 +13,13 @@ export type TodoGroup = {
 
 export const todoGroups: Array<TodoGroup> = [
   {
-    title: 'Code Review',
-    items: [
-      {
-        id: 'review-large-files',
-        priority: 'low',
-        owner: 'ai',
-        text: 'Look at the largest files for splitting: kanto-rby/inside.ts (1122 lines), RbyMapMakerPage (959), lumiose-za.ts (843), kanto-rby/services.ts (795), SeamlessMap (651)',
-      },
-    ],
-  },
-  {
     title: 'ZA · Map',
     items: [
       {
         id: 'za-map-sectors',
         priority: 'medium',
         owner: 'human',
-        text: 'Add the sector zones as places: the Sector Zones group exists in lumiose-za.ts but has no locations',
+        text: 'Add the sector zones as places: the Sector Zones group exists in lumiose-za/index.ts but has no locations',
       },
       {
         id: 'za-map-buildings',
@@ -89,7 +78,7 @@ export const todoGroups: Array<TodoGroup> = [
         id: 'za-dex-size',
         priority: 'high',
         owner: 'ai',
-        text: 'Reconcile the Pokédex size: the region in lumiose-za.ts says 364, but za.json holds 380 entries (240 base, 140 DLC)',
+        text: 'Reconcile the Pokédex size: the region in lumiose-za/index.ts says 364, but za.json holds 380 entries (240 base, 140 DLC)',
       },
       {
         id: 'za-dex-mystery-gift',
@@ -284,7 +273,6 @@ export const todoGroups: Array<TodoGroup> = [
 ];
 
 export const nextUpOrder: Array<string> = [
-  'review-large-files',
   'za-dex-size',
   'za-script',
   'za-dex-levels',
